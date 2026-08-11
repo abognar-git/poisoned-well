@@ -583,5 +583,30 @@
       }
     ],
     "caveat": "This is narrative overlap, not a link. The domestic version has its own fully documented manufacturing history, which makes independent origin the most parsimonious reading."
+  },
+  {
+    "id": "category-mix",
+    "status": "live-data",
+    "claim": "By the mirror's own category labels, only 4.0% of its 139,376 articles are filed under 'hungary' (5,592). The bulk is undifferentiated filler and Russia coverage: 'world' 61.0% (85,078) and 'russia' 27.8% (38,698), with 'ukraine' 3.6%, 'eu' 3.4% and 'nato' 0.2%. A site built to look like a Hungarian news outlet is, by volume, almost never about Hungary.",
+    "support": [
+      {
+        "type": "data",
+        "data_ref": "data/derived/mirror_clock.json",
+        "note": "category counts read from CheckFirst's per-mirror dataset by scripts/derive_clock.py"
+      },
+      {
+        "type": "data",
+        "data_ref": "data/raw/pravda/json/hungary.news-pravda.com_viz.json",
+        "note": "CheckFirst hourly dataset, 2024-03-22 to 2026-08-10"
+      },
+      {
+        "type": "source",
+        "publisher": "CheckFirst",
+        "title": "Pravda Network Data Collection",
+        "url": "https://github.com/CheckFirstHQ/pravda-network",
+        "date": "2026-08-11"
+      }
+    ],
+    "caveat": "These are the mirror's own section labels, not an independent topic classification — a 'world' article may still carry Hungary-relevant framing, and the labels are the publisher's to assign. What the figure measures is how the operation files its own output, which is why it supports a claim about volume and shape rather than about content."
   }
 ]
