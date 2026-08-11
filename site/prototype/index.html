@@ -16,6 +16,7 @@
   *{box-sizing:border-box; margin:0; padding:0}
   html{scroll-behavior:smooth}
   body{
+    position:relative;   /* anchors the full-page water-table thread */
     background:var(--bg); color:var(--paper);
     font-family:"Newsreader", Georgia, serif; font-weight:300;
     -webkit-font-smoothing:antialiased; overflow-x:hidden;
@@ -389,6 +390,15 @@
   #splash-canvas{width:100%; height:56vh; min-height:320px; display:block; border:1px solid rgba(233,228,218,.05)}
   #coda-wrap{max-width:72rem; margin:3rem auto 0; padding:0 2rem}
   #coda-canvas{width:100%; height:58vh; min-height:300px; display:block}
+  /* the water table: a dotted thread down the margin, contaminating as it descends */
+  #thread{position:absolute; z-index:2; top:100vh; bottom:0; left:1.25rem; width:3px; pointer-events:none;
+    background:linear-gradient(180deg, rgba(233,228,218,.42), rgba(217,160,91,.3) 38%,
+      rgba(255,74,54,.22) 62%, rgba(255,74,54,.6));
+    -webkit-mask-image:radial-gradient(circle, #000 1.1px, transparent 1.5px);
+    -webkit-mask-size:3px 13px; -webkit-mask-repeat:repeat;
+    mask-image:radial-gradient(circle, #000 1.1px, transparent 1.5px);
+    mask-size:3px 13px; mask-repeat:repeat}
+  @media (max-width:900px){#thread{display:none}}
 
   /* ---------- mechanism pipeline (Phase C) ---------- */
   .pipe{display:flex; align-items:stretch; justify-content:center; max-width:1150px;
@@ -464,6 +474,7 @@
   <div class="wordmark">POISONED<b>WELL</b></div>
   <div class="tag">DESIGN PROTOTYPE · FIVE ACTS</div>
 </header>
+<div id="thread" aria-hidden="true"></div>
 
 <section id="hero">
   <canvas id="well-canvas" aria-label="Dotted illustration of a Hungarian sweep-pole well; falling dots are articles captured live today" role="img"></canvas>
