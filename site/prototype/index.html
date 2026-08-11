@@ -399,6 +399,24 @@
   #peer-chart text.lead{fill:var(--signal)}
   #peer-chart .vote{stroke:var(--amber); stroke-width:1; stroke-dasharray:3 3; opacity:.75}
 
+  .dsub{margin-top:2.4rem; border-left:2px solid var(--hairline); padding:.2rem 0 .2rem 1.4rem}
+  .dsub .tlbl{font-family:"IBM Plex Mono",monospace; font-size:.58rem; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--muted); margin-bottom:1rem}
+  .drow{display:grid; grid-template-columns:minmax(0,1fr) 5.4rem; gap:.5rem 1rem; align-items:center;
+    padding:.42rem 0; border-bottom:1px solid rgba(233,228,218,.05)}
+  .drow .dn{font-family:"IBM Plex Mono",monospace; font-size:.62rem; color:var(--paper);
+    overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+  .drow .dbars{display:flex; align-items:center; gap:.35rem; margin-top:.25rem}
+  .drow .dbars i{display:block; height:7px}
+  .drow .db{background:rgba(233,228,218,.34)}
+  .drow .da{background:var(--signal)}
+  .drow.up .da{background:var(--analyst)}
+  .drow .dc{font-family:"IBM Plex Mono",monospace; font-size:.68rem; text-align:right;
+    color:var(--signal)}
+  .drow.up .dc{color:var(--analyst)}
+  .dkey{font-family:"IBM Plex Mono",monospace; font-size:.56rem; letter-spacing:.08em;
+    color:var(--muted); margin-top:.7rem}
+
   /* ---------- V·ii the convergence bench ---------- */
   #grammar{max-width:52rem; margin:4.5rem auto 0; text-align:left}
   #grammar .gh{border-top:1px solid var(--hairline); padding-top:2.2rem; margin-bottom:2.4rem}
@@ -770,6 +788,12 @@
       </div>
       <div id="peer-chart"></div>
       <p class="gnote" id="peer-note" data-claim="peer-control"></p>
+
+      <div class="dsub">
+        <div class="tlbl">What the collapse was made of</div>
+        <div id="diet-rows"></div>
+        <p class="gnote" id="diet-note" data-claim="diet-shift"></p>
+      </div>
     </div>
     <p class="vkicker">The deepfakes were a campaign event. <em>Poisoning the AI layer is the ongoing threat.</em></p>
 
@@ -1586,6 +1610,47 @@ setTimeout(async () => {
       `${Math.abs(C.peer_min_change_pct)}%. It has since climbed back to ${T.latest_per_day}/day — ` +
       `<b>${T.recovery_pct_of_baseline}%</b> of where it started. ` +
       `<b>What this cannot show:</b> ${esc(PC.cannot_show)}`;
+  }
+}
+
+/* ---- what the collapse was made of: per-day rates, never shares alone ---- */
+{
+  const DT = await jget('/data/derived/source_diet.json').catch(() => null);
+  const host = document.getElementById('diet-rows');
+  if (DT && host) {
+    const shown = DT.sources.filter(s => s.baseline_per_day > 1 || s.after_per_day > 1);
+    const max = Math.max(...shown.map(s => Math.max(s.baseline_per_day, s.after_per_day)));
+    const short = n => esc(n.replace(/^Telegram:\s*/, '').replace(/^hu\./, ''));
+    for (const s of shown) {
+      const grew = s.change_pct >= 0;
+      host.insertAdjacentHTML('beforeend',
+        `<div class="drow${grew ? ' up' : ''}"><div>` +
+        `<div class="dn">${short(s.source)}</div>` +
+        `<div class="dbars">` +
+          `<i class="db" style="width:${(s.baseline_per_day / max * 100).toFixed(1)}%"></i>` +
+          `<i class="da" style="width:${(s.after_per_day / max * 100).toFixed(1)}%"></i>` +
+        `</div></div>` +
+        `<div class="dc">${grew ? '+' : ''}${s.change_pct}%</div></div>`);
+    }
+    host.insertAdjacentHTML('beforeend',
+      `<div class="dkey">bars: articles credited per day — ` +
+      `<span style="color:rgba(233,228,218,.7)">▉ Feb–Mar</span> vs ` +
+      `<span style="color:var(--signal)">▉ May–Jun</span></div>`);
+
+    const A = DT.attribution, L = DT.live_cross_check;
+    const alive = L ? L.origin_channels_we_scrape.slice(0, 3)
+                       .reduce((a, o) => a + o.captured_now, 0) : 0;
+    document.getElementById('diet-note').innerHTML =
+      `Read as percentages this looks like a reshuffle — News Front and InfoDefense appear to double ` +
+      `their share. They didn't grow; <b>the denominator collapsed underneath them</b>. In articles ` +
+      `per day, three Hungarian-language aggregator channels fell 82%, 80% and 88%, and together are ` +
+      `<b>${Math.round(A.share_of_total_decline * 100)}% of the entire decline</b>. The ` +
+      `Russian-institutional feeds held or grew. ` +
+      (L ? `And this project scrapes those three channels directly: they published <b>${alive} posts</b> ` +
+           `on the day of this capture, while the mirror credited them ${L.collapsed_set_credited_now} ` +
+           `time in ${L.mirror_articles_in_snapshot} sampled articles. The material did not stop being ` +
+           `available — <b>the mirror changed what it eats.</b> ` : '') +
+      `<b>Limits:</b> ${esc(DT.cannot_show)}`;
   }
 }
 
