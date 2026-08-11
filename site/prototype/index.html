@@ -2517,6 +2517,7 @@ try {
       if (comp4) { comp4.setPixelRatio(Math.min(devicePixelRatio, 2)); comp4.setSize(w, h); }
       cam4.aspect = w / h; cam4.updateProjectionMatrix();
       cam4.position.z = w / h < 1.15 ? 12.5 : 9.5;
+      scn4.scale.setScalar(w / h < 1.15 ? .7 : 1);   // narrow portrait: keep the whole tableau in frame
     };
     layout4(); addEventListener('resize', layout4);
 
