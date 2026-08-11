@@ -298,24 +298,11 @@
     color:var(--amber); border:1px solid rgba(217,160,91,.4); background:rgba(217,160,91,.06);
     border-radius:2px; padding:.5rem .7rem; margin:.6rem 0; display:none}
   #spec-stale.on{display:block}
-  #spec-controls{display:flex; align-items:center; gap:.7rem; flex-wrap:wrap; margin:1rem 0 .3rem;
-    padding-bottom:.9rem; border-bottom:1px solid var(--hairline)}
-  #spec-search{flex:1 1 14rem; min-width:10rem; background:rgba(13,17,26,.7); border:1px solid var(--hairline);
-    border-radius:2px; color:var(--paper); font-family:"IBM Plex Mono",monospace; font-size:.72rem;
-    padding:.5rem .7rem; outline:none}
-  #spec-search:focus{border-color:var(--analyst)}
-  #spec-search::placeholder{color:var(--muted)}
-  #spec-chips{display:flex; gap:.4rem; flex-wrap:wrap}
-  .chip{font-family:"IBM Plex Mono",monospace; font-size:.58rem; letter-spacing:.1em; text-transform:uppercase;
-    color:var(--muted); background:none; border:1px solid var(--hairline); border-radius:2px;
-    padding:.35em .6em; cursor:pointer}
-  .chip:hover{border-color:var(--muted)}
-  .chip.on{color:var(--paper); border-color:var(--analyst); background:rgba(110,168,216,.1)}
-  #spec-toggle{font-family:"IBM Plex Mono",monospace; font-size:.6rem; letter-spacing:.08em;
+  #spec-more{display:flex; justify-content:flex-end; margin-top:1rem}
+  #spec-toggle{font-family:"IBM Plex Mono",monospace; font-size:.62rem; letter-spacing:.08em;
     color:var(--signal); background:none; border:1px solid rgba(255,74,54,.35); border-radius:2px;
-    padding:.4em .7em; cursor:pointer; margin-left:auto; text-decoration:none; display:inline-block}
+    padding:.5em .9em; cursor:pointer; text-decoration:none; display:inline-block}
   #spec-toggle:hover{background:rgba(255,74,54,.1)}
-  .spec-empty{font-family:"Newsreader",serif; font-style:italic; color:var(--muted); padding:1.5rem 0}
   .spec-note{font-family:"Newsreader",serif; font-style:italic; font-size:.82rem; line-height:1.55;
     color:var(--muted); margin-top:1rem}
   .spec-note b{color:var(--amber); font-style:normal; font-weight:500}
@@ -529,9 +516,10 @@
   <div class="act-divider" style="padding:6rem 2rem 2rem">
     <div class="no">EVIDENCE · LIVE</div>
     <h2>What they published today</h2>
-    <p>Not a claim that it is still running — proof. Recent posts from documented Hungary-targeting
-       pro-Kremlin sources across the whole laundering chain — Telegram origins, the Pravda mirror, a
-       sanctioned outlet — captured server-side. Shown as evidence; deliberately not linked.</p>
+    <p>Not a claim that it is still running — proof. A sample from the latest server-side capture of
+       documented Hungary-targeting pro-Kremlin sources, one from each tier of the laundering chain —
+       Telegram origin, Pravda mirror, sanctioned outlet. Shown as evidence; deliberately not linked.
+       The full searchable corpus lives in the explorer.</p>
   </div>
   <div id="specimens" data-claim="live-specimens">
     <div class="spec-head">
@@ -540,12 +528,8 @@
     </div>
     <div id="spec-volume"></div>
     <div id="spec-stale"></div>
-    <div id="spec-controls">
-      <input id="spec-search" type="search" placeholder="search headlines…" autocomplete="off" aria-label="search specimens">
-      <div id="spec-chips"></div>
-      <a id="spec-toggle" href="explorer.html">explore the corpus →</a>
-    </div>
     <div id="spec-list"></div>
+    <div id="spec-more"><a id="spec-toggle" href="explorer.html">explore the corpus →</a></div>
     <div class="spec-why">
       <div class="h">Why this matters — read from Hungary</div>
       <p>Most of what the mirror emits is mundane, wire-style filler — sport, weather, world briefs.
@@ -1140,7 +1124,6 @@ try {
     return { cls: s.tier || '', label: s.label || sid, tier: s.tier };
   };
   let capturedAt = null, DATA = null, ALL = [];
-  const filters = { q: '', tier: 'all', kind: 'all' };
 
   const renderVolume = () => {
     const days = timeline.series.filter(d => d[1] > 0).slice(-7);
@@ -1152,7 +1135,7 @@ try {
       `<div><div class="spark">${bars}</div></div>` +
       `<div><b>${DATA.today_live_count}</b> seen live today (${esc(DATA.latest_day)}) · CheckFirst counted ` +
       `<b>${fmt(HU.articles_last_7d)}</b> in the last 7 days and <b>${fmt(HU.total)}</b> all-time — ` +
-      `the searchable corpus below is a live sample of that firehose</div>`;
+      `the specimens below are a live sample of that firehose</div>`;
   };
   const specRow = s => {
     const el = document.createElement('div');
@@ -1174,19 +1157,30 @@ try {
       `<div><span class="site ${site.cls}">${esc(site.label)} · ${esc(site.tier || '')}</span><div class="title">${esc(s.title)}</div>${themeTag}${prov}</div>`;
     return el;
   };
-  const applyFilters = rows => rows.filter(s =>
-    (filters.tier === 'all' || siteInfo(s.site).tier === filters.tier) &&
-    (filters.kind === 'all' || (filters.kind === 'payload') === PAYLOAD_THEMES.has(s.theme)) &&
-    (!filters.q || s.title.toLowerCase().includes(filters.q)));
+  // compact sample: 5 rows max — every tier guaranteed a seat, then fill preferring
+  // sources not yet shown (avoids five rows from one Telegram channel), capture order kept
+  const pickSample = () => {
+    const take = new Set(), usedSites = new Set();
+    for (const tier of ['origin', 'launderer', 'outlet']) {
+      const hit = DATA.featured.find(s => siteInfo(s.site).tier === tier);
+      if (hit) { take.add(hit); usedSites.add(hit.site); }
+    }
+    for (const s of DATA.featured) {
+      if (take.size >= 5) break;
+      if (!usedSites.has(s.site)) { take.add(s); usedSites.add(s.site); }
+    }
+    for (const s of DATA.featured) {   // fallback if fewer than 5 distinct sources
+      if (take.size >= 5) break;
+      take.add(s);
+    }
+    return DATA.featured.filter(s => take.has(s));
+  };
   const renderList = () => {
-    const searching = filters.q || filters.tier !== 'all' || filters.kind !== 'all';
-    const rows = applyFilters(searching ? ALL : DATA.featured);
     const list = document.getElementById('spec-list');
     list.innerHTML = '';
-    if (!rows.length) { list.innerHTML = '<div class="spec-empty">No specimens match.</div>'; return; }
-    for (const s of rows) list.appendChild(specRow(s));
+    for (const s of pickSample()) list.appendChild(specRow(s));
     document.getElementById('spec-toggle').textContent =
-      searching ? `open ${rows.length} matches in the explorer →` : `explore the corpus (${ALL.length}) →`;
+      `explore the full corpus (${ALL.length}) →`;
   };
   const tickAgo = () => {
     if (!capturedAt) return;
@@ -1202,28 +1196,6 @@ try {
     } else stale.classList.remove('on');
   };
 
-  const buildControls = () => {
-    const chips = document.getElementById('spec-chips');
-    const mk = (group, val, label) => {
-      const b = document.createElement('button');
-      b.className = 'chip' + ((filters[group] === val) ? ' on' : '');
-      b.textContent = label;
-      b.addEventListener('click', () => {
-        filters[group] = val;
-        [...chips.children].forEach(c => { if (c.dataset.g === group) c.classList.toggle('on', c.dataset.v === val); });
-        renderList();
-      });
-      b.dataset.g = group; b.dataset.v = val;
-      chips.appendChild(b);
-    };
-    mk('tier', 'all', 'all tiers');
-    mk('tier', 'origin', 'origin'); mk('tier', 'launderer', 'launderer'); mk('tier', 'outlet', 'outlet');
-    mk('kind', 'all', 'all'); mk('kind', 'payload', 'payload'); mk('kind', 'filler', 'filler');
-    document.getElementById('spec-search').addEventListener('input', e => {
-      filters.q = e.target.value.trim().toLowerCase(); renderList();
-    });
-  };
-
   try {
     DATA = await jget('/data/derived/latest_specimens.json');
     if (!DATA?.featured?.length) throw 0;
@@ -1232,7 +1204,7 @@ try {
     const nSrc = Object.keys(DATA.sources).length, nTier = new Set(Object.values(DATA.sources).map(s => s.tier)).size;
     document.getElementById('spec-srclabel').textContent =
       `${nSrc} sources across ${nTier} tiers · live capture`;
-    renderVolume(); buildControls(); renderList(); tickAgo();
+    renderVolume(); renderList(); tickAgo();
     setInterval(tickAgo, 60000);
     document.getElementById('spec-note').innerHTML =
       `Unaltered specimens from documented pro-Kremlin sources across the laundering chain — ` +

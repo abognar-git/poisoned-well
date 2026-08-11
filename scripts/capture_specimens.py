@@ -215,9 +215,25 @@ def main() -> int:
         corpus.append(r)
     corpus = corpus[:CORPUS_CAP]
 
-    # featured: newest few, guaranteeing each TIER and a couple of payload items appear
-    featured = list(corpus[:FEATURED])
-    keys = {r["url"] for r in featured}
+    # featured: round-robin the newest item per source (so one busy Telegram channel
+    # can't flood the slate), then fill by recency; still guarantee each TIER and a
+    # couple of payload items appear
+    by_site = {}
+    for r in corpus:
+        by_site.setdefault(r["site"], []).append(r)   # corpus is newest-first per site
+    featured, keys = [], set()
+    rank = 0
+    while len(featured) < FEATURED and any(by_site.values()):
+        # order sources by the recency of their rank-th item for a stable, fresh slate
+        for site in sorted(by_site, key=lambda s: sortkey(by_site[s][0]), reverse=True):
+            rows = by_site[site]
+            if rank < len(rows) and len(featured) < FEATURED:
+                r = rows[rank]
+                if r["url"] not in keys:
+                    featured.append(r); keys.add(r["url"])
+        rank += 1
+        if rank > CORPUS_CAP:
+            break
     for tier in ("origin", "launderer", "outlet"):
         if not any(SOURCES[r["site"]]["tier"] == tier for r in featured):
             extra = next((r for r in corpus if SOURCES[r["site"]]["tier"] == tier and r["url"] not in keys), None)
