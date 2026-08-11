@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "poisoned-well case catalog entry",
+  "type": "object",
+  "required": ["id", "name", "category", "summary", "attribution", "ai_usage", "sources", "status"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
+    "name": { "type": "string" },
+    "aliases": { "type": "array", "items": { "type": "string" } },
+    "category": {
+      "enum": ["operation", "infrastructure", "incident", "takedown", "measurement", "context"],
+      "description": "operation = a campaign; infrastructure = standing capability (site networks, persona farms); incident = a single documented event; takedown = platform/vendor disruption report; measurement = studies quantifying the phenomenon; context = needed for honest framing but not itself an AI-enabled op"
+    },
+    "attribution": {
+      "type": "object",
+      "required": ["actor", "confidence"],
+      "properties": {
+        "actor": { "type": "string" },
+        "sponsor": { "type": "string", "description": "state or entity assessed to be behind the actor; 'domestic' | 'unattributed' allowed" },
+        "confidence": {
+          "enum": ["confirmed", "high", "medium", "contested", "unattributed"],
+          "description": "confirmed = platform/vendor takedown or court/government record; high = multiple independent credible attributions; medium = single credible attribution; contested = disputed; unattributed = origin unknown"
+        },
+        "attributed_by": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "target": {
+      "type": "object",
+      "properties": {
+        "countries": { "type": "array", "items": { "type": "string" } },
+        "event": { "type": "string" },
+        "audience": { "type": "string" }
+      }
+    },
+    "period": {
+      "type": "object",
+      "properties": {
+        "start": { "type": "string" },
+        "end": { "type": "string", "description": "'ongoing' allowed" }
+      }
+    },
+    "ai_usage": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "specific documented AI uses (e.g. 'LLM-rewritten articles', 'deepfake audio', 'AI news-anchor avatars', 'LLM grooming'); empty array = no documented AI component (context entries)"
+    },
+    "platforms": { "type": "array", "items": { "type": "string" } },
+    "scale": {
+      "type": "object",
+      "description": "quantified reach/volume with a source for each figure",
+      "additionalProperties": { "type": "string" }
+    },
+    "effectiveness": { "type": "string", "description": "what the evidence says about measured impact — be honest, including nulls" },
+    "disarm_techniques": { "type": "array", "items": { "type": "string" }, "description": "DISARM technique IDs, e.g. T0014" },
+    "data_refs": { "type": "array", "items": { "type": "string" }, "description": "paths under data/derived/ backing any numbers used" },
+    "summary": { "type": "string" },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["publisher", "url"],
+        "properties": {
+          "publisher": { "type": "string" },
+          "title": { "type": "string" },
+          "date": { "type": "string" },
+          "url": { "type": "string" }
+        }
+      }
+    },
+    "caveats": { "type": "string", "description": "attribution disputes, unverified elements, overclaim risks" },
+    "status": { "enum": ["draft", "verified"], "description": "draft until every source has been re-checked against the claim" }
+  }
+}

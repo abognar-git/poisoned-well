@@ -1,0 +1,640 @@
+[
+  {
+    "id": "pravda-hungary",
+    "name": "Pravda Magyarország (Hungarian Portal Kombat mirror)",
+    "aliases": ["pravda-hu.com", "hungary.news-pravda.com", "Portal Kombat"],
+    "category": "infrastructure",
+    "attribution": {
+      "actor": "Pravda network / Portal Kombat (built by Crimea-based TigerWeb, Yevgeny Shevchenko)",
+      "sponsor": "Russia",
+      "confidence": "high",
+      "attributed_by": ["VIGINUM", "DFRLab", "CheckFirst", "EDMO", "American Sunlight Project"]
+    },
+    "target": { "countries": ["Hungary"], "audience": "search engines, AI crawlers, and Hungarian-language readers" },
+    "period": { "start": "2024-03-20", "end": "ongoing" },
+    "ai_usage": ["automated mass republication at machine scale", "assessed LLM grooming (flooding AI training/retrieval data)"],
+    "platforms": ["web", "Telegram", "VK"],
+    "scale": {
+      "articles_total": "139,376 through 2026-08-10 (data_refs)",
+      "daily_rate_last30": "~185 articles/day (data_refs)",
+      "peak_day": "712 articles on 2024-07-05 (data_refs)",
+      "network_total": "estimated >3.6M articles/year across the network (American Sunlight Project projection from a 48-hour sample, Feb 2025; NewsGuard renders this as '3.6 million articles in 2024')"
+    },
+    "effectiveness": "EDMO judged the Pravda sites' human audience impact across targeted EU countries 'very small... in some countries almost non-existent' (Apr 2024; no Hungary-specific assessment was published); the assessed aim is contaminating AI systems, where NewsGuard found leading chatbots repeating Pravda-network falsehoods ~33% of the time (Mar 2025).",
+    "disarm_techniques": [],
+    "data_refs": ["data/derived/pravda_summary.json", "data/derived/pravda_network.json"],
+    "summary": "The Hungarian mirror of the Pravda/Portal Kombat network was created on 20 March 2024 in a 31-domain wave extending the network to 19 EU states (Russian-hosted IP 178.21.15[.]85, paired Telegram/VK channels). It republishes fringe pro-Kremlin Hungarian Telegram channels and Russian state media as machine-generated 'news' around the clock, and remains active. Its top feeder sources are Hungarian-language Telegram channels including Rybar_HU and 'the Russians' truth side'.",
+    "sources": [
+      { "publisher": "VIGINUM/SGDSN", "title": "Portal Kombat network report part 3 (Annex 1: domain list)", "date": "2024-04-28", "url": "https://www.sgdsn.gouv.fr/files/files/Publications/20240428_NP_SGDSN_VIGINUM_PORTAL-KOMBAT-NETWORK-REPORT_NEW%20DOMAIN%20NAME_(PART3)_ENG_VF.pdf" },
+      { "publisher": "EDMO", "title": "Russian disinformation network Pravda grew bigger in the EU", "date": "2024-04-24", "url": "https://edmo.eu/publications/russian-disinformation-network-pravda-grew-bigger-in-the-eu-even-after-its-uncovering/" },
+      { "publisher": "American Sunlight Project", "title": "A Pro-Russia Content Network Foreshadows the Automated Future of Info Ops (LLM grooming report)", "date": "2025-02-26", "url": "https://static1.squarespace.com/static/6612cbdfd9a9ce56ef931004/t/67fd396818196f3d1666bc23/1744648558879/PK+Report.pdf" },
+      { "publisher": "NewsGuard", "title": "Moscow-based global news network infected Western AI", "date": "2025-03-06", "url": "https://www.newsguardtech.com/special-reports/moscow-based-global-news-network-infected-western-artificial-intelligence-russian-propaganda/" },
+      { "publisher": "CheckFirst", "title": "Pravda Network Data Collection (hourly dataset)", "url": "https://github.com/CheckFirstHQ/pravda-network" },
+      { "publisher": "DFRLab", "title": "Pravda in the pipeline (training-data contamination)", "date": "2026-04-08", "url": "https://dfrlab.org/2026/04/08/pravda-in-the-pipeline/" }
+    ],
+    "caveats": "Per-country audience measurement is thin; article volume is machine-verified but reach claims must rely on EDMO/NewsGuard assessments. Network size figures diverge across researchers (150–224+ domains).",
+    "status": "verified"
+  },
+  {
+    "id": "storm-1516-hungary-2026",
+    "name": "Storm-1516 fake-outlet campaign against the Hungarian opposition",
+    "aliases": ["CopyCop (Recorded Future)", "hirekhub24.hu", "oknyomozoriport.hu", "napihirek24.hu", "euronews.us.com", "24veritas.com"],
+    "category": "operation",
+    "attribution": {
+      "actor": "Storm-1516 / CopyCop",
+      "sponsor": "Russia (GRU-linked Center for Geopolitical Expertise; John Mark Dougan)",
+      "confidence": "high",
+      "attributed_by": ["Clemson Media Forensics Hub", "Gnida Project", "EDMO/Lakmusz", "Euronews", "The Insider"]
+    },
+    "target": { "countries": ["Hungary"], "event": "2026-04-12 parliamentary election", "audience": "Hungarian voters; documented Facebook ad audiences skewed 65+ (The Insider)" },
+    "period": { "start": "2026-01", "end": "2026-04" },
+    "ai_usage": ["LLM-rewritten fake news articles (CopyCop method)", "fabricated videos", "fake journalist personas"],
+    "platforms": ["fake news websites", "Facebook ads", "X", "YouTube"],
+    "scale": {
+      "fake_sites": "at least six fake sites/domains documented (hirekhub24.hu, napihirek24.hu, oknyomozoriport.hu, euronews.us.com, 24veritas.com, magyartisza2026.com — The Insider/Gnida Project); three registered within a single week, and four of the five analyzed sites shared the same paid WordPress theme (Soledad) and hosting IP (The Insider)",
+      "ivanyi_smear_reach": "at least 90,000 and, per The Insider, over 120,000 users — mostly 65+ — via two Facebook ads run 20–24 Feb 2026 (Lakmusz: ~90,000 + ~35,000 with unknown overlap; EDMO: 'nearly 100,000'; The Insider: 'exceeded 120,000 people — mostly in the over-65 age group')",
+      "ruszin_szendi_smear_reach": "at least 100,000 users in one week via paid Facebook ads (Euronews, 13 Apr 2026; Lakmusz via Gnida Project)"
+    },
+    "effectiveness": "Engagement was limited and often negative — most fake-site articles drew under 1,000 views with mostly negative responses (Gnida Project); the fabrications were 'so far-fetched that not even the pro-government media picked them up' (TechPolicy.press); Tisza won the election. Post-election Repsense data showing counter-narratives frequently outpacing disinformation (Balkan Insight) covered the domestic pro-government campaign, not Storm-1516 specifically — Repsense noted Russian coordination 'cannot be established from content data alone'.",
+    "disarm_techniques": [],
+    "summary": "In the weeks before Hungary's April 2026 election, Storm-1516 registered a cluster of fake Hungarian news sites — several on a shared hosting IP, four of five using the same paid WordPress theme (The Insider) — plus a spoof of Euronews (euronews.us.com), spreading fabrications against Péter Magyar and other Tisza figures: a staged Trump insult, a claim that Magyar funnelled €40M, an Epstein smear of Tisza vice-president Ágnes Forsthoffer, and a false claim that ex-defence-chief Romulusz Ruszin-Szendi recruited Hungarians to fight in Ukraine — alongside a fabricated pedophilia accusation against pastor Gábor Iványi, amplified through paid Facebook ads whose audiences skewed heavily 65+.",
+    "sources": [
+      { "publisher": "Clemson Media Forensics Hub", "title": "Hungary for more? (Murray, Linvill, Warren)", "date": "2026-04-10", "url": "https://open.clemson.edu/mfh_reports/11/" },
+      { "publisher": "Gnida Project", "title": "Disinformation update: election in Hungary, Rostec, Rybar and a fake Armenian priest", "date": "2026-03-31", "url": "https://gnidaproject.substack.com/p/disinformation-update-mar-2026" },
+      { "publisher": "Euronews", "title": "Impersonating Euronews: pro-Kremlin network takes aim at Hungary's elections", "date": "2026-03-24", "url": "https://euronews.com/my-europe/2026/03/24/impersonating-euronews-pro-kremlin-disinformation-network-takes-aim-at-hungarys-elections" },
+      { "publisher": "EDMO", "title": "Russian disinformation campaigns against Hungarian opposition figures", "date": "2026-03-02", "url": "https://edmo.eu/publications/russian-disinformation-campaigns-against-hungarian-opposition-figures-457-political-ads-in-6-weeks-and-ai-generated-videos-once-again/" },
+      { "publisher": "Recorded Future", "title": "CopyCop deepens its playbook (attribution/infrastructure background)", "url": "https://www.recordedfuture.com/research/copycop-deepens-its-playbook-with-new-websites-and-targets" },
+      { "publisher": "The Insider", "title": "'Matryoshka' enters the fray: The Kremlin and the GRU are spreading disinformation in Hungary ahead of its pivotal parliamentary election", "date": "2026-04-11", "url": "https://theins.press/en/inv/291361" },
+      { "publisher": "Gnida Project", "title": "Storm-1516 sets aim at parliamentary election in Hungary", "date": "2026-02-23", "url": "https://gnidaproject.substack.com/p/storm-1516-sets-aim-at-parliamentary" },
+      { "publisher": "Euronews", "title": "'Fabricating proof': The disinformation tactics that shaped Hungary's election", "date": "2026-04-13", "url": "https://www.euronews.com/next/2026/04/13/fabricating-proof-the-disinformation-tactics-that-shaped-hungarys-election" },
+      { "publisher": "Lakmusz", "title": "Így juttatták el tízezrekhez az Iványi Gábor lejáratását célzó kamucikket", "date": "2026-02-27", "url": "https://lakmusz.hu/2026/02/27/igy-juttattak-el-tizezrekhez-az-ivanyi-gabor-lejaratasat-celzo-kamucikket" },
+      { "publisher": "TechPolicy.press", "title": "Orbán's Hungary Defeat Shows Disinformation is Not a Political Magic Trick", "date": "2026-04-20", "url": "https://www.techpolicy.press/orbns-hungary-defeat-shows-disinformation-is-not-a-political-magic-trick/" },
+      { "publisher": "Balkan Insight (BIRN)", "title": "When Propaganda Backfires: Lessons from Orban's Social Media Defeat in Hungary Election", "date": "2026-08-04", "url": "https://balkaninsight.com/2026/08/04/when-propaganda-backfires-lessons-from-orbans-social-media-defeat-in-hungary-election/" }
+    ],
+    "caveats": "Attribution of individual sites is by TTP overlap rather than a platform takedown record — EDMO, citing the Gnida Project, wrote that the methods 'clearly point to' Storm-1516, while Gnida's own posts use 'likely' / 'in our belief' confidence language; the degree of generative-AI use per artifact varies and should be stated per item. Note: Euronews (13 Apr 2026) reported Tisza winning 138 of 199 seats; other post-election sources give 141/199.",
+    "status": "verified"
+  },
+  {
+    "id": "matryoshka-hungary-2026",
+    "name": "Matryoshka impersonation campaign in Hungary",
+    "aliases": ["Operation Overload", "Storm-1679"],
+    "category": "operation",
+    "attribution": {
+      "actor": "Matryoshka / Operation Overload",
+      "sponsor": "Russia (Kremlin-linked per CheckFirst/Reset.Tech; The Insider notes Matryoshka publishing Doppelgänger-typical content)",
+      "confidence": "high",
+      "attributed_by": ["EDMO/Lakmusz", "Bot Blocker/Antibot4Navalny", "The Insider", "CheckFirst/Reset.Tech (framework attribution)"]
+    },
+    "target": { "countries": ["Hungary"], "event": "2026-04-12 parliamentary election" },
+    "period": { "start": "2026-03", "end": "2026-04" },
+    "ai_usage": ["fabricated media-brand videos impersonating Western outlets", "AI-generated content documented for the wider Operation Overload campaign (CheckFirst/Reset.Tech); not independently verified for the Hungarian videos specifically"],
+    "platforms": ["X", "TikTok", "Telegram"],
+    "scale": {
+      "x_views": "~100,000 views per X post, likely inflated by click farms (EDMO/Lakmusz)"
+    },
+    "effectiveness": "Fake stories 'have not gone viral or reached a mass audience in Hungary yet' (EDMO/Lakmusz, March 2026); Lakmusz learned of the X posts via emailed links, matching Operation Overload's documented tactic of emailing fact-checkers and newsrooms to divert their resources (700+ targeted emails since September 2024 — CheckFirst/Reset.Tech).",
+    "disarm_techniques": [],
+    "summary": "Matryoshka activated in Hungary in March 2026 (first fake video, bearing a Deutsche Welle logo, appeared on X on 17 March, per The Insider) using hijacked real-user accounts and videos impersonating Deutsche Welle, Euronews, The Kyiv Independent and United 24 — as well as the French agency VIGINUM and Ukraine's Center for Countering Disinformation — including fabricated claims that Ukrainian refugees died attempting to detonate a homemade explosive device near Orbán's office, framed as an assassination attempt on the prime minister.",
+    "sources": [
+      { "publisher": "EDMO/Lakmusz", "title": "The Matryoshka's operation has been activated", "date": "2026-03-23", "url": "https://edmo.eu/publications/the-matryoshkas-operation-has-been-activated-peter-magyar-got-the-truth-serum-on-fringe-tiktok-channels/" },
+      { "publisher": "The Insider", "title": "Investigation into 2026 Hungary operations", "date": "2026-04-11", "url": "https://theins.press/en/inv/291361" },
+      { "publisher": "CheckFirst/Reset.Tech", "title": "Operation Overload: An AI fuelled escalation of the Kremlin-linked propaganda effort", "date": "2025-06-26", "url": "https://checkfirst.network/operation-overload-an-ai-fuelled-escalation-of-the-kremlin-linked-propaganda-effort/" }
+    ],
+    "caveats": "X view counts are self-reported platform metrics likely inflated by coordinated amplification; no X enforcement action was found in public reporting.",
+    "status": "verified"
+  },
+  {
+    "id": "sda-gru-hungary-2026",
+    "name": "Kremlin/SDA covert social-media plan and GRU deployment for Hungary's election",
+    "aliases": ["Social Design Agency", "Structura", "Doppelgänger operators"],
+    "category": "operation",
+    "attribution": {
+      "actor": "Social Design Agency / Structura under Sergei Kiriyenko; GRU officers at the Budapest embassy",
+      "sponsor": "Russia",
+      "confidence": "high",
+      "attributed_by": ["Financial Times", "VSquare (Szabolcs Panyi)", "The Insider", "Washington Post (corroboration)"]
+    },
+    "target": { "countries": ["Hungary"], "event": "2026-04-12 parliamentary election", "audience": "Hungarian social media users" },
+    "period": { "start": "2026-02", "end": "2026-04" },
+    "ai_usage": [],
+    "platforms": ["Facebook", "Instagram", "X", "TikTok"],
+    "scale": {
+      "fake_persona_ads": "'Sára Kovacsevics' persona (registered 2026-03-31) ran 40+ anti-Tisza Facebook ads, some garnering hundreds of thousands of views (The Insider)",
+      "gru_team": "three-person team under diplomatic cover (VSquare, European + US intelligence sources)"
+    },
+    "effectiveness": "Tisza won 141/199 seats; post-election analyses judged foreign operations limited in effect, often pre-empted by proactive intelligence leaks and expert warnings.",
+    "disarm_techniques": [],
+    "summary": "Weeks before the vote, the Kremlin approved an SDA-drafted covert plan to flood Hungarian social media with pro-Fidesz content designed in Russia and posted through Hungarian influencers, while a three-person GRU 'political technologist' team operated from the Budapest embassy under Sergei Kiriyenko's oversight, following the Moldova playbook. The Insider named GRU-linked officers (Zarudnev, Smirnov, Vorobyov, Garibyan) and documented fake Facebook ad personas. Related reporting: an SVR memo codenamed 'Gamechanger' proposed staging a fake assassination attempt on Orbán (no attack occurred).",
+    "sources": [
+      { "publisher": "VSquare", "title": "Putin's GRU-linked election fixers are already in Budapest", "date": "2026-03-06", "url": "https://vsquare.org/putins-gru-linked-election-fixers-are-already-in-budapest-to-help-orban/" },
+      { "publisher": "Moscow Times (summarizing FT)", "title": "Russia backs disinfo campaign to aid Orbán's re-election bid", "date": "2026-03-11", "url": "https://www.themoscowtimes.com/2026/03/11/russia-backs-disinfo-campaign-to-aid-orbans-re-election-bid-ft-a92192" },
+      { "publisher": "The Insider", "title": "SDA/Structura and GRU officers in the Hungary operation", "date": "2026-04-11", "url": "https://theins.press/en/inv/291361" },
+      { "publisher": "Washington Post", "title": "To tilt Hungarian election, Russians proposed staging assassination attempt", "date": "2026-03-21", "url": "https://www.washingtonpost.com/world/2026/03/21/hungary-election-interference-russia-orban/", "archive_url": "https://euromaidanpress.com/2026/03/21/media-russian-intelligence-planned-to-stage-an-assassination-attempt-on-orban-to-influence-the-election-results/" },
+      { "publisher": "Global Voices (Lakmusz interview with Ágnes Urbán and Péter Krekó)", "title": "Why were Russian disinformation, government propaganda and AI-generated campaigning ineffective in Hungarian elections 2026", "date": "2026-05-15", "url": "https://globalvoices.org/2026/05/15/why-were-russian-disinformation-government-propaganda-and-ai-generated-campaigning-ineffective-in-hungarian-elections-2026/" }
+    ],
+    "caveats": "Documented via intelligence leaks and investigative reporting, not platform takedown data; Peskov denied the FT report; whether the SDA pipeline used generative AI for the Hungarian content specifically is not detailed in available reporting (hence empty ai_usage — include as the operational frame around the AI artifacts). In late March 2026, weeks after this reporting, the Orbán government announced espionage charges against journalist Szabolcs Panyi, formally accusing him of spying for Ukraine — a step media-freedom organizations (CPJ, ECPMF, EFJ) characterized as retaliation for his reporting on Russian influence operations. The Insider notes a related SDA-linked TikTok campaign began around January 2026, slightly before this entry's February start.",
+    "status": "verified"
+  },
+  {
+    "id": "tiktok-ai-network-hungary-2026",
+    "name": "Pro-Orbán AI-video TikTok network (34 accounts)",
+    "category": "operation",
+    "attribution": {
+      "actor": "unknown operator",
+      "sponsor": "unattributed (Russian vs domestic Fidesz-aligned unresolved)",
+      "confidence": "unattributed",
+      "attributed_by": ["NewsGuard (documentation)", "TikTok (removal as covert influence operation)"]
+    },
+    "target": { "countries": ["Hungary"], "event": "2026-04-12 parliamentary election" },
+    "period": { "start": "2026-01", "end": "2026-03" },
+    "ai_usage": ["AI-generated news anchors", "celebrity deepfakes (Depp, DiCaprio, Jake Paul)"],
+    "platforms": ["TikTok"],
+    "scale": {
+      "accounts": "34 (22 created within two days in January 2026)",
+      "views": "~10M cumulative (NewsGuard)"
+    },
+    "effectiveness": "TikTok banned the accounts as part of 'a covert influence operation that we had previously disrupted' (TikTok statement to NewsGuard); TikTok said it took action against six covert influence networks targeting Hungarian political discourse since December 2025, most spreading pro-Fidesz narratives (The Record, 8 April 2026; The Insider had reported four networks blocked as of end of March).",
+    "disarm_techniques": [],
+    "summary": "A coordinated TikTok network used AI-generated news anchors and celebrity deepfakes to boost Orbán and smear Magyar on conscription fears, energy prices and LGBT+ themes. NewsGuard could not definitively attribute its origins.",
+    "sources": [
+      { "publisher": "NewsGuard", "title": "Influence campaign uses AI TikTok videos to boost Hungary's Viktor Orbán", "date": "2026-03-20", "url": "https://www.newsguardtech.com/special-reports/influence-campaign-uses-ai-tiktok-videos-to-boost-hungarys-viktor-orban/" },
+      { "publisher": "The Record", "title": "TikTok removes covert networks targeting Hungary vote", "date": "2026-04-08", "url": "https://therecord.media/tiktok-removes-covert-networks-hungary-vote" }
+    ],
+    "status": "verified"
+  },
+  {
+    "id": "fidesz-ai-campaign-2026",
+    "name": "Domestic AI propaganda campaign around Hungary's 2026 election",
+    "aliases": ["Megafon", "National Resistance Movement", "Digital Civic Circles"],
+    "category": "operation",
+    "attribution": {
+      "actor": "Fidesz-aligned actors: party organs, Megafon influencer network, proxy pages",
+      "sponsor": "domestic",
+      "confidence": "high",
+      "attributed_by": ["EDMO/Lakmusz", "Political Capital", "Carnegie Endowment", "court ruling on fabricated program claims"]
+    },
+    "target": { "countries": ["Hungary"], "event": "2026-04-12 parliamentary election" },
+    "period": { "start": "2025-09", "end": "2026-04" },
+    "ai_usage": [
+      "deepfake video of von der Leyen phoning Magyar (posted incl. by Orbán's own page)",
+      "realistic deepfake of Magyar posted by Fidesz campaign director Balázs Orbán",
+      "AI-fabricated ~600-page fake Tisza program used on nationwide posters",
+      "AI war videos: a soldier-execution ad posted by Fidesz's Budapest branch, with similar war videos advertised to micro-target justice minister Bence Tuzson's electoral district (EDMO/Lakmusz)",
+      "17 TikTok channels of AI-generated personas"
+    ],
+    "platforms": ["Facebook", "TikTok", "YouTube", "posters/print"],
+    "scale": {
+      "share_of_disinfo": "at least 90% of election disinformation was domestic in origin, possibly higher when weighted by reach (Lakmusz's Szilárd Teczár, via Euronews)",
+      "ai_video_views": "AI videos on Orbán's channels regularly exceeded 1M views each; Fidesz ran at least 4–6 AI-generated videos (EU Perspectives)",
+      "ad_ban_evasion": "456 of 457 political ads found on Meta in Jan–Feb 2026 were Fidesz-linked despite Meta's October 2025 EU political-ads ban (Political Capital, via Euronews); in January, 14 Fidesz candidates placed 181 ads, of which Meta caught only 19 — the other 162 passed through (Political Capital/Lakmusz)",
+      "exposure": "73% of Hungarians reported encountering AI-generated content on social media; 90% found its political use entirely unacceptable (Political Capital representative telephone survey, n=1,000, 23–26 Mar 2026)"
+    },
+    "effectiveness": "EDMO: AI use at a level 'no other EU country has yet experienced' — 'post-reality' campaigning in which most AI content was unlabelled yet easily recognizable as AI (EDMO/Lakmusz judged its deceptive potential relatively low, with more deceptive exceptions such as Balázs Orbán's realistic Magyar deepfake) — and it failed; researchers assess the propaganda apparatus became a credibility liability (Political Capital's Krekó, via Global Voices). Megafon shut down after the defeat (Euronews, Aug 2026).",
+    "disarm_techniques": [],
+    "summary": "The incumbent's own machine — not a foreign actor — produced the overwhelming majority of AI-enabled manipulation in the EU's most AI-saturated campaign to date. This entry anchors the site's honesty layer: state-aligned domestic AI propaganda, documented by fact-checkers and a court ruling, dwarfed foreign covert activity in volume, while Russian operations supplied some of the most deceptive artifacts.",
+    "sources": [
+      { "publisher": "EDMO", "title": "Hungary's 2026 election: AI-driven post-reality campaigning and its limits", "date": "2026-04", "url": "https://edmo.eu/blog/hungarys-2026-election-ai-driven-post-reality-campaigning-and-its-limits/" },
+      { "publisher": "EDMO/Lakmusz", "title": "The Endgame for Hungary (pre-election brief)", "date": "2026-04", "url": "https://edmo.eu/wp-content/uploads/2026/04/The-Endgame-for-Hungary-Disinformation-AI-Prohibited-Ads-and-Russian-Interference-in-the-Election-Campaign.pdf" },
+      { "publisher": "Euronews", "title": "'Fabricating proof': the disinformation tactics that shaped Hungary's election", "date": "2026-04-13", "url": "https://www.euronews.com/next/2026/04/13/fabricating-proof-the-disinformation-tactics-that-shaped-hungarys-election" },
+      { "publisher": "Carnegie Endowment", "title": "New tricks and AI tools in Hungary's high-stakes election", "date": "2026-01-27", "url": "https://carnegieendowment.org/europe/strategic-europe/2026/01/new-tricks-and-ai-tools-in-hungarys-high-stakes-election" },
+      { "publisher": "Lakmusz", "title": "Fidesz AI campaign on TikTok accelerated in March", "date": "2026-03-19", "url": "https://lakmusz.hu/2026/03/19/marciusban-felporgott-a-fideszes-ai-kampany-a-tiktokon" },
+      { "publisher": "Global Voices", "title": "Why Russian disinformation, government propaganda and AI campaigning were ineffective", "date": "2026-05-15", "url": "https://globalvoices.org/2026/05/15/why-were-russian-disinformation-government-propaganda-and-ai-generated-campaigning-ineffective-in-hungarian-elections-2026/" },
+      { "publisher": "EU Perspectives", "title": "Hungary's election is flooded with AI deepfakes — and nobody is stopping them", "date": "2026-04-10", "url": "https://euperspectives.eu/2026/04/hungarys-election-is-flooded-with-ai-deepfakes-and-nobody-is-stopping-them/" },
+      { "publisher": "Euronews", "title": "Orbán's Fidesz bypassing Meta's political advertising rules, researchers warn", "date": "2026-04-08", "url": "https://www.euronews.com/my-europe/2026/04/08/orbans-fidesz-bypassing-metas-political-advertising-rules-researchers-warn" },
+      { "publisher": "EDMO/Lakmusz", "title": "Despite Meta's ban, Fidesz candidates successfully posted 162 political ads on Facebook in January", "date": "2026-02-19", "url": "https://edmo.eu/publications/despite-metas-ban-fidesz-candidates-successfully-posted-162-political-ads-on-facebook-in-january/" },
+      { "publisher": "Euronews", "title": "Built to last, gone in months: How Péter Magyar dismantled Viktor Orbán's regime", "date": "2026-08-03", "url": "https://www.euronews.com/my-europe/2026/08/03/built-to-last-gone-in-months-how-peter-magyar-dismantled-viktor-orbans-regime" }
+    ],
+    "caveats": "This is domestic state-aligned activity, not foreign state-sponsored — the site must keep the distinction explicit while showing the narrative overlap with Kremlin framing documented by Political Capital and others.",
+    "status": "verified"
+  },
+  {
+    "id": "slovakia-2023-deepfake",
+    "name": "Šimečka audio deepfake in Slovakia's 2023 election moratorium",
+    "category": "incident",
+    "attribution": {
+      "actor": "unknown creator; pro-Kremlin distribution channels documented",
+      "sponsor": "unattributed",
+      "confidence": "unattributed",
+      "attributed_by": ["AFP (AI-manipulation analysis)", "VSquare (distribution)"]
+    },
+    "target": { "countries": ["Slovakia"], "event": "2023-09-30 parliamentary election" },
+    "period": { "start": "2023-09-28", "end": "2023-09-30" },
+    "ai_usage": ["deepfake audio (fabricated Šimečka–Tódová conversation about vote rigging)"],
+    "platforms": ["Facebook", "Telegram"],
+    "scale": {
+      "reach": "100,000+ total views and 5,000+ re-shares across platforms within the 48-hour moratorium; ~50,000 views via one ex-MP's Facebook posts alone (VSquare / Slovak Interior Ministry hybrid-threats center)"
+    },
+    "effectiveness": "Widely cited as the first major deepfake incident in an EU election; the 48-hour moratorium hindered debunking. A Harvard Kennedy School Misinformation Review analysis cautions that claims it decided the election are unsupported — exposure and causal impact were never established.",
+    "disarm_techniques": [],
+    "summary": "Two days before Slovakia's election, inside the campaign moratorium, fabricated audio of Progressive Slovakia's leader and a journalist 'discussing' election rigging spread on social media — the regional precedent case for AI-enabled election interference in Central Europe.",
+    "sources": [
+      { "publisher": "VSquare", "title": "Slovak election targeted by pro-Kremlin deepfake hoax", "date": "2023-11-08", "url": "https://vsquare.org/slovak-election-targeted-by-pro-kremlin-deepfake-hoax/" },
+      { "publisher": "HKS Misinformation Review", "title": "Beyond the deepfake hype: AI, democracy, and the Slovak case", "date": "2024-08-22", "url": "https://misinforeview.hks.harvard.edu/article/beyond-the-deepfake-hype-ai-democracy-and-the-slovak-case/" }
+    ],
+    "caveats": "Production origin never attributed. The site must present this as 'first major incident' not 'proven election-swinger'.",
+    "status": "verified"
+  },
+  {
+    "id": "romania-2024-2025-elections",
+    "name": "Romania: annulled 2024 election and the AI-saturated 2025 rerun",
+    "category": "operation",
+    "attribution": {
+      "actor": "coordinated TikTok/Telegram amplification networks; later AI smear and scam operators",
+      "sponsor": "Russia-attributed by Romanian intelligence (2024, contested details); scam wave financially motivated",
+      "confidence": "contested",
+      "attributed_by": ["Romanian intelligence (declassified)", "Constitutional Court", "TikTok disclosures", "EDMO"]
+    },
+    "target": { "countries": ["Romania"], "event": "2024-11-24 presidential first round (annulled); 2025-05 rerun" },
+    "period": { "start": "2024-11", "end": "2025-05" },
+    "ai_usage": ["AI-generated smears of Nicușor Dan in the rerun", "deepfake investment-scam videos of both candidates", "2024 wave relied primarily on coordinated amplification, not deepfakes"],
+    "platforms": ["TikTok", "Telegram"],
+    "scale": {
+      "takedown": "TikTok disclosed disrupting multiple covert networks around the 2024 vote, incl. clusters of 78 accounts promoting Georgescu and 12 promoting Geoană — both assessed by TikTok as operating from Romania — plus a 4,453-account network operating from Turkey promoting AUR and Georgescu, with 22,764 more accounts banned in follow-up (TikTok newsroom)"
+    },
+    "effectiveness": "The first EU election annulled amid online influence-operation allegations; the rerun was won by the pro-EU candidate despite increased AI content — a second regional data point that AI saturation did not deliver the targeted outcome.",
+    "disarm_techniques": [],
+    "summary": "Romania's November 2024 first round was annulled after declassified intelligence alleged a coordinated Russian-style TikTok operation; the May 2025 rerun then saw the AI wave proper — smears, antisemitic content, and criminal deepfake scams riding the campaign.",
+    "sources": [
+      { "publisher": "Foreign Policy", "title": "Romania presidential election annulled", "date": "2024-12-06", "url": "https://foreignpolicy.com/2024/12/06/romania-presidential-election-annulled-russia-interference-georgescu/", "archive_url": "https://www.aljazeera.com/news/2024/12/6/romanias-top-court-annuls-results-of-presidential-elections-first-round" },
+      { "publisher": "EDMO", "title": "Romania's elections overview", "date": "2025-05-07", "url": "https://edmo.eu/edmo-news/romanias-elections-overview-7-may-2025/" },
+      { "publisher": "Bitdefender", "title": "Deepfake scam exploits Romanian presidential candidates", "date": "2025-05-16", "url": "https://www.bitdefender.com/en-us/blog/hotforsecurity/deepfake-scam-exploits-romanian-presidential-candidates-to-lure-victims-into-fake-neptun-deep-investment" },
+      { "publisher": "TikTok", "title": "Continuing to protect the integrity of TikTok during Romanian elections", "date": "2024-12", "url": "https://newsroom.tiktok.com/en-eu/continuing-to-protect-the-integrity-of-tiktok-during-romanian-elections" },
+      { "publisher": "Al Jazeera", "title": "Romania's top court annuls results of presidential election's first round", "date": "2024-12-06", "url": "https://www.aljazeera.com/news/2024/12/6/romanias-top-court-annuls-results-of-presidential-elections-first-round" }
+    ],
+    "caveats": "The genAI share of the 2024 operation was never quantified; later Romanian reporting suggested parts of the amplification infrastructure were originally commissioned domestically. Present the annulment as amplification-driven, with AI prominent only in the rerun.",
+    "status": "verified"
+  },
+  {
+    "id": "moldova-matryoshka-sandu",
+    "name": "Matryoshka deepfake campaigns against Moldova's elections",
+    "aliases": ["Operation Overload", "Storm-1679"],
+    "category": "operation",
+    "attribution": {
+      "actor": "Matryoshka / Operation Overload",
+      "sponsor": "Russia",
+      "confidence": "high",
+      "attributed_by": ["NewsGuard", "AFP", "CheckFirst/Reset.Tech (framework)"]
+    },
+    "target": { "countries": ["Moldova"], "event": "2025-09-28 parliamentary election" },
+    "period": { "start": "2025-04", "end": "2025-10" },
+    "ai_usage": ["deepfakes of President Maia Sandu", "Luma-AI-generated mock rap video", "fabricated media-brand videos"],
+    "platforms": ["X", "Telegram", "TikTok"],
+    "scale": {
+      "false_claims": "39 false claims against Moldova from mid-April to mid-July 2025, up from zero in the prior year (NewsGuard); ~2M total Telegram views, ~1.5M on the top five narratives"
+    },
+    "effectiveness": "Analysts called Moldova Moscow's 'testing ground' for information warfare in Europe (AFP); the pro-EU PAS retained its parliamentary majority in the 2025-09-28 vote despite the campaign.",
+    "disarm_techniques": [],
+    "summary": "The clearest sustained AI-deepfake campaign against a European head of state: from April 2025, Matryoshka flooded X, Telegram and TikTok with fabricated videos impersonating 23 media brands (BBC, The Economist, Euronews) and content mocking President Maia Sandu — including a Luma-AI-generated rap deepfake — ahead of the 2025-09-28 parliamentary vote. Russia's broader Moldova operation (vote-buying networks, troll farms, on-the-ground influence) is the blueprint VSquare's intelligence sources say was later applied in Hungary.",
+    "sources": [
+      { "publisher": "France24/AFP", "title": "Russia-linked disinfo campaign targets Moldovan election", "date": "2025-09-24", "url": "https://www.france24.com/en/live-news/20250924-russia-linked-disinfo-campaign-targets-moldovan-election", "archive_url": "https://international.canada.ca/en/global-affairs/corporate/reports/rapid-response-mechanism/news/2025-moldovan-election" },
+      { "publisher": "NewsGuard", "title": "Russia's Matryoshka Propaganda Machine Picks New Target, Pushing 39 False Claims Against Moldova Over Past Three Months", "date": "2025-07-15", "url": "https://www.newsguardtech.com/special-reports/russia-matryoshka-propaganda-moldova/" },
+      { "publisher": "G7 Rapid Response Mechanism (Global Affairs Canada)", "title": "Joint Monitoring of the 2025 Moldovan Parliamentary Elections", "date": "2026-05-11", "url": "https://international.canada.ca/en/global-affairs/corporate/reports/rapid-response-mechanism/news/2025-moldovan-election" }
+    ],
+    "caveats": "Start dates diverge across sources: the G7 RRM tracked Overload activity against Moldova from November 2024 (its monitoring window), while NewsGuard recorded zero Matryoshka claims about Moldova before mid-April 2025 and Bot Blocker dates the anti-Sandu push from 2025-04-16. No source ties Matryoshka to the October 2024 presidential election/EU referendum; that cycle's interference is attributed to other Russian operations.",
+    "status": "verified"
+  },
+  {
+    "id": "germany-2025-storm1516",
+    "name": "Storm-1516 fake-site offensive against Germany's 2025 federal election",
+    "category": "operation",
+    "attribution": {
+      "actor": "Storm-1516, with Doppelgänger and Matryoshka in parallel",
+      "sponsor": "Russia",
+      "confidence": "high",
+      "attributed_by": ["CORRECTIV", "NewsGuard", "Gnida Project", "BfV", "Alliance4Europe"]
+    },
+    "target": { "countries": ["Germany"], "event": "2025-02-23 federal election" },
+    "period": { "start": "2024-11", "end": "2025-02" },
+    "ai_usage": ["100+ newly registered fake German news sites with AI-manipulated/staged videos", "AI-generated content across networks"],
+    "platforms": ["fake news websites", "X", "Telegram"],
+    "scale": {
+      "fake_sites": "100+ (CORRECTIV/NewsGuard)"
+    },
+    "effectiveness": "Germany's BfV called the scale unprecedented; on 2025-12-12 Germany summoned Russia's ambassador over the Storm-1516 election disinformation campaign, alongside the APT28 cyberattack on Germany's air-traffic-control authority — the diplomatic precedent for treating Storm-1516 election interference as a state matter.",
+    "disarm_techniques": [],
+    "summary": "The largest documented Storm-1516 deployment in the EU before Hungary: over a hundred fake German news sites carrying staged and AI-manipulated candidate videos ahead of the February 2025 federal election.",
+    "sources": [
+      { "publisher": "Alliance4Europe", "title": "Storm-1516 and the German elections", "date": "2025-02", "url": "https://alliance4europe.eu/storm-1516-german-elections" },
+      { "publisher": "AI Incident Database", "title": "Incident 929", "url": "https://incidentdatabase.ai/cite/929/" },
+      { "publisher": "The Record", "title": "Germany summons Russian ambassador over cyberattack, election disinformation", "date": "2025-12-12", "url": "https://therecord.media/germany-summons-russian-ambassador-cyberattack-disinformation" }
+    ],
+    "status": "verified"
+  },
+  {
+    "id": "copycop-infrastructure",
+    "name": "CopyCop: LLM-native fake-media infrastructure",
+    "aliases": ["Storm-1516", "Center for Geopolitical Expertise", "John Mark Dougan"],
+    "category": "infrastructure",
+    "attribution": {
+      "actor": "CopyCop network (John Mark Dougan; GRU-linked Center for Geopolitical Expertise; VIGINUM links GRU Unit 29155 officer Yuri Khoroshenky)",
+      "sponsor": "Russia",
+      "confidence": "high",
+      "attributed_by": ["Recorded Future (Insikt Group)", "VIGINUM", "The Insider"]
+    },
+    "target": { "countries": ["USA", "France", "Canada", "Germany", "Norway", "Armenia", "Moldova", "Turkey", "Hungary", "Ukraine"] },
+    "period": { "start": "2024-03", "end": "ongoing" },
+    "ai_usage": ["LLM-rewritten plagiarized news at scale (self-hosted Llama 3)", "1,000+ fake journalist personas", "300+ fictional media sites created in 2025 alone"],
+    "platforms": ["fake news websites"],
+    "scale": {
+      "sites_2025": "at least 300 inauthentic media and impersonation sites created since early 2025, incl. at least 200 fictional media sites Jan–Jun 2025 and 94 German-focused sites (Recorded Future, Sept 2025)"
+    },
+    "effectiveness": "The flagship documented case of AI-native influence infrastructure: generative AI is the production line, not an accessory. Individual site engagement is typically low; laundering into social amplification and AI retrieval is the vector.",
+    "disarm_techniques": [],
+    "summary": "The standing capability behind the Hungarian, German, and US fake-site campaigns — mainstream news scraped, politically re-biased by locally hosted LLMs, and published across hundreds of fictional outlets fronted by fake journalists.",
+    "sources": [
+      { "publisher": "Recorded Future", "title": "CopyCop deepens its playbook with new websites and targets", "date": "2025-09-17", "url": "https://www.recordedfuture.com/research/copycop-deepens-its-playbook-with-new-websites-and-targets" },
+      { "publisher": "The Insider", "title": "Storm-1516 attribution detail incl. Unit 29155 link", "date": "2026-04-11", "url": "https://theins.press/en/inv/291361" },
+      { "publisher": "Recorded Future", "title": "Russia-Linked CopyCop Expands to Cover US Elections, Target Political Leaders", "date": "2024-06-24", "url": "https://www.recordedfuture.com/research/copycop-expands-to-cover-us-elections-target-political-leaders" },
+      { "publisher": "VIGINUM/SGDSN", "title": "Storm-1516 technical report (77 operations, Aug 2023–Mar 2025)", "date": "2025-05-07", "url": "https://www.sgdsn.gouv.fr/files/files/Publications/20250507_TLP-CLEAR_NP_SGDSN_VIGINUM_Technical%20report_Storm-1516.pdf" }
+    ],
+    "status": "verified"
+  },
+  {
+    "id": "openai-bad-grammar",
+    "name": "Bad Grammar (OpenAI takedown): CEE-targeted Telegram operation",
+    "category": "takedown",
+    "attribution": {
+      "actor": "Bad Grammar",
+      "sponsor": "Russia (activity linked by OpenAI to individuals from Russia; state sponsorship not asserted)",
+      "confidence": "confirmed",
+      "attributed_by": ["OpenAI"]
+    },
+    "target": { "countries": ["Russia", "Ukraine", "Moldova", "Baltic states", "USA"], "audience": "Telegram users" },
+    "period": { "start": "2024", "end": "2024-05" },
+    "ai_usage": ["ChatGPT-generated short political comments in Russian and English", "code debugging for a Telegram posting bot"],
+    "platforms": ["Telegram"],
+    "scale": {},
+    "effectiveness": "Assessed minimal impact: OpenAI placed Bad Grammar at Category 1 — the lowest tier — on the (Brookings) Breakout Scale, the only operation in the May 2024 report to stay below Category 2; very few of its comments received any likes or replies. The closest OpenAI-named operation to a dedicated CEE-targeting effort.",
+    "disarm_techniques": [],
+    "summary": "A previously unreported Russian operation using OpenAI models as both content generator and bot-development assistant for Telegram political spam across Central and Eastern Europe.",
+    "sources": [
+      { "publisher": "OpenAI", "title": "AI and covert influence operations: latest trends", "date": "2024-05-30", "url": "https://openai.com/index/disrupting-deceptive-uses-of-AI-by-covert-influence-operations/", "archive_url": "https://downloads.ctfassets.net/kftzwdyauwt9/5IMxzTmUclSOAcWUXbkVrK/3cfab518e6b10789ab8843bcca18b633/Threat_Intel_Report.pdf" },
+      { "publisher": "The Hacker News", "title": "OpenAI, Meta, and TikTok Crack Down on Covert Influence Campaigns, Some AI-Powered", "date": "2024-05", "url": "https://thehackernews.com/2024/05/openai-meta-tiktok-disrupt-multiple-ai.html" }
+    ],
+    "status": "verified"
+  },
+  {
+    "id": "openai-doppelganger-ai-use",
+    "name": "Doppelgänger's documented use of OpenAI models",
+    "category": "takedown",
+    "attribution": {
+      "actor": "Doppelgänger (Storm-1099 / Ruza Flood; SDA/Structura, EU- and US-sanctioned)",
+      "sponsor": "Russia",
+      "confidence": "confirmed",
+      "attributed_by": ["OpenAI", "US DOJ (Sept 2024 affidavit)", "Meta"]
+    },
+    "target": { "countries": ["Germany", "France", "USA", "Ukraine", "Israel", "Italy"] },
+    "period": { "start": "2022-05", "end": "ongoing" },
+    "ai_usage": ["comment generation in EN/FR/DE/IT/PL for X and 9GAG", "article translation and editing in EN/FR for websites linked to the operation", "headline generation", "AI-generated images to evade detection (Meta)"],
+    "platforms": ["X", "9GAG", "Facebook", "fake news websites"],
+    "scale": {
+      "meta_indicators": "6,497 kill-chain-tagged indicators in Meta's Q2-2023 public set; zero Hungary-targeted (data_refs)"
+    },
+    "effectiveness": "The Sept 2024 DOJ affidavit documents productivity-level AI use (AI-generated ad content including images and videos; OpenAI accounts used to generate and edit articles and comments for Doppelgänger domains) and quotes Recorded Future's assessment that generative AI use 'signifies an evolution in tactics'; outside analysts likewise judged its employment 'so far... limited' (Alethea CEO Lisa Kaplan), and Meta judged genAI gains 'incremental'. Hungary absent from documented Doppelgänger targeting until the 2026 SDA plan.",
+    "disarm_techniques": [],
+    "data_refs": ["data/derived/doppelganger_summary.json"],
+    "summary": "The flagship Russian CIB operation's AI adoption is documented across OpenAI, Meta and the US DOJ — productivity-level use (translation, comments, images), not autonomous capability. Its indicator set is one of the few fully machine-readable IO datasets and anchors the site's 'before Hungary' infrastructure view.",
+    "sources": [
+      { "publisher": "OpenAI", "title": "May 2024 IO report (Doppelganger usage)", "date": "2024-05-30", "url": "https://openai.com/index/disrupting-deceptive-uses-of-AI-by-covert-influence-operations/", "archive_url": "https://www.csoonline.com/article/2134290/openai-accuses-russia-china-iran-and-israel-of-misusing-its-genai-tools-for-covert-ops.html" },
+      { "publisher": "US DOJ", "title": "Doppelganger domain seizure and affidavit", "date": "2024-09-04", "url": "https://www.justice.gov/archives/opa/pr/justice-department-disrupts-covert-russian-government-sponsored-foreign-malign-influence", "archive_url": "https://www.justice.gov/d9/2024-09/doppelganger_affidavit_9.4.24.pdf" },
+      { "publisher": "Meta", "title": "Quarterly Adversarial Threat Reports + threat-research GitHub indicators", "url": "https://github.com/facebook/threat-research" },
+      { "publisher": "US DOJ", "title": "Doppelganger seizure affidavit (E.D. Pa., Case 2:24-mj-01395)", "date": "2024-09-04", "url": "https://www.justice.gov/d9/2024-09/doppelganger_affidavit_9.4.24.pdf" }
+    ],
+    "status": "verified"
+  },
+  {
+    "id": "openai-helgoland-bite",
+    "name": "Helgoland Bite (OpenAI takedown): German election operation",
+    "category": "takedown",
+    "attribution": {
+      "actor": "Helgoland Bite",
+      "sponsor": "Russia (apparent origin — OpenAI: accounts 'appeared to originate from Russia'; state sponsorship not asserted)",
+      "confidence": "confirmed",
+      "attributed_by": ["OpenAI"]
+    },
+    "target": { "countries": ["Germany"], "event": "2025-02-23 federal election" },
+    "period": { "start": "2025", "end": "2025-06" },
+    "ai_usage": ["ChatGPT-generated German-language content promoting AfD and attacking US/NATO", "research on German opposition activists"],
+    "platforms": ["Telegram", "X"],
+    "scale": {
+      "x_followers": "over 27,000 followers on the linked X account (OpenAI)",
+      "telegram_subscribers": "1,755 subscribers on the 'Nachhall von Helgoland' Telegram channel at the time of OpenAI's investigation"
+    },
+    "effectiveness": "Low authentic engagement (high Category 2 on the Breakout Scale).",
+    "disarm_techniques": [],
+    "summary": "An operation apparently originating from Russia (per OpenAI) that used ChatGPT for election-targeted German content — the model documented as researcher and writer inside a single IO pipeline. Its Telegram output was regularly reposted verbatim by a Pravda/'Portal Kombat' network domain targeting German-speaking audiences.",
+    "sources": [
+      { "publisher": "OpenAI", "title": "Disrupting malicious uses of AI (June 2025)", "date": "2025-06-05", "url": "https://cdn.openai.com/threat-intelligence-reports/5f73af09-a3a3-4a55-992e-069237681620/disrupting-malicious-uses-of-ai-june-2025.pdf" }
+    ],
+    "status": "verified"
+  },
+  {
+    "id": "openai-stop-news",
+    "name": "Stop News (OpenAI takedown): cross-model AI video pipeline",
+    "category": "takedown",
+    "attribution": {
+      "actor": "Stop News (consistent with a marketing company)",
+      "sponsor": "Russia (origin per OpenAI; activity 'consistent with an operation run by a marketing company'; state sponsorship not asserted)",
+      "confidence": "confirmed",
+      "attributed_by": ["OpenAI"]
+    },
+    "target": { "countries": ["Francophone Africa", "UK"] },
+    "period": { "start": "2025", "end": "2025-10" },
+    "ai_usage": ["ChatGPT-generated video scripts broken into two-sentence snippets with a video prompt generated per snippet, apparently for external AI video tools (OpenAI's report describes threat actors that 'hop between models')", "YouTube/TikTok video production"],
+    "platforms": ["YouTube", "TikTok", "fake news websites", "X"],
+    "scale": {
+      "x_followers": "172 followers on the core 'Newstop Africa' X account as of Aug 2025; highest retweet count on any post was four (OpenAI)",
+      "video_channels": "AI-newsreader YouTube and TikTok channels ~1,900 followers each; ~255,000 views across 50 YouTube videos (avg ~5,100; max 37,000); 5,855 likes across 56 TikTok videos (most-viewed video 63,300 views) (OpenAI)"
+    },
+    "effectiveness": "OpenAI assessed the content 'appears to have only gained limited views or audiences', with no evidence of re-sharing or media pickup, and downgraded the operation from its October 2024 Category 3 Breakout Scale assessment to Category 2 after VIGINUM and open-source researchers showed its UK 'information partnerships' were likely fictional. Documented adversary adaptation: no single vendor sees the whole pipeline — a key point for the site's 'why detection is hard' section.",
+    "disarm_techniques": [],
+    "summary": "A Russia-origin operation — recidivist activity continuing the 'Stop News' network OpenAI first disrupted in October 2024 — that split its AI workflow across vendors: scripts and per-scene video prompts from ChatGPT, videos (including an AI-generated newsreader) rendered with other companies' AI tools, distributed on YouTube, TikTok and fake news sites such as newstop[.]africa.",
+    "sources": [
+      { "publisher": "OpenAI", "title": "Disrupting malicious uses of our models: an update (October 2025)", "date": "2025-10-07", "url": "https://cdn.openai.com/threat-intelligence-reports/7d662b68-952f-4dfd-a2f2-fe55b041cc4a/disrupting-malicious-uses-of-ai-october-2025.pdf" }
+    ],
+    "status": "verified"
+  },
+  {
+    "id": "anthropic-influence-as-a-service",
+    "name": "Influence-as-a-service bot orchestration via Claude (Anthropic takedown)",
+    "category": "takedown",
+    "attribution": {
+      "actor": "commercial influence-as-a-service operator (clients unnamed)",
+      "sponsor": "commercial (multiple political clients)",
+      "confidence": "confirmed",
+      "attributed_by": ["Anthropic"]
+    },
+    "target": { "countries": ["multiple"] },
+    "period": { "start": "2025", "end": "2025-03" },
+    "ai_usage": ["LLM-orchestrated decision-making for 100+ political bot personas (when to comment, like, reshare)"],
+    "platforms": ["Facebook", "X"],
+    "scale": {
+      "personas": "100+ politically-aligned personas engaging tens of thousands of authentic accounts"
+    },
+    "effectiveness": "Documented the shift from AI-as-writer to AI-as-operator — the model ran the engagement strategy, not just the copy. No state sponsor named; the commercial market is the point.",
+    "disarm_techniques": [],
+    "summary": "Anthropic's April 2025 report documented a for-profit service using Claude to orchestrate persona armies for multiple clients — evidence that IO capability is now purchasable, which matters for every under-attributed CEE campaign.",
+    "sources": [
+      { "publisher": "Anthropic", "title": "Detecting and countering malicious uses of Claude (March 2025)", "date": "2025-04-23", "url": "https://www.anthropic.com/news/detecting-and-countering-malicious-uses-of-claude-march-2025" }
+    ],
+    "status": "verified"
+  },
+  {
+    "id": "spamouflage-ai-global",
+    "name": "Spamouflage's AI adoption (global context; no documented Hungarian activity)",
+    "aliases": ["Dragonbridge", "Storm-1376", "Taizi Flood"],
+    "category": "context",
+    "attribution": {
+      "actor": "Spamouflage",
+      "sponsor": "China (Meta: individuals associated with Chinese law enforcement)",
+      "confidence": "high",
+      "attributed_by": ["Graphika", "Meta", "Google TAG", "Microsoft MTAC", "OpenAI"]
+    },
+    "target": { "countries": ["Taiwan", "USA", "Australia", "UK", "Japan", "Canada"], "audience": "global Chinese-speaking + targeted foreign audiences" },
+    "period": { "start": "2017", "end": "ongoing" },
+    "ai_usage": ["first observed use by a state-aligned IO of fully AI-generated video avatars ('Wolf News', Synthesia tech, late 2022, per Graphika)", "suspected AI-generated audio in Taiwan's 2024 election (first time Microsoft observed a nation-state using AI content to influence a foreign election)", "ChatGPT use for content and code (OpenAI)"],
+    "platforms": ["Facebook", "X", "YouTube", "50+ platforms"],
+    "scale": {
+      "meta_takedown": "7,704 Facebook accounts removed in Meta's largest-ever single takedown (Aug 2023)",
+      "google_disruptions": "50,000+ Dragonbridge instances disrupted in 2022; 10,000+ in Q1 2024 alone"
+    },
+    "effectiveness": "Consistently negligible authentic engagement despite enormous volume. Crucially for this site: no public attribution names any Hungarian-language Spamouflage campaign — Chinese AI-IO capability is proven globally but not documented in Hungary, where pro-PRC framing flows through overt state-media laundering instead.",
+    "disarm_techniques": [],
+    "summary": "The PRC's flagship IO network pioneered AI avatars and nation-state AI election interference — in Asia and the Anglosphere. Its absence from Hungarian-language space is a finding the site states plainly rather than papering over.",
+    "sources": [
+      { "publisher": "Graphika", "title": "Deepfake It Till You Make It", "date": "2023-02-07", "url": "https://public-assets.graphika.com/reports/graphika-report-deepfake-it-till-you-make-it.pdf" },
+      { "publisher": "Microsoft MTAC", "title": "Same targets, new playbooks (Taiwan 2024 AI interference)", "date": "2024-04-04", "url": "https://blogs.microsoft.com/on-the-issues/2024/04/04/china-ai-influence-elections-mtac-cybersecurity/" },
+      { "publisher": "Meta", "title": "Q2 2023 Adversarial Threat Report (largest takedown)", "date": "2023-08", "url": "https://transparency.meta.com/sr/Q2-2023-Adversarial-threat-report", "archive_url": "https://about.fb.com/news/2023/08/raising-online-defenses/" },
+      { "publisher": "Google TAG", "title": "DRAGONBRIDGE disruption reports", "url": "https://blog.google/threat-analysis-group/google-disrupted-dragonbridge-activity-q1-2024/" },
+      { "publisher": "OpenAI", "title": "AI and covert influence operations: latest trends (Spamouflage usage)", "date": "2024-05-30", "url": "https://openai.com/index/disrupting-deceptive-uses-of-AI-by-covert-influence-operations/" }
+    ],
+    "status": "verified"
+  },
+  {
+    "id": "golaxy-leak",
+    "name": "GoLaxy leak: the PRC's industrialized AI-persona supply chain",
+    "category": "infrastructure",
+    "attribution": {
+      "actor": "GoLaxy (Chinese Academy of Sciences spin-off, ~1,000 staff, military/intelligence ties)",
+      "sponsor": "China",
+      "confidence": "high",
+      "attributed_by": ["Vanderbilt University Institute of National Security", "NYT/Axios/The Record reporting", "Doublethink Lab analysis"]
+    },
+    "target": { "countries": ["Hong Kong", "Taiwan", "USA"] },
+    "period": { "start": "2020", "end": "2025-08 (leak)" },
+    "ai_usage": ["generative-AI persona armies ('digital doubles')", "automated propaganda dissemination via the 'GoPro' system (Doublethink Lab: 'intelligent distribution' and automated batch posting)", "profiling of at least 117 members of Congress and 2,000+ other US political and thought leaders (NYT/Vanderbilt); Doublethink Lab's document review finds data on all 117th-Congress members, 2022 congressional candidates, and 4,000+ 'establishment figures, Trump supporters and right-wing forces'"],
+    "platforms": ["multiple"],
+    "scale": {
+      "documents": "399 leaked pages"
+    },
+    "effectiveness": "The clearest documentary evidence of an industrialized state AI-IO supply chain. No European targeting documented in the leak — cited on the site as capability evidence, with that limit stated.",
+    "disarm_techniques": [],
+    "summary": "Leaked internal documents from a CAS spin-off exposed a commercial-scale AI influence industry serving PRC campaigns — the supply-chain counterpart to Russia's CopyCop.",
+    "sources": [
+      { "publisher": "Vanderbilt University", "title": "GoLaxy analysis (Benson & Goldstein)", "date": "2025-09-08", "url": "https://www.vanderbilt.edu/national-security/wicked-problems-lab/golaxy/" },
+      { "publisher": "Axios", "title": "AI disinformation: China's GoLaxy", "date": "2025-08-22", "url": "https://www.axios.com/2025/08/22/ai-disinformation-china-golaxy-vanderbilt", "archive_url": "https://therecord.media/golaxy-china-artificial-intelligence-papers" },
+      { "publisher": "The Record", "title": "The GoLaxy papers: Inside China's AI persona army", "date": "2025-09-19", "url": "https://therecord.media/golaxy-china-artificial-intelligence-papers" },
+      { "publisher": "Doublethink Lab", "title": "The Rise of AI in PRC Influence Operations: Nine Takeaways from the GoLaxy Documents", "date": "2026-03-04", "url": "https://medium.com/doublethinklab/the-rise-of-ai-in-prc-influence-operations-nine-takeaways-from-the-golaxy-documents-2d6617a753e5" }
+    ],
+    "caveats": "GoLaxy publicly denied the reporting; evidence is a leaked internal archive analyzed by outside researchers, not a platform takedown, and researchers found no confirmation that the US-focused personas had been deployed at the time of the leak.",
+    "status": "verified"
+  },
+  {
+    "id": "llm-grooming-measurement",
+    "name": "LLM grooming: measured contamination of AI systems",
+    "category": "measurement",
+    "attribution": {
+      "actor": "Pravda network (primary documented vector)",
+      "sponsor": "Russia",
+      "confidence": "high",
+      "attributed_by": ["American Sunlight Project", "NewsGuard", "DFRLab", "CheckFirst"]
+    },
+    "target": { "countries": ["global"], "audience": "AI chatbots, training corpora, retrieval systems, Wikipedia" },
+    "period": { "start": "2024", "end": "ongoing" },
+    "ai_usage": ["deliberate flooding of AI training/retrieval data (the operation targets models, not people)"],
+    "platforms": ["web", "Wikipedia"],
+    "scale": {
+      "chatbot_repeat_rate_2025_03": "10 leading chatbots repeated Pravda falsehoods 33% of the time (NewsGuard audit)",
+      "chatbot_falsehood_rate_2025_08": "35% general false-claim rate, up from 18% a year earlier, as refusal rates fell 31%→0% (NewsGuard)",
+      "wikipedia": "1,900+ Pravda hyperlinks across 44 language editions (CheckFirst/DFRLab)",
+      "training_data": "~40,000 English-language Pravda items archived in Common Crawl by Nov 2025, up from 37 in Nov 2024 (DFRLab, Apr 2026)"
+    },
+    "effectiveness": "The only strand of this catalog where measured effect sizes exist and grow over time — and the strand that did not end with Hungary's election. Critics dispute both the intent framing ('grooming' vs generic web pollution) and how far the audit rates generalize: a peer-reviewed October 2025 study (Alyukov et al., HKS Misinformation Review) found Pravda-linked citations mainly on obscure, data-void prompts and at far lower rates than NewsGuard's audit.",
+    "disarm_techniques": [],
+    "data_refs": ["data/derived/pravda_summary.json"],
+    "summary": "The evidence base that machine-scale propaganda is reshaping what AI systems say: chatbot audit failure rates, Wikipedia citation pollution, and confirmed training-data contamination — the site's closing argument for why this story outlives any single campaign.",
+    "sources": [
+      { "publisher": "American Sunlight Project", "title": "LLM grooming report (coined the term; report dated 2025-02-26 — link is the ASP-authored summary in Bulletin of the Atomic Scientists, 2025-03-26)", "date": "2025-02-26", "url": "https://thebulletin.org/2025/03/russian-networks-flood-the-internet-with-propaganda-aiming-to-corrupt-ai-chatbots/" },
+      { "publisher": "NewsGuard", "title": "March 2025 chatbot audit (33%)", "date": "2025-03-06", "url": "https://www.newsguardtech.com/special-reports/moscow-based-global-news-network-infected-western-artificial-intelligence-russian-propaganda/" },
+      { "publisher": "NewsGuard", "title": "One-year AI audit (35%, Aug 2025)", "date": "2025-09-04", "url": "https://www.newsguardtech.com/press/newsguard-one-year-ai-audit-progress-report-finds-that-ai-models-spread-falsehoods-in-the-news-35-of-the-time/" },
+      { "publisher": "CheckFirst", "title": "Pravda network worldwide expansion and LLM/Wikipedia pollution", "date": "2025-03-13", "url": "https://checkfirst.network/pravda-network-worldwide-expansion-and-llm-wikipedia-pollution/" },
+      { "publisher": "DFRLab", "title": "Pravda in the pipeline", "date": "2026-04-08", "url": "https://dfrlab.org/2026/04/08/pravda-in-the-pipeline/" }
+    ],
+    "caveats": "NewsGuard figures are prompt-audit rates with disputed methodology generalizability. An independent peer-reviewed test with published methodology now exists: Alyukov, Makhortykh, Voronovici & Sydorova (HKS Misinformation Review, Oct 2025) found only 8% of 416 chatbot responses referenced Kremlin-linked disinformation sites (1% supporting false claims), concentrated on obscure data-void prompts — supporting an information-gap explanation over deliberate grooming. State the numbers as audit results, not population estimates.",
+    "status": "verified"
+  },
+  {
+    "id": "effectiveness-evidence",
+    "name": "What the evidence says about whether any of this works",
+    "category": "measurement",
+    "attribution": {
+      "actor": "n/a (research synthesis)",
+      "sponsor": "n/a",
+      "confidence": "high",
+      "attributed_by": ["CETaS/Alan Turing Institute", "Knight First Amendment Institute", "Meta", "EDMO", "EEAS"]
+    },
+    "target": { "countries": ["global"] },
+    "period": { "start": "2023", "end": "ongoing" },
+    "ai_usage": [],
+    "platforms": [],
+    "scale": {
+      "cetas": "no evidence AI-enabled disinformation measurably altered any 2024 election result — UK, EU and France (CETaS briefing, Sept 2024), extended to the US, Taiwan and India (CETaS 'Safeguarding Future Elections' report, Nov 2024)",
+      "knight": "39 of 78 catalogued election deepfakes had no deceptive intent; deceptive ones replicable without AI for a few hundred dollars",
+      "meta": "AI content <1% of fact-checked election misinformation in 2024; genAI gains for threat actors 'incremental'",
+      "eeas": "27% of 540 FIMI incidents in 2025 involved AI TTPs, +259% year-on-year",
+      "hungary": "73% of surveyed Hungarians reported encountering AI-generated content on social media; 90% considered its political use unacceptable (survey via EDMO); the AI-heavy campaign lost"
+    },
+    "effectiveness": "Adoption is real and accelerating; demonstrated electoral impact is absent. The open question the site should end on: measurement frameworks capture vote-swinging, not cumulative ecosystem degradation (trust erosion, parallel-reality campaigning, LLM grooming).",
+    "disarm_techniques": [],
+    "summary": "The honesty backbone: every effectiveness claim on the site routes through this entry, which holds the null results alongside the growth curves — mirroring the 'What this does not show' discipline of the assay-family write-ups.",
+    "sources": [
+      { "publisher": "CETaS / Alan Turing Institute", "title": "AI-enabled influence operations: threat analysis of the 2024 UK and European elections", "date": "2024-09", "url": "https://cetas.turing.ac.uk/publications/ai-enabled-influence-operations-threat-analysis-2024-uk-and-european-elections", "archive_url": "https://cetas.turing.ac.uk/sites/default/files/2024-09/cetas_briefing_paper_-_ai-enabled_influence_operations_-_threat_analysis_of_the_2024_uk_and_european_elections.pdf" },
+      { "publisher": "Knight First Amendment Institute", "title": "We looked at 78 election deepfakes", "date": "2024-12", "url": "https://knightcolumbia.org/blog/we-looked-at-78-election-deepfakes-political-misinformation-is-not-an-ai-problem" },
+      { "publisher": "EEAS", "title": "4th FIMI Threat Report", "date": "2026-03", "url": "https://www.eeas.europa.eu/sites/default/files/2026/documents/EEAS%204th%20Threat%20Report_web.pdf", "archive_url": "https://euvsdisinfo.eu/uploads/2026/03/EEAS-4th-Threat-Report_web_compressed.pdf" },
+      { "publisher": "EDMO", "title": "AI-driven post-reality campaigning and its limits", "date": "2026-04", "url": "https://edmo.eu/blog/hungarys-2026-election-ai-driven-post-reality-campaigning-and-its-limits/" },
+      { "publisher": "CETaS / Alan Turing Institute", "title": "AI-Enabled Influence Operations: Safeguarding Future Elections", "date": "2024-11", "url": "https://cetas.turing.ac.uk/publications/ai-enabled-influence-operations-safeguarding-future-elections", "archive_url": "https://cetas.turing.ac.uk/sites/default/files/2024-11/cetas_research_report_-_ai-enabled_influence_operations_-_safeguarding_future_elections.pdf" },
+      { "publisher": "Meta", "title": "What We Saw on Our Platforms During 2024's Global Elections (Nick Clegg)", "date": "2024-12-03", "url": "https://about.fb.com/news/2024/12/2024-global-elections-meta-platforms/" },
+      { "publisher": "Meta", "title": "Quarterly Adversarial Threat Report, Q2 2024", "date": "2024-08", "url": "https://transparency.meta.com/sr/Q2-2024-Adversarial-threat-report" }
+    ],
+    "status": "verified"
+  },
+  {
+    "id": "apt-crossover-hungary",
+    "name": "APT crossover: Russian intrusion operations against Hungary",
+    "aliases": ["APT28", "APT29", "TeamSpy"],
+    "category": "context",
+    "attribution": {
+      "actor": "APT28 (GRU) and APT29 (SVR/FSB-associated)",
+      "sponsor": "Russia",
+      "confidence": "high",
+      "attributed_by": ["Direkt36 (Szabolcs Panyi)", "leaked internal documents (444/Insight Hungary)"]
+    },
+    "target": { "countries": ["Hungary"], "audience": "Ministry of Foreign Affairs networks incl. the encrypted Protected Foreign Network (VKH)" },
+    "period": { "start": "2012", "end": "2022-01 (documented)" },
+    "ai_usage": [],
+    "platforms": [],
+    "scale": {
+      "compromise": "complete MFA compromise documented by September 2021: internal email and every network endpoint across 150+ sites of 90+ foreign missions, with NATO/EU 'restricted'/'confidential' documents on the VKH accessible (Direkt36); 4,000+ workstations and 930 servers affected per the leaked September 2021 internal report (444/Insight Hungary)",
+      "credential_exposure_2026": "795 Hungarian government credential pairs and 97 infostealer-infected government machines in breach databases (Bellingcat, no APT attribution)"
+    },
+    "effectiveness": "The espionage layer beneath the influence layer: a decade of documented access to Hungarian state networks by GRU-linked APT28 and SVR/FSB-linked APT29, hushed up by the then-government — essential context for why 'APT campaign' and 'influence operation' must be distinguished but shown together.",
+    "disarm_techniques": [],
+    "summary": "Not an AI or influence operation — included because the site's credibility depends on placing the IO story against the documented intrusion story: Russia read Hungary's diplomatic traffic for years while its narratives ran in Hungarian media. UNC1151/Ghostwriter, often assumed regional, has no documented Hungary targeting.",
+    "sources": [
+      { "publisher": "Direkt36", "title": "Putin's hackers see the Hungarian foreign ministry's secrets", "date": "2022-03-29", "url": "https://www.direkt36.hu/en/putyin-hekkerei-is-latjak-a-magyar-kulugy-titkait-az-orban-kormany-evek-ota-nem-birja-elharitani-oket/" },
+      { "publisher": "Insight Hungary / 444", "title": "Internal documents prove Russian hackers infiltrated the Foreign Ministry", "date": "2024-05-17", "url": "https://insighthungary.444.hu/2024/05/17/internal-documents-prove-russian-hackers-infiltrated-the-foreign-ministry" },
+      { "publisher": "Bellingcat", "title": "Hungarian government passwords exposed online", "date": "2026-04-09", "url": "https://www.bellingcat.com/news/2026/04/09/the-hungarian-government-passwords-exposed-online/" }
+    ],
+    "status": "verified"
+  }
+]
