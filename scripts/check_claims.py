@@ -17,7 +17,11 @@ ROOT = Path(__file__).resolve().parent.parent
 CLAIMS = ROOT / "catalog" / "claims.json"
 GLOSSARY = ROOT / "catalog" / "glossary.json"
 INCIDENTS = ROOT / "catalog" / "incidents.json"
+AI_INCIDENTS = ROOT / "catalog" / "ai_incidents.json"
 CATALOG = ROOT / "catalog" / "operations.json"
+AI_PHASES = {"campaign", "post-campaign", "ongoing"}
+AI_TYPES = {"deepfake-video", "deepfake-audio", "ai-image", "ai-text", "ai-persona",
+            "llm-grooming", "ai-tooling", "other"}
 PAGES = [ROOT / "site" / "prototype" / "index.html"]
 STATUSES = {"verified", "live-data", "assessment"}
 
@@ -76,6 +80,25 @@ def main() -> int:
             if not (i.get("source") or {}).get("url"):
                 errors.append(f"incident {iid}: source without url")
         print(f"{len(incidents)} campaign incidents (all case-linked)")
+
+    if AI_INCIDENTS.exists():
+        ai = json.loads(AI_INCIDENTS.read_text())
+        aids = [a.get("id", "?") for a in ai]
+        if len(aids) != len(set(aids)):
+            errors.append("ai_incidents: duplicate ids")
+        for a in ai:
+            aid = a.get("id", "?")
+            if not a.get("date") or not a.get("title"):
+                errors.append(f"ai_incident {aid}: missing date or title")
+            if a.get("phase") not in AI_PHASES:
+                errors.append(f"ai_incident {aid}: bad phase {a.get('phase')!r}")
+            if a.get("ai_type") not in AI_TYPES:
+                errors.append(f"ai_incident {aid}: bad ai_type {a.get('ai_type')!r}")
+            if not (a.get("source") or {}).get("url"):
+                errors.append(f"ai_incident {aid}: source without url")
+        from collections import Counter
+        ph = Counter(a["phase"] for a in ai)
+        print(f"{len(ai)} AI-usage incidents ({dict(ph)})")
 
     used = set()
     for page in PAGES:

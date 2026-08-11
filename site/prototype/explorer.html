@@ -144,6 +144,29 @@
   .spec .lnd b{color:var(--amber); font-weight:500}
   .empty{font-family:"Newsreader",serif; font-style:italic; color:var(--muted); padding:2rem 0}
 
+  .viewtabs{display:flex; gap:.5rem; margin:.5rem 0 1.6rem; border-bottom:1px solid var(--hairline)}
+  .vtab{font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--muted); background:none; border:none; border-bottom:2px solid transparent; padding:.7rem .3rem;
+    cursor:pointer; margin-bottom:-1px}
+  .vtab:hover{color:var(--paper)}
+  .vtab.on{color:var(--paper); border-bottom-color:var(--signal)}
+  .aisum{font-family:"Newsreader",serif; font-size:1.05rem; line-height:1.6; color:var(--muted); max-width:46rem; margin-bottom:1.4rem}
+  .aisum b{color:var(--paper); font-weight:500}
+  .aitiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(9rem,1fr)); gap:.8rem}
+  .aiph{border:1px solid var(--hairline); padding:.9rem 1rem}
+  .aiph.campaign{border-left:2px solid var(--amber)} .aiph.post-campaign{border-left:2px solid var(--analyst)} .aiph.ongoing{border-left:2px solid var(--signal)}
+  .aiph .v{font-family:"IBM Plex Mono",monospace; font-size:1.6rem; font-weight:500; color:var(--paper)}
+  .aiph .k{font-family:"IBM Plex Mono",monospace; font-size:.56rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-top:.3rem; line-height:1.5}
+  .aic{display:grid; grid-template-columns:6.5rem 1fr; gap:.2rem 1rem; align-items:baseline; padding:.9rem 0; border-bottom:1px solid rgba(233,228,218,.06)}
+  .aic .meta{font-family:"IBM Plex Mono",monospace; font-size:.6rem; line-height:1.5; color:var(--muted)}
+  .aic .ph{font-family:"IBM Plex Mono",monospace; font-size:.54rem; letter-spacing:.12em; text-transform:uppercase; display:inline-block; margin-bottom:.25rem}
+  .aic .ph.campaign{color:var(--amber)} .aic .ph.post-campaign{color:var(--analyst)} .aic .ph.ongoing{color:var(--signal)}
+  .aic .t{font-family:"Newsreader",serif; font-size:1.02rem; line-height:1.35; color:var(--paper)}
+  .aic .w{font-family:"Newsreader",serif; font-size:.86rem; line-height:1.5; color:var(--muted); margin-top:.3rem}
+  .aic .type{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:.54rem; letter-spacing:.1em; text-transform:uppercase; border:1px solid var(--hairline); border-radius:2px; padding:.2em .45em; margin:.4rem .3rem .2rem 0; color:var(--muted)}
+  .aic .type.gen{color:var(--signal); border-color:rgba(255,74,54,.4)}
+  .aic a.src{font-family:"IBM Plex Mono",monospace; font-size:.58rem; color:var(--analyst); text-decoration:none}
+  .aic a.src:hover{text-decoration:underline}
   footer{border-top:1px solid var(--hairline); margin-top:3rem; padding:1.6rem 0}
   footer p{font-family:"Newsreader",serif; font-style:italic; font-size:.84rem; line-height:1.6; color:var(--muted)}
   footer b{color:var(--amber); font-style:normal; font-weight:500}
@@ -167,6 +190,26 @@
        from your selection, and every row is a real post they published.</p>
   </div>
 
+  <div class="viewtabs">
+    <button class="vtab on" data-v="corpus">◉ live corpus</button>
+    <button class="vtab" data-v="ai">▣ AI usage · campaign &amp; after</button>
+  </div>
+
+  <div id="ai-view" style="display:none">
+    <p class="aisum">How generative AI was actually used against Hungary — and how that changed after the vote.
+      During the campaign it was everywhere: deepfake videos, AI images, AI-persona swarms. After the 12 April
+      election the flashy stuff <b>faded</b> (EDMO logged the AI-disinfo share falling back to ~14%), while the
+      quiet layer — <b>LLM grooming</b>, the mass-generated text seeping into what chatbots repeat — kept running
+      and, by mid-2026 audits, got worse. Every row below is a documented, sourced incident.</p>
+    <div class="aitiles" id="aitiles"></div>
+    <div class="controls" style="position:static; margin-top:1.2rem">
+      <div id="ai-phase-chips" style="display:flex;gap:.4rem;flex-wrap:wrap"></div>
+      <div id="ai-type-chips" style="display:flex;gap:.4rem;flex-wrap:wrap;margin-left:auto"></div>
+    </div>
+    <div id="ai-list"></div>
+  </div>
+
+  <div id="corpus-view">
   <div class="tiles" id="tiles"></div>
 
   <div class="panel" style="margin-top:1.4rem">
@@ -216,6 +259,7 @@
 
   <div id="count"></div>
   <div id="list"></div>
+  </div><!-- /#corpus-view -->
 
   <footer>
     <p>Same rules as the story page: specimens are shown as <b>evidence, not endorsement</b>; nothing here
@@ -466,6 +510,52 @@ function render(){
                             : `⚠ Last successful capture ${agoStr(D.captured_at)} — showing archived corpus.`; }
   else st.classList.remove('on');
 }
+
+/* ===== AI USAGE view (campaign & after) ===== */
+const AI = await fetch('/catalog/ai_incidents.json', {cache:'no-store'}).then(r=>r.json()).catch(()=>[]);
+const GEN = new Set(['deepfake-video','deepfake-audio','ai-image','ai-text','ai-persona']); // generative content vs grooming/tooling
+const aiState = { phase:'all', type:'all' };
+const PHASE_LABEL = { campaign:'during campaign', 'post-campaign':'after the vote', ongoing:'ongoing now' };
+function aiFiltered(){ return AI.filter(a =>
+  (aiState.phase==='all' || a.phase===aiState.phase) && (aiState.type==='all' || a.ai_type===aiState.type)); }
+function aiRender(){
+  const rows = aiFiltered().slice().sort((a,b)=> a.date<b.date?1:-1);
+  // tiles: phase counts
+  const byPhase = p => AI.filter(a=>a.phase===p).length;
+  $('aitiles').innerHTML = [
+    ['campaign', byPhase('campaign'), 'incidents during the campaign'],
+    ['post-campaign', byPhase('post-campaign'), 'after the 12 Apr vote'],
+    ['ongoing', byPhase('ongoing'), 'ongoing / continuing now'],
+    ['', AI.filter(a=>GEN.has(a.ai_type)).length + ' / ' + AI.filter(a=>a.ai_type==='llm-grooming').length,
+      'generative content vs LLM-grooming'],
+  ].map(([c,v,k])=>`<div class="aiph ${c}"><div class="v">${v}</div><div class="k">${k}</div></div>`).join('');
+  // chips
+  const chip = (grp, val, label, on) => `<button class="chip ${on?'on':''}" data-g="${grp}" data-v="${val}">${label}</button>`;
+  $('ai-phase-chips').innerHTML = ['all','campaign','post-campaign','ongoing']
+    .map(p=>chip('phase',p, p==='all'?'all phases':(PHASE_LABEL[p]||p), aiState.phase===p)).join('');
+  const types=[...new Set(AI.map(a=>a.ai_type))].sort();
+  $('ai-type-chips').innerHTML = ['all',...types].map(t=>chip('type',t, t==='all'?'all types':t, aiState.type===t)).join('');
+  document.querySelectorAll('#ai-phase-chips .chip, #ai-type-chips .chip').forEach(b=>
+    b.addEventListener('click', ()=>{ aiState[b.dataset.g]=b.dataset.v; aiRender(); }));
+  // list
+  $('ai-list').innerHTML = rows.map(a=>{
+    const gen = GEN.has(a.ai_type);
+    return `<div class="aic">
+      <div class="meta">${esc(a.date)}<br><span class="ph ${a.phase}">${esc(a.phase)}</span></div>
+      <div><span class="type ${gen?'gen':''}">${esc(a.ai_type)}</span>
+        <div class="t">${esc(a.title)}</div>
+        ${a.what?`<div class="w">${esc(a.what.length>240?a.what.slice(0,240)+'…':a.what)}</div>`:''}
+        <a class="src" href="${esc(a.source.url)}" target="_blank" rel="noopener">▸ ${esc(a.source.publisher)}</a></div>
+    </div>`;
+  }).join('') || '<div class="empty">No AI incidents match.</div>';
+}
+document.querySelectorAll('.vtab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('.vtab').forEach(x=>x.classList.toggle('on', x===t));
+  const ai = t.dataset.v==='ai';
+  $('ai-view').style.display = ai ? '' : 'none';
+  $('corpus-view').style.display = ai ? 'none' : '';
+  if (ai) aiRender();
+}));
 
 $('q').addEventListener('input', e => { state.q = e.target.value.trim().toLowerCase(); render(); });
 $('sort').addEventListener('change', render);
