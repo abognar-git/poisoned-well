@@ -1,52 +1,74 @@
 {
-  "captured_at": "2026-08-11T08:03:20+00:00",
+  "captured_at": "2026-08-11T08:31:50+00:00",
   "source": "hungary.news-pravda.com (English edition), captured server-side; not linked",
   "note": "Unaltered headlines this Russia-attributed network published, shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld here and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (see THEMES in scripts/capture_specimens.py) used to separate geopolitical payload from mundane camouflage — a heuristic on topic, not a human judgement of intent.",
   "smear_items_withheld": 0,
   "payload_count": 3,
+  "laundered_count": 5,
   "specimens": [
+    {
+      "id": 44429,
+      "date": "2026-08-11",
+      "category": "russia",
+      "title": "The Russian junior synchronized swimming team at the World Championships in Budapest!",
+      "theme": "hungary",
+      "source": {
+        "platform": "MAX",
+        "channel": "minsport_russia"
+      }
+    },
     {
       "id": 44428,
       "date": "2026-08-11",
       "category": "world",
       "title": "The capital of Kenya, Nairobi, has applied to host the 2029 World Athletics Championships",
-      "theme": "filler"
+      "theme": "filler",
+      "source": {
+        "platform": "Telegram",
+        "channel": "africaninitiative"
+      }
     },
     {
       "id": 44427,
       "date": "2026-08-11",
       "category": "eu",
       "title": "In total, the Baltic countries do not contribute even 1% to the EU economy",
-      "theme": "eu/nato"
+      "theme": "eu/nato",
+      "source": {
+        "platform": "Telegram",
+        "channel": "baltnews"
+      }
     },
     {
       "id": 44426,
       "date": "2026-08-11",
       "category": "world",
       "title": "An Embrace Without a Choice: Why Vučić's Balancing Act Isn't Freedom of Maneuver, but a Lack of It",
-      "theme": "filler"
+      "theme": "filler",
+      "source": {
+        "platform": "Topwar",
+        "channel": null
+      }
     },
     {
       "id": 44425,
       "date": "2026-08-11",
       "category": "world",
       "title": "Chess player, model, judge",
-      "theme": "filler"
+      "theme": "filler",
+      "source": null
     },
     {
       "id": 44424,
       "date": "2026-08-11",
       "category": "world",
       "title": "The EU continues to buy Russian gas",
-      "theme": "russia"
-    },
-    {
-      "id": 44423,
-      "date": "2026-08-10",
-      "category": "hungary",
-      "title": "️Dmitry Lyubinsky Russian Deputy Foreign Minister from interview with RIA Novosti news agency, 2026",
-      "theme": "hungary"
+      "theme": "russia",
+      "source": {
+        "platform": "Telegram",
+        "channel": "lomovkaa"
+      }
     }
   ]
 }

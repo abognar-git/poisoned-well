@@ -263,6 +263,20 @@
     margin-top:.35rem; margin-right:.35rem}
   .spec .theme.payload{color:var(--signal); border:1px solid rgba(255,74,54,.4)}
   .spec .theme.filler{color:var(--muted); border:1px solid var(--hairline)}
+  .spec .laundered{font-family:"IBM Plex Mono",monospace; font-size:.62rem; color:var(--muted);
+    margin-top:.4rem; display:flex; align-items:center; gap:.35rem}
+  .spec .laundered b{color:var(--amber); font-weight:500}
+  .spec .laundered .arr{color:var(--signal)}
+  #spec-volume{display:flex; align-items:flex-end; gap:1.2rem; flex-wrap:wrap;
+    padding:.7rem 0 .2rem; font-family:"IBM Plex Mono",monospace; font-size:.62rem; color:var(--muted)}
+  #spec-volume .spark{display:flex; align-items:flex-end; gap:2px; height:26px}
+  #spec-volume .spark i{width:6px; background:rgba(255,74,54,.4); border-radius:1px 1px 0 0}
+  #spec-volume .spark i.today{background:var(--signal)}
+  #spec-volume b{color:var(--paper); font-weight:500}
+  #spec-stale{font-family:"IBM Plex Mono",monospace; font-size:.64rem; letter-spacing:.04em;
+    color:var(--amber); border:1px solid rgba(217,160,91,.4); background:rgba(217,160,91,.06);
+    border-radius:2px; padding:.5rem .7rem; margin:.6rem 0; display:none}
+  #spec-stale.on{display:block}
   .spec-note{font-family:"Newsreader",serif; font-style:italic; font-size:.82rem; line-height:1.55;
     color:var(--muted); margin-top:1rem}
   .spec-note b{color:var(--amber); font-style:normal; font-weight:500}
@@ -484,6 +498,8 @@
       <div class="lbl"><span class="live-dot"></span>hungary.news-pravda.com</div>
       <div class="cap" id="spec-cap">captured —</div>
     </div>
+    <div id="spec-volume"></div>
+    <div id="spec-stale"></div>
     <div id="spec-list"></div>
     <div class="spec-why">
       <div class="h">Why this matters — read from Hungary</div>
@@ -1055,7 +1071,39 @@ try {
     return Math.round(hrs / 24) + ' days ago';
   };
   const PAYLOAD_THEMES = new Set(['hungary', 'ukraine', 'russia', 'eu/nato', 'energy']);
+  let capturedAt = null;
+
+  const renderVolume = () => {
+    const days = timeline.series.filter(d => d[1] > 0).slice(-7);
+    const max = Math.max(...days.map(d => d[1]), 1);
+    const bars = days.map((d, i) =>
+      `<i class="${i === days.length - 1 ? 'today' : ''}" style="height:${Math.max(3, d[1] / max * 26)}px"
+        title="${d[0]}: ${d[1]}"></i>`).join('');
+    document.getElementById('spec-volume').innerHTML =
+      `<div><div class="spark">${bars}</div></div>` +
+      `<div>the few below are the surface of <b>${fmt(HU.articles_latest_day)}</b> published on ` +
+      `${HU.latest_publication_day} · <b>${fmt(HU.articles_last_7d)}</b> in the last 7 days · ` +
+      `<b>${fmt(HU.total)}</b> all-time</div>`;
+  };
+  const tickAgo = () => {
+    if (!capturedAt) return;
+    const pn = window.__specPayload;
+    document.getElementById('spec-cap').textContent = 'captured ' + agoStr(capturedAt) +
+      (pn != null ? ` · ${pn} payload / ${window.__specTotal - pn} filler` : '');
+    const hrs = (Date.now() - new Date(capturedAt).getTime()) / 3.6e6;
+    const stale = document.getElementById('spec-stale');
+    if (hrs > 6) {
+      stale.classList.add('on');
+      stale.textContent = hrs > 48
+        ? `⚠ No successful capture in ${Math.round(hrs / 24)} days — the mirror may be blocking capture, or may have gone dark. Showing the last archived specimens.`
+        : `⚠ Last successful capture ${agoStr(capturedAt)} — the hourly job may be delayed or blocked. Showing archived specimens.`;
+    } else stale.classList.remove('on');
+  };
+
   const render = spec => {
+    capturedAt = spec.captured_at;
+    window.__specPayload = spec.payload_count;
+    window.__specTotal = spec.specimens.length;
     const list = document.getElementById('spec-list');
     list.innerHTML = '';
     for (const s of spec.specimens) {
@@ -1066,25 +1114,32 @@ try {
         ? `<span class="theme ${isPayload ? 'payload' : 'filler'}" title="keyword heuristic on the headline — topic, not a judgement of intent">${
             isPayload ? 'payload · ' + esc(s.theme) : 'camouflage · filler'}</span>`
         : '';
+      const src = s.source;
+      const srcLine = src
+        ? `<div class="laundered"><span class="arr">↳ laundered from</span> <b>${esc(src.platform)}${
+            src.channel ? ' · ' + esc(src.channel) : ''}</b></div>`
+        : `<div class="laundered"><span class="arr">↳</span> source not traced</div>`;
       el.innerHTML =
         `<div class="meta"><span class="cat">${esc(s.category)}</span><br>${esc(s.date)}<br>#${s.id}</div>` +
-        `<div><div class="title">${esc(s.title)}</div>${themeTag}</div>`;
+        `<div><div class="title">${esc(s.title)}</div>${themeTag}${srcLine}</div>`;
       list.appendChild(el);
     }
-    const pn = spec.payload_count;
-    document.getElementById('spec-cap').textContent = 'captured ' + agoStr(spec.captured_at) +
-      (pn != null ? ` · ${pn} payload / ${spec.specimens.length - pn} filler` : '');
+    renderVolume();
+    tickAgo();
     const withheld = spec.smear_items_withheld
       ? ` <b>${spec.smear_items_withheld} personal-smear item(s) withheld</b> and instead documented in the case files.` : '';
+    const lnd = spec.laundered_count
+      ? ` The "laundered from" line is the source each article credits on its own page — mostly Russian Telegram channels and outlets, republished as Hungarian-readable "news".` : '';
     document.getElementById('spec-note').innerHTML =
-      `These are unaltered specimens of a Russia-attributed operation, in its own English edition — ` +
-      `shown as evidence of ongoing output, <b>not endorsement</b>, and not linked (to avoid feeding the very ` +
-      `citation signal the network manufactures). Theme tags are a <b>disclosed keyword heuristic</b> on the ` +
-      `headline (topic, not a judgement of intent) — the rules are published in the repo.${withheld}`;
+      `Unaltered specimens of a Russia-attributed operation, in its own English edition — ` +
+      `shown as evidence of ongoing output, <b>not endorsement</b>, and not linked (neither the article nor its source, ` +
+      `to avoid feeding the citation signal the network manufactures). Theme tags are a <b>disclosed keyword heuristic</b> ` +
+      `on the headline, published in the repo.${lnd}${withheld}`;
   };
   try {
     const spec = await jget('/data/derived/latest_specimens.json');
-    if (spec?.specimens?.length) render(spec);
+    if (spec?.specimens?.length) { render(spec); setInterval(tickAgo, 60000); }
+    else document.getElementById('specimens-sec').style.display = 'none';
   } catch { document.getElementById('specimens-sec').style.display = 'none'; }
 }
 
