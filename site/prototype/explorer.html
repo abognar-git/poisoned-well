@@ -121,6 +121,20 @@
   .tierbox.origin .tn{color:var(--analyst)} .tierbox.launderer .tn{color:var(--signal)} .tierbox.outlet .tn{color:var(--amber)}
   .tierbox .tv{font-family:"IBM Plex Mono",monospace; font-size:1.3rem; font-weight:500; color:var(--paper); margin:.3rem 0 .15rem}
   .tierbox .td{font-family:"Newsreader",serif; font-size:.78rem; line-height:1.4; color:var(--muted)}
+  #flow{width:100%; height:auto; font-family:"IBM Plex Mono",monospace}
+  #flow text{fill:var(--paper); font-size:12px}
+  #flow .chlbl{cursor:pointer} #flow .chlbl:hover{fill:var(--signal)}
+  #flow .sub{fill:var(--muted); font-size:10px}
+  #flow-both{margin-top:1rem}
+  .both{display:grid; grid-template-columns:1fr 1fr; gap:1rem; border-top:1px solid var(--hairline); padding-top:1rem}
+  @media(max-width:760px){.both{grid-template-columns:1fr}}
+  .both .col .h2{font-family:"IBM Plex Mono",monospace; font-size:.58rem; letter-spacing:.16em; text-transform:uppercase; margin-bottom:.6rem}
+  .both .col.origin .h2{color:var(--analyst)} .both .col.mirror .h2{color:var(--signal)}
+  .both .it{border-left:2px solid var(--hairline); padding:.3rem 0 .5rem .7rem; margin-bottom:.5rem}
+  .both .col.origin .it{border-color:rgba(110,168,216,.4)} .both .col.mirror .it{border-color:rgba(255,74,54,.4)}
+  .both .it .d{font-family:"IBM Plex Mono",monospace; font-size:.56rem; color:var(--muted)}
+  .both .it .t{font-family:"Newsreader",serif; font-size:.9rem; line-height:1.35; color:var(--paper)}
+  #flow-both .close{font-family:"IBM Plex Mono",monospace; font-size:.58rem; color:var(--signal); background:none; border:none; cursor:pointer; margin-bottom:.4rem}
   .spec .title{font-family:"Newsreader",serif; font-size:1rem; line-height:1.4; color:var(--paper)}
   .spec .tag{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:.54rem;
     letter-spacing:.1em; text-transform:uppercase; border:1px solid var(--hairline); border-radius:2px;
@@ -158,6 +172,14 @@
   <div class="panel" style="margin-top:1.4rem">
     <div class="h">THE LAUNDERING CHAIN · <b>click a tier to filter</b></div>
     <div class="tiers" id="tierboxes"></div>
+  </div>
+
+  <div class="panel" style="margin-top:1.4rem">
+    <div class="h">LAUNDERING FLOW · <b id="flow-h"></b></div>
+    <div style="overflow-x:auto"><svg id="flow" viewBox="0 0 1000 380" role="img"
+      aria-label="Flow from Telegram origin channels through the Pravda mirror to narrative themes"></svg></div>
+    <div class="hint">each edge is the origin a mirror article credits on its own page · <span style="color:var(--analyst)">blue = channels we also capture live at the origin</span> · click a channel to see both ends</div>
+    <div id="flow-both"></div>
   </div>
 
   <div id="stale"></div>
@@ -225,16 +247,36 @@ const ALL = [...(D.featured||[]), ...(D.corpus||[])];
 const originOf = s => s.source ? (s.source.platform + (s.source.channel ? ' · ' + s.source.channel : ''))
                     : (tierOf(s) === 'origin' ? siteInfo(s.site).label + ' (origin)'
                     : tierOf(s) === 'outlet' ? siteInfo(s.site).label + ' (direct)' : 'untraced');
+// the Telegram channel a mirror article CREDITS (its own data-source-url); or, for an
+// origin-tier post, the channel it IS. Lowercased handle for matching both ends.
+const creditedChannel = s => (s.source && /telegram/i.test(s.source.platform || '') && s.source.channel)
+  ? s.source.channel.toLowerCase() : null;
+const originChannel = s => tierOf(s) === 'origin' ? (s.category || '').toLowerCase() : null;
+const channelOf = s => creditedChannel(s) || originChannel(s);
 
-const state = { q:'', tier:'all', theme:'all', day:'all', origin:'all' };
-const active = () => state.q||state.tier!=='all'||state.theme!=='all'||state.day!=='all'||state.origin!=='all';
+const state = { q:'', tier:'all', theme:'all', day:'all', origin:'all', channel:null };
+const active = () => state.q||state.tier!=='all'||state.theme!=='all'||state.day!=='all'||state.origin!=='all'||state.channel;
 
 const filtered = () => ALL.filter(s =>
   (state.tier==='all'   || tierOf(s)===state.tier) &&
   (state.theme==='all'  || (state.theme==='__pay' ? PAY.has(s.theme) : state.theme==='__fill' ? !PAY.has(s.theme) : s.theme===state.theme)) &&
   (state.day==='all'    || s.date===state.day) &&
   (state.origin==='all' || originOf(s)===state.origin) &&
+  (!state.channel       || channelOf(s)===state.channel) &&
   (!state.q || s.title.toLowerCase().includes(state.q)));
+
+// channel stats: which Telegram channels the mirror credits, and whether we also capture them
+function channelStats(){
+  const trackedSet = new Set(ALL.filter(s=>tierOf(s)==='origin').map(originChannel).filter(Boolean));
+  const m = {};
+  for (const s of ALL){ const ch = creditedChannel(s); if (!ch) continue;
+    (m[ch] = m[ch] || {ch, credited:0, themes:{}}); m[ch].credited++; m[ch].themes[s.theme]=(m[ch].themes[s.theme]||0)+1; }
+  const rows = Object.values(m).map(r => ({...r, tracked: trackedSet.has(r.ch)}));
+  rows.sort((a,b)=> b.tracked-a.tracked || b.credited-a.credited);
+  const mirrorFromTg = ALL.filter(s=>creditedChannel(s)).length;
+  const mirrorTotal = ALL.filter(s=>tierOf(s)==='launderer').length;
+  return { rows, trackedSet, mirrorFromTg, mirrorTotal };
+}
 
 const agoStr = iso => {
   const m = Math.max(0, Math.round((Date.now()-new Date(iso).getTime())/60000));
@@ -355,9 +397,67 @@ function tierBoxes(rows){
     b.addEventListener('click', () => { state.tier = state.tier===b.dataset.t ? 'all' : b.dataset.t; render(); }));
 }
 
+const NS = 'http://www.w3.org/2000/svg';
+function flow(){
+  const svg = $('flow'); svg.innerHTML = '';
+  const el = (n, at, txt) => { const e = document.createElementNS(NS, n);
+    for (const k in at) e.setAttribute(k, at[k]); if (txt != null) e.textContent = txt; svg.appendChild(e); return e; };
+  const { rows, mirrorFromTg, mirrorTotal } = channelStats();
+  $('flow-h').textContent = `${mirrorFromTg} of ${mirrorTotal} mirror articles are laundered from a Telegram channel`;
+  const chans = rows.slice(0, 8);
+  // theme mix across all credited mirror items
+  const themeC = {}; for (const s of ALL) if (creditedChannel(s)) themeC[s.theme]=(themeC[s.theme]||0)+1;
+  const themes = Object.entries(themeC).sort((a,b)=>b[1]-a[1]).slice(0,6);
+  const H = 380, lx = 250, mx = 500, tx = 760, top = 44, bot = 350;
+  const maxC = Math.max(...chans.map(c=>c.credited), 1);
+  const maxT = Math.max(...themes.map(t=>t[1]), 1);
+  const yspread = (i, n) => top + (n<=1 ? (bot-top)/2 : i*(bot-top)/(n-1));
+  const midY = (top+bot)/2;
+  // mirror node
+  el('rect', {x:mx-8, y:midY-70, width:16, height:140, fill:'#2a1712', stroke:'#ff4a36'});
+  el('text', {x:mx, y:midY-78, 'text-anchor':'middle', fill:'#ff4a36', 'font-size':11, 'letter-spacing':'1.5'}, 'PRAVDA MIRROR');
+  // channel -> mirror edges + labels
+  chans.forEach((c, i) => {
+    const y = yspread(i, chans.length);
+    const col = c.tracked ? '#6ea8d8' : '#5a4a44';
+    el('path', { d:`M ${lx} ${y} C ${(lx+mx)/2} ${y}, ${(lx+mx)/2} ${midY}, ${mx-8} ${midY+(y-midY)*.35}`,
+      fill:'none', stroke:col, 'stroke-width':Math.max(1, c.credited/maxC*9), 'stroke-opacity':.5 });
+    const lbl = el('text', {x:lx-10, y:y+4, 'text-anchor':'end', class:'chlbl', fill: c.tracked?'#6ea8d8':'#e9e4da'}, c.ch);
+    lbl.addEventListener('click', () => { state.channel = state.channel===c.ch ? null : c.ch; render(); });
+    el('text', {x:lx-10, y:y+16, 'text-anchor':'end', class:'sub'}, `${c.credited}×${c.tracked?' · ●live':''}`);
+  });
+  el('text', {x:lx-10, y:26, 'text-anchor':'end', fill:'#6ea8d8', 'font-size':10, 'letter-spacing':'1.5'}, 'TELEGRAM ORIGINS');
+  // mirror -> theme edges
+  themes.forEach(([t, n], i) => {
+    const y = yspread(i, themes.length);
+    el('path', { d:`M ${mx+8} ${midY+(y-midY)*.35} C ${(mx+tx)/2} ${midY}, ${(mx+tx)/2} ${y}, ${tx} ${y}`,
+      fill:'none', stroke: PAY.has(t)?'#ff4a36':'#8b93a3', 'stroke-width':Math.max(1, n/maxT*9), 'stroke-opacity':.4 });
+    el('text', {x:tx+10, y:y+4, fill: PAY.has(t)?'#ff4a36':'#8b93a3'}, t);
+    el('text', {x:tx+10, y:y+16, class:'sub'}, `${n}×`);
+  });
+  el('text', {x:tx+10, y:26, fill:'#8b93a3', 'font-size':10, 'letter-spacing':'1.5'}, 'THEMES');
+}
+
+function bothEnds(){
+  const box = $('flow-both');
+  if (!state.channel){ box.innerHTML = ''; return; }
+  const ch = state.channel;
+  const origin = ALL.filter(s => originChannel(s)===ch).slice(0, 5);
+  const mirror = ALL.filter(s => creditedChannel(s)===ch).slice(0, 5);
+  const itHtml = s => `<div class="it"><div class="d">${esc(s.date)} · ${PAY.has(s.theme)?'payload · '+esc(s.theme):'filler'}</div><div class="t">${esc(s.title)}</div></div>`;
+  box.innerHTML =
+    `<button class="close">× close both-ends view of @${esc(ch)}</button>` +
+    `<div class="both">` +
+    `<div class="col origin"><div class="h2">◀ origin · @${esc(ch)} ${origin.length?'('+origin.length+' captured posts)':'(not captured live)'}</div>` +
+      (origin.length ? origin.map(itHtml).join('') : '<div class="empty" style="padding:.5rem 0">We do not capture this channel\'s origin feed — only the mirror\'s credit to it.</div>') + `</div>` +
+    `<div class="col mirror"><div class="h2">mirror articles crediting it ▶ (${mirror.length})</div>` +
+      (mirror.length ? mirror.map(itHtml).join('') : '<div class="empty">—</div>') + `</div></div>`;
+  box.querySelector('.close').addEventListener('click', () => { state.channel = null; render(); });
+}
+
 function render(){
   const rows = filtered();
-  tiles(rows); tierBoxes(rows); themesChart(rows); daysChart(rows); matrix(rows); list(rows); chips();
+  tiles(rows); tierBoxes(rows); flow(); bothEnds(); themesChart(rows); daysChart(rows); matrix(rows); list(rows); chips();
   $('clear').classList.toggle('on', active());
   const hrs = (Date.now()-new Date(D.captured_at).getTime())/3.6e6;
   const st = $('stale');
@@ -370,7 +470,7 @@ function render(){
 $('q').addEventListener('input', e => { state.q = e.target.value.trim().toLowerCase(); render(); });
 $('sort').addEventListener('change', render);
 $('clear').addEventListener('click', () => {
-  state.q=''; state.tier='all'; state.theme='all'; state.day='all'; state.origin='all';
+  state.q=''; state.tier='all'; state.theme='all'; state.day='all'; state.origin='all'; state.channel=null;
   $('q').value=''; render();
 });
 render();
