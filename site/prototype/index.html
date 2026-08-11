@@ -1184,7 +1184,7 @@ document.querySelectorAll('.cf-open').forEach(b =>
       <div class="nm">${esc(c.name)}</div>
       <div class="meta">${confMeter(c.attribution?.confidence)}
         <span style="color:${conf.color}">${esc((c.attribution?.confidence || '').toUpperCase())}</span>
-        <span>· ${c.sources.length} sources</span></div>`;
+        <span>· ${c.sources.length} source${c.sources.length === 1 ? '' : 's'}</span></div>`;
     btn.addEventListener('click', () => openCase(c.id));
     grid.appendChild(btn);
   }
@@ -1660,17 +1660,25 @@ setTimeout(async () => {
       `<span style="color:var(--signal)">▉ May–Jun</span></div>`);
 
     const A = DT.attribution, L = DT.live_cross_check;
-    const alive = L ? L.origin_channels_we_scrape.slice(0, 3)
-                       .reduce((a, o) => a + o.captured_now, 0) : 0;
+    const pct = n => Math.abs(n) + '%';
+    const grewTxt = DT.sources.filter(s => s.change_pct > 0)
+      .sort((a, b) => b.change_pct - a.change_pct).slice(0, 2)
+      .map(s => pct(s.change_pct)).join('% and ').replace('%%', '%') || 'slightly';
+    const fellTxt = DT.sources.filter(s => s.in_collapsed_set)
+      .sort((a, b) => a.change_pct - b.change_pct)
+      .map(s => pct(s.change_pct)).join(', ');
+    // keyed to the collapsed set in derive_diet.py — never "the busiest channels"
+    const alive = L ? L.collapsed_set_captured_now : 0;
     document.getElementById('diet-note').innerHTML =
       `Read as percentages this looks like a reshuffle — News Front and InfoDefense appear to double ` +
-      `their share. They didn't grow; <b>the denominator collapsed underneath them</b>. In articles ` +
-      `per day, three Hungarian-language aggregator channels fell 82%, 80% and 88%, and together are ` +
-      `<b>${Math.round(A.share_of_total_decline * 100)}% of the entire decline</b>. The ` +
-      `Russian-institutional feeds held or grew. ` +
+      `their share. In articles per day they grew ${grewTxt} — <b>the rest is the denominator ` +
+      `collapsing underneath them</b>. Three Hungarian-language aggregator channels fell ` +
+      `${fellTxt}, and together are <b>${Math.round(A.share_of_total_decline * 100)}% of the ` +
+      `entire decline</b>. ` +
       (L ? `And this project scrapes those three channels directly: they published <b>${alive} posts</b> ` +
-           `on the day of this capture, while the mirror credited them ${L.collapsed_set_credited_now} ` +
-           `time in ${L.mirror_articles_in_snapshot} sampled articles. The material did not stop being ` +
+           `on the day of this capture, while the mirror credited them ` +
+           `${L.collapsed_set_credited_now === 1 ? 'just once' : L.collapsed_set_credited_now + ' times'} ` +
+           `in ${L.mirror_articles_in_snapshot} sampled articles. The material did not stop being ` +
            `available — <b>the mirror changed what it eats.</b> ` : '') +
       `<b>Limits:</b> ${esc(DT.cannot_show)}`;
   }
@@ -1720,7 +1728,15 @@ setTimeout(async () => {
           `<span><i style="background:${COL[k][0]}"></i>${esc(COL[k][1])} · ` +
           `${(b.share*100).toFixed(b.share < .01 ? 3 : 1)}%</span>`);
       }
-      const acct = P.hungarian_progov_account_sources.map(s => `${esc(s.source)} (${s.articles})`).join(', ');
+      const acct = P.hungarian_progov_account_sources
+        .map(s => s.articles.toLocaleString('en-US') + ' times').join(' and ');
+      // the sweep list carries several match patterns per outlet ("magyar nemzet",
+      // "magyarnemzet"); dedupe before printing or the thoroughness sentence stutters
+      const seenPress = new Set();
+      const pressList = P.swept_for_press.filter(x => {
+        const k = x.replace(/[\s.]+/g, '').toLowerCase();
+        return seenPress.has(k) ? false : (seenPress.add(k), true);
+      }).slice(0, 6);
       const shareOf = k => {
         const b = P.buckets.find(x => x.bucket === k);
         return b ? (b.share * 100).toFixed(2) + '%' : '0%';
@@ -1729,9 +1745,10 @@ setTimeout(async () => {
         `Across <b>${P.total_articles.toLocaleString('en-US')}</b> articles and <b>${P.credited_sources}</b> ` +
         `credited sources — which together account for <b>100%</b> of the mirror's output — the Hungarian ` +
         `pro-government <b>press</b> appears <b>zero times</b>. We swept for ` +
-        `${P.swept_for_press.slice(0, 6).map(esc).join(', ')} and others: nothing. ` +
+        `${pressList.map(esc).join(', ')} and others: nothing. ` +
         `<b>It is not a clean zero.</b> One prominent pro-government commentator's personal channel is ` +
-        `credited ${acct} — ${shareOf('hungarian_progov_account')} — and nationalist-fringe channels a further ` +
+        `credited ${acct} — ${shareOf('hungarian_progov_account')} of the mirror's output — and ` +
+        `nationalist-fringe channels a further ` +
         `${shareOf('hungarian_fringe')}. So a thread exists; a pipeline does not. ` +
         `<b>Scope:</b> one network, one direction, its own credit labels, this window. It does not show Russian ` +
         `influence was absent — Storm-1516 and Matryoshka targeted Hungary directly. It shows the domestic ` +

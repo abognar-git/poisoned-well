@@ -26,6 +26,8 @@ Honest limits, all shipped with the output:
     and 70% after, so the tail is invisible and the attribution is of the visible portion.
   * Our live capture is a snapshot of today. It shows the channels are active NOW; it
     cannot show whether they were active during the May-June trough.
+  * The cross-check is keyed to COLLAPSED_SITE_IDS, never to "the busiest channels" —
+    see the note on that constant.
   * The count of mirror articles in a single capture is small (tens), so what the mirror
     currently credits is indicative, not a measured distribution.
 """
@@ -47,6 +49,12 @@ AFTER = ("2026-05-01", "2026-06-30")
 COLLAPSED = ["Telegram: oroszokazigazsagoldalan",
              "Telegram: ebredes2017",
              "Telegram: greatawakeningmagyarok"]
+
+# the same three channels as our own capture names them. The cross-check MUST be keyed
+# to this set: an earlier version summed the three most-captured origin channels, which
+# were Baltnews, Lomovka and Zvezda — the feeds that never went quiet — and so "proved"
+# the abandoned channels were alive using the output of channels that never stopped.
+COLLAPSED_SITE_IDS = {"tg-oroszigazsag", "tg-ebredes", "tg-greatawaken"}
 
 
 def main() -> int:
@@ -104,6 +112,11 @@ def main() -> int:
         live = {
             "captured_at": sp.get("captured_at"),
             "origin_channels_we_scrape": sorted(origins, key=lambda x: -x["captured_now"]),
+            "collapsed_set_site_ids": sorted(COLLAPSED_SITE_IDS),
+            "collapsed_set_captured_now": sum(o["captured_now"] for o in origins
+                                              if o["site"] in COLLAPSED_SITE_IDS),
+            "collapsed_set_tracked": sorted(o["site"] for o in origins
+                                            if o["site"] in COLLAPSED_SITE_IDS),
             "mirror_articles_in_snapshot": len(mirror_items),
             "mirror_currently_credits": [{"channel": c, "n": n} for c, n in credits.most_common()],
             "collapsed_set_credited_now": sum(
@@ -134,7 +147,7 @@ def main() -> int:
                     "and now carries the mirror's recovery, is the Russian-origin institutional "
                     "layer. Our own scraping finds the abandoned channels still publishing, so "
                     "this is not a supply failure — the mirror's diet changed."),
-        "cannot_show": ("Why. And note the limits: the per-source series covers the top 10 sources "
+        "cannot_show": ("the per-source series covers the top 10 sources "
                         "only (80% of baseline articles, 70% after), our live capture proves those "
                         "channels are active today but not that they were active during the trough, "
                         "and the mirror articles in a single snapshot number only tens."),
@@ -148,9 +161,9 @@ def main() -> int:
         print(f"   {s['source'][:44]:46} {s['baseline_per_day']:6.1f} -> {s['after_per_day']:5.1f} "
               f"({s['change_pct']:+d}%)")
     if live:
-        print(f"   live: those channels captured {sum(o['captured_now'] for o in live['origin_channels_we_scrape'][:3])} "
-              f"posts today; mirror credited them {live['collapsed_set_credited_now']}× "
-              f"in {live['mirror_articles_in_snapshot']} sampled articles")
+        print(f"   live: the collapsed set ({', '.join(live['collapsed_set_tracked'])}) "
+              f"published {live['collapsed_set_captured_now']} posts today; mirror credited them "
+              f"{live['collapsed_set_credited_now']}× in {live['mirror_articles_in_snapshot']} sampled articles")
     return 0
 
 
