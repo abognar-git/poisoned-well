@@ -263,8 +263,6 @@
     margin-top:.35rem; margin-right:.35rem}
   .spec .theme.payload{color:var(--signal); border:1px solid rgba(255,74,54,.4)}
   .spec .theme.filler{color:var(--muted); border:1px solid var(--hairline)}
-  .spec .path{font-family:"IBM Plex Mono",monospace; font-size:.58rem; color:var(--muted); opacity:.6;
-    margin-top:.25rem; word-break:break-all; user-select:all}
   .spec-note{font-family:"Newsreader",serif; font-style:italic; font-size:.82rem; line-height:1.55;
     color:var(--muted); margin-top:1rem}
   .spec-note b{color:var(--amber); font-style:normal; font-weight:500}
@@ -1070,8 +1068,7 @@ try {
         : '';
       el.innerHTML =
         `<div class="meta"><span class="cat">${esc(s.category)}</span><br>${esc(s.date)}<br>#${s.id}</div>` +
-        `<div><div class="title">${esc(s.title)}</div>${themeTag}` +
-        `<div class="path">/en/${esc(s.category)}/${esc(s.date).replaceAll('-', '/')}/${s.id}.html — not a link</div></div>`;
+        `<div><div class="title">${esc(s.title)}</div>${themeTag}</div>`;
       list.appendChild(el);
     }
     const pn = spec.payload_count;
