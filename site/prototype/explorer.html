@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Poisoned Well — corpus explorer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#06080d; --bg2:#0b1018; --paper:#e9e4da; --muted:#8b93a3;
+    --hairline:rgba(233,228,218,.10); --signal:#ff4a36; --analyst:#6ea8d8; --amber:#d9a05b;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  body{background:var(--bg); color:var(--paper); font-family:"Newsreader",Georgia,serif;
+    font-weight:300; -webkit-font-smoothing:antialiased}
+  .mono{font-family:"IBM Plex Mono",ui-monospace,monospace}
+  a{color:inherit}
+
+  header{display:flex; justify-content:space-between; align-items:baseline; padding:1.4rem 2rem;
+    border-bottom:1px solid var(--hairline)}
+  header .wordmark{font-family:"IBM Plex Mono",monospace; font-size:.78rem; letter-spacing:.34em;
+    color:var(--paper); text-decoration:none}
+  header .wordmark b{color:var(--signal); font-weight:500}
+  header .back{font-family:"IBM Plex Mono",monospace; font-size:.62rem; letter-spacing:.18em;
+    color:var(--muted); text-decoration:none}
+  header .back:hover{color:var(--paper)}
+
+  .wrap{max-width:1150px; margin:0 auto; padding:0 2rem 5rem}
+  .lede{padding:3rem 0 2rem}
+  .lede .no{font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.3em; color:var(--signal)}
+  .lede h1{font-family:"Instrument Serif",Georgia,serif; font-weight:400;
+    font-size:clamp(2rem,4.5vw,3.2rem); margin:.6rem 0 .8rem}
+  .lede p{color:var(--muted); max-width:44rem; line-height:1.6; font-size:1.02rem}
+
+  .tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr)); gap:.8rem; margin:1.6rem 0}
+  .tile{border:1px solid var(--hairline); background:rgba(13,17,26,.55); padding:.95rem 1.05rem}
+  .tile .v{font-family:"IBM Plex Mono",monospace; font-size:1.5rem; font-weight:500; color:var(--paper)}
+  .tile .v.sig{color:var(--signal)} .tile .v.amb{color:var(--amber)}
+  .tile .k{font-family:"IBM Plex Mono",monospace; font-size:.56rem; letter-spacing:.18em;
+    color:var(--muted); text-transform:uppercase; margin-top:.35rem; line-height:1.5}
+
+  #stale{font-family:"IBM Plex Mono",monospace; font-size:.64rem; color:var(--amber);
+    border:1px solid rgba(217,160,91,.4); background:rgba(217,160,91,.06); border-radius:2px;
+    padding:.5rem .7rem; margin:.4rem 0 1rem; display:none}
+  #stale.on{display:block}
+
+  .controls{display:flex; align-items:center; gap:.7rem; flex-wrap:wrap; padding:1rem 0;
+    border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline); position:sticky;
+    top:0; background:var(--bg); z-index:10}
+  #q{flex:1 1 15rem; min-width:11rem; background:rgba(13,17,26,.7); border:1px solid var(--hairline);
+    border-radius:2px; color:var(--paper); font-family:"IBM Plex Mono",monospace; font-size:.72rem;
+    padding:.5rem .7rem; outline:none}
+  #q:focus{border-color:var(--analyst)}
+  #q::placeholder{color:var(--muted)}
+  .chip{font-family:"IBM Plex Mono",monospace; font-size:.58rem; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--muted); background:none; border:1px solid var(--hairline); border-radius:2px;
+    padding:.35em .6em; cursor:pointer}
+  .chip:hover{border-color:var(--muted)}
+  .chip.on{color:var(--paper); border-color:var(--analyst); background:rgba(110,168,216,.1)}
+  select{background:rgba(13,17,26,.7); border:1px solid var(--hairline); border-radius:2px;
+    color:var(--muted); font-family:"IBM Plex Mono",monospace; font-size:.62rem; padding:.4rem .5rem}
+  #clear{font-family:"IBM Plex Mono",monospace; font-size:.58rem; color:var(--signal); background:none;
+    border:none; cursor:pointer; letter-spacing:.08em; display:none}
+  #clear.on{display:inline}
+
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; margin:1.8rem 0}
+  @media(max-width:900px){.grid2{grid-template-columns:1fr}}
+  .panel{border:1px solid var(--hairline); background:rgba(13,17,26,.45); padding:1.2rem 1.3rem}
+  .panel .h{font-family:"IBM Plex Mono",monospace; font-size:.6rem; letter-spacing:.24em;
+    color:var(--muted); text-transform:uppercase; margin-bottom:1rem}
+  .panel .h b{color:var(--paper); font-weight:500}
+  .hint{font-family:"IBM Plex Mono",monospace; font-size:.55rem; color:var(--muted); opacity:.75; margin-top:.7rem}
+
+  .hbar{display:grid; grid-template-columns:6.5rem 1fr 2.6rem; align-items:center; gap:.6rem;
+    margin:.4rem 0; cursor:pointer}
+  .hbar .lbl{font-family:"IBM Plex Mono",monospace; font-size:.62rem; color:var(--paper); text-align:right}
+  .hbar .track{height:14px; background:rgba(233,228,218,.05)}
+  .hbar .fill{height:100%; background:rgba(255,74,54,.55)}
+  .hbar.filler-row .fill{background:rgba(139,147,163,.35)}
+  .hbar .n{font-family:"IBM Plex Mono",monospace; font-size:.62rem; color:var(--muted)}
+  .hbar:hover .lbl{color:var(--signal)}
+  .hbar.sel .lbl{color:var(--analyst)}
+
+  .days{display:flex; align-items:flex-end; gap:4px; height:90px; padding-top:.4rem}
+  .day{flex:1; display:flex; flex-direction:column; align-items:center; gap:.3rem; cursor:pointer}
+  .day i{width:100%; background:rgba(255,74,54,.45); border-radius:1px 1px 0 0; min-height:2px}
+  .day.sel i{background:var(--analyst)}
+  .day:hover i{background:var(--signal)}
+  .day span{font-family:"IBM Plex Mono",monospace; font-size:.5rem; color:var(--muted);
+    writing-mode:vertical-rl; transform:rotate(180deg)}
+
+  .mx{width:100%; border-collapse:collapse; font-family:"IBM Plex Mono",monospace; font-size:.6rem}
+  .mx th{color:var(--muted); font-weight:400; text-transform:uppercase; letter-spacing:.08em;
+    padding:.3rem .4rem; text-align:center; cursor:pointer}
+  .mx th:first-child{text-align:left}
+  .mx th:hover{color:var(--signal)}
+  .mx td{padding:.3rem .4rem; text-align:center; color:var(--paper)}
+  .mx td.origin{text-align:left; color:var(--amber); cursor:pointer; white-space:nowrap;
+    max-width:12rem; overflow:hidden; text-overflow:ellipsis}
+  .mx td.origin:hover{color:var(--signal)}
+  .mx tr.sel td.origin{color:var(--analyst)}
+  .mx td.cell{min-width:2.2rem}
+
+  #list{margin-top:1.6rem}
+  #count{font-family:"IBM Plex Mono",monospace; font-size:.62rem; color:var(--muted);
+    letter-spacing:.14em; margin:1.4rem 0 .4rem}
+  .spec{display:grid; grid-template-columns:6rem 1fr; gap:.2rem 1rem; align-items:baseline;
+    padding:.8rem 0; border-bottom:1px solid rgba(233,228,218,.06)}
+  .spec .meta{font-family:"IBM Plex Mono",monospace; font-size:.6rem; line-height:1.5; color:var(--muted)}
+  .spec .meta .cat{color:var(--amber); text-transform:uppercase; letter-spacing:.1em}
+  .spec .site{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:.54rem;
+    letter-spacing:.14em; text-transform:uppercase; margin-bottom:.25rem}
+  .spec .site.pravda{color:var(--signal)} .spec .site.newsfront{color:var(--amber)}
+  .spec .title{font-family:"Newsreader",serif; font-size:1rem; line-height:1.4; color:var(--paper)}
+  .spec .tag{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:.54rem;
+    letter-spacing:.1em; text-transform:uppercase; border:1px solid var(--hairline); border-radius:2px;
+    padding:.2em .45em; margin:.35rem .3rem 0 0; color:var(--muted)}
+  .spec .tag.pay{color:var(--signal); border-color:rgba(255,74,54,.4)}
+  .spec .lnd{font-family:"IBM Plex Mono",monospace; font-size:.58rem; color:var(--muted); margin-top:.3rem}
+  .spec .lnd b{color:var(--amber); font-weight:500}
+  .empty{font-family:"Newsreader",serif; font-style:italic; color:var(--muted); padding:2rem 0}
+
+  footer{border-top:1px solid var(--hairline); margin-top:3rem; padding:1.6rem 0}
+  footer p{font-family:"Newsreader",serif; font-style:italic; font-size:.84rem; line-height:1.6; color:var(--muted)}
+  footer b{color:var(--amber); font-style:normal; font-weight:500}
+  footer a{color:var(--analyst)}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="wordmark" href="index.html">POISONED<b>WELL</b></a>
+  <a class="back" href="index.html#specimens-sec">← BACK TO THE STORY</a>
+</header>
+
+<div class="wrap">
+  <div class="lede">
+    <div class="no">EVIDENCE ROOM · LIVE CORPUS</div>
+    <h1>The corpus explorer</h1>
+    <p>Every specimen captured from documented Hungary-targeting pro-Kremlin sources, as data.
+       Search it, slice it by source, theme, day or laundering origin — every chart recomputes
+       from your selection, and every row is a real article they published.</p>
+  </div>
+
+  <div class="tiles" id="tiles"></div>
+  <div id="stale"></div>
+
+  <div class="controls">
+    <input id="q" type="search" placeholder="search headlines…" autocomplete="off" aria-label="search corpus">
+    <div id="chips" style="display:flex;gap:.4rem;flex-wrap:wrap"></div>
+    <select id="sort" aria-label="sort">
+      <option value="new">newest first</option>
+      <option value="old">oldest first</option>
+      <option value="theme">by theme</option>
+    </select>
+    <button id="clear">× clear filters</button>
+  </div>
+
+  <div class="grid2">
+    <div class="panel">
+      <div class="h">THEMES IN SELECTION · <b id="th-n"></b></div>
+      <div id="themes"></div>
+      <div class="hint">click a bar to filter by that theme</div>
+    </div>
+    <div class="panel">
+      <div class="h">SPECIMENS PER DAY</div>
+      <div class="days" id="days"></div>
+      <div class="hint">click a day to filter · capture window only, not total output</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="h">LAUNDERING MATRIX · origin credited by the article × headline theme</div>
+    <div style="overflow-x:auto"><table class="mx" id="matrix"></table></div>
+    <div class="hint">click an origin or a column to filter · "News Front (direct)" is a primary outlet, not a laundering credit</div>
+  </div>
+
+  <div id="count"></div>
+  <div id="list"></div>
+
+  <footer>
+    <p>Same rules as the story page: specimens are shown as <b>evidence, not endorsement</b>; nothing here
+    links to a propaganda domain; personal-smear items are withheld; theme tags are a disclosed keyword
+    heuristic (topic, not intent). The corpus is captured server-side on a schedule — full method, claims
+    and sources on the <a href="index.html">main page</a> and in the repository.</p>
+  </footer>
+</div>
+
+<script>
+(async () => {
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const fmt = n => Number(n).toLocaleString('en-US');
+const PAY = new Set(['hungary','ukraine','russia','eu/nato','energy']);
+const SITE = { 'pravda-hu':{cls:'pravda',label:'Pravda network'},
+               'newsfront-hu':{cls:'newsfront',label:'News Front'} };
+
+let D, live;
+try {
+  [D, live] = await Promise.all([
+    fetch('/data/derived/latest_specimens.json', {cache:'no-store'}).then(r=>r.json()),
+    fetch('/data/derived/live_status.json', {cache:'no-store'}).then(r=>r.json()).catch(()=>null),
+  ]);
+} catch { document.body.innerHTML = '<p style="padding:3rem;font-family:monospace">corpus unavailable</p>'; return; }
+
+const ALL = [...(D.featured||[]), ...(D.corpus||[])];
+const originOf = s => s.source ? (s.source.platform + (s.source.channel ? ' · ' + s.source.channel : ''))
+                    : (s.site === 'newsfront-hu' ? 'News Front (direct)' : 'untraced');
+
+const state = { q:'', site:'all', theme:'all', day:'all', origin:'all' };
+const active = () => state.q||state.site!=='all'||state.theme!=='all'||state.day!=='all'||state.origin!=='all';
+
+const filtered = () => ALL.filter(s =>
+  (state.site==='all'   || s.site===state.site) &&
+  (state.theme==='all'  || (state.theme==='__pay' ? PAY.has(s.theme) : state.theme==='__fill' ? !PAY.has(s.theme) : s.theme===state.theme)) &&
+  (state.day==='all'    || s.date===state.day) &&
+  (state.origin==='all' || originOf(s)===state.origin) &&
+  (!state.q || s.title.toLowerCase().includes(state.q)));
+
+const agoStr = iso => {
+  const m = Math.max(0, Math.round((Date.now()-new Date(iso).getTime())/60000));
+  return m<60 ? m+' min ago' : m<2880 ? Math.round(m/60)+' hr ago' : Math.round(m/1440)+' days ago';
+};
+
+function tiles(rows){
+  const pn = rows.filter(s=>PAY.has(s.theme)).length;
+  const hu = live?.mirrors?.['hungary.news-pravda.com'];
+  $('tiles').innerHTML = [
+    ['sig', rows.length, 'specimens in selection'],
+    ['',    Object.keys(D.sources).length, 'attributed sources'],
+    ['sig', rows.length ? Math.round(pn/rows.length*100)+'%' : '—', 'payload share'],
+    ['amb', D.today_live_count, 'seen live on ' + D.latest_day],
+    ['',    hu ? fmt(hu.total) : '—', 'all-time (CheckFirst)'],
+    ['',    agoStr(D.captured_at), 'last capture'],
+  ].map(([c,v,k]) => `<div class="tile"><div class="v ${c}">${v}</div><div class="k">${k}</div></div>`).join('');
+}
+
+function themesChart(rows){
+  const counts = {};
+  for (const s of rows) counts[s.theme] = (counts[s.theme]||0)+1;
+  const entries = Object.entries(counts).sort((a,b)=>b[1]-a[1]);
+  const max = Math.max(...entries.map(e=>e[1]), 1);
+  $('th-n').textContent = entries.length + ' themes';
+  $('themes').innerHTML = entries.map(([t,n]) =>
+    `<div class="hbar ${PAY.has(t)?'':'filler-row'} ${state.theme===t?'sel':''}" data-t="${esc(t)}">
+       <div class="lbl">${esc(t)}</div>
+       <div class="track"><div class="fill" style="width:${n/max*100}%"></div></div>
+       <div class="n">${n}</div></div>`).join('') || '<div class="empty">—</div>';
+  [...$('themes').querySelectorAll('.hbar')].forEach(b =>
+    b.addEventListener('click', () => { state.theme = state.theme===b.dataset.t ? 'all' : b.dataset.t; render(); }));
+}
+
+function daysChart(rows){
+  const counts = {};
+  for (const s of rows) counts[s.date] = (counts[s.date]||0)+1;
+  const days = Object.keys(counts).sort();
+  const max = Math.max(...Object.values(counts), 1);
+  $('days').innerHTML = days.map(d =>
+    `<div class="day ${state.day===d?'sel':''}" data-d="${d}" title="${d}: ${counts[d]}">
+       <i style="height:${Math.max(3, counts[d]/max*62)}px"></i><span>${d.slice(5)}</span></div>`).join('')
+    || '<div class="empty">—</div>';
+  [...$('days').querySelectorAll('.day')].forEach(b =>
+    b.addEventListener('click', () => { state.day = state.day===b.dataset.d ? 'all' : b.dataset.d; render(); }));
+}
+
+function matrix(rows){
+  const themes = [...new Set(rows.map(s=>s.theme))].sort((a,b)=>(PAY.has(b)?1:0)-(PAY.has(a)?1:0));
+  const by = {};
+  for (const s of rows){
+    const o = originOf(s);
+    by[o] = by[o] || {n:0};
+    by[o].n++; by[o][s.theme] = (by[o][s.theme]||0)+1;
+  }
+  const origins = Object.entries(by).sort((a,b)=>b[1].n-a[1].n).slice(0,10);
+  const maxCell = Math.max(...origins.flatMap(([,v]) => themes.map(t=>v[t]||0)), 1);
+  $('matrix').innerHTML =
+    `<tr><th>origin</th>${themes.map(t=>`<th data-t="${esc(t)}">${esc(t)}</th>`).join('')}<th>total</th></tr>` +
+    origins.map(([o,v]) =>
+      `<tr class="${state.origin===o?'sel':''}"><td class="origin" data-o="${esc(o)}" title="${esc(o)}">${esc(o)}</td>${
+        themes.map(t => { const n=v[t]||0;
+          return `<td class="cell" style="background:rgba(255,74,54,${n?(.08+.4*n/maxCell).toFixed(2):0})">${n||''}</td>`; }).join('')
+      }<td style="color:var(--muted)">${v.n}</td></tr>`).join('');
+  [...$('matrix').querySelectorAll('td.origin')].forEach(c =>
+    c.addEventListener('click', () => { state.origin = state.origin===c.dataset.o ? 'all' : c.dataset.o; render(); }));
+  [...$('matrix').querySelectorAll('th[data-t]')].forEach(h =>
+    h.addEventListener('click', () => { state.theme = state.theme===h.dataset.t ? 'all' : h.dataset.t; render(); }));
+}
+
+function list(rows){
+  const sort = $('sort').value;
+  const sorted = [...rows];
+  if (sort==='new') sorted.sort((a,b)=> a.date===b.date ? (b.id||0)-(a.id||0) : (a.date<b.date?1:-1));
+  if (sort==='old') sorted.sort((a,b)=> a.date===b.date ? (a.id||0)-(b.id||0) : (a.date>b.date?1:-1));
+  if (sort==='theme') sorted.sort((a,b)=> (a.theme>b.theme?1:-1));
+  $('count').textContent = `${sorted.length} SPECIMEN${sorted.length===1?'':'S'}` + (active() ? ' · FILTERED' : '');
+  $('list').innerHTML = sorted.map(s => {
+    const site = SITE[s.site]||{cls:'',label:s.site};
+    const pay = PAY.has(s.theme);
+    const lnd = s.source
+      ? `<div class="lnd">↳ laundered from <b>${esc(originOf(s))}</b></div>`
+      : (s.site==='newsfront-hu' ? `<div class="lnd">↳ Crimea-based, sanctioned outlet — direct</div>` : '');
+    return `<div class="spec">
+      <div class="meta"><span class="cat">${esc(s.category)}</span><br>${esc(s.date)}${s.id?'<br>#'+s.id:''}</div>
+      <div><span class="site ${site.cls}">${esc(site.label)}</span>
+        <div class="title">${esc(s.title)}</div>
+        <span class="tag ${pay?'pay':''}">${pay ? 'payload · '+esc(s.theme) : 'camouflage · filler'}</span>${lnd}</div>
+    </div>`;
+  }).join('') || '<div class="empty">No specimens match this selection.</div>';
+}
+
+function chips(){
+  const mk = (group, val, label) => {
+    const b = document.createElement('button');
+    b.className = 'chip' + ((state[group]===val)?' on':'');
+    b.textContent = label; b.dataset.g = group; b.dataset.v = val;
+    b.addEventListener('click', () => { state[group] = val; render(); });
+    return b;
+  };
+  const c = $('chips'); c.innerHTML = '';
+  c.append(mk('site','all','all sources'));
+  for (const sid of Object.keys(D.sources)) c.append(mk('site',sid,SITE[sid]?.label||sid));
+  c.append(mk('theme','all','all'), mk('theme','__pay','payload'), mk('theme','__fill','filler'));
+}
+
+function render(){
+  const rows = filtered();
+  tiles(rows); themesChart(rows); daysChart(rows); matrix(rows); list(rows); chips();
+  $('clear').classList.toggle('on', active());
+  const hrs = (Date.now()-new Date(D.captured_at).getTime())/3.6e6;
+  const st = $('stale');
+  if (hrs>6){ st.classList.add('on');
+    st.textContent = hrs>48 ? `⚠ No successful capture in ${Math.round(hrs/24)} days — showing the last archived corpus.`
+                            : `⚠ Last successful capture ${agoStr(D.captured_at)} — showing archived corpus.`; }
+  else st.classList.remove('on');
+}
+
+$('q').addEventListener('input', e => { state.q = e.target.value.trim().toLowerCase(); render(); });
+$('sort').addEventListener('change', render);
+$('clear').addEventListener('click', () => {
+  state.q=''; state.site='all'; state.theme='all'; state.day='all'; state.origin='all';
+  $('q').value=''; render();
+});
+render();
+})();
+</script>
+</body>
+</html>

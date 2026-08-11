@@ -30,9 +30,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "derived" / "latest_specimens.json"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
-FEATURED = 8          # newest items shown with the full laundering trace
+FEATURED = 8          # newest items shown on the story page
 MIN_PAYLOAD = 2       # guarantee at least this many recent payload items among featured
 CORPUS_CAP = 90       # cap on the searchable corpus
+TRACE_CAP = 70        # max article pages fetched per run to trace laundering sources
 
 SMEAR = re.compile(r"\b(pedophil|paedophil|p[aä]edo|rapist|rape|molest|traffick|"
                    r"epstein|blackmail|corrupt(?:ion)? charges?)\b", re.I)
@@ -189,14 +190,18 @@ def main() -> int:
     featured.sort(key=sortkey, reverse=True)
     feat_urls = {r["url"] for r in featured}
 
-    # trace the laundering source for featured launderer items only (keeps fetches bounded)
-    for r in featured:
-        if SOURCES[r["site"]]["kind"] == "launderer":
-            try:
-                r["source"] = parse_source(fetch(r["url"]))
-            except Exception:
-                r["source"] = None
-            time.sleep(0.3)
+    # trace the laundering source for launderer items — featured first, then the rest
+    # of the corpus, bounded by TRACE_CAP article fetches per run
+    traced = 0
+    for r in featured + [r for r in corpus if r["url"] not in feat_urls]:
+        if SOURCES[r["site"]]["kind"] != "launderer" or traced >= TRACE_CAP:
+            continue
+        try:
+            r["source"] = parse_source(fetch(r["url"]))
+        except Exception:
+            r["source"] = None
+        traced += 1
+        time.sleep(0.3)
 
     latest_day = corpus[0]["date"]
     today_live = sum(1 for r in corpus if r["date"] == latest_day)

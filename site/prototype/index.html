@@ -296,7 +296,7 @@
   .chip.on{color:var(--paper); border-color:var(--analyst); background:rgba(110,168,216,.1)}
   #spec-toggle{font-family:"IBM Plex Mono",monospace; font-size:.6rem; letter-spacing:.08em;
     color:var(--signal); background:none; border:1px solid rgba(255,74,54,.35); border-radius:2px;
-    padding:.4em .7em; cursor:pointer; margin-left:auto}
+    padding:.4em .7em; cursor:pointer; margin-left:auto; text-decoration:none; display:inline-block}
   #spec-toggle:hover{background:rgba(255,74,54,.1)}
   .spec-empty{font-family:"Newsreader",serif; font-style:italic; color:var(--muted); padding:1.5rem 0}
   .spec-note{font-family:"Newsreader",serif; font-style:italic; font-size:.82rem; line-height:1.55;
@@ -526,7 +526,7 @@
     <div id="spec-controls">
       <input id="spec-search" type="search" placeholder="search headlines…" autocomplete="off" aria-label="search specimens">
       <div id="spec-chips"></div>
-      <button id="spec-toggle" type="button"></button>
+      <a id="spec-toggle" href="explorer.html">explore the corpus →</a>
     </div>
     <div id="spec-list"></div>
     <div class="spec-why">
@@ -1103,7 +1103,6 @@ try {
                  'newsfront-hu': { cls: 'newsfront', label: 'News Front' } };
   let capturedAt = null, DATA = null, ALL = [];
   const filters = { q: '', site: 'all', kind: 'all' };
-  let mode = 'featured';   // 'featured' | 'all'
 
   const renderVolume = () => {
     const days = timeline.series.filter(d => d[1] > 0).slice(-7);
@@ -1142,17 +1141,13 @@ try {
     (!filters.q || s.title.toLowerCase().includes(filters.q)));
   const renderList = () => {
     const searching = filters.q || filters.site !== 'all' || filters.kind !== 'all';
-    const src = (mode === 'all' || searching) ? ALL : DATA.featured;
-    const rows = applyFilters(src);
+    const rows = applyFilters(searching ? ALL : DATA.featured);
     const list = document.getElementById('spec-list');
     list.innerHTML = '';
     if (!rows.length) { list.innerHTML = '<div class="spec-empty">No specimens match.</div>'; return; }
     for (const s of rows) list.appendChild(specRow(s));
-    const tog = document.getElementById('spec-toggle');
-    tog.textContent = (mode === 'all' || searching)
-      ? `showing ${rows.length} of ${ALL.length} — show featured`
-      : `explore all ${ALL.length} →`;
-    tog.style.display = searching ? 'none' : '';
+    document.getElementById('spec-toggle').textContent =
+      searching ? `open ${rows.length} matches in the explorer →` : `explore the corpus (${ALL.length}) →`;
   };
   const tickAgo = () => {
     if (!capturedAt) return;
@@ -1187,9 +1182,6 @@ try {
     mk('kind', 'all', 'all'); mk('kind', 'payload', 'payload'); mk('kind', 'filler', 'filler');
     document.getElementById('spec-search').addEventListener('input', e => {
       filters.q = e.target.value.trim().toLowerCase(); renderList();
-    });
-    document.getElementById('spec-toggle').addEventListener('click', () => {
-      mode = mode === 'all' ? 'featured' : 'all'; renderList();
     });
   };
 
