@@ -378,6 +378,9 @@
   #net-hint{position:absolute; right:1.4rem; top:1.1rem; font-family:"IBM Plex Mono",monospace;
     font-size:.58rem; letter-spacing:.14em; color:var(--muted); pointer-events:none}
 
+  #drink-wrap{max-width:66rem; margin:0 auto 2.5rem; padding:0 2rem}
+  #drink-canvas{width:100%; height:52vh; min-height:320px; display:block; border:1px solid rgba(233,228,218,.05)}
+
   /* ---------- mechanism pipeline (Phase C) ---------- */
   .pipe{display:flex; align-items:stretch; justify-content:center; max-width:1150px;
     margin:1.5rem auto 0; padding:0 2rem}
@@ -600,6 +603,12 @@
     <h2>How propaganda reaches the machines</h2>
     <p>Five hops from a fringe Telegram post to an AI assistant's answer.
        Every hop is evidence-backed — click the § markers.</p>
+  </div>
+  <div id="drink-wrap">
+    <canvas id="drink-canvas" role="img" aria-label="Dotted vignette: crawler drones descend to the well, drink, and leave carrying a red tint"></canvas>
+    <p class="pipe-note" style="margin-top:.8rem">Nobody in the village drinks straight from the well anymore —
+      <b data-claim="crawl-contamination">the crawlers do.</b> They arrive neutral, drink, and leave carrying
+      what settled in the water. What they carry becomes answers.</p>
   </div>
   <div class="pipe">
     <div class="pnode"><div class="pico">✉</div><div class="pt">FRINGE TELEGRAM</div>
@@ -1346,6 +1355,28 @@ setTimeout(async () => {
   } catch { /* baked figures remain — the page never breaks on upstream failure */ }
 }, 2600);
 
+/* ---- shared scene kit: soft dot sprite, radial glow textures, postfx classes ---- */
+let POSTFX = null;   // set once by the hero scene; reused by every later vignette
+// every point is a soft radial glow, not a raw square GL point
+const softDot = (() => {
+  const c = document.createElement('canvas'); c.width = c.height = 64;
+  const x = c.getContext('2d');
+  const g = x.createRadialGradient(32, 32, 0, 32, 32, 32);
+  g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(.35, 'rgba(255,255,255,.55)');
+  g.addColorStop(1, 'rgba(255,255,255,0)');
+  x.fillStyle = g; x.fillRect(0, 0, 64, 64);
+  return new THREE.CanvasTexture(c);
+})();
+const radialTex = (r, g, b, a) => {
+  const c = document.createElement('canvas'); c.width = c.height = 128;
+  const x = c.getContext('2d');
+  const gr = x.createRadialGradient(64, 64, 2, 64, 64, 64);
+  gr.addColorStop(0, `rgba(${r},${g},${b},${a})`); gr.addColorStop(.6, `rgba(${r},${g},${b},${a*.35})`);
+  gr.addColorStop(1, `rgba(${r},${g},${b},0)`);
+  x.fillStyle = gr; x.fillRect(0, 0, 128, 128);
+  return new THREE.CanvasTexture(c);
+};
+
 /* ================= the well (gémeskút) ================= */
 const canvas = document.getElementById('well-canvas');
 try {
@@ -1365,6 +1396,7 @@ try {
       import('./vendor/postprocessing/RenderPass.js'),
       import('./vendor/postprocessing/UnrealBloomPass.js'),
     ]);
+    POSTFX = { EffectComposer, RenderPass, UnrealBloomPass };
     composer = new EffectComposer(renderer);
     composer.addPass(new RenderPass(scene, camera));
     composer.addPass(new UnrealBloomPass(new THREE.Vector2(1, 1), .55, .55, .32));
@@ -1375,26 +1407,6 @@ try {
   const LOOK = new THREE.Vector3(0, 2.1, 0);
   const LIGHT = new THREE.Vector3(-.45, .8, .6).normalize();   // moonlight
   const LIT = new THREE.Color(0xf4e6c4), SHADE = new THREE.Color(0x45536f);
-
-  // every point is a soft radial glow, not a raw square GL point
-  const softDot = (() => {
-    const c = document.createElement('canvas'); c.width = c.height = 64;
-    const x = c.getContext('2d');
-    const g = x.createRadialGradient(32, 32, 0, 32, 32, 32);
-    g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(.35, 'rgba(255,255,255,.55)');
-    g.addColorStop(1, 'rgba(255,255,255,0)');
-    x.fillStyle = g; x.fillRect(0, 0, 64, 64);
-    return new THREE.CanvasTexture(c);
-  })();
-  const radialTex = (r, g, b, a) => {
-    const c = document.createElement('canvas'); c.width = c.height = 128;
-    const x = c.getContext('2d');
-    const gr = x.createRadialGradient(64, 64, 2, 64, 64, 64);
-    gr.addColorStop(0, `rgba(${r},${g},${b},${a})`); gr.addColorStop(.6, `rgba(${r},${g},${b},${a*.35})`);
-    gr.addColorStop(1, `rgba(${r},${g},${b},0)`);
-    x.fillStyle = gr; x.fillRect(0, 0, 128, 128);
-    return new THREE.CanvasTexture(c);
-  };
 
   const well = new THREE.Group();
   scene.add(well);
@@ -1847,6 +1859,219 @@ try {
 } catch (err) {
   console.error('WebGL unavailable, hiding the well:', err);
   canvas.style.display = 'none';
+}
+
+/* ================= the drinkers (Act IV vignette) =================
+   Nobody draws from the well by hand anymore: crawler drones descend, drink,
+   and leave carrying a tint. Same dot language as the hero; no assembly — this
+   scene is already in progress when the reader arrives. */
+{
+  const dc = document.getElementById('drink-canvas');
+  try {
+    const renderer2 = new THREE.WebGLRenderer({canvas: dc, antialias:true, alpha:true, preserveDrawingBuffer:true});
+    renderer2.setPixelRatio(Math.min(devicePixelRatio, 2));
+    const scene2 = new THREE.Scene();
+    scene2.background = new THREE.Color(0x06080d);
+    const cam2 = new THREE.PerspectiveCamera(40, 1, .1, 100);
+    cam2.position.set(0, 2.6, 7.4);
+    const look2 = new THREE.Vector3(0, 1.05, 0);
+    let comp2 = null;
+    if (POSTFX) {
+      comp2 = new POSTFX.EffectComposer(renderer2);
+      comp2.addPass(new POSTFX.RenderPass(scene2, cam2));
+      comp2.addPass(new POSTFX.UnrealBloomPass(new THREE.Vector2(1, 1), .5, .55, .32));
+    }
+
+    const LIT2 = new THREE.Color(0xf4e6c4), SHA2 = new THREE.Color(0x45536f);
+    const L2 = new THREE.Vector3(-.45, .8, .6).normalize();
+    const cc2 = new THREE.Color();
+    const push2 = (P, C, x, y, z, nx, ny, nz, glow=1) => {
+      P.push(x + (Math.random()-.5)*.02, y + (Math.random()-.5)*.02, z + (Math.random()-.5)*.02);
+      const s = .52 + .48 * Math.max(0, nx*L2.x + ny*L2.y + nz*L2.z);
+      const d = Math.hypot(x, (y - 1) * .7, z);
+      cc2.copy(SHA2).lerp(LIT2, s)
+        .multiplyScalar(glow * Math.min(1.12, Math.max(.62, 1.12 - d*.1)) * (1.05 + Math.random()*.45));
+      C.push(cc2.r, cc2.g, cc2.b);
+    };
+    const member2 = (P, C, ax, ay, az, bx, by, bz, w, h, k=760) => {
+      const dx = bx-ax, dy = by-ay, dz = bz-az, L = Math.hypot(dx, dy, dz);
+      const ux = dx/L, uy = dy/L, uz = dz/L;
+      let sx, sy, sz;
+      if (Math.abs(uy) > .9) { sx = 1; sy = 0; sz = 0; }
+      else { const m = Math.hypot(uz, ux); sx = uz/m; sy = 0; sz = -ux/m; }
+      const tx = uy*sz - uz*sy, ty = uz*sx - ux*sz, tz = ux*sy - uy*sx;
+      const n = Math.max(50, Math.round(L * (w + h) * k));
+      for (let i = 0; i < n; i++) {
+        const t = Math.random()*L, f = Math.random(), g = Math.random() - .5;
+        let ox, oy, oz, nx, ny, nz;
+        if (f < .5) { const sg = f < .25 ? 1 : -1;
+          ox = sx*sg*w/2 + tx*g*h; oy = sy*sg*w/2 + ty*g*h; oz = sz*sg*w/2 + tz*g*h;
+          nx = sx*sg; ny = sy*sg; nz = sz*sg;
+        } else { const sg = f < .75 ? 1 : -1;
+          ox = tx*sg*h/2 + sx*g*w; oy = ty*sg*h/2 + sy*g*w; oz = tz*sg*h/2 + sz*g*w;
+          nx = tx*sg; ny = ty*sg; nz = tz*sg; }
+        push2(P, C, ax + ux*t + ox, ay + uy*t + oy, az + uz*t + oz, nx, ny, nz);
+      }
+    };
+    const mk2 = (P, C, size, opacity) => {
+      const g = new THREE.BufferGeometry();
+      g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(P), 3));
+      g.setAttribute('color', new THREE.BufferAttribute(new Float32Array(C), 3));
+      return new THREE.Points(g, new THREE.PointsMaterial({size, map:softDot, vertexColors:true,
+        transparent:true, opacity, blending:THREE.AdditiveBlending, depthWrite:false}));
+    };
+    const occ2 = new THREE.MeshBasicMaterial({color:0x0a0e16});   // opaque: no fade, no sort issue
+
+    {  // the crib, close up: log courses, corner posts, dark cores
+      const P = [], C = [];
+      const E = .85;
+      for (let r = 0; r < 6; r++) {
+        const y = .12 + r * .2;
+        member2(P, C, -E, y, -E,  E, y, -E, .11, .11);
+        member2(P, C, -E, y,  E,  E, y,  E, .11, .11);
+        member2(P, C, -E, y, -E, -E, y,  E, .11, .11);
+        member2(P, C,  E, y, -E,  E, y,  E, .11, .11);
+      }
+      for (const x of [-E, E]) for (const z of [-E, E])
+        member2(P, C, x, 0, z, x, 1.2, z, .1, .1);
+      scene2.add(mk2(P, C, .06, .95));
+      const wall = (ax, az, bx, bz) => {
+        const m = new THREE.Mesh(new THREE.BoxGeometry(
+          Math.abs(bx-ax) > 0 ? Math.abs(bx-ax)*.98 : .08, .9,
+          Math.abs(bz-az) > 0 ? Math.abs(bz-az)*.98 : .08), occ2);
+        m.position.set((ax+bx)/2, .55, (az+bz)/2);
+        scene2.add(m);
+      };
+      wall(-E, -E, E, -E); wall(-E, E, E, E); wall(-E, -E, -E, E); wall(E, -E, E, E);
+    }
+
+    // the water — bright, slowly swirling, with the contamination visible
+    const waterG2 = new THREE.Group();
+    waterG2.position.set(0, 1, 0);
+    {
+      const P = [], C = [];
+      for (let i = 0; i < 320; i++) {
+        const r = .72*Math.sqrt(Math.random()), a = Math.random()*Math.PI*2;
+        P.push(Math.cos(a)*r, (Math.random()-.5)*.03, Math.sin(a)*r);
+        cc2.setHex(0x6ea8d8).multiplyScalar(.5 + .6*Math.random());
+        C.push(cc2.r, cc2.g, cc2.b);
+      }
+      for (let i = 0; i < 46; i++) {
+        const r = .68*Math.sqrt(Math.random()), a = Math.random()*Math.PI*2;
+        P.push(Math.cos(a)*r, (Math.random()-.5)*.03, Math.sin(a)*r);
+        cc2.setHex(0xff4a36).multiplyScalar(.6 + .4*Math.random());
+        C.push(cc2.r, cc2.g, cc2.b);
+      }
+      waterG2.add(mk2(P, C, .07, 1));
+    }
+    const waterGlow2 = new THREE.Sprite(new THREE.SpriteMaterial({map:radialTex(110,168,216,.85),
+      transparent:true, opacity:.4, blending:THREE.AdditiveBlending, depthWrite:false}));
+    waterGlow2.position.set(0, .16, 0); waterGlow2.scale.set(2.4, 1.2, 1);
+    waterG2.add(waterGlow2);
+    scene2.add(waterG2);
+
+    {  // ground, contact darkening, horizon glow
+      const P = [], C = [];
+      for (let i = 0; i < 1600; i++) {
+        const r = 1.3 + 14*Math.pow(Math.random(), 1.5), a = Math.random()*Math.PI*2;
+        const x = Math.cos(a)*r, z = Math.sin(a)*r;
+        P.push(x, 0, z);
+        cc2.setHex(0x3a4a66).multiplyScalar((.35 + .65*Math.max(0, 1 - r/14)) * Math.min(1, .25 + Math.hypot(x, z)*.4));
+        C.push(cc2.r, cc2.g, cc2.b);
+      }
+      scene2.add(mk2(P, C, .05, .78));
+      const sh = new THREE.Mesh(new THREE.PlaneGeometry(3.6, 3),
+        new THREE.MeshBasicMaterial({map:radialTex(0,0,0,.62), transparent:true, depthWrite:false, opacity:.9}));
+      sh.rotation.x = -Math.PI/2; sh.position.y = .012;
+      scene2.add(sh);
+      const hg = new THREE.Sprite(new THREE.SpriteMaterial({map:radialTex(64,96,150,.5),
+        transparent:true, opacity:.5, blending:THREE.AdditiveBlending, depthWrite:false}));
+      hg.material.opacity = .35;
+      hg.position.set(0, 1, -12); hg.scale.set(24, 8, 1);
+      scene2.add(hg);
+    }
+
+    // the crawlers: enter neutral, descend, drink, leave carrying the tint
+    const NC = 12, CD = 7, PERIOD = 18;
+    const crGeo = new THREE.BufferGeometry();
+    const crPos = new Float32Array(NC*CD*3), crCol = new Float32Array(NC*CD*3);
+    crGeo.setAttribute('position', new THREE.BufferAttribute(crPos, 3));
+    crGeo.setAttribute('color', new THREE.BufferAttribute(crCol, 3));
+    crGeo.boundingSphere = new THREE.Sphere(new THREE.Vector3(0, 2, 0), 100);
+    const crPts = new THREE.Points(crGeo, new THREE.PointsMaterial({size:.14, map:softDot,
+      vertexColors:true, transparent:true, opacity:.95, blending:THREE.AdditiveBlending, depthWrite:false}));
+    crPts.frustumCulled = false;
+    scene2.add(crPts);
+    const BLUE2 = new THREE.Color(0x9fc3e8), REDT2 = new THREE.Color(0xff6a50);
+    const crawlers = [];
+    for (let i = 0; i < NC; i++) {
+      const ang = (i / NC) * Math.PI * 2;
+      crawlers.push({
+        phase: i / NC, bob: Math.random()*9,
+        sx: Math.cos(ang)*1.25, sz: Math.sin(ang)*1.25,
+        off: Array.from({length: CD}, () => [(Math.random()-.5)*.24, (Math.random()-.5)*.16, (Math.random()-.5)*.24]),
+      });
+    }
+    const sstep = (a, b, x) => {
+      const k = Math.min(1, Math.max(0, (x - a) / (b - a))); return k*k*(3 - 2*k);
+    };
+
+    const layout2 = () => {
+      const w = dc.clientWidth, h = dc.clientHeight;
+      renderer2.setSize(w, h, false);
+      if (comp2) { comp2.setPixelRatio(Math.min(devicePixelRatio, 2)); comp2.setSize(w, h); }
+      cam2.aspect = w / h; cam2.updateProjectionMatrix();
+      cam2.position.z = w / h < 1.15 ? 9.6 : 7.4;
+    };
+    layout2(); addEventListener('resize', layout2);
+
+    let vis2 = true;
+    new IntersectionObserver(([e]) => {
+      vis2 = e.isIntersecting;
+      dc.style.visibility = vis2 ? 'visible' : 'hidden';
+    }).observe(dc);
+
+    const clock2 = new THREE.Clock();
+    let px2 = 0;
+    if (!reduced) addEventListener('pointermove', e => { px2 = e.clientX/innerWidth - .5; });
+    renderer2.setAnimationLoop(() => {
+      if (!vis2) return;
+      const t = reduced ? 0 : clock2.getElapsedTime();
+      waterG2.rotation.y = -t * .16;
+      let sipping = 0;
+      for (let i = 0; i < NC; i++) {
+        const c = crawlers[i];
+        const u = reduced ? (i / NC) : ((t / PERIOD + c.phase) % 1);
+        const e1 = sstep(0, .3, u), e2 = sstep(.3, .42, u),
+              e3 = sstep(.58, .68, u), e4 = sstep(.68, 1, u);
+        if (u > .42 && u < .58) sipping++;
+        const cx = -9 + (c.sx + 9)*e1 + (9 - c.sx)*e4;
+        const cy = 4.2 + (2.05 - 4.2)*e1 - .72*e2 + .72*e3 + (4.6 - 2.05)*e4
+                 + Math.sin(t*1.7 + c.bob)*.07 + Math.sin(e1*Math.PI)*.5*(1 - e2);
+        const cz = c.sz * (1.5 - .5*e1 + .5*e4);
+        const tint = sstep(.44, .6, u) * (1 - 0);   // carried out the door
+        cc2.copy(BLUE2).lerp(REDT2, tint * .62);
+        for (let d = 0; d < CD; d++) {
+          const o = c.off[d], j = i*CD + d;
+          crPos[j*3]   = cx + o[0]*(1 + Math.sin(t*2.3 + d)*.18);
+          crPos[j*3+1] = cy + o[1]*(1 + Math.cos(t*2.1 + d)*.18);
+          crPos[j*3+2] = cz + o[2];
+          const fl = .8 + .35*Math.abs(Math.sin(t*9 + c.bob + d*2));
+          crCol[j*3] = cc2.r*fl; crCol[j*3+1] = cc2.g*fl; crCol[j*3+2] = cc2.b*fl;
+        }
+      }
+      crGeo.attributes.position.needsUpdate = true;
+      crGeo.attributes.color.needsUpdate = true;
+      waterGlow2.material.opacity = .38 + .1 * Math.min(2, sipping);
+      cam2.position.x += (px2*.9 - cam2.position.x) * .04;
+      cam2.lookAt(look2);
+      if (comp2) comp2.render(); else renderer2.render(scene2, cam2);
+    });
+  } catch (err) {
+    console.error('WebGL unavailable, hiding the drinkers vignette:', err);
+    const w = document.getElementById('drink-wrap');
+    if (w) w.style.display = 'none';
+  }
 }
 
 /* ================= Act I chart ================= */
