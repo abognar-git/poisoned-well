@@ -578,7 +578,7 @@
 <!-- Act III: the infrastructure network graph (section id kept as act2 for its JS/CSS) -->
 <section id="act2">
   <div class="act-divider" style="padding:7rem 2rem 1.5rem">
-    <div class="no">ACT III · PREVIEW</div>
+    <div class="no">ACT III · THE NETWORK</div>
     <h2>The infrastructure, walkable</h2>
     <p>Sponsors, operators, operations, platforms and targets from every case file — one graph,
        generated from the catalog, never drawn by hand. Drag to rotate. Click any node.</p>
@@ -589,6 +589,15 @@
     <div id="net-hint">DRAG · HOVER · CLICK</div>
     <div id="net-legend"></div>
   </div>
+
+  <div class="act-divider" style="padding:6rem 2rem 3rem">
+    <div class="no">ACT III · THE CASE FILES</div>
+    <h2><span id="cf-count">—</span> case files</h2>
+    <p>Every node in the graph above, as a browsable dossier — each operation, takedown and
+       measurement behind this story, attribution confidence stated, caveats included, sources
+       linked. Click any file to open it.</p>
+  </div>
+  <div class="cf-grid" id="cf-grid"></div>
 </section>
 
 <section id="mechanism">
@@ -727,23 +736,13 @@
   <div id="gloss-grid"></div>
 </section>
 
-<section id="evidence-room">
-  <div class="act-divider" style="padding:7rem 2rem 3rem">
-    <div class="no">REFERENCE · EVIDENCE ROOM</div>
-    <h2><span id="cf-count">—</span> case files</h2>
-    <p>Every operation, takedown and measurement behind this story — attribution confidence stated,
-       caveats included, sources linked. Click any file to open the dossier.</p>
-  </div>
-  <div class="cf-grid" id="cf-grid"></div>
-</section>
-
 <div id="drawer-scrim"></div>
 <aside id="case-drawer" aria-hidden="true"></aside>
 
 <footer>
   <div class="col">
     <div class="h">About this prototype</div>
-    <p>Design-direction build: all five acts plus reference sections. Claims tagged with a
+    <p>Design-direction build: all five acts plus a reference glossary. Claims tagged with a
     <span class="mono" style="color:var(--analyst)">§</span> marker link to their evidence —
     sources re-checked against the claim, or figures generated from source data by scripts —
     and a validation gate fails the build if any tagged claim lacks backing. Case files and the
