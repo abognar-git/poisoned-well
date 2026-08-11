@@ -453,7 +453,7 @@
   <div class="live-block">
     <div class="live-row"><span class="live-dot"></span><span>LIVE · HUNGARY.NEWS-PRAVDA.COM</span></div>
     <div class="live-num" id="counter">0</div>
-    <div class="live-sub" id="live-sub" data-claim="live-counters">machine-generated articles and counting</div>
+    <div class="live-sub" id="live-sub" data-claim="live-counters">machine-generated articles from this one Hungary-targeting mirror — a firehose of filler and pro-Kremlin narrative, not reporting about Hungary</div>
   </div>
   <div class="scroll-cue">SCROLL ▾</div>
 </section>
@@ -765,8 +765,8 @@ else {
   })(t0);
 }
 document.getElementById('live-sub').innerHTML =
-  `machine-generated articles · <b>${HU.articles_latest_day} today</b> · ` +
-  `${fmt(HU.articles_last_7d)} in the past 7 days · data through ${HU.latest_publication_day}`;
+  `machine-generated articles from this one Hungary-targeting mirror — a firehose of filler and pro-Kremlin ` +
+  `narrative, not reporting about Hungary · <b>${HU.articles_latest_day} today</b> · ${fmt(HU.articles_last_7d)} in the past 7 days`;
 document.getElementById('today-fig').textContent = HU.articles_latest_day;
 
 /* ================= evidence layer =================
@@ -1317,7 +1317,8 @@ setTimeout(async () => {
     const sub = document.getElementById('live-sub');
     const cb = sub.querySelector('.cite');  // preserve the injected § marker
     sub.innerHTML =
-      `machine-generated articles · <b>${last.count} ${last.date === HU.latest_publication_day ? 'today' : 'on ' + last.date}</b> · ` +
+      `machine-generated articles from this one Hungary-targeting mirror — a firehose of filler and pro-Kremlin narrative, not reporting about Hungary · ` +
+      `<b>${last.count} ${last.date === HU.latest_publication_day ? 'today' : 'on ' + last.date}</b> · ` +
       `${fmt(wk)} in the past 7 days · <span style="color:#7dc98f">checked upstream just now</span>`;
     if (cb) sub.appendChild(cb);
   } catch { /* baked figures remain — the page never breaks on upstream failure */ }
