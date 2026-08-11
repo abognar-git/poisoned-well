@@ -7,11 +7,19 @@
 
 ## What this will be
 
-A standalone editorial website (scrollytelling + two 3D scenes driven by live data) built on a
+A standalone editorial website (scrollytelling + five 3D scenes driven by live data) built on a
 verified case catalog. Scope is the **AI layer only**: LLM-written fake-media networks, deepfake
 incidents in CEE elections (Slovakia 2023 → Romania 2024/25 → Hungary 2026), AI-vendor takedown
 evidence, and measured contamination of AI systems ("LLM grooming"). The Hungary 2026 election is
-the anchor case; Chinese activity is covered honestly as capability-without-documented-Hungarian-deployment.
+the anchor case.
+
+**Regional scope.** The catalog holds only operations with documented activity against Hungary or
+its immediate neighbours (Austria, Slovakia, Ukraine, Romania, Serbia, Croatia, Slovenia). Cases
+documented solely elsewhere — the PRC networks (Spamouflage, GoLaxy), the German and Moldovan
+operations, the non-regional AI-vendor takedowns — were removed rather than carried as context,
+so every entry on the site answers "what reached this region". Mechanism evidence about the AI
+layer itself (LLM-grooming measurement, effectiveness null results, the Pravda/Portal Kombat
+network that runs the Hungarian mirror) is kept regardless of where it was measured.
 
 ## Layout
 
@@ -25,7 +33,7 @@ scripts/
   check_claims.py       gate: every data-claim on the site maps to a backed registry entry
 catalog/
   schema.json           case-catalog entry schema
-  operations.json       the sourced case catalog (21 entries, all sources adversarially re-verified)
+  operations.json       the sourced case catalog (16 entries, all sources adversarially re-verified)
   claims.json           claims registry: every fact rendered on the site, with its evidence
 data/
   raw/                  gitignored; refreshed by fetch scripts

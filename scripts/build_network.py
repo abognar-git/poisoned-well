@@ -25,18 +25,11 @@ ACTOR_MAP = {
     "pravda-hungary": ["pravda-network"],
     "llm-grooming-measurement": ["pravda-network"],
     "storm-1516-hungary-2026": ["storm-1516"],
-    "germany-2025-storm1516": ["storm-1516"],
     "copycop-infrastructure": ["storm-1516"],
     "matryoshka-hungary-2026": ["matryoshka"],
-    "moldova-matryoshka-sandu": ["matryoshka"],
     "sda-gru-hungary-2026": ["sda-structura", "gru"],
     "openai-doppelganger-ai-use": ["doppelganger"],
     "openai-bad-grammar": ["bad-grammar"],
-    "openai-helgoland-bite": ["helgoland-bite"],
-    "openai-stop-news": ["stop-news"],
-    "anthropic-influence-as-a-service": ["commercial-iaas"],
-    "spamouflage-ai-global": ["spamouflage"],
-    "golaxy-leak": ["golaxy"],
     "fidesz-ai-campaign-2026": ["fidesz-megafon"],
     "tiktok-ai-network-hungary-2026": ["unknown-operator"],
     "slovakia-2023-deepfake": ["unknown-operator"],
@@ -57,12 +50,7 @@ ACTORS = {  # id -> (label, sponsor, glossary id or None)
     "apt28": ("APT28", "Russia", None),
     "apt29": ("APT29", "Russia", None),
     "bad-grammar": ("Bad Grammar", "Russia", None),
-    "helgoland-bite": ("Helgoland Bite", "Russia", None),
-    "stop-news": ("Stop News", "Russia", None),
-    "spamouflage": ("Spamouflage", "China", "spamouflage"),
-    "golaxy": ("GoLaxy", "China", None),
     "fidesz-megafon": ("Fidesz-aligned machine", "domestic (HU)", "megafon"),
-    "commercial-iaas": ("Influence-as-a-service", "commercial", None),
     "unknown-operator": ("Unattributed operators", "unattributed", None),
     "romania-networks": ("Romanian TikTok networks", "contested", None),
     "news-front": ("News Front", "Russia", "news-front"),
@@ -81,9 +69,11 @@ PLATFORM_NORM = {
     "posters/print": None, "50+ platforms": None, "multiple": None,
 }
 
-SKIP_TARGETS = {"global", "multiple", "USA", "Canada", "Japan", "Australia", "UK",
-                "Taiwan", "Hong Kong", "Armenia", "Norway", "Turkey", "Baltic states"}
-# CEE/EU focus for the scene; others would clutter a Europe-story graph
+# The scene is Hungary and its immediate neighbourhood. Kept case files may target
+# more countries than this (CopyCop and Doppelganger both run far wider) and their
+# dossiers still state the full scope — this only bounds what the graph draws, so a
+# regional story doesn't render as a world map.
+REGION = {"Hungary", "Austria", "Slovakia", "Ukraine", "Romania", "Serbia", "Croatia", "Slovenia"}
 
 
 def spring_layout(nodes, links, iters=600, seed=42):
@@ -155,7 +145,7 @@ def main() -> int:
             add(pid, norm, "platform")
             links.append({"s": eid, "t": pid, "kind": "on"})
         for t in (c.get("target") or {}).get("countries", []):
-            if t in SKIP_TARGETS:
+            if t not in REGION:
                 continue
             tid = "tg-" + t.replace(" ", "-")
             add(tid, t, "target")
@@ -171,7 +161,7 @@ def main() -> int:
             seen.add(key)
             uniq.append(l)
 
-    pos = spring_layout(set(nodes), uniq)
+    pos = spring_layout(list(nodes), uniq)
     for nid, n in nodes.items():
         n["x"], n["y"], n["z"] = pos[nid]
 
