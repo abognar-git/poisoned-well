@@ -698,6 +698,11 @@
       question this site leaves you with is not whether propaganda swings votes, but what it does to the
       well everyone now drinks from.</p>
   </div>
+  <div id="coda-wrap">
+    <canvas id="coda-canvas" role="img" aria-label="Dotted night scene: the well far out on the plain, one slow drop at a time; a dog sits on the horizon, watching"></canvas>
+    <p class="pipe-note" style="margin-top:.8rem">The plain, tonight. <b data-claim="live-counters">The mirror
+      published <span id="coda-n">—</span> articles today.</b> The deepfakes are gone. The drip has not stopped.</p>
+  </div>
 </section>
 
 <section id="methods">
@@ -2362,6 +2367,175 @@ try {
   } catch (err) {
     console.error('WebGL unavailable, hiding the barrel vignette:', err);
     const w = document.getElementById('splash-wrap');
+    if (w) w.style.display = 'none';
+  }
+}
+
+/* ================= the coda (Act V close) =================
+   Wide shot: the well far out on the plain, one slow drop at a time, a dog
+   sitting on the horizon watching. The page ends where it began — except now
+   the reader knows what the dripping means. */
+{
+  const cc4 = document.getElementById('coda-canvas');
+  try {
+    const ren4 = new THREE.WebGLRenderer({canvas: cc4, antialias:true, alpha:true, preserveDrawingBuffer:true});
+    ren4.setPixelRatio(Math.min(devicePixelRatio, 2));
+    const scn4 = new THREE.Scene();
+    scn4.background = new THREE.Color(0x06080d);
+    const cam4 = new THREE.PerspectiveCamera(42, 1, .1, 100);
+    cam4.position.set(0, 1.7, 9.5);
+    const look4 = new THREE.Vector3(0, 1.05, 0);
+    let comp4 = null;
+    if (POSTFX) {
+      comp4 = new POSTFX.EffectComposer(ren4);
+      comp4.addPass(new POSTFX.RenderPass(scn4, cam4));
+      comp4.addPass(new POSTFX.UnrealBloomPass(new THREE.Vector2(1, 1), .45, .55, .34));
+    }
+    const c4 = new THREE.Color();
+    const mk4 = (P, C, size, opacity) => {
+      const g = new THREE.BufferGeometry();
+      g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(P), 3));
+      g.setAttribute('color', new THREE.BufferAttribute(new Float32Array(C), 3));
+      return new THREE.Points(g, new THREE.PointsMaterial({size, map:softDot, vertexColors:true,
+        transparent:true, opacity, blending:THREE.AdditiveBlending, depthWrite:false}));
+    };
+
+    // the distant well: skeletal dots read true at this range
+    const mw = new THREE.Group();
+    mw.position.set(2.7, 0, -2.4);
+    mw.scale.setScalar(.62);
+    {
+      const P = [], C = [];
+      const seg4 = (ax, ay, bx, by, step=.09, glow=1) => {
+        const n = Math.max(2, Math.round(Math.hypot(bx-ax, by-ay)/step));
+        for (let i = 0; i <= n; i++) {
+          P.push(ax+(bx-ax)*i/n + (Math.random()-.5)*.04,
+                 ay+(by-ay)*i/n + (Math.random()-.5)*.04,
+                 (Math.random()-.5)*.04);
+          c4.setHex(0xcfc9bd).multiplyScalar(glow * (.75 + Math.random()*.55));
+          C.push(c4.r, c4.g, c4.b);
+        }
+      };
+      seg4(0, 0, 0, 3.1);                        // post
+      seg4(-2.6, 1.55, 2.45, 4.85);              // sweep
+      seg4(2.45, 4.85, 2.45, 1.5, .08);          // hanging pole
+      for (let i = 0; i < 36; i++) {             // counterweight
+        const a = Math.random()*Math.PI*2, r = .24*Math.sqrt(Math.random());
+        P.push(-2.6+Math.cos(a)*r, 1.55+Math.sin(a)*r, (Math.random()-.5)*.1);
+        c4.setHex(0xcfc9bd).multiplyScalar(.5 + Math.random()*.5);
+        C.push(c4.r, c4.g, c4.b);
+      }
+      seg4(1.85, .85, 3.05, .85); seg4(1.85, 0, 1.85, .85); seg4(3.05, 0, 3.05, .85);  // crib
+      seg4(1.85, 0, 3.05, 0);
+      mw.add(mk4(P, C, .062, .95));
+    }
+    const wellGlow = new THREE.Sprite(new THREE.SpriteMaterial({map:radialTex(140,120,110,.5),
+      transparent:true, opacity:.3, blending:THREE.AdditiveBlending, depthWrite:false}));
+    wellGlow.position.set(2.45, .9, 0); wellGlow.scale.set(1.5, .8, 1);
+    mw.add(wellGlow);
+    scn4.add(mw);
+
+    // one drop at a time
+    const dripGeo = new THREE.BufferGeometry();
+    const dripPos = new Float32Array(3);
+    dripGeo.setAttribute('position', new THREE.BufferAttribute(dripPos, 3));
+    dripGeo.boundingSphere = new THREE.Sphere(new THREE.Vector3(0, 1, 0), 60);
+    const dripMat = new THREE.PointsMaterial({size:.13, map:softDot, color:0xff5a42,
+      transparent:true, opacity:0, blending:THREE.AdditiveBlending, depthWrite:false});
+    const drip = new THREE.Points(dripGeo, dripMat);
+    drip.frustumCulled = false;
+    mw.add(drip);
+
+    // the witness: a shaggy dog sitting on the plain, dark against the horizon glow
+    {
+      const raw = [
+        [-.42,0],[-.5,.1],[-.54,.28],[-.5,.46],[-.4,.6],[-.38,.72],[-.3,.78],[-.24,.7],
+        [-.26,.68],[-.12,.71],[-.02,.7],[.04,.78],[.1,.9],[.2,.94],[.3,.9],[.36,.82],
+        [.4,.72],[.34,.64],[.26,.6],[.2,.56],[.22,.44],[.22,.3],[.24,.14],[.26,0],
+        [.14,0],[.12,.12],[.08,.24],[.02,.32],[-.04,.22],[-.06,.1],[-.08,0],
+      ];
+      const pts = [];
+      for (let i = 0; i < raw.length; i++) {      // shaggy edge: subdivide + jitter
+        const a = raw[i], b = raw[(i+1) % raw.length];
+        pts.push([a[0] + (Math.random()-.5)*.025, a[1] + (Math.random()-.5)*.025]);
+        pts.push([(a[0]+b[0])/2 + (Math.random()-.5)*.03, (a[1]+b[1])/2 + (Math.random()-.5)*.03]);
+      }
+      const shape = new THREE.Shape(pts.map(p => new THREE.Vector2(p[0], p[1])));
+      const dog = new THREE.Mesh(new THREE.ShapeGeometry(shape),
+        new THREE.MeshBasicMaterial({color:0x04060a}));
+      dog.position.set(-3.1, 0, -2); dog.scale.setScalar(.88);
+      scn4.add(dog);
+      const P = [], C = [];                       // moonlit rim along back and head
+      for (const p of pts) {
+        if (p[1] < .58 || Math.random() < .45) continue;
+        P.push(-3.1 + p[0]*.88 + (Math.random()-.5)*.02, p[1]*.88 + .015, -2 + .01);
+        c4.setHex(0xcfc9bd).multiplyScalar(.3 + Math.random()*.35);
+        C.push(c4.r, c4.g, c4.b);
+      }
+      scn4.add(mk4(P, C, .045, .8));
+    }
+
+    {  // the plain + sky
+      const P = [], C = [];
+      for (let i = 0; i < 2600; i++) {
+        const r = 1.2 + 26*Math.pow(Math.random(), 1.6), a = Math.random()*Math.PI*2;
+        P.push(Math.cos(a)*r, 0, Math.sin(a)*r - 2);
+        c4.setHex(0x3a4a66).multiplyScalar(.3 + .6*Math.max(0, 1 - r/26));
+        C.push(c4.r, c4.g, c4.b);
+      }
+      scn4.add(mk4(P, C, .045, .7));
+      const S = [], SC = [];
+      for (let i = 0; i < 500; i++) {
+        S.push((Math.random()-.5)*60, 1.5 + Math.random()*14, -30 + Math.random()*18);
+        c4.setHex(0x8b93a3).multiplyScalar(.4 + Math.random()*.6);
+        SC.push(c4.r, c4.g, c4.b);
+      }
+      scn4.add(mk4(S, SC, .05, .4));
+      const hg = new THREE.Sprite(new THREE.SpriteMaterial({map:radialTex(64,96,150,.5),
+        transparent:true, opacity:.4, blending:THREE.AdditiveBlending, depthWrite:false}));
+      hg.position.set(0, 1, -14); hg.scale.set(34, 9, 1);
+      scn4.add(hg);
+    }
+
+    const n4 = document.getElementById('coda-n');
+    if (n4) n4.textContent = HU.articles_latest_day;
+
+    const layout4 = () => {
+      const w = cc4.clientWidth, h = cc4.clientHeight;
+      ren4.setSize(w, h, false);
+      if (comp4) { comp4.setPixelRatio(Math.min(devicePixelRatio, 2)); comp4.setSize(w, h); }
+      cam4.aspect = w / h; cam4.updateProjectionMatrix();
+      cam4.position.z = w / h < 1.15 ? 12.5 : 9.5;
+    };
+    layout4(); addEventListener('resize', layout4);
+
+    let vis4 = true;
+    new IntersectionObserver(([e]) => {
+      vis4 = e.isIntersecting;
+      cc4.style.visibility = vis4 ? 'visible' : 'hidden';
+    }).observe(cc4);
+
+    const clock4 = new THREE.Clock();
+    const DRIP_S = 4.5, FALL = 1.6;
+    ren4.setAnimationLoop(() => {
+      if (!vis4) return;
+      const t = reduced ? DRIP_S * .5 + FALL * .4 : clock4.getElapsedTime();
+      const l = t % DRIP_S;
+      if (l < FALL) {                              // one drop, gravity-eased
+        const u = l / FALL;
+        dripPos[0] = 2.45; dripPos[1] = 4.7 - (4.7 - .95) * u * u; dripPos[2] = 0;
+        dripGeo.attributes.position.needsUpdate = true;
+        dripMat.opacity = Math.min(1, u/.15, (1-u)/.08) * .95;
+      } else dripMat.opacity = 0;
+      const since = (l - FALL + DRIP_S) % DRIP_S;  // glow answers each landing
+      wellGlow.material.opacity = .28 + .25 * Math.exp(-since * 2);
+      cam4.position.x += ((reduced ? 0 : Math.sin(t*.05)*.35) - cam4.position.x) * .01;
+      cam4.lookAt(look4);
+      if (comp4) comp4.render(); else ren4.render(scn4, cam4);
+    });
+  } catch (err) {
+    console.error('WebGL unavailable, hiding the coda:', err);
+    const w = document.getElementById('coda-wrap');
     if (w) w.style.display = 'none';
   }
 }
