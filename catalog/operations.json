@@ -96,7 +96,10 @@
       }
     ],
     "caveats": "Per-country audience measurement is thin; article volume is machine-verified but reach claims must rely on EDMO/NewsGuard assessments. Network size figures diverge across researchers (150–224+ domains).",
-    "status": "verified"
+    "status": "verified",
+    "side": "russian-attributed",
+    "evidence_class": "russian-operation",
+    "disarm_scope": "tagged"
   },
   {
     "id": "storm-1516-hungary-2026",
@@ -229,7 +232,10 @@
       }
     ],
     "caveats": "Attribution of individual sites is by TTP overlap rather than a platform takedown record — EDMO, citing the Gnida Project, wrote that the methods 'clearly point to' Storm-1516, while Gnida's own posts use 'likely' / 'in our belief' confidence language; the degree of generative-AI use per artifact varies and should be stated per item. Note: Euronews (13 Apr 2026) reported Tisza winning 138 of 199 seats; other post-election sources give 141/199.",
-    "status": "verified"
+    "status": "verified",
+    "side": "russian-attributed",
+    "evidence_class": "russian-operation",
+    "disarm_scope": "tagged"
   },
   {
     "id": "matryoshka-hungary-2026",
@@ -301,7 +307,10 @@
       }
     ],
     "caveats": "X view counts are self-reported platform metrics likely inflated by coordinated amplification; no X enforcement action was found in public reporting.",
-    "status": "verified"
+    "status": "verified",
+    "side": "russian-attributed",
+    "evidence_class": "russian-operation",
+    "disarm_scope": "tagged"
   },
   {
     "id": "sda-gru-hungary-2026",
@@ -388,7 +397,10 @@
       }
     ],
     "caveats": "Documented via intelligence leaks and investigative reporting, not platform takedown data; Peskov denied the FT report; whether the SDA pipeline used generative AI for the Hungarian content specifically is not detailed in available reporting (hence empty ai_usage — include as the operational frame around the AI artifacts). In late March 2026, weeks after this reporting, the Orbán government announced espionage charges against journalist Szabolcs Panyi, formally accusing him of spying for Ukraine — a step media-freedom organizations (CPJ, ECPMF, EFJ) characterized as retaliation for his reporting on Russian influence operations. The Insider notes a related SDA-linked TikTok campaign began around January 2026, slightly before this entry's February start.",
-    "status": "verified"
+    "status": "verified",
+    "side": "russian-attributed",
+    "evidence_class": "russian-operation",
+    "disarm_scope": "tagged"
   },
   {
     "id": "tiktok-ai-network-hungary-2026",
@@ -446,7 +458,10 @@
         "url": "https://therecord.media/tiktok-removes-covert-networks-hungary-vote"
       }
     ],
-    "status": "verified"
+    "status": "verified",
+    "side": "contested",
+    "evidence_class": "domestic-ai-use",
+    "disarm_scope": "tagged"
   },
   {
     "id": "fidesz-ai-campaign-2026",
@@ -572,7 +587,10 @@
       }
     ],
     "caveats": "This is domestic state-aligned activity, not foreign state-sponsored — the site must keep the distinction explicit while showing the narrative overlap with Kremlin framing documented by Political Capital and others.",
-    "status": "verified"
+    "status": "verified",
+    "side": "domestic",
+    "evidence_class": "domestic-ai-use",
+    "disarm_scope": "tagged"
   },
   {
     "id": "slovakia-2023-deepfake",
@@ -628,7 +646,10 @@
       }
     ],
     "caveats": "Production origin never attributed. The site must present this as 'first major incident' not 'proven election-swinger'.",
-    "status": "verified"
+    "status": "verified",
+    "side": "contested",
+    "evidence_class": "russian-operation",
+    "disarm_scope": "tagged"
   },
   {
     "id": "romania-2024-2025-elections",
@@ -716,7 +737,10 @@
       }
     ],
     "caveats": "The genAI share of the 2024 operation was never quantified; later Romanian reporting suggested parts of the amplification infrastructure were originally commissioned domestically. Present the annulment as amplification-driven, with AI prominent only in the rerun.",
-    "status": "verified"
+    "status": "verified",
+    "side": "contested",
+    "evidence_class": "russian-operation",
+    "disarm_scope": "tagged"
   },
   {
     "id": "copycop-infrastructure",
@@ -809,7 +833,10 @@
       }
     ],
     "status": "verified",
-    "caveats": "The named Llama-3 stack is documented by Recorded Future for CopyCop generally; no source confirms it for the Hungary-targeting Storm-1516 sites specifically — do not present Llama-for-Hungary as established."
+    "caveats": "The named Llama-3 stack is documented by Recorded Future for CopyCop generally; no source confirms it for the Hungary-targeting Storm-1516 sites specifically — do not present Llama-for-Hungary as established.",
+    "side": "russian-attributed",
+    "evidence_class": "russian-operation",
+    "disarm_scope": "tagged"
   },
   {
     "id": "openai-bad-grammar",
@@ -867,7 +894,10 @@
         "url": "https://thehackernews.com/2024/05/openai-meta-tiktok-disrupt-multiple-ai.html"
       }
     ],
-    "status": "verified"
+    "status": "verified",
+    "side": "russian-attributed",
+    "evidence_class": "russian-operation",
+    "disarm_scope": "tagged"
   },
   {
     "id": "openai-doppelganger-ai-use",
@@ -951,7 +981,10 @@
         "url": "https://www.justice.gov/d9/2024-09/doppelganger_affidavit_9.4.24.pdf"
       }
     ],
-    "status": "verified"
+    "status": "verified",
+    "side": "russian-attributed",
+    "evidence_class": "russian-operation",
+    "disarm_scope": "tagged"
   },
   {
     "id": "llm-grooming-measurement",
@@ -1034,7 +1067,10 @@
       }
     ],
     "caveats": "NewsGuard figures are prompt-audit rates with disputed methodology generalizability. An independent peer-reviewed test with published methodology now exists: Alyukov, Makhortykh, Voronovici & Sydorova (HKS Misinformation Review, Oct 2025) found only 8% of 416 chatbot responses referenced Kremlin-linked disinformation sites (1% supporting false claims), concentrated on obscure data-void prompts — supporting an information-gap explanation over deliberate grooming. State the numbers as audit results, not population estimates.",
-    "status": "verified"
+    "status": "verified",
+    "side": "russian-attributed",
+    "evidence_class": "context",
+    "disarm_scope": "tagged"
   },
   {
     "id": "effectiveness-evidence",
@@ -1120,7 +1156,10 @@
         "url": "https://transparency.meta.com/sr/Q2-2024-Adversarial-threat-report"
       }
     ],
-    "status": "verified"
+    "status": "verified",
+    "side": "n/a",
+    "evidence_class": "counter-evidence",
+    "disarm_scope": "n/a"
   },
   {
     "id": "apt-crossover-hungary",
@@ -1179,7 +1218,10 @@
         "url": "https://www.bellingcat.com/news/2026/04/09/the-hungarian-government-passwords-exposed-online/"
       }
     ],
-    "status": "verified"
+    "status": "verified",
+    "side": "russian-attributed",
+    "evidence_class": "context",
+    "disarm_scope": "n/a"
   },
   {
     "id": "newsfront-hungary",
@@ -1242,7 +1284,10 @@
       }
     ],
     "disarm_techniques": [],
-    "status": "verified"
+    "status": "verified",
+    "side": "russian-attributed",
+    "evidence_class": "context",
+    "disarm_scope": "n/a"
   },
   {
     "id": "telegram-laundering-hungary-2026",
@@ -1297,6 +1342,523 @@
       }
     ],
     "disarm_techniques": [],
+    "status": "verified",
+    "side": "contested",
+    "evidence_class": "russian-operation",
+    "disarm_scope": "n/a"
+  },
+  {
+    "id": "telex-ai-video-audit-2026",
+    "name": "Telex coding of ~200 pro-government campaign videos: 84.3% entirely AI-generated",
+    "category": "measurement",
+    "side": "n/a",
+    "evidence_class": "domestic-ai-use",
+    "disarm_scope": "n/a",
+    "coordination_claimed": "none — framed purely as domestic Fidesz-universe output",
+    "attribution": {
+      "actor": "Telex newsroom (Papp Dóra, Görcz Gergely, Gombás Artúr)",
+      "sponsor": "n/a",
+      "confidence": "confirmed",
+      "attributed_by": [
+        "Telex"
+      ]
+    },
+    "target": {
+      "countries": [
+        "Hungary"
+      ],
+      "event": "2026-04-12 parliamentary election"
+    },
+    "period": {
+      "start": "2025-11",
+      "end": "2026-03"
+    },
+    "ai_usage": [
+      "coded corpus whose primary axis is degree of AI generation: 84.3% entirely AI-generated, 7.6% AI mixed with real footage, 1% AI plus traditional animation, 7.1% live actors"
+    ],
+    "platforms": [
+      "Facebook"
+    ],
+    "scale": {
+      "corpus": "~200 videos pushing Fidesz/government narratives, coded over four months across pages including Nemzeti Ellenállás Mozgalom, Megafon, PolTroll2026, Nagyon Hivatalos and Nemzeti Stand-Up (Telex)",
+      "reach": "113 million combined impressions (Telex)",
+      "paid_share": "only 11 of the 200 were paid advertisements — Telex attributes the shift to organic distribution to Meta's October 2025 EU political-ads ban"
+    },
+    "effectiveness": "Telex records themes — 'Tisza-adó', war and pension fear, and mockery of Magyar Péter in over half the corpus — but makes no persuasion claim; the campaign these videos served lost.",
+    "summary": "The hard measurement of the domestic AI layer: a named newsroom systematically coded ~200 videos pushing Fidesz and government narratives on Facebook over four months and found 84.3% were created entirely with AI, for 113 million combined impressions. Only 11 of the 200 were paid ads — after Meta's October 2025 EU political-ads ban the material travelled organically instead. This is the entry the site's domestic-share figures are generated from.",
+    "caveats": [
+      "A coded sample of one newsroom's collection, not a census of all pro-government video.",
+      "'Entirely AI-generated' is a production judgement by the coders, not a detection-tool output.",
+      "Reach is impressions, which is not persuasion — see effectiveness-evidence."
+    ],
+    "disarm_techniques": [],
+    "sources": [
+      {
+        "publisher": "Telex",
+        "title": "Mesterséges intelligenciával gyártott videók: a Fidesz-univerzum kampányának 84,3%-a",
+        "url": "https://telex.hu/techtud/2026/03/07/mesterseges-intelligenciaval-gyartott-videok-fidesz-meta-korlatozas-felelemkeltes-gunyolodas",
+        "date": "2026-03-07"
+      }
+    ],
+    "status": "verified"
+  },
+  {
+    "id": "kesma-county-ai-image-line-2026",
+    "name": "KESMA county-press AI image line: synchronised smear production across 19 outlets",
+    "category": "operation",
+    "side": "domestic",
+    "evidence_class": "domestic-ai-use",
+    "disarm_scope": "tagged",
+    "coordination_claimed": "between Hungarian outlets only — Political Capital reads the one-minute synchronisation as central direction of the county press. No Russian involvement is claimed; for the Zakharova-triggered instance Takácsy's own conclusion is that no institutional relationship between the two apparatuses is proven.",
+    "attribution": {
+      "actor": "Magyar Nemzet and 18 KESMA/Mediaworks county daily Facebook pages",
+      "sponsor": "domestic",
+      "confidence": "confirmed",
+      "attributed_by": [
+        "Political Capital / Átlátszó",
+        "Lakmusz",
+        "CIJ Budapest"
+      ]
+    },
+    "target": {
+      "countries": [
+        "Hungary"
+      ],
+      "event": "2026-04-12 parliamentary election"
+    },
+    "period": {
+      "start": "2025-12",
+      "end": "2026-03"
+    },
+    "ai_usage": [
+      "AI-generated attack images of Magyar Péter leading Zelensky, von der Leyen and Weber into battle scenarios",
+      "4–5 mutations of each AI image with multiple text variants — the mutation pattern is the production signature",
+      "unlabelled AI images run by Mediaworks outlets in March 2026 (Lakmusz)"
+    ],
+    "platforms": [
+      "Facebook"
+    ],
+    "scale": {
+      "synchronisation": "posts appeared within one minute of each other across Magyar Nemzet and 18 county newspaper pages; examples timestamped 17:45 and 18:15 (Political Capital, analysis window 30 Dec 2025 – 5 Jan 2026)",
+      "outlets": "19 (Magyar Nemzet + 18 county dailies)"
+    },
+    "effectiveness": "Not measured for persuasion; the significance is the industrial production signature, not reach.",
+    "summary": "Not a one-off image but a production line: AI smear images published within one minute of each other across Magyar Nemzet and 18 KESMA/Mediaworks county daily pages, each campaign spawning 4–5 mutations with multiple text variants. Political Capital reads the synchronisation as central direction of the county press. One instance had a Russian trigger — 'Osama bin Sikorski' caricatures appeared across the county dailies within 24 hours of a Zakharova accusation — but the researcher documenting it concludes no institutional relationship between the two apparatuses is proven.",
+    "caveats": [
+      "Synchronisation demonstrates central coordination among Hungarian outlets; it says nothing about who wrote the brief.",
+      "The Zakharova/Sikorski sequence is a documented timing coincidence with a plausible domestic explanation — it is not evidence of Russian tasking."
+    ],
+    "disarm_techniques": [
+      "T0086.002",
+      "T0097",
+      "T0135.001",
+      "T0114.002"
+    ],
+    "sources": [
+      {
+        "publisher": "Political Capital / Átlátszó",
+        "title": "Folytatódik az AI-jal támogatott Tisza-ellenes lejárató kampány a megyei lapok Facebook-oldalain",
+        "url": "https://pcblog.atlatszo.hu/2026/01/10/folytatodik-az-ai-jal-tamogatott-tisza-ellenes-lejarato-kampany-a-megyei-lapok-facebook-oldalain/",
+        "date": "2026-01-10"
+      },
+      {
+        "publisher": "Lakmusz",
+        "title": "AI-videók, szabálytalan hirdetések, orosz dezinformáció a kampányban",
+        "url": "https://lakmusz.hu/2026/04/11/ai-videok-szabalytalan-hirdetesek-orosz-dezinformacio-a-kampanyban-minden-eddiginel-durvabban-probaltak-meg-zarojelbe-tenni-a-valosagot",
+        "date": "2026-04-11"
+      },
+      {
+        "publisher": "Center for Independent Journalism (CIJ) Budapest",
+        "title": "Between Two Elections: Russian disinformation in Polish and Hungarian societies",
+        "url": "https://cij.hu/hu/wp-content/uploads/2026/01/Between-two-elections_The-role-and-significance-of-Russian-disinformation-in-Polish-and-Hungarian-societies-during-the-2025-and-2026-election-periods.pdf",
+        "date": "2025-12-10"
+      }
+    ],
+    "status": "verified"
+  },
+  {
+    "id": "nem-ai-ad-blitz-2025",
+    "name": "National Resistance Movement AI ad blitz: ~HUF 643m, 650M+ plays, funder undisclosed",
+    "category": "operation",
+    "side": "domestic",
+    "evidence_class": "domestic-ai-use",
+    "disarm_scope": "tagged",
+    "coordination_claimed": "none — Lakmusz describes NEM as Megafon-közeli (a domestic relationship); the funding source is undisclosed, not attributed to anyone",
+    "attribution": {
+      "actor": "Nemzeti Ellenállás Mozgalom (National Resistance Movement), fronted by Bence Apáti, publicly backed by Viktor Orbán",
+      "sponsor": "domestic (funding undisclosed)",
+      "confidence": "confirmed",
+      "attributed_by": [
+        "Telex",
+        "Lakmusz"
+      ]
+    },
+    "target": {
+      "countries": [
+        "Hungary"
+      ],
+      "event": "2026-04-12 parliamentary election"
+    },
+    "period": {
+      "start": "2025-07",
+      "end": "2026-02"
+    },
+    "ai_usage": [
+      "AI-generated campaign videos, including a Christmas video that reached 17 million views",
+      "AI straitjacket video and a Minecraft-styled Magyar Péter used to disguise the political character of ads after the ban",
+      "animal-fable framing as ad-ban evasion format"
+    ],
+    "platforms": [
+      "Facebook",
+      "YouTube"
+    ],
+    "scale": {
+      "spend": "~HUF 260m on YouTube (~EUR 668,000) and ~HUF 383m on Facebook — about HUF 643m — in three months from July 2025 (Telex, from platform ad-library data)",
+      "plays": "over 650 million video plays in three months: ~150m YouTube views, ~241m Facebook views, ~259.5m reel views (Telex)",
+      "post_ban_spend": "at least HUF 24m on anti-Magyar advertising after Meta's political-ad ban took effect (Lakmusz)"
+    },
+    "effectiveness": "Enormous reach, no measured persuasion; the campaign it served lost. NEM did not answer questions about how it was financed.",
+    "summary": "Split out of the general domestic campaign because its scale and opacity are the story: roughly HUF 643m of platform advertising bought over 650 million plays in three months from July 2025, and the movement would not say who paid. After Meta's political-ad ban it kept spending — at least HUF 24m more — reformatting attacks as animal fables, an AI straitjacket video and a Minecraft-styled Magyar Péter to disguise their political character.",
+    "caveats": [
+      "Spend figures are arithmetic on platform ad-library disclosures, which are self-reported by advertisers.",
+      "'Plays' counts platform impressions across three products and is not unique reach.",
+      "The funder is undisclosed — that is a documented gap, not an implied attribution."
+    ],
+    "disarm_techniques": [
+      "T0018",
+      "T0087.001",
+      "T0131",
+      "T0097"
+    ],
+    "sources": [
+      {
+        "publisher": "Telex",
+        "title": "Több mint 650 milliószor futottak le három hónap alatt a Nemzeti Ellenállás Mozgalom reklámjai",
+        "url": "https://telex.hu/techtud/2025/10/02/tobb-mint-650-millioszor-futottak-le-harom-honap-alatt-facebookon-es-youtube-on-a-nemzeti-ellenallas-mozgalom-reklamjai",
+        "date": "2025-10-02"
+      },
+      {
+        "publisher": "Lakmusz",
+        "title": "A Megafon-közeli mozgalom legalább 24 milliót költött Magyar Péter-ellenes hirdetésekre a tilalom óta",
+        "url": "https://lakmusz.hu/2025/11/05/a-megafon-kozeli-mozgalom-legalabb-24-milliot-koltott-magyar-peter-ellenes-hirdetesekre-azota-hogy-elvileg-tilos-politikai-hirdetest-kozzetenni-a-facebookon",
+        "date": "2025-11-05"
+      },
+      {
+        "publisher": "Lakmusz",
+        "title": "Állatmesével, AI-kényszerzubbonnyal és minecraftos Magyar Péterrel játssza ki a NEM a politikai hirdetések tilalmát",
+        "url": "https://lakmusz.hu/2025/10/22/allatmesevel-ai-kenyszerzubbonnyal-es-minecraftos-magyar-peterrel-jatssza-ki-a-nemzeti-ellenallas-mozgalom-a-politikai-hirdetesek-tilalmat",
+        "date": "2025-10-22"
+      }
+    ],
+    "status": "verified"
+  },
+  {
+    "id": "nem-a-mi-haborunk-ads-2026",
+    "name": "'Nem a mi háborúnk': geofenced AI war-horror ads in the justice minister's district",
+    "category": "operation",
+    "side": "contested",
+    "evidence_class": "domestic-ai-use",
+    "disarm_scope": "tagged",
+    "coordination_claimed": "none — Lakmusz states the page is not officially connected to Fidesz or to Tuzson; the only link offered is that Fidelitas president István Mohácsy and politician Marianna Márky follow the page and promoted and commented on the content",
+    "attribution": {
+      "actor": "'Nem a mi háborúnk' Facebook page (338 followers), officially unaffiliated",
+      "sponsor": "unattributed",
+      "confidence": "high",
+      "attributed_by": [
+        "Lakmusz"
+      ]
+    },
+    "target": {
+      "countries": [
+        "Hungary"
+      ],
+      "event": "2026-04-12 parliamentary election"
+    },
+    "period": {
+      "start": "2026-01-03",
+      "end": "2026-02-20"
+    },
+    "ai_usage": [
+      "12 distinct AI-generated videos posted as 15 reels depicting killed soldiers, bereaved families and injured veterans"
+    ],
+    "platforms": [
+      "Facebook"
+    ],
+    "scale": {
+      "targeting": "of 132 ads, 93 targeted only five Pest County District 05 municipalities — Göd, Fót, Csömör, Csomád, Dunakeszi — with 39 more nationwide (Lakmusz)",
+      "views": "~793,500 video views; individual ads reached 70,000–77,000 users each for nearly 500,000 impressions",
+      "engagement": "average organic engagement ~250 likes per reel",
+      "ban_breach": "paid window 16 January – 6 February 2026, in breach of Meta's political-ad ban"
+    },
+    "effectiveness": "High local saturation, low organic engagement. The five targeted towns are in justice minister Bence Tuzson's constituency.",
+    "summary": "A 338-follower page ran 132 ads of AI-generated war horror — killed soldiers, bereaved families, injured veterans — and geofenced 93 of them to five municipalities in the justice minister's own constituency, for roughly 793,500 views in breach of Meta's political-ad ban. Who paid is unresolved, so this entry is held in the contested bucket and never counted on the domestic side of the convergence measurement.",
+    "caveats": [
+      "Sponsorship is unresolved. The page is not officially connected to Fidesz or to Bence Tuzson.",
+      "Counted in neither the domestic nor the Russian technique bucket for exactly that reason."
+    ],
+    "disarm_techniques": [
+      "T0018",
+      "T0087.001",
+      "T0131"
+    ],
+    "sources": [
+      {
+        "publisher": "Lakmusz",
+        "title": "A Fidesz fejbelövős horrorvideójára hajazó Facebook-hirdetésekkel szórta meg egy rejtélyes oldal a gödieket",
+        "url": "https://lakmusz.hu/2026/02/20/a-fidesz-fejbelovos-horrorvideojara-hajazo-facebook-hirdetesekkel-szorta-meg-egy-rejtelyes-oldal-a-godieket",
+        "date": "2026-02-20"
+      }
+    ],
+    "status": "verified"
+  },
+  {
+    "id": "wellor-ai-music",
+    "name": "'Wellor': AI-generated music as an attack format",
+    "category": "operation",
+    "side": "contested",
+    "evidence_class": "domestic-ai-use",
+    "disarm_scope": "tagged",
+    "coordination_claimed": "none — Lakmusz states it is not known who is behind Wellor; no foreign link is suggested",
+    "attribution": {
+      "actor": "'Wellor', anonymous AI music project, operators unidentified",
+      "sponsor": "unattributed",
+      "confidence": "unattributed",
+      "attributed_by": [
+        "Lakmusz"
+      ]
+    },
+    "target": {
+      "countries": [
+        "Hungary"
+      ],
+      "event": "2026-04-12 parliamentary election"
+    },
+    "period": {
+      "start": "2024-04",
+      "end": "2025-08"
+    },
+    "ai_usage": [
+      "AI-generated songs and music videos attacking named opposition figures — a modality (synthetic music/audio) absent from the rest of the catalog"
+    ],
+    "platforms": [
+      "YouTube",
+      "Facebook"
+    ],
+    "scale": {
+      "corpus": "of 21 songs released by the end of 2024, 16 were built around specific named government critics; no Fidesz or governing-party politician is named in any lyric (Lakmusz)",
+      "amplification": "spread both by grassroots Facebook-group sharing and by rapid, heavy pro-government media amplification, including Origo in August 2024 and again in August 2025"
+    },
+    "effectiveness": "Not measured. Lakmusz infers an organised team from voice-over, animation and editing quality — an inference from production values, not an identified sponsor.",
+    "summary": "An anonymous AI 'artist' that appeared on YouTube in spring 2024 and accumulated dozens of politically charged songs attacking the opposition. Of 21 songs released by end-2024, 16 were built around named government critics and none named a governing-party politician. Pro-government media amplified it quickly and repeatedly. Who operates it is unknown — which is why it sits in the contested bucket.",
+    "caveats": [
+      "Operators unidentified; the 'organised team' reading is an inference from production quality, not documentation.",
+      "Held in the contested bucket and excluded from the domestic technique count."
+    ],
+    "disarm_techniques": [
+      "T0135.001",
+      "T0087.001"
+    ],
+    "sources": [
+      {
+        "publisher": "Lakmusz",
+        "title": "Már AI-zenéket is bevetnek az ellenzék lejáratására",
+        "url": "https://lakmusz.hu/2025/01/27/mar-ai-zeneket-is-bevetnek-az-ellenzek-lejaratasara",
+        "date": "2025-01-27"
+      },
+      {
+        "publisher": "Origo",
+        "title": "Wellor: mesterséges intelligencia a jobboldali zenében",
+        "url": "https://www.origo.hu/itthon/2024/08/wellor-mesterseges-intelligencia-ai-jobb-oldal-zene",
+        "date": "2024-08"
+      },
+      {
+        "publisher": "Origo",
+        "title": "Magyar Péter, az agresszív kismalac — Wellor",
+        "url": "https://www.origo.hu/belpol/2025/08/magyar-peter-agressziv-kismalac-wellor-mesterseges-intelligencia",
+        "date": "2025-08"
+      }
+    ],
+    "status": "verified"
+  },
+  {
+    "id": "tisza-volunteer-ai-songs",
+    "name": "The other side's AI: one volunteer, ~85 songs, no funding",
+    "category": "context",
+    "side": "n/a",
+    "evidence_class": "counter-evidence",
+    "disarm_scope": "n/a",
+    "coordination_claimed": "none — he states he has no connection to Tisza and receives neither instructions nor money",
+    "attribution": {
+      "actor": "Gy. Tibor, a visually impaired retiree in Debrecen",
+      "sponsor": "none (self-described volunteer)",
+      "confidence": "confirmed",
+      "attributed_by": [
+        "Lakmusz"
+      ]
+    },
+    "target": {
+      "countries": [
+        "Hungary"
+      ],
+      "event": "2026-04-12 parliamentary election"
+    },
+    "period": {
+      "start": "2024-10",
+      "end": "2025-07"
+    },
+    "ai_usage": [
+      "~85 political songs in nine months using Suno and Udio for audio, Recraft AI and Ideogram for visuals plus manual Photoshop; all lyrics written by him"
+    ],
+    "platforms": [
+      "YouTube",
+      "Facebook"
+    ],
+    "scale": {
+      "output": "~85 songs in nine months (Lakmusz)",
+      "reach": "over 1 million cumulative YouTube views, but the most-viewed single video reached 88,000 and the Facebook page had 15,000 followers"
+    },
+    "effectiveness": "Unfunded and unorganised — an order of magnitude smaller than the professionally produced, media-amplified output on the other side. That asymmetry is the point of the entry.",
+    "summary": "The entry that stops 'AI propaganda' reading as a one-sided phenomenon. The main pro-opposition AI songwriter was a single visually impaired retiree in Debrecen who made ~85 songs in nine months on consumer tools, wrote all the lyrics himself, took no money or instruction, and reached a fraction of the audience the funded operations did. Lakmusz explicitly contrasts him with Wellor.",
+    "caveats": [
+      "A single documented individual, not a survey of all pro-opposition AI use.",
+      "Included as counter-evidence: it constrains how far the site can generalise about who uses these tools."
+    ],
+    "disarm_techniques": [],
+    "sources": [
+      {
+        "publisher": "Lakmusz",
+        "title": "Egy debreceni önkéntes sorra készíti a tiszás AI-kampánydalokat",
+        "url": "https://lakmusz.hu/2025/07/07/egy-debreceni-onkentes-sorra-kesziti-a-tiszas-ai-kampanydalokat-magyar-peter-is-vonult-mar-a-zenejere",
+        "date": "2025-07-07"
+      }
+    ],
+    "status": "verified"
+  },
+  {
+    "id": "conscription-frame-convergence-2026",
+    "name": "The conscription frame: the same fabrication, built twice, independently",
+    "category": "incident",
+    "side": "n/a",
+    "evidence_class": "narrative-overlap",
+    "disarm_scope": "n/a",
+    "coordination_claimed": "explicitly ruled out by the source — Euronews: 'There is no evidence, however, that Fidesz is behind this social media campaign.'",
+    "attribution": {
+      "actor": "two separately documented production lines — Fidesz's youth wing / National Resistance Movement (domestic) and Storm-1516 (Russia-attributed by the Gnida Project)",
+      "sponsor": "mixed — see caveats",
+      "confidence": "confirmed",
+      "attributed_by": [
+        "Euronews",
+        "EDMO",
+        "Gnida Project"
+      ]
+    },
+    "target": {
+      "countries": [
+        "Hungary"
+      ],
+      "event": "2026-04-12 parliamentary election"
+    },
+    "period": {
+      "start": "2025-10",
+      "end": "2026-04"
+    },
+    "ai_usage": [
+      "the truncated conscription quote was reused inside a National Resistance Movement AI video",
+      "Storm-1516's version spread via six newly created websites and Facebook ads"
+    ],
+    "platforms": [
+      "Facebook",
+      "fake news sites"
+    ],
+    "scale": {
+      "russian_version": "six websites registered within two weeks; Facebook ads reaching more than 20,000 people in Hungary, mostly over 50 (Euronews/EDMO)",
+      "domestic_version": "a clipped Ruszin-Szendi video, later reprinted in an official government pamphlet to pensioners and reused in a NEM AI video"
+    },
+    "effectiveness": "The claim was contradicted by Tisza's own manifesto. Fidesz campaigned on the same premise and lost.",
+    "summary": "The clearest documented case of convergence without contact. A fabricated claim that Péter Magyar planned to reintroduce conscription was pushed by Storm-1516 through six purpose-built websites and Facebook ads — and, separately, manufactured domestically: in October 2025 Fidesz's youth wing clipped a Ruszin-Szendi video to strip the opening qualifier from 'today, the situation in Hungary is not such that, in optimal circumstances, we should reintroduce mandatory military service', after which the truncated quote appeared in an official government pamphlet and inside a NEM AI video. Two production lines, one frame, no demonstrated link — the source states plainly there is no evidence Fidesz is behind the Russian campaign.",
+    "caveats": [
+      "This is narrative overlap, not a link. The source explicitly rules out evidence of Fidesz being behind the Storm-1516 campaign.",
+      "The domestic version has its own fully documented manufacturing history, which is what makes independent origin the most parsimonious reading.",
+      "Displayed on the convergence bench but never counted in either technique bucket."
+    ],
+    "disarm_techniques": [],
+    "sources": [
+      {
+        "publisher": "Euronews",
+        "title": "How a Russian propaganda unit is targeting Hungary's elections",
+        "url": "https://www.euronews.com/my-europe/2026/04/10/how-a-russian-propaganda-unit-is-targeting-hungarys-elections",
+        "date": "2026-04-10"
+      },
+      {
+        "publisher": "EDMO",
+        "title": "The Endgame for Hungary: Disinformation, AI, Prohibited Ads and Russian Interference in the Election Campaign",
+        "url": "https://edmo.eu/wp-content/uploads/2026/04/The-Endgame-for-Hungary-Disinformation-AI-Prohibited-Ads-and-Russian-Interference-in-the-Election-Campaign.pdf",
+        "date": "2026-04-01"
+      }
+    ],
+    "status": "verified"
+  },
+  {
+    "id": "spottle-attache-briefings",
+    "name": "Attaché to commentator: Russian talking points into Hungarian pro-government media",
+    "category": "incident",
+    "side": "n/a",
+    "evidence_class": "laundering-link",
+    "disarm_scope": "n/a",
+    "coordination_claimed": "Direkt36 says the correspondence 'suggests' his analyses 'closely mirrored' the briefing materials and that he 'regularly receives talking points and narrative suggestions from Russian actors'; it compared texts with AI tooling and reports 'a high level of textual and thematic overlap', not verbatim copying. It stops short of command-and-control and makes no claim that the outlets knew.",
+    "attribution": {
+      "actor": "Georg Spöttle (commentator) and Col. Oleg Smirnov, Russian military attaché in Budapest",
+      "sponsor": "Russia (input side)",
+      "confidence": "high",
+      "attributed_by": [
+        "Direkt36",
+        "VSquare"
+      ]
+    },
+    "target": {
+      "countries": [
+        "Hungary"
+      ]
+    },
+    "period": {
+      "start": "2024-03",
+      "end": "2024-09"
+    },
+    "ai_usage": [],
+    "platforms": [
+      "Traditional media"
+    ],
+    "scale": {
+      "documents": "two documents marked unofficial sent 2024-03-06 — 'On the Role of Western Countries in the Ukrainian Conflict' and 'Situation Around Ukraine'",
+      "reach": "Spöttle appeared across Magyar Nemzet, Pesti Srácok, Origo, Mandiner, Hír TV, TV2, the state broadcaster and Magyar Hírlap"
+    },
+    "effectiveness": "Not measured. The relationship surfaced through a Hungarian national-security vetting process in the second half of 2024.",
+    "summary": "The hardest documented input-side link between Russian officialdom and Hungarian pro-government media — and a demonstration of how narrow such links actually are. Emails obtained by Direkt36 show the Russian military attaché sent a Fidesz-media security commentator two briefing documents, arranged his attendance at the Russian MoD's Moscow security conference (where he pledged by email to 'publish the results on TV and newspapers in Hungary'), and invited him to a farewell reception. Direkt36 reports a high level of textual and thematic overlap in his subsequent analyses — not verbatim copying, and no command-and-control.",
+    "caveats": [
+      "This is one commentator, not an institutional channel. No claim is made that the outlets carrying him knew.",
+      "'Closely mirrored' and 'high textual and thematic overlap' are the source's words; they are not evidence of dictation."
+    ],
+    "disarm_techniques": [],
+    "sources": [
+      {
+        "publisher": "Direkt36",
+        "title": "A Fidesz-média propagandistájának orosz titkosszolgálati kapcsolatai buktak ki egy nemzetbiztonsági ellenőrzésen",
+        "url": "https://www.direkt36.hu/en/fideszes-propagandista-orosz-titkosszolgalati-kapcsolatai-buktak-ki-egy-nemzetbiztonsagi-ellenorzesen/",
+        "date": "2025-06-12"
+      },
+      {
+        "publisher": "VSquare",
+        "title": "Germany, Hungary: pro-Orbán propagandists and Russian intelligence",
+        "url": "https://vsquare.org/germany-hungary-pro-orban-propagandists-russian-intelligence-gru-georg-spottle/",
+        "date": "2025-06-12"
+      },
+      {
+        "publisher": "bne IntelliNews",
+        "title": "Hungarian pro-government security analyst allegedly linked to Russian intelligence",
+        "url": "https://www.intellinews.com/hungarian-pro-government-security-analyst-allegedly-linked-to-russian-intelligence-385891/",
+        "date": "2025-06-13"
+      }
+    ],
     "status": "verified"
   }
 ]

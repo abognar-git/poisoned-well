@@ -38,6 +38,16 @@ ACTOR_MAP = {
     "newsfront-hungary": ["news-front"],
     "telegram-laundering-hungary-2026": ["telegram-network"],
     "effectiveness-evidence": [],
+    "telex-ai-video-audit-2026": [],
+    "tisza-volunteer-ai-songs": ["lone-volunteer"],
+    "kesma-county-ai-image-line-2026": ["kesma-press"],
+    "nem-ai-ad-blitz-2025": ["nem-movement"],
+    "nem-a-mi-haborunk-ads-2026": ["unknown-operator"],
+    "wellor-ai-music": ["unknown-operator"],
+    "spottle-attache-briefings": ["gru"],
+    # the convergence case links BOTH production lines — that is the finding,
+    # and the graph should show two operators arriving at one frame independently
+    "conscription-frame-convergence-2026": ["storm-1516", "nem-movement"],
 }
 
 ACTORS = {  # id -> (label, sponsor, glossary id or None)
@@ -55,6 +65,9 @@ ACTORS = {  # id -> (label, sponsor, glossary id or None)
     "romania-networks": ("Romanian TikTok networks", "contested", None),
     "news-front": ("News Front", "Russia", "news-front"),
     "telegram-network": ("pro-Orbán Telegram network", "contested", None),
+    "nem-movement": ("National Resistance Movement", "domestic (HU)", "nem"),
+    "kesma-press": ("KESMA county press", "domestic (HU)", None),
+    "lone-volunteer": ("Unfunded volunteer", "none", None),
 }
 
 # operated-by relations between canonical actors

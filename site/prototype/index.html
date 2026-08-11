@@ -384,6 +384,47 @@
   #net-hint{position:absolute; right:1.4rem; top:1.1rem; font-family:"IBM Plex Mono",monospace;
     font-size:.58rem; letter-spacing:.14em; color:var(--muted); pointer-events:none}
 
+  /* ---------- V·ii the convergence bench ---------- */
+  #grammar{max-width:52rem; margin:4.5rem auto 0; text-align:left}
+  #grammar .gh{border-top:1px solid var(--hairline); padding-top:2.2rem; margin-bottom:2.4rem}
+  #grammar .lbl{font-family:"IBM Plex Mono",monospace; font-size:.6rem; letter-spacing:.24em;
+    text-transform:uppercase; color:var(--signal); margin-bottom:.8rem}
+  #grammar h3{font-family:"Instrument Serif",Georgia,serif; font-size:1.9rem; font-weight:400;
+    line-height:1.2; margin:0 0 .8rem}
+  #grammar .gh p{font-size:1rem; line-height:1.65; color:var(--muted); margin:0}
+  .gtier{border-left:2px solid var(--hairline); padding:.2rem 0 .2rem 1.4rem; margin:2.6rem 0}
+  .gtier .tlbl{font-family:"IBM Plex Mono",monospace; font-size:.58rem; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--muted); margin-bottom:1rem}
+  .gq{font-family:"Newsreader",serif; font-size:1.06rem; line-height:1.6; color:var(--paper); margin:0 0 1.1rem}
+  .gq em{color:var(--signal); font-style:normal}
+  .gnote{font-size:.88rem; line-height:1.65; color:var(--muted); margin:.9rem 0 0}
+  .gnote b{color:var(--paper); font-weight:500}
+  .gfacts{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(13rem,100%),1fr)); gap:1.4rem}
+  .gfact .big{font-family:"Instrument Serif",Georgia,serif; font-size:2.1rem; color:var(--amber); line-height:1}
+  /* must out-specify #grammar .lbl above, which is mono/uppercase/signal */
+  #grammar .gfact .lbl{font-family:"Newsreader",serif; text-transform:none; letter-spacing:0;
+    font-size:.86rem; line-height:1.55; color:var(--muted); margin-top:.5rem; margin-bottom:0}
+  /* the provenance bar is rendered at TRUE scale — 0.08% must look like 0.08% */
+  #prov-bar{display:flex; height:26px; width:100%; border:1px solid var(--hairline); overflow:hidden}
+  #prov-bar i{display:block; height:100%}
+  #prov-legend{display:flex; flex-wrap:wrap; gap:.5rem 1.3rem; margin-top:.7rem;
+    font-family:"IBM Plex Mono",monospace; font-size:.6rem; letter-spacing:.05em; color:var(--muted)}
+  #prov-legend span{display:flex; align-items:center; gap:.4rem}
+  #prov-legend i{width:9px; height:9px; display:inline-block}
+  #tech-shared{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(11rem,100%),1fr)); gap:.8rem}
+  .tcard{border:1px solid var(--hairline); border-top:2px solid var(--signal); padding:.75rem .85rem}
+  .tcard .tn{font-family:"Newsreader",serif; font-size:.95rem; color:var(--paper); line-height:1.3}
+  .tcard .tid{font-family:"IBM Plex Mono",monospace; font-size:.56rem; letter-spacing:.1em; color:var(--muted)}
+  .tcard .tdf{font-family:"IBM Plex Mono",monospace; font-size:.58rem; color:var(--amber); margin-top:.5rem}
+  .gempty{border-left-color:rgba(233,228,218,.28)}
+  #gnot{display:grid; grid-template-columns:repeat(auto-fit,minmax(min(15rem,100%),1fr)); gap:1rem}
+  .ncard{border:1px dashed var(--hairline); padding:.85rem .95rem}
+  .ncard .nq{font-family:"Newsreader",serif; font-size:.92rem; color:var(--paper); margin-bottom:.45rem}
+  .ncard .nw{font-size:.82rem; line-height:1.55; color:var(--muted)}
+  .gclose{font-family:"Newsreader",serif; font-size:1.06rem; line-height:1.7; color:var(--paper);
+    border-top:1px solid var(--hairline); padding-top:1.8rem; margin-top:2.8rem}
+  .gclose b{font-weight:500; color:var(--signal)}
+
   #drink-wrap{max-width:66rem; margin:0 auto 2.5rem; padding:0 2rem}
   #drink-canvas{width:100%; height:52vh; min-height:320px; display:block; border:1px solid rgba(233,228,218,.05)}
   #splash-wrap{max-width:66rem; margin:0 auto 1.5rem; padding:0 2rem}
@@ -703,6 +744,78 @@
       </div>
     </div>
     <p class="vkicker">The deepfakes were a campaign event. <em>Poisoning the AI layer is the ongoing threat.</em></p>
+
+    <div id="grammar">
+      <div class="gh">
+        <div class="lbl">V · ii — The same grammar</div>
+        <h3>Most of it was made at home</h3>
+        <p>The foreign operations are the easier story to tell. They were not the larger one. Before asking
+           what Russia did to Hungary, it is worth measuring what Hungary's own machine did — and then
+           testing, rather than assuming, whether the two were connected.</p>
+      </div>
+
+      <div class="gtier">
+        <div class="tlbl">Measured · thousands of items</div>
+        <div class="gfacts">
+          <div class="gfact"><div class="big" data-claim="domestic-ai-share">84.3%</div>
+            <div class="lbl">of ~200 coded pro-government campaign videos were made entirely with AI —
+              113 million impressions, and only 11 of the 200 were paid ads.</div></div>
+          <div class="gfact"><div class="big" data-claim="domestic-selffunded">643M</div>
+            <div class="lbl">forint of platform advertising bought 650 million plays in three months.
+              The movement that spent it would not say who paid.</div></div>
+          <div class="gfact"><div class="big">1 min</div>
+            <div class="lbl">apart: the same AI attack image, mutated 4–5 ways, posted across
+              Magyar Nemzet and 18 county papers — an industrial line, not a meme.</div></div>
+        </div>
+      </div>
+
+      <div class="gtier">
+        <div class="tlbl">The pipeline test · 139,376 articles</div>
+        <p class="gq">If the domestic machine and the Russian machine were one machine, the Russian mirror
+          should be feeding on Hungarian pro-government output. It isn't.</p>
+        <div id="prov-bar" data-claim="no-pipeline"></div>
+        <div id="prov-legend"></div>
+        <p class="gnote" id="prov-note"></p>
+      </div>
+
+      <div class="gtier">
+        <div class="tlbl">Counted · single digits, so no percentages</div>
+        <p class="gq" data-claim="shared-grammar">What the two do share is a grammar. These are the techniques
+          recorded on <em>both</em> sides — each card names every case it was recorded in.</p>
+        <div id="tech-shared"></div>
+        <p class="gnote" id="tech-only"></p>
+        <p class="gnote"><b>What this is not.</b> Shared technique is not shared command. With
+          <span id="tech-n">—</span> tagged domestic cases, a single tagging decision moves the share by
+          roughly <span id="tech-pp">—</span> points, and cases whose sponsorship is unresolved are counted
+          on neither side. There is no convergence score on this page, because any single number here would
+          be read as a measure of coordination — which is precisely what this evidence cannot support.</p>
+      </div>
+
+      <div class="gtier">
+        <div class="tlbl">The clearest case</div>
+        <p class="gq" data-claim="convergence-not-coordination">The conscription lie was built twice.</p>
+        <p class="gnote">Storm-1516 pushed it through six purpose-built websites and Facebook ads reaching
+          over 20,000 Hungarians. Separately, Fidesz's youth wing clipped a general's video to strip the
+          words "today, the situation in Hungary is not such that" — and the truncated quote went into a
+          government pamphlet to pensioners, then into a National Resistance Movement AI video. Two
+          production lines, one fabrication, and — in the source's own words — <b>no evidence that Fidesz
+          is behind the Russian campaign.</b></p>
+        <div class="cf-links"><button class="cf-open" data-case="conscription-frame-convergence-2026">case file: the conscription frame</button>
+          <button class="cf-open" data-case="spottle-attache-briefings">case file: the attaché's talking points</button></div>
+      </div>
+
+      <div class="gtier gempty">
+        <div class="tlbl">Not computable — and we won't fake it</div>
+        <div id="gnot"></div>
+      </div>
+
+      <p class="gclose">So: the propaganda was overwhelmingly <b>theirs</b> — home-built, self-funded,
+        industrial. Where a pipeline to the Russian operation could be tested, there is none. What the two
+        share is the grammar of manipulation itself — buy the ads, invent the personas, smear the opponent,
+        make the war video. That grammar is now shared property, cheap enough that a governing party, a
+        foreign intelligence-linked operation and one unfunded retiree in Debrecen were all writing in it
+        in the same year.</p>
+    </div>
 
     <p class="vclose">So the honest verdict is neither panic nor dismissal. Deepfakes did not decide
       Hungary — an economy, a corruption scandal, and a credible opposition weighed far more. The open
@@ -1387,6 +1500,72 @@ setTimeout(async () => {
     if (cb) sub.appendChild(cb);
   } catch { /* baked figures remain — the page never breaks on upstream failure */ }
 }, 2600);
+
+/* ================= V·ii convergence bench =================
+   Everything here renders from data/derived/convergence.json, generated by
+   scripts/derive_convergence.py. Nothing is typed: the shared-technique cards,
+   the provenance bar and the sample-size caveat all move when the catalog moves. */
+{
+  const CV = await jget('/data/derived/convergence.json').catch(() => null);
+  const wrap = document.getElementById('grammar');
+  if (!CV) { if (wrap) wrap.style.display = 'none'; }
+  else {
+    const P = CV.provenance_audit, T = CV.technique_overlap;
+
+    if (P) {
+      const COL = {
+        telegram_russian_origin: ['#ff4a36', 'Russian-origin Telegram'],
+        other_russian_and_misc:  ['#c23b2e', 'other Russian & misc'],
+        news_front:              ['#d9a05b', 'News Front (sanctioned outlet)'],
+        hungarian_fringe:        ['#6ea8d8', 'Hungarian nationalist fringe'],
+        hungarian_progov_mainstream: ['#9ab89a', 'Hungarian pro-government mainstream'],
+      };
+      const bar = document.getElementById('prov-bar'), leg = document.getElementById('prov-legend');
+      for (const b of P.buckets) {
+        const [c, label] = COL[b.bucket] || ['#8b93a3', b.bucket];
+        // true scale: a 0.08% sliver stays a 0.08% sliver. min-width .5px only so it
+        // does not vanish entirely — it must be visible AND visibly negligible.
+        bar.insertAdjacentHTML('beforeend',
+          `<i style="width:${(b.share * 100).toFixed(4)}%; min-width:.5px; background:${c}" ` +
+          `title="${esc(label)}: ${b.articles.toLocaleString('en-US')} articles (${(b.share*100).toFixed(3)}%)"></i>`);
+      }
+      const seen = new Set(P.buckets.map(b => b.bucket));
+      for (const k of Object.keys(COL)) {
+        if (!seen.has(k)) continue;
+        const b = P.buckets.find(x => x.bucket === k);
+        leg.insertAdjacentHTML('beforeend',
+          `<span><i style="background:${COL[k][0]}"></i>${esc(COL[k][1])} · ` +
+          `${(b.share*100).toFixed(b.share < .01 ? 3 : 1)}%</span>`);
+      }
+      const fringe = P.hungarian_fringe_sources.map(s => `${esc(s.source)} (${s.articles})`).join(', ');
+      document.getElementById('prov-note').innerHTML =
+        `Across <b>${P.total_articles.toLocaleString('en-US')}</b> articles and <b>${P.credited_sources}</b> ` +
+        `credited sources, Hungarian pro-government mainstream outlets appear <b>zero times</b> — we swept for ` +
+        `${P.swept_for_mainstream.slice(0, 6).map(esc).join(', ')} and others. The only Hungarian sources the ` +
+        `mirror credits at all are nationalist fringe channels: ${fringe} — <b>0.08%</b>. ` +
+        `<b>Scope:</b> one network, one direction, its own credit labels, this window. It does not show Russian ` +
+        `influence was absent — Storm-1516 and Matryoshka did target Hungary directly. It shows the domestic ` +
+        `machine was not this mirror's raw material.`;
+    }
+
+    const ts = document.getElementById('tech-shared');
+    for (const s of T.shared)
+      ts.insertAdjacentHTML('beforeend',
+        `<div class="tcard"><div class="tid">${esc(s.id)}</div><div class="tn">${esc(s.name)}</div>` +
+        `<div class="tdf">in ${s.document_frequency} of ${s.df_total} tagged cases</div></div>`);
+    document.getElementById('tech-only').innerHTML =
+      `<b>Recorded only on the domestic side:</b> ` +
+      T.domestic_only.map(d => esc(d.name)).join(' · ') +
+      ` — which is what a government has that a foreign operator does not.`;
+    document.getElementById('tech-n').textContent = T.domestic_n;
+    document.getElementById('tech-pp').textContent = Math.round(T.points_per_technique);
+
+    const gn = document.getElementById('gnot');
+    for (const n of CV.not_computable)
+      gn.insertAdjacentHTML('beforeend',
+        `<div class="ncard"><div class="nq">${esc(n.question)}</div><div class="nw">${esc(n.why_not)}</div></div>`);
+  }
+}
 
 /* ---- shared scene kit: soft dot sprite, radial glow textures, postfx classes ---- */
 let POSTFX = null;   // set once by the hero scene; reused by every later vignette
