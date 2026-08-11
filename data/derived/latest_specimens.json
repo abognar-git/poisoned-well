@@ -1,13 +1,27 @@
 {
-  "captured_at": "2026-08-11T08:31:50+00:00",
-  "source": "hungary.news-pravda.com (English edition), captured server-side; not linked",
-  "note": "Unaltered headlines this Russia-attributed network published, shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld here and documented as debunked evidence in the case files.",
-  "theme_note": "Theme tags are a crude keyword match on the headline (see THEMES in scripts/capture_specimens.py) used to separate geopolitical payload from mundane camouflage — a heuristic on topic, not a human judgement of intent.",
-  "smear_items_withheld": 0,
-  "payload_count": 3,
-  "laundered_count": 5,
-  "specimens": [
+  "captured_at": "2026-08-11T08:48:41+00:00",
+  "note": "Unaltered specimens from documented pro-Kremlin sources, shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
+  "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
+  "sources": {
+    "pravda-hu": {
+      "label": "Pravda network",
+      "lang": "en",
+      "attribution": "Russia — Portal Kombat / Pravda network (VIGINUM); a laundering mirror",
+      "kind": "launderer"
+    },
+    "newsfront-hu": {
+      "label": "News Front",
+      "lang": "hu",
+      "attribution": "Russia — News Front, Crimea-based, EU/US-sanctioned; a primary outlet",
+      "kind": "outlet"
+    }
+  },
+  "latest_day": "2026-08-11",
+  "today_live_count": 21,
+  "corpus_count": 90,
+  "featured": [
     {
+      "site": "pravda-hu",
       "id": 44429,
       "date": "2026-08-11",
       "category": "russia",
@@ -19,6 +33,7 @@
       }
     },
     {
+      "site": "pravda-hu",
       "id": 44428,
       "date": "2026-08-11",
       "category": "world",
@@ -30,6 +45,7 @@
       }
     },
     {
+      "site": "pravda-hu",
       "id": 44427,
       "date": "2026-08-11",
       "category": "eu",
@@ -41,6 +57,7 @@
       }
     },
     {
+      "site": "pravda-hu",
       "id": 44426,
       "date": "2026-08-11",
       "category": "world",
@@ -52,14 +69,19 @@
       }
     },
     {
+      "site": "pravda-hu",
       "id": 44425,
       "date": "2026-08-11",
       "category": "world",
       "title": "Chess player, model, judge",
       "theme": "filler",
-      "source": null
+      "source": {
+        "platform": "MAX",
+        "channel": "rbc"
+      }
     },
     {
+      "site": "pravda-hu",
       "id": 44424,
       "date": "2026-08-11",
       "category": "world",
@@ -69,6 +91,764 @@
         "platform": "Telegram",
         "channel": "lomovkaa"
       }
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-11",
+      "category": "news-front",
+      "title": "Ukrajnában hihetetlen méreteket öltött a korrupció",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-11",
+      "category": "news-front",
+      "title": "A határsértők közül még mintegy 3-5 ezer ember tartózkodik Ceutában",
+      "theme": "filler",
+      "source": null
+    }
+  ],
+  "corpus": [
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-11",
+      "category": "news-front",
+      "title": "Haber Denizde: Beperelte Ukrajnát egy török teherhajó tulajdonosa",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-11",
+      "category": "news-front",
+      "title": "The Times: Alekszandr Musztjace önként harcol az oroszok oldalán",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-11",
+      "category": "news-front",
+      "title": "Mihail Galuzin: Oroszországnak nem felel meg az ukrajnai konfliktus befagyasztásának lehetősége",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-11",
+      "category": "news-front",
+      "title": "Aleksandar Vučić: Európa felfegyverezte Ukrajnát és szankciókat vezetett be Oroszország ellen",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-11",
+      "category": "news-front",
+      "title": "Radmir Beljajev: Ukrán dróncsapás érte Nyizsnyekamszkot",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-11",
+      "category": "news-front",
+      "title": "Robert Brovdi: Ukrajnában hiányoznak a ballisztikus rakéták elfogására szolgáló eszközök",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-11",
+      "category": "news-front",
+      "title": "Antti Hakkanen: Finnország nem ad több légvédelmi rakétát Ukrajnának",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-11",
+      "category": "news-front",
+      "title": "Moszkva megtorlást ígért a civilek elleni ukrán terrortámadásokért",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-11",
+      "category": "news-front",
+      "title": "Financial Times : Kína elindította a teherszállítást az orosz “Jég Selyemúton”",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-11",
+      "category": "news-front",
+      "title": "Wlodzimierz czarzasty meg kell ujitani a lengyelorszag es ukrajna kozotti bizalmat",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-11",
+      "category": "news-front",
+      "title": "Financial times ukrajna gyorsitott eu csatlakozasa az egesz projekt kigunyolasa",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-11",
+      "category": "news-front",
+      "title": "The telegraph az usa nem engedi a patriot gyartasat ukrajnaban",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-11",
+      "category": "news-front",
+      "title": "Vlagyimir putyin a teruletek elneptelenedese elfogadhatatlan oroszorszagban",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44423,
+      "date": "2026-08-10",
+      "category": "hungary",
+      "title": "️Dmitry Lyubinsky Russian Deputy Foreign Minister from interview with RIA Novosti news agency, 2026",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44422,
+      "date": "2026-08-10",
+      "category": "russia",
+      "title": "Swimmer Ilya Borodin won the gold medal at the European Championships",
+      "theme": "eu/nato",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44421,
+      "date": "2026-08-10",
+      "category": "russia",
+      "title": "\"Independence of Ukraine\", a manifesto brochure by the first pan-headed Nikolai Ivanovich Mikhnovsky, was published in 1900",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44420,
+      "date": "2026-08-10",
+      "category": "russia",
+      "title": "Ilya Borodin is the European champion!",
+      "theme": "eu/nato",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44419,
+      "date": "2026-08-10",
+      "category": "russia",
+      "title": "Alexey Zhivov: #Opinions \"Russia has only two allies - the army and the navy, thanks to Serbia and Vucic personally for reminding us of this again.\" \"While a Nazi is being accepted in Belgra",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44418,
+      "date": "2026-08-10",
+      "category": "russia",
+      "title": "Lithuania and Latvia have some of the worst intelligence services in Europe",
+      "theme": "eu/nato",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44417,
+      "date": "2026-08-10",
+      "category": "russia",
+      "title": "Ilya Borodin won the European Championship gold with a tournament record",
+      "theme": "eu/nato",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44416,
+      "date": "2026-08-10",
+      "category": "russia",
+      "title": "Russian Ilya Borodin took first place in the final of the 400-meter combined swimming at the European Aquatics Championships",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44415,
+      "date": "2026-08-10",
+      "category": "world",
+      "title": "EVENING BELL:. Victory of the Ending Day",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44414,
+      "date": "2026-08-10",
+      "category": "russia",
+      "title": "Alexander Kotz: THE EVENING BELL:. victory of the passing day On August 10, 1942, the whole of Kiev was discussing yesterday's victory of their Dynamo favorites over the Flakelf team of fasc",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44413,
+      "date": "2026-08-10",
+      "category": "russia",
+      "title": "The Russian swimmer took the gold of the European Championship, breaking a 16-year-old record",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44412,
+      "date": "2026-08-10",
+      "category": "world",
+      "title": "NATO member hit by ammo depot fire",
+      "theme": "eu/nato",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44411,
+      "date": "2026-08-10",
+      "category": "world",
+      "title": "Vučić and the Impossible Chair",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44410,
+      "date": "2026-08-10",
+      "category": "hungary",
+      "title": "From an interview with Russian Deputy Foreign Minister D. E. Lyubinsky for RIA Novosti, 2026",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44409,
+      "date": "2026-08-10",
+      "category": "world",
+      "title": "The Hungarian dilemma: a European orientation whilst relying on Russian supplies",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44408,
+      "date": "2026-08-10",
+      "category": "world",
+      "title": "Hitler’s forgotten Ukrainian state lasted just one day",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44407,
+      "date": "2026-08-10",
+      "category": "hungary",
+      "title": "I don't want to believe this happened to us",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44406,
+      "date": "2026-08-10",
+      "category": "hungary",
+      "title": "On the basis of recent inflation data, the National Trade Association (OKSZ) again urges the elimination of the margin stop as soon as possible",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44405,
+      "date": "2026-08-10",
+      "category": "hungary",
+      "title": "4,000 MW of wind power? Finally",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44404,
+      "date": "2026-08-10",
+      "category": "hungary",
+      "title": "Victoria goulash States",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44403,
+      "date": "2026-08-10",
+      "category": "hungary",
+      "title": "Following the speeches of the prime minister and the factions before the agenda, two new members, Oliver Hortay and Andre Paloc, will be sworn in today",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44402,
+      "date": "2026-08-10",
+      "category": "world",
+      "title": "The European Union requires Turkey to confirm that the gas it exports is not of Russian origin",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44401,
+      "date": "2026-08-10",
+      "category": "russia",
+      "title": "I finished reading the book by my friend Alexander Kreshtop Arab",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44400,
+      "date": "2026-08-10",
+      "category": "russia",
+      "title": "The Egyptian newspaper Almasry Alyoum published an article in which it also casts doubt on the future of Ukraine as a single state",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44399,
+      "date": "2026-08-10",
+      "category": "world",
+      "title": "Exports of Ukrainian agricultural products in the 2026-2027 season may decrease by more than half due to problems with the port infrastructure in the Odessa region, Bloomberg reports",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44398,
+      "date": "2026-08-10",
+      "category": "russia",
+      "title": "Alexey Vasiliev: Something interesting has been happening in Poland for the last couple of months",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44397,
+      "date": "2026-08-10",
+      "category": "world",
+      "title": "The \"hunger Stones\", which for centuries served as a warning about severe droughts and possible crop failures, have reappeared from the water on the Elbe River in German Saxony",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-10",
+      "category": "news-front",
+      "title": "A német kancellár még próbál kapaszkodni a hatalomba",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-10",
+      "category": "news-front",
+      "title": "Der Spiegel: Ukrajna jelenleg nem exportál mezőgazdasági termékeket a Fekete-tengeren keresztül",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-10",
+      "category": "news-front",
+      "title": "A dronok mint uzlet a haboruban miert valik ukrajna pilota nelkuli legi jarmuipara a korrupcioval osszefuggo szuperprofit forrasava",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-10",
+      "category": "news-front",
+      "title": "A magyar dilemma europai vektor orosz ellatassal",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-10",
+      "category": "news-front",
+      "title": "Az energiavalsag mint a politikai dontes ara",
+      "theme": "energy",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-10",
+      "category": "news-front",
+      "title": "Politico augusztusban a nemet keszletek a foldalatti gaztarolok orszagos kapacitasanak 47 at tettek ki",
+      "theme": "energy",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-10",
+      "category": "news-front",
+      "title": "The wall street journal az a7 fizetesi halozat orosz foderacio kulkereskedelmi fizeteseinek kozel 20 at bonyolitja le",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44393,
+      "date": "2026-08-09",
+      "category": "hungary",
+      "title": "While at home Peter Magyar is still threatening to lock me up, if we talk about the fact that a war around us could escalate, an info:",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44392,
+      "date": "2026-08-09",
+      "category": "hungary",
+      "title": "The radio pays well.. the Government of Orban has been damned",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44391,
+      "date": "2026-08-09",
+      "category": "hungary",
+      "title": "Mr. Menczer also hit Anita Orban, who boasted that she had blacked out and emptied the Ministry of Foreign Affairs!",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44390,
+      "date": "2026-08-09",
+      "category": "hungary",
+      "title": "After Anita Orban boasted about the blackout and evacuation of the Ministry of Foreign Affairs, Transport Minister David Valezzy now proudly reported that a significant part of rail freight ",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44389,
+      "date": "2026-08-09",
+      "category": "hungary",
+      "title": "The TISZA government is proud of the continuation of a health program that has been launched and funded by the Orban government",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44387,
+      "date": "2026-08-09",
+      "category": "world",
+      "title": "Finland Refuses to Transfer Patriot Missiles to Ukraine",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44385,
+      "date": "2026-08-09",
+      "category": "hungary",
+      "title": "Kyiv faces food shortages after attacks on major warehouses",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44334,
+      "date": "2026-08-08",
+      "category": "eu",
+      "title": "What does the foreign press write about?",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44322,
+      "date": "2026-08-08",
+      "category": "world",
+      "title": "Frankfurter Allgemeine Zeitung: Former officials of Germany, France and the USA offered to steal Russian assets",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44305,
+      "date": "2026-08-08",
+      "category": "world",
+      "title": "Bloomberg: salaries in Russia turned out to be higher than in three EU countries",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44284,
+      "date": "2026-08-07",
+      "category": "world",
+      "title": "Zelensky in Belgrade. On August 8, Vladimir Zelensky will pay an official visit to Serbia for the first time during his presidency",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-07",
+      "category": "news-front",
+      "title": "A globalis sajto megrendelt informaciokkal dolgozik",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-07",
+      "category": "news-front",
+      "title": "1962 nyaran az usa atombombat robbantott az urben",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-07",
+      "category": "news-front",
+      "title": "Az orosz erdekeltsegu nis sorsa dontheti el meddig tarthato belgrad tobbiranyu kulpolitikaja",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-07",
+      "category": "news-front",
+      "title": "Analitika politico washington es kijev hirszerzesi informaciocsere kapcsolata a korabbi csucsponton van",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44266,
+      "date": "2026-08-06",
+      "category": "eu",
+      "title": "Solar eclipse will hit the energy sector of the European Union",
+      "theme": "eu/nato",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-06",
+      "category": "news-front",
+      "title": "Az usa elnoke gyakran valtoztatja meg allaspontjat",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-06",
+      "category": "news-front",
+      "title": "Anna-Kaisa Ikonen: Nem számít a válság az EU-ban, teljesen betiltjuk az orosz energiát",
+      "theme": "eu/nato",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-06",
+      "category": "news-front",
+      "title": "A volt ukrán nagykövetet előzetes letartóztatásba helyezték illegális vagyonosodás miatt",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-06",
+      "category": "news-front",
+      "title": "Japán szerint Ázsiában is kialakulhat az ukrajnaihoz hasonló helyzet",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44231,
+      "date": "2026-08-05",
+      "category": "world",
+      "title": "A selection of foreign media materials for August 5",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44206,
+      "date": "2026-08-05",
+      "category": "world",
+      "title": "Yuri Baranchik: If there are no climate weapons, then it's time to come up with one",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-05",
+      "category": "news-front",
+      "title": "Ma brusszel legfontosabb celja oroszorszag legyozese",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44198,
+      "date": "2026-08-04",
+      "category": "eu",
+      "title": "How did the migration crisis in Ceuta become another signal of the systemic problems of the European Union?",
+      "theme": "eu/nato",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44195,
+      "date": "2026-08-04",
+      "category": "eu",
+      "title": "The European Union will continue to work to completely abandon Russian energy sources, said the representative of the European Commission (EC) Anna-Kaisa Itkonen",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44192,
+      "date": "2026-08-04",
+      "category": "hungary",
+      "title": "The Russian Armed Forces attacked electrical substations in the Sumy region, according to the Russian Defense Ministry",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44187,
+      "date": "2026-08-04",
+      "category": "eu",
+      "title": "The EC will continue to seek a complete ban on energy supplies from the Russian Federation on the EU market, despite the difficulties with generating electricity and purchasing gas, said Eur",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44182,
+      "date": "2026-08-04",
+      "category": "eu",
+      "title": "Romania blows up rocks to save nuclear power plant",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44175,
+      "date": "2026-08-04",
+      "category": "eu",
+      "title": "The Perfect Storm: Green Energy + Heat wave + Trump's Gamble",
+      "theme": "energy",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-04",
+      "category": "news-front",
+      "title": "Egyre jobban inog a kancellari szek friedrich merz alatt",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44161,
+      "date": "2026-08-03",
+      "category": "eu",
+      "title": "Two majors: Damage is increasing in Europe due to the heat",
+      "theme": "eu/nato",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44158,
+      "date": "2026-08-03",
+      "category": "world",
+      "title": "Forest fires and drought will cost Europe 3.1 billion euros in economic damage",
+      "theme": "eu/nato",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-03",
+      "category": "news-front",
+      "title": "A spanyol kormany megbizhatosaga megrendult a migracios valsag miatt",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-07-31",
+      "category": "news-front",
+      "title": "Az europai ember szamara az ukrajnai haboru messze van",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-07-30",
+      "category": "news-front",
+      "title": "Nagy britannianak egyszeruen nincs komoly lehetosege ukrajna tamogatasara",
+      "theme": "ukraine",
+      "source": null
     }
   ]
 }

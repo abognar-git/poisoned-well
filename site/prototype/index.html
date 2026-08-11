@@ -263,6 +263,10 @@
     margin-top:.35rem; margin-right:.35rem}
   .spec .theme.payload{color:var(--signal); border:1px solid rgba(255,74,54,.4)}
   .spec .theme.filler{color:var(--muted); border:1px solid var(--hairline)}
+  .spec .site{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:.54rem;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--hairline);
+    padding-bottom:.15rem; margin-bottom:.3rem}
+  .spec .site.pravda{color:var(--signal)} .spec .site.newsfront{color:var(--amber)}
   .spec .laundered{font-family:"IBM Plex Mono",monospace; font-size:.62rem; color:var(--muted);
     margin-top:.4rem; display:flex; align-items:center; gap:.35rem}
   .spec .laundered b{color:var(--amber); font-weight:500}
@@ -277,6 +281,24 @@
     color:var(--amber); border:1px solid rgba(217,160,91,.4); background:rgba(217,160,91,.06);
     border-radius:2px; padding:.5rem .7rem; margin:.6rem 0; display:none}
   #spec-stale.on{display:block}
+  #spec-controls{display:flex; align-items:center; gap:.7rem; flex-wrap:wrap; margin:1rem 0 .3rem;
+    padding-bottom:.9rem; border-bottom:1px solid var(--hairline)}
+  #spec-search{flex:1 1 14rem; min-width:10rem; background:rgba(13,17,26,.7); border:1px solid var(--hairline);
+    border-radius:2px; color:var(--paper); font-family:"IBM Plex Mono",monospace; font-size:.72rem;
+    padding:.5rem .7rem; outline:none}
+  #spec-search:focus{border-color:var(--analyst)}
+  #spec-search::placeholder{color:var(--muted)}
+  #spec-chips{display:flex; gap:.4rem; flex-wrap:wrap}
+  .chip{font-family:"IBM Plex Mono",monospace; font-size:.58rem; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--muted); background:none; border:1px solid var(--hairline); border-radius:2px;
+    padding:.35em .6em; cursor:pointer}
+  .chip:hover{border-color:var(--muted)}
+  .chip.on{color:var(--paper); border-color:var(--analyst); background:rgba(110,168,216,.1)}
+  #spec-toggle{font-family:"IBM Plex Mono",monospace; font-size:.6rem; letter-spacing:.08em;
+    color:var(--signal); background:none; border:1px solid rgba(255,74,54,.35); border-radius:2px;
+    padding:.4em .7em; cursor:pointer; margin-left:auto}
+  #spec-toggle:hover{background:rgba(255,74,54,.1)}
+  .spec-empty{font-family:"Newsreader",serif; font-style:italic; color:var(--muted); padding:1.5rem 0}
   .spec-note{font-family:"Newsreader",serif; font-style:italic; font-size:.82rem; line-height:1.55;
     color:var(--muted); margin-top:1rem}
   .spec-note b{color:var(--amber); font-style:normal; font-weight:500}
@@ -489,17 +511,23 @@
 <section id="specimens-sec">
   <div class="act-divider" style="padding:6rem 2rem 2rem">
     <div class="no">EVIDENCE · LIVE</div>
-    <h2>What it published today</h2>
-    <p>Not a claim that it is still running — proof. These are the most recent headlines the Hungarian
-       mirror emitted, captured server-side. Shown as evidence; deliberately not linked.</p>
+    <h2>What they published today</h2>
+    <p>Not a claim that it is still running — proof. Recent headlines from documented Hungary-targeting
+       pro-Kremlin sources, captured server-side. Shown as evidence; deliberately not linked.
+       Search and filter the live corpus below.</p>
   </div>
   <div id="specimens" data-claim="live-specimens">
     <div class="spec-head">
-      <div class="lbl"><span class="live-dot"></span>hungary.news-pravda.com</div>
+      <div class="lbl"><span class="live-dot"></span><span id="spec-srclabel">live capture</span></div>
       <div class="cap" id="spec-cap">captured —</div>
     </div>
     <div id="spec-volume"></div>
     <div id="spec-stale"></div>
+    <div id="spec-controls">
+      <input id="spec-search" type="search" placeholder="search headlines…" autocomplete="off" aria-label="search specimens">
+      <div id="spec-chips"></div>
+      <button id="spec-toggle" type="button"></button>
+    </div>
     <div id="spec-list"></div>
     <div class="spec-why">
       <div class="h">Why this matters — read from Hungary</div>
@@ -1071,7 +1099,11 @@ try {
     return Math.round(hrs / 24) + ' days ago';
   };
   const PAYLOAD_THEMES = new Set(['hungary', 'ukraine', 'russia', 'eu/nato', 'energy']);
-  let capturedAt = null;
+  const SITE = { 'pravda-hu': { cls: 'pravda', label: 'Pravda network' },
+                 'newsfront-hu': { cls: 'newsfront', label: 'News Front' } };
+  let capturedAt = null, DATA = null, ALL = [];
+  const filters = { q: '', site: 'all', kind: 'all' };
+  let mode = 'featured';   // 'featured' | 'all'
 
   const renderVolume = () => {
     const days = timeline.series.filter(d => d[1] > 0).slice(-7);
@@ -1081,65 +1113,101 @@ try {
         title="${d[0]}: ${d[1]}"></i>`).join('');
     document.getElementById('spec-volume').innerHTML =
       `<div><div class="spark">${bars}</div></div>` +
-      `<div>the few below are the surface of <b>${fmt(HU.articles_latest_day)}</b> published on ` +
-      `${HU.latest_publication_day} · <b>${fmt(HU.articles_last_7d)}</b> in the last 7 days · ` +
-      `<b>${fmt(HU.total)}</b> all-time</div>`;
+      `<div><b>${DATA.today_live_count}</b> seen live today (${esc(DATA.latest_day)}) · CheckFirst counted ` +
+      `<b>${fmt(HU.articles_last_7d)}</b> in the last 7 days and <b>${fmt(HU.total)}</b> all-time — ` +
+      `the searchable corpus below is a live sample of that firehose</div>`;
+  };
+  const specRow = s => {
+    const el = document.createElement('div');
+    el.className = 'spec';
+    const site = SITE[s.site] || { cls: '', label: s.site };
+    const isPayload = PAYLOAD_THEMES.has(s.theme);
+    const themeTag = `<span class="theme ${isPayload ? 'payload' : 'filler'}" title="keyword heuristic on the headline — topic, not a judgement of intent">${
+      isPayload ? 'payload · ' + esc(s.theme) : 'camouflage · filler'}</span>`;
+    let prov;
+    if (s.source)
+      prov = `<div class="laundered"><span class="arr">↳ laundered from</span> <b>${esc(s.source.platform)}${
+        s.source.channel ? ' · ' + esc(s.source.channel) : ''}</b></div>`;
+    else if (s.site === 'newsfront-hu')
+      prov = `<div class="laundered"><span class="arr">↳</span> News Front — Crimea-based, sanctioned outlet</div>`;
+    else prov = '';
+    el.innerHTML =
+      `<div class="meta"><span class="cat">${esc(s.category)}</span><br>${esc(s.date)}${s.id ? '<br>#' + s.id : ''}</div>` +
+      `<div><span class="site ${site.cls}">${esc(site.label)}</span><div class="title">${esc(s.title)}</div>${themeTag}${prov}</div>`;
+    return el;
+  };
+  const applyFilters = rows => rows.filter(s =>
+    (filters.site === 'all' || s.site === filters.site) &&
+    (filters.kind === 'all' || (filters.kind === 'payload') === PAYLOAD_THEMES.has(s.theme)) &&
+    (!filters.q || s.title.toLowerCase().includes(filters.q)));
+  const renderList = () => {
+    const searching = filters.q || filters.site !== 'all' || filters.kind !== 'all';
+    const src = (mode === 'all' || searching) ? ALL : DATA.featured;
+    const rows = applyFilters(src);
+    const list = document.getElementById('spec-list');
+    list.innerHTML = '';
+    if (!rows.length) { list.innerHTML = '<div class="spec-empty">No specimens match.</div>'; return; }
+    for (const s of rows) list.appendChild(specRow(s));
+    const tog = document.getElementById('spec-toggle');
+    tog.textContent = (mode === 'all' || searching)
+      ? `showing ${rows.length} of ${ALL.length} — show featured`
+      : `explore all ${ALL.length} →`;
+    tog.style.display = searching ? 'none' : '';
   };
   const tickAgo = () => {
     if (!capturedAt) return;
-    const pn = window.__specPayload;
     document.getElementById('spec-cap').textContent = 'captured ' + agoStr(capturedAt) +
-      (pn != null ? ` · ${pn} payload / ${window.__specTotal - pn} filler` : '');
+      ` · ${ALL.length} in corpus`;
     const hrs = (Date.now() - new Date(capturedAt).getTime()) / 3.6e6;
     const stale = document.getElementById('spec-stale');
     if (hrs > 6) {
       stale.classList.add('on');
       stale.textContent = hrs > 48
-        ? `⚠ No successful capture in ${Math.round(hrs / 24)} days — the mirror may be blocking capture, or may have gone dark. Showing the last archived specimens.`
+        ? `⚠ No successful capture in ${Math.round(hrs / 24)} days — the sources may be blocking capture, or may have gone dark. Showing the last archived specimens.`
         : `⚠ Last successful capture ${agoStr(capturedAt)} — the hourly job may be delayed or blocked. Showing archived specimens.`;
     } else stale.classList.remove('on');
   };
 
-  const render = spec => {
-    capturedAt = spec.captured_at;
-    window.__specPayload = spec.payload_count;
-    window.__specTotal = spec.specimens.length;
-    const list = document.getElementById('spec-list');
-    list.innerHTML = '';
-    for (const s of spec.specimens) {
-      const el = document.createElement('div');
-      el.className = 'spec';
-      const isPayload = PAYLOAD_THEMES.has(s.theme);
-      const themeTag = s.theme
-        ? `<span class="theme ${isPayload ? 'payload' : 'filler'}" title="keyword heuristic on the headline — topic, not a judgement of intent">${
-            isPayload ? 'payload · ' + esc(s.theme) : 'camouflage · filler'}</span>`
-        : '';
-      const src = s.source;
-      const srcLine = src
-        ? `<div class="laundered"><span class="arr">↳ laundered from</span> <b>${esc(src.platform)}${
-            src.channel ? ' · ' + esc(src.channel) : ''}</b></div>`
-        : `<div class="laundered"><span class="arr">↳</span> source not traced</div>`;
-      el.innerHTML =
-        `<div class="meta"><span class="cat">${esc(s.category)}</span><br>${esc(s.date)}<br>#${s.id}</div>` +
-        `<div><div class="title">${esc(s.title)}</div>${themeTag}${srcLine}</div>`;
-      list.appendChild(el);
-    }
-    renderVolume();
-    tickAgo();
-    const withheld = spec.smear_items_withheld
-      ? ` <b>${spec.smear_items_withheld} personal-smear item(s) withheld</b> and instead documented in the case files.` : '';
-    const lnd = spec.laundered_count
-      ? ` The "laundered from" line is the source each article credits on its own page — mostly Russian Telegram channels and outlets, republished as Hungarian-readable "news".` : '';
-    document.getElementById('spec-note').innerHTML =
-      `Unaltered specimens of a Russia-attributed operation, in its own English edition — ` +
-      `shown as evidence of ongoing output, <b>not endorsement</b>, and not linked (neither the article nor its source, ` +
-      `to avoid feeding the citation signal the network manufactures). Theme tags are a <b>disclosed keyword heuristic</b> ` +
-      `on the headline, published in the repo.${lnd}${withheld}`;
+  const buildControls = () => {
+    const chips = document.getElementById('spec-chips');
+    const mk = (group, val, label) => {
+      const b = document.createElement('button');
+      b.className = 'chip' + ((filters[group] === val) ? ' on' : '');
+      b.textContent = label;
+      b.addEventListener('click', () => {
+        filters[group] = val;
+        [...chips.children].forEach(c => { if (c.dataset.g === group) c.classList.toggle('on', c.dataset.v === val); });
+        renderList();
+      });
+      b.dataset.g = group; b.dataset.v = val;
+      chips.appendChild(b);
+    };
+    mk('site', 'all', 'all sources');
+    for (const sid of Object.keys(DATA.sources)) mk('site', sid, SITE[sid]?.label || sid);
+    mk('kind', 'all', 'all'); mk('kind', 'payload', 'payload'); mk('kind', 'filler', 'filler');
+    document.getElementById('spec-search').addEventListener('input', e => {
+      filters.q = e.target.value.trim().toLowerCase(); renderList();
+    });
+    document.getElementById('spec-toggle').addEventListener('click', () => {
+      mode = mode === 'all' ? 'featured' : 'all'; renderList();
+    });
   };
+
   try {
-    const spec = await jget('/data/derived/latest_specimens.json');
-    if (spec?.specimens?.length) { render(spec); setInterval(tickAgo, 60000); }
-    else document.getElementById('specimens-sec').style.display = 'none';
+    DATA = await jget('/data/derived/latest_specimens.json');
+    if (!DATA?.featured?.length) throw 0;
+    ALL = [...DATA.featured, ...(DATA.corpus || [])];
+    capturedAt = DATA.captured_at;
+    document.getElementById('spec-srclabel').textContent =
+      Object.values(DATA.sources).map(s => s.label).join(' + ') + ' · live capture';
+    renderVolume(); buildControls(); renderList(); tickAgo();
+    setInterval(tickAgo, 60000);
+    document.getElementById('spec-note').innerHTML =
+      `Unaltered specimens from documented pro-Kremlin sources — <b>Pravda network</b> (a laundering mirror, ` +
+      `English edition) and <b>News Front</b> (a Crimea-based, sanctioned outlet, Hungarian) — shown as evidence ` +
+      `of ongoing output, <b>not endorsement</b>, and not linked (neither article nor source). The "laundered from" ` +
+      `line is the source each Pravda article credits on its own page. Theme tags are a <b>disclosed keyword ` +
+      `heuristic</b> on the headline, published in the repo; personal-smear items are withheld and left to the case files.`;
   } catch { document.getElementById('specimens-sec').style.display = 'none'; }
 }
 
