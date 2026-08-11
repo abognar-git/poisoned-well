@@ -229,6 +229,23 @@
   #case-drawer .ttp a b{color:var(--analyst); font-weight:500}
   #case-drawer .ttp a:hover{border-color:var(--analyst)}
 
+  /* ---------- Act V verdict ---------- */
+  #act5{background:linear-gradient(180deg, transparent, rgba(11,16,24,.6) 40%, transparent)}
+  .verdict{max-width:52rem; margin:0 auto; padding:0 2rem}
+  .verdict .lead{font-family:"Instrument Serif",Georgia,serif; font-size:clamp(1.5rem,3vw,2.2rem);
+    line-height:1.3; color:var(--paper); text-align:center; margin-bottom:2.6rem}
+  .verdict .lead em{font-style:italic; color:var(--signal)}
+  .vfacts{display:grid; grid-template-columns:repeat(auto-fit, minmax(15rem,1fr)); gap:1.4rem}
+  .vfact{border-top:2px solid var(--hairline); padding-top:1rem}
+  .vfact .big{font-family:"IBM Plex Mono",monospace; font-size:2rem; font-weight:500; color:var(--paper);
+    line-height:1; letter-spacing:.01em}
+  .vfact .lbl{font-family:"Newsreader",serif; font-size:.96rem; line-height:1.5; color:var(--muted); margin-top:.55rem}
+  .vfact.warn{border-color:rgba(217,160,91,.5)}
+  .vfact.warn .big{color:var(--amber)}
+  .vclose{font-family:"Newsreader",serif; font-size:1.12rem; line-height:1.65; color:var(--paper);
+    max-width:40rem; margin:3rem auto 0; text-align:center}
+  .vclose b{color:var(--signal); font-weight:500}
+
   /* ---------- Act III campaign timeline ---------- */
   #act3-spine{position:relative; max-width:60rem; margin:1rem auto 0; padding:1rem 1.5rem 3rem}
   #act3-spine::before{content:""; position:absolute; top:0; bottom:0; left:50%; width:1px;
@@ -358,7 +375,7 @@
 
 <header>
   <div class="wordmark">POISONED<b>WELL</b></div>
-  <div class="tag">DESIGN PROTOTYPE · ACT I OF V</div>
+  <div class="tag">DESIGN PROTOTYPE · FIVE ACTS</div>
 </header>
 
 <section id="hero">
@@ -480,7 +497,17 @@
       <div class="ps" data-claim="ai-audience-aim">audits: falsehoods repeated ~33% of the time</div></div>
   </div>
   <p class="pipe-note">Whether this loop measurably changes what chatbots say is genuinely contested —
-     the § card on the last hop carries the peer-reviewed counter-evidence alongside the audits.</p>
+     the § card carries the peer-reviewed counter-evidence alongside the audits.</p>
+
+  <div style="max-width:44rem; margin:3rem auto 0; padding:0 2rem">
+    <div class="pt" style="text-align:center; margin-bottom:.4rem" data-claim="chatbot-trend">
+      SHARE OF NEWS FALSEHOODS REPEATED BY LEADING CHATBOTS · NEWSGUARD AUDITS</div>
+    <svg id="grooming-chart" viewBox="0 0 640 210" role="img"
+      aria-label="Chatbot falsehood-repetition rate rising from 18% to 35% between 2024 and 2025"></svg>
+    <p class="pipe-note" style="margin-top:.8rem; font-size:.84rem">Rising as models stopped
+      refusing to answer — but a peer-reviewed test found far lower rates on data-void prompts.
+      The trend is real; its size is disputed.</p>
+  </div>
 </section>
 
 <section id="evidence-room">
@@ -495,7 +522,7 @@
 
 <section id="methods">
   <div class="act-divider" style="padding:7rem 2rem 2.5rem">
-    <div class="no">THE METHOD</div>
+    <div class="no">REFERENCE · THE METHOD</div>
     <h2>How do we know this?</h2>
     <p>Four kinds of evidence feed this site. Each proves something different — and none proves everything.</p>
   </div>
@@ -537,9 +564,37 @@
   <div id="conf-legend"></div>
 </section>
 
+<section id="act5">
+  <div class="act-divider" style="padding:7rem 2rem 2.5rem">
+    <div class="no">ACT V</div>
+    <h2>What the evidence honestly shows</h2>
+    <p>The uncomfortable ending: for all the machinery, no one has shown it works — and the campaign
+       that used the most of it lost.</p>
+  </div>
+  <div class="verdict">
+    <p class="lead">The most AI-saturated election campaign in EU history was aimed at keeping Viktor
+      Orbán in power. <em>It failed.</em></p>
+    <div class="vfacts">
+      <div class="vfact"><div class="big" data-claim="no-swing">0</div>
+        <div class="lbl">elections shown to be measurably swung by AI disinformation, in any study to date.</div></div>
+      <div class="vfact"><div class="big" data-claim="mostly-domestic">~90%</div>
+        <div class="lbl">of Hungary's 2026 election disinformation was domestic in origin — foreign ops amplified, they didn't originate.</div></div>
+      <div class="vfact"><div class="big" data-claim="cheap-fakes-dominate">7×</div>
+        <div class="lbl">more common than AI content in 2024 US misinformation: ordinary 'cheap fakes'.</div></div>
+      <div class="vfact warn"><div class="big" data-claim="ai-share-rising">+259%</div>
+        <div class="lbl">year-on-year rise in AI-enabled FIMI incidents (EEAS, 2025). Adoption is real and accelerating.</div></div>
+    </div>
+    <p class="vclose">So the honest verdict is neither panic nor dismissal. Deepfakes did not decide
+      Hungary — an economy, corruption, and a credible opposition did. But the machine that writes for
+      the machines <b>never stopped</b>, and its target was never the election. The open question this
+      site leaves you with is not whether propaganda swings votes, but what it does to the well everyone
+      now drinks from.</p>
+  </div>
+</section>
+
 <section id="glossary">
   <div class="act-divider" style="padding:7rem 2rem 2.5rem">
-    <div class="no">THE LANGUAGE</div>
+    <div class="no">REFERENCE · THE LANGUAGE</div>
     <h2>Who's who, what's what</h2>
     <p>Threat-intel vendors name the same operation differently — this resolver keeps the aliases straight,
        with terms of art defined as this site uses them.</p>
@@ -560,10 +615,11 @@
     targeting, not server routes.</p>
   </div>
   <div class="col">
-    <div class="h">Coming acts</div>
-    <li><b>II</b> — The fake newsrooms <span>· Storm-1516 in Hungary</span></li>
-    <li><b>III</b> — The night of the deepfakes <span>· the 2026 campaign</span></li>
-    <li><b>IV</b> — What the machines now believe <span>· LLM grooming, measured</span></li>
+    <div class="h">The five acts</div>
+    <li><b>I</b> — The machine that never sleeps</li>
+    <li><b>II</b> — The infrastructure, walkable</li>
+    <li><b>III</b> — The night of the deepfakes</li>
+    <li><b>IV</b> — How propaganda reaches the machines</li>
     <li><b>V</b> — What the evidence honestly shows</li>
   </div>
   <div class="col">
@@ -962,6 +1018,48 @@ try {
     if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
   }), { threshold: .3 });
   spine.querySelectorAll('.inc').forEach(n => io.observe(n));
+}
+
+// Act IV grooming chart (audit rates over time, with counter-evidence marked)
+{
+  const SVGNS = 'http://www.w3.org/2000/svg';
+  const svgC = document.getElementById('grooming-chart');
+  const pts = [
+    { t: 'Aug 2024', v: 18, note: 'baseline' },
+    { t: 'Mar 2025', v: 33, note: 'Pravda narratives' },
+    { t: 'Aug 2025', v: 35, note: 'news overall' },
+  ];
+  const W = 640, H = 210, ml = 42, mr = 20, mt = 18, mb = 34;
+  const iw = W - ml - mr, ih = H - mt - mb;
+  const X = i => ml + (pts.length === 1 ? iw / 2 : i / (pts.length - 1) * iw);
+  const Y = v => mt + ih - v / 40 * ih;
+  const mk = (n, at, txt) => {
+    const e = document.createElementNS(SVGNS, n);
+    for (const k in at) e.setAttribute(k, at[k]);
+    if (txt != null) e.textContent = txt;
+    svgC.appendChild(e); return e;
+  };
+  [0, 10, 20, 30, 40].forEach(v => {
+    mk('line', { x1: ml, x2: W - mr, y1: Y(v), y2: Y(v), stroke: 'rgba(233,228,218,.10)' });
+    mk('text', { x: ml - 8, y: Y(v) + 4, 'text-anchor': 'end', fill: '#8b93a3', 'font-size': 10,
+      'font-family': 'IBM Plex Mono, monospace' }, v + '%');
+  });
+  // counter-evidence band: Alyukov et al. ~8% on data-void prompts
+  mk('line', { x1: ml, x2: W - mr, y1: Y(8), y2: Y(8), stroke: 'rgba(217,160,91,.5)', 'stroke-dasharray': '3 4' });
+  mk('text', { x: W - mr, y: Y(8) - 6, 'text-anchor': 'end', fill: '#d9a05b', 'font-size': 10,
+    'font-family': 'IBM Plex Mono, monospace' }, 'peer-reviewed counter-test: ~8% on data-void prompts');
+  let d = '';
+  pts.forEach((p, i) => { d += (i ? ' L ' : 'M ') + X(i) + ' ' + Y(p.v); });
+  mk('path', { d, fill: 'none', stroke: '#ff4a36', 'stroke-width': 2 });
+  pts.forEach((p, i) => {
+    mk('circle', { cx: X(i), cy: Y(p.v), r: 4, fill: '#ff4a36' });
+    mk('text', { x: X(i), y: Y(p.v) - 12, 'text-anchor': i === 0 ? 'start' : 'middle', fill: '#e9e4da',
+      'font-size': 13, 'font-family': 'IBM Plex Mono, monospace', 'font-weight': 500 }, p.v + '%');
+    mk('text', { x: X(i), y: H - 18, 'text-anchor': 'middle', fill: '#8b93a3', 'font-size': 10,
+      'font-family': 'IBM Plex Mono, monospace' }, p.t);
+    mk('text', { x: X(i), y: H - 6, 'text-anchor': 'middle', fill: '#6b7280', 'font-size': 8.5,
+      'font-family': 'IBM Plex Mono, monospace' }, p.note);
+  });
 }
 
 // mechanism figures, confidence legend, glossary (Phase C)

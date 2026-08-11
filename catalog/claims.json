@@ -104,11 +104,53 @@
     ]
   },
   {
+    "id": "chatbot-trend",
+    "claim": "NewsGuard's recurring audit found leading chatbots repeating false claims in the news at rising rates: 18% (Aug 2024), 33% for Pravda-network narratives specifically (Mar 2025), and 35% overall (Aug 2025) — as refusal rates fell from 31% to near zero. A peer-reviewed study (Alyukov et al., HKS Misinformation Review, Oct 2025) found much lower rates on data-void prompts, so these figures should be read as audit results, not a settled population estimate.",
+    "status": "verified",
+    "support": [
+      { "type": "source", "publisher": "NewsGuard", "title": "Moscow-based network infected Western AI (33% figure)", "date": "2025-03-06", "url": "https://www.newsguardtech.com/special-reports/moscow-based-global-news-network-infected-western-artificial-intelligence-russian-propaganda/" },
+      { "type": "source", "publisher": "NewsGuard", "title": "One-year AI audit progress report (35% vs 18%)", "date": "2025-08", "url": "https://www.newsguardtech.com/press/newsguard-one-year-ai-audit-progress-report-finds-that-ai-models-spread-falsehoods-in-the-news-35-of-the-time/" }
+    ],
+    "caveat": "NewsGuard figures are prompt-audit rates with disputed generalizability; the peer-reviewed counter-study is cited in the LLM-grooming case file."
+  },
+  {
     "id": "today-count",
     "claim": "The 'published today' figure is the mirror's article count for the latest scraped day in CheckFirst's dataset.",
     "status": "live-data",
     "support": [
       { "type": "data", "data_ref": "data/derived/live_status.json", "note": "articles_latest_day" }
+    ]
+  },
+  {
+    "id": "no-swing",
+    "claim": "No study has demonstrated that AI-enabled disinformation measurably changed the result of any election. CETaS (Alan Turing Institute) analysed the 2024 UK and European votes and found no evidence of altered outcomes, while warning of second-order harms — polarization and eroded trust.",
+    "status": "verified",
+    "support": [
+      { "type": "source", "publisher": "CETaS / Alan Turing Institute", "title": "AI-enabled influence operations: threat analysis of the 2024 UK and European elections", "date": "2024-09", "url": "https://cetas.turing.ac.uk/publications/ai-enabled-influence-operations-threat-analysis-2024-uk-and-european-elections" }
+    ]
+  },
+  {
+    "id": "cheap-fakes-dominate",
+    "claim": "Most election manipulation is not AI. Of 78 catalogued election deepfakes, 39 had no deceptive intent, and the deceptive ones were cheaply reproducible without AI; the News Literacy Project found non-AI 'cheap fakes' about seven times more common than AI content in 2024 US election misinformation.",
+    "status": "verified",
+    "support": [
+      { "type": "source", "publisher": "Knight First Amendment Institute", "title": "We looked at 78 election deepfakes", "date": "2024-12", "url": "https://knightcolumbia.org/blog/we-looked-at-78-election-deepfakes-political-misinformation-is-not-an-ai-problem" }
+    ]
+  },
+  {
+    "id": "mostly-domestic",
+    "claim": "In Hungary's 2026 election, at least 90% of disinformation originated domestically — from Fidesz, its captured media and proxy organizations — not from foreign actors. Russian operations amplified rather than originated.",
+    "status": "verified",
+    "support": [
+      { "type": "source", "publisher": "Euronews (Lakmusz assessment)", "title": "Fabricating proof: the disinformation tactics that shaped Hungary's election", "date": "2026-04-13", "url": "https://www.euronews.com/next/2026/04/13/fabricating-proof-the-disinformation-tactics-that-shaped-hungarys-election" }
+    ]
+  },
+  {
+    "id": "ai-share-rising",
+    "claim": "AI adoption in influence operations is nonetheless rising fast: the EEAS found 27% of 540 FIMI incidents in 2025 involved AI techniques — a 259% year-on-year increase. Adoption is real and accelerating even where demonstrated impact is absent.",
+    "status": "verified",
+    "support": [
+      { "type": "source", "publisher": "EEAS", "title": "4th FIMI Threat Report", "date": "2026-03", "url": "https://www.eeas.europa.eu/sites/default/files/2026/documents/EEAS%204th%20Threat%20Report_web.pdf" }
     ]
   },
   {
