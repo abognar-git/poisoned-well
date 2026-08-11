@@ -229,6 +229,47 @@
   #case-drawer .ttp a b{color:var(--analyst); font-weight:500}
   #case-drawer .ttp a:hover{border-color:var(--analyst)}
 
+  /* ---------- Act III campaign timeline ---------- */
+  #act3-spine{position:relative; max-width:60rem; margin:1rem auto 0; padding:1rem 1.5rem 3rem}
+  #act3-spine::before{content:""; position:absolute; top:0; bottom:0; left:50%; width:1px;
+    background:linear-gradient(180deg, transparent, var(--hairline) 6%, var(--hairline) 94%, transparent)}
+  .inc{position:relative; width:50%; padding:1rem 2.2rem; box-sizing:border-box;
+    opacity:0; transform:translateY(20px); transition:opacity .55s, transform .55s}
+  .inc.show{opacity:1; transform:none}
+  .inc.left{left:0; text-align:right}
+  .inc.right{left:50%}
+  .inc .dot{position:absolute; top:1.5rem; width:11px; height:11px; border-radius:50%;
+    background:var(--muted); border:2px solid var(--bg)}
+  .inc.left .dot{right:-6px} .inc.right .dot{left:-6px}
+  .inc[data-sp="domestic"] .dot{background:var(--amber)}
+  .inc[data-sp="Russia"] .dot{background:var(--signal)}
+  .inc[data-sp="unattributed"] .dot{background:var(--muted)}
+  .inc[data-sp="none"] .dot{background:var(--paper); box-shadow:0 0 12px rgba(233,228,218,.5)}
+  .inc .date{font-family:"IBM Plex Mono",monospace; font-size:.62rem; letter-spacing:.2em; color:var(--muted)}
+  .inc .sp{font-family:"IBM Plex Mono",monospace; font-size:.56rem; letter-spacing:.16em;
+    text-transform:uppercase}
+  .inc[data-sp="domestic"] .sp{color:var(--amber)}
+  .inc[data-sp="Russia"] .sp{color:var(--signal)}
+  .inc[data-sp="unattributed"] .sp{color:var(--muted)}
+  .inc h4{font-family:"Instrument Serif",Georgia,serif; font-weight:400; font-size:1.5rem;
+    line-height:1.15; margin:.35rem 0 .5rem}
+  .inc p{font-family:"Newsreader",serif; font-size:.94rem; line-height:1.55; color:var(--muted)}
+  .inc .ai{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:.56rem;
+    letter-spacing:.12em; color:var(--analyst); border:1px solid rgba(110,168,216,.35);
+    border-radius:2px; padding:.2em .45em; margin-top:.6rem}
+  .inc .cf-open{margin-top:.6rem}
+  .inc.left .cf-links, .inc.left .ai-wrap{justify-content:flex-end; display:flex; gap:.4rem; flex-wrap:wrap}
+  .inc .src-mini{display:block; font-family:"IBM Plex Mono",monospace; font-size:.56rem;
+    color:var(--muted); text-decoration:none; margin-top:.5rem}
+  .inc .src-mini:hover{color:var(--analyst)}
+  .inc.big h4{font-size:2.1rem}
+  @media (max-width:720px){
+    #act3-spine::before{left:9px}
+    .inc, .inc.left, .inc.right{width:100%; left:0; text-align:left; padding-left:2rem; padding-right:.5rem}
+    .inc.left .dot, .inc.right .dot{left:4px; right:auto}
+    .inc.left .cf-links, .inc.left .ai-wrap{justify-content:flex-start}
+  }
+
   /* ---------- Act II network (Phase D) ---------- */
   #net-wrap{position:relative; height:82vh; min-height:520px; max-width:1250px; margin:0 auto}
   #net-canvas{width:100%; height:100%; display:block; cursor:grab}
@@ -402,9 +443,22 @@
   </div>
 </section>
 
+<section id="act3">
+  <div class="act-divider" style="padding:7rem 2rem 1.5rem">
+    <div class="no">ACT III</div>
+    <h2>The night of the deepfakes</h2>
+    <p>Seven months of the 2026 campaign, incident by incident — a domestic propaganda machine
+       and a foreign operation running in parallel. Colour marks who was behind each.
+       Click any incident for its case file.</p>
+  </div>
+  <div id="act3-spine"></div>
+  <p class="pipe-note" style="margin-top:0">Every incident here is drawn from a verified case file —
+     amber for domestic, red for Russian, grey for unattributed. And still: the campaign lost.</p>
+</section>
+
 <section id="mechanism">
   <div class="act-divider" style="padding:7rem 2rem 2.5rem">
-    <div class="no">THE MECHANISM</div>
+    <div class="no">ACT IV</div>
     <h2>How propaganda reaches the machines</h2>
     <p>Five hops from a fringe Telegram post to an AI assistant's answer.
        Every hop is evidence-backed — click the § markers.</p>
@@ -878,6 +932,36 @@ try {
 } catch (err) {
   console.error('network scene unavailable:', err);
   document.getElementById('net-wrap').style.display = 'none';
+}
+
+/* ================= Act III campaign timeline ================= */
+{
+  const incidents = await jget('/catalog/incidents.json').catch(() => []);
+  const spine = document.getElementById('act3-spine');
+  const MON = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const fmtDate = d => {
+    const [y, m, day] = d.split('-');
+    return (day ? day + ' ' : '') + MON[+m] + ' ' + y;
+  };
+  incidents.forEach((inc, i) => {
+    const el = document.createElement('div');
+    el.className = 'inc ' + (i % 2 ? 'right' : 'left') + (inc.sponsor === null ? ' big' : '');
+    el.dataset.sp = inc.sponsor === null ? 'none' : inc.sponsor;
+    const spLabel = inc.sponsor === null ? '' : `<span class="sp">${esc(inc.sponsor === 'domestic' ? 'Domestic' : inc.sponsor)}</span>`;
+    el.innerHTML =
+      `<div class="dot"></div>` +
+      `<div class="date">${esc(fmtDate(inc.date))}</div>${spLabel}` +
+      `<h4>${esc(inc.title)}</h4><p>${esc(inc.text)}</p>` +
+      `<div class="ai-wrap">${inc.ai ? `<span class="ai">${esc(inc.ai)}</span>` : ''}</div>` +
+      `<div class="cf-links"><button class="cf-open" data-case="${esc(inc.case)}">case file</button></div>` +
+      `<a class="src-mini" href="${esc(inc.source.url)}" target="_blank" rel="noopener">▸ ${esc(inc.source.publisher)}</a>`;
+    el.querySelector('.cf-open').addEventListener('click', e => { e.stopPropagation(); openCase(inc.case); });
+    spine.appendChild(el);
+  });
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
+  }), { threshold: .3 });
+  spine.querySelectorAll('.inc').forEach(n => io.observe(n));
 }
 
 // mechanism figures, confidence legend, glossary (Phase C)

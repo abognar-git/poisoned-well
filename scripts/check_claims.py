@@ -16,6 +16,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 CLAIMS = ROOT / "catalog" / "claims.json"
 GLOSSARY = ROOT / "catalog" / "glossary.json"
+INCIDENTS = ROOT / "catalog" / "incidents.json"
+CATALOG = ROOT / "catalog" / "operations.json"
 PAGES = [ROOT / "site" / "prototype" / "index.html"]
 STATUSES = {"verified", "live-data", "assessment"}
 
@@ -58,6 +60,22 @@ def main() -> int:
             if "source" in g and not g["source"].get("url"):
                 errors.append(f"glossary {g.get('id', '?')}: source without url")
         print(f"{len(gloss)} glossary terms")
+
+    if INCIDENTS.exists():
+        incidents = json.loads(INCIDENTS.read_text())
+        case_ids = {c["id"] for c in json.loads(CATALOG.read_text())}
+        iids = [i.get("id", "?") for i in incidents]
+        if len(iids) != len(set(iids)):
+            errors.append("incidents: duplicate ids")
+        for i in incidents:
+            iid = i.get("id", "?")
+            if not i.get("date") or not i.get("text"):
+                errors.append(f"incident {iid}: missing date or text")
+            if i.get("case") not in case_ids:
+                errors.append(f"incident {iid}: case '{i.get('case')}' not in catalog")
+            if not (i.get("source") or {}).get("url"):
+                errors.append(f"incident {iid}: source without url")
+        print(f"{len(incidents)} campaign incidents (all case-linked)")
 
     used = set()
     for page in PAGES:
