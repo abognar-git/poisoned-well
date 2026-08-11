@@ -1411,12 +1411,12 @@ try {
     _c.copy(SHADE).lerp(LIT, s).multiplyScalar(glow * focal * (1.05 + Math.random()*.45));
     C.push(_c.r, _c.g, _c.b);
   };
-  const member = (P, C, a, b, w, h, k=900, taper=.18) => {
+  const member = (P, C, a, b, w, h, k=900, taper=.18, bow=1) => {
     const ax = new THREE.Vector3().subVectors(b, a), L = ax.length(); ax.normalize();
     const ref = Math.abs(ax.y) > .93 ? new THREE.Vector3(1,0,0) : new THREE.Vector3(0,1,0);
     const s = new THREE.Vector3().crossVectors(ax, ref).normalize();
     const u = new THREE.Vector3().crossVectors(ax, s).normalize();
-    const bowA = L * .013 * (Math.random()*2 - 1);             // slight hand-hewn bow
+    const bowA = L * .013 * (Math.random()*2 - 1) * bow;       // hand-hewn bow (0 = hangs straight)
     const n = Math.max(60, Math.round(L * (w + h) * k));
     for (let i = 0; i < n; i++) {
       const t = Math.random() * L, f = Math.random(), g = Math.random() - .5;
@@ -1494,6 +1494,8 @@ try {
     const pts = mkShaded(P, C, .068, .95);
     well.add(pts); regIntro(pts, .35);
     occBox(well, V3(0,.05), V3(0,2.95), .15, .15);
+    occBox(well, V3(0,2.92,-.12), V3(0,3.7,-.19), .055, .055);
+    occBox(well, V3(0,2.92,.12), V3(0,3.7,.19), .055, .055);
     occBox(well, V3(X0,.42,-.7), V3(X1,.42,-.7), .6, .07);
     occBox(well, V3(X0,.42,.7),  V3(X1,.42,.7),  .6, .07);
     occBox(well, V3(X0,.42,-.66), V3(X0,.42,.66), .6, .07);
@@ -1519,10 +1521,10 @@ try {
   let bucketMat;
   {
     const P = [], C = [];
-    member(P, C, V3(0,0), V3(0,-3.3), .08, .08, 1300, .3);
+    member(P, C, V3(0,0), V3(0,-3.3), .1, .1, 1600, .22, 0);   // hangs dead straight
     const pole = mkShaded(P, C, .056, .9);
     poleG.add(pole); regIntro(pole, 1.15);
-    occBox(poleG, V3(0,-.02), V3(0,-3.28), .045, .045);
+    occBox(poleG, V3(0,-.02), V3(0,-3.28), .062, .062);
     const BP = [], BC = [];
     for (let i = 0; i < 480; i++) {                     // stave cylinder
       const a = Math.random()*Math.PI*2, t = Math.random();
