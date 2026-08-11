@@ -384,6 +384,21 @@
   #net-hint{position:absolute; right:1.4rem; top:1.1rem; font-family:"IBM Plex Mono",monospace;
     font-size:.58rem; letter-spacing:.14em; color:var(--muted); pointer-events:none}
 
+  /* ---------- V·i the peer control ---------- */
+  #peers{max-width:52rem; margin:4rem auto 0; text-align:left}
+  #peers .ph{border-top:1px solid var(--hairline); padding-top:2.2rem; margin-bottom:1.8rem}
+  #peers .lbl{font-family:"IBM Plex Mono",monospace; font-size:.6rem; letter-spacing:.24em;
+    text-transform:uppercase; color:var(--signal); margin-bottom:.8rem}
+  #peers .ph p{font-size:1rem; line-height:1.65; color:var(--muted); margin:0}
+  #peer-chart svg{width:100%; height:auto; display:block}
+  #peer-chart .pl{stroke:var(--muted); stroke-width:1.1; fill:none; opacity:.42}
+  #peer-chart .pt{stroke:var(--signal); stroke-width:2.4; fill:none}
+  #peer-chart .pax{stroke:var(--hairline); stroke-width:1}
+  #peer-chart text{font-family:"IBM Plex Mono",monospace; font-size:9.5px; fill:var(--muted);
+    letter-spacing:.06em}
+  #peer-chart text.lead{fill:var(--signal)}
+  #peer-chart .vote{stroke:var(--amber); stroke-width:1; stroke-dasharray:3 3; opacity:.75}
+
   /* ---------- V·ii the convergence bench ---------- */
   #grammar{max-width:52rem; margin:4.5rem auto 0; text-align:left}
   #grammar .gh{border-top:1px solid var(--hairline); padding-top:2.2rem; margin-bottom:2.4rem}
@@ -744,6 +759,17 @@
           <span data-claim="grooming-ongoing">The network published more in 2025 than 2024, its mirror still attacks
           the new government, and through mid-2026 chatbots keep surfacing its narratives.</span></p>
       </div>
+    </div>
+
+    <div id="peers">
+      <div class="ph">
+        <div class="lbl">V · i — The control group</div>
+        <p>The network runs one mirror per country. That hands us something we could not otherwise
+           buy: six sibling mirrors on the same infrastructure, over the same months, with no
+           Hungarian election. So we can ask whether what the Hungarian mirror did, the network did.</p>
+      </div>
+      <div id="peer-chart"></div>
+      <p class="gnote" id="peer-note" data-claim="peer-control"></p>
     </div>
     <p class="vkicker">The deepfakes were a campaign event. <em>Poisoning the AI layer is the ongoing threat.</em></p>
 
@@ -1502,6 +1528,66 @@ setTimeout(async () => {
     if (cb) sub.appendChild(cb);
   } catch { /* baked figures remain — the page never breaks on upstream failure */ }
 }, 2600);
+
+/* ---- V·i peer control: the Hungarian mirror against its six siblings ---- */
+{
+  const PC = await jget('/data/derived/peer_control.json').catch(() => null);
+  const host = document.getElementById('peer-chart');
+  if (!PC || !host) { const w = document.getElementById('peers'); if (w) w.style.display = 'none'; }
+  else {
+    const MONTHS = ['2025-10','2025-11','2025-12','2026-01','2026-02','2026-03',
+                    '2026-04','2026-05','2026-06','2026-07','2026-08'];
+    const all = [PC.target, ...PC.peers];
+    const W = 680, H = 260, M = { l: 34, r: 96, t: 16, b: 26 };
+    const iw = W - M.l - M.r, ih = H - M.t - M.b;
+    const ymax = Math.max(...all.flatMap(m => MONTHS.map(k => m.monthly[k] || 0))) * 1.08;
+    const X = i => M.l + i / (MONTHS.length - 1) * iw;
+    const Y = v => M.t + ih - v / ymax * ih;
+    const path = m => MONTHS.map((k, i) =>
+      (i ? 'L' : 'M') + X(i).toFixed(1) + ' ' + Y(m.monthly[k] || 0).toFixed(1)).join(' ');
+
+    let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Monthly output of the Hungarian Pravda mirror against six sibling mirrors; only the Hungarian one collapses after the April 2026 election">`;
+    for (const v of [100, 200, 300]) {
+      s += `<line class="pax" x1="${M.l}" x2="${M.l + iw}" y1="${Y(v)}" y2="${Y(v)}"/>`;
+      s += `<text x="${M.l - 6}" y="${Y(v) + 3}" text-anchor="end">${v}</text>`;
+    }
+    // the vote sits between April and May on a monthly axis
+    const vx = X(MONTHS.indexOf('2026-04')) + (X(1) - X(0)) * 0.4;
+    s += `<line class="vote" x1="${vx}" x2="${vx}" y1="${M.t}" y2="${M.t + ih}"/>`;
+    s += `<text class="lead" x="${vx + 4}" y="${M.t + 9}">VOTE</text>`;
+    for (const m of PC.peers) s += `<path class="pl" d="${path(m)}"/>`;
+    s += `<path class="pt" d="${path(PC.target)}"/>`;
+    // label each line at its right end. Mirrors that finish at similar volumes would
+    // print on top of each other, so nudge them apart in y while keeping their order.
+    const last = MONTHS[MONTHS.length - 1];
+    const labels = [...PC.peers, PC.target]
+      .map(m => ({ m, y: Y(m.monthly[last] || 0) }))
+      .sort((a, b) => a.y - b.y);
+    const GAP = 11;
+    for (let i = 1; i < labels.length; i++)
+      if (labels[i].y - labels[i - 1].y < GAP) labels[i].y = labels[i - 1].y + GAP;
+    for (const { m, y } of labels)
+      s += `<text ${m.is_target ? 'class="lead" ' : ''}x="${M.l + iw + 6}" y="${y + 3}">` +
+           `${esc(m.mirror)}</text>`;
+    for (const k of ['2025-10', '2026-01', '2026-04', '2026-07']) {
+      const i = MONTHS.indexOf(k);
+      s += `<text x="${X(i)}" y="${H - 8}" text-anchor="middle">${k}</text>`;
+    }
+    s += `<text x="${M.l}" y="${M.t - 4}">ARTICLES / DAY · MONTHLY MEAN · 7 MIRRORS OF ONE NETWORK</text></svg>`;
+    host.innerHTML = s;
+
+    const C = PC.comparison, T = PC.target;
+    document.getElementById('peer-note').innerHTML =
+      `Through the campaign the Hungarian mirror ran flat — <b>no surge for the election it was aimed ` +
+      `at</b>. Then, in the two months after that election was lost, its output fell ` +
+      `<b>${Math.abs(C.target_change_pct)}%</b> — from ${T.baseline_per_day}/day to ${T.after_per_day}/day. ` +
+      `Across the same months the six sibling mirrors moved <b>${C.peer_mean_change_pct > 0 ? '+' : ''}` +
+      `${C.peer_mean_change_pct}%</b> on average, and not one fell by more than ` +
+      `${Math.abs(C.peer_min_change_pct)}%. It has since climbed back to ${T.latest_per_day}/day — ` +
+      `<b>${T.recovery_pct_of_baseline}%</b> of where it started. ` +
+      `<b>What this cannot show:</b> ${esc(PC.cannot_show)}`;
+  }
+}
 
 /* the mirror's own category filing — generated, never typed */
 {
