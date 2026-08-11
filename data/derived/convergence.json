@@ -215,11 +215,15 @@
  "not_computable": [
   {
    "question": "Did a frame appear on one side before the other?",
-   "why_not": "Our corpus is one-sided and undated at frame level: we capture the Russian mirror live but hold no comparable timestamped corpus of domestic output, so sequence — and therefore direction — cannot be established."
+   "why_not": "We hold no datable articles for either side. The public dataset for the mirror gives daily counts and per-source totals — not timestamps per article — and there is no comparable corpus of domestic output at all. Building one would not fix it: we would be starting a domestic clock in 2026 against a Russian record reaching back to March 2024, and 'who was first' would measure our collection dates, not the actors."
   },
   {
    "question": "How often do the same narrative frames co-occur across both sides?",
-   "why_not": "Same reason: co-occurrence needs two comparable corpora sampled the same way. Coding one side and eyeballing the other would manufacture a number, not measure one."
+   "why_not": "Co-occurrence needs two corpora sampled the same way. The domestic campaign's dominant format was organic AI video on Facebook, which no archive retains — so any domestic corpus we could assemble would be text, and would systematically miss the actual artefacts. Coding one side and eyeballing the other would manufacture a number, not measure one."
+  },
+  {
+   "question": "Why not just publish the direction we can see?",
+   "why_not": "Because every known bias here points the same way. The Russian side's clock is an ungated real-time feed while a newsroom has a publishing cycle; domestic outlets retract under legal pressure while a laundering mirror never does, so survivorship removes domestic early occurrences preferentially; and the domestic campaign's authorship happened inside a video edit, which carries no timestamp anywhere. An arrow drawn from this data would point at Russia whether or not that is true."
   }
  ]
 }
