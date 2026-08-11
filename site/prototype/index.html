@@ -260,9 +260,15 @@
   .spec .title{font-family:"Newsreader",serif; font-size:1.02rem; line-height:1.4; color:var(--paper)}
   .spec .path{font-family:"IBM Plex Mono",monospace; font-size:.58rem; color:var(--muted); opacity:.6;
     margin-top:.25rem; word-break:break-all; user-select:all}
-  .spec-note{font-family:"Newsreader",serif; font-style:italic; font-size:.86rem; line-height:1.55;
-    color:var(--muted); margin-top:1.1rem}
+  .spec-note{font-family:"Newsreader",serif; font-style:italic; font-size:.82rem; line-height:1.55;
+    color:var(--muted); margin-top:1rem}
   .spec-note b{color:var(--amber); font-style:normal; font-weight:500}
+  .spec-why{margin-top:1.4rem; border-left:2px solid var(--signal); padding:.2rem 0 .2rem 1.2rem}
+  .spec-why .h{font-family:"IBM Plex Mono",monospace; font-size:.62rem; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--signal); margin-bottom:.6rem}
+  .spec-why p{font-family:"Newsreader",serif; font-size:1rem; line-height:1.62; color:var(--paper)}
+  .spec-why p b{font-weight:500}
+  .spec-why .cats{color:var(--amber); font-family:"IBM Plex Mono",monospace; font-size:.9em}
 
   /* ---------- Act III campaign timeline ---------- */
   #act3-spine{position:relative; max-width:60rem; margin:1rem auto 0; padding:1rem 1.5rem 3rem}
@@ -476,6 +482,17 @@
       <div class="cap" id="spec-cap">captured —</div>
     </div>
     <div id="spec-list"></div>
+    <div class="spec-why">
+      <div class="h">Why this matters — read from Hungary</div>
+      <p>Most of what the mirror emits is mundane, wire-style filler — sport, weather, world briefs.
+        <b data-claim="ai-audience-aim">That volume is the point: a firehose of crawlable articles that looks like a
+        working newsroom to search engines and AI models.</b> Woven through it, in clean Hungarian-readable form, is the
+        payload — <b data-claim="laundering">Russian state media and pro-Kremlin channels, republished as "news"</b>:
+        ministry interviews, anti-EU and anti-Ukraine talking points. The categories above
+        (<span class="cats">eu · russia · hungary</span>) mark where that framing concentrates; <span class="cats">world</span>
+        is mostly camouflage. For a Hungarian who asks an AI assistant a question tomorrow,
+        <b data-claim="ai-audience-aim">this is the material it may quietly have learned from.</b></p>
+    </div>
     <p class="spec-note" id="spec-note"></p>
   </div>
 </section>
