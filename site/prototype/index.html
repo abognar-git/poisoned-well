@@ -222,6 +222,28 @@
   #case-drawer .badge{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:.58rem;
     letter-spacing:.2em; color:#7dc98f; border:1px solid rgba(125,201,143,.4); border-radius:2px;
     padding:.25em .55em; margin-left:.6rem; vertical-align:middle}
+  #case-drawer .ttp{display:flex; flex-wrap:wrap; gap:.4rem}
+  #case-drawer .ttp a{font-family:"IBM Plex Mono",monospace; font-size:.62rem; color:var(--paper);
+    text-decoration:none; border:1px solid var(--hairline); border-radius:2px; padding:.28em .5em;
+    line-height:1.3}
+  #case-drawer .ttp a b{color:var(--analyst); font-weight:500}
+  #case-drawer .ttp a:hover{border-color:var(--analyst)}
+
+  /* ---------- Act II network (Phase D) ---------- */
+  #net-wrap{position:relative; height:82vh; min-height:520px; max-width:1250px; margin:0 auto}
+  #net-canvas{width:100%; height:100%; display:block; cursor:grab}
+  #net-canvas:active{cursor:grabbing}
+  #net-legend{position:absolute; left:1.4rem; bottom:1.1rem; display:flex; flex-wrap:wrap;
+    gap:1.05rem; font-family:"IBM Plex Mono",monospace; font-size:.6rem; letter-spacing:.14em;
+    color:var(--muted); pointer-events:none}
+  #net-legend span{display:flex; align-items:center; gap:.4rem}
+  #net-legend i{width:.55rem; height:.55rem; border-radius:50%; display:inline-block}
+  #net-tip{position:absolute; z-index:6; pointer-events:none; font-family:"IBM Plex Mono",monospace;
+    font-size:.66rem; letter-spacing:.06em; color:var(--paper); background:rgba(10,14,22,.92);
+    border:1px solid var(--hairline); padding:.3rem .5rem; transform:translate(-50%,-160%);
+    white-space:nowrap; opacity:0; transition:opacity .12s}
+  #net-hint{position:absolute; right:1.4rem; top:1.1rem; font-family:"IBM Plex Mono",monospace;
+    font-size:.58rem; letter-spacing:.14em; color:var(--muted); pointer-events:none}
 
   /* ---------- mechanism pipeline (Phase C) ---------- */
   .pipe{display:flex; align-items:stretch; justify-content:center; max-width:1150px;
@@ -365,6 +387,21 @@
   </div>
 </section>
 
+<section id="act2">
+  <div class="act-divider" style="padding:7rem 2rem 1.5rem">
+    <div class="no">ACT II · PREVIEW</div>
+    <h2>The infrastructure, walkable</h2>
+    <p>Sponsors, operators, operations, platforms and targets from all 21 case files — one graph,
+       generated from the catalog, never drawn by hand. Drag to rotate. Click any node.</p>
+  </div>
+  <div id="net-wrap">
+    <canvas id="net-canvas"></canvas>
+    <div id="net-tip"></div>
+    <div id="net-hint">DRAG · HOVER · CLICK</div>
+    <div id="net-legend"></div>
+  </div>
+</section>
+
 <section id="mechanism">
   <div class="act-divider" style="padding:7rem 2rem 2.5rem">
     <div class="no">THE MECHANISM</div>
@@ -496,11 +533,12 @@ window.__st.push('module-start');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ================= data ================= */
+const dget = u => fetch(u, { cache: 'no-store' }).then(r => r.json());
 const [live, globe, timeline, summary] = await Promise.all([
-  fetch('/data/derived/live_status.json').then(r=>r.json()),
-  fetch('/data/derived/globe.json').then(r=>r.json()),
-  fetch('/data/derived/pravda_timeline.json').then(r=>r.json()),
-  fetch('/data/derived/pravda_summary.json').then(r=>r.json()),
+  dget('/data/derived/live_status.json'),
+  dget('/data/derived/globe.json'),
+  dget('/data/derived/pravda_timeline.json'),
+  dget('/data/derived/pravda_summary.json'),
 ]);
 const HU = live.mirrors['hungary.news-pravda.com'];
 window.__st.push('data-loaded');
@@ -525,10 +563,12 @@ document.getElementById('today-fig').textContent = HU.articles_latest_day;
 /* ================= evidence layer =================
    Every element carrying data-claim="<id>" gets a § marker; clicking it opens
    the claim's entry from catalog/claims.json (validated by check_claims.py). */
-const [claims, cases, glossary] = await Promise.all([
-  fetch('/catalog/claims.json').then(r => r.json()).catch(() => []),
-  fetch('/catalog/operations.json').then(r => r.json()).catch(() => []),
-  fetch('/catalog/glossary.json').then(r => r.json()).catch(() => []),
+const jget = u => fetch(u, { cache: 'no-store' }).then(r => r.json());
+const [claims, cases, glossary, disarm] = await Promise.all([
+  jget('/catalog/claims.json').catch(() => []),
+  jget('/catalog/operations.json').catch(() => []),
+  jget('/catalog/glossary.json').catch(() => []),
+  jget('/catalog/disarm_techniques.json').catch(() => ({})),
 ]);
 const claimById = Object.fromEntries(claims.map(c => [c.id, c]));
 const caseById = Object.fromEntries(cases.map(c => [c.id, c]));
@@ -609,6 +649,11 @@ function openCase(id) {
     ${c.platforms?.length ? `<b>platforms</b> ${c.platforms.map(esc).join(', ')}` : ''}</div></div>`;
   if (c.ai_usage?.length)
     html += `<div class="sec"><div class="h">Documented AI use</div>${c.ai_usage.map(u => `<li>▸ ${esc(u)}</li>`).join('')}</div>`;
+  if (c.disarm_techniques?.length)
+    html += `<div class="sec"><div class="h">DISARM techniques · adversarially verified</div><div class="ttp">${
+      c.disarm_techniques.map(tid =>
+        `<a href="https://disarmframework.herokuapp.com/technique/${esc(tid.toLowerCase())}" target="_blank" rel="noopener" title="${esc(disarm[tid] || '')}"><b>${esc(tid)}</b> ${esc(disarm[tid] || '')}</a>`
+      ).join('')}</div></div>`;
   if (c.scale && Object.keys(c.scale).length)
     html += `<div class="sec"><div class="h">Scale — each figure with its source</div><div class="kv">${
       Object.entries(c.scale).map(([k, v]) => `<b>${esc(k.replaceAll('_', ' '))}</b> ${esc(v)}`).join('<br>')}</div></div>`;
@@ -675,6 +720,166 @@ document.querySelectorAll('.cf-open').forEach(b =>
   }
 }
 
+/* ================= Act II network scene (Phase D) ================= */
+try {
+  const net = await fetch('/data/derived/network_graph.json').then(r => r.json());
+  const NTYPE = {
+    sponsor:   { color: 0xc23b2e, size: .085, label: true,  lop: .9 },
+    actor:     { color: 0xffa04d, size: .07,  label: true,  lop: .85 },
+    operation: { color: 0xff4a36, size: .055, label: false, lop: .38 },
+    platform:  { color: 0x6ea8d8, size: .05,  label: false, lop: .7 },
+    target:    { color: 0x9ab89a, size: .045, label: false, lop: .6 },
+  };
+  const canvas2 = document.getElementById('net-canvas');
+  const ren2 = new THREE.WebGLRenderer({ canvas: canvas2, antialias: true, alpha: true, preserveDrawingBuffer: true });
+  ren2.setPixelRatio(Math.min(devicePixelRatio, 2));
+  const scene2 = new THREE.Scene();
+  const cam2 = new THREE.PerspectiveCamera(45, 1, .1, 100);
+  cam2.position.set(0, 0, 2.55);
+  const g2 = new THREE.Group();
+  scene2.add(g2);
+  const S = 2.15;
+
+  const dotTex = (() => {
+    const c = document.createElement('canvas'); c.width = c.height = 64;
+    const x = c.getContext('2d');
+    x.beginPath(); x.arc(32, 32, 26, 0, Math.PI * 2); x.fillStyle = '#fff'; x.fill();
+    return new THREE.CanvasTexture(c);
+  })();
+  const mkLabel = (txt, op) => {
+    const m = document.createElement('canvas').getContext('2d');
+    m.font = '500 22px "IBM Plex Mono", monospace';
+    const w = Math.ceil(m.measureText(txt).width) + 14;
+    const c = document.createElement('canvas'); c.width = w; c.height = 30;
+    const x = c.getContext('2d');
+    x.font = '500 22px "IBM Plex Mono", monospace';
+    x.fillStyle = 'rgba(233,228,218,.95)';
+    x.fillText(txt, 7, 22);
+    const t = new THREE.CanvasTexture(c);
+    t.minFilter = THREE.LinearFilter;
+    const sc = .0021;
+    const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: t, transparent: true, opacity: op, depthWrite: false }));
+    s.scale.set(w * sc, 30 * sc, 1);
+    return { s, w: w * sc };
+  };
+
+  const nodeSprites = [];
+  const degree = {};
+  for (const l of net.links) { degree[l.s] = (degree[l.s] || 0) + 1; degree[l.t] = (degree[l.t] || 0) + 1; }
+  for (const n of net.nodes) {
+    const tt = NTYPE[n.type];
+    const s = new THREE.Sprite(new THREE.SpriteMaterial({ map: dotTex, color: tt.color, transparent: true, opacity: .95, depthWrite: false }));
+    s.position.set(n.x * S, n.y * S, n.z * S);
+    s.scale.setScalar(tt.size * (1 + Math.min((degree[n.id] || 0), 10) * .05));
+    s.userData = n;
+    g2.add(s);
+    nodeSprites.push(s);
+    if (tt.label) {
+      const { s: ls, w } = mkLabel(n.label, tt.lop);
+      ls.position.set(n.x * S + w / 2 + .05, n.y * S + .05, n.z * S);
+      g2.add(ls);
+    }
+  }
+  {
+    const byId = Object.fromEntries(net.nodes.map(n => [n.id, n]));
+    const lpos = new Float32Array(net.links.length * 6);
+    net.links.forEach((l, i) => {
+      const a = byId[l.s], b = byId[l.t];
+      lpos.set([a.x * S, a.y * S, a.z * S, b.x * S, b.y * S, b.z * S], i * 6);
+    });
+    const lg = new THREE.BufferGeometry();
+    lg.setAttribute('position', new THREE.BufferAttribute(lpos, 3));
+    g2.add(new THREE.LineSegments(lg, new THREE.LineBasicMaterial({
+      color: 0x4a5872, transparent: true, opacity: .38, blending: THREE.AdditiveBlending, depthWrite: false })));
+  }
+
+  const LEG = { sponsor: 'SPONSOR', actor: 'ACTOR', operation: 'OPERATION / CASE FILE', platform: 'PLATFORM', target: 'TARGET' };
+  const leg2 = document.getElementById('net-legend');
+  for (const [k, v] of Object.entries(LEG))
+    leg2.insertAdjacentHTML('beforeend',
+      `<span><i style="background:#${NTYPE[k].color.toString(16).padStart(6, '0')}"></i>${v}</span>`);
+
+  let rx = -.15, ry = .3, dragN = false, pnx = 0, pny = 0, vnx = 0, vny = 0;
+  canvas2.addEventListener('pointerdown', e => { dragN = true; pnx = e.clientX; pny = e.clientY; });
+  addEventListener('pointerup', () => dragN = false);
+  addEventListener('pointermove', e => {
+    if (!dragN) return;
+    vny = (e.clientX - pnx) * .005; vnx = (e.clientY - pny) * .005;
+    ry += vny; rx += vnx; pnx = e.clientX; pny = e.clientY;
+  });
+
+  const ray2 = new THREE.Raycaster();
+  const ndc2 = new THREE.Vector2();
+  let n2x = 0, n2y = 0;
+  canvas2.addEventListener('pointerdown', e => { n2x = e.clientX; n2y = e.clientY; });
+  canvas2.addEventListener('pointerup', e => {
+    if (Math.hypot(e.clientX - n2x, e.clientY - n2y) > 5) return;
+    const r = canvas2.getBoundingClientRect();
+    ndc2.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    ray2.setFromCamera(ndc2, cam2);
+    const hit = ray2.intersectObjects(nodeSprites)[0];
+    if (!hit) return;
+    const n = hit.object.userData;
+    if (n.type === 'operation' && n.case) { openCase(n.case); return; }
+    const gl = n.gloss && glossary.find(g => g.id === n.gloss);
+    const adhoc = {
+      status: 'live-data',
+      claim: gl ? `${n.label} — ${gl.definition}` :
+        `${n.label} — ${LEG[n.type].toLowerCase()} node with ${degree[n.id] || 0} documented connections in this graph, generated from the case catalog.`,
+      support: [{ type: 'data', data_ref: 'data/derived/network_graph.json', note: 'generated from catalog/operations.json by build_network.py' }],
+    };
+    if (gl?.source) adhoc.support.push({ type: 'source', publisher: gl.source.publisher, title: gl.term, url: gl.source.url });
+    openEvidence(adhoc, { getBoundingClientRect: () => ({ left: e.clientX, bottom: e.clientY + 8, top: e.clientY }) });
+  });
+
+  // hover tooltip (labels are off for platform/target to cut clutter)
+  const tip = document.getElementById('net-tip');
+  canvas2.addEventListener('pointermove', e => {
+    if (dragN) { tip.style.opacity = 0; return; }
+    const r = canvas2.getBoundingClientRect();
+    ndc2.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    ray2.setFromCamera(ndc2, cam2);
+    const hit = ray2.intersectObjects(nodeSprites)[0];
+    if (hit) {
+      const n = hit.object.userData;
+      tip.textContent = `${n.label}  ·  ${LEG[n.type].toLowerCase()}`;
+      tip.style.left = (e.clientX - r.left) + 'px';
+      tip.style.top = (e.clientY - r.top) + 'px';
+      tip.style.opacity = 1;
+      canvas2.style.cursor = 'pointer';
+    } else { tip.style.opacity = 0; canvas2.style.cursor = 'grab'; }
+  });
+
+  let vis2 = true;
+  new IntersectionObserver(([e]) => {
+    vis2 = e.isIntersecting;
+    canvas2.style.visibility = vis2 ? 'visible' : 'hidden';
+  }).observe(canvas2);
+
+  const size2 = () => {
+    const w = canvas2.clientWidth, h = canvas2.clientHeight;
+    if (!w || !h) return;
+    ren2.setSize(w, h, false);
+    cam2.aspect = w / h;
+    cam2.updateProjectionMatrix();
+  };
+  new ResizeObserver(size2).observe(canvas2);  // tracks every layout change, not just window resize
+  size2();
+
+  const ck2 = new THREE.Clock();
+  ren2.setAnimationLoop(() => {
+    if (!vis2) return;
+    const t = ck2.getElapsedTime();
+    if (!dragN) { vnx *= .94; vny *= .94; rx += vnx; ry += vny; }
+    g2.rotation.x = rx;
+    g2.rotation.y = ry + (reduced ? 0 : t * .05);
+    ren2.render(scene2, cam2);
+  });
+} catch (err) {
+  console.error('network scene unavailable:', err);
+  document.getElementById('net-wrap').style.display = 'none';
+}
+
 // mechanism figures, confidence legend, glossary (Phase C)
 {
   document.getElementById('pipe-total').textContent = fmt(HU.total);
@@ -695,6 +900,26 @@ document.querySelectorAll('.cf-open').forEach(b =>
       `</div>`);
   }
 }
+
+/* ================= client-side live refresh (Phase D) ================= */
+setTimeout(async () => {
+  try {
+    const r = await fetch('https://raw.githubusercontent.com/CheckFirstHQ/pravda-network/main/json/hungary.news-pravda.com_viz.json', { cache: 'no-store' });
+    if (!r.ok) return;
+    const v = await r.json();
+    const days = v.articlesPerDay.filter(d => d.count > 0).sort((a, b) => a.date < b.date ? -1 : 1);
+    const last = days[days.length - 1];
+    const cut = new Date(new Date(last.date).getTime() - 7 * 864e5).toISOString().slice(0, 10);
+    const wk = days.filter(d => d.date > cut).reduce((a, d) => a + d.count, 0);
+    counterEl.textContent = fmt(v.totalArticles);
+    const sub = document.getElementById('live-sub');
+    const cb = sub.querySelector('.cite');  // preserve the injected § marker
+    sub.innerHTML =
+      `machine-generated articles · <b>${last.count} ${last.date === HU.latest_publication_day ? 'today' : 'on ' + last.date}</b> · ` +
+      `${fmt(wk)} in the past 7 days · <span style="color:#7dc98f">checked upstream just now</span>`;
+    if (cb) sub.appendChild(cb);
+  } catch { /* baked figures remain — the page never breaks on upstream failure */ }
+}, 2600);
 
 /* ================= globe ================= */
 const canvas = document.getElementById('globe-canvas');
