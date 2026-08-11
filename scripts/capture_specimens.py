@@ -11,7 +11,7 @@ Tiers (the documented laundering ecosystem):
   origin    — Telegram channels where content starts (via public t.me/s/ previews).
               These are the top feeders credited by the Pravda mirror's own articles.
   launderer — the Pravda / Portal Kombat network mirror, which republishes origins as "news".
-  outlet    — primary propaganda sites (News Front: Crimea-based, EU/US-sanctioned).
+  outlet    — primary propaganda sites (News Front: Crimea-based; US-sanctioned outlet, EU-sanctioned owner).
 
 Editorial rules baked in:
   - EVIDENCE, not endorsement; the site never hyperlinks an article, post or source
@@ -69,7 +69,7 @@ SOURCES = {
     },
     "newsfront-hu": {
         "label": "News Front", "tier": "outlet", "type": "newsfront", "lang": "hu",
-        "attribution": "Russia — News Front, Crimea-based, EU/US-sanctioned; a primary outlet",
+        "attribution": "Russia — News Front, Crimea-based; the outlet is US-sanctioned and its owner EU/Canada/US-sanctioned; a primary outlet",
         "base": "https://hu.news-front.su",
         "listings": ["/"],
         "link": re.compile(

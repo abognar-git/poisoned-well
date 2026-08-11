@@ -6,16 +6,16 @@
       "news-pravda.com family",
       "pravda-*.* domains"
     ],
-    "definition": "A Russia-attributed network of 100+ automated 'news' mirrors that republish pro-Kremlin Telegram channels and state media in dozens of languages. First exposed by France's VIGINUM (Feb 2024); tracked hourly by CheckFirst.",
+    "definition": "A Russia-attributed network of automated 'news' mirrors that republish pro-Kremlin Telegram channels and state media in dozens of languages. First mapped by France's VIGINUM in its February 2024 'Portal Kombat' report (193 portals); the Pravda-branded family has since grown past 200 domains, tracked hourly by CheckFirst.",
     "source": {
       "publisher": "VIGINUM/SGDSN",
-      "url": "https://www.sgdsn.gouv.fr/files/files/Publications/20240428_NP_SGDSN_VIGINUM_PORTAL-KOMBAT-NETWORK-REPORT_NEW%20DOMAIN%20NAME_(PART3)_ENG_VF.pdf"
+      "url": "https://www.sgdsn.gouv.fr/files/files/20240212_NP_SGDSN_VIGINUM_PORTAL-KOMBAT-NETWORK_ENG_VF.pdf"
     }
   },
   {
     "id": "llm-grooming",
     "term": "LLM grooming",
-    "definition": "Flooding the open web with machine-scale propaganda aimed not at human readers but at contaminating the training and retrieval data of AI systems. Coined by the American Sunlight Project (Feb 2025). Audit evidence exists both for and against its effectiveness — see the measurement case file.",
+    "definition": "Flooding the open web with machine-scale propaganda aimed not at human readers but at contaminating the training and retrieval data of AI systems. Coined by the American Sunlight Project (Feb 2025). Both the intent (deliberate 'grooming' vs. ordinary SEO spam that contaminates AI only incidentally) and the effectiveness are genuinely contested — see the measurement case file for audit evidence on each side.",
     "source": {
       "publisher": "American Sunlight Project",
       "url": "https://static1.squarespace.com/static/6612cbdfd9a9ce56ef931004/t/67fd396818196f3d1666bc23/1744648558879/PK+Report.pdf"
@@ -25,11 +25,11 @@
     "id": "storm-1516",
     "term": "Storm-1516",
     "aliases": [
-      "CopyCop (Recorded Future)",
-      "Center for Geopolitical Expertise",
+      "CopyCop (Recorded Future; overlapping infrastructure)",
+      "Center for Geopolitical Expertise (directing/financing org, US-sanctioned)",
       "John Mark Dougan network"
     ],
-    "definition": "Russian operation running hundreds of LLM-rewritten fictional 'news' outlets and staged videos, laundered through fake journalist personas. Linked by VIGINUM to GRU Unit 29155. One of the most aggressive documented foreign actors in Hungary's 2026 campaign.",
+    "definition": "Russian operation running hundreds of LLM-rewritten fictional 'news' outlets and staged videos, laundered through fake journalist personas. VIGINUM reported that Storm-1516 has been publicly attributed to GRU Unit 29155 (centred on suspected officer Yury Khoroshenky) but could not itself confirm that link. One of the most aggressive documented foreign actors in Hungary's 2026 campaign.",
     "source": {
       "publisher": "Recorded Future",
       "url": "https://www.recordedfuture.com/research/copycop-deepens-its-playbook-with-new-websites-and-targets"
@@ -89,7 +89,7 @@
   {
     "id": "fimi",
     "term": "FIMI",
-    "definition": "Foreign Information Manipulation and Interference — the EU's institutional term for state-linked influence operations, used in the EEAS threat reports that provide the best cross-EU incident statistics (540 incidents in 2025; 27% involving AI).",
+    "definition": "Foreign Information Manipulation and Interference — the EU's institutional term for state-linked influence operations, used in the EEAS threat reports that provide the best cross-EU incident statistics (540 incidents in 2025; roughly one in four (25%) involving AI tools, per the 4th EEAS report, March 2026).",
     "source": {
       "publisher": "EEAS",
       "url": "https://www.eeas.europa.eu/sites/default/files/2026/documents/EEAS%204th%20Threat%20Report_web.pdf"
@@ -126,11 +126,79 @@
   {
     "id": "cheap-fake",
     "term": "Cheap fake vs deepfake",
-    "definition": "Most election manipulation is cheap fakes — misleading edits, out-of-context clips — not AI. In the 2024 US cycle cheap fakes outnumbered AI content roughly seven to one (News Literacy Project, via the Knight Institute analysis); Hungary 2026 was notable precisely because generative AI took the lead role."
+    "definition": "Most election manipulation is cheap fakes — misleading edits, out-of-context clips — not AI. In the 2024 US cycle cheap fakes outnumbered AI content roughly seven to one (News Literacy Project, via the Knight First Amendment Institute analysis); Hungary 2026 was notable precisely because generative AI took the lead role.",
+    "source": {
+      "publisher": "Knight First Amendment Institute (Columbia)",
+      "url": "https://knightcolumbia.org/blog/we-looked-at-78-election-deepfakes-political-misinformation-is-not-an-ai-problem"
+    }
   },
   {
-    "id": "grooming-vs-seo",
-    "term": "Grooming or just pollution?",
-    "definition": "Whether Pravda-style mass publication is deliberate AI targeting ('grooming') or ordinary SEO spam with incidental AI contamination is genuinely contested. This site presents the audit numbers and the peer-reviewed counter-evidence side by side and does not claim more than the sources support."
+    "id": "microsoft-storm-taxonomy",
+    "term": "Storm-#### (Microsoft naming)",
+    "aliases": [
+      "Blizzard=Russia",
+      "Typhoon=China",
+      "Flood=influence op"
+    ],
+    "definition": "Microsoft's threat-actor naming convention. 'Storm-####' (Storm-1516, Storm-1099, Storm-1679, Storm-1376) is a TEMPORARY label for a newly discovered or not-yet-attributed cluster; once attribution firms up the actor is renamed to a two-word weather family — which is why Doppelgänger became 'Ruza Flood' and Spamouflage 'Taizi Flood'. Decodes the Storm-#### aliases used across this glossary.",
+    "source": {
+      "publisher": "Microsoft",
+      "url": "https://learn.microsoft.com/en-us/unified-secops/microsoft-threat-actor-naming"
+    }
+  },
+  {
+    "id": "nem",
+    "term": "NEM / National Resistance Movement",
+    "aliases": [
+      "Nemzeti Ellenállási Mozgalom"
+    ],
+    "definition": "A pro-Fidesz activist brand, operated within the Megafon influencer network, that published several of the 2026 campaign's highest-reach AI deepfakes against Tisza — most notably a fabricated call in which an AI von der Leyen orders Magyar to fund Ukraine (~millions of views). The domestic, above-board face of the AI-video push, distinct from the covert Russian operations.",
+    "source": {
+      "publisher": "Euronews",
+      "url": "https://www.euronews.com/next/2026/04/13/fabricating-proof-the-disinformation-tactics-that-shaped-hungarys-election"
+    }
+  },
+  {
+    "id": "sora",
+    "term": "Sora",
+    "aliases": [
+      "OpenAI text-to-video"
+    ],
+    "definition": "OpenAI's text-to-video model, used during the 2026 campaign to fabricate photoreal political videos. OpenAI discontinued the Sora consumer app in 2026 (announced 24 Mar; app off 26 Apr) for financial reasons. EDMO's fact-checkers logged the AI share of Hungarian debunks falling ~6 points to ~14% in April, partly attributing the drop to Sora's removal — a rare case of an AI-disinfo decline tracking a tool going away (an association, not an established cause).",
+    "source": {
+      "publisher": "TechCrunch",
+      "url": "https://techcrunch.com/2026/03/29/why-openai-really-shut-down-sora/"
+    }
+  },
+  {
+    "id": "news-front",
+    "term": "News Front",
+    "aliases": [
+      "Mediagroup Newsfront LLC",
+      "hu.news-front.su"
+    ],
+    "definition": "A Crimea-based, Russian-intelligence-linked propaganda outlet. The US Treasury sanctioned the entity (Mediagroup Newsfront LLC); its owner Konstantin Knyrik is EU/Canada/US-sanctioned. It runs a Hungarian-language edition (hu.news-front.su) this project captures as live specimens — the overt, openly-sanctioned 'outlet' tier pushing the same narratives the covert Doppelgänger/Storm networks launder anonymously.",
+    "source": {
+      "publisher": "OpenSanctions",
+      "url": "https://www.opensanctions.org/entities/NK-KGQpmXA7E4nGdHXmBUnZsE/"
+    }
+  },
+  {
+    "id": "gru-unit-29155",
+    "term": "GRU Unit 29155",
+    "definition": "A GRU (Russian military intelligence) unit long associated with sabotage and assassination across Europe, publicly attributed as the state hand financing and coordinating Storm-1516 (via suspected officer Yury Khoroshenky). VIGINUM relayed this attribution but could not itself confirm direct involvement. Notable because a kinetic sabotage unit — not a troll farm — sits behind the fake-outlet campaign most active against Hungary in 2026.",
+    "source": {
+      "publisher": "VIGINUM/SGDSN",
+      "url": "https://www.sgdsn.gouv.fr/files/files/Publications/20250507_TLP-CLEAR_NP_SGDSN_VIGINUM_Technical%20report_Storm-1516.pdf"
+    }
+  },
+  {
+    "id": "data-void",
+    "term": "Data void",
+    "definition": "A search or retrieval query for which little authoritative content exists, so low-quality or manipulative material can dominate results. Coined by Golebiewski (Microsoft) with danah boyd (Data & Society, 2019). Central to this site's LLM-grooming debate: a peer-reviewed 2025 study (Alyukov et al.) found AI chatbots surfaced Pravda/Kremlin sources chiefly on obscure, data-void prompts and far below headline audit rates — supporting an information-gap explanation over deliberate 'grooming'.",
+    "source": {
+      "publisher": "Data & Society",
+      "url": "https://datasociety.net/library/data-voids/"
+    }
   }
 ]

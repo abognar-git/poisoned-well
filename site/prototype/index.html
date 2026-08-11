@@ -565,7 +565,7 @@
   <div class="act-divider" style="padding:7rem 2rem 1.5rem">
     <div class="no">ACT II · PREVIEW</div>
     <h2>The infrastructure, walkable</h2>
-    <p>Sponsors, operators, operations, platforms and targets from all 21 case files — one graph,
+    <p>Sponsors, operators, operations, platforms and targets from every case file — one graph,
        generated from the catalog, never drawn by hand. Drag to rotate. Click any node.</p>
   </div>
   <div id="net-wrap">
@@ -728,7 +728,7 @@
 <section id="evidence-room">
   <div class="act-divider" style="padding:7rem 2rem 3rem">
     <div class="no">REFERENCE · EVIDENCE ROOM</div>
-    <h2>Twenty-one case files</h2>
+    <h2><span id="cf-count">—</span> case files</h2>
     <p>Every operation, takedown and measurement behind this story — attribution confidence stated,
        caveats included, sources linked. Click any file to open the dossier.</p>
   </div>
@@ -948,6 +948,7 @@ document.querySelectorAll('.cf-open').forEach(b =>
 {
   const order = ['operation', 'infrastructure', 'takedown', 'incident', 'measurement', 'context'];
   const grid = document.getElementById('cf-grid');
+  const cc = document.getElementById('cf-count'); if (cc) cc.textContent = cases.length;
   const sorted = [...cases].sort((x, y) => order.indexOf(x.category) - order.indexOf(y.category));
   for (const c of sorted) {
     const conf = CONF[c.attribution?.confidence] || CONF.unattributed;

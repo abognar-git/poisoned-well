@@ -42,6 +42,8 @@ ACTOR_MAP = {
     "slovakia-2023-deepfake": ["unknown-operator"],
     "romania-2024-2025-elections": ["romania-networks"],
     "apt-crossover-hungary": ["apt28", "apt29"],
+    "newsfront-hungary": ["news-front"],
+    "telegram-laundering-hungary-2026": ["telegram-network"],
     "effectiveness-evidence": [],
 }
 
@@ -63,6 +65,8 @@ ACTORS = {  # id -> (label, sponsor, glossary id or None)
     "commercial-iaas": ("Influence-as-a-service", "commercial", None),
     "unknown-operator": ("Unattributed operators", "unattributed", None),
     "romania-networks": ("Romanian TikTok networks", "contested", None),
+    "news-front": ("News Front", "Russia", "news-front"),
+    "telegram-network": ("pro-Orbán Telegram network", "contested", None),
 }
 
 # operated-by relations between canonical actors

@@ -145,7 +145,7 @@
       "YouTube"
     ],
     "scale": {
-      "fake_sites": "at least six fake sites/domains documented (hirekhub24.hu, napihirek24.hu, oknyomozoriport.hu, euronews.us.com, 24veritas.com, magyartisza2026.com — The Insider/Gnida Project); three registered within a single week, and four of the five analyzed sites shared the same paid WordPress theme (Soledad) and hosting IP (The Insider)",
+      "fake_sites": "at least six new sites registered within two weeks (Euronews); of five analyzed, four shared the same paid WordPress theme (Soledad) and hosting IP, three of them registered within a single week (The Insider)",
       "ivanyi_smear_reach": "at least 90,000 and, per The Insider, over 120,000 users — mostly 65+ — via two Facebook ads run 20–24 Feb 2026 (Lakmusz: ~90,000 + ~35,000 with unknown overlap; EDMO: 'nearly 100,000'; The Insider: 'exceeded 120,000 people — mostly in the over-65 age group')",
       "ruszin_szendi_smear_reach": "at least 100,000 users in one week via paid Facebook ads (Euronews, 13 Apr 2026; Lakmusz via Gnida Project)"
     },
@@ -475,7 +475,7 @@
       "event": "2026-04-12 parliamentary election"
     },
     "period": {
-      "start": "2025-09",
+      "start": "2025-06",
       "end": "2026-04"
     },
     "ai_usage": [
@@ -508,7 +508,7 @@
       "T0002",
       "T0135.001"
     ],
-    "summary": "The incumbent's own machine — not a foreign actor — produced the overwhelming majority of AI-enabled manipulation in the EU's most AI-saturated campaign to date. This entry anchors the site's honesty layer: state-aligned domestic AI propaganda, documented by fact-checkers and a court ruling, dwarfed foreign covert activity in volume, while Russian operations supplied some of the most deceptive artifacts.",
+    "summary": "The domestic machine's AI campaign begins earlier than the fake programme: on 16 June 2025 an AI-generated 'coffin' war video ran on Orbán's own official Facebook page as the flagship of the state-funded Voks 2025 anti-Ukraine consultation (agency Lounge Design Kft, 21.1m HUF). The incumbent's own machine — not a foreign actor — produced the overwhelming majority of AI-enabled manipulation in the EU's most AI-saturated campaign to date. This entry anchors the site's honesty layer: state-aligned domestic AI propaganda, documented by fact-checkers and a court ruling, dwarfed foreign covert activity in volume, while Russian operations supplied some of the most deceptive artifacts.",
     "sources": [
       {
         "publisher": "EDMO",
@@ -1656,6 +1656,124 @@
         "url": "https://www.bellingcat.com/news/2026/04/09/the-hungarian-government-passwords-exposed-online/"
       }
     ],
+    "status": "verified"
+  },
+  {
+    "id": "newsfront-hungary",
+    "name": "News Front — Hungarian edition (hu.news-front.su)",
+    "aliases": [
+      "Mediagroup Newsfront LLC",
+      "hu.news-front.su"
+    ],
+    "category": "context",
+    "attribution": {
+      "actor": "News Front / Mediagroup Newsfront LLC (Hungarian desk run by Miklós Keveházy, ex-Jobbik Russian interpreter)",
+      "sponsor": "Russia",
+      "confidence": "high",
+      "attributed_by": [
+        "VSquare/Direkt36",
+        "Átlátszó",
+        "US Treasury"
+      ]
+    },
+    "target": {
+      "countries": [
+        "Hungary"
+      ],
+      "audience": "Hungarian-language, heavy focus on Transcarpathia/Kárpátalja"
+    },
+    "period": {
+      "start": "2018-07",
+      "end": "ongoing"
+    },
+    "ai_usage": [],
+    "platforms": [
+      "website",
+      "VKontakte",
+      "Telegram"
+    ],
+    "scale": {
+      "reach": "among News Front's least successful language editions — low readership, content often just links to Magyar Nemzet",
+      "history": "HU edition first published 2 Jul 2018; dormant Oct 2021–Aug 2022; relaunched Sept 2022"
+    },
+    "effectiveness": "Minimal documented reach; an overt, low-impact outlet whose value to the ecosystem is presence, not persuasion.",
+    "summary": "News Front is a Crimea-based Russian propaganda outlet the US Treasury calls 'a Crimea-based disinformation and propaganda outlet.' Its Hungarian edition (hu.news-front.su) — launched July 2018 with help from ex-Foreign-Ministry diplomat Sándor Csikós and Volga-Tatar imam/ex-separatist Tanay Cholkhanov, and run since 2022 by Miklós Keveházy — pushes 'dumbed-down' Russian propaganda about alleged Ukrainian anti-Hungarian actions in Transcarpathia, anti-Soros/anti-Brussels framing, and reprints of pro-Orbán outlets, via VKontakte and Telegram. It is the overt, human-run outlet layer — the manual counterpart to the automated Pravda mirror — and one of the live sources this project captures.",
+    "caveats": "Sanctions precisely: the OUTLET (Mediagroup Newsfront LLC) is US Treasury-sanctioned (2021, 2022); owner Konstantin Knyrik is EU/Canada/US-sanctioned — so avoid the loose phrasing 'EU-sanctioned outlet.' No generative-AI use is documented (a manual outlet), which is why this sits as context, not an AI case; the FSB-control assessment is from VSquare/Átlátszó source-code analysis.",
+    "sources": [
+      {
+        "publisher": "VSquare",
+        "title": "Imam, Soldier, Diplomat, Interpreter: Meet the Hungarian NewsFront's Propagandists",
+        "date": "2023-08-28",
+        "url": "https://vsquare.org/newsfront-russia-hungary-disinformation-telegram-propaganda/"
+      },
+      {
+        "publisher": "Átlátszó",
+        "title": "Imám, katona, diplomata, tolmács: Putyin magyar propagandistái",
+        "date": "2023-08-28",
+        "url": "https://atlatszo.hu/kozugy/2023/08/28/imam-katona-diplomata-tolmacs-putyin-magyar-propagandistai/"
+      },
+      {
+        "publisher": "OpenSanctions",
+        "title": "Media Group News Front — EU & US sanctions listings",
+        "url": "https://www.opensanctions.org/entities/NK-KGQpmXA7E4nGdHXmBUnZsE/"
+      }
+    ],
+    "disarm_techniques": [],
+    "status": "verified"
+  },
+  {
+    "id": "telegram-laundering-hungary-2026",
+    "name": "Coordinated pro-Orbán Telegram network (Vox Harbor)",
+    "aliases": [],
+    "category": "infrastructure",
+    "attribution": {
+      "actor": "Coordinated Telegram messaging network; a 'significant share' of the pro-Orbán content traced to Russian or Russia-affiliated creators/distributors (Vox Harbor)",
+      "sponsor": "contested",
+      "confidence": "contested",
+      "attributed_by": [
+        "Vox Harbor (via Reuters)"
+      ]
+    },
+    "target": {
+      "countries": [
+        "Hungary"
+      ],
+      "event": "2026-04-12 parliamentary election",
+      "audience": "Hungarian Telegram users"
+    },
+    "period": {
+      "start": "2026",
+      "end": "2026-04"
+    },
+    "ai_usage": [],
+    "platforms": [
+      "Telegram",
+      "Facebook",
+      "X",
+      "TikTok"
+    ],
+    "scale": {
+      "analysed": "628,000+ messages from 30,000+ groups posted in 2026 through 7 April (Vox Harbor)",
+      "russia_share": "a significant share of the pro-Orbán material traced to Russian/Russia-affiliated creators/distributors"
+    },
+    "effectiveness": "Reuters/Vox Harbor described Telegram as an 'incubator' whose narratives then fed Facebook and X. Separately, Vilnius-based Repsense found Hungarian users acting as an active counter-disinformation force.",
+    "summary": "A Reuters exclusive (10 April 2026) reported Vox Harbor research finding coordinated waves of pro-Orbán content on Telegram before the vote: identical phrases surfacing across different channels in short windows (a pattern consistent with orchestration), with narratives mirroring Orbán's talking points — the EU undermines Hungarian sovereignty, outside forces want to drag Hungary into the Ukraine war. Its value is coordination/laundering, not generative AI.",
+    "caveats": "Attribution is content-pattern based (identical phrases across channels), NOT a platform takedown; hard state attribution is not established — Repsense's parallel study noted Russian coordination 'cannot be established from content data alone.' Neither the Kremlin nor Hungary's government spokesman responded to Reuters. No generative-AI component is documented for this network.",
+    "sources": [
+      {
+        "publisher": "Reuters (exclusive; full text via EUalive)",
+        "title": "Coordinated Telegram posts push pro-Orbán narratives on eve of Hungary vote",
+        "date": "2026-04-10",
+        "url": "https://eualive.net/coordinated-telegram-posts-push-pro-orban-narratives-on-eve-of-hungary-vote/"
+      },
+      {
+        "publisher": "Balkan Insight (BIRN)",
+        "title": "When Propaganda Backfires (Repsense counter-narrative finding)",
+        "date": "2026-08-04",
+        "url": "https://balkaninsight.com/2026/08/04/when-propaganda-backfires-lessons-from-orbans-social-media-defeat-in-hungary-election/"
+      }
+    ],
+    "disarm_techniques": [],
     "status": "verified"
   }
 ]
