@@ -15,6 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CLAIMS = ROOT / "catalog" / "claims.json"
+GLOSSARY = ROOT / "catalog" / "glossary.json"
 PAGES = [ROOT / "site" / "prototype" / "index.html"]
 STATUSES = {"verified", "live-data", "assessment"}
 
@@ -45,6 +46,18 @@ def main() -> int:
                     errors.append(f"{cid}: data_ref missing on disk: {ref}")
             elif s.get("type") not in {"source", "data"}:
                 errors.append(f"{cid}: bad support type {s.get('type')!r}")
+
+    if GLOSSARY.exists():
+        gloss = json.loads(GLOSSARY.read_text())
+        gids = [g.get("id", "?") for g in gloss]
+        if len(gids) != len(set(gids)):
+            errors.append("glossary: duplicate ids")
+        for g in gloss:
+            if not g.get("term") or not g.get("definition"):
+                errors.append(f"glossary {g.get('id', '?')}: missing term or definition")
+            if "source" in g and not g["source"].get("url"):
+                errors.append(f"glossary {g.get('id', '?')}: source without url")
+        print(f"{len(gloss)} glossary terms")
 
     used = set()
     for page in PAGES:

@@ -96,6 +96,14 @@
     ]
   },
   {
+    "id": "crawl-contamination",
+    "claim": "Pravda-network content accumulates in the open web corpora AI models train on: DFRLab documented roughly 40,000 English-language Pravda articles present in Common Crawl by November 2025, up from 37 a year earlier, and near-verbatim reproduction of that content by LLMs.",
+    "status": "verified",
+    "support": [
+      { "type": "source", "publisher": "DFRLab", "title": "Pravda in the pipeline", "date": "2026-04-08", "url": "https://dfrlab.org/2026/04/08/pravda-in-the-pipeline/" }
+    ]
+  },
+  {
     "id": "today-count",
     "claim": "The 'published today' figure is the mirror's article count for the latest scraped day in CheckFirst's dataset.",
     "status": "live-data",
