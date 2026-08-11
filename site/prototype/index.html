@@ -99,6 +99,11 @@
     opacity:.25; transform:translateY(12px); transition:opacity .5s, transform .5s;
   }
   .step.active .card{opacity:1; transform:none}
+  /* the sources view (step 4) anchors its bar labels left — its card goes right */
+  @media (min-width:761px){
+    .step[data-step="4"]{justify-content:flex-end}
+    .step[data-step="4"] .card{margin-right:clamp(0rem,4vw,3.4rem)}
+  }
   .step .card .n{font-family:"IBM Plex Mono",monospace; font-size:.62rem;
     letter-spacing:.28em; color:var(--signal); display:block; margin-bottom:.7rem}
   .step .card p{font-size:1.04rem; line-height:1.62}
@@ -2278,7 +2283,8 @@ function buildChart() {
     el('rect', {x:M.l, y:y, width:bw, height:13, class:'src-bar' + (s.source.startsWith('Telegram') ? '' : ' alt'), rx:1}, srcG);
     el('text', {x:M.l + bw + 10, y:y+11, class:'src-count'}, srcG).textContent = s.count.toLocaleString();
     el('text', {x:M.l, y:y-5, class:'src-name'}, srcG).textContent = s.source;
-    if (TR[s.source]) el('text', {x:M.l + Math.min(bw+80, iw*.6), y:y-5, class:'src-tr'}, srcG).textContent = TR[s.source];
+    if (TR[s.source]) el('text', {x:M.l + Math.max(Math.min(bw+80, iw*.6), s.source.length*7.4 + 14),
+      y:y-5, class:'src-tr'}, srcG).textContent = TR[s.source];   // never overlap a long label
   });
 
   const timeParts = [grid, axis, band, document.getElementById('raw'), line,
