@@ -28,6 +28,26 @@ N = 6
 SMEAR = re.compile(r"\b(pedophil|paedophil|p[aä]edo|rapist|rape|molest|traffick|"
                    r"epstein|blackmail|corrupt(?:ion)? charges?)\b", re.I)
 
+# Transparent, disclosed topic tags: a crude keyword match on the headline used to
+# separate geopolitical PAYLOAD from mundane camouflage. First match (in this order)
+# wins. This is a heuristic on topic — NOT a human judgement of an item's intent.
+THEMES = [
+    ("hungary",  r"hungar|orb[aá]n|budapest|magyar|fidesz|tisza"),
+    ("ukraine",  r"ukrain|kyiv|kiev|zelensk|donbas|kharkiv|odes[sa]a?\b"),
+    ("russia",   r"russia|putin|kremlin|moscow|lavrov|ria novosti|\btass\b|sputnik|gazprom|rosatom"),
+    ("eu/nato",  r"\beu\b|europe|brussels|von der leyen|\bnato\b|sanction|baltic|migrant|migration"),
+    ("energy",   r"\bgas\b|\boil\b|pipeline|nord stream|druzhba|turkstream|energy"),
+]
+PAYLOAD = {"hungary", "ukraine", "russia", "eu/nato", "energy"}
+
+
+def classify(title: str, category: str) -> str:
+    hay = f"{title} {category}".lower()
+    for name, pat in THEMES:
+        if re.search(pat, hay):
+            return name
+    return "filler"
+
 LINK = re.compile(
     r'<a[^>]*href="(https://hungary\.news-pravda\.com/en/([a-z-]+)/(\d{4})/(\d{2})/(\d{2})/(\d+)\.html)"[^>]*>(.*?)</a>',
     re.S)
@@ -52,10 +72,12 @@ def main() -> int:
         rows.append({
             "id": int(aid), "date": f"{y}-{mo}-{d}", "category": cat,
             "title": title[:180], "smear": bool(SMEAR.search(title)),
+            "theme": classify(title, cat),
         })
     rows.sort(key=lambda r: (r["date"], r["id"]), reverse=True)
     specimens = [r for r in rows if not r["smear"]][:N]
     skipped = sum(1 for r in rows if r["smear"])
+    payload_n = sum(1 for r in specimens if r["theme"] in PAYLOAD)
 
     out = {
         "captured_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
@@ -63,12 +85,16 @@ def main() -> int:
         "note": ("Unaltered headlines this Russia-attributed network published, shown as evidence of "
                  "ongoing output. Not endorsed, not linked. Personal-smear items are withheld here and "
                  "documented as debunked evidence in the case files."),
+        "theme_note": ("Theme tags are a crude keyword match on the headline (see THEMES in "
+                       "scripts/capture_specimens.py) used to separate geopolitical payload from mundane "
+                       "camouflage — a heuristic on topic, not a human judgement of intent."),
         "smear_items_withheld": skipped,
-        "specimens": [{k: r[k] for k in ("id", "date", "category", "title")} for r in specimens],
+        "payload_count": payload_n,
+        "specimens": [{k: r[k] for k in ("id", "date", "category", "title", "theme")} for r in specimens],
     }
     OUT.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
-    print(f"latest_specimens.json: {len(specimens)} specimens (latest id {specimens[0]['id']}, "
-          f"{specimens[0]['date']}), {skipped} smear items withheld")
+    print(f"latest_specimens.json: {len(specimens)} specimens ({payload_n} payload / {len(specimens)-payload_n} filler; "
+          f"latest id {specimens[0]['id']}, {specimens[0]['date']}), {skipped} smear withheld")
     return 0
 
 

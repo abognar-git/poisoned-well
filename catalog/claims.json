@@ -404,7 +404,7 @@
   },
   {
     "id": "live-specimens",
-    "claim": "The headlines shown are the most recent articles the Hungarian Pravda mirror actually published, captured server-side from its own English edition (never from a visitor's browser) and refreshed on a schedule. They are displayed as evidence of ongoing output, not linked, with personal-smear items withheld.",
+    "claim": "The headlines shown are the most recent articles the Hungarian Pravda mirror actually published, captured server-side from its own English edition (never from a visitor's browser) and refreshed on a schedule. They are displayed as evidence of ongoing output, not linked, with personal-smear items withheld. The payload/filler theme tags are a disclosed keyword heuristic on the headline (rules published in scripts/capture_specimens.py) — a topic classifier, not a judgement of any item's intent.",
     "status": "live-data",
     "support": [
       {

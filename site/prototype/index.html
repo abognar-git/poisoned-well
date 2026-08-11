@@ -258,6 +258,11 @@
   .spec .meta{font-family:"IBM Plex Mono",monospace; font-size:.6rem; line-height:1.5; color:var(--muted)}
   .spec .meta .cat{color:var(--amber); text-transform:uppercase; letter-spacing:.1em}
   .spec .title{font-family:"Newsreader",serif; font-size:1.02rem; line-height:1.4; color:var(--paper)}
+  .spec .theme{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:.56rem;
+    letter-spacing:.12em; text-transform:uppercase; border-radius:2px; padding:.2em .5em;
+    margin-top:.35rem; margin-right:.35rem}
+  .spec .theme.payload{color:var(--signal); border:1px solid rgba(255,74,54,.4)}
+  .spec .theme.filler{color:var(--muted); border:1px solid var(--hairline)}
   .spec .path{font-family:"IBM Plex Mono",monospace; font-size:.58rem; color:var(--muted); opacity:.6;
     margin-top:.25rem; word-break:break-all; user-select:all}
   .spec-note{font-family:"Newsreader",serif; font-style:italic; font-size:.82rem; line-height:1.55;
@@ -1051,25 +1056,34 @@ try {
     if (hrs < 48) return hrs + ' hr ago';
     return Math.round(hrs / 24) + ' days ago';
   };
+  const PAYLOAD_THEMES = new Set(['hungary', 'ukraine', 'russia', 'eu/nato', 'energy']);
   const render = spec => {
     const list = document.getElementById('spec-list');
     list.innerHTML = '';
     for (const s of spec.specimens) {
       const el = document.createElement('div');
       el.className = 'spec';
+      const isPayload = PAYLOAD_THEMES.has(s.theme);
+      const themeTag = s.theme
+        ? `<span class="theme ${isPayload ? 'payload' : 'filler'}" title="keyword heuristic on the headline — topic, not a judgement of intent">${
+            isPayload ? 'payload · ' + esc(s.theme) : 'camouflage · filler'}</span>`
+        : '';
       el.innerHTML =
         `<div class="meta"><span class="cat">${esc(s.category)}</span><br>${esc(s.date)}<br>#${s.id}</div>` +
-        `<div><div class="title">${esc(s.title)}</div>` +
+        `<div><div class="title">${esc(s.title)}</div>${themeTag}` +
         `<div class="path">/en/${esc(s.category)}/${esc(s.date).replaceAll('-', '/')}/${s.id}.html — not a link</div></div>`;
       list.appendChild(el);
     }
-    document.getElementById('spec-cap').textContent = 'captured ' + agoStr(spec.captured_at);
+    const pn = spec.payload_count;
+    document.getElementById('spec-cap').textContent = 'captured ' + agoStr(spec.captured_at) +
+      (pn != null ? ` · ${pn} payload / ${spec.specimens.length - pn} filler` : '');
     const withheld = spec.smear_items_withheld
       ? ` <b>${spec.smear_items_withheld} personal-smear item(s) withheld</b> and instead documented in the case files.` : '';
     document.getElementById('spec-note').innerHTML =
       `These are unaltered specimens of a Russia-attributed operation, in its own English edition — ` +
       `shown as evidence of ongoing output, <b>not endorsement</b>, and not linked (to avoid feeding the very ` +
-      `citation signal the network manufactures).${withheld}`;
+      `citation signal the network manufactures). Theme tags are a <b>disclosed keyword heuristic</b> on the ` +
+      `headline (topic, not a judgement of intent) — the rules are published in the repo.${withheld}`;
   };
   try {
     const spec = await jget('/data/derived/latest_specimens.json');
