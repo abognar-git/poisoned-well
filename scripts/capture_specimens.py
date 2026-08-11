@@ -38,8 +38,19 @@ PER_SOURCE_CAP = 26   # keep any single source from dominating the corpus
 CORPUS_CAP = 130
 TRACE_CAP = 60        # max article pages fetched to trace laundering sources
 
-SMEAR = re.compile(r"\b(pedophil|paedophil|p[aä]edo|rapist|rape|molest|traffick|"
-                   r"epstein|blackmail|corrupt(?:ion)? charges?)\b", re.I)
+# Personal-smear filter: these specimens are withheld from the site entirely and
+# left to the case files. Stems are PREFIX matches (\w*) — an earlier version ended
+# the group with \b, which meant "pedophil" failed to match "pedophilia"/"pedophile"
+# and only the exact-word alternatives ever fired. Covers en/hu/ru because the
+# origin and outlet tiers publish in Hungarian and Russian, which is exactly where
+# fabricated personal defamation lands. See tests/test_smear.py.
+SMEAR = re.compile(
+    r"\b("
+    r"p[ae]?edophil\w*|p[aä]?edo\w*|rapist\w*|rape[ds]?\b|molest\w*|traffick\w*|"
+    r"epstein|blackmail\w*|corrupt(?:ion)?\s+charges?|"
+    r"pedof[ií]l\w*|er[oő]szakol\w*|zsarol\w*|megront\w*|korrupci[oó]s\s+v[aá]d\w*|"
+    r"педофил\w*|изнасил\w*|шантаж\w*|растлен\w*"
+    r")", re.I)
 
 THEMES = [
     ("hungary",  r"hungar|orb[aá]n|budapest|magyar|fidesz|tisza"),

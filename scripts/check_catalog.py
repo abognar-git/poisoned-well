@@ -8,10 +8,12 @@ Checks (stdlib only, no jsonschema dependency):
   - every scale figure names its source in the value text or the entry has data_refs
   - data_refs point at files that exist
   - draft entries are counted so the README can say how many are unverified
+  - the personal-smear filter's fixtures still pass (tests/test_smear.py)
 """
 
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -52,6 +54,15 @@ def main() -> int:
     n_sources = sum(len(e.get("sources", [])) for e in entries)
     print(f"{len(entries)} entries | {n_sources} sources | {drafts} draft / "
           f"{len(entries) - drafts} verified")
+
+    # the personal-smear filter decides what never reaches the site; a silent
+    # regression there publishes a fabricated defamation, so its fixtures gate too
+    smear = subprocess.run([sys.executable, str(ROOT / "tests" / "test_smear.py")],
+                           capture_output=True, text=True)
+    print(smear.stdout.strip() or smear.stderr.strip())
+    if smear.returncode != 0:
+        errors.append("tests/test_smear.py failed — see output above")
+
     if errors:
         print("\nFAIL:")
         for err in errors:
