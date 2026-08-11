@@ -6,7 +6,7 @@ name: refresh-data
 
 on:
   schedule:
-    - cron: "17 */6 * * *"
+    - cron: "17 * * * *"   # hourly, matching CheckFirst's upstream cadence
   workflow_dispatch:
 
 permissions:
@@ -29,6 +29,10 @@ jobs:
 
       - name: Derive summaries
         run: python scripts/derive_summaries.py
+
+      - name: Capture live specimens (non-fatal if the mirror is unreachable)
+        continue-on-error: true
+        run: python scripts/capture_specimens.py
 
       - name: Validate catalog
         run: python scripts/check_catalog.py

@@ -20,6 +20,7 @@ scripts/
   fetch_pravda.py       pull CheckFirst's hourly Pravda-network dataset (manifest + CEE mirrors)
   fetch_frameworks.py   shallow-clone Meta threat-research (MIT) + DISARM (CC-BY-SA); fetch DISARM STIX
   derive_summaries.py   raw -> data/derived/*.json  (every number the site cites is generated here)
+  capture_specimens.py  server-side capture of the mirror's latest real headlines (evidence, not linked)
   check_catalog.py      gate: validate catalog/operations.json (required fields, enums, sources, data_refs)
   check_claims.py       gate: every data-claim on the site maps to a backed registry entry
 catalog/
@@ -49,9 +50,17 @@ The campaign this site documents is ongoing — the Hungarian Pravda mirror publ
 continuously (CheckFirst's upstream dataset updates hourly). Two mechanisms keep the
 site current:
 
-1. **Scheduled refresh** (`.github/workflows/refresh-data.yml`): every 6 hours CI
-   re-fetches upstream, regenerates `data/derived/`, and commits only real changes —
-   the commit history becomes a monitoring log of the campaign.
+1. **Scheduled refresh** (`.github/workflows/refresh-data.yml`): hourly, CI
+   re-fetches upstream, regenerates `data/derived/`, captures the latest article
+   specimens, and commits only real changes — the commit history becomes a
+   monitoring log of the campaign.
+
+**Live specimens** (`scripts/capture_specimens.py` → `data/derived/latest_specimens.json`):
+the "What it published today" panel shows the network's most recent real headlines as
+evidence of ongoing output. Captured **server-side only** (never from a visitor's browser,
+so no visitor traffic/referrer reaches the propaganda domain and its inbound-link signal is
+not fed); shown as labeled evidence, **not hyperlinked**; personal-smear headlines are
+withheld from the panel and documented as debunked evidence in the case files instead.
 2. **Client-side refresh** (site, planned): the deployed page reads
    `data/derived/live_status.json` at load and additionally attempts a direct fetch of
    the upstream per-mirror JSON (raw.githubusercontent.com serves CORS) to show

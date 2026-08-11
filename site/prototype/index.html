@@ -246,6 +246,24 @@
     max-width:40rem; margin:3rem auto 0; text-align:center}
   .vclose b{color:var(--signal); font-weight:500}
 
+  /* ---------- live specimens ---------- */
+  #specimens{max-width:52rem; margin:0 auto; padding:0 2rem}
+  .spec-head{display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap;
+    gap:.6rem; border-bottom:1px solid var(--hairline); padding-bottom:.7rem; margin-bottom:.2rem}
+  .spec-head .lbl{font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.24em;
+    color:var(--signal); text-transform:uppercase; display:flex; align-items:center; gap:.5rem}
+  .spec-head .cap{font-family:"IBM Plex Mono",monospace; font-size:.62rem; color:var(--muted)}
+  .spec{display:grid; grid-template-columns:5.5rem 1fr; gap:.2rem 1rem; align-items:baseline;
+    padding:.85rem 0; border-bottom:1px solid rgba(233,228,218,.06)}
+  .spec .meta{font-family:"IBM Plex Mono",monospace; font-size:.6rem; line-height:1.5; color:var(--muted)}
+  .spec .meta .cat{color:var(--amber); text-transform:uppercase; letter-spacing:.1em}
+  .spec .title{font-family:"Newsreader",serif; font-size:1.02rem; line-height:1.4; color:var(--paper)}
+  .spec .path{font-family:"IBM Plex Mono",monospace; font-size:.58rem; color:var(--muted); opacity:.6;
+    margin-top:.25rem; word-break:break-all; user-select:all}
+  .spec-note{font-family:"Newsreader",serif; font-style:italic; font-size:.86rem; line-height:1.55;
+    color:var(--muted); margin-top:1.1rem}
+  .spec-note b{color:var(--amber); font-style:normal; font-weight:500}
+
   /* ---------- Act III campaign timeline ---------- */
   #act3-spine{position:relative; max-width:60rem; margin:1rem auto 0; padding:1rem 1.5rem 3rem}
   #act3-spine::before{content:""; position:absolute; top:0; bottom:0; left:50%; width:1px;
@@ -442,6 +460,23 @@
       <b data-claim="alternates-28">an average of 2.8 language versions per article.</b></p>
       <div class="cf-links"><button class="cf-open" data-case="llm-grooming-measurement">case file: LLM grooming, measured</button></div>
     </div></div>
+  </div>
+</section>
+
+<section id="specimens-sec">
+  <div class="act-divider" style="padding:6rem 2rem 2rem">
+    <div class="no">EVIDENCE · LIVE</div>
+    <h2>What it published today</h2>
+    <p>Not a claim that it is still running — proof. These are the most recent headlines the Hungarian
+       mirror emitted, captured server-side. Shown as evidence; deliberately not linked.</p>
+  </div>
+  <div id="specimens" data-claim="live-specimens">
+    <div class="spec-head">
+      <div class="lbl"><span class="live-dot"></span>hungary.news-pravda.com</div>
+      <div class="cap" id="spec-cap">captured —</div>
+    </div>
+    <div id="spec-list"></div>
+    <p class="spec-note" id="spec-note"></p>
   </div>
 </section>
 
@@ -988,6 +1023,41 @@ try {
 } catch (err) {
   console.error('network scene unavailable:', err);
   document.getElementById('net-wrap').style.display = 'none';
+}
+
+/* ================= live specimens ================= */
+{
+  const agoStr = iso => {
+    const mins = Math.max(0, Math.round((Date.now() - new Date(iso).getTime()) / 60000));
+    if (mins < 60) return mins + ' min ago';
+    const hrs = Math.round(mins / 60);
+    if (hrs < 48) return hrs + ' hr ago';
+    return Math.round(hrs / 24) + ' days ago';
+  };
+  const render = spec => {
+    const list = document.getElementById('spec-list');
+    list.innerHTML = '';
+    for (const s of spec.specimens) {
+      const el = document.createElement('div');
+      el.className = 'spec';
+      el.innerHTML =
+        `<div class="meta"><span class="cat">${esc(s.category)}</span><br>${esc(s.date)}<br>#${s.id}</div>` +
+        `<div><div class="title">${esc(s.title)}</div>` +
+        `<div class="path">/en/${esc(s.category)}/${esc(s.date).replaceAll('-', '/')}/${s.id}.html — not a link</div></div>`;
+      list.appendChild(el);
+    }
+    document.getElementById('spec-cap').textContent = 'captured ' + agoStr(spec.captured_at);
+    const withheld = spec.smear_items_withheld
+      ? ` <b>${spec.smear_items_withheld} personal-smear item(s) withheld</b> and instead documented in the case files.` : '';
+    document.getElementById('spec-note').innerHTML =
+      `These are unaltered specimens of a Russia-attributed operation, in its own English edition — ` +
+      `shown as evidence of ongoing output, <b>not endorsement</b>, and not linked (to avoid feeding the very ` +
+      `citation signal the network manufactures).${withheld}`;
+  };
+  try {
+    const spec = await jget('/data/derived/latest_specimens.json');
+    if (spec?.specimens?.length) render(spec);
+  } catch { document.getElementById('specimens-sec').style.display = 'none'; }
 }
 
 /* ================= Act III campaign timeline ================= */
