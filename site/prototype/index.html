@@ -155,6 +155,74 @@
   #evidence-card .close{position:absolute; top:.45rem; right:.6rem; background:none;
     border:none; color:var(--muted); font-family:inherit; cursor:pointer; font-size:.8rem}
 
+  /* ---------- case files (Phase B) ---------- */
+  .cf-links{display:flex; flex-wrap:wrap; gap:.45rem; margin-top:1rem}
+  .cf-open{
+    font-family:"IBM Plex Mono",monospace; font-size:.64rem; letter-spacing:.08em;
+    color:var(--paper); background:rgba(255,74,54,.08); border:1px solid rgba(255,74,54,.35);
+    border-radius:2px; padding:.35em .7em; cursor:pointer;
+  }
+  .cf-open::before{content:"▸ "; color:var(--signal)}
+  .cf-open:hover{background:rgba(255,74,54,.16); border-color:var(--signal)}
+
+  #evidence-room{padding-bottom:2rem}
+  .cf-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(19rem, 1fr));
+    gap:.9rem; max-width:1150px; margin:0 auto; padding:0 2rem;
+  }
+  .cf-card{
+    text-align:left; background:rgba(13,17,26,.6); border:1px solid var(--hairline);
+    padding:1.05rem 1.15rem; cursor:pointer; color:var(--paper); font-family:inherit;
+    transition:border-color .2s, background .2s;
+  }
+  .cf-card:hover{border-color:rgba(110,168,216,.5); background:rgba(13,17,26,.95)}
+  .cf-card .cat{font-family:"IBM Plex Mono",monospace; font-size:.58rem; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--muted)}
+  .cf-card .nm{font-family:"Newsreader",serif; font-weight:500; font-size:1.02rem;
+    line-height:1.35; margin:.45rem 0 .55rem}
+  .cf-card .meta{font-family:"IBM Plex Mono",monospace; font-size:.62rem; color:var(--muted);
+    display:flex; align-items:center; gap:.5rem}
+  .conf{display:inline-flex; gap:2px}
+  .conf i{width:9px; height:4px; background:var(--hairline)}
+  .conf.c5 i:nth-child(-n+5), .conf.c4 i:nth-child(-n+4), .conf.c3 i:nth-child(-n+3),
+  .conf.c2 i:nth-child(-n+2), .conf.c1 i:nth-child(-n+1){background:var(--conf-color,#7dc98f)}
+
+  #drawer-scrim{position:fixed; inset:0; z-index:96; background:rgba(2,4,8,.55);
+    opacity:0; pointer-events:none; transition:opacity .25s}
+  #case-drawer{
+    position:fixed; top:0; right:0; bottom:0; z-index:97; width:min(31rem,94vw);
+    background:#0a0e16; border-left:1px solid var(--hairline); overflow-y:auto;
+    transform:translateX(102%); transition:transform .3s cubic-bezier(.2,.8,.2,1);
+    padding:2.2rem 2rem 3rem;
+  }
+  body.drawer-on #drawer-scrim{opacity:1; pointer-events:auto}
+  body.drawer-on #case-drawer{transform:none}
+  #case-drawer .close{position:sticky; top:0; float:right; background:none; border:none;
+    color:var(--muted); font-size:1.1rem; cursor:pointer; font-family:"IBM Plex Mono",monospace}
+  #case-drawer .cat{font-family:"IBM Plex Mono",monospace; font-size:.6rem; letter-spacing:.26em;
+    text-transform:uppercase; color:var(--signal)}
+  #case-drawer h3{font-family:"Instrument Serif",Georgia,serif; font-weight:400;
+    font-size:1.7rem; line-height:1.15; margin:.6rem 0 .3rem}
+  #case-drawer .aliases{font-family:"IBM Plex Mono",monospace; font-size:.66rem;
+    color:var(--muted); line-height:1.6; margin-bottom:1.1rem}
+  #case-drawer .sec{border-top:1px solid var(--hairline); padding:.85rem 0}
+  #case-drawer .sec .h{font-family:"IBM Plex Mono",monospace; font-size:.58rem;
+    letter-spacing:.26em; color:var(--muted); text-transform:uppercase; margin-bottom:.5rem}
+  #case-drawer .sec p, #case-drawer .sec li{font-family:"Newsreader",serif; font-size:.95rem;
+    line-height:1.55; color:var(--paper); list-style:none}
+  #case-drawer .kv{font-family:"IBM Plex Mono",monospace; font-size:.68rem; line-height:1.9;
+    color:var(--paper)}
+  #case-drawer .kv b{color:var(--muted); font-weight:400}
+  #case-drawer .caveat{color:var(--amber); font-family:"Newsreader",serif; font-size:.88rem;
+    line-height:1.5}
+  #case-drawer a.src{display:block; font-family:"IBM Plex Mono",monospace; font-size:.66rem;
+    line-height:1.5; color:var(--muted); text-decoration:none; margin:.3rem 0; word-break:break-word}
+  #case-drawer a.src b{color:var(--analyst); font-weight:500}
+  #case-drawer a.src:hover b{text-decoration:underline}
+  #case-drawer .badge{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:.58rem;
+    letter-spacing:.2em; color:#7dc98f; border:1px solid rgba(125,201,143,.4); border-radius:2px;
+    padding:.25em .55em; margin-left:.6rem; vertical-align:middle}
+
   @media (max-width:760px){
     .hero-copy{top:auto; bottom:11.5rem; transform:none; max-width:88vw}
     .live-block{bottom:2rem}
@@ -205,6 +273,7 @@
       <p>The Hungarian mirror went live in a <b data-claim="wave-31">31-domain wave</b> that hit 19 EU countries in a single week —
       documented by France's VIGINUM. <span data-claim="ramp">From a single article on launch day, output passed <b>250 a day within a month</b> —
       and has cleared 100 on 531 of its 869 days since.</span></p>
+      <div class="cf-links"><button class="cf-open" data-case="pravda-hungary">case file: Pravda Magyarország</button></div>
     </div></div>
     <div class="step" data-step="1"><div class="card">
       <span class="n">I·2 — INDUSTRIAL SCALE</span>
@@ -216,6 +285,11 @@
       <span class="n">I·3 — THE ELECTION</span>
       <p><span data-claim="election-ops">As Hungary's April 2026 vote approached, the wider operation escalated: GRU-linked operatives
       reported in Budapest, fake outlets, deepfakes.</span> The mirror kept feeding the machines <b>through it all.</b></p>
+      <div class="cf-links">
+        <button class="cf-open" data-case="sda-gru-hungary-2026">GRU / SDA operation</button>
+        <button class="cf-open" data-case="storm-1516-hungary-2026">Storm-1516 fake outlets</button>
+        <button class="cf-open" data-case="matryoshka-hungary-2026">Matryoshka</button>
+      </div>
     </div></div>
     <div class="step" data-step="3"><div class="card">
       <span class="n">I·4 — THE VOTE THAT CHANGED NOTHING</span>
@@ -229,9 +303,23 @@
       <p>The mirror writes nothing. It <b data-claim="laundering">launders</b> — scraping fringe Hungarian-language Telegram channels
       and Russian state outlets, re-publishing them as clean, crawlable "news" with
       <b data-claim="alternates-28">an average of 2.8 language versions per article.</b></p>
+      <div class="cf-links"><button class="cf-open" data-case="llm-grooming-measurement">case file: LLM grooming, measured</button></div>
     </div></div>
   </div>
 </section>
+
+<section id="evidence-room">
+  <div class="act-divider" style="padding:7rem 2rem 3rem">
+    <div class="no">EVIDENCE ROOM</div>
+    <h2>Twenty-one case files</h2>
+    <p>Every operation, takedown and measurement behind this story — attribution confidence stated,
+       caveats included, sources linked. Click any file to open the dossier.</p>
+  </div>
+  <div class="cf-grid" id="cf-grid"></div>
+</section>
+
+<div id="drawer-scrim"></div>
+<aside id="case-drawer" aria-hidden="true"></aside>
 
 <footer>
   <div class="col">
@@ -299,8 +387,12 @@ document.getElementById('today-fig').textContent = HU.articles_latest_day;
 /* ================= evidence layer =================
    Every element carrying data-claim="<id>" gets a § marker; clicking it opens
    the claim's entry from catalog/claims.json (validated by check_claims.py). */
-const claims = await fetch('/catalog/claims.json').then(r => r.json()).catch(() => []);
+const [claims, cases] = await Promise.all([
+  fetch('/catalog/claims.json').then(r => r.json()).catch(() => []),
+  fetch('/catalog/operations.json').then(r => r.json()).catch(() => []),
+]);
 const claimById = Object.fromEntries(claims.map(c => [c.id, c]));
+const caseById = Object.fromEntries(cases.map(c => [c.id, c]));
 let evCard = null;
 function closeEvidence() { if (evCard) { evCard.remove(); evCard = null; } }
 function openEvidence(c, btn) {
@@ -337,7 +429,112 @@ document.querySelectorAll('[data-claim]').forEach(el => {
   btn.addEventListener('click', e => { e.stopPropagation(); openEvidence(c, btn); });
 });
 addEventListener('click', e => { if (evCard && !evCard.contains(e.target) && !e.target.classList.contains('cite')) closeEvidence(); });
-addEventListener('keydown', e => { if (e.key === 'Escape') closeEvidence(); });
+addEventListener('keydown', e => { if (e.key === 'Escape') { closeEvidence(); closeCase(); } });
+
+/* ================= case-file drawer (Phase B) ================= */
+const CONF = {
+  confirmed:    {n: 5, color: '#7dc98f', label: 'CONFIRMED — platform/vendor takedown or official record'},
+  high:         {n: 4, color: '#6ea8d8', label: 'HIGH — multiple independent credible attributions'},
+  medium:       {n: 3, color: '#d9a05b', label: 'MEDIUM — single credible attribution'},
+  contested:    {n: 2, color: '#e07a4f', label: 'CONTESTED — disputed between credible sources'},
+  unattributed: {n: 1, color: '#8b93a3', label: 'UNATTRIBUTED — origin unknown'},
+};
+const drawer = document.getElementById('case-drawer');
+const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;');
+function confMeter(level) {
+  const c = CONF[level] || CONF.unattributed;
+  return `<span class="conf c${c.n}" style="--conf-color:${c.color}" title="${c.label}">` +
+         '<i></i><i></i><i></i><i></i><i></i></span>';
+}
+function closeCase() { document.body.classList.remove('drawer-on'); drawer.setAttribute('aria-hidden', 'true'); }
+function openCase(id) {
+  const c = caseById[id];
+  if (!c) return;
+  closeEvidence();
+  const a = c.attribution || {};
+  const conf = CONF[a.confidence] || CONF.unattributed;
+  let html = `<button class="close" aria-label="close">×</button>
+    <div class="cat">${esc(c.category)}${c.status === 'verified' ? '<span class="badge">VERIFIED · 2026-08-10</span>' : ''}</div>
+    <h3>${esc(c.name)}</h3>`;
+  if (c.aliases?.length) html += `<div class="aliases">a.k.a. ${c.aliases.map(esc).join(' · ')}</div>`;
+  html += `<div class="sec"><div class="h">Attribution</div>
+    <div class="kv"><b>actor</b> ${esc(a.actor)}<br><b>sponsor</b> ${esc(a.sponsor || 'n/a')}<br>
+    <b>confidence</b> ${confMeter(a.confidence)} <span style="color:${conf.color}">${esc((a.confidence || '').toUpperCase())}</span><br>
+    ${a.attributed_by?.length ? `<b>attributed by</b> ${a.attributed_by.map(esc).join('; ')}` : ''}</div></div>`;
+  const t = c.target || {};
+  html += `<div class="sec"><div class="h">Scope</div><div class="kv">
+    ${t.countries?.length ? `<b>targets</b> ${t.countries.map(esc).join(', ')}<br>` : ''}
+    ${t.event ? `<b>event</b> ${esc(t.event)}<br>` : ''}
+    ${t.audience ? `<b>audience</b> ${esc(t.audience)}<br>` : ''}
+    ${c.period ? `<b>period</b> ${esc(c.period.start || '?')} → ${esc(c.period.end || '?')}<br>` : ''}
+    ${c.platforms?.length ? `<b>platforms</b> ${c.platforms.map(esc).join(', ')}` : ''}</div></div>`;
+  if (c.ai_usage?.length)
+    html += `<div class="sec"><div class="h">Documented AI use</div>${c.ai_usage.map(u => `<li>▸ ${esc(u)}</li>`).join('')}</div>`;
+  if (c.scale && Object.keys(c.scale).length)
+    html += `<div class="sec"><div class="h">Scale — each figure with its source</div><div class="kv">${
+      Object.entries(c.scale).map(([k, v]) => `<b>${esc(k.replaceAll('_', ' '))}</b> ${esc(v)}`).join('<br>')}</div></div>`;
+  html += `<div class="sec"><div class="h">Summary</div><p>${esc(c.summary)}</p></div>`;
+  if (c.effectiveness)
+    html += `<div class="sec"><div class="h">Measured effect</div><p>${esc(c.effectiveness)}</p></div>`;
+  if (c.caveats)
+    html += `<div class="sec"><div class="h">Caveats</div><p class="caveat">${esc(c.caveats)}</p></div>`;
+  html += `<div class="sec"><div class="h">Sources (${c.sources.length})</div>${c.sources.map(s =>
+    `<a class="src" href="${esc(s.url)}" target="_blank" rel="noopener">▸ <b>${esc(s.publisher)}</b>${s.title ? ' — ' + esc(s.title) : ''}${s.date ? ' · ' + esc(s.date) : ''}</a>` +
+    (s.archive_url ? `<a class="src" style="margin-left:1rem" href="${esc(s.archive_url)}" target="_blank" rel="noopener">↳ archive/substitute copy</a>` : '')
+  ).join('')}</div>`;
+  drawer.innerHTML = html;
+  drawer.scrollTop = 0;
+  drawer.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('drawer-on');
+  drawer.querySelector('.close').addEventListener('click', closeCase);
+}
+window.__openCase = openCase; // dev hook
+
+// mini-dossier for a clicked globe mirror
+window.__openMirror = (m, e) => {
+  const short = m.domain.replace('.news-pravda.com', '');
+  const adhoc = {
+    status: 'live-data',
+    claim: `${m.domain} — one of the network's ${caseById['pravda-hungary'] ? '101' : ''} tracked mirrors` +
+           (m.total ? `; ${m.total.toLocaleString('en-US')} articles scraped to date.` :
+                      `. Article-level stats not yet pulled for this mirror (manifest entry only).`),
+    support: [
+      { type: 'data', data_ref: 'data/derived/pravda_network.json', note: 'CheckFirst hourly manifest' },
+      { type: 'source', publisher: 'CheckFirst', title: 'Pravda Network Data Collection', url: 'https://github.com/CheckFirstHQ/pravda-network' },
+    ],
+  };
+  openEvidence(adhoc, { getBoundingClientRect: () => ({ left: e.clientX, bottom: e.clientY + 8, top: e.clientY }) });
+  if (/^(hungary|hu-hu|en-hu)\./.test(m.domain)) {
+    const b = document.createElement('button');
+    b.className = 'cf-open';
+    b.style.marginTop = '.7rem';
+    b.textContent = 'open case file: Pravda Magyarország';
+    b.addEventListener('click', () => { closeEvidence(); openCase('pravda-hungary'); });
+    evCard.appendChild(b);
+  }
+};
+document.getElementById('drawer-scrim').addEventListener('click', closeCase);
+document.querySelectorAll('.cf-open').forEach(b =>
+  b.addEventListener('click', e => { e.stopPropagation(); openCase(b.dataset.case); }));
+
+// evidence room grid
+{
+  const order = ['operation', 'infrastructure', 'takedown', 'incident', 'measurement', 'context'];
+  const grid = document.getElementById('cf-grid');
+  const sorted = [...cases].sort((x, y) => order.indexOf(x.category) - order.indexOf(y.category));
+  for (const c of sorted) {
+    const conf = CONF[c.attribution?.confidence] || CONF.unattributed;
+    const btn = document.createElement('button');
+    btn.className = 'cf-card';
+    btn.innerHTML = `<div class="cat">${esc(c.category)} · ${esc(c.attribution?.sponsor || '')}</div>
+      <div class="nm">${esc(c.name)}</div>
+      <div class="meta">${confMeter(c.attribution?.confidence)}
+        <span style="color:${conf.color}">${esc((c.attribution?.confidence || '').toUpperCase())}</span>
+        <span>· ${c.sources.length} sources</span></div>`;
+    btn.addEventListener('click', () => openCase(c.id));
+    grid.appendChild(btn);
+  }
+}
 
 /* ================= globe ================= */
 const canvas = document.getElementById('globe-canvas');
@@ -391,6 +588,7 @@ try {
     cee:       {color:0xffa04d, size:.030, op:.95},
     highlight: {color:0xff4a36, size:.042, op:1},
   };
+  const mirrorPickables = [];
   for (const tier of Object.keys(TIER)) {
     const ms = globe.mirrors.filter(m => m.tier === tier);
     if (!ms.length) continue;
@@ -399,8 +597,10 @@ try {
     const g = new THREE.BufferGeometry();
     g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
     const t = TIER[tier];
-    world.add(new THREE.Points(g, new THREE.PointsMaterial({
-      color:t.color, size:t.size, transparent:true, opacity:t.op, depthWrite:false})));
+    const pts = new THREE.Points(g, new THREE.PointsMaterial({
+      color:t.color, size:t.size, transparent:true, opacity:t.op, depthWrite:false}));
+    world.add(pts);
+    mirrorPickables.push({ points: pts, list: ms });
   }
 
   // pulsing rings on the three Hungarian mirrors
@@ -465,6 +665,26 @@ try {
   addEventListener('pointermove', e => {
     if (dragging) { vel = (e.clientX - px) * .004; offY += vel; px = e.clientX; }
     targX = (e.clientY / innerHeight - .5) * .12;
+  });
+
+  // click a mirror node -> live mini-dossier (Phase B)
+  const ray = new THREE.Raycaster();
+  ray.params.Points.threshold = .04;
+  const ndc = new THREE.Vector2();
+  let cdX = 0, cdY = 0;
+  canvas.addEventListener('pointerdown', e => { cdX = e.clientX; cdY = e.clientY; });
+  canvas.addEventListener('pointerup', e => {
+    if (Math.hypot(e.clientX - cdX, e.clientY - cdY) > 5) return;
+    const r = canvas.getBoundingClientRect();
+    ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
+    ray.setFromCamera(ndc, camera);
+    const maxDist = camera.position.distanceTo(tilt.position); // near-hemisphere only
+    let best = null;
+    for (const rec of mirrorPickables)
+      for (const hit of ray.intersectObject(rec.points))
+        if (hit.distance < maxDist && (!best || hit.distanceToRay < best.hit.distanceToRay))
+          best = { hit, rec };
+    if (best) window.__openMirror?.(best.rec.list[best.hit.index], e);
   });
 
   const layout = () => {
@@ -586,20 +806,28 @@ function buildChart() {
 
   // annotations
   const annots = {};
-  const mk = (id, dateStr, label, sub, dy=0) => {
+  const mk = (id, dateStr, label, sub, dy=0, claimId=null) => {
     const x = X(new Date(dateStr).getTime());
     const g = el('g', {class:'annot fade hidden', id});
     el('line', {x1:x, x2:x, y1:M.t+8+dy, y2:M.t+ih}, g);
     const anchor = x > W*.75 ? 'end' : 'start';
     const tx = x + (anchor === 'end' ? -6 : 6);
-    el('text', {x:tx, y:M.t+20+dy, 'text-anchor':anchor}, g).textContent = label;
+    el('text', {x:tx, y:M.t+20+dy, 'text-anchor':anchor}, g).textContent = label + (claimId ? ' §' : '');
     if (sub) el('text', {x:tx, y:M.t+34+dy, 'text-anchor':anchor, class:'sub'}, g).textContent = sub;
+    if (claimId && claimById[claimId]) {
+      g.style.cursor = 'pointer';
+      g.addEventListener('click', ev => {
+        ev.stopPropagation();
+        openEvidence(claimById[claimId],
+          { getBoundingClientRect: () => ({ left: ev.clientX, bottom: ev.clientY + 8, top: ev.clientY }) });
+      });
+    }
     annots[id] = g;
   };
-  mk('a-born', '2024-03-20', 'MIRROR REGISTERED', '20 Mar 2024 · VIGINUM');
-  mk('a-peak', '2024-07-05', 'PEAK · 712 IN ONE DAY', '5 Jul 2024', 26);
-  mk('a-gru', '2026-03-06', 'GRU TEAM REPORTED', 'VSquare', 66);
-  mk('a-vote', '2026-04-12', 'ELECTION DAY', 'Tisza 141/199', 26);
+  mk('a-born', '2024-03-20', 'MIRROR REGISTERED', '20 Mar 2024 · VIGINUM', 0, 'mirror-created');
+  mk('a-peak', '2024-07-05', 'PEAK · 712 IN ONE DAY', '5 Jul 2024', 26, 'peak-712');
+  mk('a-gru', '2026-03-06', 'GRU TEAM REPORTED', 'VSquare', 66, 'election-ops');
+  mk('a-vote', '2026-04-12', 'ELECTION DAY', 'Tisza 141/199', 26, 'election-outcome');
 
   // "today" pulse at series end
   const lx = X(t1), ly = Y(roll[roll.length-1][1]);
