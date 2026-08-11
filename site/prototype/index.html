@@ -1251,7 +1251,9 @@ try {
   };
 
   try {
-    DATA = await jget('/data/derived/latest_specimens.json');
+    // reuse the copy the hero already fetched — this file is ~57KB and was being
+    // pulled twice (once for the well's drop stream, once here)
+    DATA = spec || await jget('/data/derived/latest_specimens.json');
     if (!DATA?.featured?.length) throw 0;
     ALL = [...DATA.featured, ...(DATA.corpus || [])];
     capturedAt = DATA.captured_at;
