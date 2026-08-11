@@ -2,54 +2,98 @@
   {
     "id": "pravda-network",
     "term": "Pravda network / Portal Kombat",
-    "aliases": ["news-pravda.com family", "pravda-*.* domains"],
+    "aliases": [
+      "news-pravda.com family",
+      "pravda-*.* domains"
+    ],
     "definition": "A Russia-attributed network of 100+ automated 'news' mirrors that republish pro-Kremlin Telegram channels and state media in dozens of languages. First exposed by France's VIGINUM (Feb 2024); tracked hourly by CheckFirst.",
-    "source": { "publisher": "VIGINUM/SGDSN", "url": "https://www.sgdsn.gouv.fr/files/files/Publications/20240428_NP_SGDSN_VIGINUM_PORTAL-KOMBAT-NETWORK-REPORT_NEW%20DOMAIN%20NAME_(PART3)_ENG_VF.pdf" }
+    "source": {
+      "publisher": "VIGINUM/SGDSN",
+      "url": "https://www.sgdsn.gouv.fr/files/files/Publications/20240428_NP_SGDSN_VIGINUM_PORTAL-KOMBAT-NETWORK-REPORT_NEW%20DOMAIN%20NAME_(PART3)_ENG_VF.pdf"
+    }
   },
   {
     "id": "llm-grooming",
     "term": "LLM grooming",
     "definition": "Flooding the open web with machine-scale propaganda aimed not at human readers but at contaminating the training and retrieval data of AI systems. Coined by the American Sunlight Project (Feb 2025). Audit evidence exists both for and against its effectiveness — see the measurement case file.",
-    "source": { "publisher": "American Sunlight Project", "url": "https://static1.squarespace.com/static/6612cbdfd9a9ce56ef931004/t/67fd396818196f3d1666bc23/1744648558879/PK+Report.pdf" }
+    "source": {
+      "publisher": "American Sunlight Project",
+      "url": "https://static1.squarespace.com/static/6612cbdfd9a9ce56ef931004/t/67fd396818196f3d1666bc23/1744648558879/PK+Report.pdf"
+    }
   },
   {
     "id": "storm-1516",
     "term": "Storm-1516",
-    "aliases": ["CopyCop (Recorded Future)", "Center for Geopolitical Expertise", "John Mark Dougan network"],
-    "definition": "Russian operation running hundreds of LLM-rewritten fictional 'news' outlets and staged videos, laundered through fake journalist personas. Linked by VIGINUM to GRU Unit 29155. The most aggressive documented foreign actor in Hungary's 2026 campaign.",
-    "source": { "publisher": "Recorded Future", "url": "https://www.recordedfuture.com/research/copycop-deepens-its-playbook-with-new-websites-and-targets" }
+    "aliases": [
+      "CopyCop (Recorded Future)",
+      "Center for Geopolitical Expertise",
+      "John Mark Dougan network"
+    ],
+    "definition": "Russian operation running hundreds of LLM-rewritten fictional 'news' outlets and staged videos, laundered through fake journalist personas. Linked by VIGINUM to GRU Unit 29155. One of the most aggressive documented foreign actors in Hungary's 2026 campaign.",
+    "source": {
+      "publisher": "Recorded Future",
+      "url": "https://www.recordedfuture.com/research/copycop-deepens-its-playbook-with-new-websites-and-targets"
+    }
   },
   {
     "id": "doppelganger",
     "term": "Doppelgänger",
-    "aliases": ["RRN (VIGINUM)", "Ruza Flood (Microsoft)", "Storm-1099", "run by Social Design Agency & Structura"],
+    "aliases": [
+      "RRN (VIGINUM)",
+      "Ruza Flood (Microsoft)",
+      "Storm-1099",
+      "run by Social Design Agency & Structura"
+    ],
     "definition": "The flagship Russian CIB operation since 2022: spoofed replicas of major Western news sites plus coordinated ad/comment amplification. EU- and US-sanctioned operators; 6,000+ public indicators via Meta. No documented Hungarian-language assets before the 2026 SDA plan.",
-    "source": { "publisher": "EU DisinfoLab", "url": "https://www.disinfo.eu/doppelganger-hub/" }
+    "source": {
+      "publisher": "EU DisinfoLab",
+      "url": "https://www.disinfo.eu/doppelganger-hub/"
+    }
   },
   {
     "id": "matryoshka",
     "term": "Matryoshka",
-    "aliases": ["Operation Overload (CheckFirst/Reset.Tech)", "Storm-1679 (Microsoft)"],
-    "definition": "Russia-aligned campaign that impersonates legitimate media brands (DW, Euronews, Le Monde) and floods fact-checkers with debunk-bait to inflate its perceived influence. Active in Hungary from March 2026, with little measured reach.",
-    "source": { "publisher": "ISD", "url": "https://www.isdglobal.org/digital-dispatch/operation-overloads-underwhelming-influence-and-evolving-tactics/" }
+    "aliases": [
+      "Operation Overload (CheckFirst/Reset.Tech)",
+      "Storm-1679 (Microsoft)"
+    ],
+    "definition": "Russia-aligned campaign that impersonates legitimate media brands (DW, Euronews, the BBC) and floods fact-checkers with debunk-bait to inflate its perceived influence. Active in Hungary from March 2026, with little measured reach.",
+    "source": {
+      "publisher": "ISD",
+      "url": "https://www.isdglobal.org/digital-dispatch/operation-overloads-underwhelming-influence-and-evolving-tactics/"
+    }
   },
   {
     "id": "spamouflage",
     "term": "Spamouflage",
-    "aliases": ["Dragonbridge (Google)", "Storm-1376 / Taizi Flood (Microsoft)", "Spamouflage Dragon (Graphika)"],
+    "aliases": [
+      "Dragonbridge (Google)",
+      "Storm-1376 / Taizi Flood (Microsoft)",
+      "Spamouflage Dragon (Graphika)"
+    ],
     "definition": "The PRC's highest-volume influence network — pioneer of AI news-anchor avatars and, per Microsoft, the first nation-state use of AI content against a foreign election (Taiwan 2024). Consistently negligible engagement; no documented Hungarian-language activity.",
-    "source": { "publisher": "Graphika", "url": "https://public-assets.graphika.com/reports/graphika-report-deepfake-it-till-you-make-it.pdf" }
+    "source": {
+      "publisher": "Graphika",
+      "url": "https://public-assets.graphika.com/reports/graphika-report-deepfake-it-till-you-make-it.pdf"
+    }
   },
   {
     "id": "sda",
     "term": "Social Design Agency (SDA) / Structura",
     "definition": "Sanctioned Moscow firms operating Doppelgänger under Kremlin direction (Sergei Kiriyenko's directorate, per the US DOJ affidavit). Reported by the FT to have drafted the covert pro-Fidesz social-media plan for Hungary's 2026 election.",
-    "source": { "publisher": "US DOJ", "url": "https://www.justice.gov/archives/opa/pr/justice-department-disrupts-covert-russian-government-sponsored-foreign-malign-influence" }
+    "source": {
+      "publisher": "US DOJ",
+      "url": "https://www.justice.gov/archives/opa/pr/justice-department-disrupts-covert-russian-government-sponsored-foreign-malign-influence"
+    }
   },
   {
     "id": "fimi",
     "term": "FIMI",
-    "definition": "Foreign Information Manipulation and Interference — the EU's institutional term for state-linked influence operations, used in the EEAS threat reports that provide the best cross-EU incident statistics (540 incidents in 2025; 27% involving AI)."
+    "definition": "Foreign Information Manipulation and Interference — the EU's institutional term for state-linked influence operations, used in the EEAS threat reports that provide the best cross-EU incident statistics (540 incidents in 2025; 27% involving AI).",
+    "source": {
+      "publisher": "EEAS",
+      "url": "https://www.eeas.europa.eu/sites/default/files/2026/documents/EEAS%204th%20Threat%20Report_web.pdf"
+    }
   },
   {
     "id": "cib",
@@ -59,8 +103,11 @@
   {
     "id": "disarm",
     "term": "DISARM",
-    "definition": "The open framework for describing influence-operation tactics and techniques — the ATT&CK equivalent for information operations, used by the EEAS to code FIMI incidents. This project's case files will carry DISARM technique tags in a coming phase.",
-    "source": { "publisher": "DISARM Foundation", "url": "https://github.com/DISARMFoundation/DISARMframeworks" }
+    "definition": "The open framework for describing influence-operation tactics and techniques — the ATT&CK equivalent for information operations, used by the EEAS to code FIMI incidents. This project's case files carry DISARM technique tags (using DISARM v1.x technique IDs).",
+    "source": {
+      "publisher": "DISARM Foundation",
+      "url": "https://github.com/DISARMFoundation/DISARMframeworks"
+    }
   },
   {
     "id": "breakout-scale",
@@ -70,8 +117,11 @@
   {
     "id": "megafon",
     "term": "Megafon",
-    "definition": "The Fidesz-aligned Hungarian influencer network (€14.5m budget in 2024) that dominated domestic political advertising; researchers found it central to the ~90%-domestic share of 2026 election disinformation. Shut down after the election defeat.",
-    "source": { "publisher": "Carnegie Endowment", "url": "https://carnegieendowment.org/europe/strategic-europe/2026/01/new-tricks-and-ai-tools-in-hungarys-high-stakes-election" }
+    "definition": "The Fidesz-aligned Hungarian influencer network — €14.5m budget in 2024, reportedly from public funds — that dominated domestic political advertising in the run-up to the 2026 election.",
+    "source": {
+      "publisher": "Carnegie Endowment",
+      "url": "https://carnegieendowment.org/europe/strategic-europe/2026/01/new-tricks-and-ai-tools-in-hungarys-high-stakes-election"
+    }
   },
   {
     "id": "cheap-fake",
