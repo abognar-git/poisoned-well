@@ -404,7 +404,7 @@
   },
   {
     "id": "live-specimens",
-    "claim": "The headlines are recent real articles from documented Hungary-targeting pro-Kremlin sources — the Pravda network mirror (a laundering site, English edition) and News Front (a Crimea-based, EU/US-sanctioned outlet, Hungarian) — captured server-side (never from a visitor's browser) and refreshed on a schedule. Each Pravda item shows the laundering source the article itself credits. Shown as evidence, not linked, with personal-smear items withheld. Volume figures come from the CheckFirst dataset plus a live count from the capture; theme tags are a disclosed keyword heuristic on the headline (rules in scripts/capture_specimens.py), a topic classifier, not a judgement of intent.",
+    "claim": "The specimens are recent real posts from documented Hungary-targeting pro-Kremlin sources across three tiers of the laundering chain: Telegram origin channels (captured via their public previews — the mirror's own top-credited feeders), the Pravda network mirror (which republishes them as 'news'), and News Front (a Crimea-based, EU/US-sanctioned outlet). Captured server-side (never from a visitor's browser), refreshed on a schedule; each mirror item shows the origin it credits. Shown as evidence, not linked, personal-smear items withheld. Volume figures come from the CheckFirst dataset plus a live count; theme tags are a disclosed keyword heuristic on the headline (rules in scripts/capture_specimens.py), a topic classifier, not a judgement of intent.",
     "status": "live-data",
     "support": [
       {
@@ -423,6 +423,12 @@
         "publisher": "Wikipedia",
         "title": "News Front — Crimea-based pro-Russian outlet, EU/US-sanctioned for disinformation",
         "url": "https://en.wikipedia.org/wiki/News_Front"
+      },
+      {
+        "type": "source",
+        "publisher": "Wikipedia",
+        "title": "Rybar — Russian pro-war military Telegram channel",
+        "url": "https://en.wikipedia.org/wiki/Rybar"
       }
     ]
   }

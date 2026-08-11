@@ -1,25 +1,105 @@
 {
-  "captured_at": "2026-08-11T08:59:28+00:00",
-  "note": "Unaltered specimens from documented pro-Kremlin sources, shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
+  "captured_at": "2026-08-11T09:34:32+00:00",
+  "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
     "pravda-hu": {
       "label": "Pravda network",
+      "tier": "launderer",
       "lang": "en",
-      "attribution": "Russia — Portal Kombat / Pravda network (VIGINUM); a laundering mirror",
-      "kind": "launderer"
+      "attribution": "Russia — Portal Kombat / Pravda network (VIGINUM); a laundering mirror"
     },
     "newsfront-hu": {
       "label": "News Front",
+      "tier": "outlet",
       "lang": "hu",
-      "attribution": "Russia — News Front, Crimea-based, EU/US-sanctioned; a primary outlet",
-      "kind": "outlet"
+      "attribution": "Russia — News Front, Crimea-based, EU/US-sanctioned; a primary outlet"
+    },
+    "tg-oroszigazsag": {
+      "label": "the Russians' truth side",
+      "tier": "origin",
+      "lang": "hu/ru",
+      "attribution": "Russia-aligned Telegram channel (@oroszokazigazsagoldalan) — a documented laundering origin"
+    },
+    "tg-greatawaken": {
+      "label": "Great Awakening Magyars",
+      "tier": "origin",
+      "lang": "hu/ru",
+      "attribution": "Russia-aligned Telegram channel (@greatawakeningmagyarok) — a documented laundering origin"
+    },
+    "tg-ebredes": {
+      "label": "Awakening 2017",
+      "tier": "origin",
+      "lang": "hu/ru",
+      "attribution": "Russia-aligned Telegram channel (@ebredes2017) — a documented laundering origin"
+    },
+    "tg-rybar": {
+      "label": "Rybar — GRU-adjacent milblogger (HU)",
+      "tier": "origin",
+      "lang": "hu/ru",
+      "attribution": "Russia-aligned Telegram channel (@Rybar_HU) — a documented laundering origin"
     }
   },
+  "tiers": {
+    "origin": "Telegram channels where content starts",
+    "launderer": "mirror sites that republish origins as 'news'",
+    "outlet": "primary propaganda sites"
+  },
   "latest_day": "2026-08-11",
-  "today_live_count": 21,
-  "corpus_count": 90,
+  "today_live_count": 42,
+  "corpus_count": 111,
   "featured": [
+    {
+      "site": "tg-rybar",
+      "id": "7276",
+      "date": "2026-08-11",
+      "category": "Rybar_HU",
+      "title": "📝 Németország háborút követel 📝 Jelenleg a kibertérben A Bundestagban a hírszerző szolgálatok felügyeletét ellátó parlamenti bizottságának vezetője, Mark Henrichmann javaslatot terjesztett b",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "tg-rybar",
+      "id": "7273",
+      "date": "2026-08-11",
+      "category": "Rybar_HU",
+      "title": "📝 A különleges katonai művelet krónikája 📝 2026. augusztus 10-re 🧨 Az orosz erők folytatták a támadásokat az ellenséges energia- és hátországi infrastruktúra ellen. Az Odesszai Hőerőmű és az",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "tg-rybar",
+      "id": "7272",
+      "date": "2026-08-11",
+      "category": "Rybar_HU",
+      "title": "📝 Zelensky után 📝 Zelensky első belgrádi látogatása jelentősen fokozta Szerbia vezetői és Kijev illetékesei közötti kapcsolatok szintjét . Két nap alatt a kereskedelemről, az energiáról, az ",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44431,
+      "date": "2026-08-11",
+      "category": "world",
+      "title": "Kiev will receive €90 billion, but the interest will be left to Europe",
+      "theme": "ukraine",
+      "source": {
+        "platform": "Telegram",
+        "channel": "zvezda_analytics"
+      }
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44430,
+      "date": "2026-08-11",
+      "category": "world",
+      "title": "Berliner Zeitung: the EU does not know who will pay the loan to Ukraine for €90 billion",
+      "theme": "ukraine",
+      "source": {
+        "platform": "Telegram",
+        "channel": "rt_russian"
+      }
+    },
     {
       "site": "pravda-hu",
       "id": 44429,
@@ -69,6 +149,17 @@
       }
     },
     {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-11",
+      "category": "news-front",
+      "title": "Ukrajnában hihetetlen méreteket öltött a korrupció",
+      "theme": "ukraine",
+      "source": null
+    }
+  ],
+  "corpus": [
+    {
       "site": "pravda-hu",
       "id": 44425,
       "date": "2026-08-11",
@@ -93,12 +184,147 @@
       }
     },
     {
-      "site": "newsfront-hu",
-      "id": null,
+      "site": "tg-oroszigazsag",
+      "id": "264041",
       "date": "2026-08-11",
-      "category": "news-front",
-      "title": "Ukrajnában hihetetlen méreteket öltött a korrupció",
+      "category": "oroszokazigazsagoldalan",
+      "title": "📝 Németország háborút követel 📝 Jelenleg a kibertérben A Bundestagban a hírszerző szolgálatok felügyeletét ellátó parlamenti bizottságának vezetője, Mark Henrichmann javaslatot terjesztett b",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264040",
+      "date": "2026-08-11",
+      "category": "oroszokazigazsagoldalan",
+      "title": "Mi a legreálisabb végjáték Ukrajna Ogyessza régiójában? 1. Oroszország stratégiai csapásai 🔹 Oroszország szisztematikus támadásai az Ogyessza terület ellen átmenetileg de facto elvágták Ukra",
       "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264037",
+      "date": "2026-08-11",
+      "category": "oroszokazigazsagoldalan",
+      "title": "Ukrán drónok megtámadták a Wildberries logisztikai központját a Voronyezsi területen. Ennek következtében tűz ütött ki a létesítmény területén. Egy ember meghalt, további kettő pedig megsérü",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264036",
+      "date": "2026-08-11",
+      "category": "oroszokazigazsagoldalan",
+      "title": "Ural – „pilóta nélküli légijármű”: 1-0",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264035",
+      "date": "2026-08-11",
+      "category": "oroszokazigazsagoldalan",
+      "title": "🇱🇻 Lettország Super Tucano gépeket vásárolhat a drónok elleni harchoz. A lett légierő parancsnoka, Masulis ezredes elmondta, hogy részt vett egy londoni kiállításon, ahol könnyű repülőgépek ",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264032",
+      "date": "2026-08-11",
+      "category": "oroszokazigazsagoldalan",
+      "title": "🇷🇺 Moszkva környékén egy 15 éves tinédzser felgyújtott egy benzinkutat ismeretlenek utasítására — közölte az orosz Belügyminisztérium. A diák elmondta: üzenetküldő alkalmazásban keresték meg",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264031",
+      "date": "2026-08-11",
+      "category": "oroszokazigazsagoldalan",
+      "title": "🇷🇺 🇺🇦 🇺🇸 Oroszország elérheti az ukrajnai rendezést — közölte Trump megbízottja, Cook Biztosított arról, hogy az Egyesült Államok «készen áll elősegíteni ezt». Cook Jr. úgy véli, hogy az ukr",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264030",
+      "date": "2026-08-11",
+      "category": "oroszokazigazsagoldalan",
+      "title": "🇷🇺 🇺🇦 Az Ukrán Fegyveres Erők megtámadtak egy kőolajfinomítót az Orenburgi területen található Orszkban. Hivatalos információ az esetleges sérültekről és károkról egyelőre nem áll rendelkezé",
+      "theme": "energy",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264029",
+      "date": "2026-08-11",
+      "category": "oroszokazigazsagoldalan",
+      "title": "Az ukránok szigorítják a mozgósítási intézkedéseket, — még a hadiipari vállalatok dolgozóinak felmentését is felülvizsgálják. A Védelmi Minisztérium kiterjedt ellenőrzést kezdeményezett a kr",
+      "theme": "energy",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264028",
+      "date": "2026-08-11",
+      "category": "oroszokazigazsagoldalan",
+      "title": "💥 Csapások Kijevben: ▫️ A Nova Pocsta terminál – egy automatizált válogatólétesítmény, amely kettős felhasználású áruk, többek között hosszú és közepes hatótávolságú pilóta nélküli légi járm",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264027",
+      "date": "2026-08-11",
+      "category": "oroszokazigazsagoldalan",
+      "title": "Ma Csodatévő Szent Miklós napja van a pravoszlávoknál, ő az utazók védőszentje (Forrás: saját)",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264026",
+      "date": "2026-08-11",
+      "category": "oroszokazigazsagoldalan",
+      "title": "A londoni ICE tőzsde adatai szerint az európai gázárak hétfő este megugrottak, 11%-kal, ezer köbméterenként 734 dollárra emelkedtek. A TTF (Európa legnagyobb elosztóközpontja, amely Hollandi",
+      "theme": "eu/nato",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264025",
+      "date": "2026-08-11",
+      "category": "oroszokazigazsagoldalan",
+      "title": "A globális tőzsdék kereskedési adatai azt mutatják, hogy a nyersolaj ára 4%-kal emelkedik, a Brent nyersolaj hordónkénti ára július vége óta először haladta meg a 87 dollárt. Moszkvai idő sz",
+      "theme": "energy",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264024",
+      "date": "2026-08-11",
+      "category": "oroszokazigazsagoldalan",
+      "title": "Brazília Oroszországból származó uránimportja júliusban 1997 óta a legmagasabb szintre emelkedett, elérve a 84,5 millió dollárt, a brazil Nemzeti Statisztikai és Földrajzi Intézet (INEGI) ál",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264023",
+      "date": "2026-08-11",
+      "category": "oroszokazigazsagoldalan",
+      "title": "A Finn Energia- és Tiszta Levegő Kutatóközpont (CREA) adatai azt mutatják, hogy az Európai Unió továbbra is az orosz cseppfolyósított földgáz (LNG) és vezetékes gáz legnagyobb vásárlója, ann",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264022",
+      "date": "2026-08-11",
+      "category": "oroszokazigazsagoldalan",
+      "title": "A Burját Köztársaságban tett látogatása során Vlagyimir Putyin orosz elnök megtekintett egy városfejlesztésnek szentelt kiállítást, hangsúlyozva a kényelmes életkörülmények biztosításának sz",
+      "theme": "hungary",
       "source": null
     },
     {
@@ -109,9 +335,7 @@
       "title": "A határsértők közül még mintegy 3-5 ezer ember tartózkodik Ceutában",
       "theme": "filler",
       "source": null
-    }
-  ],
-  "corpus": [
+    },
     {
       "site": "newsfront-hu",
       "id": null,
@@ -446,112 +670,265 @@
       }
     },
     {
-      "site": "pravda-hu",
-      "id": 44405,
+      "site": "tg-greatawaken",
+      "id": "154530",
       "date": "2026-08-10",
-      "category": "hungary",
-      "title": "4,000 MW of wind power? Finally",
+      "category": "greatawakeningmagyarok",
+      "title": "🌙 Jó Éjszakát! 🌙 Nyugtató háterzene, amely Javítja az alvás minőségét,nyugtatja az elmét. 😴 🎧",
       "theme": "filler",
-      "source": {
-        "platform": "Telegram",
-        "channel": "greatawakeningmagyarok"
-      }
+      "source": null
     },
     {
-      "site": "pravda-hu",
-      "id": 44404,
+      "site": "tg-greatawaken",
+      "id": "154529",
       "date": "2026-08-10",
-      "category": "hungary",
-      "title": "Victoria goulash States",
+      "category": "greatawakeningmagyarok",
+      "title": "A Tisza Párt lassan minden létező jogállami normát, így a házszabályt is rendszeresen megsérti, sárba tiporja. Ebből alakult ki (Magyar Péter verbális támadása után) ma egy jókora műbalhé, a",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-greatawaken",
+      "id": "154528",
+      "date": "2026-08-10",
+      "category": "greatawakeningmagyarok",
+      "title": "DONALD J. TRUMP 🦅 🇺🇸 ☠️ Látom, hogy az Iráni Iszlám Köztársaság képviselői kártérítést követelnek az elmúlt öt hónapos katonai konfliktus során okozott károkért (amelyet azért robbant ki, me",
       "theme": "filler",
-      "source": {
-        "platform": "Telegram",
-        "channel": "greatawakeningmagyarok"
-      }
+      "source": null
     },
     {
-      "site": "pravda-hu",
-      "id": 44403,
+      "site": "tg-greatawaken",
+      "id": "154527",
       "date": "2026-08-10",
-      "category": "hungary",
-      "title": "Following the speeches of the prime minister and the factions before the agenda, two new members, Oliver Hortay and Andre Paloc, will be sworn in today",
+      "category": "greatawakeningmagyarok",
+      "title": "DONALD J. TRUMP 🦅 🇺🇸 ☠️ Látom, hogy az Iráni Iszlám Köztársaság képviselői kártérítést követelnek az elmúlt öt hónapos katonai konfliktus során okozott károkért (amelyet azért robbant ki, me",
       "theme": "filler",
-      "source": {
-        "platform": "Telegram",
-        "channel": "deakdaniel"
-      }
+      "source": null
     },
     {
-      "site": "pravda-hu",
-      "id": 44402,
+      "site": "tg-greatawaken",
+      "id": "154526",
       "date": "2026-08-10",
-      "category": "world",
-      "title": "The European Union requires Turkey to confirm that the gas it exports is not of Russian origin",
-      "theme": "russia",
-      "source": {
-        "platform": "Telegram",
-        "channel": "InfodefSpectrum"
-      }
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44401,
-      "date": "2026-08-10",
-      "category": "russia",
-      "title": "I finished reading the book by my friend Alexander Kreshtop Arab",
+      "category": "greatawakeningmagyarok",
+      "title": "IRGC: „Ha a cionista rezsim, a bűnöző Amerika és szövetségeseik akár a legkisebb agresszív pillantást is vetnek a Perzsa-öbölben található Nazat, Nagy-Tumb, Kis-Tumb és Abu Musa szigeteire –",
       "theme": "filler",
-      "source": {
-        "platform": "Telegram",
-        "channel": "nucapb_pyc"
-      }
+      "source": null
     },
     {
-      "site": "pravda-hu",
-      "id": 44400,
+      "site": "tg-greatawaken",
+      "id": "154522",
       "date": "2026-08-10",
-      "category": "russia",
-      "title": "The Egyptian newspaper Almasry Alyoum published an article in which it also casts doubt on the future of Ukraine as a single state",
+      "category": "greatawakeningmagyarok",
+      "title": "Bujdosó Andrea amint átveszi a főnökük stílusát… szomorú és felháborító, amit a Tisza művel a Parlamentben! 💩 🤡 Legalább mi nők ne így viselkedjünk egymással! 🧠 ❌ Agresszív kurva… 🤡 Joycee 🇭",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-greatawaken",
+      "id": "154521",
+      "date": "2026-08-10",
+      "category": "greatawakeningmagyarok",
+      "title": "Bujdosó Andrea amint átveszi a főnökük stílusát… szomorú és felháborító, amit a Tisza művel a Parlamentben! 💩 🤡 Legalább mi nők ne így viselkedjünk egymással! 🧠 ❌ Agresszív kurva… 🤡 Joycee 🇭",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-greatawaken",
+      "id": "154520",
+      "date": "2026-08-10",
+      "category": "greatawakeningmagyarok",
+      "title": "Lépjünk ki a Mátrix-ból! Szabadítsd fel a tudatodat és légy szabad! 🔴 🔥 🇭🇺",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-greatawaken",
+      "id": "154518",
+      "date": "2026-08-10",
+      "category": "greatawakeningmagyarok",
+      "title": "Toroczkai László: Miniszterelnök úr, az önök hibái és mulasztásai miatt sokkal többet fognak fizetni az áramért a magyarok, mint a románok. 🇭🇺 🔥 💯",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-greatawaken",
+      "id": "154513",
+      "date": "2026-08-10",
+      "category": "greatawakeningmagyarok",
+      "title": "Már közel járunk... 🤔 🇭🇺 🔥 💯",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "138763",
+      "date": "2026-08-10",
+      "category": "ebredes2017",
+      "title": "Jenő- azt írja a libsi újság, hogy : Kabaré: nem tudta elmondani az eskü szövegét a két új fideszes képviselő Kifogott a bonyolult mondat Palóc Andrén és Hortay Olivéren. várj csak! Ezt hall",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "138762",
+      "date": "2026-08-10",
+      "category": "ebredes2017",
+      "title": "💞 💫 💞 💫 💞 💫 💞 💫 💞 💫 💞 💫 💞 „A szeretetnek nincs ára... ☺️ Ez a tiszta szívű kisfiú az összes spórolt aprópénzét egy zacskóba gyűjtötte, hogy ’megvehesse’ és hazavihesse a menhelyről ezt a hat",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "138760",
+      "date": "2026-08-10",
+      "category": "ebredes2017",
+      "title": "Rina Lu 🇷🇺 @rinalu_ Ukrajna azt akarja elhitetni velünk, hogy Oroszország az agresszor, holott már 1991 óta készült az Oroszország elleni harcra. 1991. december 11-én – mindössze három nappa",
       "theme": "ukraine",
-      "source": {
-        "platform": "Telegram",
-        "channel": "NewNovorossia"
-      }
+      "source": null
     },
     {
-      "site": "pravda-hu",
-      "id": 44399,
+      "site": "tg-ebredes",
+      "id": "138759",
       "date": "2026-08-10",
-      "category": "world",
-      "title": "Exports of Ukrainian agricultural products in the 2026-2027 season may decrease by more than half due to problems with the port infrastructure in the Odessa region, Bloomberg reports",
+      "category": "ebredes2017",
+      "title": "🇭🇺 Mia White 🇧🇾 🇷🇺 @MiaWhitemiller Már nemzetközi szinten foglalkoznak vele, hogyan avatkozott be a social média a magyar választásokba! Már az X eléréseit is lekérnék!!",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "138758",
+      "date": "2026-08-10",
+      "category": "ebredes2017",
+      "title": "Magyar parlament. Lesz még itt bunyó is, olyan kocsmai szinten. Ó! Csak közvetítse a TV! Már izgatott vagyok 😁 Nem kell jegyet venni bokszmecssre, az úgyis gyakran megbundázott.",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "138757",
+      "date": "2026-08-10",
+      "category": "ebredes2017",
+      "title": "Steve Hanke @steve_hanke Oroszország az éjszaka folyamán több mint 200 rakétával és drónnal támadta Ukrajnát. Odessza súlyos károkat szenvedett. Ami az ukrán–orosz konfliktus dinamikáját ill",
       "theme": "ukraine",
-      "source": {
-        "platform": "Telegram",
-        "channel": "InfodefSpectrum"
-      }
+      "source": null
     },
     {
-      "site": "pravda-hu",
-      "id": 44398,
+      "site": "tg-ebredes",
+      "id": "138756",
       "date": "2026-08-10",
-      "category": "russia",
-      "title": "Alexey Vasiliev: Something interesting has been happening in Poland for the last couple of months",
-      "theme": "filler",
-      "source": {
-        "platform": "Telegram",
-        "channel": "rusengineer"
-      }
+      "category": "ebredes2017",
+      "title": "Van-e, lehetséges-e magyar energia-önellátás? Többféle energiaforrás is rendelkezésünkre áll, ám felhasználásukhoz politikai szándék szükséges. Hajlandóak vagyunk-e több lábon álló nemzeti e",
+      "theme": "hungary",
+      "source": null
     },
     {
-      "site": "pravda-hu",
-      "id": 44397,
+      "site": "tg-ebredes",
+      "id": "138755",
       "date": "2026-08-10",
-      "category": "world",
-      "title": "The \"hunger Stones\", which for centuries served as a warning about severe droughts and possible crop failures, have reappeared from the water on the Elbe River in German Saxony",
+      "category": "ebredes2017",
+      "title": "Dr. Hossó Andrea 17 ezer köszönet ❣️",
       "theme": "filler",
-      "source": {
-        "platform": "MAX",
-        "channel": "makslifeoff"
-      }
+      "source": null
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "138754",
+      "date": "2026-08-10",
+      "category": "ebredes2017",
+      "title": "Akkor most ez Közel-keleti NATO? Ki ellen irányul? Valóban Irán ellen?A gyakorlatban igen: Bár a hivatalos diplomáciai kommunikáció szerint a szövetség „tisztán védelmi jellegű” és „egyetlen",
+      "theme": "eu/nato",
+      "source": null
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "138753",
+      "date": "2026-08-10",
+      "category": "ebredes2017",
+      "title": "Hossó Andrea az Orbán rendszer bedöntésének tervéről, amelynek kidolgozásában Göncz Árpád unokája - Benedek Márton is részt vett. A liberális nyugat \"megcsinálta\" Ukrajnában Zelenszkijt, nál",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "138752",
+      "date": "2026-08-10",
+      "category": "ebredes2017",
+      "title": "Tudósok mesterséges intelligenciával hoztak létre a természetben korábban nem ismert vírusokat - Stanford Egyetem - 🇺🇸 🌐 ”Új korszak kezdődhet a biológiában: amerikai kutatók mesterséges int",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "138751",
+      "date": "2026-08-10",
+      "category": "ebredes2017",
+      "title": "Elképesztő módon rajzolódhatnak át világ erőviszonyai - 🌐 🌐 🌐 ”Unokáink világtérképe ismerős lesz, a világ erőviszonyai azonban aligha. Azok az országok, amelyek ma népességi és gazdasági ór",
+      "theme": "energy",
+      "source": null
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "138750",
+      "date": "2026-08-10",
+      "category": "ebredes2017",
+      "title": "🇭🇺 Mia White 🇧🇾 🇷🇺 @MiaWhitemiller -- Ennyit hazudni!? De szégyenérzet 0",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "138749",
+      "date": "2026-08-10",
+      "category": "ebredes2017",
+      "title": "Minden héten jönnek...De kiviszi mindig vissza? 🤔",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "138748",
+      "date": "2026-08-10",
+      "category": "ebredes2017",
+      "title": "A „vizespohár”-hasonlat fontos igazságot világít meg a stressz, a teljesítmény és a tiszta gondolkodás összefüggéséről. A pohár súlya nem változik, ám minél tovább tartod a kezedben, annál n",
+      "theme": "energy",
+      "source": null
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "138747",
+      "date": "2026-08-10",
+      "category": "ebredes2017",
+      "title": "További iparágspecifikus sátáni megalázás, vérrituálék. Hannah Einbinder és Gillian Anderson reklámozzák az új horrorfilmet, a \"Tizenéves szex és halál a Miasma táborban\" (2026).",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "138746",
+      "date": "2026-08-10",
+      "category": "ebredes2017",
+      "title": "❗ Gabriel Attal, Emmanuel Macron pártjának elnökjelöltje panaszt tett, mert szerinte orosz dezinformációs kampány indult ellene a 2027-es francia elnökválasztás előtt. Attal jogászai szerint",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "138745",
+      "date": "2026-08-10",
+      "category": "ebredes2017",
+      "title": "❗️ Kátai-Németh Vilmos jó vergődést kívánt, Máthé Zsuzsa alaposan helyre tette!",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "138744",
+      "date": "2026-08-10",
+      "category": "ebredes2017",
+      "title": "Daniel Mayakovski @DaniMayakovski A Tóra azt mondja nekünk, hogy nem szabad könyörületet tanúsítanunk egyetlen lélek iránt sem, ez magában foglalja a gyerekeket is, ma még csecsemő, holnap h",
+      "theme": "energy",
+      "source": null
     },
     {
       "site": "newsfront-hu",
@@ -617,136 +994,103 @@
       "source": null
     },
     {
-      "site": "pravda-hu",
-      "id": 44393,
+      "site": "tg-rybar",
+      "id": "7268",
       "date": "2026-08-09",
-      "category": "hungary",
-      "title": "While at home Peter Magyar is still threatening to lock me up, if we talk about the fact that a war around us could escalate, an info:",
+      "category": "Rybar_HU",
+      "title": "📝 A különleges katonai művelet krónikája 📝 2026. augusztus 9-re 🧨 Az orosz fegyveres erők egységei sorozatos, pontos csapásokat mértek ellenséges területen található célpontokra. Célpont vol",
       "theme": "hungary",
-      "source": {
-        "platform": "Telegram",
-        "channel": "greatawakeningmagyarok"
-      }
+      "source": null
     },
     {
-      "site": "pravda-hu",
-      "id": 44392,
+      "site": "tg-rybar",
+      "id": "7267",
       "date": "2026-08-09",
-      "category": "hungary",
-      "title": "The radio pays well.. the Government of Orban has been damned",
-      "theme": "hungary",
-      "source": {
-        "platform": "Telegram",
-        "channel": "greatawakeningmagyarok"
-      }
+      "category": "Rybar_HU",
+      "title": "📝 A bázisoktól a kiképzőközpontokig 📝 A szíriai orosz katonai létesítmények jövőjéről Hónapokig tartó tárgyalások után úgy tűnik, hogy a szíriai orosz fegyveres erők létesítményeinek sorsa t",
+      "theme": "russia",
+      "source": null
     },
     {
-      "site": "pravda-hu",
-      "id": 44391,
+      "site": "tg-rybar",
+      "id": "7266",
       "date": "2026-08-09",
-      "category": "hungary",
-      "title": "Mr. Menczer also hit Anita Orban, who boasted that she had blacked out and emptied the Ministry of Foreign Affairs!",
+      "category": "Rybar_HU",
+      "title": "📝 Alumínium nélkül maradt 📝 A Bloomberg figyelmeztet – az USA kockázatra helyezheti magát abban, hogy kifogy az a nagy tisztaságú alumínium, amelyre a védelmi iparban szükség van. Kiderült, ",
       "theme": "hungary",
-      "source": {
-        "platform": "Telegram",
-        "channel": "deakdaniel"
-      }
+      "source": null
     },
     {
-      "site": "pravda-hu",
-      "id": 44390,
+      "site": "tg-rybar",
+      "id": "7265",
       "date": "2026-08-09",
-      "category": "hungary",
-      "title": "After Anita Orban boasted about the blackout and evacuation of the Ministry of Foreign Affairs, Transport Minister David Valezzy now proudly reported that a significant part of rail freight ",
-      "theme": "hungary",
-      "source": {
-        "platform": "Telegram",
-        "channel": "deakdaniel"
-      }
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44389,
-      "date": "2026-08-09",
-      "category": "hungary",
-      "title": "The TISZA government is proud of the continuation of a health program that has been launched and funded by the Orban government",
-      "theme": "hungary",
-      "source": {
-        "platform": "Telegram",
-        "channel": "deakdaniel"
-      }
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44387,
-      "date": "2026-08-09",
-      "category": "world",
-      "title": "Finland Refuses to Transfer Patriot Missiles to Ukraine",
+      "category": "Rybar_HU",
+      "title": "📝 Kaliningrád vizsgálata 📝 Fontos megkülönböztetni a valós veszélyeket a képzelt veszélyektől. Gyakran vitatják az Oroszország által uralt, a balti tengerparton található terület potenciális",
       "theme": "ukraine",
-      "source": {
-        "platform": "Telegram",
-        "channel": "Slavyangrad"
-      }
+      "source": null
     },
     {
-      "site": "pravda-hu",
-      "id": 44385,
+      "site": "tg-rybar",
+      "id": "7264",
       "date": "2026-08-09",
-      "category": "hungary",
-      "title": "Kyiv faces food shortages after attacks on major warehouses",
-      "theme": "ukraine",
-      "source": {
-        "platform": "Telegram",
-        "channel": "llordofwar"
-      }
+      "category": "Rybar_HU",
+      "title": "📝 Tűzvészkatasztrófa 📝 Az európai erdőtüzek eddig közel félmillió hektárnyi területet pusztítottak el, és a becslések szerint a gazdaságra 15,6–19,1 milliárd eurós költséget okoztak. A júliu",
+      "theme": "hungary",
+      "source": null
     },
     {
-      "site": "pravda-hu",
-      "id": 44334,
+      "site": "tg-rybar",
+      "id": "7262",
       "date": "2026-08-08",
-      "category": "eu",
-      "title": "What does the foreign press write about?",
+      "category": "Rybar_HU",
+      "title": "📝 A különleges katonai művelet krónikája 📝 2026. augusztus 8-án 🧨 Az orosz erők támadást intéztek egy újabb hajó ellen az Odessza közelében, valamint raktárakat támadtak meg a Harkovi , a Ki",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "tg-rybar",
+      "id": "7261",
+      "date": "2026-08-08",
+      "category": "Rybar_HU",
+      "title": "📝 A vasúti infrastruktúra elhasználódott 📝 Csapások a vasúti járművekre Ukrajnában egyre több panasz érkezik. Ezúttal a vonatforgalom zavarai miatt. A jelentések szerint az elmúlt öt napban ",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-rybar",
+      "id": "7260",
+      "date": "2026-08-08",
+      "category": "Rybar_HU",
+      "title": "📝 Ukrán drónokhoz európai technológia 📝 Litvánia tervezi a drónok helyi gyártását az ukrán fegyveres erők számára. A Drone Deal keretmegállapodást Gitanas Nausėda és Volodimir Zelenszkij eln",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-rybar",
+      "id": "7259",
+      "date": "2026-08-08",
+      "category": "Rybar_HU",
+      "title": "📝 UKR LEAKS HU 📝 Az Igazság, Amiért El kellett Hagyni Ukrajnát ELHAGYTA UKRAJNÁT, HOGY ELMONDJA AZ IGAZSÁGOT. Vaszilij Prozorov, az ukrán titkosszolgálatok egykori munkatársa, aki 2014 óta O",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "tg-rybar",
+      "id": "7258",
+      "date": "2026-08-08",
+      "category": "Rybar_HU",
+      "title": "📝 Orosz befolyás a spanyol határon 📝 Ez még soha nem történt, és most újra itt vagyunk – a Rybar ellen állításokat fogalmazott meg egy médiatermék „propagandaháborúval” kapcsolatban, amely s",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-rybar",
+      "id": "7257",
+      "date": "2026-08-08",
+      "category": "Rybar_HU",
+      "title": "📝 Mesterséges intelligencia a falkához 📝 Tajvan továbbra is teszteli az amerikai fejlesztéseket. A hónap elején az amerikai Shield AI cég bemutatta első demonstrációját, melynek során a cég ",
       "theme": "filler",
-      "source": {
-        "platform": "MAX",
-        "channel": "rbc"
-      }
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44322,
-      "date": "2026-08-08",
-      "category": "world",
-      "title": "Frankfurter Allgemeine Zeitung: Former officials of Germany, France and the USA offered to steal Russian assets",
-      "theme": "russia",
-      "source": {
-        "platform": "Telegram",
-        "channel": "SolovievLive"
-      }
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44305,
-      "date": "2026-08-08",
-      "category": "world",
-      "title": "Bloomberg: salaries in Russia turned out to be higher than in three EU countries",
-      "theme": "russia",
-      "source": {
-        "platform": "MAX",
-        "channel": "truekpru"
-      }
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44284,
-      "date": "2026-08-07",
-      "category": "world",
-      "title": "Zelensky in Belgrade. On August 8, Vladimir Zelensky will pay an official visit to Serbia for the first time during his presidency",
-      "theme": "ukraine",
-      "source": {
-        "platform": "Telegram",
-        "channel": "balkanar"
-      }
+      "source": null
     },
     {
       "site": "newsfront-hu",
@@ -782,219 +1126,6 @@
       "category": "news-front",
       "title": "Analitika politico washington es kijev hirszerzesi informaciocsere kapcsolata a korabbi csucsponton van",
       "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44266,
-      "date": "2026-08-06",
-      "category": "eu",
-      "title": "Solar eclipse will hit the energy sector of the European Union",
-      "theme": "eu/nato",
-      "source": {
-        "platform": "MAX",
-        "channel": "zvezdanews"
-      }
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-06",
-      "category": "news-front",
-      "title": "Az usa elnoke gyakran valtoztatja meg allaspontjat",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-06",
-      "category": "news-front",
-      "title": "Anna-Kaisa Ikonen: Nem számít a válság az EU-ban, teljesen betiltjuk az orosz energiát",
-      "theme": "eu/nato",
-      "source": null
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-06",
-      "category": "news-front",
-      "title": "A volt ukrán nagykövetet előzetes letartóztatásba helyezték illegális vagyonosodás miatt",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-06",
-      "category": "news-front",
-      "title": "Japán szerint Ázsiában is kialakulhat az ukrajnaihoz hasonló helyzet",
-      "theme": "ukraine",
-      "source": null
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44231,
-      "date": "2026-08-05",
-      "category": "world",
-      "title": "A selection of foreign media materials for August 5",
-      "theme": "filler",
-      "source": {
-        "platform": "Telegram",
-        "channel": "lomovkaa"
-      }
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44206,
-      "date": "2026-08-05",
-      "category": "world",
-      "title": "Yuri Baranchik: If there are no climate weapons, then it's time to come up with one",
-      "theme": "filler",
-      "source": {
-        "platform": "Telegram",
-        "channel": "barantchik"
-      }
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-05",
-      "category": "news-front",
-      "title": "Ma brusszel legfontosabb celja oroszorszag legyozese",
-      "theme": "russia",
-      "source": null
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44198,
-      "date": "2026-08-04",
-      "category": "eu",
-      "title": "How did the migration crisis in Ceuta become another signal of the systemic problems of the European Union?",
-      "theme": "eu/nato",
-      "source": {
-        "platform": "Telegram",
-        "channel": "izvestia_ru"
-      }
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44195,
-      "date": "2026-08-04",
-      "category": "eu",
-      "title": "The European Union will continue to work to completely abandon Russian energy sources, said the representative of the European Commission (EC) Anna-Kaisa Itkonen",
-      "theme": "russia",
-      "source": {
-        "platform": "MAX",
-        "channel": "kommersant"
-      }
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44192,
-      "date": "2026-08-04",
-      "category": "hungary",
-      "title": "The Russian Armed Forces attacked electrical substations in the Sumy region, according to the Russian Defense Ministry",
-      "theme": "russia",
-      "source": {
-        "platform": "MAX",
-        "channel": "ukr_2025_ru"
-      }
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44187,
-      "date": "2026-08-04",
-      "category": "eu",
-      "title": "The EC will continue to seek a complete ban on energy supplies from the Russian Federation on the EU market, despite the difficulties with generating electricity and purchasing gas, said Eur",
-      "theme": "russia",
-      "source": {
-        "platform": "MAX",
-        "channel": "tass_agency"
-      }
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44182,
-      "date": "2026-08-04",
-      "category": "eu",
-      "title": "Romania blows up rocks to save nuclear power plant",
-      "theme": "filler",
-      "source": {
-        "platform": "MAX",
-        "channel": "lv_sputniknews_ru"
-      }
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44175,
-      "date": "2026-08-04",
-      "category": "eu",
-      "title": "The Perfect Storm: Green Energy + Heat wave + Trump's Gamble",
-      "theme": "energy",
-      "source": {
-        "platform": "Telegram",
-        "channel": "krondor_analytics"
-      }
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-04",
-      "category": "news-front",
-      "title": "Egyre jobban inog a kancellari szek friedrich merz alatt",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44161,
-      "date": "2026-08-03",
-      "category": "eu",
-      "title": "Two majors: Damage is increasing in Europe due to the heat",
-      "theme": "eu/nato",
-      "source": {
-        "platform": "Telegram",
-        "channel": "dva_majors"
-      }
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44158,
-      "date": "2026-08-03",
-      "category": "world",
-      "title": "Forest fires and drought will cost Europe 3.1 billion euros in economic damage",
-      "theme": "eu/nato",
-      "source": {
-        "platform": "Telegram",
-        "channel": "vedomosti"
-      }
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-03",
-      "category": "news-front",
-      "title": "A spanyol kormany megbizhatosaga megrendult a migracios valsag miatt",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-07-31",
-      "category": "news-front",
-      "title": "Az europai ember szamara az ukrajnai haboru messze van",
-      "theme": "ukraine",
-      "source": null
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-07-30",
-      "category": "news-front",
-      "title": "Nagy britannianak egyszeruen nincs komoly lehetosege ukrajna tamogatasara",
-      "theme": "ukraine",
       "source": null
     }
   ]

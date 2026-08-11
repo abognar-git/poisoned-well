@@ -266,7 +266,7 @@
   .spec .site{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:.54rem;
     letter-spacing:.14em; text-transform:uppercase; color:var(--muted); border-bottom:1px solid var(--hairline);
     padding-bottom:.15rem; margin-bottom:.3rem}
-  .spec .site.pravda{color:var(--signal)} .spec .site.newsfront{color:var(--amber)}
+  .spec .site.launderer{color:var(--signal)} .spec .site.outlet{color:var(--amber)} .spec .site.origin{color:var(--analyst)}
   .spec .laundered{font-family:"IBM Plex Mono",monospace; font-size:.62rem; color:var(--muted);
     margin-top:.4rem; display:flex; align-items:center; gap:.35rem}
   .spec .laundered b{color:var(--amber); font-weight:500}
@@ -512,9 +512,9 @@
   <div class="act-divider" style="padding:6rem 2rem 2rem">
     <div class="no">EVIDENCE · LIVE</div>
     <h2>What they published today</h2>
-    <p>Not a claim that it is still running — proof. Recent headlines from documented Hungary-targeting
-       pro-Kremlin sources, captured server-side. Shown as evidence; deliberately not linked.
-       Search and filter the live corpus below.</p>
+    <p>Not a claim that it is still running — proof. Recent posts from documented Hungary-targeting
+       pro-Kremlin sources across the whole laundering chain — Telegram origins, the Pravda mirror, a
+       sanctioned outlet — captured server-side. Shown as evidence; deliberately not linked.</p>
   </div>
   <div id="specimens" data-claim="live-specimens">
     <div class="spec-head">
@@ -1099,10 +1099,12 @@ try {
     return Math.round(hrs / 24) + ' days ago';
   };
   const PAYLOAD_THEMES = new Set(['hungary', 'ukraine', 'russia', 'eu/nato', 'energy']);
-  const SITE = { 'pravda-hu': { cls: 'pravda', label: 'Pravda network' },
-                 'newsfront-hu': { cls: 'newsfront', label: 'News Front' } };
+  const siteInfo = sid => {
+    const s = DATA.sources[sid] || {};
+    return { cls: s.tier || '', label: s.label || sid, tier: s.tier };
+  };
   let capturedAt = null, DATA = null, ALL = [];
-  const filters = { q: '', site: 'all', kind: 'all' };
+  const filters = { q: '', tier: 'all', kind: 'all' };
 
   const renderVolume = () => {
     const days = timeline.series.filter(d => d[1] > 0).slice(-7);
@@ -1119,28 +1121,29 @@ try {
   const specRow = s => {
     const el = document.createElement('div');
     el.className = 'spec';
-    const site = SITE[s.site] || { cls: '', label: s.site };
+    const site = siteInfo(s.site);
     const isPayload = PAYLOAD_THEMES.has(s.theme);
     const themeTag = `<span class="theme ${isPayload ? 'payload' : 'filler'}" title="keyword heuristic on the headline — topic, not a judgement of intent">${
       isPayload ? 'payload · ' + esc(s.theme) : 'camouflage · filler'}</span>`;
-    let prov;
-    if (s.source)
+    let prov = '';
+    if (site.tier === 'origin')
+      prov = `<div class="laundered"><span class="arr">↳ origin</span> Telegram channel — where the narrative starts</div>`;
+    else if (s.source)
       prov = `<div class="laundered"><span class="arr">↳ laundered from</span> <b>${esc(s.source.platform)}${
         s.source.channel ? ' · ' + esc(s.source.channel) : ''}</b></div>`;
-    else if (s.site === 'newsfront-hu')
-      prov = `<div class="laundered"><span class="arr">↳</span> News Front — Crimea-based, sanctioned outlet</div>`;
-    else prov = '';
+    else if (site.tier === 'outlet')
+      prov = `<div class="laundered"><span class="arr">↳</span> Crimea-based, sanctioned outlet</div>`;
     el.innerHTML =
-      `<div class="meta"><span class="cat">${esc(s.category)}</span><br>${esc(s.date)}${s.id ? '<br>#' + s.id : ''}</div>` +
-      `<div><span class="site ${site.cls}">${esc(site.label)}</span><div class="title">${esc(s.title)}</div>${themeTag}${prov}</div>`;
+      `<div class="meta"><span class="cat">${esc(s.category)}</span><br>${esc(s.date)}</div>` +
+      `<div><span class="site ${site.cls}">${esc(site.label)} · ${esc(site.tier || '')}</span><div class="title">${esc(s.title)}</div>${themeTag}${prov}</div>`;
     return el;
   };
   const applyFilters = rows => rows.filter(s =>
-    (filters.site === 'all' || s.site === filters.site) &&
+    (filters.tier === 'all' || siteInfo(s.site).tier === filters.tier) &&
     (filters.kind === 'all' || (filters.kind === 'payload') === PAYLOAD_THEMES.has(s.theme)) &&
     (!filters.q || s.title.toLowerCase().includes(filters.q)));
   const renderList = () => {
-    const searching = filters.q || filters.site !== 'all' || filters.kind !== 'all';
+    const searching = filters.q || filters.tier !== 'all' || filters.kind !== 'all';
     const rows = applyFilters(searching ? ALL : DATA.featured);
     const list = document.getElementById('spec-list');
     list.innerHTML = '';
@@ -1177,8 +1180,8 @@ try {
       b.dataset.g = group; b.dataset.v = val;
       chips.appendChild(b);
     };
-    mk('site', 'all', 'all sources');
-    for (const sid of Object.keys(DATA.sources)) mk('site', sid, SITE[sid]?.label || sid);
+    mk('tier', 'all', 'all tiers');
+    mk('tier', 'origin', 'origin'); mk('tier', 'launderer', 'launderer'); mk('tier', 'outlet', 'outlet');
     mk('kind', 'all', 'all'); mk('kind', 'payload', 'payload'); mk('kind', 'filler', 'filler');
     document.getElementById('spec-search').addEventListener('input', e => {
       filters.q = e.target.value.trim().toLowerCase(); renderList();
@@ -1190,16 +1193,18 @@ try {
     if (!DATA?.featured?.length) throw 0;
     ALL = [...DATA.featured, ...(DATA.corpus || [])];
     capturedAt = DATA.captured_at;
+    const nSrc = Object.keys(DATA.sources).length, nTier = new Set(Object.values(DATA.sources).map(s => s.tier)).size;
     document.getElementById('spec-srclabel').textContent =
-      Object.values(DATA.sources).map(s => s.label).join(' + ') + ' · live capture';
+      `${nSrc} sources across ${nTier} tiers · live capture`;
     renderVolume(); buildControls(); renderList(); tickAgo();
     setInterval(tickAgo, 60000);
     document.getElementById('spec-note').innerHTML =
-      `Unaltered specimens from documented pro-Kremlin sources — <b>Pravda network</b> (a laundering mirror, ` +
-      `English edition) and <b>News Front</b> (a Crimea-based, sanctioned outlet, Hungarian) — shown as evidence ` +
-      `of ongoing output, <b>not endorsement</b>, and not linked (neither article nor source). The "laundered from" ` +
-      `line is the source each Pravda article credits on its own page. Theme tags are a <b>disclosed keyword ` +
-      `heuristic</b> on the headline, published in the repo; personal-smear items are withheld and left to the case files.`;
+      `Unaltered specimens from documented pro-Kremlin sources across the laundering chain — ` +
+      `<b>Telegram origins</b> (where narratives start), the <b>Pravda mirror</b> (which republishes them as "news"), ` +
+      `and <b>News Front</b> (a Crimea-based, sanctioned outlet) — shown as evidence of ongoing output, ` +
+      `<b>not endorsement</b>, and not linked. The "laundered from" line is the origin each mirror article credits on ` +
+      `its own page. Theme tags are a <b>disclosed keyword heuristic</b> on the headline, published in the repo; ` +
+      `personal-smear items are withheld and left to the case files. <a href="explorer.html" style="color:var(--analyst)">Explore the full ecosystem →</a>`;
   } catch { document.getElementById('specimens-sec').style.display = 'none'; }
 }
 

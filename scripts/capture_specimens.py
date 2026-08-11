@@ -1,22 +1,24 @@
 #!/usr/bin/env python3
-"""Capture recent article specimens from documented Hungary-targeting pro-Kremlin
-sources, with the laundering source behind each Pravda-mirror item.
+"""Capture recent specimens from documented Hungary-targeting pro-Kremlin sources,
+modelled as a three-tier ecosystem, with the laundering source behind mirror items.
 
-Run SERVER-SIDE ONLY (locally / in CI) — never from a visitor's browser — so the
-site can show live evidence of ongoing output without any visitor's browser (or
-referrer) touching a propaganda domain, and without feeding its inbound-link/SEO
-signal. Output: data/derived/latest_specimens.json with a captured_at timestamp.
+Run SERVER-SIDE ONLY (locally / in CI) — never from a visitor's browser — so the site
+can show live evidence of ongoing output without any visitor's browser (or referrer)
+touching a propaganda domain, and without feeding inbound-link/SEO signal. Output:
+data/derived/latest_specimens.json with a captured_at timestamp.
 
-Sources (a small, attributed registry — see SOURCES):
-  - pravda-hu    : hungary.news-pravda.com  (Portal Kombat / Pravda network; launderer)
-  - newsfront-hu : hu.news-front.su         (News Front, Crimea-based, EU/US-sanctioned; outlet)
+Tiers (the documented laundering ecosystem):
+  origin    — Telegram channels where content starts (via public t.me/s/ previews).
+              These are the top feeders credited by the Pravda mirror's own articles.
+  launderer — the Pravda / Portal Kombat network mirror, which republishes origins as "news".
+  outlet    — primary propaganda sites (News Front: Crimea-based, EU/US-sanctioned).
 
 Editorial rules baked in:
-  - EVIDENCE, not endorsement; the site never hyperlinks the article or its source
-  - SKIP any headline that reads as a personal smear (defamation is not republished)
+  - EVIDENCE, not endorsement; the site never hyperlinks an article, post or source
+  - SKIP any item that reads as a personal smear (defamation is not republished)
   - theme tags are a crude, disclosed keyword heuristic on TOPIC, not a judgement of intent
-  - a source's own attribution is stated per specimen; on fetch failure the last good
-    file is left untouched (do not overwrite with garbage)
+  - each source's attribution + tier is stated; on total fetch failure the last good file
+    is left untouched (do not overwrite with garbage)
 """
 
 import html
@@ -30,10 +32,11 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "derived" / "latest_specimens.json"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
-FEATURED = 8          # newest items shown on the story page
-MIN_PAYLOAD = 2       # guarantee at least this many recent payload items among featured
-CORPUS_CAP = 90       # cap on the searchable corpus
-TRACE_CAP = 70        # max article pages fetched per run to trace laundering sources
+FEATURED = 9
+MIN_PAYLOAD = 2
+PER_SOURCE_CAP = 26   # keep any single source from dominating the corpus
+CORPUS_CAP = 130
+TRACE_CAP = 60        # max article pages fetched to trace laundering sources
 
 SMEAR = re.compile(r"\b(pedophil|paedophil|p[aä]edo|rapist|rape|molest|traffick|"
                    r"epstein|blackmail|corrupt(?:ion)? charges?)\b", re.I)
@@ -56,10 +59,8 @@ OUTLETS = [(r"tass\.", "TASS"), (r"ria\.", "RIA Novosti"), (r"news-front", "News
 
 SOURCES = {
     "pravda-hu": {
-        "label": "Pravda network",
-        "lang": "en",
+        "label": "Pravda network", "tier": "launderer", "type": "pravda", "lang": "en",
         "attribution": "Russia — Portal Kombat / Pravda network (VIGINUM); a laundering mirror",
-        "kind": "launderer",
         "base": "https://hungary.news-pravda.com",
         "listings": ["/en/", "/en/hungary/", "/en/russia/", "/en/ukraine/", "/en/world/", "/en/eu/"],
         "link": re.compile(
@@ -67,10 +68,8 @@ SOURCES = {
             re.S),
     },
     "newsfront-hu": {
-        "label": "News Front",
-        "lang": "hu",
+        "label": "News Front", "tier": "outlet", "type": "newsfront", "lang": "hu",
         "attribution": "Russia — News Front, Crimea-based, EU/US-sanctioned; a primary outlet",
-        "kind": "outlet",
         "base": "https://hu.news-front.su",
         "listings": ["/"],
         "link": re.compile(
@@ -78,6 +77,20 @@ SOURCES = {
             re.S),
     },
 }
+# Telegram origin channels — the Pravda mirror's own top-credited feeders, captured via
+# the public t.me/s/ preview. Documented as pro-Kremlin laundering origins in our own data.
+TELEGRAM = {
+    "tg-oroszigazsag": ("oroszokazigazsagoldalan", "the Russians' truth side"),
+    "tg-greatawaken":  ("greatawakeningmagyarok", "Great Awakening Magyars"),
+    "tg-ebredes":      ("ebredes2017", "Awakening 2017"),
+    "tg-rybar":        ("Rybar_HU", "Rybar — GRU-adjacent milblogger (HU)"),
+}
+for sid, (chan, label) in TELEGRAM.items():
+    SOURCES[sid] = {
+        "label": label, "tier": "origin", "type": "telegram", "lang": "hu/ru", "channel": chan,
+        "attribution": f"Russia-aligned Telegram channel (@{chan}) — a documented laundering origin",
+        "base": "https://t.me", "listings": [f"/s/{chan}"],
+    }
 
 SRC = re.compile(r'data-source-url="([^"]+)"')
 
@@ -90,8 +103,7 @@ def fetch(url: str) -> str:
 
 def clean(inner: str) -> str:
     t = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", inner))).strip()
-    t = re.sub(r"^\d{1,2}:\d{2}\s+", "", t)  # strip leading "HH:MM" timestamp artifacts
-    return t
+    return re.sub(r"^\d{1,2}:\d{2}\s+", "", t)
 
 
 def title_from_slug(slug: str) -> str:
@@ -121,7 +133,7 @@ def parse_source(page: str):
     return {"platform": outlet, "channel": None}
 
 
-def harvest(sid: str, cfg: dict):
+def harvest_web(sid, cfg):
     rows, seen = [], set()
     for path in cfg["listings"]:
         try:
@@ -130,41 +142,67 @@ def harvest(sid: str, cfg: dict):
             continue
         for m in cfg["link"].finditer(page):
             g = m.groups()
-            if sid == "pravda-hu":
+            if cfg["type"] == "pravda":
                 url, cat, y, mo, d, aid, inner = g
                 aid = int(aid)
-            else:  # newsfront-hu: date + slug, no numeric id/category
+            else:
                 url, y, mo, d, slug, inner = g
-                cat, aid = "news-front", None  # slugs carry no reliable numeric id
+                cat, aid = "news-front", None
             title = clean(inner)
-            if sid == "newsfront-hu" and (len(title) < 12 or title == title.lower()):
-                title = title_from_slug(slug)  # fall back to the URL slug, capitalised
+            if cfg["type"] == "newsfront" and (len(title) < 12 or title == title.lower()):
+                title = title_from_slug(slug)
             if url in seen or len(title) < 12 or SMEAR.search(title):
                 continue
             seen.add(url)
             rows.append({"site": sid, "id": aid, "date": f"{y}-{mo}-{d}", "category": cat,
                          "title": title[:190], "theme": classify(title), "url": url})
         time.sleep(0.3)
-    rows.sort(key=lambda r: (r["date"], r["id"]), reverse=True)
     return rows
 
 
+def harvest_telegram(sid, cfg):
+    """Parse the public t.me/s/<channel> preview: message text, date, post id."""
+    rows, seen = [], set()
+    try:
+        page = fetch(cfg["base"] + cfg["listings"][0])
+    except Exception:
+        return rows
+    for block in re.split(r'tgme_widget_message_wrap', page)[1:]:
+        tm = re.search(r'datetime="([^"]+)"', block)
+        tx = re.search(r'tgme_widget_message_text[^>]*>(.*?)</div>', block, re.S)
+        pid = re.search(r'data-post="([^"]+)"', block)
+        if not (tm and tx and pid):
+            continue
+        title = clean(re.sub(r"https?://\S+", "", tx.group(1)))  # drop bare links
+        if len(title) < 25 or SMEAR.search(title):
+            continue
+        url = "https://t.me/" + pid.group(1)
+        if url in seen:
+            continue
+        seen.add(url)
+        rows.append({"site": sid, "id": pid.group(1).split("/")[-1], "date": tm.group(1)[:10],
+                     "category": cfg["channel"], "title": title[:190], "theme": classify(title), "url": url})
+    return rows
+
+
+def harvest(sid, cfg):
+    rows = harvest_telegram(sid, cfg) if cfg["type"] == "telegram" else harvest_web(sid, cfg)
+    rows.sort(key=lambda r: (r["date"], str(r["id"] or "")), reverse=True)
+    return rows[:PER_SOURCE_CAP]
+
+
 def main() -> int:
-    all_rows = []
-    ok_sources = []
+    all_rows, ok = [], []
     for sid, cfg in SOURCES.items():
         rows = harvest(sid, cfg)
         if rows:
-            ok_sources.append(sid)
+            ok.append(sid)
             all_rows.extend(rows)
     if not all_rows:
         raise SystemExit("no source reachable — leaving last good file untouched")
 
-    # sort by date, then Pravda's numeric id (News Front id is None -> 0) for stable recency
-    sortkey = lambda r: (r["date"], r["id"] or 0)
+    sortkey = lambda r: (r["date"], str(r["id"] or ""))
     all_rows.sort(key=sortkey, reverse=True)
-
-    # de-dup by URL (unique); News Front ids are not unique
     seen, corpus = set(), []
     for r in all_rows:
         if r["url"] in seen:
@@ -173,12 +211,12 @@ def main() -> int:
         corpus.append(r)
     corpus = corpus[:CORPUS_CAP]
 
-    # featured: newest few, but guarantee each source AND a couple of payload items appear
+    # featured: newest few, guaranteeing each TIER and a couple of payload items appear
     featured = list(corpus[:FEATURED])
     keys = {r["url"] for r in featured}
-    for sid in ok_sources:  # source diversity: show every captured source
-        if not any(r["site"] == sid for r in featured):
-            extra = next((r for r in corpus if r["site"] == sid and r["url"] not in keys), None)
+    for tier in ("origin", "launderer", "outlet"):
+        if not any(SOURCES[r["site"]]["tier"] == tier for r in featured):
+            extra = next((r for r in corpus if SOURCES[r["site"]]["tier"] == tier and r["url"] not in keys), None)
             if extra:
                 featured.append(extra); keys.add(extra["url"])
     pcount = sum(1 for r in featured if r["theme"] in PAYLOAD)
@@ -190,11 +228,10 @@ def main() -> int:
     featured.sort(key=sortkey, reverse=True)
     feat_urls = {r["url"] for r in featured}
 
-    # trace the laundering source for launderer items — featured first, then the rest
-    # of the corpus, bounded by TRACE_CAP article fetches per run
+    # trace the credited laundering source for launderer items, bounded by TRACE_CAP
     traced = 0
     for r in featured + [r for r in corpus if r["url"] not in feat_urls]:
-        if SOURCES[r["site"]]["kind"] != "launderer" or traced >= TRACE_CAP:
+        if SOURCES[r["site"]]["type"] != "pravda" or traced >= TRACE_CAP:
             continue
         try:
             r["source"] = parse_source(fetch(r["url"]))
@@ -205,22 +242,25 @@ def main() -> int:
 
     latest_day = corpus[0]["date"]
     today_live = sum(1 for r in corpus if r["date"] == latest_day)
-    smear_skipped = 0  # counted implicitly (skipped in harvest); reported as best-effort
 
     def strip(r):
         return {k: r.get(k) for k in ("site", "id", "date", "category", "title", "theme", "source")}
 
     out = {
         "captured_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "note": ("Unaltered specimens from documented pro-Kremlin sources, shown as evidence of ongoing "
-                 "output. Not endorsed, not linked. Personal-smear items are withheld and documented as "
-                 "debunked evidence in the case files."),
+        "note": ("Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram "
+                 "origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing "
+                 "output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked "
+                 "evidence in the case files."),
         "theme_note": ("Theme tags are a crude keyword match on the headline (THEMES in "
                        "scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage "
                        "— a heuristic on topic, not a judgement of intent."),
-        "sources": {sid: {"label": SOURCES[sid]["label"], "lang": SOURCES[sid]["lang"],
-                          "attribution": SOURCES[sid]["attribution"], "kind": SOURCES[sid]["kind"]}
-                    for sid in ok_sources},
+        "sources": {sid: {"label": SOURCES[sid]["label"], "tier": SOURCES[sid]["tier"],
+                          "lang": SOURCES[sid]["lang"], "attribution": SOURCES[sid]["attribution"]}
+                    for sid in ok},
+        "tiers": {"origin": "Telegram channels where content starts",
+                  "launderer": "mirror sites that republish origins as 'news'",
+                  "outlet": "primary propaganda sites"},
         "latest_day": latest_day,
         "today_live_count": today_live,
         "corpus_count": len(corpus),
@@ -228,8 +268,8 @@ def main() -> int:
         "corpus": [strip(r) for r in corpus if r["url"] not in feat_urls],
     }
     OUT.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
-    by = {sid: sum(1 for r in corpus if r["site"] == sid) for sid in ok_sources}
-    print(f"latest_specimens.json: {len(corpus)} specimens across {ok_sources} {by}; "
+    by = {sid: sum(1 for r in corpus if r["site"] == sid) for sid in ok}
+    print(f"latest_specimens.json: {len(corpus)} specimens across {len(ok)} sources {by}; "
           f"{len(featured)} featured; latest_day {latest_day} ({today_live} live)")
     return 0
 

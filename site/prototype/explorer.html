@@ -112,7 +112,15 @@
   .spec .meta .cat{color:var(--amber); text-transform:uppercase; letter-spacing:.1em}
   .spec .site{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:.54rem;
     letter-spacing:.14em; text-transform:uppercase; margin-bottom:.25rem}
-  .spec .site.pravda{color:var(--signal)} .spec .site.newsfront{color:var(--amber)}
+  .spec .site.launderer{color:var(--signal)} .spec .site.outlet{color:var(--amber)} .spec .site.origin{color:var(--analyst)}
+  .tiers{display:grid; grid-template-columns:repeat(3,1fr); gap:.7rem; margin:.4rem 0}
+  .tierbox{border:1px solid var(--hairline); padding:.75rem .9rem; cursor:pointer}
+  .tierbox:hover{border-color:var(--muted)}
+  .tierbox.sel{border-color:var(--analyst); background:rgba(110,168,216,.08)}
+  .tierbox .tn{font-family:"IBM Plex Mono",monospace; font-size:.58rem; letter-spacing:.16em; text-transform:uppercase}
+  .tierbox.origin .tn{color:var(--analyst)} .tierbox.launderer .tn{color:var(--signal)} .tierbox.outlet .tn{color:var(--amber)}
+  .tierbox .tv{font-family:"IBM Plex Mono",monospace; font-size:1.3rem; font-weight:500; color:var(--paper); margin:.3rem 0 .15rem}
+  .tierbox .td{font-family:"Newsreader",serif; font-size:.78rem; line-height:1.4; color:var(--muted)}
   .spec .title{font-family:"Newsreader",serif; font-size:1rem; line-height:1.4; color:var(--paper)}
   .spec .tag{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:.54rem;
     letter-spacing:.1em; text-transform:uppercase; border:1px solid var(--hairline); border-radius:2px;
@@ -139,12 +147,19 @@
   <div class="lede">
     <div class="no">EVIDENCE ROOM · LIVE CORPUS</div>
     <h1>The corpus explorer</h1>
-    <p>Every specimen captured from documented Hungary-targeting pro-Kremlin sources, as data.
-       Search it, slice it by source, theme, day or laundering origin — every chart recomputes
-       from your selection, and every row is a real article they published.</p>
+    <p>Every specimen captured from documented Hungary-targeting pro-Kremlin sources, as data —
+       across the whole laundering chain, from the Telegram channels where narratives start to the
+       mirror that republishes them. Slice it by tier, theme, day or origin; every chart recomputes
+       from your selection, and every row is a real post they published.</p>
   </div>
 
   <div class="tiles" id="tiles"></div>
+
+  <div class="panel" style="margin-top:1.4rem">
+    <div class="h">THE LAUNDERING CHAIN · <b>click a tier to filter</b></div>
+    <div class="tiers" id="tierboxes"></div>
+  </div>
+
   <div id="stale"></div>
 
   <div class="controls">
@@ -194,8 +209,9 @@ const $ = id => document.getElementById(id);
 const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;');
 const fmt = n => Number(n).toLocaleString('en-US');
 const PAY = new Set(['hungary','ukraine','russia','eu/nato','energy']);
-const SITE = { 'pravda-hu':{cls:'pravda',label:'Pravda network'},
-               'newsfront-hu':{cls:'newsfront',label:'News Front'} };
+const TIER_ORDER = ['origin','launderer','outlet'];
+const siteInfo = sid => { const s = (D.sources||{})[sid] || {}; return { cls: s.tier||'', label: s.label||sid, tier: s.tier }; };
+const tierOf = s => siteInfo(s.site).tier;
 
 let D, live;
 try {
@@ -207,13 +223,14 @@ try {
 
 const ALL = [...(D.featured||[]), ...(D.corpus||[])];
 const originOf = s => s.source ? (s.source.platform + (s.source.channel ? ' · ' + s.source.channel : ''))
-                    : (s.site === 'newsfront-hu' ? 'News Front (direct)' : 'untraced');
+                    : (tierOf(s) === 'origin' ? siteInfo(s.site).label + ' (origin)'
+                    : tierOf(s) === 'outlet' ? siteInfo(s.site).label + ' (direct)' : 'untraced');
 
-const state = { q:'', site:'all', theme:'all', day:'all', origin:'all' };
-const active = () => state.q||state.site!=='all'||state.theme!=='all'||state.day!=='all'||state.origin!=='all';
+const state = { q:'', tier:'all', theme:'all', day:'all', origin:'all' };
+const active = () => state.q||state.tier!=='all'||state.theme!=='all'||state.day!=='all'||state.origin!=='all';
 
 const filtered = () => ALL.filter(s =>
-  (state.site==='all'   || s.site===state.site) &&
+  (state.tier==='all'   || tierOf(s)===state.tier) &&
   (state.theme==='all'  || (state.theme==='__pay' ? PAY.has(s.theme) : state.theme==='__fill' ? !PAY.has(s.theme) : s.theme===state.theme)) &&
   (state.day==='all'    || s.date===state.day) &&
   (state.origin==='all' || originOf(s)===state.origin) &&
@@ -296,14 +313,15 @@ function list(rows){
   if (sort==='theme') sorted.sort((a,b)=> (a.theme>b.theme?1:-1));
   $('count').textContent = `${sorted.length} SPECIMEN${sorted.length===1?'':'S'}` + (active() ? ' · FILTERED' : '');
   $('list').innerHTML = sorted.map(s => {
-    const site = SITE[s.site]||{cls:'',label:s.site};
+    const site = siteInfo(s.site);
     const pay = PAY.has(s.theme);
-    const lnd = s.source
-      ? `<div class="lnd">↳ laundered from <b>${esc(originOf(s))}</b></div>`
-      : (s.site==='newsfront-hu' ? `<div class="lnd">↳ Crimea-based, sanctioned outlet — direct</div>` : '');
+    const lnd = site.tier === 'origin'
+      ? `<div class="lnd">↳ origin — where the narrative starts</div>`
+      : s.source ? `<div class="lnd">↳ laundered from <b>${esc(originOf(s))}</b></div>`
+      : (site.tier === 'outlet' ? `<div class="lnd">↳ Crimea-based, sanctioned outlet — direct</div>` : '');
     return `<div class="spec">
-      <div class="meta"><span class="cat">${esc(s.category)}</span><br>${esc(s.date)}${s.id?'<br>#'+s.id:''}</div>
-      <div><span class="site ${site.cls}">${esc(site.label)}</span>
+      <div class="meta"><span class="cat">${esc(s.category)}</span><br>${esc(s.date)}</div>
+      <div><span class="site ${site.cls}">${esc(site.label)} · ${esc(site.tier||'')}</span>
         <div class="title">${esc(s.title)}</div>
         <span class="tag ${pay?'pay':''}">${pay ? 'payload · '+esc(s.theme) : 'camouflage · filler'}</span>${lnd}</div>
     </div>`;
@@ -319,14 +337,27 @@ function chips(){
     return b;
   };
   const c = $('chips'); c.innerHTML = '';
-  c.append(mk('site','all','all sources'));
-  for (const sid of Object.keys(D.sources)) c.append(mk('site',sid,SITE[sid]?.label||sid));
+  c.append(mk('tier','all','all tiers'));
+  for (const t of TIER_ORDER) if (Object.values(D.sources).some(s=>s.tier===t)) c.append(mk('tier',t,t));
   c.append(mk('theme','all','all'), mk('theme','__pay','payload'), mk('theme','__fill','filler'));
+}
+
+function tierBoxes(rows){
+  const desc = D.tiers || {};
+  $('tierboxes').innerHTML = TIER_ORDER.filter(t => Object.values(D.sources).some(s=>s.tier===t)).map(t => {
+    const n = rows.filter(s => tierOf(s)===t).length;
+    const labels = Object.entries(D.sources).filter(([,v])=>v.tier===t).map(([,v])=>v.label).join(', ');
+    return `<div class="tierbox ${t} ${state.tier===t?'sel':''}" data-t="${t}">
+      <div class="tn">${t}</div><div class="tv">${n}</div>
+      <div class="td">${esc(desc[t]||'')}<br><span style="opacity:.7">${esc(labels)}</span></div></div>`;
+  }).join('');
+  [...$('tierboxes').querySelectorAll('.tierbox')].forEach(b =>
+    b.addEventListener('click', () => { state.tier = state.tier===b.dataset.t ? 'all' : b.dataset.t; render(); }));
 }
 
 function render(){
   const rows = filtered();
-  tiles(rows); themesChart(rows); daysChart(rows); matrix(rows); list(rows); chips();
+  tiles(rows); tierBoxes(rows); themesChart(rows); daysChart(rows); matrix(rows); list(rows); chips();
   $('clear').classList.toggle('on', active());
   const hrs = (Date.now()-new Date(D.captured_at).getTime())/3.6e6;
   const st = $('stale');
@@ -339,7 +370,7 @@ function render(){
 $('q').addEventListener('input', e => { state.q = e.target.value.trim().toLowerCase(); render(); });
 $('sort').addEventListener('change', render);
 $('clear').addEventListener('click', () => {
-  state.q=''; state.site='all'; state.theme='all'; state.day='all'; state.origin='all';
+  state.q=''; state.tier='all'; state.theme='all'; state.day='all'; state.origin='all';
   $('q').value=''; render();
 });
 render();
