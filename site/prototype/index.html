@@ -1514,11 +1514,12 @@ setTimeout(async () => {
 
     if (P) {
       const COL = {
-        telegram_russian_origin: ['#ff4a36', 'Russian-origin Telegram'],
-        other_russian_and_misc:  ['#c23b2e', 'other Russian & misc'],
-        news_front:              ['#d9a05b', 'News Front (sanctioned outlet)'],
-        hungarian_fringe:        ['#6ea8d8', 'Hungarian nationalist fringe'],
-        hungarian_progov_mainstream: ['#9ab89a', 'Hungarian pro-government mainstream'],
+        telegram_russian_origin:  ['#ff4a36', 'Russian-origin Telegram'],
+        other_russian_and_misc:   ['#c23b2e', 'other Russian & misc'],
+        news_front:               ['#d9a05b', 'News Front (sanctioned outlet)'],
+        hungarian_fringe:         ['#6ea8d8', 'Hungarian nationalist fringe'],
+        hungarian_progov_account: ['#9ab89a', 'Hungarian pro-government commentator'],
+        hungarian_progov_press:   ['#e9e4da', 'Hungarian pro-government press'],
       };
       const bar = document.getElementById('prov-bar'), leg = document.getElementById('prov-legend');
       for (const b of P.buckets) {
@@ -1537,14 +1538,21 @@ setTimeout(async () => {
           `<span><i style="background:${COL[k][0]}"></i>${esc(COL[k][1])} · ` +
           `${(b.share*100).toFixed(b.share < .01 ? 3 : 1)}%</span>`);
       }
-      const fringe = P.hungarian_fringe_sources.map(s => `${esc(s.source)} (${s.articles})`).join(', ');
+      const acct = P.hungarian_progov_account_sources.map(s => `${esc(s.source)} (${s.articles})`).join(', ');
+      const shareOf = k => {
+        const b = P.buckets.find(x => x.bucket === k);
+        return b ? (b.share * 100).toFixed(2) + '%' : '0%';
+      };
       document.getElementById('prov-note').innerHTML =
         `Across <b>${P.total_articles.toLocaleString('en-US')}</b> articles and <b>${P.credited_sources}</b> ` +
-        `credited sources, Hungarian pro-government mainstream outlets appear <b>zero times</b> — we swept for ` +
-        `${P.swept_for_mainstream.slice(0, 6).map(esc).join(', ')} and others. The only Hungarian sources the ` +
-        `mirror credits at all are nationalist fringe channels: ${fringe} — <b>0.08%</b>. ` +
+        `credited sources — which together account for <b>100%</b> of the mirror's output — the Hungarian ` +
+        `pro-government <b>press</b> appears <b>zero times</b>. We swept for ` +
+        `${P.swept_for_press.slice(0, 6).map(esc).join(', ')} and others: nothing. ` +
+        `<b>It is not a clean zero.</b> One prominent pro-government commentator's personal channel is ` +
+        `credited ${acct} — ${shareOf('hungarian_progov_account')} — and nationalist-fringe channels a further ` +
+        `${shareOf('hungarian_fringe')}. So a thread exists; a pipeline does not. ` +
         `<b>Scope:</b> one network, one direction, its own credit labels, this window. It does not show Russian ` +
-        `influence was absent — Storm-1516 and Matryoshka did target Hungary directly. It shows the domestic ` +
+        `influence was absent — Storm-1516 and Matryoshka targeted Hungary directly. It shows the domestic ` +
         `machine was not this mirror's raw material.`;
     }
 

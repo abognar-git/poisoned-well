@@ -35,13 +35,28 @@ OUT = ROOT / "data" / "derived" / "convergence.json"
 
 MIRROR = "hungary.news-pravda.com"
 
-# Hungarian domestic outlets swept for in the mirror's credited sources. Two groups:
-# nationalist/fringe channels that plausibly overlap the Russian ecosystem, and the
-# pro-government mainstream that the domestic AI machine actually runs through.
-HU_FRINGE = ["magyarjelen", "vadhajtasok", "nemzeti_internetfigyelo", "hidfo"]
-HU_MAINSTREAM = ["origo", "magyar nemzet", "magyarnemzet", "ripost", "mandiner",
-                 "hirado", "pestisracok", "pesti sracok", "tv2", "borsonline",
-                 "megafon", "nemzeti ellenallas", "index.hu", "888"]
+# Hungarian domestic sources swept for in the mirror's credited sources.
+#
+# CORRECTION 2026-08-11: an earlier version swept the mainstream list for the string
+# "megafon" and so missed `Telegram: deakdaniel` — a prominent pro-government
+# commentator's personal channel, credited 76 times — which then fell through to the
+# Russian-origin bucket and let the page claim the only Hungarian sources were fringe
+# channels. Personal handles do not contain their affiliation, so named pro-government
+# accounts are listed explicitly below and the press list is matched separately.
+#
+# Note on what is NOT here: greatawakeningmagyarok, ebredes2017, InfoDefMagyarok,
+# VilagHelyzeteBlog and RusEmbHungary publish in Hungarian but are pro-Kremlin origins
+# (InfoDefense franchise, Russian embassy) — this project's own three-tier model already
+# classifies them as the Russian origin tier, and they stay there.
+HU_FRINGE = ["magyarjelen", "vadhajtasok", "nemzeti_internetfigyelo", "hidfo",
+             "magyarbtamas", "magyar325411km2", "matrixhungary", "magyarkultura"]
+# named pro-government commentator / campaign accounts, matched on the exact handle
+HU_PROGOV_ACCOUNTS = ["deakdaniel"]
+# the pro-government press — the outlets the domestic AI machine actually runs through
+HU_PROGOV_PRESS = ["origo", "magyar nemzet", "magyarnemzet", "ripost", "mandiner",
+                   "hirado", "pestisracok", "pesti sracok", "tv2", "borsonline",
+                   "megafon", "nemzeti ellenallas", "index.hu", "888", "mediaworks",
+                   "vg.hu", "metropol", "lokal"]
 
 
 def load(name):
@@ -118,11 +133,19 @@ def provenance_audit():
     def nm(s):
         return (s.get("name") or s.get("source") or s.get("label") or "")
 
+    def handle(label):
+        """'Telegram: deakdaniel' -> 'deakdaniel'; otherwise the bare label."""
+        return label.split(":", 1)[-1].strip().lower()
+
     def bucket(label):
-        low = label.lower()
-        if any(h in low for h in HU_MAINSTREAM):
-            return "hungarian_progov_mainstream"
-        if any(h in low for h in HU_FRINGE):
+        low, h = label.lower(), handle(label)
+        # named domestic accounts first: a personal handle carries no affiliation
+        # string, so substring-matching an outlet list can never catch them
+        if h in HU_PROGOV_ACCOUNTS:
+            return "hungarian_progov_account"
+        if any(x in low for x in HU_PROGOV_PRESS):
+            return "hungarian_progov_press"
+        if any(x in low for x in HU_FRINGE):
             return "hungarian_fringe"
         if "news-front" in low or "news front" in low:
             return "news_front"
@@ -131,7 +154,7 @@ def provenance_audit():
         return "other_russian_and_misc"
 
     tally = Counter()
-    named = {"hungarian_fringe": [], "hungarian_progov_mainstream": []}
+    named = {"hungarian_fringe": [], "hungarian_progov_press": [], "hungarian_progov_account": []}
     for s in srcs:
         b = bucket(nm(s))
         tally[b] += cnt(s)
@@ -150,12 +173,18 @@ def provenance_audit():
         ],
         "hungarian_fringe_sources": sorted(named["hungarian_fringe"],
                                            key=lambda x: -x["articles"]),
-        "hungarian_progov_mainstream_sources": named["hungarian_progov_mainstream"],
-        "swept_for_mainstream": HU_MAINSTREAM,
+        "hungarian_progov_press_sources": named["hungarian_progov_press"],
+        "hungarian_progov_account_sources": sorted(named["hungarian_progov_account"],
+                                                   key=lambda x: -x["articles"]),
+        "swept_for_press": HU_PROGOV_PRESS,
+        "named_progov_accounts": HU_PROGOV_ACCOUNTS,
         "finding": (
-            "The Russian laundering mirror aimed at Hungary does not run on Hungarian "
-            "domestic output. Across every article it credits, the pro-government "
-            "mainstream appears zero times."
+            "The Russian laundering mirror aimed at Hungary does not run on the Hungarian "
+            "pro-government press: across every article it credits, those outlets appear "
+            "zero times. It is not a clean zero, though — one prominent pro-government "
+            "commentator's personal Telegram channel is credited 76 times (0.05%), and "
+            "Hungarian nationalist-fringe channels a further 130. The domestic machine is "
+            "not this mirror's raw material; a thin thread does exist."
         ),
     }
 
@@ -202,10 +231,12 @@ def main() -> int:
           f"{len(t['shared'])} shared techniques of {t['domestic_technique_n']} domestic "
           f"({t['share_of_domestic']}), {len(t['excluded_contested'])} contested excluded")
     if p:
-        hu = next((b for b in p["buckets"] if b["bucket"] == "hungarian_fringe"), None)
-        print(f"  provenance: {p['total_articles']:,} articles, mainstream HU sources = "
-              f"{len(p['hungarian_progov_mainstream_sources'])}, "
-              f"fringe = {hu['articles'] if hu else 0} ({(hu['share']*100 if hu else 0):.3f}%)")
+        def b(k): return next((x for x in p["buckets"] if x["bucket"] == k), None)
+        fr, ac = b("hungarian_fringe"), b("hungarian_progov_account")
+        print(f"  provenance: {p['total_articles']:,} articles | progov PRESS = "
+              f"{len(p['hungarian_progov_press_sources'])} sources | progov ACCOUNT = "
+              f"{ac['articles'] if ac else 0} ({(ac['share']*100 if ac else 0):.3f}%) | "
+              f"fringe = {fr['articles'] if fr else 0} ({(fr['share']*100 if fr else 0):.3f}%)")
     else:
         print("  provenance: raw Pravda dataset absent (gitignored) — section omitted")
     return 0
