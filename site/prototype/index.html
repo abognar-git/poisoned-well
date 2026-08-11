@@ -577,7 +577,8 @@
 <div class="act-divider">
   <div class="no">ACT I</div>
   <h2>The machine that never sleeps</h2>
-  <p><span data-claim="mirror-created">On 20 March 2024, a website called <span class="mono" style="color:var(--signal)">pravda-hu.com</span> appeared.</span>
+  <p><span data-claim="mirror-created">On 20 March 2024, a domain called <span class="mono" style="color:var(--signal)">pravda-hu.com</span> was registered.
+     It publishes today as <span class="mono" style="color:var(--signal)">hungary.news-pravda.com</span> — the network's Hungarian mirror.</span>
      No journalists. No office. Almost no readers. It has not stopped publishing since.</p>
 </div>
 
@@ -613,7 +614,7 @@
       <span class="n">I·4 — THE VOTE THAT CHANGED NOTHING</span>
       <p><span data-claim="election-outcome">Orbán lost. The government changed.</span>
       <span data-claim="ops-debunked">The campaigns were debunked.</span> And the mirror?
-      <b>It published <span class="fig" id="today-fig">—</span> articles <span data-claim="today-count">today</span>.</b>
+      <b>It published <span class="fig" id="today-fig">—</span> articles <span data-claim="today-count" id="today-day">—</span>.</b>
       The election may never have been the endgame.</p>
     </div></div>
     <div class="step" data-step="4"><div class="card">
@@ -666,7 +667,9 @@
     <h2>The night of the deepfakes</h2>
     <p>From the campaign's first confirmed AI war-video in June 2025 to the vote and its aftermath —
        incident by incident. A domestic propaganda machine and a foreign operation running in parallel;
-       colour marks who was behind each. Click any incident for its case file.</p>
+       colour marks who was behind each — amber domestic, red Russian, grey unattributed, and white for
+       the two entries that are not incidents at all but outcomes: the vote, and the dismantling after it.
+       Click any incident for its case file.</p>
   </div>
   <div id="splash-wrap">
     <canvas id="splash-canvas" role="img" aria-label="Dotted vignette: a canister tips into the well, a red bloom spreads, the ripples still, a residue remains"></canvas>
@@ -697,7 +700,7 @@
   <div class="act-divider" style="padding:6rem 2rem 3rem">
     <div class="no">ACT III · THE CASE FILES</div>
     <h2><span id="cf-count">—</span> case files</h2>
-    <p>Every node in the graph above, as a browsable dossier — each operation, takedown and
+    <p>The operation nodes in the graph above, as browsable dossiers — each operation, takedown and
        measurement behind this story, attribution confidence stated, caveats included, sources
        linked. Click any file to open it.</p>
   </div>
@@ -882,7 +885,7 @@
   <div id="coda-wrap">
     <canvas id="coda-canvas" role="img" aria-label="Dotted night scene: the well alone on the plain at night, still working, one slow drop at a time"></canvas>
     <p class="pipe-note" style="margin-top:.8rem">The plain, tonight. <b data-claim="live-counters">The mirror
-      published <span id="coda-n">—</span> articles today.</b> The deepfakes are gone. The drip has not stopped.</p>
+      published <span id="coda-n">—</span> articles <span id="coda-day">—</span>.</b> The deepfakes are gone. The drip has not stopped.</p>
   </div>
 </section>
 
@@ -1006,10 +1009,16 @@ else {
     if (p < 1) requestAnimationFrame(tick);
   })(t0);
 }
+// The mirror's counts come from CheckFirst's last COMPLETE day, which is normally
+// yesterday — so "today" was wrong most of the time. Say which day, once, everywhere.
+const todayISO = new Date().toISOString().slice(0, 10);
+const dayWord = HU.latest_publication_day === todayISO
+  ? 'today' : 'on ' + HU.latest_publication_day;
 document.getElementById('live-sub').innerHTML =
   `machine-generated articles from this one Hungary-targeting mirror — a firehose of filler and pro-Kremlin ` +
-  `narrative, not reporting about Hungary · <b>${HU.articles_latest_day} today</b> · ${fmt(HU.articles_last_7d)} in the past 7 days`;
+  `narrative, not reporting about Hungary · <b>${HU.articles_latest_day} ${dayWord}</b>, the last full day counted · ${fmt(HU.articles_last_7d)} in the past 7 days`;
 document.getElementById('today-fig').textContent = HU.articles_latest_day;
+{ const td = document.getElementById('today-day'); if (td) td.textContent = dayWord; }
 
 /* ================= evidence layer =================
    Every element carrying data-claim="<id>" gets a § marker; clicking it opens
@@ -2083,8 +2092,8 @@ try {
   const capEl = document.getElementById('well-cap');
   if (todays.length)
     document.getElementById('well-cap-txt').textContent =
-      `each falling dot in the well = one of the ${todays.length} articles captured live today — ` +
-      `hover to read it, click for provenance · time compressed`;
+      `each falling dot = one of the ${todays.length} items our own capture collected across ` +
+      `9 sources on ${spec.latest_day} — hover to read it, click for provenance · time compressed`;
   else if (capEl) capEl.style.display = 'none';
 
   const MAXD = 10, SPAWN_S = 2.1, DUR_S = 7;
@@ -3006,6 +3015,7 @@ try {
 
     const n4 = document.getElementById('coda-n');
     if (n4) n4.textContent = HU.articles_latest_day;
+    { const cd = document.getElementById('coda-day'); if (cd) cd.textContent = dayWord; }
 
     const layout4 = () => {
       const w = cc4.clientWidth, h = cc4.clientHeight;
