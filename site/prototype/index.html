@@ -242,6 +242,23 @@
   .vfact .lbl{font-family:"Newsreader",serif; font-size:.96rem; line-height:1.5; color:var(--muted); margin-top:.55rem}
   .vfact.warn{border-color:rgba(217,160,91,.5)}
   .vfact.warn .big{color:var(--amber)}
+  .vsplit{display:grid; grid-template-columns:1fr 1fr; gap:0; max-width:52rem; margin:3.4rem auto 0;
+    border:1px solid var(--hairline)}
+  .vsplit > div{padding:1.6rem 1.7rem}
+  .vsplit .then{border-right:1px solid var(--hairline)}
+  .vsplit .lbl{font-family:"IBM Plex Mono",monospace; font-size:.6rem; letter-spacing:.24em;
+    text-transform:uppercase; margin-bottom:.9rem}
+  .vsplit .then .lbl{color:var(--amber)} .vsplit .now .lbl{color:var(--signal)}
+  .vsplit p{font-family:"Newsreader",serif; font-size:1rem; line-height:1.6; color:var(--paper)}
+  .vsplit p b{font-weight:500}
+  .vsplit .then p{color:var(--muted)}
+  .vsplit .then .big, .vsplit .now .big{font-family:"Instrument Serif",Georgia,serif; font-size:1.35rem;
+    display:block; margin-bottom:.5rem; color:var(--paper)}
+  .vsplit .then .big{color:var(--amber)} .vsplit .now .big{color:var(--signal)}
+  .vkicker{font-family:"Instrument Serif",Georgia,serif; font-size:clamp(1.4rem,3vw,2rem); line-height:1.3;
+    text-align:center; max-width:40rem; margin:2.2rem auto 0; color:var(--paper)}
+  .vkicker em{font-style:italic; color:var(--signal)}
+  @media(max-width:680px){.vsplit{grid-template-columns:1fr}.vsplit .then{border-right:none;border-bottom:1px solid var(--hairline)}}
   .vclose{font-family:"Newsreader",serif; font-size:1.12rem; line-height:1.65; color:var(--paper);
     max-width:40rem; margin:3rem auto 0; text-align:center}
   .vclose b{color:var(--signal); font-weight:500}
@@ -629,11 +646,28 @@
       <div class="vfact warn"><div class="big" data-claim="ai-share-rising">+259%</div>
         <div class="lbl">year-on-year rise in AI-enabled FIMI incidents (EEAS, 2025). Adoption is real and accelerating.</div></div>
     </div>
+    <div class="vsplit">
+      <div class="then">
+        <div class="lbl">The deepfakes — a campaign moment</div>
+        <p><span class="big" data-claim="ai-omnipresent">"omnipresent"</span>
+          Before the vote, generative AI was everywhere: the coffin video, the von der Leyen "phone call",
+          AI-persona swarms. <span data-claim="ai-faded">After the election it faded — EDMO logged the AI share of
+          disinformation falling back to ~14%, and the fiercest foreign operator moved on to Germany.</span></p>
+      </div>
+      <div class="now">
+        <div class="lbl">The poisoning — still running</div>
+        <p><span class="big" data-claim="grooming-ongoing">still running</span>
+          <span data-claim="ai-audience-aim">The machine that writes for machines never stopped.</span>
+          <span data-claim="grooming-ongoing">The network published more in 2025 than 2024, its mirror still attacks
+          the new government, and through mid-2026 chatbots keep surfacing its narratives.</span></p>
+      </div>
+    </div>
+    <p class="vkicker">The deepfakes were a campaign event. <em>Poisoning the AI layer is the ongoing threat.</em></p>
+
     <p class="vclose">So the honest verdict is neither panic nor dismissal. Deepfakes did not decide
-      Hungary — an economy, a corruption scandal, and a credible opposition weighed far more. But the machine
-      that writes for the machines <b>never stopped</b>, and its target may never have been only the election.
-      The open question this site leaves you with is not whether propaganda swings votes, but what it does to
-      the well everyone now drinks from.</p>
+      Hungary — an economy, a corruption scandal, and a credible opposition weighed far more. The open
+      question this site leaves you with is not whether propaganda swings votes, but what it does to the
+      well everyone now drinks from.</p>
   </div>
 </section>
 

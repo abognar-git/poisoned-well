@@ -431,5 +431,60 @@
         "url": "https://en.wikipedia.org/wiki/Rybar"
       }
     ]
+  },
+  {
+    "id": "ai-faded",
+    "claim": "After Hungary's 12 April 2026 election, the campaign's flashy generative-AI disinformation receded: EDMO's fact-checkers logged the AI-content share of debunks falling back to ~14% in April (down about 6 points, partly attributed to OpenAI's Sora video app being discontinued), and Storm-1516 — the fiercest foreign operator against Hungary — was next documented retargeting Germany rather than Hungary.",
+    "status": "verified",
+    "support": [
+      {
+        "type": "source",
+        "publisher": "EDMO",
+        "title": "Monthly fact-checking brief no. 59 (AI-content share fell to ~14% in April 2026)",
+        "date": "2026-05-15",
+        "url": "https://edmo.eu/publications/monthly-fact-checking-brief-no-59-is-out/"
+      },
+      {
+        "type": "source",
+        "publisher": "The Local / AFP",
+        "title": "Russia-linked group (probably Storm-1516) blamed for fake Merz resignation report",
+        "date": "2026-08-08",
+        "url": "https://www.thelocal.com/20260808/russia-linked-group-blamed-for-fake-merz-resignation-video"
+      }
+    ]
+  },
+  {
+    "id": "grooming-ongoing",
+    "claim": "The quieter threat outlasts the campaign. The Pravda network published more in 2025 (~6.3M articles) than 2024 (~3.6M), and its Hungarian mirror is still live and now attacks PM Magyar; through mid-2026, audits found leading chatbots increasingly surfacing Russian state and sanctioned-outlet content (NewsGuard on Anthropic's Claude, May 2026; Mistral's Le Chat, June 2026). NewsGuard's aggregate news-falsehood rate did dip to ~28% in 2026 after its 2025 peak — so the contamination is persistent and growing on the supply side, not uniformly rising on every metric.",
+    "status": "verified",
+    "caveat": "'Growing' refers to supply volume and specific model audits; NewsGuard's aggregate falsehood-repetition rate fell from its 2025 peak (see the chatbot-trend claim). The LLM-grooming intent framing is an attributed assessment (see ai-audience-aim).",
+    "support": [
+      {
+        "type": "source",
+        "publisher": "DFRLab",
+        "title": "Pravda in the pipeline (network content in AI training data; scale)",
+        "date": "2026-04-08",
+        "url": "https://dfrlab.org/2026/04/08/pravda-in-the-pipeline/"
+      },
+      {
+        "type": "source",
+        "publisher": "NewsGuard",
+        "title": "Anthropic's Claude leaning more on Russian and Iranian propaganda",
+        "date": "2026-05-04",
+        "url": "https://www.newsguardtech.com/special-reports/anthropic-ai-chatbot-claude-russia-iran-propaganda/"
+      },
+      {
+        "type": "source",
+        "publisher": "Euronews",
+        "title": "Russian propaganda spread by Mistral's Le Chat",
+        "date": "2026-06-16",
+        "url": "https://www.euronews.com/next/2026/06/16/new-report-raises-concerns-over-russian-propaganda-spread-by-europes-flagship-ai-company-m"
+      },
+      {
+        "type": "data",
+        "data_ref": "data/derived/live_status.json",
+        "note": "the Hungarian mirror's continued live output"
+      }
+    ]
   }
 ]
