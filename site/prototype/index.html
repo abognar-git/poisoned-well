@@ -1355,41 +1355,74 @@ try {
   camera.position.set(0, 3.1, 11.5);
 
   const _v = new THREE.Vector3(), _c = new THREE.Color(), _red = new THREE.Color(0xff4a36);
-  const AXIS_Z = new THREE.Vector3(0, 0, 1);
+  const AXIS_Z = new THREE.Vector3(0, 0, 1), AXIS_X = new THREE.Vector3(1, 0, 0);
   const LOOK = new THREE.Vector3(0, 2.1, 0);
   const LIGHT = new THREE.Vector3(-.45, .8, .6).normalize();   // moonlight
-  const LIT = new THREE.Color(0xefe5cd), SHADE = new THREE.Color(0x4d5a75);
+  const LIT = new THREE.Color(0xf4e6c4), SHADE = new THREE.Color(0x45536f);
+
+  // every point is a soft radial glow, not a raw square GL point
+  const softDot = (() => {
+    const c = document.createElement('canvas'); c.width = c.height = 64;
+    const x = c.getContext('2d');
+    const g = x.createRadialGradient(32, 32, 0, 32, 32, 32);
+    g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(.35, 'rgba(255,255,255,.55)');
+    g.addColorStop(1, 'rgba(255,255,255,0)');
+    x.fillStyle = g; x.fillRect(0, 0, 64, 64);
+    return new THREE.CanvasTexture(c);
+  })();
+  const radialTex = (r, g, b, a) => {
+    const c = document.createElement('canvas'); c.width = c.height = 128;
+    const x = c.getContext('2d');
+    const gr = x.createRadialGradient(64, 64, 2, 64, 64, 64);
+    gr.addColorStop(0, `rgba(${r},${g},${b},${a})`); gr.addColorStop(.6, `rgba(${r},${g},${b},${a*.35})`);
+    gr.addColorStop(1, `rgba(${r},${g},${b},0)`);
+    x.fillStyle = gr; x.fillRect(0, 0, 128, 128);
+    return new THREE.CanvasTexture(c);
+  };
 
   const well = new THREE.Group();
   scene.add(well);
 
-  // ---- volumetric dotted timber: dots sampled on member surfaces, shaded per-dot ----
+  // ---- volumetric dotted timber, hand-hewn: taper, bow, edge highlights ----
   const PIVOT = new THREE.Vector3(0, 3.45, 0);
-  const MOUTH_X = 2.6, RIM_Y = .9, WATER_Y = .55, DROP_X = MOUTH_X + .18;
+  const MOUTH_X = 2.6, RIM_Y = .9, WATER_Y = .68, DROP_X = MOUTH_X + .18;
+  const FOCUS = new THREE.Vector3(MOUTH_X, .6, 0);             // the water is the subject
   const jit = () => (Math.random() - .5) * .022;
   const shadePush = (P, C, x, y, z, nx, ny, nz, glow=1) => {
     P.push(x + jit(), y + jit(), z + jit());
-    const s = .38 + .62 * Math.max(0, nx*LIGHT.x + ny*LIGHT.y + nz*LIGHT.z);
-    _c.copy(SHADE).lerp(LIT, s).multiplyScalar(glow);
+    const s = .34 + .66 * Math.max(0, nx*LIGHT.x + ny*LIGHT.y + nz*LIGHT.z);
+    const d = Math.hypot(x - FOCUS.x, (y - FOCUS.y) * .7, z - FOCUS.z);
+    const focal = Math.min(1.12, Math.max(.6, 1.12 - d * .06));
+    _c.copy(SHADE).lerp(LIT, s).multiplyScalar(glow * focal * (1.05 + Math.random()*.45));
     C.push(_c.r, _c.g, _c.b);
   };
-  const member = (P, C, a, b, w, h, k=900) => {   // a box beam from a to b
+  const member = (P, C, a, b, w, h, k=900, taper=.18) => {
     const ax = new THREE.Vector3().subVectors(b, a), L = ax.length(); ax.normalize();
     const ref = Math.abs(ax.y) > .93 ? new THREE.Vector3(1,0,0) : new THREE.Vector3(0,1,0);
     const s = new THREE.Vector3().crossVectors(ax, ref).normalize();
     const u = new THREE.Vector3().crossVectors(ax, s).normalize();
+    const bowA = L * .013 * (Math.random()*2 - 1);             // slight hand-hewn bow
     const n = Math.max(60, Math.round(L * (w + h) * k));
     for (let i = 0; i < n; i++) {
       const t = Math.random() * L, f = Math.random(), g = Math.random() - .5;
-      let ox, oy, oz, nx, ny, nz;
-      if (f < .5) { const sg = f < .25 ? 1 : -1;
-        ox = s.x*sg*w/2 + u.x*g*h; oy = s.y*sg*w/2 + u.y*g*h; oz = s.z*sg*w/2 + u.z*g*h;
+      const shrink = 1 - taper * (t / L);
+      const bw = w * shrink, bh = h * shrink, bow = bowA * Math.sin(Math.PI * t / L);
+      let ox, oy, oz, nx, ny, nz, glow = 1;
+      if (f < .22) {                                            // edge highlight dots
+        const e1 = f < .11 ? 1 : -1, e2 = (f*100|0) % 2 ? 1 : -1;
+        ox = s.x*e1*bw/2 + u.x*e2*bh/2; oy = s.y*e1*bw/2 + u.y*e2*bh/2; oz = s.z*e1*bw/2 + u.z*e2*bh/2;
+        nx = (s.x*e1 + u.x*e2)*.7; ny = (s.y*e1 + u.y*e2)*.7; nz = (s.z*e1 + u.z*e2)*.7;
+        glow = 1.3;
+      } else if (f < .61) { const sg = f < .415 ? 1 : -1;
+        ox = s.x*sg*bw/2 + u.x*g*bh; oy = s.y*sg*bw/2 + u.y*g*bh; oz = s.z*sg*bw/2 + u.z*g*bh;
         nx = s.x*sg; ny = s.y*sg; nz = s.z*sg;
-      } else { const sg = f < .75 ? 1 : -1;
-        ox = u.x*sg*h/2 + s.x*g*w; oy = u.y*sg*h/2 + s.y*g*w; oz = u.z*sg*h/2 + s.z*g*w;
+      } else { const sg = f < .805 ? 1 : -1;
+        ox = u.x*sg*bh/2 + s.x*g*bw; oy = u.y*sg*bh/2 + s.y*g*bw; oz = u.z*sg*bh/2 + s.z*g*bw;
         nx = u.x*sg; ny = u.y*sg; nz = u.z*sg;
       }
-      shadePush(P, C, a.x + ax.x*t + ox, a.y + ax.y*t + oy, a.z + ax.z*t + oz, nx, ny, nz);
+      shadePush(P, C,
+        a.x + ax.x*t + ox + u.x*bow, a.y + ax.y*t + oy + u.y*bow, a.z + ax.z*t + oz + u.z*bow,
+        nx, ny, nz, glow);
     }
   };
   const V3 = (x, y, z=0) => new THREE.Vector3(x, y, z);
@@ -1397,26 +1430,57 @@ try {
     const g = new THREE.BufferGeometry();
     g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(P), 3));
     g.setAttribute('color', new THREE.BufferAttribute(new Float32Array(C), 3));
-    return new THREE.Points(g, new THREE.PointsMaterial({size, vertexColors:true, transparent:true,
-      opacity, blending:THREE.AdditiveBlending, depthWrite:false}));
+    return new THREE.Points(g, new THREE.PointsMaterial({size, map:softDot, vertexColors:true,
+      transparent:true, opacity, blending:THREE.AdditiveBlending, depthWrite:false}));
+  };
+
+  // dark cores inside the timber: dots on the far side are occluded -> real mass
+  const occMat = new THREE.MeshBasicMaterial({color:0x0a0e16, transparent:true, opacity:0});
+  const occBox = (parent, a, b, w, h) => {
+    const ax = new THREE.Vector3().subVectors(b, a), L = ax.length();
+    const m = new THREE.Mesh(new THREE.BoxGeometry(L*.96, w, h), occMat);
+    m.position.copy(a).addScaledVector(ax, .5);
+    m.quaternion.setFromUnitVectors(AXIS_X, ax.normalize());
+    parent.add(m);
+  };
+
+  // assembly choreography: each structure gathers itself from scattered dots
+  const INTRO = [];
+  const regIntro = (pts, delay) => {
+    if (reduced) return;
+    const attr = pts.geometry.attributes.position;
+    const base = attr.array.slice(), n = attr.count;
+    const off = new Float32Array(n*3), ph = new Float32Array(n);
+    for (let i = 0; i < n; i++) {
+      const th = Math.random()*Math.PI*2, pv = Math.acos(2*Math.random()-1), r = 2 + Math.random()*4.5;
+      off[i*3] = r*Math.sin(pv)*Math.cos(th); off[i*3+1] = r*Math.cos(pv); off[i*3+2] = r*Math.sin(pv)*Math.sin(th);
+      ph[i] = Math.random()*.5;
+    }
+    INTRO.push({attr, base, off, ph, delay, done:false});
   };
 
   {  // static timber: post + fork, crib as stacked log courses with corner posts
     const P = [], C = [];
-    member(P, C, V3(0,0), V3(0,2.98), .22, .22);
-    member(P, C, V3(0,2.9,-.12), V3(0,3.72,-.19), .09, .09);
-    member(P, C, V3(0,2.9,.12), V3(0,3.72,.19), .09, .09);
+    member(P, C, V3(0,0), V3(0,2.98), .22, .22, 900, .3);
+    member(P, C, V3(0,2.9,-.12), V3(0,3.72,-.19), .09, .09, 900, .3);
+    member(P, C, V3(0,2.9,.12), V3(0,3.72,.19), .09, .09, 900, .3);
     const X0 = MOUTH_X - .7, X1 = MOUTH_X + .7;
     for (let r = 0; r < 5; r++) {                       // log courses
       const y = .1 + r * .195;
-      member(P, C, V3(X0,y,-.7), V3(X1,y,-.7), .1, .1, 620);
-      member(P, C, V3(X0,y,.7),  V3(X1,y,.7),  .1, .1, 620);
-      member(P, C, V3(X0,y,-.7), V3(X0,y,.7),  .1, .1, 620);
-      member(P, C, V3(X1,y,-.7), V3(X1,y,.7),  .1, .1, 620);
+      member(P, C, V3(X0,y,-.7), V3(X1,y,-.7), .1, .1, 620, .08);
+      member(P, C, V3(X0,y,.7),  V3(X1,y,.7),  .1, .1, 620, .08);
+      member(P, C, V3(X0,y,-.7), V3(X0,y,.7),  .1, .1, 620, .08);
+      member(P, C, V3(X1,y,-.7), V3(X1,y,.7),  .1, .1, 620, .08);
     }
     for (const x of [X0, X1]) for (const z of [-.7, .7])
-      member(P, C, V3(x,0,z), V3(x,RIM_Y+.06,z), .09, .09, 620);
-    well.add(mkShaded(P, C, .05, .95));
+      member(P, C, V3(x,0,z), V3(x,RIM_Y+.06,z), .09, .09, 620, .1);
+    const pts = mkShaded(P, C, .068, .95);
+    well.add(pts); regIntro(pts, .35);
+    occBox(well, V3(0,.05), V3(0,2.95), .15, .15);
+    occBox(well, V3(X0,.42,-.7), V3(X1,.42,-.7), .6, .07);
+    occBox(well, V3(X0,.42,.7),  V3(X1,.42,.7),  .6, .07);
+    occBox(well, V3(X0,.42,-.66), V3(X0,.42,.66), .6, .07);
+    occBox(well, V3(X1,.42,-.66), V3(X1,.42,.66), .6, .07);
   }
 
   // the sweep: rotates about the fork; counterweight block on the short end
@@ -1424,9 +1488,12 @@ try {
   beamG.position.copy(PIVOT);
   {
     const P = [], C = [];
-    member(P, C, V3(-2.7,-1.77), V3(2.6,1.7), .16, .21);
-    member(P, C, V3(-2.94,-1.92), V3(-2.44,-1.6), .46, .46);   // counterweight
-    beamG.add(mkShaded(P, C, .05, .95));
+    member(P, C, V3(-2.7,-1.77), V3(2.6,1.7), .16, .21, 900, .34);
+    member(P, C, V3(-2.94,-1.92), V3(-2.44,-1.6), .46, .46, 900, .05);
+    const pts = mkShaded(P, C, .068, .95);
+    beamG.add(pts); regIntro(pts, .8);
+    occBox(beamG, V3(-2.7,-1.77), V3(2.6,1.7), .1, .13);
+    occBox(beamG, V3(-2.9,-1.9), V3(-2.48,-1.63), .32, .32);
   }
   well.add(beamG);
 
@@ -1435,8 +1502,10 @@ try {
   let bucketMat;
   {
     const P = [], C = [];
-    member(P, C, V3(0,0), V3(0,-3.3), .08, .08, 1300);
-    poleG.add(mkShaded(P, C, .045, .9));
+    member(P, C, V3(0,0), V3(0,-3.3), .08, .08, 1300, .3);
+    const pole = mkShaded(P, C, .056, .9);
+    poleG.add(pole); regIntro(pole, 1.15);
+    occBox(poleG, V3(0,-.02), V3(0,-3.28), .045, .045);
     const BP = [], BC = [];
     for (let i = 0; i < 480; i++) {                     // stave cylinder
       const a = Math.random()*Math.PI*2, t = Math.random();
@@ -1451,9 +1520,12 @@ try {
     const bg = new THREE.BufferGeometry();
     bg.setAttribute('position', new THREE.BufferAttribute(new Float32Array(BP), 3));
     bg.setAttribute('color', new THREE.BufferAttribute(new Float32Array(BC), 3));
-    bucketMat = new THREE.PointsMaterial({size:.05, vertexColors:true, transparent:true,
+    bucketMat = new THREE.PointsMaterial({size:.055, map:softDot, vertexColors:true, transparent:true,
       opacity:.95, blending:THREE.AdditiveBlending, depthWrite:false});
-    poleG.add(new THREE.Points(bg, bucketMat));
+    const bucket = new THREE.Points(bg, bucketMat);
+    poleG.add(bucket); regIntro(bucket, 1.3);
+    const bocc = new THREE.Mesh(new THREE.CylinderGeometry(.15, .12, .4, 14), occMat);
+    bocc.position.set(0, -3.52, 0); poleG.add(bocc);
   }
   well.add(poleG);
   const TIP = new THREE.Vector3(2.6, 1.7, 0);          // sweep tip, rel pivot
@@ -1463,39 +1535,57 @@ try {
   };
   setTip();
 
-  // the water, glowing inside the crib — red contamination scales with the all-time
-  // count (disclosed in the footer); the disc swirls slowly against the well's spin
+  // the water: the brightest thing in the scene — red contamination scales with the
+  // all-time count (disclosed in the footer); swirls slowly against the well's spin
   const waterG = new THREE.Group();
   waterG.position.set(MOUTH_X, WATER_Y, 0);
   {
     const P = [], C = [];
-    for (let i = 0; i < 300; i++) {
+    for (let i = 0; i < 340; i++) {
       const r = .58*Math.sqrt(Math.random()), a = Math.random()*Math.PI*2;
       P.push(Math.cos(a)*r, jit()*1.6, Math.sin(a)*r);
-      _c.setHex(0x6ea8d8).multiplyScalar(.28 + .5*Math.random());
+      _c.setHex(0x6ea8d8).multiplyScalar(.5 + .6*Math.random());
       C.push(_c.r, _c.g, _c.b);
     }
     const nRed = Math.max(24, Math.min(110, Math.round(24 + 50*(Math.log10(HU.total)-3)/2.5)));
     for (let i = 0; i < nRed; i++) {
       const r = .55*Math.sqrt(Math.random()), a = Math.random()*Math.PI*2;
       P.push(Math.cos(a)*r, jit()*1.6, Math.sin(a)*r);
-      _c.setHex(0xff4a36).multiplyScalar(.5 + .5*Math.random());
+      _c.setHex(0xff4a36).multiplyScalar(.6 + .4*Math.random());
       C.push(_c.r, _c.g, _c.b);
     }
-    waterG.add(mkShaded(P, C, .055, .95));
+    const w = mkShaded(P, C, .07, 1);
+    waterG.add(w); regIntro(w, 1.5);
   }
+  const waterGlow = new THREE.Sprite(new THREE.SpriteMaterial({map:radialTex(110,168,216,.85),
+    transparent:true, opacity:.38, blending:THREE.AdditiveBlending, depthWrite:false}));
+  waterGlow.position.set(0, .14, 0); waterGlow.scale.set(2.1, 1.1, 1);
+  waterG.add(waterGlow);
   well.add(waterG);
 
-  {  // the plain: dotted ground falling off with distance
+  {  // the plain: dotted ground, darkened where the well stands (contact shadow)
     const P = [], C = [];
     for (let i = 0; i < 3200; i++) {
       const r = 1.6 + 22*Math.pow(Math.random(), 1.5), a = Math.random()*Math.PI*2;
-      P.push(Math.cos(a)*r, 0, Math.sin(a)*r);
-      _c.setHex(0x3a4a66).multiplyScalar(.35 + .65*Math.max(0, 1 - r/22));
+      const x = Math.cos(a)*r, z = Math.sin(a)*r;
+      P.push(x, 0, z);
+      let b = .35 + .65*Math.max(0, 1 - r/22);
+      const dPost = Math.hypot(x, z), dCrib = Math.hypot(x - MOUTH_X, z);
+      b *= Math.min(1, .25 + dPost*.55) * Math.min(1, .2 + dCrib*.45);
+      _c.setHex(0x3a4a66).multiplyScalar(b);
       C.push(_c.r, _c.g, _c.b);
     }
-    well.add(mkShaded(P, C, .042, .8));
+    const g = mkShaded(P, C, .05, .78);
+    well.add(g); regIntro(g, 0);
   }
+  const shadowMat = new THREE.MeshBasicMaterial({map:radialTex(0,0,0,.62), transparent:true,
+    depthWrite:false, opacity:0});
+  const shadow = (x, z, rx, rz) => {
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(rx*2, rz*2), shadowMat);
+    m.rotation.x = -Math.PI/2; m.position.set(x, .012, z);
+    well.add(m);
+  };
+  shadow(0, 0, 1.2, .95); shadow(MOUTH_X, 0, 1.75, 1.4);
 
   {  // stars (fixed sky, outside the spinning group)
     const P = [];
@@ -1503,23 +1593,15 @@ try {
       P.push((Math.random()-.5)*70, 2.5 + Math.random()*16, -34 + Math.random()*26);
     const g = new THREE.BufferGeometry();
     g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(P), 3));
-    scene.add(new THREE.Points(g, new THREE.PointsMaterial({color:0x8b93a3, size:.045,
-      transparent:true, opacity:.35, blending:THREE.AdditiveBlending, depthWrite:false})));
+    scene.add(new THREE.Points(g, new THREE.PointsMaterial({color:0x8b93a3, size:.05, map:softDot,
+      transparent:true, opacity:.4, blending:THREE.AdditiveBlending, depthWrite:false})));
   }
 
-  // horizon glow behind the well (canvas radial sprite, like the globe's atmosphere)
-  const glow = (() => {
-    const c = document.createElement('canvas'); c.width = 256; c.height = 128;
-    const x = c.getContext('2d');
-    const g = x.createRadialGradient(128, 64, 4, 128, 64, 120);
-    g.addColorStop(0, 'rgba(64,96,150,.5)'); g.addColorStop(.55, 'rgba(40,62,104,.22)');
-    g.addColorStop(1, 'rgba(20,30,54,0)');
-    x.fillStyle = g; x.fillRect(0, 0, 256, 128);
-    const s = new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),
-      transparent:true, opacity:.9, blending:THREE.AdditiveBlending, depthWrite:false}));
-    s.position.set(0, 1.4, -16); s.scale.set(42, 15, 1);
-    scene.add(s); return s;
-  })();
+  // horizon glow behind the well
+  const glow = new THREE.Sprite(new THREE.SpriteMaterial({map:radialTex(64,96,150,.5),
+    transparent:true, opacity:.9, blending:THREE.AdditiveBlending, depthWrite:false}));
+  glow.position.set(0, 1.4, -16); glow.scale.set(42, 15, 1);
+  scene.add(glow);
 
   // fireflies drifting over the plain
   const flyGeo = new THREE.BufferGeometry();
@@ -1529,7 +1611,7 @@ try {
     flyBase.push({x:Math.cos(a)*r, y:.15+Math.random()*1.4, z:Math.sin(a)*r, p:Math.random()*9});
   }
   flyGeo.setAttribute('position', new THREE.BufferAttribute(flyPos, 3));
-  const flies = new THREE.Points(flyGeo, new THREE.PointsMaterial({color:0xb9975f, size:.05,
+  const flies = new THREE.Points(flyGeo, new THREE.PointsMaterial({color:0xb9975f, size:.055, map:softDot,
     transparent:true, opacity:.4, blending:THREE.AdditiveBlending, depthWrite:false}));
   flies.frustumCulled = false;
   well.add(flies);
@@ -1554,12 +1636,12 @@ try {
   // auto-computed sphere (cached at first raycast, when all slots were parked at
   // y=-999) would otherwise cull every hover raycast forever
   dGeo.boundingSphere = new THREE.Sphere(new THREE.Vector3(0, 2, 0), 1000);
-  const dropPts = new THREE.Points(dGeo, new THREE.PointsMaterial({size:.16, vertexColors:true,
+  const dropPts = new THREE.Points(dGeo, new THREE.PointsMaterial({size:.2, map:softDot, vertexColors:true,
     transparent:true, opacity:.95, blending:THREE.AdditiveBlending, depthWrite:false}));
   dropPts.frustumCulled = false;
   well.add(dropPts);
   const slots = new Array(MAXD).fill(null);
-  let nextItem = 0, lastSpawn = -SPAWN_S;
+  let nextItem = 0, lastSpawn = 2.5, lastSplash = -9;
   const TOP_Y = 6.9;
   const dropY = p => TOP_Y - (TOP_Y - WATER_Y - .06) * Math.pow(p, 1.6);  // gravity-ish
   const dropEnv = p => Math.min(1, p/.06, (1-p)/.05);                     // fade in/out
@@ -1612,7 +1694,7 @@ try {
     if (item) window.__openDrop?.(item, e);
   });
 
-  // drag to spin, like the globe; gentle parallax from the pointer
+  // drag to spin; gentle vertical parallax; scroll dollies the camera back
   let dragging = false, px = 0, vel = 0, offY = 0, ty = 0;
   canvas.addEventListener('pointerdown', e => { dragging = true; px = e.clientX; });
   addEventListener('pointerup', () => dragging = false);
@@ -1632,7 +1714,7 @@ try {
     if (l < DIP.down + DIP.hold + DIP.up) return -.35 * (1 - ease((l-DIP.down-DIP.hold)/DIP.up));
     return 0;
   };
-  let tint = 0;
+  let tint = 0, rotAcc = 0;
 
   const layout = () => {
     const w = canvas.clientWidth, h = canvas.clientHeight;
@@ -1656,14 +1738,38 @@ try {
   }).observe(canvas);
   document.addEventListener('visibilitychange', () => visible = !document.hidden && visible);
 
+  const easeO = x => 1 - Math.pow(1 - x, 3);
   renderer.setAnimationLoop(() => {
     // offscreen: canvas is visibility:hidden (see observer) and we stop painting —
     // an actively-rendering WebGL layer corrupts composited capture of the page
     if (!visible) return;
     const dt = Math.min(.06, clock.getDelta()), t = clock.elapsedTime;
 
+    // assembly: dots gather from the dark into the structure
+    if (INTRO.length) {
+      for (const r of INTRO) {
+        if (r.done) continue;
+        let all = true;
+        for (let i = 0; i < r.ph.length; i++) {
+          const k = Math.min(1, Math.max(0, (t - r.delay - r.ph[i]) / 1.2));
+          if (k < 1) all = false;
+          const inv = 1 - easeO(k);
+          r.attr.array[i*3]   = r.base[i*3]   + r.off[i*3]*inv;
+          r.attr.array[i*3+1] = r.base[i*3+1] + r.off[i*3+1]*inv;
+          r.attr.array[i*3+2] = r.base[i*3+2] + r.off[i*3+2]*inv;
+        }
+        r.attr.needsUpdate = true;
+        if (all) r.done = true;
+      }
+      if (INTRO.every(r => r.done)) INTRO.length = 0;
+    }
+    const solid = reduced ? 1 : Math.min(1, Math.max(0, (t - .6) / 2.4));
+    occMat.opacity = solid;
+    shadowMat.opacity = solid * .95;
+
     if (!dragging) { vel *= .95; offY += vel; }
-    well.rotation.y = offY + (reduced ? .4 : t * .07);
+    rotAcc += reduced ? 0 : dt * (.05 + .02 * Math.sin(t * .13));   // drifting, not mechanical
+    well.rotation.y = offY + rotAcc + (reduced ? .4 : 0);
     waterG.rotation.y = reduced ? 0 : -t * .18;
 
     beamG.rotation.z = dipTheta(t);
@@ -1681,14 +1787,13 @@ try {
         const s = slots[i];
         if (!s) { dPos[i*3+1] = -999; continue; }
         const p = (t - s.born) / DUR_S;
-        if (p >= 1) { slots[i] = null; dPos[i*3+1] = -999; setDropColor(i, s.item, 0); continue; }
+        if (p >= 1) { slots[i] = null; dPos[i*3+1] = -999; setDropColor(i, s.item, 0); lastSplash = t; continue; }
         dPos[i*3] = DROP_X; dPos[i*3+1] = dropY(p); dPos[i*3+2] = 0;
         setDropColor(i, s.item, dropEnv(p));
       }
       dGeo.attributes.position.needsUpdate = true;
       dGeo.attributes.color.needsUpdate = true;
-    }
-    if (!reduced) {
+      waterGlow.material.opacity = .38 + .3 * Math.exp(-(t - lastSplash) * 2.5);
       for (let i = 0; i < 120; i++) {
         const f = flyBase[i];
         flyPos[i*3]   = f.x + Math.sin(t*.31 + f.p*2) * .5;
@@ -1698,7 +1803,9 @@ try {
       flyGeo.attributes.position.needsUpdate = true;
     }
 
-    camera.position.y += (3.1 - ty*.7 - camera.position.y) * .04;
+    const sc = Math.min(1, Math.max(0, scrollY / innerHeight));    // leaving the hero
+    camera.position.y += (3.1 - ty*.7 + sc*.7 - camera.position.y) * .04;
+    camera.position.z += (11.5 + sc*2.2 - camera.position.z) * .06;
     camera.lookAt(LOOK);
     renderer.render(scene, camera);
   });
