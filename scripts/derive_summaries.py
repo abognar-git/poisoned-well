@@ -7,7 +7,7 @@ Outputs (data/derived/, committed — every number the site cites comes from her
   pravda_summary.json       per-mirror activity: totals, date range, peak day,
                             recent daily rate, top laundering sources, languages
   pravda_network.json       the full 101-mirror manifest + cross-language edges
-                            (drives the globe scene)
+                            (mirror manifest; cited by evidence cards)
   doppelganger_summary.json Meta's Q2-2023 Doppelganger indicator set broken down
                             by kill-chain tactic and targeted country
   live_status.json          the "still running" counters per mirror (today / last

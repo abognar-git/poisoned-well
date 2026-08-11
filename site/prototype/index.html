@@ -36,7 +36,14 @@
   /* ---------- hero ---------- */
   #hero{position:relative; height:100vh; min-height:640px; overflow:hidden;
     background:radial-gradient(120% 90% at 70% 40%, var(--bg2) 0%, var(--bg) 62%)}
-  #globe-canvas{position:absolute; inset:0; width:100%; height:100%; display:block}
+  #well-canvas{position:absolute; inset:0; width:100%; height:100%; display:block}
+  #well-tip{position:absolute; z-index:6; pointer-events:none; font-family:"IBM Plex Mono",monospace;
+    font-size:.66rem; letter-spacing:.04em; line-height:1.55; color:var(--paper); background:rgba(10,14,22,.94);
+    border:1px solid var(--hairline); padding:.42rem .6rem; transform:translate(-50%,-115%);
+    max-width:20rem; opacity:0; transition:opacity .12s}
+  #well-tip b{font-weight:500; letter-spacing:.1em}
+  .live-cap{margin-top:.55rem; font-family:"IBM Plex Mono",monospace; font-size:.6rem;
+    letter-spacing:.05em; line-height:1.7; color:var(--muted)}
   .hero-copy{
     position:absolute; z-index:10; left:clamp(1.4rem,5vw,5rem); top:50%;
     transform:translateY(-58%); max-width:30rem; pointer-events:none;
@@ -428,8 +435,8 @@
   .gterm a:hover{text-decoration:underline}
 
   @media (max-width:760px){
-    .hero-copy{top:auto; bottom:11.5rem; transform:none; max-width:88vw}
-    .live-block{bottom:2rem}
+    .hero-copy{top:auto; bottom:18.5rem; transform:none; max-width:88vw}
+    .live-block{bottom:2.2rem}
     h1{font-size:2.7rem}
     .step .card{margin:0 auto}
   }
@@ -446,7 +453,8 @@
 </header>
 
 <section id="hero">
-  <canvas id="globe-canvas"></canvas>
+  <canvas id="well-canvas" aria-label="Dotted illustration of a Hungarian sweep-pole well; falling dots are articles captured live today" role="img"></canvas>
+  <div id="well-tip"></div>
   <div class="hero-copy">
     <div class="kicker">Propaganda, written for machines</div>
     <h1>They stopped writing for <em>people.</em></h1>
@@ -458,6 +466,7 @@
     <div class="live-row"><span class="live-dot"></span><span>LIVE · HUNGARY.NEWS-PRAVDA.COM</span></div>
     <div class="live-num" id="counter">0</div>
     <div class="live-sub" id="live-sub" data-claim="live-counters">machine-generated articles from this one Hungary-targeting mirror — a firehose of filler and pro-Kremlin narrative, not reporting about Hungary</div>
+    <div class="live-cap" id="well-cap" data-claim="live-specimens"><span id="well-cap-txt"></span></div>
   </div>
   <div class="scroll-cue">SCROLL ▾</div>
 </section>
@@ -730,7 +739,9 @@
     <span class="mono" style="color:var(--analyst)">§</span> marker link to their evidence —
     sources re-checked against the claim, or figures generated from source data by scripts —
     and a validation gate fails the build if any tagged claim lacks backing. Case files and the
-    timeline are drawn from an adversarially-audited catalog. Arcs show audience targeting, not server routes.</p>
+    timeline are drawn from an adversarially-audited catalog. In the hero, each falling dot is one article
+    captured live today and the red contamination in the water scales with the all-time count; time is
+    compressed and the well itself is illustrative.</p>
   </div>
   <div class="col">
     <div class="h">The five acts</div>
@@ -762,13 +773,14 @@ const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ================= data ================= */
 const dget = u => fetch(u, { cache: 'no-store' }).then(r => r.json());
-const [live, globe, timeline, summary] = await Promise.all([
+const [live, timeline, summary, spec] = await Promise.all([
   dget('/data/derived/live_status.json'),
-  dget('/data/derived/globe.json'),
   dget('/data/derived/pravda_timeline.json'),
   dget('/data/derived/pravda_summary.json'),
+  dget('/data/derived/latest_specimens.json').catch(() => null),  // drop stream in the hero well
 ]);
 const HU = live.mirrors['hungary.news-pravda.com'];
+const SPEC_SRC = spec?.sources || {};
 window.__st.push('data-loaded');
 
 /* ================= hero counters ================= */
@@ -902,26 +914,27 @@ function openCase(id) {
 }
 window.__openCase = openCase; // dev hook
 
-// mini-dossier for a clicked globe mirror
-window.__openMirror = (m, e) => {
-  const short = m.domain.replace('.news-pravda.com', '');
+// provenance card for a clicked falling drop in the hero well
+window.__openDrop = (s, e) => {
+  const src = SPEC_SRC[s.site] || {};
+  const t = s.title.length > 160 ? s.title.slice(0, 157) + '…' : s.title;
   const adhoc = {
     status: 'live-data',
-    claim: `${m.domain} — one of the network's ${caseById['pravda-hungary'] ? '101' : ''} tracked mirrors` +
-           (m.total ? `; ${m.total.toLocaleString('en-US')} articles scraped to date.` :
-                      `. Article-level stats not yet pulled for this mirror (manifest entry only).`),
+    claim: `“${t}” — ${src.label || s.site} (${src.tier || 'source'} tier), captured ${s.date}.`,
     support: [
-      { type: 'data', data_ref: 'data/derived/pravda_network.json', note: 'CheckFirst hourly manifest' },
-      { type: 'source', publisher: 'CheckFirst', title: 'Pravda Network Data Collection', url: 'https://github.com/CheckFirstHQ/pravda-network' },
+      { type: 'data', data_ref: 'data/derived/latest_specimens.json',
+        note: 'server-side capture of documented pro-Kremlin sources; shown as evidence, deliberately not hyperlinked' },
     ],
   };
-  openEvidence(adhoc, { getBoundingClientRect: () => ({ left: e.clientX, bottom: e.clientY + 8, top: e.clientY }) });
-  if (/^(hungary|hu-hu|en-hu)\./.test(m.domain)) {
+  const at = { getBoundingClientRect: () => ({ left: e.clientX, bottom: e.clientY + 8, top: e.clientY }) };
+  openEvidence(adhoc, at);
+  const c = claimById['live-specimens'];
+  if (c) {
     const b = document.createElement('button');
     b.className = 'cf-open';
     b.style.marginTop = '.7rem';
-    b.textContent = 'open case file: Pravda Magyarország';
-    b.addEventListener('click', () => { closeEvidence(); openCase('pravda-hungary'); });
+    b.textContent = 'how this capture works §';
+    b.addEventListener('click', () => { closeEvidence(); openEvidence(c, at); });
     evCard.appendChild(b);
   }
 };
@@ -1332,167 +1345,308 @@ setTimeout(async () => {
   } catch { /* baked figures remain — the page never breaks on upstream failure */ }
 }, 2600);
 
-/* ================= globe ================= */
-const canvas = document.getElementById('globe-canvas');
+/* ================= the well (gémeskút) ================= */
+const canvas = document.getElementById('well-canvas');
 try {
   const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true, preserveDrawingBuffer:true});
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(38, 1, .1, 100);
-  camera.position.set(0, .35, 3.15);
-  camera.lookAt(0, 0, 0);
+  camera.position.set(0, 3.1, 11.5);
 
-  const tilt = new THREE.Group();      // fixed axial tilt: bring Europe to face camera
-  const world = new THREE.Group();     // spins on Y inside the tilted frame
-  tilt.add(world);
-  scene.add(tilt);
-  tilt.rotation.x = .62;
+  const _v = new THREE.Vector3(), _c = new THREE.Color(), _red = new THREE.Color(0xff4a36);
+  const AXIS_Z = new THREE.Vector3(0, 0, 1);
+  const LOOK = new THREE.Vector3(0, 2.1, 0);
+  const LIGHT = new THREE.Vector3(-.45, .8, .6).normalize();   // moonlight
+  const LIT = new THREE.Color(0xefe5cd), SHADE = new THREE.Color(0x4d5a75);
 
-  const R = 1;
-  const V = (lat, lon, r=R) => {
-    const phi = (90 - lat) * Math.PI/180, th = (lon + 180) * Math.PI/180;
-    return new THREE.Vector3(-r*Math.sin(phi)*Math.cos(th), r*Math.cos(phi), r*Math.sin(phi)*Math.sin(th));
+  const well = new THREE.Group();
+  scene.add(well);
+
+  // ---- volumetric dotted timber: dots sampled on member surfaces, shaded per-dot ----
+  const PIVOT = new THREE.Vector3(0, 3.45, 0);
+  const MOUTH_X = 2.6, RIM_Y = .9, WATER_Y = .55, DROP_X = MOUTH_X + .18;
+  const jit = () => (Math.random() - .5) * .022;
+  const shadePush = (P, C, x, y, z, nx, ny, nz, glow=1) => {
+    P.push(x + jit(), y + jit(), z + jit());
+    const s = .38 + .62 * Math.max(0, nx*LIGHT.x + ny*LIGHT.y + nz*LIGHT.z);
+    _c.copy(SHADE).lerp(LIT, s).multiplyScalar(glow);
+    C.push(_c.r, _c.g, _c.b);
+  };
+  const member = (P, C, a, b, w, h, k=900) => {   // a box beam from a to b
+    const ax = new THREE.Vector3().subVectors(b, a), L = ax.length(); ax.normalize();
+    const ref = Math.abs(ax.y) > .93 ? new THREE.Vector3(1,0,0) : new THREE.Vector3(0,1,0);
+    const s = new THREE.Vector3().crossVectors(ax, ref).normalize();
+    const u = new THREE.Vector3().crossVectors(ax, s).normalize();
+    const n = Math.max(60, Math.round(L * (w + h) * k));
+    for (let i = 0; i < n; i++) {
+      const t = Math.random() * L, f = Math.random(), g = Math.random() - .5;
+      let ox, oy, oz, nx, ny, nz;
+      if (f < .5) { const sg = f < .25 ? 1 : -1;
+        ox = s.x*sg*w/2 + u.x*g*h; oy = s.y*sg*w/2 + u.y*g*h; oz = s.z*sg*w/2 + u.z*g*h;
+        nx = s.x*sg; ny = s.y*sg; nz = s.z*sg;
+      } else { const sg = f < .75 ? 1 : -1;
+        ox = u.x*sg*h/2 + s.x*g*w; oy = u.y*sg*h/2 + s.y*g*w; oz = u.z*sg*h/2 + s.z*g*w;
+        nx = u.x*sg; ny = u.y*sg; nz = u.z*sg;
+      }
+      shadePush(P, C, a.x + ax.x*t + ox, a.y + ax.y*t + oy, a.z + ax.z*t + oz, nx, ny, nz);
+    }
+  };
+  const V3 = (x, y, z=0) => new THREE.Vector3(x, y, z);
+  const mkShaded = (P, C, size, opacity) => {
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(P), 3));
+    g.setAttribute('color', new THREE.BufferAttribute(new Float32Array(C), 3));
+    return new THREE.Points(g, new THREE.PointsMaterial({size, vertexColors:true, transparent:true,
+      opacity, blending:THREE.AdditiveBlending, depthWrite:false}));
   };
 
-  // occluder + atmosphere
-  world.add(new THREE.Mesh(new THREE.SphereGeometry(R*.996, 48, 48),
-    new THREE.MeshBasicMaterial({color:0x070b12})));
-  const atm = new THREE.Mesh(new THREE.SphereGeometry(R*1.09, 48, 48),
-    new THREE.ShaderMaterial({
-      side:THREE.BackSide, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false,
-      vertexShader:`varying vec3 vN; void main(){ vN = normalize(normalMatrix * normal);
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.);}`,
-      fragmentShader:`varying vec3 vN; void main(){
-        float i = pow(.62 - dot(vN, vec3(0.,0.,1.)), 3.2);
-        gl_FragColor = vec4(.24,.42,.68, 1.) * i;}`,
-    }));
-  world.add(atm);
+  {  // static timber: post + fork, crib as stacked log courses with corner posts
+    const P = [], C = [];
+    member(P, C, V3(0,0), V3(0,2.98), .22, .22);
+    member(P, C, V3(0,2.9,-.12), V3(0,3.72,-.19), .09, .09);
+    member(P, C, V3(0,2.9,.12), V3(0,3.72,.19), .09, .09);
+    const X0 = MOUTH_X - .7, X1 = MOUTH_X + .7;
+    for (let r = 0; r < 5; r++) {                       // log courses
+      const y = .1 + r * .195;
+      member(P, C, V3(X0,y,-.7), V3(X1,y,-.7), .1, .1, 620);
+      member(P, C, V3(X0,y,.7),  V3(X1,y,.7),  .1, .1, 620);
+      member(P, C, V3(X0,y,-.7), V3(X0,y,.7),  .1, .1, 620);
+      member(P, C, V3(X1,y,-.7), V3(X1,y,.7),  .1, .1, 620);
+    }
+    for (const x of [X0, X1]) for (const z of [-.7, .7])
+      member(P, C, V3(x,0,z), V3(x,RIM_Y+.06,z), .09, .09, 620);
+    well.add(mkShaded(P, C, .05, .95));
+  }
 
-  // land dots
+  // the sweep: rotates about the fork; counterweight block on the short end
+  const beamG = new THREE.Group();
+  beamG.position.copy(PIVOT);
   {
-    const pos = new Float32Array(globe.land.length * 3);
-    globe.land.forEach(([la, lo], i) => V(la, lo).toArray(pos, i*3));
-    const g = new THREE.BufferGeometry();
-    g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-    world.add(new THREE.Points(g, new THREE.PointsMaterial({
-      color:0x3a4a66, size:.0105, sizeAttenuation:true, transparent:true, opacity:.85})));
+    const P = [], C = [];
+    member(P, C, V3(-2.7,-1.77), V3(2.6,1.7), .16, .21);
+    member(P, C, V3(-2.94,-1.92), V3(-2.44,-1.6), .46, .46);   // counterweight
+    beamG.add(mkShaded(P, C, .05, .95));
   }
+  well.add(beamG);
 
-  // mirrors by tier
-  const TIER = {
-    base:      {color:0xc9803f, size:.020, op:.75},
-    cee:       {color:0xffa04d, size:.030, op:.95},
-    highlight: {color:0xff4a36, size:.042, op:1},
+  // the hanging pole + bucket: stays vertical, follows the sweep tip
+  const poleG = new THREE.Group();
+  let bucketMat;
+  {
+    const P = [], C = [];
+    member(P, C, V3(0,0), V3(0,-3.3), .08, .08, 1300);
+    poleG.add(mkShaded(P, C, .045, .9));
+    const BP = [], BC = [];
+    for (let i = 0; i < 480; i++) {                     // stave cylinder
+      const a = Math.random()*Math.PI*2, t = Math.random();
+      const r = .16 + t*.05, y = -3.74 + t*.44;
+      const band = (Math.abs(y+3.4) < .035 || Math.abs(y+3.68) < .035) ? 1.35 : 1;
+      shadePush(BP, BC, Math.cos(a)*r, y, Math.sin(a)*r, Math.cos(a), 0, Math.sin(a), band);
+    }
+    for (let i = 0; i < 40; i++) {                      // handle arc
+      const a = Math.PI * i/39;
+      shadePush(BP, BC, Math.cos(a)*.19, -3.3 + Math.sin(a)*.17, 0, 0, 1, 0);
+    }
+    const bg = new THREE.BufferGeometry();
+    bg.setAttribute('position', new THREE.BufferAttribute(new Float32Array(BP), 3));
+    bg.setAttribute('color', new THREE.BufferAttribute(new Float32Array(BC), 3));
+    bucketMat = new THREE.PointsMaterial({size:.05, vertexColors:true, transparent:true,
+      opacity:.95, blending:THREE.AdditiveBlending, depthWrite:false});
+    poleG.add(new THREE.Points(bg, bucketMat));
+  }
+  well.add(poleG);
+  const TIP = new THREE.Vector3(2.6, 1.7, 0);          // sweep tip, rel pivot
+  const setTip = () => {
+    _v.copy(TIP).applyAxisAngle(AXIS_Z, beamG.rotation.z).add(PIVOT);
+    poleG.position.copy(_v);
   };
-  const mirrorPickables = [];
-  for (const tier of Object.keys(TIER)) {
-    const ms = globe.mirrors.filter(m => m.tier === tier);
-    if (!ms.length) continue;
-    const pos = new Float32Array(ms.length * 3);
-    ms.forEach((m, i) => V(m.lat, m.lon, R*1.004).toArray(pos, i*3));
-    const g = new THREE.BufferGeometry();
-    g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-    const t = TIER[tier];
-    const pts = new THREE.Points(g, new THREE.PointsMaterial({
-      color:t.color, size:t.size, transparent:true, opacity:t.op, depthWrite:false}));
-    world.add(pts);
-    mirrorPickables.push({ points: pts, list: ms });
+  setTip();
+
+  // the water, glowing inside the crib — red contamination scales with the all-time
+  // count (disclosed in the footer); the disc swirls slowly against the well's spin
+  const waterG = new THREE.Group();
+  waterG.position.set(MOUTH_X, WATER_Y, 0);
+  {
+    const P = [], C = [];
+    for (let i = 0; i < 300; i++) {
+      const r = .58*Math.sqrt(Math.random()), a = Math.random()*Math.PI*2;
+      P.push(Math.cos(a)*r, jit()*1.6, Math.sin(a)*r);
+      _c.setHex(0x6ea8d8).multiplyScalar(.28 + .5*Math.random());
+      C.push(_c.r, _c.g, _c.b);
+    }
+    const nRed = Math.max(24, Math.min(110, Math.round(24 + 50*(Math.log10(HU.total)-3)/2.5)));
+    for (let i = 0; i < nRed; i++) {
+      const r = .55*Math.sqrt(Math.random()), a = Math.random()*Math.PI*2;
+      P.push(Math.cos(a)*r, jit()*1.6, Math.sin(a)*r);
+      _c.setHex(0xff4a36).multiplyScalar(.5 + .5*Math.random());
+      C.push(_c.r, _c.g, _c.b);
+    }
+    waterG.add(mkShaded(P, C, .055, .95));
+  }
+  well.add(waterG);
+
+  {  // the plain: dotted ground falling off with distance
+    const P = [], C = [];
+    for (let i = 0; i < 3200; i++) {
+      const r = 1.6 + 22*Math.pow(Math.random(), 1.5), a = Math.random()*Math.PI*2;
+      P.push(Math.cos(a)*r, 0, Math.sin(a)*r);
+      _c.setHex(0x3a4a66).multiplyScalar(.35 + .65*Math.max(0, 1 - r/22));
+      C.push(_c.r, _c.g, _c.b);
+    }
+    well.add(mkShaded(P, C, .042, .8));
   }
 
-  // pulsing rings on the three Hungarian mirrors
-  const ringTex = (() => {
-    const c = document.createElement('canvas'); c.width = c.height = 128;
+  {  // stars (fixed sky, outside the spinning group)
+    const P = [];
+    for (let i = 0; i < 850; i++)
+      P.push((Math.random()-.5)*70, 2.5 + Math.random()*16, -34 + Math.random()*26);
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(P), 3));
+    scene.add(new THREE.Points(g, new THREE.PointsMaterial({color:0x8b93a3, size:.045,
+      transparent:true, opacity:.35, blending:THREE.AdditiveBlending, depthWrite:false})));
+  }
+
+  // horizon glow behind the well (canvas radial sprite, like the globe's atmosphere)
+  const glow = (() => {
+    const c = document.createElement('canvas'); c.width = 256; c.height = 128;
     const x = c.getContext('2d');
-    x.strokeStyle = 'rgba(255,74,54,.9)'; x.lineWidth = 5;
-    x.beginPath(); x.arc(64, 64, 46, 0, Math.PI*2); x.stroke();
-    return new THREE.CanvasTexture(c);
+    const g = x.createRadialGradient(128, 64, 4, 128, 64, 120);
+    g.addColorStop(0, 'rgba(64,96,150,.5)'); g.addColorStop(.55, 'rgba(40,62,104,.22)');
+    g.addColorStop(1, 'rgba(20,30,54,0)');
+    x.fillStyle = g; x.fillRect(0, 0, 256, 128);
+    const s = new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),
+      transparent:true, opacity:.9, blending:THREE.AdditiveBlending, depthWrite:false}));
+    s.position.set(0, 1.4, -16); s.scale.set(42, 15, 1);
+    scene.add(s); return s;
   })();
-  const rings = globe.mirrors.filter(m => m.tier === 'highlight').map(m => {
-    const s = new THREE.Sprite(new THREE.SpriteMaterial({
-      map:ringTex, transparent:true, blending:THREE.AdditiveBlending, depthWrite:false}));
-    s.position.copy(V(m.lat, m.lon, R*1.012));
-    world.add(s); return s;
+
+  // fireflies drifting over the plain
+  const flyGeo = new THREE.BufferGeometry();
+  const flyPos = new Float32Array(120*3), flyBase = [];
+  for (let i = 0; i < 120; i++) {
+    const r = 2.5 + Math.random()*8, a = Math.random()*Math.PI*2;
+    flyBase.push({x:Math.cos(a)*r, y:.15+Math.random()*1.4, z:Math.sin(a)*r, p:Math.random()*9});
+  }
+  flyGeo.setAttribute('position', new THREE.BufferAttribute(flyPos, 3));
+  const flies = new THREE.Points(flyGeo, new THREE.PointsMaterial({color:0xb9975f, size:.05,
+    transparent:true, opacity:.4, blending:THREE.AdditiveBlending, depthWrite:false}));
+  flies.frustumCulled = false;
+  well.add(flies);
+
+  // ---- the drip: one falling dot per article captured live today ----
+  const TIERC = { origin:0x6ea8d8, launderer:0xff4a36, outlet:0xd9a05b };
+  const todays = spec ? [...(spec.featured||[]), ...(spec.corpus||[])].filter(d => d.date === spec.latest_day) : [];
+  const capEl = document.getElementById('well-cap');
+  if (todays.length)
+    document.getElementById('well-cap-txt').textContent =
+      `each falling dot in the well = one of the ${todays.length} articles captured live today — ` +
+      `hover to read it, click for provenance · time compressed`;
+  else if (capEl) capEl.style.display = 'none';
+
+  const MAXD = 10, SPAWN_S = 2.1, DUR_S = 7;
+  const dPos = new Float32Array(MAXD*3), dCol = new Float32Array(MAXD*3);
+  for (let i = 0; i < MAXD; i++) dPos[i*3+1] = -999;
+  const dGeo = new THREE.BufferGeometry();
+  dGeo.setAttribute('position', new THREE.BufferAttribute(dPos, 3));
+  dGeo.setAttribute('color', new THREE.BufferAttribute(dCol, 3));
+  // static, generous bounding sphere: drop positions mutate every frame, and the
+  // auto-computed sphere (cached at first raycast, when all slots were parked at
+  // y=-999) would otherwise cull every hover raycast forever
+  dGeo.boundingSphere = new THREE.Sphere(new THREE.Vector3(0, 2, 0), 1000);
+  const dropPts = new THREE.Points(dGeo, new THREE.PointsMaterial({size:.16, vertexColors:true,
+    transparent:true, opacity:.95, blending:THREE.AdditiveBlending, depthWrite:false}));
+  dropPts.frustumCulled = false;
+  well.add(dropPts);
+  const slots = new Array(MAXD).fill(null);
+  let nextItem = 0, lastSpawn = -SPAWN_S;
+  const TOP_Y = 6.9;
+  const dropY = p => TOP_Y - (TOP_Y - WATER_Y - .06) * Math.pow(p, 1.6);  // gravity-ish
+  const dropEnv = p => Math.min(1, p/.06, (1-p)/.05);                     // fade in/out
+  const setDropColor = (i, item, env) => {
+    _c.setHex(TIERC[(SPEC_SRC[item.site]||{}).tier] || 0x6ea8d8).multiplyScalar(Math.max(0, env));
+    _c.toArray(dCol, i*3);
+  };
+  if (reduced && todays.length) {          // static drops along the fall instead of animation
+    const n = Math.min(8, todays.length);
+    for (let i = 0; i < n; i++) {
+      slots[i] = { item: todays[i], born: 0 };
+      dPos[i*3] = DROP_X; dPos[i*3+1] = dropY(.08 + .84*i/(n-1 || 1)); dPos[i*3+2] = 0;
+      setDropColor(i, todays[i], 1);
+    }
+    dGeo.attributes.position.needsUpdate = true;
+    dGeo.attributes.color.needsUpdate = true;
+  }
+
+  // hover a drop -> headline; click -> provenance card
+  const tipEl = document.getElementById('well-tip');
+  const ray = new THREE.Raycaster();
+  ray.params.Points.threshold = .2;
+  const ndc = new THREE.Vector2();
+  const pick = e => {
+    const r = canvas.getBoundingClientRect();
+    ndc.set(((e.clientX-r.left)/r.width)*2-1, -((e.clientY-r.top)/r.height)*2+1);
+    ray.setFromCamera(ndc, camera);
+    const hit = ray.intersectObject(dropPts)[0];
+    return hit && slots[hit.index] ? slots[hit.index].item : null;
+  };
+  canvas.addEventListener('pointermove', e => {
+    const item = pick(e);
+    canvas.style.cursor = item ? 'pointer' : '';
+    if (!item) { tipEl.style.opacity = 0; return; }
+    const src = SPEC_SRC[item.site] || {};
+    const t = item.title.length > 140 ? item.title.slice(0, 137) + '…' : item.title;
+    tipEl.innerHTML = `<b style="color:#${(TIERC[src.tier]||0x6ea8d8).toString(16).padStart(6,'0')}">` +
+      `${esc((src.label||item.site).toUpperCase())} · ${esc(src.tier||'')}</b><br>${esc(t)}`;
+    const hr = canvas.getBoundingClientRect();
+    tipEl.style.left = (e.clientX - hr.left) + 'px';
+    tipEl.style.top = (e.clientY - hr.top) + 'px';
+    tipEl.style.opacity = 1;
+  });
+  canvas.addEventListener('pointerleave', () => { tipEl.style.opacity = 0; });
+  let cdX = 0, cdY = 0;
+  canvas.addEventListener('pointerdown', e => { cdX = e.clientX; cdY = e.clientY; });
+  canvas.addEventListener('pointerup', e => {
+    if (Math.hypot(e.clientX-cdX, e.clientY-cdY) > 5) return;
+    const item = pick(e);
+    if (item) window.__openDrop?.(item, e);
   });
 
-  // arcs Moscow -> mirror
-  const origin = V(globe.origin.lat, globe.origin.lon);
-  const ARCC = {base:[.55,.22,.14,.10], cee:[.95,.42,.20,.30], highlight:[1,.29,.21,.75]};
-  const curves = [];
-  for (const m of globe.mirrors) {
-    if (m.domain === 'news-pravda.com') continue;
-    const end = V(m.lat, m.lon);
-    const dist = origin.distanceTo(end);
-    const mid = origin.clone().add(end).multiplyScalar(.5).normalize()
-      .multiplyScalar(R * (1.12 + dist * .28));
-    const curve = new THREE.QuadraticBezierCurve3(origin, mid, end);
-    curves.push({curve, tier:m.tier});
-    const pts = curve.getPoints(60);
-    const g = new THREE.BufferGeometry().setFromPoints(pts);
-    const [r_, g_, b_, a] = ARCC[m.tier];
-    world.add(new THREE.Line(g, new THREE.LineBasicMaterial({
-      color:new THREE.Color(r_, g_, b_), transparent:true, opacity:a,
-      blending:THREE.AdditiveBlending, depthWrite:false})));
-  }
-
-  // flowing particles along arcs
-  let pGeo, particles = [];
-  if (!reduced) {
-    for (const c of curves) {
-      const n = c.tier === 'highlight' ? 10 : c.tier === 'cee' ? 3 : (Math.random() < .35 ? 1 : 0);
-      for (let i = 0; i < n; i++)
-        particles.push({c:c.curve, t:Math.random(), s:.0016 + Math.random()*.0022});
-    }
-    pGeo = new THREE.BufferGeometry();
-    pGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(particles.length*3), 3));
-    world.add(new THREE.Points(pGeo, new THREE.PointsMaterial({
-      color:0xff6a50, size:.020, transparent:true, opacity:.9,
-      blending:THREE.AdditiveBlending, depthWrite:false})));
-  }
-
-  // orientation: face Budapest, offset globe right on wide screens
-  const bud = V(47.2, 19.4);
-  world.rotation.y = -Math.atan2(bud.x, bud.z) + .2;
-  const baseRotY = world.rotation.y;
-
-  // pointer drag + parallax
-  let dragging = false, px = 0, vel = 0, offY = 0, targX = 0;
+  // drag to spin, like the globe; gentle parallax from the pointer
+  let dragging = false, px = 0, vel = 0, offY = 0, ty = 0;
   canvas.addEventListener('pointerdown', e => { dragging = true; px = e.clientX; });
   addEventListener('pointerup', () => dragging = false);
   addEventListener('pointermove', e => {
     if (dragging) { vel = (e.clientX - px) * .004; offY += vel; px = e.clientX; }
-    targX = (e.clientY / innerHeight - .5) * .12;
+    ty = e.clientY/innerHeight - .5;
   });
 
-  // click a mirror node -> live mini-dossier (Phase B)
-  const ray = new THREE.Raycaster();
-  ray.params.Points.threshold = .04;
-  const ndc = new THREE.Vector2();
-  let cdX = 0, cdY = 0;
-  canvas.addEventListener('pointerdown', e => { cdX = e.clientX; cdY = e.clientY; });
-  canvas.addEventListener('pointerup', e => {
-    if (Math.hypot(e.clientX - cdX, e.clientY - cdY) > 5) return;
-    const r = canvas.getBoundingClientRect();
-    ndc.set(((e.clientX - r.left) / r.width) * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1);
-    ray.setFromCamera(ndc, camera);
-    const maxDist = camera.position.distanceTo(tilt.position); // near-hemisphere only
-    let best = null;
-    for (const rec of mirrorPickables)
-      for (const hit of ray.intersectObject(rec.points))
-        if (hit.distance < maxDist && (!best || hit.distanceToRay < best.hit.distanceToRay))
-          best = { hit, rec };
-    if (best) window.__openMirror?.(best.rec.list[best.hit.index], e);
-  });
+  // the draw cycle: the sweep dips, the bucket comes up tinted
+  const DIP = { start:7, period:50, down:2.4, hold:1.5, up:3 };
+  const ease = x => x < .5 ? 2*x*x : 1 - 2*(1-x)*(1-x);
+  const dipTheta = t => {
+    if (reduced || t < DIP.start) return 0;
+    const l = (t - DIP.start) % DIP.period;
+    if (l < DIP.down) return -.35 * ease(l/DIP.down);
+    if (l < DIP.down + DIP.hold) return -.35;
+    if (l < DIP.down + DIP.hold + DIP.up) return -.35 * (1 - ease((l-DIP.down-DIP.hold)/DIP.up));
+    return 0;
+  };
+  let tint = 0;
 
   const layout = () => {
     const w = canvas.clientWidth, h = canvas.clientHeight;
     renderer.setSize(w, h, false);
-    camera.aspect = w / h; camera.updateProjectionMatrix();
-    tilt.position.x = w > 760 ? .62 : 0;
-    tilt.position.y = w > 760 ? 0 : -.25;
+    camera.aspect = w/h; camera.updateProjectionMatrix();
+    // narrow portrait: shrink and lift the well into the sky band above the text
+    well.position.x = w > 760 ? 1.25 : 0;
+    well.position.y = w > 760 ? 0 : 3.6;
+    well.scale.setScalar(w > 760 ? 1 : .4);
   };
   layout(); addEventListener('resize', layout);
 
   const clock = new THREE.Clock();
+  window.__well = { beamG, camera, dPos, slots, well, DIP, pick, dropPts, ray }; // dev hook
   let visible = true;
   new IntersectionObserver(([e]) => {
     visible = e.isIntersecting;
@@ -1506,33 +1660,55 @@ try {
     // offscreen: canvas is visibility:hidden (see observer) and we stop painting —
     // an actively-rendering WebGL layer corrupts composited capture of the page
     if (!visible) return;
-    const t = clock.getElapsedTime();
+    const dt = Math.min(.06, clock.getDelta()), t = clock.elapsedTime;
+
     if (!dragging) { vel *= .95; offY += vel; }
-    world.rotation.y = baseRotY + offY + (reduced ? 0 : t * .022);
-    tilt.rotation.x += (.62 + targX - tilt.rotation.x) * .04;
-    rings.forEach((s, i) => {
-      const k = ((t * .8 + i * .33) % 1);
-      s.scale.setScalar(.04 + k * .10);
-      s.material.opacity = (1 - k) * .8;
-    });
-    if (pGeo) {
-      const arr = pGeo.attributes.position.array;
-      particles.forEach((p, i) => {
-        p.t += p.s; if (p.t > 1) p.t = 0;
-        p.c.getPoint(p.t, _v); _v.toArray(arr, i*3);
-      });
-      pGeo.attributes.position.needsUpdate = true;
+    well.rotation.y = offY + (reduced ? .4 : t * .07);
+    waterG.rotation.y = reduced ? 0 : -t * .18;
+
+    beamG.rotation.z = dipTheta(t);
+    setTip();
+    tint = beamG.rotation.z < -.33 ? Math.min(1, tint + dt*1.2) : Math.max(0, tint - dt*.1);
+    bucketMat.color.setRGB(1, 1, 1).lerp(_red, tint*.7);
+
+    if (!reduced && todays.length && t - lastSpawn > SPAWN_S) {
+      const free = slots.indexOf(null);
+      if (free >= 0) slots[free] = { item: todays[nextItem++ % todays.length], born: t };
+      lastSpawn = t;
     }
+    if (!reduced) {
+      for (let i = 0; i < MAXD; i++) {
+        const s = slots[i];
+        if (!s) { dPos[i*3+1] = -999; continue; }
+        const p = (t - s.born) / DUR_S;
+        if (p >= 1) { slots[i] = null; dPos[i*3+1] = -999; setDropColor(i, s.item, 0); continue; }
+        dPos[i*3] = DROP_X; dPos[i*3+1] = dropY(p); dPos[i*3+2] = 0;
+        setDropColor(i, s.item, dropEnv(p));
+      }
+      dGeo.attributes.position.needsUpdate = true;
+      dGeo.attributes.color.needsUpdate = true;
+    }
+    if (!reduced) {
+      for (let i = 0; i < 120; i++) {
+        const f = flyBase[i];
+        flyPos[i*3]   = f.x + Math.sin(t*.31 + f.p*2) * .5;
+        flyPos[i*3+1] = f.y + Math.sin(t*.53 + f.p) * .28;
+        flyPos[i*3+2] = f.z + Math.cos(t*.24 + f.p*3) * .5;
+      }
+      flyGeo.attributes.position.needsUpdate = true;
+    }
+
+    camera.position.y += (3.1 - ty*.7 - camera.position.y) * .04;
+    camera.lookAt(LOOK);
     renderer.render(scene, camera);
   });
-  var _v = new THREE.Vector3();
 } catch (err) {
-  console.error('WebGL unavailable, hiding globe:', err);
+  console.error('WebGL unavailable, hiding the well:', err);
   canvas.style.display = 'none';
 }
 
 /* ================= Act I chart ================= */
-window.__st.push('globe-done');
+window.__st.push('well-done');
 const svg = document.getElementById('chart');
 const NS = 'http://www.w3.org/2000/svg';
 const el = (n, at, parent) => {
