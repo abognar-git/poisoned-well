@@ -710,7 +710,7 @@
       well everyone now drinks from.</p>
   </div>
   <div id="coda-wrap">
-    <canvas id="coda-canvas" role="img" aria-label="Dotted night scene: the well far out on the plain, one slow drop at a time; a dog sits on the horizon, watching"></canvas>
+    <canvas id="coda-canvas" role="img" aria-label="Dotted night scene: the well alone on the plain at night, still working, one slow drop at a time"></canvas>
     <p class="pipe-note" style="margin-top:.8rem">The plain, tonight. <b data-claim="live-counters">The mirror
       published <span id="coda-n">—</span> articles today.</b> The deepfakes are gone. The drip has not stopped.</p>
   </div>
@@ -2395,7 +2395,7 @@ try {
     scn4.background = new THREE.Color(0x06080d);
     const cam4 = new THREE.PerspectiveCamera(40, 1, .1, 100);
     cam4.position.set(0, 1.75, 7.6);
-    const look4 = new THREE.Vector3(.15, 1.5, 0);
+    const look4 = new THREE.Vector3(.9, 1.5, 0);
     let comp4 = null;
     if (POSTFX) {
       comp4 = new POSTFX.EffectComposer(ren4);
@@ -2411,7 +2411,7 @@ try {
 
     // the well, full volumetric — identical anatomy to the hero, scaled down
     const wellC = new THREE.Group();
-    wellC.position.set(2.5, 0, -1.2);
+    wellC.position.set(1.35, 0, -1.2);
     wellC.scale.setScalar(.78);
     scn4.add(wellC);
     const PIVOT4 = new THREE.Vector3(0, 3.45, 0);
@@ -2559,11 +2559,6 @@ try {
       wellC.add(m);
     };
     shadow4(0, 0, 1.2, .95); shadow4(MX4, 0, 1.75, 1.4);
-    {
-      const m = new THREE.Mesh(new THREE.PlaneGeometry(1.9, 1.2), shMat4);
-      m.rotation.x = -Math.PI/2; m.position.set(-2.5, .012, 1.1);
-      scn4.add(m);
-    }
 
     // one slow drop, forever
     const dripGeo = new THREE.BufferGeometry();
@@ -2576,50 +2571,6 @@ try {
     drip.frustumCulled = false;
     wellC.add(drip);
 
-    // the witness: shaggy dog, dark against the plain, moonlit along its back
-    const dogG = new THREE.Group();
-    dogG.position.set(-2.5, 0, 1.1);
-    scn4.add(dogG);
-    {
-      // a sitting dog in side profile, facing the well. The silhouette has to
-      // read at ~100px, so the dog signals are exaggerated: pointed ear, clear
-      // muzzle and nose, curled tail, sloping back into a heavy haunch.
-      const raw = [
-        [-.55,0],[-.70,.10],[-.80,.30],[-.78,.52],[-.66,.58],[-.62,.44],
-        [-.58,.66],[-.46,.84],[-.28,.94],[-.12,1.00],
-        [-.02,1.12],[.02,1.30],[.12,1.16],[.22,1.20],[.34,1.14],
-        [.44,1.04],[.52,.98],[.50,.90],[.40,.88],[.30,.88],
-        [.24,.78],[.26,.60],[.30,.40],[.32,.18],[.36,0],
-        [.14,0],[.14,.24],[.04,.42],[-.10,.36],[-.26,.28],
-        [-.36,.14],[-.40,0],
-      ];
-      const DS = 1.3;
-      const shape = new THREE.Shape(raw.map(p => new THREE.Vector2(p[0]*DS, p[1]*DS)));
-      const dog = new THREE.Mesh(new THREE.ShapeGeometry(shape),
-        new THREE.MeshBasicMaterial({color:0x080c14}));
-      dog.renderOrder = -1;
-      dogG.add(dog);
-      // the coat: walk every edge and lay dense jittered dots along it, brightest
-      // along the moonlit back and head — a dotted contour, not a few vertices
-      const P = [], C = [];
-      for (let i = 0; i < raw.length; i++) {
-        const a = raw[i], b = raw[(i+1) % raw.length];
-        const ax = a[0]*DS, ay = a[1]*DS, bx = b[0]*DS, by = b[1]*DS;
-        const n = Math.max(3, Math.round(Math.hypot(bx-ax, by-ay) / .014));
-        for (let k = 0; k < n; k++) {
-          const u = k/n, x = ax + (bx-ax)*u, y = ay + (by-ay)*u;
-          const sh = .034;                                  // shaggy scatter
-          const px = x + (Math.random()-.5)*sh, py = y + (Math.random()-.5)*sh;
-          if (py < .004) continue;
-          P.push(px, py, .014 + (Math.random()-.5)*.02);
-          const up = py > .78*DS ? 1 : (py > .42*DS ? .68 : .38);
-          c4.copy(PAP4).multiplyScalar((.5 + Math.random()*.55) * up);
-          C.push(c4.r, c4.g, c4.b);
-        }
-      }
-      dogG.add(mk4(P, C, .05, .95));
-    }
-
     {  // the plain: dense dotted ground, brighter — it carries the scene
       const P = [], C = [];
       for (let i = 0; i < 3400; i++) {
@@ -2627,8 +2578,7 @@ try {
         const x = Math.cos(a)*r, z = Math.sin(a)*r - 1.6;
         P.push(x, 0, z);
         let b = .35 + .65*Math.max(0, 1 - r/24);
-        b *= Math.min(1, .3 + Math.hypot(x - 2.5, z + 1.2)*.35);             // well shadow
-        b *= Math.min(1, .45 + Math.hypot(x + 2.5, z - 1.1)*.6);             // dog shadow
+        b *= Math.min(1, .3 + Math.hypot(x - 1.35, z + 1.2)*.35);            // well shadow
         c4.setHex(0x3a4a66).multiplyScalar(b);
         C.push(c4.r, c4.g, c4.b);
       }
@@ -2679,7 +2629,7 @@ try {
       const narrow = w / h < 1.15;
       cam4.position.z = narrow ? 11.5 : 7.6;
       scn4.scale.setScalar(narrow ? .62 : 1);
-      scn4.position.x = narrow ? -.55 : 0;
+      scn4.position.x = narrow ? -.25 : 0;
     };
     layout4(); addEventListener('resize', layout4);
 
@@ -2731,7 +2681,6 @@ try {
           flyPos4[i*3+2] = f.z + Math.cos(t*.22 + f.p*3)*.5;
         }
         flyGeo4.attributes.position.needsUpdate = true;
-        dogG.scale.y = 1 + Math.sin(t*.75)*.006;   // breathing
       }
 
       cam4.position.x += ((reduced ? 0 : Math.sin(t*.045)*.5) - cam4.position.x) * .008;
