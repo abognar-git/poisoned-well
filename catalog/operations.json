@@ -902,7 +902,7 @@
       "end": "ongoing"
     },
     "ai_usage": [
-      "LLM-rewritten plagiarized news at scale (self-hosted Llama 3)",
+      "LLM-rewritten plagiarised news at scale via self-hosted uncensored Llama 3 derivatives (dolphin-2.9-llama3-8b, Llama-3-8B-Lexi-Uncensored) run through Ollama/Open WebUI — detected via leaked prompt artifacts, a Jan-2023 knowledge cutoff, and broken JSON left in published articles (Recorded Future)",
       "1,000+ fake journalist personas",
       "300+ fictional media sites created in 2025 alone"
     ],
@@ -954,7 +954,8 @@
         "url": "https://www.sgdsn.gouv.fr/files/files/Publications/20250507_TLP-CLEAR_NP_SGDSN_VIGINUM_Technical%20report_Storm-1516.pdf"
       }
     ],
-    "status": "verified"
+    "status": "verified",
+    "caveats": "The named Llama-3 stack is documented by Recorded Future for CopyCop generally; no source confirms it for the Hungary-targeting Storm-1516 sites specifically — do not present Llama-for-Hungary as established."
   },
   {
     "id": "openai-bad-grammar",
