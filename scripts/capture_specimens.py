@@ -84,6 +84,10 @@ TELEGRAM = {
     "tg-greatawaken":  ("greatawakeningmagyarok", "Great Awakening Magyars"),
     "tg-ebredes":      ("ebredes2017", "Awakening 2017"),
     "tg-rybar":        ("Rybar_HU", "Rybar — GRU-adjacent milblogger (HU)"),
+    # added after the flow diagram surfaced them among the mirror's most-credited feeders:
+    "tg-baltnews":     ("baltnews", "Baltnews — Baltic Rossiya Segodnya brand"),
+    "tg-lomovka":      ("lomovkaa", "Lomovka"),
+    "tg-zvezda":       ("zvezda_analytics", "Zvezda Analytics — MoD-linked"),
 }
 for sid, (chan, label) in TELEGRAM.items():
     SOURCES[sid] = {

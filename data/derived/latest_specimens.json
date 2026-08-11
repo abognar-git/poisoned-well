@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-08-11T09:34:32+00:00",
+  "captured_at": "2026-08-11T09:53:47+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -38,6 +38,24 @@
       "tier": "origin",
       "lang": "hu/ru",
       "attribution": "Russia-aligned Telegram channel (@Rybar_HU) — a documented laundering origin"
+    },
+    "tg-baltnews": {
+      "label": "Baltnews — Baltic Rossiya Segodnya brand",
+      "tier": "origin",
+      "lang": "hu/ru",
+      "attribution": "Russia-aligned Telegram channel (@baltnews) — a documented laundering origin"
+    },
+    "tg-lomovka": {
+      "label": "Lomovka",
+      "tier": "origin",
+      "lang": "hu/ru",
+      "attribution": "Russia-aligned Telegram channel (@lomovkaa) — a documented laundering origin"
+    },
+    "tg-zvezda": {
+      "label": "Zvezda Analytics — MoD-linked",
+      "tier": "origin",
+      "lang": "hu/ru",
+      "attribution": "Russia-aligned Telegram channel (@zvezda_analytics) — a documented laundering origin"
     }
   },
   "tiers": {
@@ -46,9 +64,122 @@
     "outlet": "primary propaganda sites"
   },
   "latest_day": "2026-08-11",
-  "today_live_count": 42,
-  "corpus_count": 111,
+  "today_live_count": 76,
+  "corpus_count": 130,
   "featured": [
+    {
+      "site": "tg-baltnews",
+      "id": "73187",
+      "date": "2026-08-11",
+      "category": "baltnews",
+      "title": "🇷🇺 Россия развивает аналог Starlink и одновременно подавляет его Норвежское издание Steigan сообщает, что Россия активно наращивает возможности в сфере спутниковой связи и радиоэлектронной б",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73186",
+      "date": "2026-08-11",
+      "category": "baltnews",
+      "title": "Глава МВД Литвы хочет ужесточить требования к знанию литовского языка Мартинас Кателинас считает, что для иностранцев надо установить требование выучить литовский язык до определенного уровн",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73185",
+      "date": "2026-08-11",
+      "category": "baltnews",
+      "title": "💥 Удары по Одессе разрушают миф о \"стальном еже\" Украины – аналитики Блокада портов Одессы становится переломным моментом, который ломает идею о том, что Украина способна стать \"стальным ежо",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73184",
+      "date": "2026-08-11",
+      "category": "baltnews",
+      "title": "В Латвии наконец-то решили заняться борьбой с нелегальной миграцией и перевозчиками беженцев По крайней мере, на словах. Премьер Андрис Кулбергс объявил сегодня об официальном старте операци",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73183",
+      "date": "2026-08-11",
+      "category": "baltnews",
+      "title": "‼️ В Алитусском районе Литвы могут объявить чрезвычайную ситуацию из-за скопившегося мусора Из региона не успевают вывозить отходы на переработку. В результате они копятся, приближаясь к кри",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73182",
+      "date": "2026-08-11",
+      "category": "baltnews",
+      "title": "Латвийцев заранее предупреждают о будущем налете украинских БПЛА С таким заявлением выступил латвийский аналитик Патрик Форс, который тут же обвинил во всем Москву. \"Один из сценариев предпо",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73181",
+      "date": "2026-08-11",
+      "category": "baltnews",
+      "title": "❗️ Будет тяжело – но блокаду прорвём. 🟠 Всем следящим за ходом спецоперации настоятельный совет- подписаться на важный канал «ПолитНавигатор»! 🟠 Честные новости и аналитика. Обстановка в тыл",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73180",
+      "date": "2026-08-11",
+      "category": "baltnews",
+      "title": "В Литве рекордный обвал рождаемости За первые шесть месяцев этого года рождено на 34% меньше детей, чем за аналогичный период годом ранее, сообщило Министерство юстиции. Сейчас появилось на ",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73179",
+      "date": "2026-08-11",
+      "category": "baltnews",
+      "title": "Страны Прибалтики суммарно не вносят и 1% вклада в экономику ЕС Согласно данным Eurostat, за 2025 совокупный ВВП Литвы составил 73,1 млрд евро (0,39% ВВП ЕС), Латвии – 42,8 млрд евро (0,23% ",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44432,
+      "date": "2026-08-11",
+      "category": "eu",
+      "title": "The \"Financial Abyss\": who in the EU will pay for Ukraine's new billion-dollar loans?",
+      "theme": "ukraine",
+      "source": {
+        "platform": "Telegram",
+        "channel": "ostashkonews"
+      }
+    },
+    {
+      "site": "newsfront-hu",
+      "id": null,
+      "date": "2026-08-11",
+      "category": "news-front",
+      "title": "Ukrajnában hihetetlen méreteket öltött a korrupció",
+      "theme": "ukraine",
+      "source": null
+    }
+  ],
+  "corpus": [
+    {
+      "site": "tg-baltnews",
+      "id": "73178",
+      "date": "2026-08-11",
+      "category": "baltnews",
+      "title": "Главное на утро 11 августа: ◽️ Вопрос о лишении права голоса Армении в ОДКБ может быть рассмотрен на саммите 11 ноября, заявил ТАСС замглавы МИД РФ Галузин; ◽️ Британия, Германия, Швеция и К",
+      "theme": "filler",
+      "source": null
+    },
     {
       "site": "tg-rybar",
       "id": "7276",
@@ -148,17 +279,6 @@
         "channel": null
       }
     },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-11",
-      "category": "news-front",
-      "title": "Ukrajnában hihetetlen méreteket öltött a korrupció",
-      "theme": "ukraine",
-      "source": null
-    }
-  ],
-  "corpus": [
     {
       "site": "pravda-hu",
       "id": 44425,
@@ -328,6 +448,213 @@
       "source": null
     },
     {
+      "site": "tg-zvezda",
+      "id": "25744",
+      "date": "2026-08-11",
+      "category": "zvezda_analytics",
+      "title": "Киев получит €90 млрд, а вот проценты оставят Европе. ЕС выдаёт Украине беспроцентный кредит на 2026–2027 годы: €30 млрд пойдут в бюджет, ещё €60 млрд — на оружие и развитие ВПК. Но бесплатн",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-zvezda",
+      "id": "25743",
+      "date": "2026-08-11",
+      "category": "zvezda_analytics",
+      "title": "Технологический предприниматель Мартин Варсавски и 5 состоятельных партнёров вложили почти $10 млн в ранчо Wamani — 32 тыс. га в аргентинской Мендосе, пишет Financial Times. Среди совладельц",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-zvezda",
+      "id": "25742",
+      "date": "2026-08-11",
+      "category": "zvezda_analytics",
+      "title": "ИИ Claude больше не сможет писать инкогнито Anthropic начала встраивать в тексты новых моделей невидимый водяной знак, сообщает Business Insider. Метка не меняет смысл и внешний вид текста, ",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-zvezda",
+      "id": "25741",
+      "date": "2026-08-11",
+      "category": "zvezda_analytics",
+      "title": "⚡️ Пораженные склады, логистические центры и завод: в Минобороны РФ рассказали об уничтоженных минувшей ночью военных объектах в Киеве и Запорожье. В Киеве поражены: ▪️ Терминал \"Новая почта",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-zvezda",
+      "id": "25740",
+      "date": "2026-08-11",
+      "category": "zvezda_analytics",
+      "title": "Сотрудник британской Radio Caroline во время техработ из любопытства запустил заранее записанный некролог Карла III. В эфире трижды объявили о смерти монарха, включили национальный гимн, пос",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-zvezda",
+      "id": "25739",
+      "date": "2026-08-11",
+      "category": "zvezda_analytics",
+      "title": "В Анкаре Трамп на глазах у телекамер поднялся на борт старого Air Force One, объяснив смену самолёта ностальгией. В действительности президента США спрятали в грузовике для бортового питания",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-zvezda",
+      "id": "25738",
+      "date": "2026-08-11",
+      "category": "zvezda_analytics",
+      "title": "Волонтёры Омской области отправили дополнительную помощь военнослужащим в зоне СВО Участники общественной организации из Омской области отправили дополнительную помощь военнослужащим, выполн",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "139839",
+      "date": "2026-08-11",
+      "category": "lomovkaa",
+      "title": "ВС РФ установили контроль над Щербаковкой Харьковской области и освободили населенный пункт Новое Поле Запорожской области, заявили в Минобороны. Собрали главное из нового брифинга ведомства",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "139838",
+      "date": "2026-08-11",
+      "category": "lomovkaa",
+      "title": "США истощили нефтяной резерв до исторического минимума. Стратегический нефтяной резерв США опустился ниже символической отметки в 300 млн баррелей и обновил минимум с 1983 года, сообщает CNB",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "139837",
+      "date": "2026-08-11",
+      "category": "lomovkaa",
+      "title": "BRICS ослабляет доллар без единой валюты. Как пишет Geopolitics Prime, объединение вовсе не обязано создавать себе новую «евро-версию», чтобы ослабить доллар. Достаточно убрать американского",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "139836",
+      "date": "2026-08-11",
+      "category": "lomovkaa",
+      "title": "В России 11 августа отмечается Рождество святителя Николая Чудотворца. Этот древний и почитаемый в христианском мире праздник в годы правления Екатерины II был упразднен и возродился в церко",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "139835",
+      "date": "2026-08-11",
+      "category": "lomovkaa",
+      "title": "«Эта атака будет добавлена к военным преступлениям, совершенным при полной поддержке западных лидеров». Член финской национально-консервативной партии «Альянс свободы» Армандо Мема осудил уд",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "139834",
+      "date": "2026-08-11",
+      "category": "lomovkaa",
+      "title": "Корабли ТОФ провели стрельбы по учебным целям в Охотском море. По данным пресс-службы Тихоокеанского флота, экипажи отработали полный алгоритм действий: артиллерия вела огонь по щитам-мишеня",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "139832",
+      "date": "2026-08-11",
+      "category": "lomovkaa",
+      "title": "ВС России ударили по логистике и военной базе Украины . Минобороны РФ сообщило о ночном ударе по объектам в Киеве и Запорожье, связанным с обеспечением украинской армии и производством военн",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "139831",
+      "date": "2026-08-11",
+      "category": "lomovkaa",
+      "title": "Россия полностью восстановила компетенции в сфере меганауки. По словам президента Курчатовского института Михаила Ковальчука, отечественная наука сумела сохранить главное — научные школы, бл",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "139830",
+      "date": "2026-08-11",
+      "category": "lomovkaa",
+      "title": "Подборка материалов зарубежных СМИ к утру 11 августа. Global Times (Китай): За первые пять месяцев 2026 года на электромобили китайского производства пришлось 14,2% продаж в Западной Европе,",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "139828",
+      "date": "2026-08-11",
+      "category": "lomovkaa",
+      "title": "Страны Персидского залива смирились с тем, что Иран контролирует Ормуз. По данным The Wall Street Journal, соседей Тегерана раздражает новый механизм прохода судов, но еще сильнее их пугает ",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "139827",
+      "date": "2026-08-11",
+      "category": "lomovkaa",
+      "title": "Российская армия нанесла массированный комбинированный удар по объектам на территории Украины. Под огнем оказались цели в Запорожье, Киеве, Павлограде и Николаеве. По сообщениям местных исто",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "139826",
+      "date": "2026-08-11",
+      "category": "lomovkaa",
+      "title": "ЛОМОВКА. ГЛАВНОЕ К 8:00 ▪️ Российская армия нанесла массированный комбинированный удар по объектам на территории Украины. ▪️ Российская Арктика становится альтернативным транспортным коридор",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "139825",
+      "date": "2026-08-11",
+      "category": "lomovkaa",
+      "title": "Украина больше не владеет собственными ресурсами для продолжения конфликта. Основные заявления замглавы МИД России Михаила Галузина: ▪️ Украина пытается расширить географию боевых действий, ",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "139824",
+      "date": "2026-08-11",
+      "category": "lomovkaa",
+      "title": "Медиаимперия Трампа теряет миллионы . По данным Bloomberg, убыток Trump Media & Technology Group Corp. во втором квартале достиг $238 млн — и это после того, как годом ранее минус составлял ",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "139823",
+      "date": "2026-08-11",
+      "category": "lomovkaa",
+      "title": "Немецкие власти толкают миллионы людей к бедности . В Германии разворачивается то, что в Левой партии уже назвали «исторически беспрецедентной атакой» на государство всеобщего благосостояния",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "139821",
+      "date": "2026-08-11",
+      "category": "lomovkaa",
+      "title": "Российская армия нанесла массированный комбинированный удар по объектам на территории Украины. Под огнем оказались цели в Запорожье, Киеве, Павлограде и Николаеве. По сообщениям местных исто",
+      "theme": "filler",
+      "source": null
+    },
+    {
       "site": "newsfront-hu",
       "id": null,
       "date": "2026-08-11",
@@ -451,6 +778,96 @@
       "category": "news-front",
       "title": "Vlagyimir putyin a teruletek elneptelenedese elfogadhatatlan oroszorszagban",
       "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73177",
+      "date": "2026-08-10",
+      "category": "baltnews",
+      "title": "Прибалтийские политики хвастаются \"рекордными инвестициями\" в оборонку. \"Иностранные вложения\" на поверку оказываются уплаченными самими же европейцами налогами и пенсиями Эстония, Литва и Л",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73176",
+      "date": "2026-08-10",
+      "category": "baltnews",
+      "title": "\"Особо озабоченный\" крымским вопросом скульптор чуть не попал в черный список ярмарки в Друскининкае Народный художник Айварас Норбутас имеет один интересный переклин: разговор с русскоязычн",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73175",
+      "date": "2026-08-10",
+      "category": "baltnews",
+      "title": "Литва и Латвия обладают одними из худших разведывательных служб в Европе Одно из французских СМИ выпустило материал, где проанализировала деятельность различных европейских спецслужб. Лидеро",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73174",
+      "date": "2026-08-10",
+      "category": "baltnews",
+      "title": "Литва выдвинула ультиматум Минску по освобождению \"политзаключенных\" в шестую годовщину протестов \"Литва призывает белорусский режим немедленно и безоговорочно освободить всех политзаключенн",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73173",
+      "date": "2026-08-10",
+      "category": "baltnews",
+      "title": "Латвийские СМИ радуются за будущего \"колониального чиновника\" Как восторженно сообщает издание, 18-летний Илья Полис из латвийской Балви в этом году окончил Инженерную среднюю школу Рижского",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73172",
+      "date": "2026-08-10",
+      "category": "baltnews",
+      "title": "👌 National Interest: коррупция — главное препятствие для Украины на пути в НАТО Американское издание напоминает, что новые члены альянса должны соответствовать стандартам, включая «низкий ур",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73171",
+      "date": "2026-08-10",
+      "category": "baltnews",
+      "title": "🧳 Европейцы массово едут в Россию Более 164 тысяч граждан Евросоюза въехали в Россию с начала 2026 года. Из них более 63 тысяч – жители Литвы, Латвии и Эстонии. Самыми частыми гостями из Евр",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73170",
+      "date": "2026-08-10",
+      "category": "baltnews",
+      "title": "Перед Тартуской тюрьмой уже реет шведский флаг, пишут эстонские СМИ Таким незамысловатым способом местные власти подтверждают передачу суверенитета шведским заключенным над эстонской тюрьмой",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73169",
+      "date": "2026-08-10",
+      "category": "baltnews",
+      "title": "Иран и США применили тактику \"войны шестого поколения\", считает профессор, доктор политических наук Игорь Панарин @igor_panarin \"В ходе конфликта по отражению агрессии США и Израиля, Иран пр",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73167",
+      "date": "2026-08-10",
+      "category": "baltnews",
+      "title": "«Моя Польша не бьёт»: бандеровцы напомнили Варшаве о цене собственной политики На прошедших выходных в Польше прошли акции против «ненависти к украинцам». Крупнейшая состоялась в Варшаве под",
+      "theme": "ukraine",
       "source": null
     },
     {
@@ -658,16 +1075,94 @@
       }
     },
     {
-      "site": "pravda-hu",
-      "id": 44406,
+      "site": "tg-zvezda",
+      "id": "25737",
       "date": "2026-08-10",
-      "category": "hungary",
-      "title": "On the basis of recent inflation data, the National Trade Association (OKSZ) again urges the elimination of the margin stop as soon as possible",
+      "category": "zvezda_analytics",
+      "title": "Друзья, по ссылкам доступны к просмотру и прослушиванию вчерашние эфиры! ⬇️ ⬇️ ⬇️ «СТРАТЕГИЯ НАЦИОНАЛЬНОЙ БЕЗОПАСНОСТИ» Анны Шафран Тема: Экономики нет, моря нет. Что осталось от украины Гос",
       "theme": "filler",
-      "source": {
-        "platform": "Telegram",
-        "channel": "greatawakeningmagyarok"
-      }
+      "source": null
+    },
+    {
+      "site": "tg-zvezda",
+      "id": "25736",
+      "date": "2026-08-10",
+      "category": "zvezda_analytics",
+      "title": "ОТ «ЗВЁЗДНЫХ ВОЙН» К КОММЕРЧЕСКОМУ КОСМОСУ ▪️ Как начиналось использование космических технологий для решения оборонных задач? ▪️ В чем отличие коммерческих космических систем от военных ▪️ ",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-zvezda",
+      "id": "25735",
+      "date": "2026-08-10",
+      "category": "zvezda_analytics",
+      "title": "ЭКОНОМИКИ НЕТ, МОРЯ НЕТ. ЧТО ОСТАЛОСЬ ОТ УКРАИНЫ ▪️ Какие объекты инфраструктуры Украины уничтожены за 40 дней. Почему для Киева это экономическая катастрофа ▪️ Почему Украина потеряла выход",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-zvezda",
+      "id": "25734",
+      "date": "2026-08-10",
+      "category": "zvezda_analytics",
+      "title": "Первый искусственный спутник Земли был запущен на орбиту Советским Союзом 4 октября 1957 года. А через два года США вывели на орбиту первый спутник-фоторазведчик. В ответ СССР разработал спу",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-zvezda",
+      "id": "25733",
+      "date": "2026-08-10",
+      "category": "zvezda_analytics",
+      "title": "Русская армия стремительно продвигается на всех участках фронта, что подтверждает принудительная эвакуация жителей из населённых пунктов Херсонской, Харьковской, Запорожской, Сумской и Черни",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-zvezda",
+      "id": "25732",
+      "date": "2026-08-10",
+      "category": "zvezda_analytics",
+      "title": "Камеры на британских морских дронах K3 Scout автоматически отправляли служебные сигналы на китайский IP-адрес, сообщает The Telegraph. Парк из 20 безэкипажных катеров стоимостью £12 млн испо",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-zvezda",
+      "id": "25731",
+      "date": "2026-08-10",
+      "category": "zvezda_analytics",
+      "title": "Киев становится электоральным балластом для Мелони. Перед выборами 2027 года премьер Италии возвращается к жёсткой риторике по миграции и безопасности. Справа её теснит бывший генерал и депу",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-zvezda",
+      "id": "25730",
+      "date": "2026-08-10",
+      "category": "zvezda_analytics",
+      "title": "Секреты Patriot Киеву не доверят США не готовы передать Украине полный цикл производства ракет для Patriot: в Вашингтоне опасаются, что технологии попадут в руки российских специалистов, пиш",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-zvezda",
+      "id": "25729",
+      "date": "2026-08-10",
+      "category": "zvezda_analytics",
+      "title": "Лондон сэкономил на молодёжи и теперь теряет £125 млрд в год. Более 1 млн молодых британцев не работают, не учатся и не проходят профподготовку. Это каждый 8-й житель страны в возрасте от 16",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-zvezda",
+      "id": "25728",
+      "date": "2026-08-10",
+      "category": "zvezda_analytics",
+      "title": "Женсовет центра радиоэлектронной борьбы изготовил маскировочные сети Женсовет Межвидового центра подготовки и боевого применения войск радиоэлектронной борьбы принял участие в акции по изгот",
+      "theme": "filler",
+      "source": null
     },
     {
       "site": "tg-greatawaken",
@@ -820,312 +1315,6 @@
       "category": "ebredes2017",
       "title": "Van-e, lehetséges-e magyar energia-önellátás? Többféle energiaforrás is rendelkezésünkre áll, ám felhasználásukhoz politikai szándék szükséges. Hajlandóak vagyunk-e több lábon álló nemzeti e",
       "theme": "hungary",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138755",
-      "date": "2026-08-10",
-      "category": "ebredes2017",
-      "title": "Dr. Hossó Andrea 17 ezer köszönet ❣️",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138754",
-      "date": "2026-08-10",
-      "category": "ebredes2017",
-      "title": "Akkor most ez Közel-keleti NATO? Ki ellen irányul? Valóban Irán ellen?A gyakorlatban igen: Bár a hivatalos diplomáciai kommunikáció szerint a szövetség „tisztán védelmi jellegű” és „egyetlen",
-      "theme": "eu/nato",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138753",
-      "date": "2026-08-10",
-      "category": "ebredes2017",
-      "title": "Hossó Andrea az Orbán rendszer bedöntésének tervéről, amelynek kidolgozásában Göncz Árpád unokája - Benedek Márton is részt vett. A liberális nyugat \"megcsinálta\" Ukrajnában Zelenszkijt, nál",
-      "theme": "hungary",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138752",
-      "date": "2026-08-10",
-      "category": "ebredes2017",
-      "title": "Tudósok mesterséges intelligenciával hoztak létre a természetben korábban nem ismert vírusokat - Stanford Egyetem - 🇺🇸 🌐 ”Új korszak kezdődhet a biológiában: amerikai kutatók mesterséges int",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138751",
-      "date": "2026-08-10",
-      "category": "ebredes2017",
-      "title": "Elképesztő módon rajzolódhatnak át világ erőviszonyai - 🌐 🌐 🌐 ”Unokáink világtérképe ismerős lesz, a világ erőviszonyai azonban aligha. Azok az országok, amelyek ma népességi és gazdasági ór",
-      "theme": "energy",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138750",
-      "date": "2026-08-10",
-      "category": "ebredes2017",
-      "title": "🇭🇺 Mia White 🇧🇾 🇷🇺 @MiaWhitemiller -- Ennyit hazudni!? De szégyenérzet 0",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138749",
-      "date": "2026-08-10",
-      "category": "ebredes2017",
-      "title": "Minden héten jönnek...De kiviszi mindig vissza? 🤔",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138748",
-      "date": "2026-08-10",
-      "category": "ebredes2017",
-      "title": "A „vizespohár”-hasonlat fontos igazságot világít meg a stressz, a teljesítmény és a tiszta gondolkodás összefüggéséről. A pohár súlya nem változik, ám minél tovább tartod a kezedben, annál n",
-      "theme": "energy",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138747",
-      "date": "2026-08-10",
-      "category": "ebredes2017",
-      "title": "További iparágspecifikus sátáni megalázás, vérrituálék. Hannah Einbinder és Gillian Anderson reklámozzák az új horrorfilmet, a \"Tizenéves szex és halál a Miasma táborban\" (2026).",
-      "theme": "hungary",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138746",
-      "date": "2026-08-10",
-      "category": "ebredes2017",
-      "title": "❗ Gabriel Attal, Emmanuel Macron pártjának elnökjelöltje panaszt tett, mert szerinte orosz dezinformációs kampány indult ellene a 2027-es francia elnökválasztás előtt. Attal jogászai szerint",
-      "theme": "hungary",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138745",
-      "date": "2026-08-10",
-      "category": "ebredes2017",
-      "title": "❗️ Kátai-Németh Vilmos jó vergődést kívánt, Máthé Zsuzsa alaposan helyre tette!",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138744",
-      "date": "2026-08-10",
-      "category": "ebredes2017",
-      "title": "Daniel Mayakovski @DaniMayakovski A Tóra azt mondja nekünk, hogy nem szabad könyörületet tanúsítanunk egyetlen lélek iránt sem, ez magában foglalja a gyerekeket is, ma még csecsemő, holnap h",
-      "theme": "energy",
-      "source": null
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-10",
-      "category": "news-front",
-      "title": "A német kancellár még próbál kapaszkodni a hatalomba",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-10",
-      "category": "news-front",
-      "title": "Der Spiegel: Ukrajna jelenleg nem exportál mezőgazdasági termékeket a Fekete-tengeren keresztül",
-      "theme": "ukraine",
-      "source": null
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-10",
-      "category": "news-front",
-      "title": "A dronok mint uzlet a haboruban miert valik ukrajna pilota nelkuli legi jarmuipara a korrupcioval osszefuggo szuperprofit forrasava",
-      "theme": "ukraine",
-      "source": null
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-10",
-      "category": "news-front",
-      "title": "A magyar dilemma europai vektor orosz ellatassal",
-      "theme": "hungary",
-      "source": null
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-10",
-      "category": "news-front",
-      "title": "Az energiavalsag mint a politikai dontes ara",
-      "theme": "energy",
-      "source": null
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-10",
-      "category": "news-front",
-      "title": "Politico augusztusban a nemet keszletek a foldalatti gaztarolok orszagos kapacitasanak 47 at tettek ki",
-      "theme": "energy",
-      "source": null
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-10",
-      "category": "news-front",
-      "title": "The wall street journal az a7 fizetesi halozat orosz foderacio kulkereskedelmi fizeteseinek kozel 20 at bonyolitja le",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7268",
-      "date": "2026-08-09",
-      "category": "Rybar_HU",
-      "title": "📝 A különleges katonai művelet krónikája 📝 2026. augusztus 9-re 🧨 Az orosz fegyveres erők egységei sorozatos, pontos csapásokat mértek ellenséges területen található célpontokra. Célpont vol",
-      "theme": "hungary",
-      "source": null
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7267",
-      "date": "2026-08-09",
-      "category": "Rybar_HU",
-      "title": "📝 A bázisoktól a kiképzőközpontokig 📝 A szíriai orosz katonai létesítmények jövőjéről Hónapokig tartó tárgyalások után úgy tűnik, hogy a szíriai orosz fegyveres erők létesítményeinek sorsa t",
-      "theme": "russia",
-      "source": null
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7266",
-      "date": "2026-08-09",
-      "category": "Rybar_HU",
-      "title": "📝 Alumínium nélkül maradt 📝 A Bloomberg figyelmeztet – az USA kockázatra helyezheti magát abban, hogy kifogy az a nagy tisztaságú alumínium, amelyre a védelmi iparban szükség van. Kiderült, ",
-      "theme": "hungary",
-      "source": null
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7265",
-      "date": "2026-08-09",
-      "category": "Rybar_HU",
-      "title": "📝 Kaliningrád vizsgálata 📝 Fontos megkülönböztetni a valós veszélyeket a képzelt veszélyektől. Gyakran vitatják az Oroszország által uralt, a balti tengerparton található terület potenciális",
-      "theme": "ukraine",
-      "source": null
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7264",
-      "date": "2026-08-09",
-      "category": "Rybar_HU",
-      "title": "📝 Tűzvészkatasztrófa 📝 Az európai erdőtüzek eddig közel félmillió hektárnyi területet pusztítottak el, és a becslések szerint a gazdaságra 15,6–19,1 milliárd eurós költséget okoztak. A júliu",
-      "theme": "hungary",
-      "source": null
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7262",
-      "date": "2026-08-08",
-      "category": "Rybar_HU",
-      "title": "📝 A különleges katonai művelet krónikája 📝 2026. augusztus 8-án 🧨 Az orosz erők támadást intéztek egy újabb hajó ellen az Odessza közelében, valamint raktárakat támadtak meg a Harkovi , a Ki",
-      "theme": "ukraine",
-      "source": null
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7261",
-      "date": "2026-08-08",
-      "category": "Rybar_HU",
-      "title": "📝 A vasúti infrastruktúra elhasználódott 📝 Csapások a vasúti járművekre Ukrajnában egyre több panasz érkezik. Ezúttal a vonatforgalom zavarai miatt. A jelentések szerint az elmúlt öt napban ",
-      "theme": "hungary",
-      "source": null
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7260",
-      "date": "2026-08-08",
-      "category": "Rybar_HU",
-      "title": "📝 Ukrán drónokhoz európai technológia 📝 Litvánia tervezi a drónok helyi gyártását az ukrán fegyveres erők számára. A Drone Deal keretmegállapodást Gitanas Nausėda és Volodimir Zelenszkij eln",
-      "theme": "hungary",
-      "source": null
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7259",
-      "date": "2026-08-08",
-      "category": "Rybar_HU",
-      "title": "📝 UKR LEAKS HU 📝 Az Igazság, Amiért El kellett Hagyni Ukrajnát ELHAGYTA UKRAJNÁT, HOGY ELMONDJA AZ IGAZSÁGOT. Vaszilij Prozorov, az ukrán titkosszolgálatok egykori munkatársa, aki 2014 óta O",
-      "theme": "ukraine",
-      "source": null
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7258",
-      "date": "2026-08-08",
-      "category": "Rybar_HU",
-      "title": "📝 Orosz befolyás a spanyol határon 📝 Ez még soha nem történt, és most újra itt vagyunk – a Rybar ellen állításokat fogalmazott meg egy médiatermék „propagandaháborúval” kapcsolatban, amely s",
-      "theme": "hungary",
-      "source": null
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7257",
-      "date": "2026-08-08",
-      "category": "Rybar_HU",
-      "title": "📝 Mesterséges intelligencia a falkához 📝 Tajvan továbbra is teszteli az amerikai fejlesztéseket. A hónap elején az amerikai Shield AI cég bemutatta első demonstrációját, melynek során a cég ",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-07",
-      "category": "news-front",
-      "title": "A globalis sajto megrendelt informaciokkal dolgozik",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-07",
-      "category": "news-front",
-      "title": "1962 nyaran az usa atombombat robbantott az urben",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-07",
-      "category": "news-front",
-      "title": "Az orosz erdekeltsegu nis sorsa dontheti el meddig tarthato belgrad tobbiranyu kulpolitikaja",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "newsfront-hu",
-      "id": null,
-      "date": "2026-08-07",
-      "category": "news-front",
-      "title": "Analitika politico washington es kijev hirszerzesi informaciocsere kapcsolata a korabbi csucsponton van",
-      "theme": "filler",
       "source": null
     }
   ]
