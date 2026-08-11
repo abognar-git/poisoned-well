@@ -30,9 +30,19 @@ jobs:
       - name: Derive summaries
         run: python scripts/derive_summaries.py
 
+      - name: Derive the analyses that read raw per-mirror data
+        run: |
+          python scripts/build_network.py
+          python scripts/derive_clock.py
+          python scripts/derive_peer_control.py
+          python scripts/derive_convergence.py
+
       - name: Capture live specimens (non-fatal if the mirror is unreachable)
         continue-on-error: true
         run: python scripts/capture_specimens.py
+
+      - name: Derive the source-diet analysis (needs the fresh capture)
+        run: python scripts/derive_diet.py
 
       - name: Validate catalog
         run: python scripts/check_catalog.py

@@ -117,7 +117,18 @@ def fetch(url: str) -> str:
 
 
 def clean(inner: str) -> str:
-    t = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", inner))).strip()
+    """Strip markup from captured HTML and normalise whitespace.
+
+    Order matters and was wrong here. Stripping tags BEFORE unescaping means a source
+    page containing &lt;img src=x onerror=...&gt; survives the strip as literal text and
+    is then unescaped back into live markup. Unescape first, strip second, then remove
+    any angle brackets that remain — everything this function touches is written by the
+    operations we document, so it is hostile input by definition.
+    """
+    t = html.unescape(inner)
+    t = re.sub(r"<[^>]*>", " ", t)          # markup, including anything unescaping revealed
+    t = t.replace("<", " ").replace(">", " ")  # stray brackets from truncated tags
+    t = re.sub(r"\s+", " ", t).strip()
     return re.sub(r"^\d{1,2}:\d{2}\s+", "", t)
 
 

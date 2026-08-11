@@ -22,8 +22,22 @@ CATALOG = ROOT / "catalog" / "operations.json"
 AI_PHASES = {"campaign", "post-campaign", "ongoing"}
 AI_TYPES = {"deepfake-video", "deepfake-audio", "ai-image", "ai-text", "ai-persona",
             "llm-grooming", "ai-tooling", "other"}
-PAGES = [ROOT / "site" / "prototype" / "index.html"]
+PAGES = [ROOT / "site" / "prototype" / "index.html",
+         ROOT / "site" / "prototype" / "explorer.html"]
 STATUSES = {"verified", "live-data", "assessment"}
+
+# The site never hyperlinks propaganda infrastructure: a link leaks the reader's
+# referrer to the adversary and feeds its inbound-link signal. Citing an operation
+# means citing the researchers who documented it, or our own generated data — never
+# the operation's own page. This gate exists because we broke the rule once.
+BLOCKED_HOSTS = re.compile(
+    r"://[^/]*\b("
+    r"news-pravda\.com|pravda-[a-z]{2}\.com|news-front\.su|newsfront\.info|"
+    r"rt\.com|sputnik(?:news)?\.[a-z]+|tass\.ru|ria\.ru|"
+    r"southfront\.|strategic-culture\.|geopolitika\.ru|t\.me"
+    r")", re.I)
+CATALOGS_TO_SCAN = ["claims.json", "operations.json", "glossary.json",
+                    "incidents.json", "ai_incidents.json"]
 
 
 def main() -> int:
@@ -100,8 +114,20 @@ def main() -> int:
         ph = Counter(a["phase"] for a in ai)
         print(f"{len(ai)} AI-usage incidents ({dict(ph)})")
 
+    # no catalog entry may carry a URL pointing at propaganda infrastructure
+    for name in CATALOGS_TO_SCAN:
+        f = ROOT / "catalog" / name
+        if not f.exists():
+            continue
+        for m in re.finditer(r'"url"\s*:\s*"([^"]+)"', f.read_text()):
+            if BLOCKED_HOSTS.search(m.group(1)):
+                errors.append(f"{name}: cites propaganda infrastructure directly: {m.group(1)} "
+                              f"— cite the researchers or our generated data instead")
+
     used = set()
     for page in PAGES:
+        if not page.exists():
+            continue
         html = page.read_text()
         used |= set(re.findall(r'data-claim="([a-z0-9-]+)"', html))
     unknown = used - set(ids)

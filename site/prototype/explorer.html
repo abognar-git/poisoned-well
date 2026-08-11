@@ -272,7 +272,11 @@
 <script>
 (async () => {
 const $ = id => document.getElementById(id);
-const esc = s => String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;');
+// escapes for text AND attribute position — see the note in index.html
+const esc = s => String(s ?? '')
+  .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+  .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+const safeUrl = u => /^https?:\/\//i.test(String(u || '')) ? String(u) : '';
 const fmt = n => Number(n).toLocaleString('en-US');
 const PAY = new Set(['hungary','ukraine','russia','eu/nato','energy']);
 const TIER_ORDER = ['origin','launderer','outlet'];
@@ -282,8 +286,8 @@ const tierOf = s => siteInfo(s.site).tier;
 let D, live;
 try {
   [D, live] = await Promise.all([
-    fetch('/data/derived/latest_specimens.json', {cache:'no-store'}).then(r=>r.json()),
-    fetch('/data/derived/live_status.json', {cache:'no-store'}).then(r=>r.json()).catch(()=>null),
+    fetch('../../data/derived/latest_specimens.json', {cache:'no-store'}).then(r=>r.json()),
+    fetch('../../data/derived/live_status.json', {cache:'no-store'}).then(r=>r.json()).catch(()=>null),
   ]);
 } catch { document.body.innerHTML = '<p style="padding:3rem;font-family:monospace">corpus unavailable</p>'; return; }
 
@@ -512,7 +516,7 @@ function render(){
 }
 
 /* ===== AI USAGE view (campaign & after) ===== */
-const AI = await fetch('/catalog/ai_incidents.json', {cache:'no-store'}).then(r=>r.json()).catch(()=>[]);
+const AI = await fetch('../../catalog/ai_incidents.json', {cache:'no-store'}).then(r=>r.json()).catch(()=>[]);
 const GEN = new Set(['deepfake-video','deepfake-audio','ai-image','ai-text','ai-persona']); // generative content vs grooming/tooling
 const aiState = { phase:'all', type:'all' };
 const PHASE_LABEL = { campaign:'during campaign', 'post-campaign':'after the vote', ongoing:'ongoing now' };
@@ -545,7 +549,7 @@ function aiRender(){
       <div><span class="type ${gen?'gen':''}">${esc(a.ai_type)}</span>
         <div class="t">${esc(a.title)}</div>
         ${a.what?`<div class="w">${esc(a.what.length>240?a.what.slice(0,240)+'…':a.what)}</div>`:''}
-        <a class="src" href="${esc(a.source.url)}" target="_blank" rel="noopener">▸ ${esc(a.source.publisher)}</a></div>
+        ${safeUrl(a.source.url) ? `<a class="src" href="${esc(safeUrl(a.source.url))}" target="_blank" rel="noopener noreferrer">▸ ${esc(a.source.publisher)}</a>` : `<span class="src">▸ ${esc(a.source.publisher)}</span>`}</div>
     </div>`;
   }).join('') || '<div class="empty">No AI incidents match.</div>';
 }

@@ -410,13 +410,17 @@
     "phase": "ongoing",
     "ai_type": "llm-grooming",
     "title": "Pravda network Hungarian mirror (hungary.news-pravda.com) still live, pushing anti-Magyar/pro-Kremlin narratives",
-    "what": "The Hungarian-language mirror of Russia's Pravda/'news-pravda' network is confirmed live and actively publishing as of 11 Aug 2026 (verified directly). Fresh articles dated 10-11 Aug 2026 attack EU policy and target new PM Peter Magyar (e.g. framing his stance on EU energy policy and the EUR 90bn EU loan to Ukraine). The Pravda network is not a bespoke-deepfake operation but a high-volume aggregation/laundering ecosystem whose documented strategic purpose is 'LLM grooming' — flooding the open web so its narratives are ingested into AI model training data and surfaced by chatbots.",
+    "what": "The Hungarian-language mirror of Russia's Pravda/'news-pravda' network is confirmed live and actively publishing, evidenced by this project's own server-side capture and CheckFirst's hourly dataset rather than by linking the mirror. Fresh articles dated 10-11 Aug 2026 attack EU policy and target new PM Peter Magyar (e.g. framing his stance on EU energy policy and the EUR 90bn EU loan to Ukraine). The Pravda network is not a bespoke-deepfake operation but a high-volume aggregation/laundering ecosystem whose documented strategic purpose is 'LLM grooming' — flooding the open web so its narratives are ingested into AI model training data and surfaced by chatbots.",
     "actor": "",
     "sponsor": "russia",
     "confidence": "confirmed",
     "source": {
-      "publisher": "hungary.news-pravda.com (live mirror, verified directly); network mapped by DFRLab & GLOBSEC",
-      "url": "https://hungary.news-pravda.com/en/"
-    }
+      "publisher": "CheckFirst — Pravda Network Data Collection (hourly); network mapped by DFRLab & GLOBSEC",
+      "url": "https://github.com/CheckFirstHQ/pravda-network"
+    },
+    "data_refs": [
+      "data/derived/live_status.json",
+      "data/derived/latest_specimens.json"
+    ]
   }
 ]

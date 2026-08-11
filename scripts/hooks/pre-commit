@@ -1,0 +1,21 @@
+#!/bin/sh
+# Runs both evidence gates before every commit.
+#
+# Install once:   git config core.hooksPath scripts/hooks
+#
+# This exists because the gates lived only in a scheduled workflow that could not fire
+# without a remote, so nothing actually checked anything. Two real errors reached the
+# published page before this hook existed — a miscounted source bucket and a false
+# "zero times" claim — and both would have been caught here.
+#
+# Bypass with --no-verify only when you know why.
+
+set -e
+
+echo "── check_catalog (schema, sources, smear fixtures)"
+python3 scripts/check_catalog.py
+
+echo "── check_claims (backing, blocklist, page references)"
+python3 scripts/check_claims.py
+
+echo "── gates green"

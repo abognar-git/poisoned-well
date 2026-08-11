@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<!-- Defence in depth. Everything this page renders from data/derived was written by the
+     operations it documents; the escaping in openEvidence is the real control, this is the
+     backstop. 'unsafe-inline' is required because the styles and module are inline in this
+     single-file prototype — it still blocks remote script, framing and form posts. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Poisoned Well — design-direction prototype</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -964,7 +969,7 @@
   </div>
 </footer>
 
-<script type="importmap">{"imports":{"three":"/site/prototype/vendor/three.module.js"}}</script>
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
 <script>
   // dev instrumentation: module progress + uncaught errors (remove for production)
   window.__st = ['boot'];
@@ -980,10 +985,10 @@ const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* ================= data ================= */
 const dget = u => fetch(u, { cache: 'no-store' }).then(r => r.json());
 const [live, timeline, summary, spec] = await Promise.all([
-  dget('/data/derived/live_status.json'),
-  dget('/data/derived/pravda_timeline.json'),
-  dget('/data/derived/pravda_summary.json'),
-  dget('/data/derived/latest_specimens.json').catch(() => null),  // drop stream in the hero well
+  dget('../../data/derived/live_status.json'),
+  dget('../../data/derived/pravda_timeline.json'),
+  dget('../../data/derived/pravda_summary.json'),
+  dget('../../data/derived/latest_specimens.json').catch(() => null),  // drop stream in the hero well
 ]);
 const HU = live.mirrors['hungary.news-pravda.com'];
 const SPEC_SRC = spec?.sources || {};
@@ -1011,15 +1016,25 @@ document.getElementById('today-fig').textContent = HU.articles_latest_day;
    the claim's entry from catalog/claims.json (validated by check_claims.py). */
 const jget = u => fetch(u, { cache: 'no-store' }).then(r => r.json());
 const [claims, cases, glossary, disarm] = await Promise.all([
-  jget('/catalog/claims.json').catch(() => []),
-  jget('/catalog/operations.json').catch(() => []),
-  jget('/catalog/glossary.json').catch(() => []),
-  jget('/catalog/disarm_techniques.json').catch(() => ({})),
+  jget('../../catalog/claims.json').catch(() => []),
+  jget('../../catalog/operations.json').catch(() => []),
+  jget('../../catalog/glossary.json').catch(() => []),
+  jget('../../catalog/disarm_techniques.json').catch(() => ({})),
 ]);
 const claimById = Object.fromEntries(claims.map(c => [c.id, c]));
 const caseById = Object.fromEntries(cases.map(c => [c.id, c]));
 let evCard = null;
 function closeEvidence() { if (evCard) { evCard.remove(); evCard = null; } }
+// Escapes for BOTH text and attribute position. The old version handled only & and <,
+// while esc() is used inside href="" and title="" throughout — a quote in scraped
+// propaganda would have broken out of the attribute. Everything the capture pipeline
+// collects is adversary-authored, so this is load-bearing, not hygiene.
+const esc = s => String(s ?? '')
+  .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+// only ever emit links we would follow ourselves
+const safeUrl = u => /^https?:\/\//i.test(String(u || '')) ? String(u) : '';
+
 function openEvidence(c, btn) {
   closeEvidence();
   evCard = document.createElement('div');
@@ -1028,14 +1043,22 @@ function openEvidence(c, btn) {
                'live-data': 'LIVE DATA · GENERATED FROM SOURCE',
                assessment: 'RESEARCH ASSESSMENT · ATTRIBUTED' }[c.status] || c.status;
   let html = `<button class="close" aria-label="close">×</button>` +
-             `<div class="status ${c.status}">${st}</div><div class="claim">${c.claim}</div>`;
+             `<div class="status ${esc(c.status)}">${esc(st)}</div>` +
+             `<div class="claim">${esc(c.claim)}</div>`;
   for (const s of c.support) {
-    if (s.type === 'source')
-      html += `<a class="src" href="${s.url}" target="_blank" rel="noopener">▸ <b>${s.publisher}</b> — ${s.title || s.url}${s.date ? ' · ' + s.date : ''}</a>`;
-    else
-      html += `<span class="src">▸ <b>generated</b> from ${s.data_ref}${s.note ? ' — ' + s.note : ''}</span>`;
+    if (s.type === 'source') {
+      const href = safeUrl(s.url);
+      const label = `▸ <b>${esc(s.publisher)}</b> — ${esc(s.title || s.url)}` +
+                    `${s.date ? ' · ' + esc(s.date) : ''}`;
+      html += href
+        ? `<a class="src" href="${esc(href)}" target="_blank" rel="noopener noreferrer">${label}</a>`
+        : `<span class="src">${label}</span>`;
+    } else {
+      html += `<span class="src">▸ <b>generated</b> from ${esc(s.data_ref)}` +
+              `${s.note ? ' — ' + esc(s.note) : ''}</span>`;
+    }
   }
-  if (c.caveat) html += `<div class="caveat">${c.caveat}</div>`;
+  if (c.caveat) html += `<div class="caveat">${esc(c.caveat)}</div>`;
   evCard.innerHTML = html;
   document.body.appendChild(evCard);
   const r = btn.getBoundingClientRect(), cw = evCard.offsetWidth, chh = evCard.offsetHeight;
@@ -1065,7 +1088,6 @@ const CONF = {
   unattributed: {n: 1, color: '#8b93a3', label: 'UNATTRIBUTED — origin unknown'},
 };
 const drawer = document.getElementById('case-drawer');
-const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;');
 function confMeter(level) {
   const c = CONF[level] || CONF.unattributed;
   return `<span class="conf c${c.n}" style="--conf-color:${c.color}" title="${c.label}">` +
@@ -1170,7 +1192,7 @@ document.querySelectorAll('.cf-open').forEach(b =>
 
 /* ================= Act II network scene (Phase D) ================= */
 try {
-  const net = await fetch('/data/derived/network_graph.json').then(r => r.json());
+  const net = await fetch('../../data/derived/network_graph.json').then(r => r.json());
   const NTYPE = {
     sponsor:   { color: 0xb388d9, size: .085, label: true,  lop: .9 },
     actor:     { color: 0xffa04d, size: .07,  label: true,  lop: .85 },
@@ -1418,7 +1440,7 @@ try {
   try {
     // reuse the copy the hero already fetched — this file is ~57KB and was being
     // pulled twice (once for the well's drop stream, once here)
-    DATA = spec || await jget('/data/derived/latest_specimens.json');
+    DATA = spec || await jget('../../data/derived/latest_specimens.json');
     if (!DATA?.featured?.length) throw 0;
     ALL = [...DATA.featured, ...(DATA.corpus || [])];
     capturedAt = DATA.captured_at;
@@ -1439,7 +1461,7 @@ try {
 
 /* ================= Act III campaign timeline ================= */
 {
-  const incidents = await jget('/catalog/incidents.json').catch(() => []);
+  const incidents = await jget('../../catalog/incidents.json').catch(() => []);
   const spine = document.getElementById('act3-spine');
   const MON = ['', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const fmtDate = d => {
@@ -1555,7 +1577,7 @@ setTimeout(async () => {
 
 /* ---- V·i peer control: the Hungarian mirror against its six siblings ---- */
 {
-  const PC = await jget('/data/derived/peer_control.json').catch(() => null);
+  const PC = await jget('../../data/derived/peer_control.json').catch(() => null);
   const host = document.getElementById('peer-chart');
   if (!PC || !host) { const w = document.getElementById('peers'); if (w) w.style.display = 'none'; }
   else {
@@ -1615,7 +1637,7 @@ setTimeout(async () => {
 
 /* ---- what the collapse was made of: per-day rates, never shares alone ---- */
 {
-  const DT = await jget('/data/derived/source_diet.json').catch(() => null);
+  const DT = await jget('../../data/derived/source_diet.json').catch(() => null);
   const host = document.getElementById('diet-rows');
   if (DT && host) {
     const shown = DT.sources.filter(s => s.baseline_per_day > 1 || s.after_per_day > 1);
@@ -1656,7 +1678,7 @@ setTimeout(async () => {
 
 /* the mirror's own category filing — generated, never typed */
 {
-  const CK = await jget('/data/derived/mirror_clock.json').catch(() => null);
+  const CK = await jget('../../data/derived/mirror_clock.json').catch(() => null);
   const el = document.getElementById('cat-hu');
   if (CK && el) el.textContent = (CK.categories.about_target_share * 100).toFixed(1) + '%';
 }
@@ -1666,7 +1688,7 @@ setTimeout(async () => {
    scripts/derive_convergence.py. Nothing is typed: the shared-technique cards,
    the provenance bar and the sample-size caveat all move when the catalog moves. */
 {
-  const CV = await jget('/data/derived/convergence.json').catch(() => null);
+  const CV = await jget('../../data/derived/convergence.json').catch(() => null);
   const wrap = document.getElementById('grammar');
   if (!CV) { if (wrap) wrap.style.display = 'none'; }
   else {

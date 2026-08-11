@@ -1,0 +1,46 @@
+name: validate
+
+# The gates that were previously only reachable from the scheduled refresh — which
+# cannot run without a remote, and so had never run at all. Every push and every pull
+# request now re-derives from committed data and fails on:
+#   * a catalog entry missing required fields, enums or sources
+#   * a rendered data-claim with no backing in the registry
+#   * a catalog URL pointing at propaganda infrastructure
+#   * a regression in the personal-smear filter
+#   * a derived file that does not match what the scripts produce from the catalog
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate catalog (includes the smear-filter fixtures)
+        run: python scripts/check_catalog.py
+
+      - name: Validate claims, blocklist and page references
+        run: python scripts/check_claims.py
+
+      # These read only committed inputs (the catalog, and data/raw where present),
+      # so they must be reproducible. If a derived file drifts from its generator,
+      # the site is rendering figures nobody can regenerate.
+      - name: Re-derive catalog-only outputs
+        run: |
+          python scripts/build_network.py
+          python scripts/derive_convergence.py
+
+      - name: Fail if committed derived data drifted from its generator
+        run: |
+          if ! git diff --stat --exit-code -- data/derived; then
+            echo "::error::data/derived is out of date — re-run the derive scripts and commit"
+            git diff -- data/derived | head -60
+            exit 1
+          fi

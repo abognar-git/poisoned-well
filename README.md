@@ -49,11 +49,26 @@ data/
 python3 scripts/fetch_pravda.py
 python3 scripts/fetch_frameworks.py
 python3 scripts/derive_summaries.py
+python3 scripts/build_network.py         # Act III graph
+python3 scripts/derive_clock.py          # category mix + the clock null result
+python3 scripts/derive_peer_control.py   # Act V.i: the six sibling mirrors as a control
+python3 scripts/capture_specimens.py     # live 3-tier capture (network access)
+python3 scripts/derive_diet.py           # what the post-election collapse was made of
+python3 scripts/derive_convergence.py    # Act V.ii: domestic/Russian technique overlap
 python3 scripts/check_catalog.py
 python3 scripts/check_claims.py
 ```
 
-Python 3.11+, stdlib only. `git` required for the two shallow clones.
+Python 3.11+, stdlib only. `git` required for the two shallow clones. `derive_diet.py`
+must run after `capture_specimens.py` — it cross-checks the mirror's credited sources
+against our own live scrape of those same channels.
+
+**Install the gates locally** (they run on every push via `.github/workflows/validate.yml`,
+and this makes them run before every commit too):
+
+```
+git config core.hooksPath scripts/hooks
+```
 
 ## Live data
 
