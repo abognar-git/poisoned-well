@@ -130,6 +130,18 @@ def main() -> int:
             continue
         html = page.read_text()
         used |= set(re.findall(r'data-claim="([a-z0-9-]+)"', html))
+    # every inline term affordance must resolve to a glossary entry, or the reader gets
+    # a dotted underline that explains nothing — same contract as data-claim
+    gloss_ids = {t.get("id") for t in json.loads(GLOSSARY.read_text())}
+    terms_used = set()
+    for page in PAGES:
+        if page.exists():
+            terms_used |= set(re.findall(r'data-term="([a-z0-9-]+)"', page.read_text()))
+    for t in sorted(terms_used - gloss_ids):
+        errors.append(f"page references unknown glossary term: {t}")
+    if terms_used:
+        print(f"{len(terms_used)} inline term definitions, all resolving")
+
     unknown = used - set(ids)
     unused = set(ids) - used
     for u in sorted(unknown):

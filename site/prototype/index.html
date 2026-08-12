@@ -152,6 +152,24 @@
     border-radius:2px; padding:.08em .3em; margin-left:.35em; vertical-align:super;
     cursor:pointer; opacity:.85; pointer-events:auto;
   }
+
+  /* Term affordance. Deliberately NOT another § — that marker promises "here is the
+     evidence for this claim"; a dotted underline promises "here is what this word means".
+     Different promise, different signal, and no extra glyphs on a page already carrying 45. */
+  .term{
+    font:inherit; color:inherit; background:none; border:none; padding:0;
+    border-bottom:1px dotted var(--analyst); cursor:help; pointer-events:auto;
+  }
+  .term:hover{border-bottom-style:solid; color:var(--analyst)}
+
+  /* The page had no focus styles at all — a keyboard user could not see where they were,
+     on any of the 45 markers, 24 case cards or the drawer. */
+  :focus-visible{outline:2px solid var(--analyst); outline-offset:2px; border-radius:2px}
+  .cite:focus-visible, .term:focus-visible{outline-offset:3px}
+  .term-card .term-status{color:var(--amber); border-color:rgba(217,160,91,.4)}
+  .term-card .aliases{font-family:"IBM Plex Mono",monospace; font-size:.62rem; line-height:1.7;
+    letter-spacing:.04em; color:var(--amber); margin:.5rem 0 .7rem}
+  .term-card .tdef{font-family:"Newsreader",serif; font-size:.9rem; line-height:1.6; color:var(--paper)}
   .cite:hover{opacity:1; border-color:var(--analyst)}
   #evidence-card{
     position:fixed; z-index:95; max-width:24rem; background:#0c111a;
@@ -623,7 +641,7 @@
     </div></div>
     <div class="step" data-step="4"><div class="card">
       <span class="n">I·5 — WHERE IT COMES FROM</span>
-      <p>The mirror writes nothing. It <b data-claim="laundering">launders</b> — scraping fringe Hungarian-language Telegram channels
+      <p>The mirror writes nothing. It <b data-claim="laundering"><span data-term="pravda-network">launders</span></b> — scraping fringe Hungarian-language Telegram channels
       and Russian state outlets, re-publishing them as clean, crawlable "news" with
       <b data-claim="alternates-28">an average of 2.8 language versions per article.</b></p>
       <div class="cf-links"><button class="cf-open" data-case="llm-grooming-measurement">case file: LLM grooming, measured</button></div>
@@ -637,7 +655,7 @@
     <h2>What they published today</h2>
     <p>Not a claim that it is still running — proof. A sample from the latest server-side capture of
        documented Hungary-targeting pro-Kremlin sources, one from each tier of the laundering chain —
-       Telegram origin, Pravda mirror, sanctioned outlet. Shown as evidence; deliberately not linked.</p>
+       Telegram origin, Pravda mirror, <span data-term="news-front">sanctioned outlet</span>. Shown as evidence; deliberately not linked.</p>
   </div>
   <div id="specimens" data-claim="live-specimens">
     <div class="spec-head">
@@ -711,8 +729,9 @@
   <div class="act-divider" style="padding:7rem 2rem 2.5rem">
     <div class="no">ACT IV</div>
     <h2>How propaganda reaches the machines</h2>
-    <p>Five hops from a fringe Telegram post to an AI assistant's answer.
-       Every hop is evidence-backed — click the § markers.</p>
+    <p>Five stages from a fringe Telegram post to an AI assistant's answer — the process
+       researchers call <span data-term="llm-grooming">LLM grooming</span>.
+       Every stage is evidence-backed — click the § markers.</p>
   </div>
   <div id="drink-wrap">
     <canvas id="drink-canvas" role="img" aria-label="Dotted vignette: crawler drones descend to the well, drink, and leave carrying a red tint"></canvas>
@@ -766,7 +785,7 @@
       <div class="vfact"><div class="big" data-claim="cheap-fakes-dominate">7×</div>
         <div class="lbl">more common than AI content in 2024 US misinformation: ordinary 'cheap fakes'.</div></div>
       <div class="vfact warn"><div class="big" data-claim="ai-share-rising">+259%</div>
-        <div class="lbl">year-on-year rise in AI-enabled FIMI incidents (EEAS, 2025). Adoption is real and accelerating.</div></div>
+        <div class="lbl">year-on-year rise in AI-enabled <span data-term="fimi">FIMI</span> incidents (EEAS, 2025). Adoption is real and accelerating.</div></div>
     </div>
 
     <p class="vkicker">The deepfakes were a campaign event. <em>Poisoning the AI layer is the ongoing threat.</em></p>
@@ -853,10 +872,10 @@
       <div class="gtier">
         <div class="tlbl">The clearest case</div>
         <p class="gq" data-claim="convergence-not-coordination">The conscription lie was built twice.</p>
-        <p class="gnote">Storm-1516 pushed it through six purpose-built websites and Facebook ads reaching
+        <p class="gnote"><span data-term="storm-1516">Storm-1516</span> pushed it through six purpose-built websites and Facebook ads reaching
           over 20,000 Hungarians. Separately, Fidesz's youth wing clipped a general's video to strip the
           words "today, the situation in Hungary is not such that" — and the truncated quote went into a
-          government pamphlet to pensioners, then into a National Resistance Movement AI video. Two
+          government pamphlet to pensioners, then into a <span data-term="nem">National Resistance Movement</span> AI video. Two
           production lines, one fabrication, and — in the source's own words — <b>no evidence that Fidesz
           is behind the Russian campaign.</b></p>
         <div class="cf-links"><button class="cf-open" data-case="conscription-frame-convergence-2026">case file: the conscription frame</button>
@@ -1084,7 +1103,50 @@ document.querySelectorAll('[data-claim]').forEach(el => {
   el.appendChild(btn);
   btn.addEventListener('click', e => { e.stopPropagation(); openEvidence(c, btn); });
 });
-addEventListener('click', e => { if (evCard && !evCard.contains(e.target) && !e.target.classList.contains('cite')) closeEvidence(); });
+
+/* ---- term cards: resolve jargon where the reader meets it ----
+   The glossary sits at 89% depth, so "LLM grooming" was being used ~18,000px before it
+   was defined. These mark FIRST USE only, and resolve to catalog/glossary.json — the same
+   file the glossary section renders from, so nothing is written twice. Aliases lead the
+   card: at first encounter the reader's question is "is this the same thing as that other
+   name?", which is exactly what the glossary exists to answer. */
+const termById = Object.fromEntries(glossary.map(t => [t.id, t]));
+function openTerm(t, btn) {
+  closeEvidence();
+  evCard = document.createElement('div');
+  evCard.id = 'evidence-card';
+  evCard.className = 'term-card';
+  let html = `<button class="close" aria-label="close">×</button>` +
+             `<div class="status term-status">TERM · AS THIS SITE USES IT</div>` +
+             `<div class="claim">${esc(t.term)}</div>`;
+  if (t.aliases && t.aliases.length)
+    html += `<div class="aliases">= ${t.aliases.map(esc).join(' &nbsp;·&nbsp; ')}</div>`;
+  html += `<div class="tdef">${esc(t.definition)}</div>`;
+  if (t.sources && t.sources.length)
+    html += t.sources.map(s => {
+      const href = safeUrl(s.url);
+      const label = `▸ <b>${esc(s.publisher || s.title || s.url)}</b>`;
+      return href ? `<a class="src" href="${esc(href)}" target="_blank" rel="noopener noreferrer">${label}</a>`
+                  : `<span class="src">${label}</span>`;
+    }).join('');
+  evCard.innerHTML = html;
+  document.body.appendChild(evCard);
+  const r = btn.getBoundingClientRect(), cw = evCard.offsetWidth, chh = evCard.offsetHeight;
+  evCard.style.left = Math.min(Math.max(8, r.left), innerWidth - cw - 8) + 'px';
+  evCard.style.top = (r.bottom + chh + 16 < innerHeight ? r.bottom + 8 : Math.max(8, r.top - chh - 8)) + 'px';
+  evCard.querySelector('.close').addEventListener('click', closeEvidence);
+}
+document.querySelectorAll('[data-term]').forEach(el => {
+  const t = termById[el.dataset.term];
+  if (!t) return;                       // check_claims.py fails the build if this happens
+  const btn = document.createElement('button');
+  btn.className = 'term';
+  btn.textContent = el.textContent;
+  btn.setAttribute('aria-label', `what "${t.term}" means`);
+  el.replaceChildren(btn);
+  btn.addEventListener('click', e => { e.stopPropagation(); openTerm(t, btn); });
+});
+addEventListener('click', e => { if (evCard && !evCard.contains(e.target) && !e.target.classList.contains('cite') && !e.target.classList.contains('term')) closeEvidence(); });
 addEventListener('keydown', e => { if (e.key === 'Escape') { closeEvidence(); closeCase(); } });
 
 /* ================= case-file drawer (Phase B) ================= */
