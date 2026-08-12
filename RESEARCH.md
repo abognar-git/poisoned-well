@@ -36,7 +36,7 @@ to see them, and because each one is a lesson about the pipeline.
 
 | # | Claim as published | What the data says | Commit |
 |---|---|---|---|
-| 1 | "The Russian-institutional layer carries the recovery" | The three *collapsed* channels supply **102% of the rebound** (+69.0 of +67.7/day); institutional feeds contribute **−0.1**. Their share of output goes 68% → 33% → **63%** **[V]** | `fef305a` |
+| 1 | "The Russian-institutional layer carries the recovery" | The three *collapsed* channels supply **102% of the rebound** (+69.0 of +67.7/day) — more than all of it, so everything else nets **−1.3/day**. Their share of output goes 68% → 33% → **63%** **[V]** | `fef305a` |
 | 2 | "The mirror changed what it eats" (live cross-check) | Invalid comparison. Our capture harvests only the `/en/` surface; the census counts all languages (hu 98,110 > en 80,259). On the capture days the census shows those channels credited in **60–77%** of articles **[V]** | `fef305a` |
 | 3 | "No surge for the election it was aimed at" | March 2026 (269.6/day) is the mirror's **highest month in its entire series**. Only the *difference* survives: +24.0% vs peer mean +12.4% **[V]** | `fef305a` |
 | 4 | "What the two do share is a grammar" (technique overlap) | Observed overlap **4**; expected by chance **5.00** (45-technique pool) or **6.25** (36 used). At or *below* chance **[V]** | `55193a9` |

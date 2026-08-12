@@ -32,15 +32,23 @@ jobs:
       # These read only committed inputs (the catalog, and data/raw where present),
       # so they must be reproducible. If a derived file drifts from its generator,
       # the site is rendering figures nobody can regenerate.
+      - name: Verify the README against the data it describes
+        run: python scripts/check_readme.py
+
       - name: Re-derive catalog-only outputs
         run: |
           python scripts/build_network.py
           python scripts/derive_convergence.py
+          python scripts/derive_research.py
+          python scripts/make_figures.py
 
-      - name: Fail if committed derived data drifted from its generator
+      # research.json is parsed from RESEARCH.md, and the figures are drawn from
+      # data/derived. If either drifts, the site shows corrections and charts that
+      # nobody can regenerate — which is the failure this project already had once.
+      - name: Fail if committed derived data or figures drifted from their generators
         run: |
-          if ! git diff --stat --exit-code -- data/derived; then
-            echo "::error::data/derived is out of date — re-run the derive scripts and commit"
-            git diff -- data/derived | head -60
+          if ! git diff --stat --exit-code -- data/derived docs/figures; then
+            echo "::error::data/derived or docs/figures is out of date — re-run the derive scripts and commit"
+            git diff -- data/derived docs/figures | head -60
             exit 1
           fi
