@@ -869,15 +869,18 @@
 
       <div class="gtier">
         <div class="tlbl">Counted · single digits, so no percentages</div>
-        <p class="gq" data-claim="shared-grammar">What the two do share is a grammar. These are the techniques
-          recorded on <em>both</em> sides — each card names every case it was recorded in.</p>
+        <p class="gq" data-claim="shared-grammar">We tested whether the two sides share method, and
+          <em>they do not — not measurably.</em> Four techniques appear on both sides, but two unrelated
+          sets this size overlap by about that much anyway. These are the four; the test is below them.</p>
         <div id="tech-shared"></div>
         <p class="gnote" id="tech-only"></p>
-        <p class="gnote"><b>What this is not.</b> Shared technique is not shared command. With
-          <span id="tech-n">—</span> tagged domestic cases, a single tagging decision moves the share by
-          roughly <span id="tech-pp">—</span> points, and cases whose sponsorship is unresolved are counted
-          on neither side. There is no convergence score on this page, because any single number here would
-          be read as a measure of coordination — which is precisely what this evidence cannot support.</p>
+        <p class="gnote" id="chance-note"></p>
+        <p class="gnote"><b>What this is not.</b> Shared technique would not have been shared command in
+          any case. With <span id="tech-n">—</span> tagged domestic cases, a single coder and no
+          inter-rater check, a single tagging decision moves the share by roughly
+          <span id="tech-pp">—</span> points. There is no convergence score on this page, because any
+          single number here would be read as a measure of coordination — which is precisely what this
+          evidence cannot support.</p>
       </div>
 
       <div class="gtier">
@@ -1905,6 +1908,14 @@ setTimeout(async () => {
       `<b>Recorded only on the domestic side:</b> ` +
       T.domestic_only.map(d => esc(d.name)).join(' · ') +
       ` — which is what a government has that a foreign operator does not.`;
+    const cb = T.chance_baseline.map(c =>
+      `${c.expected_overlap} if drawn at random from the ${c.size} ${esc(c.universe)}`).join(', or ');
+    document.getElementById('chance-note').innerHTML =
+      `<b>The test.</b> Two sets of ${T.domestic_technique_n} and ${T.russian_union_n} techniques ` +
+      `overlap by ${cb} — against <b>${T.shared.length} observed</b>. The overlap is at or below what ` +
+      `chance produces, so on this evidence there is <b>no measurable shared method</b>. We report it ` +
+      `as a null rather than dropping the section: the four named techniques are still what both sides ` +
+      `were recorded doing, and that is worth showing — it just is not a finding.`;
     document.getElementById('tech-n').textContent = T.domestic_n;
     document.getElementById('tech-pp').textContent = Math.round(T.points_per_technique);
 

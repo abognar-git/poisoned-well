@@ -106,7 +106,22 @@
    }
   ],
   "share_of_domestic": 0.4444,
-  "points_per_technique": 11.1
+  "points_per_technique": 11.1,
+  "chance_baseline": [
+   {
+    "universe": "catalog technique pool",
+    "size": 45,
+    "expected_overlap": 5.0
+   },
+   {
+    "universe": "techniques used by any case",
+    "size": 36,
+    "expected_overlap": 6.25
+   }
+  ],
+  "exceeds_chance": false,
+  "result": "null",
+  "reading": "The overlap is not larger than two unrelated sets of this size would produce by chance. With 3 domestic and 8 Russian-attributed tagged cases, and a single coder, these data cannot support a claim that the two sides share method. Reported as a null."
  },
  "provenance_audit": {
   "mirror": "hungary.news-pravda.com",

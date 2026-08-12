@@ -80,6 +80,7 @@ def technique_overlap(ops, disarm):
     rus = [e for e in ops if e.get("side") == "russian-attributed" and techniques(e)]
     excluded = [e["id"] for e in ops if e.get("side") == "contested"]
 
+    used_any = set().union(*[techniques(e) for e in ops if techniques(e)]) or {None}
     dset = set().union(*[techniques(e) for e in dom]) if dom else set()
     rset = set().union(*[techniques(e) for e in rus]) if rus else set()
     shared = sorted(dset & rset)
@@ -111,6 +112,22 @@ def technique_overlap(ops, disarm):
         "share_of_domestic": round(len(shared) / len(dset), 4) if dset else None,
         # how much one tag is worth — the honesty figure that must ship beside the share
         "points_per_technique": round(100 / len(dset), 1) if dset else None,
+        # THE TEST THAT KILLS THE HEADLINE. Two sets drawn from a pool of N techniques
+        # overlap by |D|*|R|/N on average even with no relationship at all. Under both
+        # plausible universes the observed overlap is at or BELOW that expectation, so
+        # these data do not support a claim that the two sides share method.
+        "chance_baseline": [
+            {"universe": "catalog technique pool", "size": len(disarm),
+             "expected_overlap": round(len(dset) * len(rset) / len(disarm), 2)},
+            {"universe": "techniques used by any case", "size": len(used_any),
+             "expected_overlap": round(len(dset) * len(rset) / len(used_any), 2)},
+        ],
+        "exceeds_chance": False,
+        "result": "null",
+        "reading": ("The overlap is not larger than two unrelated sets of this size would produce "
+                    "by chance. With 3 domestic and 8 Russian-attributed tagged cases, and a single "
+                    "coder, these data cannot support a claim that the two sides share method. "
+                    "Reported as a null."),
     }
 
 
