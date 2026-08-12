@@ -37,6 +37,12 @@ RAW = ROOT / "data" / "raw" / "pravda" / "json"
 OUT = ROOT / "data" / "derived" / "peer_control.json"
 
 TARGET = "hungary"
+# The control group is the seven country mirrors aimed at this region: same network, same
+# infrastructure, comparable target news cycles. The full 101-domain manifest is NOT a
+# like-for-like control (it mixes language, sub-national and thematic mirrors) — it is a
+# volatility reference distribution, and analyse_network.py is what uses it. Pinning the
+# panel here keeps this file reproducible no matter how much of the manifest has been fetched.
+REGIONAL = ["hungary", "slovakia", "romania", "moldova", "czechia", "deutsch", "poland"]
 ELECTION = "2026-04-12"
 BASELINE = ["2026-02", "2026-03"]   # the two full months before the vote
 AFTER = ["2026-05", "2026-06"]      # the two full months after it
@@ -47,6 +53,8 @@ def main() -> int:
     for f in sorted(RAW.glob("*_viz.json")):
         d = json.loads(f.read_text())
         key = d["domain"].split(".")[0]
+        if key not in REGIONAL:
+            continue
         mon = defaultdict(list)
         for x in d["articlesPerDay"]:
             mon[x["date"][:7]].append(x["count"])
@@ -181,10 +189,14 @@ def main() -> int:
             "peer_n": len(peers),
         },
         "reading": (
-            "Against its six siblings the Hungarian mirror shows no disproportionate campaign "
-            "surge — it rose into March 2026 as the network did — and then fell by about two "
-            "thirds in the two months after the election was lost, a move no sibling made. It "
-            "has since recovered most of the way back."),
+            "Against its six siblings the Hungarian mirror rose into the campaign faster than the "
+            "network did: March 2026 is the highest month in its entire series and its "
+            "February-to-March rise was roughly double the peer mean, though every sibling rose "
+            "too, so the surge was larger here rather than unique to here. It then fell by about "
+            "two thirds in the two months after the election was lost, a move no sibling made, "
+            "and has since recovered most of the way back. The fall does not begin at the "
+            "election; see `timing`. Its size is not exceptional against this mirror's own "
+            "history; see `placebo`."),
         "cannot_show": (
             "Cause. The control rules out a network-wide or seasonal effect, but it cannot "
             "distinguish an operational decision from a disruption in the upstream Telegram "

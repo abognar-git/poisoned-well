@@ -576,6 +576,16 @@
   @media (prefers-reduced-motion: reduce){
     .live-dot,.scroll-cue{animation:none}
   }
+  /* the rewritten H1 runs longer than the old one; keep it clear of the header
+     and of the live block on short viewports */
+  .hero-copy--long{ padding-top: 3.2rem }
+  .hero-copy--long h1{ font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1.04 }
+  .hero-copy--long .dek{ max-width: 34rem }
+  @media (max-height: 860px){
+    .hero-copy--long{ padding-top: 2.2rem }
+    .hero-copy--long h1{ font-size: clamp(1.75rem, 3.9vw, 2.7rem) }
+    .hero-copy--long .dek{ font-size: .92rem; line-height: 1.55 }
+  }
 </style>
 </head>
 <body>
@@ -587,19 +597,21 @@
 <div id="thread" aria-hidden="true"></div>
 
 <section id="hero">
-  <canvas id="well-canvas" aria-label="Dotted illustration of a Hungarian sweep-pole well; falling dots are articles captured live today" role="img"></canvas>
+  <canvas id="well-canvas" aria-label="Dotted illustration of a Hungarian sweep-pole well. Each falling dot is one item from the latest server-side capture; the red tint in the water scales with the mirror's all-time article count." role="img"></canvas>
   <div id="well-tip"></div>
-  <div class="hero-copy">
-    <div class="kicker">Propaganda, written for machines</div>
-    <h1>They stopped writing for <em>people.</em></h1>
-    <p class="dek">A Russian network of <b data-claim="net-101-mirrors">101 fake news mirrors</b> publishes around the clock —
-      researchers assess it is built less to be read than to be <b data-claim="ai-audience-aim">learned from</b> by the AI systems
-      everyone now asks for the truth. This is how it reached Hungary.</p>
+  <div class="hero-copy hero-copy--long">
+    <div class="kicker">The Hungarian mirror · hungary.news-pravda.com</div>
+    <h1>It has published almost every day for two years, and written <em>none of it.</em></h1>
+    <p class="dek">It is one of <b data-claim="net-101-mirrors">101 country- and language-targeted mirrors</b> of a
+      Russian network that France's VIGINUM attributes to Moscow. It employs no journalists:
+      it <b data-claim="laundering">republishes fringe Hungarian-language Telegram channels and Russian state outlets</b>
+      as clean, crawlable news. This is what it did through Hungary's April 2026 election, and what it kept doing
+      afterwards.</p>
   </div>
   <div class="live-block">
     <div class="live-row"><span class="live-dot"></span><span>LIVE · HUNGARY.NEWS-PRAVDA.COM</span></div>
     <div class="live-num" id="counter">0</div>
-    <div class="live-sub" id="live-sub" data-claim="live-counters">machine-generated articles from this one Hungary-targeting mirror — a firehose of filler and pro-Kremlin narrative, not reporting about Hungary</div>
+    <div class="live-sub" id="live-sub" data-claim="live-counters">articles published by this one Hungary-targeting mirror since March 2024. <span data-claim="category-mix">By its own section labels only 4.0% are filed under Hungary at all</span>; the bulk is world filler and Russia.</div>
     <div class="live-cap" id="well-cap" data-claim="live-specimens"><span id="well-cap-txt"></span></div>
     <div class="marker-key"><b>§</b> evidence for a claim &nbsp;·&nbsp;
       <span class="k-term">dotted terms</span> what a word means</div>
@@ -609,10 +621,11 @@
 
 <div class="act-divider">
   <div class="no">ACT I</div>
-  <h2>The machine that never sleeps</h2>
+  <h2>A newsroom with no newsroom</h2>
   <p><span data-claim="mirror-created">On 20 March 2024, a domain called <span class="mono" style="color:var(--signal)">pravda-hu.com</span> was registered.
      It publishes today as <span class="mono" style="color:var(--signal)">hungary.news-pravda.com</span> — the network's Hungarian mirror.</span>
-     No journalists. No office. Almost no readers. It has not stopped publishing since.</p>
+     <span data-claim="laundering">It has no newsroom and files no reporting of its own</span>, and it has published on
+     <span data-claim="live-counters"><b><span id="act1-active">—</span> of the <span id="act1-span">—</span> days</b> since</span>.</p>
 </div>
 
 <section id="scrolly">
@@ -630,8 +643,10 @@
       <p>No human newsroom works like this. It peaks at
       <span class="fig" data-claim="peak-712">712 articles in one day</span>. And by its own filing,
       <b data-claim="category-mix">only <span id="cat-hu">4.0%</span> of it is about Hungary at all</b> —
-      the rest is world filler and Russia. Researchers argue the bet isn't that Hungarians
-      will read it — it's that <b data-claim="ai-audience-aim">search engines and AI models will.</b></p>
+      the rest is world filler and Russia. <span data-claim="ai-audience-aim">Researchers who have audited the network
+      read that shape — vast output, almost no readers — as a bet on search engines and AI models rather than on
+      Hungarian readers. It is their assessment of the design, and a peer-reviewed test has since disputed how far
+      the effect generalises.</span></p>
     </div></div>
     <div class="step" data-step="2"><div class="card">
       <span class="n">I·3 — THE ELECTION</span>
@@ -644,17 +659,19 @@
       </div>
     </div></div>
     <div class="step" data-step="3"><div class="card">
-      <span class="n">I·4 — THE VOTE THAT CHANGED NOTHING</span>
-      <p><span data-claim="election-outcome">Orbán lost. The government changed.</span>
-      <span data-claim="ops-debunked">The campaigns were debunked.</span> And the mirror?
-      <b>It published <span class="fig" id="today-fig">—</span> articles <span data-claim="today-count" id="today-day">—</span>.</b>
-      The election may never have been the endgame.</p>
+      <span class="n">I·4 — AFTER THE VOTE</span>
+      <p><span data-claim="election-outcome">Orbán lost and the government changed</span>, and
+      <span data-claim="ops-debunked">the influence campaigns were judged largely ineffective — most fabrications were
+      pre-empted or debunked within days</span>. The mirror's own output fell by nearly two thirds over the following
+      two months, then climbed back; it <b>published <span class="fig" id="today-fig">—</span> articles
+      <span data-claim="today-count" id="today-day">—</span></b>, and it is still publishing now.</p>
     </div></div>
     <div class="step" data-step="4"><div class="card">
       <span class="n">I·5 — WHERE IT COMES FROM</span>
-      <p>The mirror writes nothing. It <b data-claim="laundering">launders</b> — scraping fringe Hungarian-language Telegram channels
-      and Russian state outlets, re-publishing them as clean, crawlable "news" with
-      <b data-claim="alternates-28">an average of 2.8 language versions per article.</b></p>
+      <p>The mirror writes nothing of its own. It <b data-claim="laundering">launders</b>: it takes fringe Hungarian-language
+      Telegram channels and Russian state outlets and re-publishes them as clean, crawlable "news", carrying
+      <b data-claim="alternates-28">an average of 2.8 language versions per article</b> so the same item is reachable in
+      several languages at once.</p>
       <div class="cf-links"><button class="cf-open" data-case="llm-grooming-measurement">case file: LLM grooming, measured</button></div>
     </div></div>
   </div>
@@ -664,7 +681,8 @@
   <div class="act-divider" style="padding:6rem 2rem 2rem">
     <div class="no">EVIDENCE · LIVE</div>
     <h2>What they published today</h2>
-    <p>Not a claim that it is still running — proof. A sample from the latest server-side capture of
+    <p>These are items we fetched ourselves, so the reader does not have to take the publication rate on trust.
+       A sample from the latest server-side capture of
        documented Hungary-targeting pro-Kremlin sources, one from each tier of the laundering chain —
        Telegram origin, Pravda mirror, <span data-term="news-front">sanctioned outlet</span>. Shown as evidence; deliberately not linked.</p>
   </div>
@@ -683,8 +701,9 @@
         Woven through it, in clean Hungarian-readable form, is the payload —
         <b data-claim="laundering">Russian state media and pro-Kremlin channels, republished as "news"</b>:
         ministry interviews, anti-EU and anti-Ukraine talking points. The categories above
-        (<span class="cats">eu · russia · hungary</span>) mark where that framing concentrates;
-        <span class="cats">world</span> is the cover it travels under.</p>
+        (<span class="cats">eu · russia · hungary</span>) are the mirror's own section labels rather than an analysis of
+        ours, and they are where that framing concentrates; <span class="cats">world</span> is where the bulk of the
+        undifferentiated filler sits.</p>
     </div>
     <p class="spec-note" id="spec-note"></p>
   </div>
@@ -703,12 +722,14 @@
   </div>
   <div id="splash-wrap">
     <canvas id="splash-canvas" role="img" aria-label="Dotted vignette: a canister tips into the well, a red bloom spreads, the ripples still, a residue remains"></canvas>
-    <p class="pipe-note" style="margin-top:.8rem">The deepfakes were one loud splash — seen, <b data-claim="ops-debunked">debunked</b>,
-      and after the vote the generative surge <b data-claim="ai-faded">receded</b>. The surface stilled.
-      What dissolved, stayed in the water.</p>
+    <p class="pipe-note" style="margin-top:.8rem">The deepfakes were the loud part of it: they were seen, they were
+      <b data-claim="ops-debunked">debunked</b>, and after the vote the generative surge
+      <b data-claim="ai-faded">receded</b>. What had already been published stayed published, and the mirror that
+      published it never stopped.</p>
   </div>
   <div id="act3-spine"></div>
-  <p class="pipe-note" style="margin-top:0">Every incident here is drawn from a verified case file.</p>
+  <p class="pipe-note" style="margin-top:0">Every incident here is drawn from a case file whose sources have been
+     re-checked; attribution confidence is stated separately on each one, and ranges from confirmed to contested.</p>
 </section>
 
 <!-- Act III: the infrastructure network graph (section id kept as act2 for its JS/CSS) -->
@@ -739,20 +760,22 @@
 <section id="mechanism">
   <div class="act-divider" style="padding:7rem 2rem 2.5rem">
     <div class="no">ACT IV</div>
-    <h2>How propaganda reaches the machines</h2>
-    <p>Five stages from a fringe Telegram post to an AI assistant's answer — the process
-       researchers call <span data-term="llm-grooming">LLM grooming</span>.
-       Every stage is evidence-backed — click the § markers.</p>
+    <h2>How this content reaches the crawlers</h2>
+    <p>Five stages from a fringe Telegram post to an AI assistant's answer, the process researchers call
+       <span data-term="llm-grooming">LLM grooming</span>. The first three stages are measured in this repository;
+       the last two are documented by outside audits and are marked as assessments. We have run no model-side test
+       of our own, and the § markers say which is which.</p>
   </div>
   <div id="drink-wrap">
     <canvas id="drink-canvas" role="img" aria-label="Dotted vignette: crawler drones descend to the well, drink, and leave carrying a red tint"></canvas>
-    <p class="pipe-note" style="margin-top:.8rem">Nobody in the village drinks straight from the well anymore —
-      <b data-claim="crawl-contamination">the crawlers do.</b> They arrive neutral, drink, and leave carrying
-      what settled in the water. What they carry becomes answers.</p>
+    <p class="pipe-note" style="margin-top:.8rem">Almost nobody reads the well directly;
+      <b data-claim="crawl-contamination">the crawlers do</b>, and roughly 40,000 of the network's English-language
+      articles have been documented sitting in Common Crawl, one of the corpora models are built from. What no one has
+      traced is a specific article travelling from this mirror into a specific answer.</p>
   </div>
   <div class="pipe">
     <div class="pnode"><div class="pico">✉</div><div class="pt">FRINGE TELEGRAM</div>
-      <div class="ps" data-claim="laundering"><span id="pipe-tg">37,859</span> articles lifted from a single channel</div></div>
+      <div class="ps" data-claim="laundering"><span id="pipe-tg">37,859</span> articles credited to a single channel</div></div>
     <div class="pflow"></div>
     <div class="pnode hot"><div class="pico">▣</div><div class="pt">THE MIRROR</div>
       <div class="ps" data-claim="live-counters"><span id="pipe-total">139,376</span> articles · still publishing</div></div>
@@ -764,14 +787,14 @@
       <div class="ps" data-claim="crawl-contamination">content documented in web-crawl corpora</div></div>
     <div class="pflow"></div>
     <div class="pnode"><div class="pico">▷</div><div class="pt">CHATBOT ANSWERS</div>
-      <div class="ps" data-claim="ai-audience-aim">audits: falsehoods repeated ~33% of the time</div></div>
+      <div class="ps" data-claim="chatbot-trend">NewsGuard audits: 33% on this network's claims (2025), ~28% overall by 2026</div></div>
   </div>
 
   <div style="max-width:44rem; margin:3rem auto 0; padding:0 2rem">
     <div class="pt" style="text-align:center; margin-bottom:.4rem" data-claim="chatbot-trend">
       SHARE OF NEWS FALSEHOODS REPEATED BY LEADING CHATBOTS · NEWSGUARD AUDITS</div>
     <svg id="grooming-chart" viewBox="0 0 640 210" role="img"
-      aria-label="Chatbot falsehood-repetition rate rose from 18% in 2024 to a 35% peak in 2025, then fell back to ~28% in 2026"></svg>
+      aria-label="NewsGuard's audit of the share of news falsehoods repeated by leading chatbots: 18% in 2024, peaking at 35% in 2025, falling back to about 28% in 2026. A separate peer-reviewed test found far lower rates on data-void prompts; the size of the effect is contested."></svg>
     <p class="pipe-note" style="margin-top:.8rem; font-size:.84rem">The rate climbed as models stopped refusing to answer,
       peaked in 2025, then fell back to ~28% in 2026 — and a peer-reviewed test found far lower rates on data-void prompts.
       The signal is real; its size is contested.</p>
@@ -782,12 +805,16 @@
   <div class="act-divider" style="padding:7rem 2rem 2.5rem">
     <div class="no">ACT V</div>
     <h2>What the evidence honestly shows</h2>
-    <p>The uncomfortable ending comes in two halves. For all the machinery, no one has shown it swings
-       votes — and the campaign that leaned hardest on it lost.</p>
+    <p>Two things are true at once, and the second does not follow from the first.
+       <span data-claim="no-swing">No study has yet demonstrated that AI-enabled disinformation measurably changed
+       the result of any election</span>, and the campaign that used AI most heavily in Hungary lost. Losing is not
+       evidence that the machinery failed, and a null result is not an all-clear; what follows is what this evidence
+       will and will not carry.</p>
   </div>
   <div class="verdict">
-    <p class="lead">That campaign was <span data-claim="ai-omnipresent">aimed at keeping Viktor Orbán
-      in power, and it lost.</span> <em>What follows is what the evidence will and will not carry about why.</em></p>
+    <p class="lead">It was a campaign in which <span data-claim="ai-omnipresent">EDMO assessed generative AI to be
+      "omnipresent"</span>, it was aimed at keeping Viktor Orbán in power, and
+      <span data-claim="election-outcome">it lost.</span></p>
     <div class="vfacts">
       <div class="vfact"><div class="big" data-claim="no-swing">0</div>
         <div class="lbl">elections shown to be measurably swung by AI disinformation, in any study to date.</div></div>
@@ -796,10 +823,11 @@
       <div class="vfact"><div class="big" data-claim="cheap-fakes-dominate">7×</div>
         <div class="lbl">more common than AI content in 2024 US misinformation: ordinary 'cheap fakes'.</div></div>
       <div class="vfact warn"><div class="big" data-claim="ai-share-rising">+259%</div>
-        <div class="lbl">year-on-year rise in AI-enabled <span data-term="fimi">FIMI</span> incidents (EEAS, 2025). Adoption is real and accelerating.</div></div>
+        <div class="lbl">year-on-year rise in AI-enabled <span data-term="fimi">FIMI</span> incidents recorded by the
+          EEAS in 2025, which found AI in 27% of the 540 incidents it catalogued.</div></div>
     </div>
 
-    <p class="vkicker">The deepfakes were a campaign event. <em>Poisoning the AI layer is the ongoing threat.</em></p>
+    <p class="vkicker" data-claim="grooming-ongoing">The deepfakes were a campaign event. <em>Poisoning the AI layer is the ongoing threat.</em></p>
 
     <div class="vsplit">
       <div class="then">
@@ -812,17 +840,21 @@
       <div class="now">
         <div class="lbl">The poisoning — still running</div>
         <p><span class="big" data-claim="grooming-ongoing">still running</span>
-          <span data-claim="ai-audience-aim">The machine that writes for machines never stopped.</span>
-          <span data-claim="grooming-ongoing">The network published more in 2025 than 2024, its mirror still attacks
-          the new government, and through mid-2026 chatbots keep surfacing its narratives.</span></p>
+          <span data-claim="grooming-ongoing">The mirror never stopped, and the network published more in 2025
+          (~6.3M articles) than in 2024 (~3.6M). Its Hungarian mirror still attacks the new government, and through
+          mid-2026 audits kept finding chatbots surfacing Russian state and sanctioned-outlet content.</span>
+          <span data-claim="ai-audience-aim">Whether that content reaches those answers by way of mirrors like this
+          one is the researchers' assessment, and it is the part nobody has yet traced end to end.</span></p>
       </div>
     </div>
     <div id="peers">
       <div class="ph">
         <div class="lbl">V · i — The control group</div>
-        <p>The network runs one mirror per country. That hands us something we could not otherwise
-           buy: six sibling mirrors on the same infrastructure, over the same months, with no
-           Hungarian election. So we can ask whether what the Hungarian mirror did, the network did.</p>
+        <p>The network runs one mirror per country, which gives this study something a single case normally cannot
+           have: six sibling mirrors on the same infrastructure over the same months, none of them facing a Hungarian
+           election. So we can ask whether what the Hungarian mirror did, the network did too. The six are not
+           interchangeable with it — they launched at different dates, in different languages, into different news
+           cycles — so they bound the answer rather than settle it.</p>
       </div>
       <div id="peer-chart"></div>
       <p class="gnote" id="peer-note" data-claim="peer-control"></p>
@@ -836,11 +868,11 @@
 
     <div id="grammar">
       <div class="gh">
-        <div class="lbl">V · ii — The same grammar</div>
+        <div class="lbl">V · ii — What Hungary built itself</div>
         <h3>Most of it was made at home</h3>
-        <p>The foreign operations are the easier story to tell. They were not the larger one. Four acts have
-           asked what Russia did to Hungary; this one measures what Hungary's own machine did — and then
-           tests, rather than assumes, whether the two were connected.</p>
+        <p>The foreign operations are the easier story to tell, and they were not the larger one. Four acts have
+           asked what Russia did to Hungary; this one measures what Hungary's own machine did, and then tests rather
+           than assumes whether the two were connected.</p>
       </div>
 
       <div class="gtier">
@@ -852,16 +884,19 @@
           <div class="gfact"><div class="big" data-claim="domestic-selffunded">643M</div>
             <div class="lbl">forint of platform advertising bought 650 million plays in three months.
               The movement that spent it would not say who paid.</div></div>
-          <div class="gfact"><div class="big">1 min</div>
-            <div class="lbl">apart: the same AI attack image, mutated 4–5 ways, posted across
-              Magyar Nemzet and 18 county papers — an industrial line, not a meme.</div></div>
+          <div class="gfact"><div class="big" data-claim="kesma-sync-line">1 min</div>
+            <div class="lbl">apart: the same AI attack image, mutated 4–5 ways, posted across Magyar Nemzet and 18
+              county papers. That synchronisation shows central direction of the Hungarian county press; it says
+              nothing about who wrote the brief.</div></div>
         </div>
       </div>
 
       <div class="gtier">
-        <div class="tlbl">The pipeline test · 139,376 articles</div>
-        <p class="gq">If the domestic machine and the Russian machine were one machine, the Russian mirror
-          should be feeding on Hungarian pro-government output. It isn't.</p>
+        <div class="tlbl">The pipeline test · <span class="prov-n">139,376</span> articles</div>
+        <p class="gq">If the domestic machine and the Russian machine were one machine, the Russian mirror should be
+          crediting Hungarian pro-government output somewhere across its <span class="prov-n">139,376</span> articles. It never does — though what
+          this measures is the mirror's own credit label, and a story laundered through an intermediate repost would be
+          invisible to it by construction.</p>
         <div id="prov-bar" data-claim="no-pipeline"></div>
         <div id="prov-legend"></div>
         <p class="gnote" id="prov-note"></p>
@@ -901,23 +936,29 @@
         <div id="gnot"></div>
       </div>
 
-      <p class="gclose">So: the propaganda was overwhelmingly <b>Hungary's own</b> — home-built, self-funded,
-        industrial. Where a pipeline to the Russian operation could be tested, there is none. What the two
-        share is the grammar of manipulation itself — buy the ads, invent the personas, smear the opponent,
-        make the war video. That grammar is now shared property, cheap enough that a governing party, a
-        foreign intelligence-linked operation and one unfunded retiree in Debrecen were all writing in it
-        in the same year.</p>
+      <p class="gclose">So the propaganda aimed at Hungarian voters was overwhelmingly
+        <b data-claim="mostly-domestic">Hungary's own</b>, and where a pipeline to the Russian operation could be
+        tested there is none. <span data-claim="shared-grammar">The two sides were recorded using four of the same
+        techniques — targeted advertising, invented personas, smears and AI-generated images — but two unrelated
+        sets of this size would overlap by about five, so we report that as a null and not as a finding.</span>
+        What the year actually showed is how cheap the toolkit had become: a governing party, a foreign
+        intelligence-linked operation and one unfunded retiree in Debrecen could each afford the whole of it.</p>
     </div>
 
-    <p class="vclose">The honest verdict is neither panic nor dismissal. Deepfakes did not decide
-      Hungary — the economy, a corruption scandal and a credible opposition weighed far more. The open
-      question this site leaves you with is not whether propaganda swings votes, but what it does to the
-      well everyone now drinks from.</p>
+    <p class="vclose">The verdict this evidence supports is narrower than either panic or dismissal.
+      <span data-claim="no-swing">Nobody has shown that AI disinformation decided this election or any other</span>,
+      and nothing here establishes what did decide it; that is a question about Hungarian politics, and this site does
+      not measure it. What we can say is that the loud part of the operation was answered — it was debunked, it
+      receded, and the side it favoured lost — while the quiet part was never interrupted for long, and
+      <span data-claim="crawl-contamination">its output keeps accumulating in the open web corpora that models are
+      built from</span>. Whether any of it reaches a given answer is the part nobody has traced end to end.</p>
   </div>
   <div id="coda-wrap">
     <canvas id="coda-canvas" role="img" aria-label="Dotted night scene: the well alone on the plain at night, still working, one slow drop at a time"></canvas>
-    <p class="pipe-note" style="margin-top:.8rem">The plain, tonight. <b data-claim="live-counters">The mirror
-      published <span id="coda-n">—</span> articles <span id="coda-day">—</span>.</b> The deepfakes are gone. The drip has not stopped.</p>
+    <p class="pipe-note" style="margin-top:.8rem"><b data-claim="live-counters">The mirror published
+      <span id="coda-n">—</span> articles <span id="coda-day">—</span>.</b>
+      <span data-claim="ai-faded">The generative-AI share of Hungarian disinformation debunks fell back to about 14%
+      after the vote</span>, and the mirror kept going at the rate above.</p>
   </div>
 </section>
 
@@ -925,7 +966,9 @@
   <div class="act-divider" style="padding:7rem 2rem 2.5rem">
     <div class="no">REFERENCE · THE METHOD</div>
     <h2>How do we know this?</h2>
-    <p>Four kinds of evidence feed this site. Each proves something different — and none proves everything.</p>
+    <p>Four kinds of outside evidence feed this site, and each proves something different. A fifth is our own:
+       the counts, comparisons and controls computed in this repository from CheckFirst's published scrape, which are
+       marked as live data and can be re-run from the scripts.</p>
   </div>
   <div class="acc">
     <details>
@@ -985,17 +1028,20 @@
     <span class="mono" style="color:var(--analyst)">§</span> marker link to their evidence, and
     dotted terms open the glossary definition where the word is first used —
     sources re-checked against the claim, or figures generated from source data by scripts —
-    and a validation gate fails the build if any tagged claim lacks backing. Case files and the
+    and a build gate fails if a tagged claim has no registry entry or no data reference behind it.
+    That gate checks provenance, not truth: it cannot tell whether an entry's reasoning is sound, and in
+    August 2026 an adversarial review found four claims that had passed it and were wrong. All four were
+    corrected, and the corrections are in the repository history. Case files and the
     timeline are drawn from an adversarially-audited catalog. In the hero, each falling dot is one article
     captured live today and the red contamination in the water scales with the all-time count; time is
     compressed and the well itself is illustrative.</p>
   </div>
   <div class="col">
     <div class="h">The five acts</div>
-    <li><b>I</b> — The machine that never sleeps</li>
+    <li><b>I</b> — A newsroom with no newsroom</li>
     <li><b>II</b> — The night of the deepfakes</li>
     <li><b>III</b> — The infrastructure, walkable</li>
-    <li><b>IV</b> — How propaganda reaches the machines</li>
+    <li><b>IV</b> — How this content reaches the crawlers</li>
     <li><b>V</b> — What the evidence honestly shows</li>
   </div>
   <div class="col">
@@ -1030,6 +1076,15 @@ const HU = live.mirrors['hungary.news-pravda.com'];
 const SPEC_SRC = spec?.sources || {};
 window.__st.push('data-loaded');
 
+/* Act I: publishing days, generated rather than typed */
+{
+  const S = summary['hungary.news-pravda.com'];
+  const spanDays = Math.round((new Date(S.last_day) - new Date(S.first_day)) / 864e5) + 1;
+  const a = document.getElementById('act1-active'), b = document.getElementById('act1-span');
+  if (a) a.textContent = S.active_days.toLocaleString('en-US');
+  if (b) b.textContent = spanDays.toLocaleString('en-US');
+}
+
 /* ================= hero counters ================= */
 const counterEl = document.getElementById('counter');
 const fmt = n => n.toLocaleString('en-US');
@@ -1048,8 +1103,9 @@ const todayISO = new Date().toISOString().slice(0, 10);
 const dayWord = HU.latest_publication_day === todayISO
   ? 'today' : 'on ' + HU.latest_publication_day;
 document.getElementById('live-sub').innerHTML =
-  `machine-generated articles from this one Hungary-targeting mirror — a firehose of filler and pro-Kremlin ` +
-  `narrative, not reporting about Hungary · <b>${HU.articles_latest_day} ${dayWord}</b>, the last full day counted · ${fmt(HU.articles_last_7d)} in the past 7 days`;
+  `articles published by this one Hungary-targeting mirror since March 2024. By its own section labels only 4.0% ` +
+  `are filed under Hungary at all; the bulk is world filler and Russia. · ` +
+  `<b>${HU.articles_latest_day} ${dayWord}</b>, the last full day counted · ${fmt(HU.articles_last_7d)} in the past 7 days`;
 document.getElementById('today-fig').textContent = HU.articles_latest_day;
 { const td = document.getElementById('today-day'); if (td) td.textContent = dayWord; }
 
@@ -1081,7 +1137,7 @@ function openEvidence(c, btn) {
   closeEvidence();
   evCard = document.createElement('div');
   evCard.id = 'evidence-card';
-  const st = { verified: 'VERIFIED · SOURCES RE-CHECKED 2026-08-10',
+  const st = { verified: 'VERIFIED · SOURCES RE-CHECKED AGAINST THE CLAIM',
                'live-data': 'LIVE DATA · GENERATED FROM SOURCE',
                assessment: 'RESEARCH ASSESSMENT · ATTRIBUTED' }[c.status] || c.status;
   let html = `<button class="close" aria-label="close">×</button>` +
@@ -1245,7 +1301,7 @@ function openCase(id) {
   const a = c.attribution || {};
   const conf = CONF[a.confidence] || CONF.unattributed;
   let html = `<button class="close" aria-label="close">×</button>
-    <div class="cat">${esc(c.category)}${c.status === 'verified' ? '<span class="badge">VERIFIED · 2026-08-10</span>' : ''}</div>
+    <div class="cat">${esc(c.category)}${c.status === 'verified' ? '<span class="badge">SOURCES RE-CHECKED</span>' : ''}</div>
     <h3>${esc(c.name)}</h3>`;
   if (c.aliases?.length) html += `<div class="aliases">a.k.a. ${c.aliases.map(esc).join(' · ')}</div>`;
   html += `<div class="sec"><div class="h">Attribution</div>
@@ -1519,8 +1575,9 @@ try {
     document.getElementById('spec-volume').innerHTML =
       `<div><div class="spark">${bars}</div></div>` +
       `<div><b>${DATA.today_live_count}</b> seen live today (${esc(DATA.latest_day)}) · CheckFirst counted ` +
-      `<b>${fmt(HU.articles_last_7d)}</b> in the last 7 days and <b>${fmt(HU.total)}</b> all-time — ` +
-      `the specimens below are a live sample of that firehose</div>`;
+      `<b>${fmt(HU.articles_last_7d)}</b> in the last 7 days and <b>${fmt(HU.total)}</b> all-time. ` +
+      `The rows below are individual items from our own capture of the mirror's English-language pages — ` +
+      `specimens, not a representative sample of that total</div>`;
   };
   const specRow = s => {
     const el = document.createElement('div');
@@ -1528,10 +1585,10 @@ try {
     const site = siteInfo(s.site);
     const isPayload = PAYLOAD_THEMES.has(s.theme);
     const themeTag = `<span class="theme ${isPayload ? 'payload' : 'filler'}" title="keyword heuristic on the headline — topic, not a judgement of intent">${
-      isPayload ? 'payload · ' + esc(s.theme) : 'camouflage · filler'}</span>`;
+      isPayload ? 'target topic · ' + esc(s.theme) : 'no target topic · filler'}</span>`;
     let prov = '';
     if (site.tier === 'origin')
-      prov = `<div class="laundered"><span class="arr">↳ origin</span> Telegram channel — where the narrative starts</div>`;
+      prov = `<div class="laundered"><span class="arr">↳ origin tier</span> Telegram channel — the earliest tier we capture, not necessarily where the claim began</div>`;
     else if (s.source)
       prov = `<div class="laundered"><span class="arr">↳ laundered from</span> <b>${esc(s.source.platform)}${
         s.source.channel ? ' · ' + esc(s.source.channel) : ''}</b></div>`;
@@ -1596,7 +1653,9 @@ try {
     document.getElementById('spec-note').innerHTML =
       `The "laundered from" line is the origin each mirror article credits on ` +
       `its own page. Theme tags are a <b>disclosed keyword heuristic</b> on the headline, published in the repo; ` +
-      `personal-smear items are withheld and left to the case files. <a href="explorer.html" style="color:var(--analyst)">Explore the full ecosystem →</a>`;
+      `personal-smear items are withheld and left to the case files. Our capture reads the mirror's English-language ` +
+      `pages only, while CheckFirst's count covers every language — so nothing here shows what the mirror mostly runs on. ` +
+      `<a href="explorer.html" style="color:var(--analyst)">Explore the full ecosystem →</a>`;
   } catch { document.getElementById('specimens-sec').style.display = 'none'; }
 }
 
@@ -1613,7 +1672,9 @@ try {
     const el = document.createElement('div');
     el.className = 'inc ' + (i % 2 ? 'right' : 'left') + (inc.sponsor === null ? ' big' : '');
     el.dataset.sp = inc.sponsor === null ? 'none' : inc.sponsor;
-    const spLabel = inc.sponsor === null ? '' : `<span class="sp">${esc(inc.sponsor === 'domestic' ? 'Domestic' : inc.sponsor)}</span>`;
+    const incConf = (caseById[inc.case] || {}).attribution?.confidence;
+  const spLabel = inc.sponsor === null ? '' : `<span class="sp">${esc(inc.sponsor === 'domestic' ? 'Domestic' : inc.sponsor)}${
+    incConf && incConf !== 'confirmed' ? ' · ' + esc(incConf) : ''}</span>`;
     el.innerHTML =
       `<div class="dot"></div>` +
       `<div class="date">${esc(fmtDate(inc.date))}</div>${spLabel}` +
@@ -1710,7 +1771,8 @@ setTimeout(async () => {
     const sub = document.getElementById('live-sub');
     const cb = sub.querySelector('.cite');  // preserve the injected § marker
     sub.innerHTML =
-      `machine-generated articles from this one Hungary-targeting mirror — a firehose of filler and pro-Kremlin narrative, not reporting about Hungary · ` +
+      `articles published by this one Hungary-targeting mirror since March 2024. By its own section labels only ` +
+      `4.0% are filed under Hungary at all; the bulk is world filler and Russia. · ` +
       `<b>${last.count} ${last.date === HU.latest_publication_day ? 'today' : 'on ' + last.date}</b> · ` +
       `${fmt(wk)} in the past 7 days · <span style="color:#7dc98f">checked upstream just now</span>`;
     if (cb) sub.appendChild(cb);
@@ -1734,7 +1796,7 @@ setTimeout(async () => {
     const path = m => MONTHS.map((k, i) =>
       (i ? 'L' : 'M') + X(i).toFixed(1) + ' ' + Y(m.monthly[k] || 0).toFixed(1)).join(' ');
 
-    let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Monthly output of the Hungarian Pravda mirror against six sibling mirrors; only the Hungarian one collapses after the April 2026 election">`;
+    let s = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Monthly output of the Hungarian Pravda mirror against six sibling mirrors, October 2025 to August 2026. The Hungarian line peaks in March 2026, falls through May and June while the six peers hold roughly flat, then climbs back by August. Timing, ranking and limits are given in the note below the chart.">`;
     for (const v of [100, 200, 300]) {
       s += `<line class="pax" x1="${M.l}" x2="${M.l + iw}" y1="${Y(v)}" y2="${Y(v)}"/>`;
       s += `<text x="${M.l - 6}" y="${Y(v) + 3}" text-anchor="end">${v}</text>`;
@@ -1765,9 +1827,19 @@ setTimeout(async () => {
     host.innerHTML = s;
 
     const C = PC.comparison, T = PC.target, PB = PC.placebo;
+    /* campaign rise, Feb -> Mar 2026, generated not typed */
+    const riseOf = m => (m['2026-03'] - m['2026-02']) / m['2026-02'] * 100;
+    const huRise = riseOf(T.monthly);
+    const peerRise = PC.peers.reduce((a, q) => a + riseOf(q.monthly), 0) / PC.peers.length;
+    const pk = Object.entries(T.monthly).sort((a, b) => b[1] - a[1])[0];
+    const MONTHNAME = ['', 'January', 'February', 'March', 'April', 'May', 'June',
+                       'July', 'August', 'September', 'October', 'November', 'December'];
+    const pkLabel = MONTHNAME[+pk[0].slice(5)] + ' ' + pk[0].slice(0, 4);
     document.getElementById('peer-note').innerHTML =
-      `The mirror rose into the campaign as the whole network did — <b>no surge that its six ` +
-      `siblings did not also show</b>. Then its output fell <b>${Math.abs(C.target_change_pct)}%</b> — ` +
+      `The mirror rose into the campaign, and hard: ${pkLabel}, at <b>${pk[1]}/day</b>, is the highest month in ` +
+      `its entire series, and its February-to-March rise of <b>+${huRise.toFixed(1)}%</b> was roughly double the ` +
+      `six siblings' mean of +${peerRise.toFixed(1)}%. Every sibling rose too, so the surge was larger here ` +
+      `rather than unique to here. Then its output fell <b>${Math.abs(C.target_change_pct)}%</b> — ` +
       `from ${T.baseline_per_day}/day to ${T.after_per_day}/day. ` +
       `<b>But not at the election.</b> ${PC.timing.day_after_election.date}, the day after the vote, is ` +
       `April's highest day at ${PC.timing.day_after_election.count} articles; output holds near ` +
@@ -1779,7 +1851,7 @@ setTimeout(async () => {
       `${Math.abs(C.peer_min_change_pct)}%. It has since climbed back to ${T.latest_per_day}/day — ` +
       `<b>${T.recovery_pct_of_baseline}%</b> of where it started. ` +
       `<b>And how much weight it carries:</b> ranked against every two-month window in the ` +
-      `network, this is the most extreme of ${PB ? PB.n_windows : '—'} ` +
+      `seven regional mirrors, this is the most extreme of ${PB ? PB.n_windows : '—'} ` +
       `(p&nbsp;=&nbsp;${PB ? PB.raw_p : '—'}). But Hungary is the noisiest mirror in the set — ` +
       `its two-month swings vary by ${PB ? PB.volatility_by_mirror.hungary : '—'}% against ` +
       `Romania's ${PB ? PB.volatility_by_mirror.romania : '—'}% — and normalised by each mirror's ` +
@@ -1815,7 +1887,8 @@ setTimeout(async () => {
           `<i class="db" style="width:${(s.baseline_per_day / max * 100).toFixed(1)}%"></i>` +
           `<i class="da" style="width:${(s.after_per_day / max * 100).toFixed(1)}%"></i>` +
         `</div></div>` +
-        `<div class="dc">${grew ? '+' : ''}${s.change_pct}%</div></div>`);
+        `<div class="dc" title="${grew ? '+' : ''}${s.change_pct}% of its own baseline">${
+      grew ? '+' : ''}${(s.after_per_day - s.baseline_per_day).toFixed(1)}/day</div></div>`);
     }
     host.insertAdjacentHTML('beforeend',
       `<div class="dkey">bars: articles credited per day — ` +
@@ -1906,6 +1979,8 @@ setTimeout(async () => {
         const b = P.buckets.find(x => x.bucket === k);
         return b ? (b.share * 100).toFixed(2) + '%' : '0%';
       };
+      for (const n of document.querySelectorAll('.prov-n'))
+        n.textContent = P.total_articles.toLocaleString('en-US');
       document.getElementById('prov-note').innerHTML =
         `Across <b>${P.total_articles.toLocaleString('en-US')}</b> articles and <b>${P.credited_sources}</b> ` +
         `credited sources — which together account for <b>100%</b> of the mirror's output — the Hungarian ` +
@@ -1914,7 +1989,7 @@ setTimeout(async () => {
         `<b>It is not a clean zero.</b> One prominent pro-government commentator's personal channel is ` +
         `credited ${acct} — ${shareOf('hungarian_progov_account')} of the mirror's output — and ` +
         `nationalist-fringe channels a further ` +
-        `${shareOf('hungarian_fringe')}. So a thread exists; a pipeline does not. ` +
+        `${shareOf('hungarian_fringe')}. A thread exists; a pipeline does not. ` +
         `<b>Scope:</b> one network, one direction, its own credit labels, this window. It does not show Russian ` +
         `influence was absent — Storm-1516 and Matryoshka targeted Hungary directly. It shows the domestic ` +
         `machine was not this mirror's raw material.`;
@@ -1928,7 +2003,7 @@ setTimeout(async () => {
     document.getElementById('tech-only').innerHTML =
       `<b>Recorded only on the domestic side:</b> ` +
       T.domestic_only.map(d => esc(d.name)).join(' · ') +
-      ` — which is what a government has that a foreign operator does not.`;
+      `. These are counts over ${T.domestic_n} tagged domestic cases, not a profile of what either side can do.`;
     const cb = T.chance_baseline.map(c =>
       `${c.expected_overlap} if drawn at random from the ${c.size} ${esc(c.universe)}`).join(', or ');
     document.getElementById('chance-note').innerHTML =
@@ -3445,7 +3520,7 @@ function buildChart() {
     'Telegram: ebredes2017':'“awakening 2017”',
     'Telegram: oroszspecialiskatonaihadmuvelet':'“Russian special military operation”',
     'Telegram: InfoDefMagyarok':'InfoDefense franchise, HU',
-    'Telegram: Rybar_HU':'Rybar — GRU-adjacent milblogger',
+    'Telegram: Rybar_HU':'Rybar — Russian military blogger',
     'Telegram: VilagHelyzeteBlog':'“state of the world” blog',
     'hu.news-front.su':'News Front — Crimea, sanctioned',
     'tass.ru':'Russian state agency',
@@ -3453,7 +3528,7 @@ function buildChart() {
   const top = summary['hungary.news-pravda.com'].top_sources.slice(0, 8);
   const bmax = top[0].count;
   el('text', {x:M.l, y:M.t+6, fill:'#e9e4da', 'font-size':'12px', 'letter-spacing':'.16em'}, srcG)
-    .textContent = 'TOP LAUNDERED SOURCES · ALL-TIME';
+    .textContent = 'MOST-CREDITED SOURCES · ALL-TIME';
   top.forEach((s, i) => {
     const y = M.t + 40 + i * ((ih-50) / 8);
     const bw = Math.max(4, s.count / bmax * (iw * .52));

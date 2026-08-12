@@ -60,8 +60,8 @@
   "after_per_day": 88.5,
   "change_pct": -63.7,
   "latest_month": "2026-08",
-  "latest_per_day": 200.5,
-  "recovery_pct_of_baseline": 82.3,
+  "latest_per_day": 187.7,
+  "recovery_pct_of_baseline": 77.1,
   "monthly": {
    "2024-03": 24.9,
    "2024-04": 56.1,
@@ -92,7 +92,7 @@
    "2026-05": 86.2,
    "2026-06": 90.8,
    "2026-07": 141.9,
-   "2026-08": 200.5
+   "2026-08": 187.7
   }
  },
  "peers": [
@@ -104,8 +104,8 @@
    "after_per_day": 276.6,
    "change_pct": -16.3,
    "latest_month": "2026-08",
-   "latest_per_day": 295.1,
-   "recovery_pct_of_baseline": 89.3,
+   "latest_per_day": 280.9,
+   "recovery_pct_of_baseline": 85.0,
    "monthly": {
     "2024-03": 28.2,
     "2024-04": 122.5,
@@ -136,7 +136,7 @@
     "2026-05": 275,
     "2026-06": 278.3,
     "2026-07": 258.2,
-    "2026-08": 295.1
+    "2026-08": 280.9
    }
   },
   {
@@ -147,8 +147,8 @@
    "after_per_day": 374.5,
    "change_pct": 1.7,
    "latest_month": "2026-08",
-   "latest_per_day": 378.5,
-   "recovery_pct_of_baseline": 102.8,
+   "latest_per_day": 356.4,
+   "recovery_pct_of_baseline": 96.8,
    "monthly": {
     "2023-06": 273.6,
     "2023-07": 431.5,
@@ -188,7 +188,7 @@
     "2026-05": 371.3,
     "2026-06": 377.6,
     "2026-07": 374.4,
-    "2026-08": 378.5
+    "2026-08": 356.4
    }
   },
   {
@@ -199,8 +199,8 @@
    "after_per_day": 144.5,
    "change_pct": 2.4,
    "latest_month": "2026-08",
-   "latest_per_day": 143.8,
-   "recovery_pct_of_baseline": 101.9,
+   "latest_per_day": 138,
+   "recovery_pct_of_baseline": 97.8,
    "monthly": {
     "2024-03": 86.4,
     "2024-04": 332.4,
@@ -231,7 +231,7 @@
     "2026-05": 140.6,
     "2026-06": 148.4,
     "2026-07": 142.9,
-    "2026-08": 143.8
+    "2026-08": 138
    }
   },
   {
@@ -242,8 +242,8 @@
    "after_per_day": 297.9,
    "change_pct": 14.5,
    "latest_month": "2026-08",
-   "latest_per_day": 277.4,
-   "recovery_pct_of_baseline": 106.7,
+   "latest_per_day": 264.6,
+   "recovery_pct_of_baseline": 101.7,
    "monthly": {
     "2023-07": 129.5,
     "2023-08": 121.2,
@@ -282,7 +282,7 @@
     "2026-05": 282.5,
     "2026-06": 313.2,
     "2026-07": 283.6,
-    "2026-08": 277.4
+    "2026-08": 264.6
    }
   },
   {
@@ -293,8 +293,8 @@
    "after_per_day": 128.2,
    "change_pct": 9.2,
    "latest_month": "2026-08",
-   "latest_per_day": 123.5,
-   "recovery_pct_of_baseline": 105.2,
+   "latest_per_day": 118.6,
+   "recovery_pct_of_baseline": 101.0,
    "monthly": {
     "2024-03": 31.7,
     "2024-04": 69.0,
@@ -325,7 +325,7 @@
     "2026-05": 125.5,
     "2026-06": 131.0,
     "2026-07": 116.9,
-    "2026-08": 123.5
+    "2026-08": 118.6
    }
   },
   {
@@ -336,8 +336,8 @@
    "after_per_day": 314.8,
    "change_pct": -1.8,
    "latest_month": "2026-08",
-   "latest_per_day": 299.8,
-   "recovery_pct_of_baseline": 93.5,
+   "latest_per_day": 286.1,
+   "recovery_pct_of_baseline": 89.2,
    "monthly": {
     "2024-03": 10.7,
     "2024-04": 47.8,
@@ -368,7 +368,7 @@
     "2026-05": 314.5,
     "2026-06": 315.0,
     "2026-07": 293.3,
-    "2026-08": 299.8
+    "2026-08": 286.1
    }
   }
  ],
@@ -380,6 +380,6 @@
   "target_is_outlier": true,
   "peer_n": 6
  },
- "reading": "Against its six siblings the Hungarian mirror shows no disproportionate campaign surge — it rose into March 2026 as the network did — and then fell by about two thirds in the two months after the election was lost, a move no sibling made. It has since recovered most of the way back.",
+ "reading": "Against its six siblings the Hungarian mirror rose into the campaign faster than the network did: March 2026 is the highest month in its entire series and its February-to-March rise was roughly double the peer mean, though every sibling rose too, so the surge was larger here rather than unique to here. It then fell by about two thirds in the two months after the election was lost, a move no sibling made, and has since recovered most of the way back. The fall does not begin at the election; see `timing`. Its size is not exceptional against this mirror's own history; see `placebo`.",
  "cannot_show": "Cause. The control rules out a network-wide or seasonal effect, but it cannot distinguish an operational decision from a disruption in the upstream Telegram channels this mirror republishes, or from a change in what the collector sees. We report the shape and the control, not a motive."
 }
