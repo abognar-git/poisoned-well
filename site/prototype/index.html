@@ -50,6 +50,13 @@
   #well-tip b{font-weight:500; letter-spacing:.1em}
   .live-cap{margin-top:.55rem; font-family:"IBM Plex Mono",monospace; font-size:.6rem;
     letter-spacing:.05em; line-height:1.7; color:var(--muted)}
+  /* the page carries two click affordances; introduce both where the first § appears,
+     rather than explaining one of them in the footer at 100% depth */
+  .marker-key{margin-top:.5rem; font-family:"IBM Plex Mono",monospace; font-size:.56rem;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--muted); opacity:.75}
+  .marker-key b{color:var(--analyst); font-weight:400; border:1px solid rgba(110,168,216,.35);
+    border-radius:2px; padding:.05em .28em; margin-right:.25em}
+  .marker-key .k-term{border-bottom:1px dotted var(--analyst); color:var(--paper)}
   .hero-copy{
     position:absolute; z-index:10; left:clamp(1.4rem,5vw,5rem); top:50%;
     transform:translateY(-58%); max-width:30rem; pointer-events:none;
@@ -559,7 +566,9 @@
   .gterm a:hover{text-decoration:underline}
 
   @media (max-width:760px){
-    .hero-copy{top:auto; bottom:18.5rem; transform:none; max-width:88vw}
+    /* the live-block is bottom-anchored and grows with its caption + marker key, so the
+       copy has to clear its full height rather than a fixed guess */
+    .hero-copy{top:auto; bottom:21rem; transform:none; max-width:88vw}
     .live-block{bottom:2.2rem}
     h1{font-size:2.7rem}
     .step .card{margin:0 auto}
@@ -592,6 +601,8 @@
     <div class="live-num" id="counter">0</div>
     <div class="live-sub" id="live-sub" data-claim="live-counters">machine-generated articles from this one Hungary-targeting mirror — a firehose of filler and pro-Kremlin narrative, not reporting about Hungary</div>
     <div class="live-cap" id="well-cap" data-claim="live-specimens"><span id="well-cap-txt"></span></div>
+    <div class="marker-key"><b>§</b> evidence for a claim &nbsp;·&nbsp;
+      <span class="k-term">dotted terms</span> what a word means</div>
   </div>
   <div class="scroll-cue">SCROLL ▾</div>
 </section>
@@ -641,7 +652,7 @@
     </div></div>
     <div class="step" data-step="4"><div class="card">
       <span class="n">I·5 — WHERE IT COMES FROM</span>
-      <p>The mirror writes nothing. It <b data-claim="laundering"><span data-term="pravda-network">launders</span></b> — scraping fringe Hungarian-language Telegram channels
+      <p>The mirror writes nothing. It <b data-claim="laundering">launders</b> — scraping fringe Hungarian-language Telegram channels
       and Russian state outlets, re-publishing them as clean, crawlable "news" with
       <b data-claim="alternates-28">an average of 2.8 language versions per article.</b></p>
       <div class="cf-links"><button class="cf-open" data-case="llm-grooming-measurement">case file: LLM grooming, measured</button></div>
@@ -968,7 +979,8 @@
   <div class="col">
     <div class="h">About this prototype</div>
     <p>Design-direction build: all five acts plus a reference glossary. Claims tagged with a
-    <span class="mono" style="color:var(--analyst)">§</span> marker link to their evidence —
+    <span class="mono" style="color:var(--analyst)">§</span> marker link to their evidence, and
+    dotted terms open the glossary definition where the word is first used —
     sources re-checked against the claim, or figures generated from source data by scripts —
     and a validation gate fails the build if any tagged claim lacks backing. Case files and the
     timeline are drawn from an adversarially-audited catalog. In the hero, each falling dot is one article
