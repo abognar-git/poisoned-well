@@ -25,6 +25,33 @@
   "gap_days_after_election": 15,
   "reading": "The fall does not begin at the election. The day after the vote is the month's highest day, output holds near its baseline for a further twelve days, and the step lands around 27 April. Any account that reads this as a reaction to the result has to explain the fifteen-day gap."
  },
+ "placebo": {
+  "n_windows": 185,
+  "n_mirrors": 7,
+  "treated": {
+   "mirror": "hungary",
+   "cut": "2026-04",
+   "change_pct": -63.7,
+   "z": -1.08
+  },
+  "raw_rank": 1,
+  "raw_p": 0.0054,
+  "within_target_rank": 1,
+  "within_target_n": 24,
+  "volatility_by_mirror": {
+   "czechia": 41.6,
+   "deutsch": 34.7,
+   "hungary": 58.8,
+   "moldova": 18.3,
+   "poland": 34.0,
+   "romania": 13.2,
+   "slovakia": 44.1
+  },
+  "treated_z": -1.08,
+  "volatility_normalised_rank": 13,
+  "volatility_normalised_p": 0.0703,
+  "reading": "Unnormalised, the treated window is the most extreme in the network (p=0.005). Normalised by each mirror's own volatility it is 13th (p=0.070) at -1.08 sd, because Hungary is the noisiest mirror in the set. The drop is large and it is the largest in that window, but it is not exceptional against this mirror's own history. Report both."
+ },
  "target": {
   "mirror": "hungary",
   "domain": "hungary.news-pravda.com",

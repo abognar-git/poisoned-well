@@ -15,7 +15,8 @@ tells. Its defensible core:
 > The Pravda network's one-mirror-per-country architecture can be used as a **control group**. Applied
 > to the mirror aimed at Hungary's April 2026 election, it yields (a) a full-coverage negative
 > provenance census — zero credits to the Hungarian pro-government press across 139,376 articles — and
-> (b) one network-unique output interruption whose onset does *not* coincide with the election.
+> (b) one output interruption — the largest in the network in its window, though within this mirror's
+> own historical variability — whose onset does *not* coincide with the election.
 
 The contribution is **the design and the census**. The interruption is the demonstration case, and we
 claim no cause for it.
@@ -69,15 +70,21 @@ Telegram channel appears 76 times (0.05%); nationalist-fringe channels 130 (0.09
 label**. It is a statement about *declared* provenance, in one direction only, and laundering through
 an intermediate repost makes an original invisible by construction.
 
-**C3 — A dated, network-unique output interruption, with no cause claimed.**
+**C3 — A dated output interruption, network-largest in its window but not exceptional against the mirror's own history, with no cause claimed.**
 Output fell 63.7% from the Feb–Mar 2026 baseline (243.6/day) to May–Jun (88.5/day), while six peers
 moved +1.6% and none fell more than 16.3% **[V]**.
 *The timing is the finding, and it cuts against the obvious reading:* **13 April — the day after the
 vote — is April's highest day at 356 articles.** Output holds near 223/day for a further twelve days.
 The step lands around **27 April**, a **15-day gap** **[V]**.
-*Referee-computed, to reproduce:* placebo rank 1/186 across all seven mirrors (p = 0.0054); within
-Hungary 1/24 (p = 0.0417); log DiD −1.024; 136-specification sweep spanning −65.1% to −38.1%, all
-negative **[R]**.
+*Placebo inference, now reproduced independently* **[V]**: across all 185 admissible two-month windows
+in the seven-mirror panel the treated window ranks **1st (p = 0.0054)**; within Hungary's own 24
+windows, **1st (p = 0.0417)**.
+*And the correction that matters* **[V]**: Hungary is the **noisiest mirror in the network** — its
+two-month swings have sd 58.8%, against Romania's 13.2%. An unnormalised extremeness contest is partly
+won by being noisy. Normalising each window by its own mirror's volatility puts the treated window at
+**−1.08 sd, rank 13/185 (p = 0.0703)**. The drop is the largest in its window; it is **not exceptional
+against this mirror's own history.** Report both, lead with the second.
+*Still to reproduce:* log DiD −1.024 and the 136-specification sweep spanning −65.1% to −38.1% **[R]**.
 *Limit:* the recovery restores the original source composition to within five points, which is more
 consistent with an **interrupted supply** than an editorial response.
 
@@ -105,7 +112,7 @@ consistent with an **interrupted supply** than an editorial response.
 |---|---|---|---|---|
 | M1 | Three-window decomposition (baseline/trough/recovery) | interruption vs diet change | done `fef305a` | — |
 | M2 | Interrupted time series with **estimated** changepoint, all seven mirrors | when the break lands, one event or several | small | automatable |
-| M3 | Randomisation inference: pooled (186) + within-unit (24) + RMSPE-normalised rank | is −63.7% extreme against the network's own variability | small | automatable |
+| ~~M3~~ | ~~Randomisation inference + volatility-normalised rank~~ | **done** — pooled 1/185 (p=0.0054), within-unit 1/24, volatility-normalised **13/185 (p=0.070)** | done | `derive_peer_control.py` |
 | M4 | Specification curve over window × gap × offset | is the estimate a property of the data or of window choice | small | automatable |
 | M5 | Collector-artefact audit: network-wide single-day collapses | does the instrument manufacture drops (note 2026-04-25 = 28 articles) | small | automatable |
 | M6 | **Telegram archive reconstruction** — back-page `t.me/s/` for the three channels, Feb–Aug 2026 | **the decisive question:** did the channels stop publishing, or did the mirror stop crediting them? | medium | **PI** go/no-go |

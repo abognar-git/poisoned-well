@@ -43,7 +43,7 @@ AFTER = ["2026-05", "2026-06"]      # the two full months after it
 
 
 def main() -> int:
-    series, monthly = {}, {}
+    series, monthly, full_monthly = {}, {}, {}
     for f in sorted(RAW.glob("*_viz.json")):
         d = json.loads(f.read_text())
         key = d["domain"].split(".")[0]
@@ -51,6 +51,11 @@ def main() -> int:
         for x in d["articlesPerDay"]:
             mon[x["date"][:7]].append(x["count"])
         monthly[key] = {m: round(statistics.mean(v), 1) for m, v in sorted(mon.items())}
+        # the first and last months are partial; their means are not comparable with a
+        # full month, so the placebo sweep excludes them
+        days = sorted({x["date"] for x in d["articlesPerDay"]})
+        full_monthly[key] = {m: v for m, v in monthly[key].items()
+                             if m not in (days[0][:7], days[-1][:7])}
         series[key] = {"domain": d["domain"], "total": d["totalArticles"]}
 
     def mean_of(key, months):
@@ -97,6 +102,61 @@ def main() -> int:
                     "reaction to the result has to explain the fifteen-day gap."),
     }
 
+    # PLACEBO INFERENCE, AND THE CORRECTION THAT MATTERS.
+    # Ranking the treated drop against every two-month window in the network puts it first
+    # of 185 (p=0.0054). That number flatters us: Hungary is the most volatile mirror in the
+    # network (sd 58.8% of two-month change, against Romania's 13.2%), so it wins an
+    # unnormalised extremeness contest partly by being noisy. Normalising each window by its
+    # own mirror's historical volatility - standard practice in synthetic-control work for
+    # exactly this reason - moves the treated window to rank 13/185 (p=0.070) at -1.08 sd.
+    # Both are reported. The second is the one a referee will ask for.
+    def nxt_month(a):
+        y, mm = map(int, a.split("-")); mm += 1
+        return f"{y+1:04d}-01" if mm == 13 else f"{y:04d}-{mm:02d}"
+
+    windows = []
+    for k in full_monthly:
+        ms = sorted(full_monthly[k])
+        for i in range(2, len(ms) - 2):
+            w = ms[i-2:i+3]
+            if not all(w[j+1] == nxt_month(w[j]) for j in range(4)):
+                continue
+            b = statistics.mean([full_monthly[k][m] for m in w[:2]])
+            a = statistics.mean([full_monthly[k][m] for m in w[3:]])
+            if b:
+                windows.append({"mirror": k, "cut": w[2], "change_pct": round((a-b)/b*100, 1)})
+    treated = next((w for w in windows if w["mirror"] == TARGET and w["cut"] == "2026-04"), None)
+    placebo = None
+    if treated:
+        vol = {}
+        for k in full_monthly:
+            ch = [w["change_pct"] for w in windows
+                  if w["mirror"] == k and not (w is treated)]
+            vol[k] = statistics.pstdev(ch) if len(ch) > 1 else None
+        for w in windows:
+            w["z"] = round(w["change_pct"] / vol[w["mirror"]], 2) if vol[w["mirror"]] else None
+        raw_rank = sorted(windows, key=lambda w: w["change_pct"]).index(treated) + 1
+        z_rank = sorted(windows, key=lambda w: w["z"]).index(treated) + 1
+        own = [w for w in windows if w["mirror"] == TARGET]
+        placebo = {
+            "n_windows": len(windows),
+            "n_mirrors": len(monthly),
+            "treated": treated,
+            "raw_rank": raw_rank,
+            "raw_p": round(raw_rank / len(windows), 4),
+            "within_target_rank": sorted(own, key=lambda w: w["change_pct"]).index(treated) + 1,
+            "within_target_n": len(own),
+            "volatility_by_mirror": {k: round(v, 1) for k, v in vol.items() if v},
+            "treated_z": treated["z"],
+            "volatility_normalised_rank": z_rank,
+            "volatility_normalised_p": round(z_rank / len(windows), 4),
+            "reading": ("Unnormalised, the treated window is the most extreme in the network "
+                        "(p=0.005). Normalised by each mirror's own volatility it is 13th "
+                        "(p=0.070) at -1.08 sd, because Hungary is the noisiest mirror in the "
+                        "set. The drop is large and it is the largest in that window, but it is "
+                        "not exceptional against this mirror's own history. Report both."),
+        }
+
     tgt = next(r for r in rows if r["is_target"])
     peers = [r for r in rows if not r["is_target"]]
     peer_changes = [r["change_pct"] for r in peers]
@@ -109,6 +169,7 @@ def main() -> int:
         "baseline_months": BASELINE,
         "after_months": AFTER,
         "timing": timing,
+        "placebo": placebo,
         "target": tgt,
         "peers": peers,
         "comparison": {
