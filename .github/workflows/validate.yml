@@ -23,32 +23,25 @@ jobs:
         with:
           python-version: "3.12"
 
-      # data/raw is gitignored, so four claims cite files a fresh clone does not have.
-      # check_claims downgrades those to warnings; fetching the seven regional mirrors
-      # (~4 MB) makes CI verify them for real instead. Not --all: the 101-domain
-      # manifest is ~49 MB and only the blind scan needs it.
-      - name: Fetch the regional mirrors the claims cite
-        run: python scripts/fetch_pravda.py
-        continue-on-error: true
-
       - name: Validate catalog (includes the smear-filter fixtures)
         run: python scripts/check_catalog.py
 
       - name: Validate claims, blocklist and page references
         run: python scripts/check_claims.py
 
-      # These read only committed inputs (the catalog, and data/raw where present),
-      # so they must be reproducible. If a derived file drifts from its generator,
-      # the site is rendering figures nobody can regenerate.
       - name: Verify the README against the data it describes
         run: python scripts/check_readme.py
 
-      - name: Re-derive catalog-only outputs
+      # Only generators whose inputs are committed belong here. derive_convergence and
+      # derive_peer_control read data/raw, which is gitignored and updates upstream
+      # every hour, so re-running them on a checkout compares a live census against a
+      # committed one and drifts by design. Keeping them out is what refresh-data.yml
+      # is for: it fetches, re-derives, validates and commits together.
+      - name: Re-derive everything whose inputs are committed
         run: |
-          python scripts/build_network.py
-          python scripts/derive_convergence.py
-          python scripts/derive_research.py
-          python scripts/make_figures.py
+          python scripts/build_network.py      # catalog -> network graph
+          python scripts/derive_research.py    # RESEARCH.md -> the site's research layer
+          python scripts/make_figures.py       # data/derived -> the README figures
 
       # research.json is parsed from RESEARCH.md, and the figures are drawn from
       # data/derived. If either drifts, the site shows corrections and charts that

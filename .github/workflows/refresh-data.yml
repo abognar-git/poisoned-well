@@ -52,6 +52,14 @@ jobs:
       - name: Validate claims
         run: python scripts/check_claims.py
 
+      # The README quotes census figures that move as the mirror publishes. This runs
+      # after validation but before the commit step below only in file order — it is a
+      # report, not a blocker: fresh data still lands, and a red run says the write-up
+      # now disagrees with the data underneath it.
+      - name: Report if the README has gone stale against the new data
+        run: python scripts/check_readme.py
+        continue-on-error: true
+
       - name: Commit refreshed data
         run: |
           git config user.name "poisoned-well data refresh"
