@@ -1,12 +1,19 @@
 name: refresh-data
 
-# Keeps data/derived/ tracking the live Pravda-network feed (upstream updates hourly).
-# Every 6 hours: re-fetch, re-derive, re-validate, commit only if the data changed.
-# The commit history doubles as a monitoring log of the ongoing campaign.
+# Re-fetches the live Pravda-network feed, re-derives, re-validates, regenerates the
+# figures, and commits only if the data changed.
+#
+# MANUAL ONLY. This ran hourly while the repo was public, where Actions minutes are
+# free. The repo is private now, so ~720 scheduled runs a month would draw on the
+# account quota for data that nothing is currently reading. Run it from the Actions
+# tab, or `gh workflow run refresh-data`, when the figures need to be current.
+#
+# To put it back on a schedule, restore the block below. Hourly matches CheckFirst's
+# upstream cadence; "17 */6 * * *" is roughly 120 runs a month if the quota matters.
+#   schedule:
+#     - cron: "17 * * * *"
 
 on:
-  schedule:
-    - cron: "17 * * * *"   # hourly, matching CheckFirst's upstream cadence
   workflow_dispatch:
 
 permissions:

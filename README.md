@@ -446,10 +446,17 @@ python3 scripts/check_claims.py            # markers, blocklist, corrections
 Then open `site/prototype/index.html` in a browser. It needs no server; with no
 network it falls back to the committed figures rather than breaking.
 
-**A note on the scheduled workflow.** `.github/workflows/refresh-data.yml` re-fetches
-the upstream feed hourly, re-derives, re-validates, and commits only if the data
-changed. The commit history doubles as a monitoring log of a campaign that is
-still running.
+**A note on the refresh workflow.** `.github/workflows/refresh-data.yml` re-fetches
+the upstream feed, re-derives, re-validates, regenerates the figures, and commits
+only if the data changed. It is **manual** — run it from the Actions tab or with
+`gh workflow run refresh-data`. It ran hourly while this repo was public; the cron
+line is commented in place if you want it back.
+
+That matters for the figures quoted above. They are correct as of the scrape
+committed here, and the mirror keeps publishing — the pro-government
+commentator's channel went from 76 credits to 78 during the session that wrote
+this. `scripts/check_readme.py` is what catches the divergence: it re-reads every
+number in this file against `data/derived` and fails when they part company.
 
 ---
 
