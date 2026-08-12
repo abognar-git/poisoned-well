@@ -1767,8 +1767,13 @@ setTimeout(async () => {
     const C = PC.comparison, T = PC.target;
     document.getElementById('peer-note').innerHTML =
       `The mirror rose into the campaign as the whole network did — <b>no surge that its six ` +
-      `siblings did not also show</b>. Then, in the two months after the election was lost, its output fell ` +
-      `<b>${Math.abs(C.target_change_pct)}%</b> — from ${T.baseline_per_day}/day to ${T.after_per_day}/day. ` +
+      `siblings did not also show</b>. Then its output fell <b>${Math.abs(C.target_change_pct)}%</b> — ` +
+      `from ${T.baseline_per_day}/day to ${T.after_per_day}/day. ` +
+      `<b>But not at the election.</b> ${PC.timing.day_after_election.date}, the day after the vote, is ` +
+      `April's highest day at ${PC.timing.day_after_election.count} articles; output holds near ` +
+      `${PC.timing.mean_13_to_24_april}/day for another twelve days and the step lands around ` +
+      `${PC.timing.estimated_onset} — a <b>${PC.timing.gap_days_after_election}-day gap</b> any account ` +
+      `of this as a reaction to the result would have to explain. ` +
       `Across the same months the six sibling mirrors moved <b>${C.peer_mean_change_pct > 0 ? '+' : ''}` +
       `${C.peer_mean_change_pct}%</b> on average, and not one fell by more than ` +
       `${Math.abs(C.peer_min_change_pct)}%. It has since climbed back to ${T.latest_per_day}/day — ` +

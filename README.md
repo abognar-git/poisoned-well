@@ -5,6 +5,11 @@
 > Working title from "poisoning the well": the campaigns documented here increasingly target
 > AI training and retrieval systems rather than human readers.
 
+## Research status
+
+A publication plan, an honest account of four corrections the review forced, and the limits that bound
+each finding live in **[RESEARCH.md](RESEARCH.md)**. Read it before citing anything here.
+
 ## What this will be
 
 A standalone editorial website (scrollytelling + five 3D scenes driven by live data) built on a

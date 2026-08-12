@@ -74,6 +74,29 @@ def main() -> int:
             "monthly": monthly[key],
         })
 
+    # When did the break actually land? Not at the election: the day AFTER the vote is
+    # April's highest day, and output holds for another twelve days. Juxtaposing "after the
+    # election" with the fall implies a response the timing does not support.
+    tdaily = {}
+    for f in sorted(RAW.glob(f"{TARGET}*_viz.json")):
+        tdaily = {x["date"]: x["count"] for x in json.loads(f.read_text())["articlesPerDay"]}
+    after_vote = {k: v for k, v in tdaily.items() if ELECTION < k <= "2026-04-24"}
+    onset = {k: v for k, v in tdaily.items() if "2026-04-27" <= k <= "2026-05-10"}
+    timing = {
+        "election": ELECTION,
+        "day_after_election": {"date": "2026-04-13", "count": tdaily.get("2026-04-13")},
+        "highest_april_day": max(((k, v) for k, v in tdaily.items() if k.startswith("2026-04")),
+                                 key=lambda kv: kv[1]),
+        "mean_13_to_24_april": round(statistics.mean(after_vote.values()), 1) if after_vote else None,
+        "mean_27_april_to_10_may": round(statistics.mean(onset.values()), 1) if onset else None,
+        "estimated_onset": "2026-04-27",
+        "gap_days_after_election": 15,
+        "reading": ("The fall does not begin at the election. The day after the vote is the "
+                    "month's highest day, output holds near its baseline for a further twelve "
+                    "days, and the step lands around 27 April. Any account that reads this as a "
+                    "reaction to the result has to explain the fifteen-day gap."),
+    }
+
     tgt = next(r for r in rows if r["is_target"])
     peers = [r for r in rows if not r["is_target"]]
     peer_changes = [r["change_pct"] for r in peers]
@@ -85,6 +108,7 @@ def main() -> int:
         "election": ELECTION,
         "baseline_months": BASELINE,
         "after_months": AFTER,
+        "timing": timing,
         "target": tgt,
         "peers": peers,
         "comparison": {
