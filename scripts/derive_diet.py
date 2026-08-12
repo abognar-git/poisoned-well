@@ -24,8 +24,13 @@ could support on its own.
 Honest limits, all shipped with the output:
   * sourcesByDay carries the top 10 sources only — 80% of articles in the baseline window
     and 70% after, so the tail is invisible and the attribution is of the visible portion.
-  * Our live capture is a snapshot of today. It shows the channels are active NOW; it
-    cannot show whether they were active during the May-June trough.
+  * Our live capture is a snapshot of today, and it harvests only the mirror's ENGLISH
+    surface (see SOURCES["pravda-hu"]["listings"] in capture_specimens.py), while CheckFirst
+    counts every language version - the mirror publishes more in Hungarian (98,110) than in
+    English (80,259). So the capture CANNOT be compared with the census to say what the
+    mirror consumes; on the capture days the census shows it crediting these channels in
+    60-77% of that day's articles. All the capture supports is that the channels were
+    observably still publishing.
   * The cross-check is keyed to COLLAPSED_SITE_IDS, never to "the busiest channels" —
     see the note on that constant.
   * The count of mirror articles in a single capture is small (tens), so what the mirror
@@ -44,6 +49,7 @@ OUT = ROOT / "data" / "derived" / "source_diet.json"
 
 BASELINE = ("2026-02-01", "2026-03-31")
 AFTER = ("2026-05-01", "2026-06-30")
+RECOVERY = ("2026-07-01", "2026-08-10")
 
 # the three Hungarian-language aggregator channels that carried the mirror before the vote
 COLLAPSED = ["Telegram: oroszokazigazsagoldalan",
@@ -76,6 +82,7 @@ def main() -> int:
 
     base, base_tot, base_days = window(*BASELINE)
     post, post_tot, post_days = window(*AFTER)
+    rec, rec_tot, rec_days = window(*RECOVERY)
 
     decline = base_tot - post_tot
     collapsed_decline = sum(base[n] - post[n] for n in COLLAPSED)
@@ -93,7 +100,36 @@ def main() -> int:
             "after_share": round(post[n] / post_tot * 100, 1),
             "in_collapsed_set": n in COLLAPSED,
         })
+    for entry in sources:
+        entry["recovery_per_day"] = round(rec[entry["source"]], 1)
     sources.sort(key=lambda s: -s["baseline_per_day"])
+
+    # Who carried the rebound? An earlier version of this script never asked, and asserted
+    # that the Russian-institutional feeds carried it. They did not: the same three channels
+    # that collapsed supply essentially all of it, and the institutional feeds are flat
+    # across all three windows. The claim was live on the site before it was checked.
+    coll_b = sum(base[n] for n in COLLAPSED)
+    coll_a = sum(post[n] for n in COLLAPSED)
+    coll_r = sum(rec[n] for n in COLLAPSED)
+    rebound = rec_tot - post_tot
+    recovery = {
+        "window": list(RECOVERY),
+        "days": rec_days,
+        "per_day": round(rec_tot, 1),
+        "pct_of_baseline": round(rec_tot / base_tot * 100, 1),
+        "rebound_per_day": round(rebound, 1),
+        "collapsed_set_rebound_per_day": round(coll_r - coll_a, 1),
+        "collapsed_set_share_of_rebound": round((coll_r - coll_a) / rebound, 3) if rebound else None,
+        "collapsed_set_share_of_output": {
+            "baseline": round(coll_b / base_tot, 3),
+            "trough": round(coll_a / post_tot, 3),
+            "recovery": round(coll_r / rec_tot, 3),
+        },
+        "reading": ("The three channels did not stay gone. They supply essentially all of the "
+                    "rebound, and the mirror's source composition returns to within a few points "
+                    "of its pre-election mix. This was an interruption in the Hungarian-language "
+                    "supply, not a change of diet."),
+    }
 
     # independent cross-check against our own scraping of the same channels
     live = None
@@ -142,15 +178,21 @@ def main() -> int:
             "reading": ("Three Hungarian-language aggregator channels account for the great "
                         "majority of the entire decline. The Russian-institutional feeds — News "
                         "Front, InfoDefense, the war-blog channels — held steady or grew.")},
+        "recovery": recovery,
         "live_cross_check": live,
-        "finding": ("What fell away was the Hungarian-language amplifier layer. What carried on, "
-                    "and now carries the mirror's recovery, is the Russian-origin institutional "
-                    "layer. Our own scraping finds the abandoned channels still publishing, so "
-                    "this is not a supply failure — the mirror's diet changed."),
-        "cannot_show": ("the per-source series covers the top 10 sources "
-                        "only (80% of baseline articles, 70% after), our live capture proves those "
-                        "channels are active today but not that they were active during the trough, "
-                        "and the mirror articles in a single snapshot number only tens."),
+        "finding": ("The decline was concentrated, not general: three Hungarian-language aggregator "
+                    "channels account for the great majority of it, while the Russian-institutional "
+                    "feeds stayed flat at 21-24 articles/day throughout. But the collapse was "
+                    "temporary — those same three channels supply essentially all of the rebound, "
+                    "and the source mix returns close to its pre-election composition. The "
+                    "Hungarian-language supply was interrupted and then restored."),
+        "cannot_show": ("why the supply was interrupted. And note the bounds: the per-source "
+                        "series covers the top 10 credited sources only (80% of baseline articles, "
+                        "70% at the trough); credit labels are the operator's own metadata, which "
+                        "cost nothing to omit; and our live capture harvests only the mirror's "
+                        "English surface while the census counts all languages, so it cannot be "
+                        "compared with the census to say what the mirror consumes — all it shows is "
+                        "that these channels were still publishing on the capture day."),
     }
     OUT.write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n")
 
@@ -160,10 +202,16 @@ def main() -> int:
     for s in sources[:3]:
         print(f"   {s['source'][:44]:46} {s['baseline_per_day']:6.1f} -> {s['after_per_day']:5.1f} "
               f"({s['change_pct']:+d}%)")
+    r = out["recovery"]
+    print(f"   recovery {r['window'][0]}..{r['window'][1]}: {r['per_day']}/day "
+          f"({r['pct_of_baseline']}% of baseline); the collapsed set supplies "
+          f"{r['collapsed_set_share_of_rebound']*100:.0f}% of the rebound")
+    c = r["collapsed_set_share_of_output"]
+    print(f"   their share of output: baseline {c['baseline']*100:.0f}% -> trough "
+          f"{c['trough']*100:.0f}% -> recovery {c['recovery']*100:.0f}%")
     if live:
-        print(f"   live: the collapsed set ({', '.join(live['collapsed_set_tracked'])}) "
-              f"published {live['collapsed_set_captured_now']} posts today; mirror credited them "
-              f"{live['collapsed_set_credited_now']}× in {live['mirror_articles_in_snapshot']} sampled articles")
+        print(f"   live capture (ENGLISH surface only — not comparable with the census): "
+              f"{live['collapsed_set_captured_now']} items from the collapsed set")
     return 0
 
 

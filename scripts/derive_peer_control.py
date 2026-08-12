@@ -11,8 +11,12 @@ So when the Hungarian mirror does something, we can ask whether the network did 
 
 What the comparison shows, and it is not what we expected:
 
-  * NO CAMPAIGN SURGE. Through the campaign the Hungarian mirror ran flat and slightly
-    down. Whatever it was for, it was not a get-out-the-vote push.
+  * NO CAMPAIGN SURGE *RELATIVE TO ITS PEERS*. The mirror did rise into the campaign —
+    March 2026 is in fact the highest month in its whole series — but so did the rest of
+    the network, and by more than the gap between them: Hungary +24.0% Feb->Mar against a
+    peer mean of +12.4%. The excess is real but small, and nothing like the step change
+    the mirror underwent in early 2025. Stated as a raw "it ran flat", this is simply
+    false, and a hostile reader finds that in ten minutes.
   * A COLLAPSE AFTER THE VOTE. In the two months after the government it favoured lost,
     output fell about 64% against its own February-March baseline, while the six peers
     moved +1.6% on average and not one fell by more than 17%.
@@ -92,9 +96,10 @@ def main() -> int:
             "peer_n": len(peers),
         },
         "reading": (
-            "The Hungarian mirror did not surge for the election it was aimed at, and then fell "
-            "by about two thirds in the two months after that election was lost — a move no "
-            "sibling mirror made. It has since recovered most of the way back."),
+            "Against its six siblings the Hungarian mirror shows no disproportionate campaign "
+            "surge — it rose into March 2026 as the network did — and then fell by about two "
+            "thirds in the two months after the election was lost, a move no sibling made. It "
+            "has since recovered most of the way back."),
         "cannot_show": (
             "Cause. The control rules out a network-wide or seasonal effect, but it cannot "
             "distinguish an operational decision from a disruption in the upstream Telegram "

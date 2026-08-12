@@ -27,7 +27,8 @@
    "change_pct": -82,
    "baseline_share": 36.7,
    "after_share": 18.7,
-   "in_collapsed_set": true
+   "in_collapsed_set": true,
+   "recovery_per_day": 45.1
   },
   {
    "source": "Telegram: ebredes2017",
@@ -36,7 +37,8 @@
    "change_pct": -80,
    "baseline_share": 16.1,
    "after_share": 8.9,
-   "in_collapsed_set": true
+   "in_collapsed_set": true,
+   "recovery_per_day": 29.4
   },
   {
    "source": "Telegram: greatawakeningmagyarok",
@@ -45,7 +47,8 @@
    "change_pct": -88,
    "baseline_share": 14.7,
    "after_share": 5.0,
-   "in_collapsed_set": true
+   "in_collapsed_set": true,
+   "recovery_per_day": 23.3
   },
   {
    "source": "Telegram: oroszspecialiskatonaihadmuvelet",
@@ -54,7 +57,8 @@
    "change_pct": 2,
    "baseline_share": 3.0,
    "after_share": 8.5,
-   "in_collapsed_set": false
+   "in_collapsed_set": false,
+   "recovery_per_day": 8.6
   },
   {
    "source": "hu.news-front.su",
@@ -63,7 +67,8 @@
    "change_pct": 25,
    "baseline_share": 2.9,
    "after_share": 10.0,
-   "in_collapsed_set": false
+   "in_collapsed_set": false,
+   "recovery_per_day": 8.0
   },
   {
    "source": "Telegram: InfoDefMagyarok",
@@ -72,7 +77,8 @@
    "change_pct": 22,
    "baseline_share": 2.6,
    "after_share": 8.9,
-   "in_collapsed_set": false
+   "in_collapsed_set": false,
+   "recovery_per_day": 7.6
   },
   {
    "source": "Telegram: Rybar_HU",
@@ -81,7 +87,8 @@
    "change_pct": -29,
    "baseline_share": 2.1,
    "after_share": 4.1,
-   "in_collapsed_set": false
+   "in_collapsed_set": false,
+   "recovery_per_day": 2.2
   },
   {
    "source": "Telegram: VilagHelyzeteBlog",
@@ -90,7 +97,8 @@
    "change_pct": 21,
    "baseline_share": 1.8,
    "after_share": 6.2,
-   "in_collapsed_set": false
+   "in_collapsed_set": false,
+   "recovery_per_day": 5.4
   }
  ],
  "attribution": {
@@ -102,6 +110,24 @@
   "collapsed_decline_per_day": 136.5,
   "share_of_total_decline": 0.873,
   "reading": "Three Hungarian-language aggregator channels account for the great majority of the entire decline. The Russian-institutional feeds — News Front, InfoDefense, the war-blog channels — held steady or grew."
+ },
+ "recovery": {
+  "window": [
+   "2026-07-01",
+   "2026-08-10"
+  ],
+  "days": 41,
+  "per_day": 156.2,
+  "pct_of_baseline": 63.8,
+  "rebound_per_day": 67.7,
+  "collapsed_set_rebound_per_day": 69.0,
+  "collapsed_set_share_of_rebound": 1.018,
+  "collapsed_set_share_of_output": {
+   "baseline": 0.675,
+   "trough": 0.326,
+   "recovery": 0.626
+  },
+  "reading": "The three channels did not stay gone. They supply essentially all of the rebound, and the mirror's source composition returns to within a few points of its pre-election mix. This was an interruption in the Hungarian-language supply, not a change of diet."
  },
  "live_cross_check": {
   "captured_at": "2026-08-11T11:16:08+00:00",
@@ -242,6 +268,6 @@
   ],
   "collapsed_set_credited_now": 1
  },
- "finding": "What fell away was the Hungarian-language amplifier layer. What carried on, and now carries the mirror's recovery, is the Russian-origin institutional layer. Our own scraping finds the abandoned channels still publishing, so this is not a supply failure — the mirror's diet changed.",
- "cannot_show": "the per-source series covers the top 10 sources only (80% of baseline articles, 70% after), our live capture proves those channels are active today but not that they were active during the trough, and the mirror articles in a single snapshot number only tens."
+ "finding": "The decline was concentrated, not general: three Hungarian-language aggregator channels account for the great majority of it, while the Russian-institutional feeds stayed flat at 21-24 articles/day throughout. But the collapse was temporary — those same three channels supply essentially all of the rebound, and the source mix returns close to its pre-election composition. The Hungarian-language supply was interrupted and then restored.",
+ "cannot_show": "why the supply was interrupted. And note the bounds: the per-source series covers the top 10 credited sources only (80% of baseline articles, 70% at the trough); credit labels are the operator's own metadata, which cost nothing to omit; and our live capture harvests only the mirror's English surface while the census counts all languages, so it cannot be compared with the census to say what the mirror consumes — all it shows is that these channels were still publishing on the capture day."
 }

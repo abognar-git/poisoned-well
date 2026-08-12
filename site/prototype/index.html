@@ -1763,8 +1763,8 @@ setTimeout(async () => {
 
     const C = PC.comparison, T = PC.target;
     document.getElementById('peer-note').innerHTML =
-      `Through the campaign the Hungarian mirror ran flat — <b>no surge for the election it was aimed ` +
-      `at</b>. Then, in the two months after that election was lost, its output fell ` +
+      `The mirror rose into the campaign as the whole network did — <b>no surge that its six ` +
+      `siblings did not also show</b>. Then, in the two months after the election was lost, its output fell ` +
       `<b>${Math.abs(C.target_change_pct)}%</b> — from ${T.baseline_per_day}/day to ${T.after_per_day}/day. ` +
       `Across the same months the six sibling mirrors moved <b>${C.peer_mean_change_pct > 0 ? '+' : ''}` +
       `${C.peer_mean_change_pct}%</b> on average, and not one fell by more than ` +
@@ -1808,17 +1808,19 @@ setTimeout(async () => {
       .map(s => pct(s.change_pct)).join(', ');
     // keyed to the collapsed set in derive_diet.py — never "the busiest channels"
     const alive = L ? L.collapsed_set_captured_now : 0;
+    const R = DT.recovery, sh = R.collapsed_set_share_of_output;
     document.getElementById('diet-note').innerHTML =
-      `Read as percentages this looks like a reshuffle — News Front and InfoDefense appear to double ` +
-      `their share. In articles per day they grew ${grewTxt} — <b>the rest is the denominator ` +
-      `collapsing underneath them</b>. Three Hungarian-language aggregator channels fell ` +
-      `${fellTxt}, and together are <b>${Math.round(A.share_of_total_decline * 100)}% of the ` +
-      `entire decline</b>. ` +
-      (L ? `And this project scrapes those three channels directly: they published <b>${alive} posts</b> ` +
-           `on the day of this capture, while the mirror credited them ` +
-           `${L.collapsed_set_credited_now === 1 ? 'just once' : L.collapsed_set_credited_now + ' times'} ` +
-           `in ${L.mirror_articles_in_snapshot} sampled articles. The material did not stop being ` +
-           `available — <b>the mirror changed what it eats.</b> ` : '') +
+      `The decline was concentrated, not general. Three Hungarian-language aggregator channels fell ` +
+      `${fellTxt} and together are <b>${Math.round(A.share_of_total_decline * 100)}% of the entire ` +
+      `decline</b>, while the Russian-institutional feeds stayed flat at 21–24 articles a day ` +
+      `throughout — read as percentages they look like they doubled their share, but that is the ` +
+      `denominator collapsing underneath them. ` +
+      `<b>Then the channels came back.</b> Across ${R.window[0]} to ${R.window[1]} they supply ` +
+      `<b>${Math.round(R.collapsed_set_share_of_rebound * 100)}%</b> of the rebound, and their share ` +
+      `of the mirror's output returns from ${Math.round(sh.trough * 100)}% at the trough to ` +
+      `${Math.round(sh.recovery * 100)}% — within a few points of the ${Math.round(sh.baseline * 100)}% ` +
+      `it held before the election. This was an interruption in the Hungarian-language supply, ` +
+      `<b>not a change of diet.</b> ` +
       `<b>Limits:</b> ${esc(DT.cannot_show)}`;
   }
 }
