@@ -32,6 +32,15 @@ DESIGN, held identical across every row so the comparison means something:
 Partial first/last months are excluded — a partial month's daily mean is not comparable
 with a full one, and including them inflates the window count.
 
+DONOR EXCHANGEABILITY — READ THIS BEFORE USING --donors all
+The manifest's 101 domains are not 101 comparable country mirrors. It mixes country mirrors
+(hungary, poland, serbia), language mirrors (francais, catalan, spanish, deutsch), sub-national
+ones (wales, scotland), thematic ones (trump), apparent duplicates (car / rca) and network
+roots (a.network, news-pravda). A language mirror has no single national news cycle and no
+election; a thematic mirror has neither. They are legitimate members of a *volatility*
+reference distribution but not of a *like-for-like* control group. The tool therefore reports
+both pools and expects you to say which one your claim rests on.
+
 WHAT THIS CANNOT DO
 Establish cause; distinguish an operator decision from an upstream supply failure or from a
 change in what the collector sees; or say anything about content, reach or persuasion. It
@@ -177,11 +186,16 @@ def main() -> int:
     ap.add_argument("--events", action="store_true",
                     help="test the pre-specified events in catalog/events.json")
     ap.add_argument("--top", type=int, default=12, help="how many scan hits to report")
+    ap.add_argument("--donors", choices=["all", "regional"], default="all",
+                    help="'regional' restricts the pool to the seven CEE country mirrors")
     a = ap.parse_args()
     if not (a.scan or a.events):
         a.scan = a.events = True
 
     mirrors = load_mirrors()
+    if a.donors == "regional":
+        keep = {"hungary", "slovakia", "romania", "moldova", "czechia", "deutsch", "poland"}
+        mirrors = {k: v for k, v in mirrors.items() if k in keep}
     rows = all_windows(mirrors)
     vol = volatility(rows)
 
@@ -191,6 +205,10 @@ def main() -> int:
                  "mirror's historical volatility and are the figures to lead with."),
         "mirrors": {k: {kk: v[kk] for kk in ("domain", "total", "first_day", "last_day")}
                     for k, v in mirrors.items()},
+        "donor_pool": a.donors,
+        "donor_caveat": ("The full manifest mixes country, language, sub-national, thematic and "
+                         "duplicate domains. It is a defensible volatility reference distribution "
+                         "and a poor like-for-like control group; state which your claim uses."),
         "n_windows": len(rows),
         "volatility_sd_pct": {k: round(v, 1) for k, v in vol.items() if v},
     }

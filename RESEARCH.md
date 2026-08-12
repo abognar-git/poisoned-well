@@ -105,9 +105,18 @@ not choose in advance is the difference between a case study and a tool — and 
 | Romania 2024 presidential (annulled) | −5.6% | −0.42 | 40/185 |
 | Romania 2025 rerun | **+16.5%** | +1.25 | 161/185 |
 
-**Blind scan**, 12 distinct episodes at z ≤ −0.75 across all seven mirrors: **Hungary 2026-04 ranks
-6th.** Moldova holds the two largest. Hungary's own series contains a second comparable episode in
-**August 2024 — with no election near it** **[V]**.
+**Blind scan, now on the full 101-mirror manifest** (49 MB, `fetch_pravda.py --all`): **1,948
+two-month windows**. Hungary 2026-04 ranks **207th — the 11th percentile** — and none of the fifteen
+largest episodes is Hungary's. Restricted to the seven regional country mirrors it is 13/185, the 7th
+percentile. The estimate is stable across pools; what changes is that a 100-donor reference makes its
+ordinariness unmistakable. Hungary's own series holds a second comparable episode in **August 2024,
+with no election near it** **[V]**.
+
+**Donor exchangeability, stated because it bounds the above:** the 101 domains are not 101 comparable
+country mirrors. They include language mirrors (francais, catalan, spanish), sub-national ones (wales,
+scotland), thematic ones (trump), apparent duplicates (car / rca) and network roots. That pool is a
+defensible **volatility reference distribution** and a poor **like-for-like control group**. The tool
+reports both and requires the analyst to say which a claim rests on.
 
 **What this means.** Interruptions in this network are **common and mostly not election-aligned**. The
 two other votes we can date produced a small dip and a *rise*. C3 therefore cannot carry an
@@ -146,7 +155,7 @@ C2 (the census) is untouched by any of this and remains the paper's strongest cl
 | M5 | Collector-artefact audit: network-wide single-day collapses | does the instrument manufacture drops (note 2026-04-25 = 28 articles) | small | automatable |
 | M6 | **Telegram archive reconstruction** — back-page `t.me/s/` for the three channels, Feb–Aug 2026 | **the decisive question:** did the channels stop publishing, or did the mirror stop crediting them? | medium | **PI** go/no-go |
 | M7 | Manual pass over all 938 sources for Hungarian markers | hardens the headline zero from "robust to my string list" to "exhaustively verified" | ~1 day | **PI** — this is the number that will be quoted |
-| M8 | Extend donor pool to the full 101 mirrors (`domains.json`) | turns rank-1-of-186 into a distributional statement | medium | automatable |
+| ~~M8~~ | ~~Extend donor pool to the full 101 mirrors~~ | **done** — 1,948 windows; Hungary at the 11th percentile. Next: classify the 101 into country / language / thematic so the control group is like-for-like | done | `fetch_pravda.py --all` |
 
 **M6 is the study's hinge.** If the channels kept publishing through May–June, the interruption is on
 the mirror's side. If they went quiet, it is upstream. Our current data cannot distinguish these, and

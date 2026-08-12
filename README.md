@@ -54,7 +54,7 @@ data/
 ## Reproduce
 
 ```
-python3 scripts/fetch_pravda.py
+python3 scripts/fetch_pravda.py --all   # 101 mirrors, ~49 MB; omit --all for the regional seven
 python3 scripts/fetch_frameworks.py
 python3 scripts/derive_summaries.py
 python3 scripts/build_network.py         # Act III graph

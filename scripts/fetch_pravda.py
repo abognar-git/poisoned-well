@@ -13,8 +13,10 @@ no longer exist on main; the aggregated viz JSONs are the published artifact.
 Cite: CheckFirst. Pravda Network Data Collection. https://github.com/CheckFirstHQ/pravda-network
 """
 
+import argparse
 import json
 import sys
+import time
 import urllib.request
 from pathlib import Path
 
@@ -24,6 +26,9 @@ API = f"https://api.github.com/repos/{REPO}/contents"
 
 # The CEE focus set: the anchor case (Hungary) plus the comparison elections
 # covered on the site. Everything else is represented via the manifest only.
+# The seven regional mirrors the narrative uses. --all fetches every domain in the
+# manifest instead (~51 MB, 101 files), which is what the peer-control instrument wants:
+# a 100-donor pool turns a 12-episode scan into an actual distribution.
 TARGET_DOMAINS = [
     "hungary.news-pravda.com",
     "slovakia.news-pravda.com",
@@ -44,6 +49,13 @@ def get(url: str) -> bytes:
 
 
 def main() -> int:
+    ap = argparse.ArgumentParser(description="Fetch CheckFirst's Pravda-network viz data.")
+    ap.add_argument("--all", action="store_true",
+                    help="fetch every domain in the manifest (~51 MB), not just the regional seven")
+    ap.add_argument("--delay", type=float, default=0.4,
+                    help="seconds between requests; be a polite client")
+    a = ap.parse_args()
+
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "json").mkdir(exist_ok=True)
     (OUT / "csv").mkdir(exist_ok=True)
@@ -57,17 +69,30 @@ def main() -> int:
     (OUT / "domains.json").write_text(json.dumps(domains, indent=2))
     print(f"manifest: {len(domains)} domains -> {OUT / 'domains.json'}")
 
-    failures = 0
-    for d in TARGET_DOMAINS:
+    targets = [d["domain"] for d in domains] if a.all else TARGET_DOMAINS
+    print(f"fetching {len(targets)} domain(s)"
+          f"{' — full manifest' if a.all else ' — regional subset'}")
+
+    failures, got = 0, 0
+    for i, d in enumerate(targets, 1):
+        viz = OUT / "json" / f"{d}_viz.json"
         try:
-            viz = OUT / "json" / f"{d}_viz.json"
             viz.write_bytes(get(f"{RAW}/json/{d}_viz.json"))
-            print(f"viz  : {d} ({viz.stat().st_size:,} bytes)")
+            got += 1
+            if a.all and i % 20 == 0:
+                print(f"  ...{i}/{len(targets)}")
+            elif not a.all:
+                print(f"viz  : {d} ({viz.stat().st_size:,} bytes)")
         except Exception as e:
             failures += 1
             print(f"viz  : {d} FAILED ({e})", file=sys.stderr)
+        if a.delay:
+            time.sleep(a.delay)
 
-    return 1 if failures else 0
+    print(f"fetched {got}/{len(targets)}; {failures} failed")
+    # a partial fetch is usable — the instrument reports its own donor count — so only
+    # fail hard if nothing landed at all
+    return 1 if got == 0 else 0
 
 
 if __name__ == "__main__":
