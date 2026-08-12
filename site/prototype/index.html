@@ -1141,23 +1141,82 @@ function openTerm(t, btn) {
       return href ? `<a class="src" href="${esc(href)}" target="_blank" rel="noopener noreferrer">${label}</a>`
                   : `<span class="src">${label}</span>`;
     }).join('');
+  // the card is the way in to the full reference, so the glossary stops being an orphan
+  html += `<a class="src glossary-link" href="#glossary">▸ all ${glossary.length} terms, with aliases</a>`;
   evCard.innerHTML = html;
   document.body.appendChild(evCard);
   const r = btn.getBoundingClientRect(), cw = evCard.offsetWidth, chh = evCard.offsetHeight;
   evCard.style.left = Math.min(Math.max(8, r.left), innerWidth - cw - 8) + 'px';
   evCard.style.top = (r.bottom + chh + 16 < innerHeight ? r.bottom + 8 : Math.max(8, r.top - chh - 8)) + 'px';
   evCard.querySelector('.close').addEventListener('click', closeEvidence);
+  evCard.querySelector('.glossary-link').addEventListener('click', closeEvidence);
+}
+const markedTerms = new Set();
+function makeTermButton(t, label) {
+  const btn = document.createElement('button');
+  btn.className = 'term';
+  btn.textContent = label;
+  btn.setAttribute('aria-label', `what "${t.term}" means`);
+  btn.addEventListener('click', e => { e.stopPropagation(); openTerm(t, btn); });
+  markedTerms.add(t.id);
+  return btn;
 }
 document.querySelectorAll('[data-term]').forEach(el => {
   const t = termById[el.dataset.term];
   if (!t) return;                       // check_claims.py fails the build if this happens
-  const btn = document.createElement('button');
-  btn.className = 'term';
-  btn.textContent = el.textContent;
-  btn.setAttribute('aria-label', `what "${t.term}" means`);
-  el.replaceChildren(btn);
-  btn.addEventListener('click', e => { e.stopPropagation(); openTerm(t, btn); });
+  el.replaceChildren(makeTermButton(t, el.textContent));
 });
+
+/* Terms readers actually stumble on — Doppelgänger, Matryoshka, SDA, Megafon — first
+   appear inside the Act II timeline, which is generated from incidents.json, so there is
+   no static markup to annotate. Derive the surface forms from the glossary itself (term
+   plus aliases, minus parentheticals and unusable headwords like "Storm-####") and mark
+   the FIRST unmarked occurrence in generated content. Generated, not typed. */
+const TERM_PATTERNS = glossary.map(t => {
+  const clean = s => s.replace(/\([^)]*\)/g, '').trim();
+  const surfaces = [];
+  for (const part of t.term.split('/')) {
+    const c = clean(part);
+    if (c.length >= 3 && !/[#=*]/.test(c)) surfaces.push(c);
+  }
+  for (const a of t.aliases || []) {
+    const c = clean(a);
+    if (c.length >= 5 && !/[#=*]/.test(c)) surfaces.push(c);
+  }
+  if (!surfaces.length) return null;
+  const esc_ = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return { t, re: new RegExp('\\b(' + surfaces.map(esc_).join('|') + ')\\b') };
+}).filter(Boolean);
+
+function autoMarkTerms(root) {
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode: n => n.parentElement && !n.parentElement.closest('button, a, .term, .cite')
+      ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT,
+  });
+  const nodes = [];
+  let n;
+  while ((n = walker.nextNode())) nodes.push(n);
+  for (const node of nodes) {
+    // Take the EARLIEST match in the text, not the first in glossary order — otherwise a
+    // term appearing later in a sentence claims the node and the earlier one is lost (SDA
+    // was being beaten by Doppelgänger in "the sanctioned Social Design Agency — of
+    // Doppelgänger fame"). Then keep walking the tail so one sentence can carry two terms.
+    let cur = node, guard = 0;
+    while (cur && guard++ < 8) {
+      let best = null;
+      for (const { t, re } of TERM_PATTERNS) {
+        if (markedTerms.has(t.id)) continue;
+        const m = re.exec(cur.nodeValue);
+        if (m && (!best || m.index < best.m.index)) best = { t, m };
+      }
+      if (!best) break;
+      const hit = cur.splitText(best.m.index);
+      const tail = hit.splitText(best.m[0].length);
+      hit.parentNode.replaceChild(makeTermButton(best.t, best.m[0]), hit);
+      cur = tail;
+    }
+  }
+}
 addEventListener('click', e => { if (evCard && !evCard.contains(e.target) && !e.target.classList.contains('cite') && !e.target.classList.contains('term')) closeEvidence(); });
 addEventListener('keydown', e => { if (e.key === 'Escape') { closeEvidence(); closeCase(); } });
 
@@ -1562,6 +1621,7 @@ try {
     el.querySelector('.cf-open').addEventListener('click', e => { e.stopPropagation(); openCase(inc.case); });
     spine.appendChild(el);
   });
+  autoMarkTerms(spine);   // first unmarked occurrence of any glossary term, in place
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
   }), { threshold: .3 });
