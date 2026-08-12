@@ -274,11 +274,12 @@
   .vsplit .then .big, .vsplit .now .big{font-family:"Instrument Serif",Georgia,serif; font-size:1.35rem;
     display:block; margin-bottom:.5rem; color:var(--paper)}
   .vsplit .then .big{color:var(--amber)} .vsplit .now .big{color:var(--signal)}
-  /* the page's thesis — must out-specify .act-divider p, which would otherwise render it
-     smaller than the lead beneath it and invert the hierarchy */
+  /* the page's thesis. Sits between the null-result tiles and the then/now split, so it
+     needs air above and below to read as the conclusion drawn from the tiles rather than
+     a caption on them. */
   .act-divider p.vkicker, .vkicker{font-family:"Instrument Serif",Georgia,serif;
     font-size:clamp(1.6rem,3.4vw,2.45rem); line-height:1.28; text-align:center;
-    max-width:42rem; margin:2rem auto 0; color:var(--paper)}
+    max-width:42rem; margin:3.4rem auto 3.2rem; color:var(--paper)}
   .vkicker em{font-style:italic; color:var(--signal)}
   @media(max-width:680px){.vsplit{grid-template-columns:1fr}.vsplit .then{border-right:none;border-bottom:1px solid var(--hairline)}}
   .vclose{font-family:"Newsreader",serif; font-size:1.12rem; line-height:1.65; color:var(--paper);
@@ -753,7 +754,6 @@
     <h2>What the evidence honestly shows</h2>
     <p>The uncomfortable ending comes in two halves. For all the machinery, no one has shown it swings
        votes — and the campaign that leaned hardest on it lost.</p>
-    <p class="vkicker">The deepfakes were a campaign event. <em>Poisoning the AI layer is the ongoing threat.</em></p>
   </div>
   <div class="verdict">
     <p class="lead">That campaign was <span data-claim="ai-omnipresent">aimed at keeping Viktor Orbán
@@ -768,6 +768,9 @@
       <div class="vfact warn"><div class="big" data-claim="ai-share-rising">+259%</div>
         <div class="lbl">year-on-year rise in AI-enabled FIMI incidents (EEAS, 2025). Adoption is real and accelerating.</div></div>
     </div>
+
+    <p class="vkicker">The deepfakes were a campaign event. <em>Poisoning the AI layer is the ongoing threat.</em></p>
+
     <div class="vsplit">
       <div class="then">
         <div class="lbl">The deepfakes — a campaign moment</div>
