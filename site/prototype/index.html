@@ -57,6 +57,7 @@
   .marker-key b{color:var(--analyst); font-weight:400; border:1px solid rgba(110,168,216,.35);
     border-radius:2px; padding:.05em .28em; margin-right:.25em}
   .marker-key .k-term{border-bottom:1px dotted var(--analyst); color:var(--paper)}
+  .marker-key b.k-res{color:var(--amber); border-color:rgba(217,160,91,.4)}
   .hero-copy{
     position:absolute; z-index:10; left:clamp(1.4rem,5vw,5rem); top:50%;
     transform:translateY(-58%); max-width:30rem; pointer-events:none;
@@ -178,8 +179,69 @@
     letter-spacing:.04em; color:var(--amber); margin:.5rem 0 .7rem}
   .term-card .tdef{font-family:"Newsreader",serif; font-size:.9rem; line-height:1.6; color:var(--paper)}
   .cite:hover{opacity:1; border-color:var(--analyst)}
+
+  /* The research marker. § promises "here is the evidence for this claim"; ▲ promises
+     "here is what the research record says about this" — a correction we published and
+     had to withdraw, a limit on what the finding can carry, or framing we cut. Amber,
+     because every one of them is a caution rather than a citation. */
+  .rcite{
+    font-family:"IBM Plex Mono",monospace; font-size:.58em; line-height:1;
+    color:var(--amber); background:none; border:1px solid rgba(217,160,91,.38);
+    border-radius:2px; padding:.08em .28em; margin-left:.35em; vertical-align:super;
+    cursor:pointer; opacity:.85; pointer-events:auto;
+  }
+  .rcite:hover{opacity:1; border-color:var(--amber)}
+  .rcite:focus-visible{outline-offset:3px}
+  .rcite.correction{color:var(--signal); border-color:rgba(255,74,54,.42)}
+
+  #evidence-card.res-card{border-left-color:var(--amber)}
+  #evidence-card.res-card.res-correction{border-left-color:var(--signal)}
+  #evidence-card .res-status{color:var(--amber)}
+  #evidence-card .res-correction .res-status{color:var(--signal)}
+  #evidence-card .was{font-family:"Newsreader",serif; font-size:.86rem; line-height:1.45;
+    color:var(--muted); margin-bottom:.6rem}
+  #evidence-card .was em{font-family:"IBM Plex Mono",monospace; font-size:.55rem;
+    letter-spacing:.18em; text-transform:uppercase; text-decoration:none; color:var(--muted);
+    display:block; margin-bottom:.3rem; font-style:normal}
+  #evidence-card .now em{font-family:"IBM Plex Mono",monospace; font-size:.55rem;
+    letter-spacing:.18em; text-transform:uppercase; color:#7dc98f; display:block;
+    margin-bottom:.3rem; font-style:normal}
+  #evidence-card .now{font-family:"Newsreader",serif; font-size:.88rem; line-height:1.5;
+    color:var(--paper)}
+  #evidence-card .rfoot{font-size:.62rem; line-height:1.6; color:var(--muted);
+    border-top:1px solid var(--hairline); margin-top:.7rem; padding-top:.55rem}
+  #evidence-card .rfoot b{color:var(--amber); font-weight:500}
+
+  #record-body{max-width:46rem; margin:0 auto; padding:0 2rem}
+  .rgroup{margin-bottom:3.2rem}
+  .rgh{font-family:"IBM Plex Mono",monospace; font-size:.6rem; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--amber); padding-bottom:.5rem;
+    border-bottom:1px solid var(--hairline); margin-bottom:1rem}
+  .rgb{font-family:"Newsreader",serif; font-style:italic; font-size:.86rem; color:var(--muted);
+    margin:0 0 1.2rem}
+  .rentry{border-left:2px solid var(--hairline); padding:.1rem 0 .1rem 1.1rem; margin-bottom:1.5rem}
+  .rentry.rk-correction{border-left-color:var(--signal)}
+  .rentry.rk-limit,.rentry.rk-open{border-left-color:var(--amber)}
+  .rt{font-family:"IBM Plex Mono",monospace; font-size:.62rem; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--paper); margin-bottom:.55rem}
+  .rx{font-family:"Newsreader",serif; font-size:.92rem; line-height:1.62; color:var(--muted)}
+  .rx b{color:var(--paper); font-weight:400}
+  .rentry .was{font-family:"Newsreader",serif; font-size:.92rem; line-height:1.5; color:var(--muted);
+    margin-bottom:.7rem}
+  .was .wt{text-decoration:line-through; text-decoration-color:rgba(255,74,54,.75);
+    text-decoration-thickness:1px}
+  .rentry .was em,.rentry .now em{font-family:"IBM Plex Mono",monospace; font-size:.54rem;
+    letter-spacing:.18em; text-transform:uppercase; text-decoration:none; display:block;
+    margin-bottom:.3rem; font-style:normal; color:var(--muted)}
+  .rentry .now em{color:#7dc98f}
+  .rentry .now{font-family:"Newsreader",serif; font-size:.92rem; line-height:1.6; color:var(--paper)}
+  .rentry .now b{color:var(--signal); font-weight:400}
+  .rc{font-family:"IBM Plex Mono",monospace; font-size:.6rem; letter-spacing:.06em;
+    color:var(--muted); margin-top:.6rem}
   #evidence-card{
-    position:fixed; z-index:95; max-width:24rem; background:#0c111a;
+    /* 24rem is wider than a 375px viewport, so the card hung off the edge on phones —
+       all three card types (evidence, term, research) share this box */
+    position:fixed; z-index:95; max-width:min(24rem, calc(100vw - 1.5rem)); background:#0c111a;
     border:1px solid var(--hairline); border-left:2px solid var(--analyst);
     padding:1.05rem 1.2rem; box-shadow:0 12px 40px rgba(0,0,0,.55);
     font-family:"IBM Plex Mono",monospace;
@@ -611,6 +673,7 @@
     <div class="live-sub" id="live-sub" data-claim="live-counters">articles published by this one Hungary-targeting mirror since March 2024. <span data-claim="category-mix">By its own section labels only 4.0% are filed under Hungary at all</span>; the bulk is world filler and Russia.</div>
     <div class="live-cap" id="well-cap" data-claim="live-specimens"><span id="well-cap-txt"></span></div>
     <div class="marker-key"><b>§</b> evidence for a claim &nbsp;·&nbsp;
+      <b class="k-res">▲</b> what we got wrong, or cannot show &nbsp;·&nbsp;
       <span class="k-term">dotted terms</span> what a word means</div>
   </div>
   <div class="scroll-cue">SCROLL ▾</div>
@@ -639,8 +702,8 @@
       <span class="n">I·2 — INDUSTRIAL SCALE</span>
       <p>No human newsroom works like this. It peaks at
       <span class="fig" data-claim="peak-712">712 articles in one day</span>. And by its own filing,
-      <b data-claim="category-mix">only <span id="cat-hu">4.0%</span> of it is about Hungary at all</b> —
-      the rest is world filler and Russia. <span data-claim="ai-audience-aim">Researchers who have audited the network
+      <b data-claim="category-mix" data-research="cut-5">only <span id="cat-hu">4.0%</span> of it is about Hungary at all</b> —
+      the rest is world filler and Russia. <span data-claim="ai-audience-aim" data-research="cut-1">Researchers who have audited the network
       read that shape — vast output, almost no readers — as a bet on search engines and AI models rather than on
       Hungarian readers. It is their assessment of the design, and a peer-reviewed test has since disputed how far
       the effect generalises.</span></p>
@@ -681,7 +744,7 @@
     <p>These are items we fetched ourselves, so the reader does not have to take the publication rate on trust.
        A sample from the latest server-side capture of
        documented Hungary-targeting pro-Kremlin sources, one from each tier of the laundering chain —
-       Telegram origin, Pravda mirror, <span data-term="news-front">sanctioned outlet</span>. Shown as evidence; deliberately not linked.</p>
+       Telegram origin, Pravda mirror, <span data-term="news-front">sanctioned outlet</span>. Shown as evidence; deliberately not linked.<span data-research="correction-2"></span><span data-research="cut-3"></span></p>
   </div>
   <div id="specimens" data-claim="live-specimens">
     <div class="spec-head">
@@ -760,7 +823,7 @@
     <p>Five stages from a fringe Telegram post to an AI assistant's answer, the process researchers call
        <span data-term="llm-grooming">LLM grooming</span>. The first three stages are measured in this repository;
        the last two are documented by outside audits and are marked as assessments. We have run no model-side test
-       of our own, and the § markers say which is which.</p>
+       of our own, and the § markers say which is which.<span data-research="cut-1"></span></p>
   </div>
   <div id="drink-wrap">
     <p class="pipe-note" style="margin-top:.8rem">Almost nobody reads the well directly;
@@ -849,7 +912,7 @@
            have: six sibling mirrors on the same infrastructure over the same months, none of them facing a Hungarian
            election. So we can ask whether what the Hungarian mirror did, the network did too. The six are not
            interchangeable with it — they launched at different dates, in different languages, into different news
-           cycles — so they bound the answer rather than settle it.</p>
+           cycles — so they bound the answer rather than settle it.<span data-research="limit-c1"></span><span data-research="rq2"></span></p>
       </div>
       <div id="peer-chart"></div>
       <p class="gnote" id="peer-note" data-claim="peer-control"></p>
@@ -857,7 +920,10 @@
       <div class="dsub">
         <div class="tlbl">What the collapse was made of</div>
         <div id="diet-rows"></div>
-        <p class="gnote" id="diet-note" data-claim="diet-shift"></p>
+        <p class="gnote" id="diet-note" data-claim="diet-shift"
+           data-research="correction-1"></p>
+        <p class="gnote"><span data-research="cut-4">Rates, not percentages: a small-base source can
+          post a large percentage change while moving under two articles a day.</span></p>
       </div>
     </div>
 
@@ -891,7 +957,7 @@
         <p class="gq">If the domestic machine and the Russian machine were one machine, the Russian mirror should be
           crediting Hungarian pro-government output somewhere across its <span class="prov-n">139,376</span> articles. It never does — though what
           this measures is the mirror's own credit label, and a story laundered through an intermediate repost would be
-          invisible to it by construction.</p>
+          invisible to it by construction.<span data-research="limit-c2"></span><span data-research="open-m7"></span><span data-research="rq1"></span></p>
         <div id="prov-bar" data-claim="no-pipeline"></div>
         <div id="prov-legend"></div>
         <p class="gnote" id="prov-note"></p>
@@ -899,7 +965,7 @@
 
       <div class="gtier">
         <div class="tlbl">Counted · single digits, so no percentages</div>
-        <p class="gq" data-claim="shared-grammar">We tested whether the two sides share method, and
+        <p class="gq" data-claim="shared-grammar" data-research="correction-4">We tested whether the two sides share method, and
           <em>they do not — not measurably.</em> Four techniques appear on both sides, but two unrelated
           sets this size overlap by about that much anyway. These are the four; the test is below them.</p>
         <div id="tech-shared"></div>
@@ -910,7 +976,7 @@
           inter-rater check, a single tagging decision moves the share by roughly
           <span id="tech-pp">—</span> points. There is no convergence score on this page, because any
           single number here would be read as a measure of coordination — which is precisely what this
-          evidence cannot support.</p>
+          evidence cannot support.<span data-research="cut-2"></span></p>
       </div>
 
       <div class="gtier">
@@ -962,7 +1028,7 @@
     <h2>How do we know this?</h2>
     <p>Four kinds of outside evidence feed this site, and each proves something different. A fifth is our own:
        the counts, comparisons and controls computed in this repository from CheckFirst's published scrape, which are
-       marked as live data and can be re-run from the scripts.</p>
+       marked as live data and can be re-run from the scripts.<span data-research="limitations"></span></p>
   </div>
   <div class="acc">
     <details>
@@ -1002,6 +1068,20 @@
   <div id="conf-legend"></div>
 </section>
 
+<section id="record">
+  <div class="act-divider" style="padding:7rem 2rem 2.5rem">
+    <div class="no">REFERENCE · THE RECORD</div>
+    <h2>What we published and had to withdraw</h2>
+    <p>This site is pre-submission research, and the file it is drawn from records what went wrong as
+       carefully as what held. An adversarial review in August 2026 found four published claims that
+       were false; all four are below, with the sentence as it ran and the data that killed it. Nothing
+       here is retyped — it is parsed from <span class="mono">RESEARCH.md</span> by
+       <span class="mono">derive_research.py</span>, and the build fails if a ▲ marker anywhere on this
+       page stops resolving.</p>
+  </div>
+  <div id="record-body"></div>
+</section>
+
 <section id="glossary">
   <div class="act-divider" style="padding:7rem 2rem 2.5rem">
     <div class="no">REFERENCE · THE LANGUAGE</div>
@@ -1025,8 +1105,9 @@
     and a build gate fails if a tagged claim has no registry entry or no data reference behind it.
     That gate checks provenance, not truth: it cannot tell whether an entry's reasoning is sound, and in
     August 2026 an adversarial review found four claims that had passed it and were wrong. All four were
-    corrected, and the corrections are in the repository history. Case files and the
-    timeline are drawn from an adversarially-audited catalog. In the hero, each falling dot is one article
+    corrected<span data-research="root-cause"></span>, and the corrections are in the repository history. Case files and the
+    timeline are drawn from an adversarially-audited catalog. The one 3D scene left is editorial and could not appear in a
+    paper<span data-research="cut-6"></span>. In it, each falling dot is one article
     captured live today and the red contamination in the water scales with the all-time count; time is
     compressed and the well itself is illustrative.</p>
   </div>
@@ -1037,6 +1118,7 @@
     <li><b>III</b> — The infrastructure, walkable</li>
     <li><b>IV</b> — How this content reaches the crawlers</li>
     <li><b>V</b> — What the evidence honestly shows</li>
+    <li><a href="#record" style="color:var(--amber)">▲ The record — four corrections, and what we cannot show</a></li>
   </div>
   <div class="col">
     <div class="h">Data</div>
@@ -1109,11 +1191,12 @@ document.getElementById('today-fig').textContent = HU.articles_latest_day;
    Every element carrying data-claim="<id>" gets a § marker; clicking it opens
    the claim's entry from catalog/claims.json (validated by check_claims.py). */
 const jget = u => fetch(u, { cache: 'no-store' }).then(r => r.json());
-const [claims, cases, glossary, disarm] = await Promise.all([
+const [claims, cases, glossary, disarm, research] = await Promise.all([
   jget('../../catalog/claims.json').catch(() => []),
   jget('../../catalog/operations.json').catch(() => []),
   jget('../../catalog/glossary.json').catch(() => []),
   jget('../../catalog/disarm_techniques.json').catch(() => ({})),
+  jget('../../data/derived/research.json').catch(() => ({ entries: [] })),
 ]);
 const claimById = Object.fromEntries(claims.map(c => [c.id, c]));
 const caseById = Object.fromEntries(cases.map(c => [c.id, c]));
@@ -1155,10 +1238,14 @@ function openEvidence(c, btn) {
   if (c.caveat) html += `<div class="caveat">${esc(c.caveat)}</div>`;
   evCard.innerHTML = html;
   document.body.appendChild(evCard);
-  const r = btn.getBoundingClientRect(), cw = evCard.offsetWidth, chh = evCard.offsetHeight;
-  evCard.style.left = Math.min(Math.max(8, r.left), innerWidth - cw - 8) + 'px';
-  evCard.style.top = (r.bottom + chh + 16 < innerHeight ? r.bottom + 8 : Math.max(8, r.top - chh - 8)) + 'px';
+  placeCard(evCard, btn);
   evCard.querySelector('.close').addEventListener('click', closeEvidence);
+}
+/* shared by the evidence, term and research cards */
+function placeCard(card, btn) {
+  const r = btn.getBoundingClientRect(), cw = card.offsetWidth, chh = card.offsetHeight;
+  card.style.left = Math.min(Math.max(8, r.left), innerWidth - cw - 8) + 'px';
+  card.style.top = (r.bottom + chh + 16 < innerHeight ? r.bottom + 8 : Math.max(8, r.top - chh - 8)) + 'px';
 }
 document.querySelectorAll('[data-claim]').forEach(el => {
   const c = claimById[el.dataset.claim];
@@ -1170,6 +1257,97 @@ document.querySelectorAll('[data-claim]').forEach(el => {
   el.appendChild(btn);
   btn.addEventListener('click', e => { e.stopPropagation(); openEvidence(c, btn); });
 });
+
+/* ---- the research layer ----
+   RESEARCH.md is the pre-submission record: what was published and withdrawn, what each
+   finding cannot carry, what was cut, and what has not been run. It used to live only in
+   a file nobody reading the site would open. These markers put it where the reader meets
+   the claim it constrains. Nothing here is retyped — derive_research.py parses RESEARCH.md
+   into data/derived/research.json and check_claims.py fails if a marker does not resolve,
+   so the site cannot drift from the record or quietly stop showing a correction. */
+const RES = Object.fromEntries((research.entries || []).map(e => [e.id, e]));
+const RES_LABEL = {
+  correction: 'CORRECTION · PUBLISHED, THEN WITHDRAWN',
+  'root-cause': 'ROOT CAUSE · WHY THE GATE PASSED IT',
+  limit: 'LIMIT · WHAT THIS CANNOT SHOW',
+  cut: 'CUT · REMOVED FROM THE PAPER',
+  open: 'OPEN · NOT YET RUN',
+  limitations: 'LIMITATIONS · AS DRAFTED FOR THE PAPER',
+  question: 'RESEARCH QUESTION',
+};
+function resBody(e) {
+  if (e.kind === 'correction')
+    return `<div class="was"><em>Published</em><span class="wt">${e.published}</span></div>` +
+           `<div class="now"><em>What the data says</em>${e.data_says}</div>` +
+           `<div class="rfoot">Corrected in <b>${esc(e.commit)}</b> · one of four claims an ` +
+           `adversarial review found wrong. <a class="src" href="#record">▸ the whole record</a></div>`;
+  return `<div class="now">${e.text}</div>` +
+         (e.note ? `<div class="rfoot">${e.note}</div>` : '') +
+         `<div class="rfoot">From <b>RESEARCH.md</b>, rendered not retyped. ` +
+         `<a class="src" href="#record">▸ the whole record</a></div>`;
+}
+function openResearch(e, btn) {
+  closeEvidence();
+  evCard = document.createElement('div');
+  evCard.id = 'evidence-card';
+  evCard.className = 'res-card res-' + e.kind;
+  evCard.innerHTML = `<button class="close" aria-label="close">×</button>` +
+    `<div class="status res-status">${esc(RES_LABEL[e.kind] || 'RESEARCH RECORD')}</div>` +
+    `<div class="claim">${esc(e.title)}</div>` + resBody(e);
+  document.body.appendChild(evCard);
+  placeCard(evCard, btn);
+  evCard.querySelector('.close').addEventListener('click', closeEvidence);
+}
+function wireResearch(root = document) {
+  root.querySelectorAll('[data-research]').forEach(el => {
+  if (el.querySelector(':scope > .rcite')) return;
+  const e = RES[el.dataset.research];
+  if (!e) return;
+  const btn = document.createElement('button');
+  btn.className = 'rcite' + (e.kind === 'correction' ? ' correction' : '');
+  btn.textContent = '▲';
+  btn.setAttribute('aria-label',
+    (RES_LABEL[e.kind] || 'research note').toLowerCase() + ': ' + e.title);
+  el.appendChild(btn);
+  btn.addEventListener('click', ev => { ev.stopPropagation(); openResearch(e, btn); });
+  });
+}
+wireResearch();
+
+/* ---- the record section: the same entries, laid out in full ---- */
+{
+  const host = document.getElementById('record-body');
+  const groups = [
+    ['correction', 'The four corrections', 'Published, then withdrawn.'],
+    ['root-cause', 'Why the gate passed them', ''],
+    ['limit', 'What each finding cannot show', 'Stated where the finding is made, and again here.'],
+    ['open', 'The tests that would settle it', 'Not yet run. The study says so rather than implying otherwise.'],
+    ['cut', 'Cut from the paper', 'Framing the evidence does not carry.'],
+    ['question', 'The research questions', ''],
+    ['limitations', 'Limitations, as drafted', ''],
+  ];
+  if (host && research.entries && research.entries.length) {
+    for (const [kind, heading, blurb] of groups) {
+      const items = research.entries.filter(e => e.kind === kind);
+      if (!items.length) continue;
+      let h = `<div class="rgroup"><div class="rgh">${esc(heading)}</div>` +
+              (blurb ? `<p class="rgb">${esc(blurb)}</p>` : '');
+      for (const e of items) {
+        h += `<div class="rentry rk-${esc(e.kind)}"><div class="rt">${esc(e.title)}</div>`;
+        h += kind === 'correction'
+          ? `<div class="was"><em>Published</em><span class="wt">${e.published}</span></div>` +
+            `<div class="now"><em>What the data says</em>${e.data_says}</div>` +
+            `<div class="rc">corrected in ${esc(e.commit)}</div>`
+          : `<div class="rx">${e.text}</div>` + (e.note ? `<div class="rc">${e.note}</div>` : '');
+        h += `</div>`;
+      }
+      host.insertAdjacentHTML('beforeend', h + `</div>`);
+    }
+  } else if (host) {
+    host.innerHTML = `<p class="rgb" style="text-align:center">The research record could not be loaded. ` +
+                     `Run <span class="mono">python3 scripts/derive_research.py</span>.</p>`;
+  }
+}
 
 /* ---- term cards: resolve jargon where the reader meets it ----
    The glossary sits at 89% depth, so "LLM grooming" was being used ~18,000px before it
@@ -1200,9 +1378,7 @@ function openTerm(t, btn) {
   html += `<a class="src glossary-link" href="#glossary">▸ all ${glossary.length} terms, with aliases</a>`;
   evCard.innerHTML = html;
   document.body.appendChild(evCard);
-  const r = btn.getBoundingClientRect(), cw = evCard.offsetWidth, chh = evCard.offsetHeight;
-  evCard.style.left = Math.min(Math.max(8, r.left), innerWidth - cw - 8) + 'px';
-  evCard.style.top = (r.bottom + chh + 16 < innerHeight ? r.bottom + 8 : Math.max(8, r.top - chh - 8)) + 'px';
+  placeCard(evCard, btn);
   evCard.querySelector('.close').addEventListener('click', closeEvidence);
   evCard.querySelector('.glossary-link').addEventListener('click', closeEvidence);
 }
@@ -1835,7 +2011,8 @@ setTimeout(async () => {
       `The mirror rose into the campaign, and hard: ${pkLabel}, at <b>${pk[1]}/day</b>, is the highest month in ` +
       `its entire series, and its February-to-March rise of <b>+${huRise.toFixed(1)}%</b> was roughly double the ` +
       `six siblings' mean of +${peerRise.toFixed(1)}%. Every sibling rose too, so the surge was larger here ` +
-      `rather than unique to here. Then its output fell <b>${Math.abs(C.target_change_pct)}%</b> — ` +
+      `rather than unique to here.<span data-research="correction-3"></span> ` +
+      `Then its output fell <b>${Math.abs(C.target_change_pct)}%</b> — ` +
       `from ${T.baseline_per_day}/day to ${T.after_per_day}/day. ` +
       `<b>But not at the election.</b> ${PC.timing.day_after_election.date}, the day after the vote, is ` +
       `April's highest day at ${PC.timing.day_after_election.count} articles; output holds near ` +
@@ -1862,7 +2039,10 @@ setTimeout(async () => {
       `August 2024, with no election near it. Of the other votes whose dates we have verified, ` +
       `Romania's annulled 2024 round produced −5.6% and its 2025 rerun <b>+16.5%</b>. Interruptions ` +
       `here are common, and on this evidence mostly not election-aligned. ` +
-      `<b>What this cannot show:</b> ${esc(PC.cannot_show)}`;
+      `<b>What this cannot show:</b> ${esc(PC.cannot_show)}` +
+      `<span data-research="limit-c3"></span><span data-research="open-m6"></span>` +
+      `<span data-research="rq3"></span>`;
+    wireResearch(document.getElementById('peer-note'));
   }
 }
 
@@ -1915,6 +2095,7 @@ setTimeout(async () => {
       `it held before the election. This was an interruption in the Hungarian-language supply, ` +
       `<b>not a change of diet.</b> ` +
       `<b>Limits:</b> ${esc(DT.cannot_show)}`;
+    wireResearch(document.getElementById('diet-note').parentElement);
   }
 }
 

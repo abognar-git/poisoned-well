@@ -142,6 +142,33 @@ def main() -> int:
     if terms_used:
         print(f"{len(terms_used)} inline term definitions, all resolving")
 
+    # The research layer, same contract. Every data-research="<id>" must resolve to an
+    # entry generated from RESEARCH.md, and every correction must be surfaced somewhere
+    # on the page. A correction that quietly stops rendering is the exact failure this
+    # project already had once, so it is an error rather than a warning.
+    research_file = ROOT / "data" / "derived" / "research.json"
+    if not research_file.exists():
+        errors.append("data/derived/research.json missing — run scripts/derive_research.py")
+    else:
+        record = json.loads(research_file.read_text())
+        r_entries = {e["id"]: e for e in record.get("entries", [])}
+        r_used = set()
+        for page in PAGES:
+            if page.exists():
+                r_used |= set(re.findall(r'data-research="([a-z0-9-]+)"', page.read_text()))
+        for u in sorted(r_used - set(r_entries)):
+            errors.append(f"page references unknown research entry: {u}")
+        corrections = {i for i, e in r_entries.items() if e["kind"] == "correction"}
+        for miss in sorted(corrections - r_used):
+            errors.append(f"correction not surfaced on any page: {miss} "
+                          f"— every withdrawn claim must be visible where it was made")
+        kinds = {}
+        for i in r_used & set(r_entries):
+            k = r_entries[i]["kind"]
+            kinds[k] = kinds.get(k, 0) + 1
+        print(f"{len(r_entries)} research entries from RESEARCH.md | {len(r_used)} marked on pages "
+              f"({', '.join(f'{v} {k}' for k, v in sorted(kinds.items()))})")
+
     unknown = used - set(ids)
     unused = set(ids) - used
     for u in sorted(unknown):
