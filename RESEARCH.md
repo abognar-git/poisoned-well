@@ -15,8 +15,9 @@ tells. Its defensible core:
 > The Pravda network's one-mirror-per-country architecture can be used as a **control group**. Applied
 > to the mirror aimed at Hungary's April 2026 election, it yields (a) a full-coverage negative
 > provenance census — zero credits to the Hungarian pro-government press across 139,376 articles — and
-> (b) one output interruption — the largest in the network in its window, though within this mirror's
-> own historical variability — whose onset does *not* coincide with the election.
+> (b) a demonstration that output interruptions in such a network are common and largely not
+> election-aligned — including the Hungarian one, which is the largest in its own window but 6th of 12
+> episodes network-wide and 15 days late to the event it is usually attributed to.
 
 The contribution is **the design and the census**. The interruption is the demonstration case, and we
 claim no cause for it.
@@ -87,6 +88,34 @@ against this mirror's own history.** Report both, lead with the second.
 *Still to reproduce:* log DiD −1.024 and the 136-specification sweep spanning −65.1% to −38.1% **[R]**.
 *Limit:* the recovery restores the original source composition to within five points, which is more
 consistent with an **interrupted supply** than an editorial response.
+
+---
+
+## 3b. The instrument, and what it did to C3
+
+`scripts/analyse_network.py` generalises the design: any mirror, any event, plus a **blind scan**
+that finds interruptions without being told where to look. Pointing an instrument at things you did
+not choose in advance is the difference between a case study and a tool — and it cost us the finding.
+
+**Pre-specified events** (only dates this repo can source; see `catalog/events.json`):
+
+| event | change | z vs own history | normalised rank |
+|---|---|---|---|
+| Hungary 2026 parliamentary | −63.7% | −1.06 | 13/185 |
+| Romania 2024 presidential (annulled) | −5.6% | −0.42 | 40/185 |
+| Romania 2025 rerun | **+16.5%** | +1.25 | 161/185 |
+
+**Blind scan**, 12 distinct episodes at z ≤ −0.75 across all seven mirrors: **Hungary 2026-04 ranks
+6th.** Moldova holds the two largest. Hungary's own series contains a second comparable episode in
+**August 2024 — with no election near it** **[V]**.
+
+**What this means.** Interruptions in this network are **common and mostly not election-aligned**. The
+two other votes we can date produced a small dip and a *rise*. C3 therefore cannot carry an
+election-related reading: the Hungarian episode is real, is the largest in its own window, and is
+otherwise ordinary. Combined with the 15-day onset gap and the restored source composition, three
+independent lines now point the same way — **an interrupted supply, not a response to a result.**
+
+C2 (the census) is untouched by any of this and remains the paper's strongest claim.
 
 ---
 

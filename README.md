@@ -37,6 +37,9 @@ scripts/
   check_catalog.py      gate: validate catalog/operations.json (required fields, enums, sources, data_refs)
   check_claims.py       gate: every data-claim on the site maps to a backed registry entry
   derive_convergence.py how far the domestic AI machine ran the Russian playbook — and the pipeline test
+  analyse_network.py    THE INSTRUMENT: peer-control analysis for any mirror, any event, plus a blind
+                        scan that finds interruptions without being told where to look
+                          python3 scripts/analyse_network.py --scan --events
 catalog/
   schema.json           case-catalog entry schema
   operations.json       the sourced case catalog (24 entries, all sources adversarially re-verified);

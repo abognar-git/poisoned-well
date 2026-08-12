@@ -1,0 +1,55 @@
+{
+  "note": "National votes inside the coverage window of a Pravda-network mirror we hold, used as pre-specified events for the peer-control design. A date belongs here ONLY with a source. Unverified dates are listed under `needs_verification` and are NOT analysed — the scanner finds interruptions without being told where to look, which is the point.",
+  "events": [
+    {
+      "id": "hu-2026-parliamentary",
+      "mirror": "hungary",
+      "date": "2026-04-12",
+      "label": "Hungary parliamentary election",
+      "outcome": "Orbán lost; Tisza took 141 of 199 seats",
+      "source": "catalog/operations.json — target.event on 10 Hungary case files, adversarially source-verified",
+      "coverage": "full: mirror series runs 2024-03-22 to 2026-08-10"
+    },
+    {
+      "id": "ro-2024-presidential-annulled",
+      "mirror": "romania",
+      "date": "2024-11-24",
+      "label": "Romania presidential first round (subsequently annulled)",
+      "outcome": "annulled amid online influence-operation allegations",
+      "source": "catalog/operations.json — romania-2024-2025-elections",
+      "coverage": "full: mirror series runs 2024-03-23 to 2026-08-10"
+    },
+    {
+      "id": "ro-2025-presidential-rerun",
+      "mirror": "romania",
+      "date": "2025-05-18",
+      "label": "Romania presidential rerun",
+      "outcome": "won by the pro-EU candidate despite increased AI content",
+      "source": "catalog/operations.json — romania-2024-2025-elections gives '2025-05 rerun'; day-of-month needs confirming before publication",
+      "coverage": "full",
+      "date_precision": "month-verified, day unconfirmed"
+    }
+  ],
+  "needs_verification": [
+    {
+      "mirror": "slovakia",
+      "note": "2023-09-30 parliamentary election is verified in catalog/operations.json (slovakia-2023-deepfake) but falls BEFORE this mirror's coverage begins (2024-03-22). Not analysable."
+    },
+    {
+      "mirror": "poland",
+      "note": "a presidential election occurred within the coverage window; exact dates not verified in this repo. Do not analyse until sourced."
+    },
+    {
+      "mirror": "deutsch",
+      "note": "a federal election occurred within the coverage window; exact date not verified in this repo. Also note this mirror is language-targeted rather than country-targeted."
+    },
+    {
+      "mirror": "czechia",
+      "note": "a parliamentary election occurred within the coverage window; exact date not verified in this repo."
+    },
+    {
+      "mirror": "moldova",
+      "note": "presidential and parliamentary votes occurred within the coverage window; exact dates not verified in this repo."
+    }
+  ]
+}
