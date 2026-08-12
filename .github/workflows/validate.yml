@@ -23,6 +23,14 @@ jobs:
         with:
           python-version: "3.12"
 
+      # data/raw is gitignored, so four claims cite files a fresh clone does not have.
+      # check_claims downgrades those to warnings; fetching the seven regional mirrors
+      # (~4 MB) makes CI verify them for real instead. Not --all: the 101-domain
+      # manifest is ~49 MB and only the blind scan needs it.
+      - name: Fetch the regional mirrors the claims cite
+        run: python scripts/fetch_pravda.py
+        continue-on-error: true
+
       - name: Validate catalog (includes the smear-filter fixtures)
         run: python scripts/check_catalog.py
 

@@ -22,6 +22,10 @@ CATALOG = ROOT / "catalog" / "operations.json"
 AI_PHASES = {"campaign", "post-campaign", "ongoing"}
 AI_TYPES = {"deepfake-video", "deepfake-audio", "ai-image", "ai-text", "ai-persona",
             "llm-grooming", "ai-tooling", "other"}
+# Paths the repo deliberately does not carry: they are fetched by scripts/fetch_pravda.py
+# and gitignored, so a claim citing one is verifiable only after a fetch.
+FETCHED_NOT_COMMITTED = ("data/raw/",)
+
 PAGES = [ROOT / "site" / "prototype" / "index.html",
          ROOT / "site" / "prototype" / "explorer.html"]
 STATUSES = {"verified", "live-data", "assessment"}
@@ -62,7 +66,19 @@ def main() -> int:
                 errors.append(f"{cid}: source support without url")
             elif s.get("type") == "data":
                 ref = s.get("data_ref", "")
-                if not (ROOT / ref).exists():
+                if (ROOT / ref).exists():
+                    pass
+                elif any(ref.startswith(p) for p in FETCHED_NOT_COMMITTED):
+                    # data/raw is gitignored: it is fetched from CheckFirst, not carried
+                    # in the repo. On a fresh clone these refs are legitimately absent,
+                    # so this is a warning — but the path must still look like something
+                    # fetch_pravda.py actually produces, or a typo would pass silently.
+                    if not re.fullmatch(r"data/raw/pravda/(domains\.json|json/[\w.-]+_viz\.json)", ref):
+                        errors.append(f"{cid}: data_ref is not a path fetch_pravda.py produces: {ref}")
+                    else:
+                        warnings.append(f"{cid}: data_ref not fetched yet ({ref}) "
+                                        f"— run scripts/fetch_pravda.py")
+                else:
                     errors.append(f"{cid}: data_ref missing on disk: {ref}")
             elif s.get("type") not in {"source", "data"}:
                 errors.append(f"{cid}: bad support type {s.get('type')!r}")
