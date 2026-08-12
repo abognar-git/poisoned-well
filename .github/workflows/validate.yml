@@ -37,9 +37,15 @@ jobs:
       # every hour, so re-running them on a checkout compares a live census against a
       # committed one and drifts by design. Keeping them out is what refresh-data.yml
       # is for: it fetches, re-derives, validates and commits together.
-      - name: Re-derive everything whose inputs are committed
+      # The graph's node and link sets come from the catalog and must not drift. Its
+      # layout coordinates come from 600 iterations of a chaotic force simulation and
+      # are not reproducible bit-for-bit across architectures, so --check compares the
+      # structure and leaves the coordinates alone.
+      - name: Check the network graph against the catalog
+        run: python scripts/build_network.py --check
+
+      - name: Re-derive everything whose inputs are committed and byte-stable
         run: |
-          python scripts/build_network.py      # catalog -> network graph
           python scripts/derive_research.py    # RESEARCH.md -> the site's research layer
           python scripts/make_figures.py       # data/derived -> the README figures
 

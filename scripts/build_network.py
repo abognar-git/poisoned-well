@@ -8,13 +8,23 @@ Nodes and edges are derived mechanically from catalog/operations.json:
 The only hand-authored piece is ACTOR_MAP below: a reviewable normalization of
 each entry's attribution to canonical actor node(s) (the same operation is named
 differently across entries — Storm-1516 = CopyCop etc., see catalog/glossary.json).
-Layout is a deterministic 3D Fruchterman-Reingold embedding (seeded), computed
-here so the site ships no layout code.
+Layout is a seeded 3D Fruchterman-Reingold embedding, computed here so the site
+ships no layout code. It is reproducible on one machine but NOT bit-for-bit across
+architectures: 600 iterations of a chaotic force simulation amplify float
+differences past the third decimal. So the coordinates are a rendering detail and
+are excluded from any drift check — what must not drift is the structure, and
+`--check` compares exactly that: the node set, their types, and the link set,
+re-derived from the catalog against what is committed.
+
+    python3 scripts/build_network.py            # regenerate
+    python3 scripts/build_network.py --check    # structure only, for CI
 """
 
+import argparse
 import json
 import math
 import random
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -128,7 +138,7 @@ def spring_layout(nodes, links, iters=600, seed=42):
     return {n: [round(v / scale, 3) for v in pos[n]] for n in nodes}
 
 
-def main() -> int:
+def main(check: bool = False) -> int:
     cases = json.loads((ROOT / "catalog" / "operations.json").read_text())
     nodes, links = {}, []
 
@@ -180,13 +190,41 @@ def main() -> int:
 
     out = {"nodes": list(nodes.values()), "links": uniq,
            "note": "generated from catalog/operations.json by build_network.py; ACTOR_MAP is the reviewed alias normalization"}
-    OUT.joinpath("network_graph.json").write_text(json.dumps(out))
+    dest = OUT / "network_graph.json"
     by_type = {}
     for n in nodes.values():
         by_type[n["type"]] = by_type.get(n["type"], 0) + 1
+
+    if check:
+        if not dest.exists():
+            print("network_graph.json missing — run build_network.py")
+            return 1
+        have = json.loads(dest.read_text())
+        skel = lambda g: (sorted((n["id"], n["type"]) for n in g["nodes"]),
+                          sorted((l["s"], l["t"], l.get("kind")) for l in g["links"]))
+        if skel(have) != skel(out):
+            hn, hl = skel(have)
+            on, ol = skel(out)
+            print("FAIL: network_graph.json structure differs from the catalog")
+            for label, a, b in (("nodes", set(on), set(hn)), ("links", set(ol), set(hl))):
+                for x in sorted(a - b):
+                    print(f"  + {label[:-1]} in catalog, missing from committed graph: {x}")
+                for x in sorted(b - a):
+                    print(f"  - {label[:-1]} in committed graph, not in catalog: {x}")
+            return 1
+        print(f"network_graph.json: structure matches the catalog "
+              f"({len(nodes)} nodes {by_type}, {len(uniq)} links); "
+              f"layout coordinates not compared — see the module docstring")
+        return 0
+
+    dest.write_text(json.dumps(out))
     print(f"network_graph.json: {len(nodes)} nodes {by_type}, {len(uniq)} links")
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--check", action="store_true",
+                    help="compare the committed graph's structure with the catalog "
+                         "instead of rewriting it; coordinates are not compared")
+    raise SystemExit(main(check=ap.parse_args().check))
