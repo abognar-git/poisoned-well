@@ -7,7 +7,7 @@ siblings — including the claims you would rather keep.**
 I built the instrument that does the checking and pointed it at the mirror aimed
 at Hungary's April 2026 election. It took away four of my own published findings
 and cut a fifth down to a fifteen-day gap it cannot explain. What survived is one
-number: across **139,897 articles** and the **939 sources** that account for all
+number: across **139,915 articles** and the **939 sources** that account for all
 of them, the Hungarian pro-government press is credited **zero times**.
 
 <sub>**How to read this.** The section below stands on its own — it is the whole
