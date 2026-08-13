@@ -59,19 +59,22 @@ jobs:
       - name: Validate claims
         run: python scripts/check_claims.py
 
-      # The README quotes census figures that move as the mirror publishes. This runs
-      # after validation but before the commit step below only in file order — it is a
-      # report, not a blocker: fresh data still lands, and a red run says the write-up
-      # now disagrees with the data underneath it.
-      - name: Report if the README has gone stale against the new data
+      # The README quotes census figures that move every time the mirror publishes, so
+      # they are synced from the fresh data and committed with it rather than left to
+      # rot or hand-edited hourly. --sync only rewrites figures registered in CLAIMS;
+      # a claim that stops appearing, or a correction that stops being cited, still
+      # fails — which is why the plain check runs straight afterwards.
+      - name: Sync the README's figures to the new data
+        run: python scripts/check_readme.py --sync
+
+      - name: Verify the README still holds
         run: python scripts/check_readme.py
-        continue-on-error: true
 
       - name: Commit refreshed data
         run: |
           git config user.name "poisoned-well data refresh"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/derived docs/figures
+          git add data/derived docs/figures README.md
           if git diff --cached --stat --exit-code; then
             echo "No data changes."
           else

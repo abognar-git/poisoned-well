@@ -13,8 +13,20 @@ numeric literals out of the fragment and compares those to the recomputed values
 so the README's own text is what is being checked — not a second copy of the
 number kept in this file, which would rot in exactly the same way.
 
-    python3 scripts/check_readme.py
+    python3 scripts/check_readme.py           # verify
+    python3 scripts/check_readme.py --sync     # rewrite the registered figures in place
+
+--sync exists because the data refreshes hourly and these figures move with it: the
+census grows as the mirror publishes. Hand-editing the README every hour is not a
+plan, and leaving it stale is worse. So the refresh workflow syncs the registered
+numbers and commits them with the data.
+
+That does not make the gate ornamental. It only rewrites figures registered in
+CLAIMS; a number typed into the prose that nobody registered still fails the check,
+a fragment that stops appearing still fails, and every correction must still be
+cited by commit. What --sync removes is rot, not scrutiny.
 """
+import argparse
 import datetime
 import json
 import re
@@ -57,69 +69,99 @@ def build():
     bucket = {b["bucket"]: b["articles"] for b in P["buckets"]}
     cat = lambda f: len(json.loads((ROOT / "catalog" / f).read_text()))
 
-    # (verbatim README fragment, values it must equal, in order of appearance)
+    # (README template, values). {…} are format specs — the same string both matches
+    # the README (with the numbers replaced by a number pattern) and rewrites it under
+    # --sync, so a fragment can never orphan its own matcher the way a literal would.
     return [
-        ("**101 websites**", [len(ns["mirrors"])]),
-        ("**17.7 million articles**", [round(sum(m["total"] for m in ns["mirrors"].values()) / 1e6, 1)]),
-        ("**1,948 comparable windows**", [ns["n_windows"]]),
-        ("**869 of the 872 days**", [hu["active_days"], span]),
+        ("**{:,.0f} websites**", [len(ns["mirrors"])]),
+        ("**{:.1f} million articles**", [sum(m["total"] for m in ns["mirrors"].values()) / 1e6]),
+        ("**{:,.0f} comparable windows**", [ns["n_windows"]]),
+        ("**{:,.0f} of the {:,.0f} days**", [hu["active_days"], span]),
 
-        ("**139,376 articles**", [P["total_articles"]]),
-        ("**938 sources**", [P["credited_sources"]]),
-        ("938 of them, accounting for 100.00%", [P["credited_sources"], round(P["coverage"] * 100, 2)]),
-        ("credited 76 times (0.05%)", [bucket["hungarian_progov_account"], 0.05]),
-        ("a further 130 (0.09%)", [bucket["hungarian_fringe"], 0.09]),
+        ("**{:,.0f} articles**", [P["total_articles"]]),
+        ("**{:,.0f} sources**", [P["credited_sources"]]),
+        ("{:,.0f} of them, accounting for {:.2f}%", [P["credited_sources"], P["coverage"] * 100]),
+        ("credited {:,.0f} times ({:.2f}%)", [bucket["hungarian_progov_account"],
+                                              bucket["hungarian_progov_account"] / P["total_articles"] * 100]),
+        ("a further {:,.0f} ({:.2f}%)", [bucket["hungarian_fringe"],
+                                         bucket["hungarian_fringe"] / P["total_articles"] * 100]),
 
-        ("fell **63.7%**", [abs(C["target_change_pct"])]),
-        ("from 243.6 to 88.5 articles a day", [TG["baseline_per_day"], TG["after_per_day"]]),
-        ("moved **+1.6%** on average", [C["peer_mean_change_pct"]]),
-        ("not one fell more than 16.3%", [abs(C["peer_min_change_pct"])]),
+        ("fell **{:.1f}%**", [abs(C["target_change_pct"])]),
+        ("from {:.1f} to {:.1f} articles a day", [TG["baseline_per_day"], TG["after_per_day"]]),
+        ("moved **+{:.1f}%** on average", [C["peer_mean_change_pct"]]),
+        ("not one fell more than {:.1f}%", [abs(C["peer_min_change_pct"])]),
 
-        ("**1st**, p = 0.0054", [PB["raw_rank"], PB["raw_p"]]),
-        ("sd 58.8% against Romania's 13.2%", [PB["volatility_by_mirror"]["hungary"],
-                                              PB["volatility_by_mirror"]["romania"]]),
-        ("**−1.08 sd, 13th**, p = 0.0703", [PB["treated_z"], PB["volatility_normalised_rank"],
-                                            PB["volatility_normalised_p"]]),
-        ("**207th**, p = 0.1063", [HU["normalised_rank"], HU["normalised_p"]]),
-        ("**≈27 April — 15 days late**", [27, TI["gap_days_after_election"]]),
-        ("**highest single day at 356 articles**", [TI["day_after_election"]["count"]]),
-        ("holds near 223/day", [TI["mean_13_to_24_april"]]),
+        ("**{:,.0f}st**, p = {:.4f}", [PB["raw_rank"], PB["raw_p"]]),
+        ("sd {:.1f}% against Romania's {:.1f}%", [PB["volatility_by_mirror"]["hungary"],
+                                                  PB["volatility_by_mirror"]["romania"]]),
+        ("**−{:.2f} sd, {:,.0f}th**, p = {:.4f}", [abs(PB["treated_z"]),
+                                                   PB["volatility_normalised_rank"],
+                                                   PB["volatility_normalised_p"]]),
+        ("**{:,.0f}th**, p = {:.4f}", [HU["normalised_rank"], HU["normalised_p"]]),
+        ("**≈{:.0f} April — {:.0f} days late**", [27, TI["gap_days_after_election"]]),
+        ("**highest single day at {:,.0f} articles**", [TI["day_after_election"]["count"]]),
+        ("holds near {:,.0f}/day", [TI["mean_13_to_24_april"]]),
 
-        ("produced −5.6%", [RO24["change_pct"]]),
-        ("**+16.5% rise**", [RO25["change_pct"]]),
+        ("produced −{:.1f}%", [abs(RO24["change_pct"])]),
+        ("**+{:.1f}% rise**", [RO25["change_pct"]]),
 
-        ("supply **101.8%** of the rebound", [round(R["collapsed_set_share_of_rebound"] * 100, 1)]),
-        ("everything else nets **−1.3 articles/day**",
-         [round(R["rebound_per_day"] - R["collapsed_set_rebound_per_day"], 1)]),
-        ("67.5% → 32.6% → 62.6%", [round(R["collapsed_set_share_of_output"][k] * 100, 1)
-                                   for k in ("baseline", "trough", "recovery")]),
-        ("Observed overlap **4**", [len(T["shared"])]),
-        ("expected by chance **5.00**", [T["chance_baseline"][0]["expected_overlap"]]),
-        ("or 6.25 if you draw", [T["chance_baseline"][1]["expected_overlap"]]),
-        ("at 269.6 articles/day", [peak]),
-        ("+24.0% February-to-March rise against a +12.4% peer mean",
-         [round(rise(mon), 1), round(peer_rise, 1)]),
+        ("supply **{:.1f}%** of the rebound", [R["collapsed_set_share_of_rebound"] * 100]),
+        ("everything else nets **−{:.1f} articles/day**",
+         [abs(R["rebound_per_day"] - R["collapsed_set_rebound_per_day"])]),
+        ("{:.1f}% → {:.1f}% → {:.1f}%", [R["collapsed_set_share_of_output"][k] * 100
+                                         for k in ("baseline", "trough", "recovery")]),
+        ("Observed overlap **{:,.0f}**", [len(T["shared"])]),
+        ("expected by chance **{:.2f}**", [T["chance_baseline"][0]["expected_overlap"]]),
+        ("or {:.2f} if you draw", [T["chance_baseline"][1]["expected_overlap"]]),
+        ("at {:.1f} articles/day", [peak]),
+        ("+{:.1f}% February-to-March rise against a +{:.1f}% peer mean",
+         [rise(mon), peer_rise]),
 
-        ("32 registered claims", [cat("claims.json")]),
-        ("the 24 case files", [cat("operations.json")]),
+        ("{:,.0f} registered claims", [cat("claims.json")]),
+        ("the {:,.0f} case files", [cat("operations.json")]),
     ]
 
 
-def main() -> int:
-    flat = re.sub(r"\s+", " ", README.read_text())
-    errors, checked = [], 0
+SPEC = re.compile(r"\{[^}]*\}")
 
-    for fragment, expected in build():
-        probe = re.sub(r"\s+", " ", fragment)
-        if probe not in flat:
-            errors.append(f"README no longer contains: {probe!r}")
+
+def as_regex(template):
+    """A template becomes a whitespace-tolerant regex with a number pattern wherever a
+    format spec sits, so it matches the README no matter what the current values are."""
+    parts = [re.escape(p) for p in SPEC.split(template)]
+    rx = r"[\d,]+(?:\.\d+)?".join(parts)
+    return re.compile(r"\s+".join(rx.split("\ ")).replace(r"\ ", r"\s+"))
+
+
+def main(sync: bool = False) -> int:
+    text = README.read_text()
+    errors, checked, synced = [], 0, []
+
+    for template, values in build():
+        rx = as_regex(template)
+        m = rx.search(text)
+        if not m:
+            errors.append(f"README no longer contains: {template!r}")
             continue
-        got = nums(probe)
-        want = [float(v) for v in expected]
-        if got != want:
-            errors.append(f"{probe!r}\n      README says {got}, data says {want}")
+        want = template.format(*values)
+        have = re.sub(r"\s+", " ", m.group(0))
+        if have != re.sub(r"\s+", " ", want):
+            if sync:
+                text = text[:m.start()] + want + text[m.end():]
+                synced.append(f"{have}  ->  {want}")
+                checked += len(values)
+                continue
+            errors.append(f"{template!r}\n      README: {have}\n      data:   {want}")
         else:
-            checked += len(want)
+            checked += len(values)
+
+    if sync and synced:
+        README.write_text(text)
+        print(f"README: synced {len(synced)} figures to data/derived/")
+        for line in synced:
+            print(f"  {line}")
+
+    flat = re.sub(r"\s+", " ", README.read_text())
 
     # the smear-fixture count quoted in the README must match the fixture file
     fx = (ROOT / "tests" / "test_smear.py").read_text()
@@ -148,4 +190,7 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    ap = argparse.ArgumentParser(description="Verify the README against data/derived.")
+    ap.add_argument("--sync", action="store_true",
+                    help="rewrite registered figures in place instead of failing on them")
+    raise SystemExit(main(sync=ap.parse_args().sync))

@@ -7,7 +7,7 @@ siblings — including the claims you would rather keep.**
 I built the instrument that does the checking and pointed it at the mirror aimed
 at Hungary's April 2026 election. It took away four of my own published findings
 and cut a fifth down to a fifteen-day gap it cannot explain. What survived is one
-number: across **139,376 articles** and the **938 sources** that account for all
+number: across **139,883 articles** and the **939 sources** that account for all
 of them, the Hungarian pro-government press is credited **zero times**.
 
 <sub>**How to read this.** The section below stands on its own — it is the whole
@@ -37,7 +37,7 @@ readers — is aimed less at the people of the country named on the domain than 
 the machines that now answer questions about it.
 
 One of those sites points at Hungary. It went up in March 2024 and has published
-on **869 of the 872 days** since. Hungary held a national election on 12 April
+on **872 of the 875 days** since. Hungary held a national election on 12 April
 2026; the government lost. That is the case this project started as.
 
 **The thing that makes it a study rather than a story is the other hundred
@@ -57,7 +57,7 @@ the election was.
 
 | # | What I published | What the data says |
 |---|---|---|
-| 1 | The Russian institutional layer carries the recovery | The three *collapsed* channels supply **101.8%** of the rebound — more than all of it |
+| 1 | The Russian institutional layer carries the recovery | The three *collapsed* channels supply **101.4%** of the rebound — more than all of it |
 | 2 | The mirror changed what it eats | Invalid comparison — my capture reads only the `/en/` surface, the census counts every language |
 | 3 | No surge for the election it was aimed at | March 2026 is the mirror's **highest month ever**; only the *difference* survives, +24.0% against a +12.4% peer mean |
 | 4 | What the two sides share is a grammar | Observed overlap **4**, expected by chance **5.00**. At or below chance |
@@ -100,10 +100,10 @@ interrupted supply than with a response to a result, and **I claim no cause for
 it.**
 
 What is left standing is the census. Across every article the mirror has
-published, and every source it credits — 938 of them, accounting for 100.00% of
+published, and every source it credits — 939 of them, accounting for 100.00% of
 its output — the Hungarian pro-government press appears **zero times**. It is not
 a clean zero: one pro-government commentator's personal Telegram channel is
-credited 76 times (0.05%), and nationalist-fringe channels a further 130 (0.09%).
+credited 78 times (0.06%), and nationalist-fringe channels a further 131 (0.09%).
 A thread exists; a pipeline does not.
 
 That matters because roughly **90%** of the disinformation in Hungary's 2026
@@ -359,7 +359,7 @@ is the one I found while fixing them.
 Russian institutional layer carried the mirror's rebound. I had summed the three
 *most-captured* channels rather than the three that actually collapsed. Summing
 the right ones: the collapsed set supplies **101.8%** of the rebound — more than all of it, so
-everything else nets **−1.3 articles/day**. Their share of output runs
+everything else nets **−1.0 articles/day**. Their share of output runs
 67.5% → 32.6% → 62.6%. The channels that fell are the channels that came back,
 which is why "interrupted supply" is now the reading and "editorial decision" is
 not. Fixed in `fef305a`.
