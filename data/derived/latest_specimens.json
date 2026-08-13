@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-08-13T19:46:51+00:00",
+  "captured_at": "2026-08-13T22:26:30+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -117,10 +117,20 @@
     "origin",
     "outlet"
   ],
-  "latest_day": "2026-08-13",
-  "today_live_count": 112,
+  "latest_day": "2026-08-14",
+  "today_live_count": 4,
   "corpus_count": 130,
   "featured": [
+    {
+      "site": "ukraina-ru",
+      "date": "2026-08-14",
+      "category": "ukraina",
+      "title": "Школьные учебники в Молдавии героизируют фашистских преступников — МИД ПМР",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "date_is_capture": false
+    },
     {
       "site": "tg-baltnews",
       "id": "73276",
@@ -145,37 +155,37 @@
     },
     {
       "site": "pravda-hu",
-      "id": 44524,
+      "id": 44526,
       "date": "2026-08-13",
-      "category": "hungary",
-      "title": "Reaction to Peter Magyar's outburst today",
+      "category": "world",
+      "title": "Hungarian Prime Minister Peter Magyar questioned the correctness of the environmental permit issued for the construction of the Paks-2 nuclear power plant",
       "theme": "hungary",
       "lang": "lat",
       "unit": "headline",
       "source": {
-        "platform": "Telegram",
-        "channel": "toroczkai"
+        "platform": "MAX",
+        "channel": "tass_agency"
       }
     },
     {
       "site": "tg-oroszkatonai",
-      "id": "42337",
+      "id": "42338",
       "date": "2026-08-13",
-      "published_at": "2026-08-13T11:16:13+00:00",
+      "published_at": "2026-08-13T22:17:15+00:00",
       "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ További azonosított ukrán katonai jelenlét a a fronton Velyka Novoselkától északra. #speciáliskatonaihadművelet",
-      "theme": "filler",
+      "title": "⚡️ Ukrajna csapást mért egy Galaktika bevásárlóközpontra Jenakijivóban, a Donyeck régióban 2026. augusztus 13-án a…",
+      "theme": "ukraine",
       "lang": "hu",
       "unit": "post_excerpt"
     },
     {
       "site": "tg-oroszigazsag",
-      "id": "264285",
+      "id": "264293",
       "date": "2026-08-13",
-      "published_at": "2026-08-13T19:45:52+00:00",
+      "published_at": "2026-08-13T21:41:22+00:00",
       "category": "oroszokazigazsagoldalan",
-      "title": "Az orosz Angelina Melnyikova aranyérmet nyert az tornász-Európa-bajnokság egyéni összetett versenyszámában. Az…",
-      "theme": "filler",
+      "title": "📝 Egy különleges katonai művelet krónikája 📝 2026. augusztus 13-ra Az orosz fegyveres erők egységei precíziós csapások…",
+      "theme": "ukraine",
       "lang": "hu",
       "unit": "post_excerpt"
     },
@@ -192,49 +202,58 @@
     },
     {
       "site": "tg-greatawaken",
-      "id": "154902",
+      "id": "154905",
       "date": "2026-08-13",
-      "published_at": "2026-08-13T19:28:26+00:00",
+      "published_at": "2026-08-13T20:05:56+00:00",
       "category": "greatawakeningmagyarok",
-      "title": "Pete Hegseth hadügyminiszter üzenete a latin-amerikai kábítószer-terroristáknak: „Az Amerikai Kontinens Kartellellenes…",
+      "title": "🌙 Jó Éjszakát! 🌙 Nyugtató háterzene, amely Javítja az alvás minőségét,nyugtatja az elmét. 😴 🎧",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt"
     },
     {
       "site": "tg-lomovka",
-      "id": "140005",
+      "id": "140012",
       "date": "2026-08-13",
-      "published_at": "2026-08-13T19:25:03+00:00",
+      "published_at": "2026-08-13T22:20:12+00:00",
       "category": "lomovkaa",
-      "title": "Россия отвергает претензии Японии в связи с поездкой Владимира Путина на Курилы, заявили в МИД. Другие тезисы: ▪️…",
-      "theme": "russia",
+      "title": "Спецпосланник Трампа Джаред Кушнер на следующей неделе приедет в Израиль для переговоров по ситуации в секторе Газа.…",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "post_excerpt"
-    },
-    {
-      "site": "tg-infodef",
-      "id": "13994",
-      "date": "2026-08-13",
-      "published_at": "2026-08-13T18:34:03+00:00",
-      "category": "InfoDefMagyarok",
-      "title": "Népszerűtlen háború cél nélkül – az amerikaiak alaposan ottrekedtek a Közel-Keleten Az USA célok világos megfogalmazása…",
-      "theme": "hungary",
-      "lang": "hu",
-      "unit": "post_excerpt"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-08-13",
-      "category": "rt",
-      "title": "При посредничестве Белоруссии: Россия и Украина провели обмен гражданскими лицами",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "date_is_capture": true
     }
   ],
   "corpus": [
+    {
+      "site": "ukraina-ru",
+      "date": "2026-08-14",
+      "category": "ukraina",
+      "title": "В Польше усомнились в выполнении Украиной обязательств по сделке о МиГ-29",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "date_is_capture": false
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-08-14",
+      "category": "ukraina",
+      "title": "По трассе \"Новороссия\" ежесуточно проезжает около 7 тысяч машин",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "date_is_capture": false
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-08-14",
+      "category": "ukraina",
+      "title": "Силы ПВО сбили первые БПЛА, пытавшиеся ночью прорваться к Москве",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "date_is_capture": false
+    },
     {
       "site": "tg-baltnews",
       "id": "73275",
@@ -325,6 +344,34 @@
     },
     {
       "site": "pravda-hu",
+      "id": 44525,
+      "date": "2026-08-13",
+      "category": "world",
+      "title": "\"We will never be accepted into the EU, accept it\" – Kiev political scientist",
+      "theme": "ukraine",
+      "lang": "lat",
+      "unit": "headline",
+      "source": {
+        "platform": "MAX",
+        "channel": "politnavigator"
+      }
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44524,
+      "date": "2026-08-13",
+      "category": "hungary",
+      "title": "Reaction to Peter Magyar's outburst today",
+      "theme": "hungary",
+      "lang": "lat",
+      "unit": "headline",
+      "source": {
+        "platform": "Telegram",
+        "channel": "toroczkai"
+      }
+    },
+    {
+      "site": "pravda-hu",
       "id": 44523,
       "date": "2026-08-13",
       "category": "russia",
@@ -394,32 +441,15 @@
       }
     },
     {
-      "site": "pravda-hu",
-      "id": 44518,
+      "site": "tg-oroszkatonai",
+      "id": "42337",
       "date": "2026-08-13",
-      "category": "hungary",
-      "title": "Romania has shut down its car factories, but in Hungary the population is being asked and even more than 600 settlements (including Debrecen and Pecset) are obliged not to water their…",
-      "theme": "hungary",
+      "published_at": "2026-08-13T11:16:13+00:00",
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ További azonosított ukrán katonai jelenlét a a fronton Velyka Novoselkától északra. #speciáliskatonaihadművelet",
+      "theme": "filler",
       "lang": "hu",
-      "unit": "headline",
-      "source": {
-        "platform": "Telegram",
-        "channel": "novakelod"
-      }
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44517,
-      "date": "2026-08-13",
-      "category": "russia",
-      "title": "The Egyptian newspaper Al-Masry Al-Youm has published an article that casts doubt on the future of Ukraine as a single state",
-      "theme": "ukraine",
-      "lang": "hu",
-      "unit": "headline",
-      "source": {
-        "platform": "Telegram",
-        "channel": "InfodefSpectrum"
-      }
+      "unit": "post_excerpt"
     },
     {
       "site": "tg-oroszkatonai",
@@ -489,78 +519,78 @@
     },
     {
       "site": "tg-oroszigazsag",
-      "id": "264281",
+      "id": "264292",
       "date": "2026-08-13",
-      "published_at": "2026-08-13T19:39:08+00:00",
+      "published_at": "2026-08-13T21:39:15+00:00",
       "category": "oroszokazigazsagoldalan",
-      "title": "Azt írják, hogy a szevasztopoli terrortámadás ügyében letartóztatott nő beismerte a robbantást — amiért kriptovalutával…",
+      "title": "‼️ 🇷🇺 🫡 Az Egységes Oroszország vezet a választásokra jelölt különleges katonai műveletek résztvevőinek számában ▪️ A…",
       "theme": "russia",
       "lang": "hu",
       "unit": "post_excerpt"
     },
     {
       "site": "tg-oroszigazsag",
-      "id": "264277",
+      "id": "264291",
       "date": "2026-08-13",
-      "published_at": "2026-08-13T19:36:25+00:00",
+      "published_at": "2026-08-13T21:35:47+00:00",
       "category": "oroszokazigazsagoldalan",
-      "title": "🇺🇸 🚀 Az USA ismét felhasználja Oroszország katonai tapasztalatait. Az amerikai légierő 75 millió dollárt különített el…",
+      "title": "📆 Mai legfontosabb hírek 💥 Szisztematikus vereség: ma az ukrán haditengerészet egy parancsnoki állását és a katonai…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt"
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264290",
+      "date": "2026-08-13",
+      "published_at": "2026-08-13T21:28:46+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "‼️ Véget ért a csütörtök. Összefoglaljuk a nap híreit: 🟦 Egy orosz védelmi minisztériumi katona meghalt egy…",
       "theme": "ukraine",
       "lang": "hu",
       "unit": "post_excerpt"
     },
     {
       "site": "tg-oroszigazsag",
-      "id": "264276",
+      "id": "264289",
       "date": "2026-08-13",
-      "published_at": "2026-08-13T19:30:56+00:00",
+      "published_at": "2026-08-13T21:00:07+00:00",
       "category": "oroszokazigazsagoldalan",
-      "title": "Egy pézsmatulok-borjú született a Moszkvai Állatkert Ritka Állatfajok Szaporítóközpontjában , — közölte az intézmény a…",
+      "title": "🚩 A @lost_armour kollégáink szerint az északiak elfoglalták a Szumi régióban található elhagyatott Rogoznoje határmenti…",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt"
     },
     {
       "site": "tg-oroszigazsag",
-      "id": "264274",
+      "id": "264288",
       "date": "2026-08-13",
-      "published_at": "2026-08-13T19:11:42+00:00",
+      "published_at": "2026-08-13T20:55:22+00:00",
       "category": "oroszokazigazsagoldalan",
-      "title": "Az illegális bevándorlás Európába vizualizációját készítette a Remigrációs Intézet. Minden pont 100 migránst jelent.",
+      "title": "Kramatorszk • Szlavjanszk Az légierő folytatja az agglomeráció nagyszabású szőnyegbombázását . Egyszerűen a földdel…",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt"
     },
     {
       "site": "tg-oroszigazsag",
-      "id": "264273",
+      "id": "264286",
       "date": "2026-08-13",
-      "published_at": "2026-08-13T19:05:45+00:00",
+      "published_at": "2026-08-13T19:48:13+00:00",
       "category": "oroszokazigazsagoldalan",
-      "title": "🇺🇸 / 🇮🇷 ÚJ: Az Egyesült Államok az Iránnal folytatott háborúban az összes MQ-9 „Reaper” drónjának 25%-át elvesztette.",
-      "theme": "filler",
+      "title": "Afrikában életét vesztette Dmitrij Szergyinov, az Oroszországi Föderáció Légierő tartalékos századosa, támadó pilóta és…",
+      "theme": "russia",
       "lang": "hu",
       "unit": "post_excerpt"
     },
     {
       "site": "tg-oroszigazsag",
-      "id": "264272",
+      "id": "264285",
       "date": "2026-08-13",
-      "published_at": "2026-08-13T19:04:32+00:00",
+      "published_at": "2026-08-13T19:45:52+00:00",
       "category": "oroszokazigazsagoldalan",
-      "title": "🇺🇸 / 🇮🇷 ÚJ: Az USS George Washington (CVN-73), az USS Shoup (DDG-86) és az USS Robert Smalls (CG-62) nyugati irányba…",
+      "title": "Az orosz Angelina Melnyikova aranyérmet nyert az tornász-Európa-bajnokság egyéni összetett versenyszámában. Az…",
       "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "264268",
-      "date": "2026-08-13",
-      "published_at": "2026-08-13T18:58:43+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "A belorusz–ukrán határon újabb civilek cseréjére került sor Oroszország és Ukrajna között . Az eljárás eredményeként…",
-      "theme": "ukraine",
       "lang": "hu",
       "unit": "post_excerpt"
     },
@@ -643,6 +673,17 @@
     },
     {
       "site": "tg-greatawaken",
+      "id": "154902",
+      "date": "2026-08-13",
+      "published_at": "2026-08-13T19:28:26+00:00",
+      "category": "greatawakeningmagyarok",
+      "title": "Pete Hegseth hadügyminiszter üzenete a latin-amerikai kábítószer-terroristáknak: „Az Amerikai Kontinens Kartellellenes…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt"
+    },
+    {
+      "site": "tg-greatawaken",
       "id": "154900",
       "date": "2026-08-13",
       "published_at": "2026-08-13T19:26:04+00:00",
@@ -708,14 +749,69 @@
       "unit": "post_excerpt"
     },
     {
-      "site": "tg-greatawaken",
-      "id": "154890",
+      "site": "tg-lomovka",
+      "id": "140011",
       "date": "2026-08-13",
-      "published_at": "2026-08-13T13:47:25+00:00",
-      "category": "greatawakeningmagyarok",
-      "title": "Egyetértek velük! 🇭🇺 🔥 💯 Ti akkartátok a változást és szavaztatok!! Akkor csináljátok végig!! 🇭🇺 🔥 🐑 Áragyatook!!! 💩 🧠…",
+      "published_at": "2026-08-13T21:47:01+00:00",
+      "category": "lomovkaa",
+      "title": "Подборка материалов зарубежных СМИ к ночи 14 августа. NetEase : Запад привык злоупотреблять своей властью для оказания…",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "post_excerpt"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "140010",
+      "date": "2026-08-13",
+      "published_at": "2026-08-13T21:15:15+00:00",
+      "category": "lomovkaa",
+      "title": "Страны НАТО напрямую вовлечены в террористическую деятельность Киева. Об этом заявила официальный представитель МИД…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "140008",
+      "date": "2026-08-13",
+      "published_at": "2026-08-13T20:40:10+00:00",
+      "category": "lomovkaa",
+      "title": "США потеряли около четверти беспилотников MQ-9 Reaper в войне с Ираном. Соединенные Штаты потеряли не менее 45…",
       "theme": "filler",
-      "lang": "hu",
+      "lang": "cyr",
+      "unit": "post_excerpt"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "140007",
+      "date": "2026-08-13",
+      "published_at": "2026-08-13T20:15:07+00:00",
+      "category": "lomovkaa",
+      "title": "Украинцы призывного возраста лишились автоматической защиты в Германии. Германия с 31 июля 2026 года изменила правила…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "140006",
+      "date": "2026-08-13",
+      "published_at": "2026-08-13T19:50:04+00:00",
+      "category": "lomovkaa",
+      "title": "ЕС попросил Бразилию стать посредником в контактах с Россией. Европейский союз обратился к Бразилии с просьбой…",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "post_excerpt"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "140005",
+      "date": "2026-08-13",
+      "published_at": "2026-08-13T19:25:03+00:00",
+      "category": "lomovkaa",
+      "title": "Россия отвергает претензии Японии в связи с поездкой Владимира Путина на Курилы, заявили в МИД. Другие тезисы: ▪️…",
+      "theme": "russia",
+      "lang": "cyr",
       "unit": "post_excerpt"
     },
     {
@@ -730,69 +826,25 @@
       "unit": "post_excerpt"
     },
     {
-      "site": "tg-lomovka",
-      "id": "140003",
+      "site": "tg-infodef",
+      "id": "13995",
       "date": "2026-08-13",
-      "published_at": "2026-08-13T18:45:09+00:00",
-      "category": "lomovkaa",
-      "title": "РФ будет выбирать цели для ответа на «разбой и пиратство» Запада в любых акваториях. Россия будет самостоятельно…",
-      "theme": "russia",
-      "lang": "cyr",
+      "published_at": "2026-08-13T20:21:51+00:00",
+      "category": "InfoDefMagyarok",
+      "title": "A \"Reconquista Reverse Village\" „prémium lakópark” megnyílt a Földközi-tenger partján, a spanyol Ceutában A tengeri…",
+      "theme": "hungary",
+      "lang": "hu",
       "unit": "post_excerpt"
     },
     {
-      "site": "tg-lomovka",
-      "id": "140002",
+      "site": "tg-infodef",
+      "id": "13994",
       "date": "2026-08-13",
-      "published_at": "2026-08-13T18:20:08+00:00",
-      "category": "lomovkaa",
-      "title": "ВКС России нанесли удары ФАБ-500 по позициям ВСУ в Харьковской области. Воздушно-космические силы России нанесли удары…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "140001",
-      "date": "2026-08-13",
-      "published_at": "2026-08-13T17:55:06+00:00",
-      "category": "lomovkaa",
-      "title": "США направляют авианосец George Washington на Ближний Восток на смену Lincoln. Соединенные Штаты готовятся направить…",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "post_excerpt"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "140000",
-      "date": "2026-08-13",
-      "published_at": "2026-08-13T17:30:00+00:00",
-      "category": "lomovkaa",
-      "title": "Минсельхоз переориентирует экспорт сельхозпродукции на альтернативные маршруты. Министерство сельского хозяйства России…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "139999",
-      "date": "2026-08-13",
-      "published_at": "2026-08-13T17:05:00+00:00",
-      "category": "lomovkaa",
-      "title": "Танцы и автоспорт: международные федерации сняли ограничения с российских спортсменов. Президиум Всемирной федерации…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "139998",
-      "date": "2026-08-13",
-      "published_at": "2026-08-13T16:40:00+00:00",
-      "category": "lomovkaa",
-      "title": "Малайзия планирует начать выпуск российских лекарств. Россия и Малайзия прорабатывают возможность локализации…",
-      "theme": "russia",
-      "lang": "cyr",
+      "published_at": "2026-08-13T18:34:03+00:00",
+      "category": "InfoDefMagyarok",
+      "title": "Népszerűtlen háború cél nélkül – az amerikaiak alaposan ottrekedtek a Közel-Keleten Az USA célok világos megfogalmazása…",
+      "theme": "hungary",
+      "lang": "hu",
       "unit": "post_excerpt"
     },
     {
@@ -928,21 +980,21 @@
       "unit": "post_excerpt"
     },
     {
-      "site": "ukraina-ru",
+      "site": "rt-ru",
       "date": "2026-08-13",
-      "category": "ukraina",
-      "title": "Путь к победе: какова возможная военно-политическая стратегия России во второй половине 2026 года",
-      "theme": "russia",
+      "category": "rt",
+      "title": "При посредничестве Белоруссии: Россия и Украина провели обмен гражданскими лицами",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "date_is_capture": false
+      "date_is_capture": true
     },
     {
       "site": "zvezda-tv",
       "date": "2026-08-13",
       "category": "zvezda",
-      "title": "Погибших при разминировании в Севастополе саперов наградят посмертно",
-      "theme": "filler",
+      "title": "Захарова: заявления Токио о посещении Путиным Курил юридически ничтожны",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
       "date_is_capture": false
@@ -979,27 +1031,17 @@
       "site": "rt-ru",
       "date": "2026-08-13",
       "category": "rt",
-      "title": "Работала на украинские спецслужбы: севастопольцы помогли задержать подозреваемую в подрыве военнослужащего",
-      "theme": "ukraine",
+      "title": "Мельникова выиграла чемпионат Европы по спортивной гимнастике в многоборье",
+      "theme": "eu/nato",
       "lang": "cyr",
       "unit": "headline",
       "date_is_capture": true
     },
     {
-      "site": "ukraina-ru",
-      "date": "2026-08-13",
-      "category": "ukraina",
-      "title": "Германия будет депортировать украинских мужчин без освобождения от службы в ВСУ",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "date_is_capture": false
-    },
-    {
       "site": "zvezda-tv",
       "date": "2026-08-13",
       "category": "zvezda",
-      "title": "Петиция о лишении Зеленского православной награды собрала тысячу подписей в США",
+      "title": "ВС РФ уничтожили оборудование для разгрузки в порту Одесса",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
@@ -1037,28 +1079,18 @@
       "site": "rt-ru",
       "date": "2026-08-13",
       "category": "rt",
-      "title": "Конгрессвумен Мейс предложила вернуть смертную казнь в Вашингтоне",
+      "title": "Кушнер может посетить Каир для переговоров по Газе",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
       "date_is_capture": true
     },
     {
-      "site": "ukraina-ru",
-      "date": "2026-08-13",
-      "category": "ukraina",
-      "title": "Скандально известный полк \"Скала\"* перейдет под управление \"Азова\"*",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "date_is_capture": false
-    },
-    {
       "site": "zvezda-tv",
       "date": "2026-08-13",
       "category": "zvezda",
-      "title": "Российские военнослужащие освободили Петровку в ДНР",
-      "theme": "russia",
+      "title": "Погибших при разминировании в Севастополе саперов наградят посмертно",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
       "date_is_capture": false
@@ -1095,28 +1127,18 @@
       "site": "rt-ru",
       "date": "2026-08-13",
       "category": "rt",
-      "title": "Шесть человек пострадали при атаке ВСУ на электричку в ДНР",
-      "theme": "ukraine",
+      "title": "Депутат бундестага призвал не провоцировать Россию в Средиземном море",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
       "date_is_capture": true
     },
     {
-      "site": "ukraina-ru",
-      "date": "2026-08-13",
-      "category": "ukraina",
-      "title": "ВСУ убивают пенсионеров в Сумской области, чтобы занять их дома",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "date_is_capture": false
-    },
-    {
       "site": "zvezda-tv",
       "date": "2026-08-13",
       "category": "zvezda",
-      "title": "Снайперы ГрВ «Центр» применили спецпатроны против бронированных дронов",
-      "theme": "filler",
+      "title": "Петиция о лишении Зеленского православной награды собрала тысячу подписей в США",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
       "date_is_capture": false
@@ -1125,8 +1147,8 @@
       "site": "tsargrad",
       "date": "2026-08-13",
       "category": "tsargrad",
-      "title": "Заморозка? Украина обратилась к России с особенным предложением",
-      "theme": "ukraine",
+      "title": "Лучшая доставка \"Бандероли\": Один из главных страхов ГУР сбылся",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
       "date_is_capture": true
@@ -1150,31 +1172,31 @@
       "unit": "headline"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-08-13",
-      "category": "rt",
-      "title": "В ДНР за день 17 человек, в том числе двое детей, пострадали из-за действий ВСУ",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-08-13",
       "category": "ukraina",
-      "title": "Украина предложила России взаимно остановить атаки на Чёрном море",
-      "theme": "ukraine",
+      "title": "Путь к победе: какова возможная военно-политическая стратегия России во второй половине 2026 года",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
       "date_is_capture": false
     },
     {
+      "site": "rt-ru",
+      "date": "2026-08-13",
+      "category": "rt",
+      "title": "Трамп ввёл пошлины до 100% на импорт беспилотников",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "date_is_capture": true
+    },
+    {
       "site": "zvezda-tv",
       "date": "2026-08-13",
       "category": "zvezda",
-      "title": "Микроавтобус с 19 белорусами рухнул в ущелье в Грузии",
-      "theme": "filler",
+      "title": "Российские военнослужащие освободили Петровку в ДНР",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
       "date_is_capture": false
@@ -1183,8 +1205,8 @@
       "site": "tsargrad",
       "date": "2026-08-13",
       "category": "tsargrad",
-      "title": "Две главные проблемы в армии России честно обозначил военблогер: \"Отсутствие связи ведёт к поражению\"",
-      "theme": "russia",
+      "title": "Заморозка? Украина обратилась к России с особенным предложением",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
       "date_is_capture": true
@@ -1208,31 +1230,31 @@
       "unit": "headline"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-08-13",
-      "category": "rt",
-      "title": "Мельникова выиграла чемпионат Европы по спортивной гимнастике в многоборье",
-      "theme": "eu/nato",
-      "lang": "cyr",
-      "unit": "headline",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-08-13",
       "category": "ukraina",
-      "title": "Немецкие СМИ: энергоколлапс может сделать города Украины непригодными для жизни зимой",
+      "title": "В Харькове мужчина продавал оружие всем желающим",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
       "date_is_capture": false
     },
     {
+      "site": "rt-ru",
+      "date": "2026-08-13",
+      "category": "rt",
+      "title": "Трамп поручил ВМС США вернуть паровые катапульты на авианосцы",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "date_is_capture": true
+    },
+    {
       "site": "zvezda-tv",
       "date": "2026-08-13",
       "category": "zvezda",
-      "title": "В группировке «Запад» перекрыли «ждунами» пути движения диверсантов ВСУ",
-      "theme": "ukraine",
+      "title": "Снайперы ГрВ «Центр» применили спецпатроны против бронированных дронов",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
       "date_is_capture": false
@@ -1241,8 +1263,8 @@
       "site": "tsargrad",
       "date": "2026-08-13",
       "category": "tsargrad",
-      "title": "Украинская разведка в панике: Киев и Одесса в огне. Новое супероружие русских изменит всё",
-      "theme": "ukraine",
+      "title": "Две главные проблемы в армии России честно обозначил военблогер: \"Отсутствие связи ведёт к поражению\"",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
       "date_is_capture": true
@@ -1266,31 +1288,31 @@
       "unit": "headline"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-08-13",
-      "category": "rt",
-      "title": "В Феодосии четыре домовладения уничтожены из-за пожара",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-08-13",
       "category": "ukraina",
-      "title": "Алехин: Российские войска загоняют 159-ю бригаду ВСУ в котёл под Волчанском",
+      "title": "Украинского пограничника арестовали за коррупцию и порнографию",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
       "date_is_capture": false
     },
     {
+      "site": "rt-ru",
+      "date": "2026-08-13",
+      "category": "rt",
+      "title": "Утверждён ГОСТ на стеклянные банки для кофе",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "date_is_capture": true
+    },
+    {
       "site": "zvezda-tv",
       "date": "2026-08-13",
       "category": "zvezda",
-      "title": "Опубликованы кадры боев за Петровку в ДНР",
-      "theme": "filler",
+      "title": "Российские войска поразили дронами нефтебазу в Измаиле",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
       "date_is_capture": false
@@ -1314,14 +1336,14 @@
       "unit": "headline"
     },
     {
-      "site": "rt-ru",
+      "site": "ukraina-ru",
       "date": "2026-08-13",
-      "category": "rt",
-      "title": "В Феодосии четыре домовладения уничтожены из-за пожара",
-      "theme": "filler",
+      "category": "ukraina",
+      "title": "Алехин: Российские войска загоняют 159-ю бригаду ВСУ в котёл под Волчанском",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "date_is_capture": true
+      "date_is_capture": false
     },
     {
       "site": "tg-rybar",
@@ -1353,28 +1375,6 @@
       "category": "Rybar_HU",
       "title": "📝 A különleges katonai művelet krónikája 📝 2026. augusztus 11-én 🧨 Az orosz erők drónokkal támadták meg egy…",
       "theme": "ukraine",
-      "lang": "hu",
-      "unit": "post_excerpt"
-    },
-    {
-      "site": "tg-oroszkatonai",
-      "id": "42320",
-      "date": "2026-08-12",
-      "published_at": "2026-08-12T22:30:20+00:00",
-      "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ Orosz zászló Petrovka településen Druzskivkától délre Az Orosz fegyveres erők katonái az orosz zászlót emelik fel…",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt"
-    },
-    {
-      "site": "tg-infodef",
-      "id": "13986",
-      "date": "2026-08-12",
-      "published_at": "2026-08-12T20:18:51+00:00",
-      "category": "InfoDefMagyarok",
-      "title": "Svédországban adófizetők pénzén készítettek szociális reklámot, amelyben hangos fehér nő zavarja a buszon a szerény és…",
-      "theme": "hungary",
       "lang": "hu",
       "unit": "post_excerpt"
     },
