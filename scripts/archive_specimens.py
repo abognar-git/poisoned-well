@@ -39,17 +39,39 @@ FIELDS = ("site", "tier", "date", "published_at", "title", "theme", "lang", "uni
 
 
 def key(row):
-    return (row.get("site"), row["url"]) if row.get("url") else \
-           (row.get("site"), row.get("date"), row.get("title"))
+    """Identity, most stable first. `id` is the publisher's own post/article number where
+    one exists and is the only field a repair cannot change; falling straight to the title
+    means any edit to the text — a re-truncation, a relabel — silently forks one item into
+    two. That happened."""
+    if row.get("id") not in (None, ""):
+        return (row.get("site"), "id", str(row["id"]))
+    if row.get("url"):
+        return (row.get("site"), "url", row["url"])
+    return (row.get("site"), "dt", row.get("date"), row.get("title"))
 
 
 def load_archive():
-    seen, shards = {}, {}
+    """Deduplicate on load, keeping the earliest sighting. Repairs change fields, and two
+    rows that were distinct before an edit can become the same item after it — writing the
+    shards back without collapsing them leaves the duplicate in the published file."""
+    seen, shards, dropped = {}, {}, 0
     for f in sorted(ARCHIVE.glob("*.jsonl")):
-        rows = [json.loads(l) for l in f.read_text().splitlines() if l.strip()]
-        shards[f.stem] = rows
-        for r in rows:
-            seen[key(r)] = r
+        kept = []
+        for line in f.read_text().splitlines():
+            if not line.strip():
+                continue
+            r = json.loads(line)
+            k = key(r)
+            if k in seen:
+                dropped += 1
+                if r.get("first_seen", "") < seen[k].get("first_seen", "9"):
+                    seen[k].update({"first_seen": r["first_seen"]})
+                continue
+            seen[k] = r
+            kept.append(r)
+        shards[f.stem] = kept
+    if dropped:
+        print(f"  collapsed {dropped} duplicate row(s) on load")
     return seen, shards
 
 
