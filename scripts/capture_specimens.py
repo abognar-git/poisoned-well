@@ -27,6 +27,7 @@ import re
 import time
 import urllib.request
 from datetime import datetime, timezone
+from html import unescape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -77,6 +78,36 @@ SOURCES = {
         "link": re.compile(
             r'<a[^>]*href="(https://hungary\.news-pravda\.com/en/([a-z-]+)/(\d{4})/(\d{2})/(\d{2})/(\d+)\.html)"[^>]*>(.*?)</a>',
             re.S),
+    },
+    # Four Russian-language outlets the mirror credits (2.6% of its articles between them).
+    # Each carries a sourced glossary entry; the attribution strings below say exactly who or
+    # what is designated, because owner, parent and outlet are different facts and the
+    # registers distinguish them even when reporting does not.
+    "rt-ru": {
+        "label": "RT (Russian service)", "tier": "outlet", "type": "cards", "lang": "ru",
+        "attribution": "Russia — RT, operated by ANO TV-Novosti: the operating entity is under EU, UK and US asset freezes; the EU's broadcasting suspension names other RT services, not this one",
+        "base": "https://russian.rt.com", "listings": ["/"], "section": "rt",
+        "link": re.compile(r'href="(/[a-z-]+/(?:article|news)/\d+-[a-z0-9-]+)"'),
+    },
+    "ukraina-ru": {
+        "label": "Ukraina.ru", "tier": "outlet", "type": "cards", "lang": "ru",
+        "attribution": "Russia — Ukraina.ru, a project of the state agency Rossiya Segodnya; the designations attach to the parent group, not to this outlet by name",
+        "base": "https://ukraina.ru", "listings": ["/"], "section": "ukraina",
+        "link": re.compile(r'href="(?:https://ukraina\.ru)?(/(\d{4})(\d{2})(\d{2})/[a-z0-9-]+\.html)"'),
+        "date_from": lambda m: f"{m.group(2)}-{m.group(3)}-{m.group(4)}",
+    },
+    "zvezda-tv": {
+        "label": "Zvezda", "tier": "outlet", "type": "cards", "lang": "ru",
+        "attribution": "Russia — Zvezda, the Ministry of Defence television channel; its operating company is under an EU asset freeze and the outlet is in the EU broadcasting-suspension annex",
+        "base": "https://tvzvezda.ru", "listings": ["/"], "section": "zvezda",
+        "link": re.compile(r'href="(?:https://tvzvezda\.ru)?(/news/(\d{4})(\d{1,2})(\d{2})\d{4}-\w+\.html)"'),
+        "date_from": lambda m: f"{m.group(2)}-{int(m.group(3)):02d}-{int(m.group(4)):02d}",
+    },
+    "tsargrad": {
+        "label": "Tsargrad TV", "tier": "outlet", "type": "cards", "lang": "ru",
+        "attribution": "Russia — Tsargrad TV: the channel itself is under an EU asset freeze, its operator and parent under US designations, and its owner Konstantin Malofeev separately designated",
+        "base": "https://tsargrad.tv", "listings": ["/"], "section": "tsargrad",
+        "link": re.compile(r'href="(?:https://tsargrad\.tv)?(/news/[a-z0-9-]+_\d+)"'),
     },
     # News Front's Hungarian subdomain has been timing out at network level while the
     # Russian-language root answers normally and uses the identical /YYYY/MM/DD/slug/
@@ -215,6 +246,60 @@ def harvest_web(sid, cfg):
     return rows
 
 
+# ── outlets whose listing does not put the headline inside the anchor ──────────
+# News Front hands us <a href=...>headline</a>. These four do not: the link and its
+# headline sit in separate elements of a card, so the title is taken from the first
+# Cyrillic run after the link. Measured coverage on the front page: RT 87/87,
+# Ukraina.ru 52/57, Zvezda 45/48, Tsargrad 10/10.
+TODAY = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+CYRILLIC = re.compile(r"[А-ЯЁ]")
+TEXT_NODE = re.compile(r">([^<>]{24,200})<")
+# listing cards prefix the headline with a rubric and/or a date-time in several shapes:
+# "13 Августа 15:34", "Августа 15:34", "Политика 13 Августа 13:43", "15:34"
+LEAD_NOISE = re.compile(
+    r"^(?:[А-ЯЁа-яё]{3,14}\s+)?(?:\d{1,2}\s+)?[А-ЯЁа-яё]{3,12}\s+\d{1,2}:\d{2}\s*"
+    r"|^\d{1,2}\s+[А-ЯЁа-яё]{3,12}\s+\d{1,2}:\d{2}\s*"
+    r"|^\d{1,2}:\d{2}\s*")
+
+
+def harvest_cards(sid, cfg):
+    """Link pattern for the URL, nearest following Cyrillic run for the headline."""
+    rows, seen = [], set()
+    try:
+        page = fetch(cfg["base"] + cfg["listings"][0])
+    except Exception as e:
+        PROBLEMS[sid] = f"unreachable ({type(e).__name__})"
+        return rows
+    for m in cfg["link"].finditer(page):
+        href = m.group(1)
+        url = href if href.startswith("http") else cfg["base"] + href
+        if url in seen:
+            continue
+        # Take the first suitable TEXT NODE after the link, not the first Cyrillic run in
+        # the stripped window: stripping tags first merges adjacent headlines into one
+        # string and lets markup residue through. Element boundaries are the whole point.
+        title = None
+        for node in TEXT_NODE.findall(page[m.end():m.end() + 900]):
+            t = LEAD_NOISE.sub("", re.sub(r"\s+", " ", unescape(node))).strip(" \u2014-–·|,")
+            if len(t) >= 24 and CYRILLIC.match(t) and "href=" not in t:
+                title = t
+                break
+        if not title or SMEAR.search(title):
+            continue
+        seen.add(url)
+        d = cfg["date_from"](m) if cfg.get("date_from") else None
+        if d:
+            try:                      # a malformed date sorts to the top and crowds the corpus
+                datetime.strptime(d, "%Y-%m-%d")
+            except ValueError:
+                d = None
+        rows.append({"site": sid, "id": None, "date": d or TODAY, "date_is_capture": not d,
+                     "category": cfg.get("section", "news"), "title": title[:190],
+                     "theme": classify(title), "url": url})
+    return rows
+
+
 def harvest_telegram(sid, cfg):
     """Parse the public t.me/s/<channel> preview: message text, date, post id."""
     rows, seen = [], set()
@@ -245,7 +330,10 @@ PROBLEMS = {}   # sid -> why nothing came back; surfaced in the JSON and on the 
 
 
 def harvest(sid, cfg):
-    rows = harvest_telegram(sid, cfg) if cfg["type"] == "telegram" else harvest_web(sid, cfg)
+    t = cfg["type"]
+    rows = (harvest_telegram(sid, cfg) if t == "telegram"
+            else harvest_cards(sid, cfg) if t == "cards"
+            else harvest_web(sid, cfg))
     if not rows and sid not in PROBLEMS:
         PROBLEMS[sid] = "reachable, but nothing usable after filtering"
     rows.sort(key=lambda r: (r["date"], str(r["id"] or "")), reverse=True)
@@ -270,7 +358,20 @@ def main() -> int:
             continue
         seen.add(r["url"])
         corpus.append(r)
-    corpus = corpus[:CORPUS_CAP]
+    # The cap used to be a straight truncation of a (date, id)-sorted list, which quietly
+    # starved every source without numeric ids: at equal dates their empty id sorted last
+    # and the busiest Telegram channels ate the whole allowance. Fill round-robin instead,
+    # so the corpus represents the network rather than whichever source posts most.
+    per_site = {}
+    for r in corpus:
+        per_site.setdefault(r["site"], []).append(r)
+    balanced, rank = [], 0
+    while len(balanced) < CORPUS_CAP and any(len(v) > rank for v in per_site.values()):
+        for site in sorted(per_site, key=lambda x: sortkey(per_site[x][0]), reverse=True):
+            if rank < len(per_site[site]) and len(balanced) < CORPUS_CAP:
+                balanced.append(per_site[site][rank])
+        rank += 1
+    corpus = sorted(balanced, key=sortkey, reverse=True)
 
     # featured: round-robin the newest item per source (so one busy Telegram channel
     # can't flood the slate), then fill by recency; still guarantee each TIER and a
@@ -321,7 +422,11 @@ def main() -> int:
     today_live = sum(1 for r in corpus if r["date"] == latest_day)
 
     def strip(r):
-        return {k: r.get(k) for k in ("site", "id", "date", "category", "title", "theme", "source")}
+        # date_is_capture must survive into the JSON: without it a row whose listing gave
+        # no publication date is indistinguishable from one that did, and the page would
+        # be presenting our capture time as the article's date.
+        return {k: r.get(k) for k in ("site", "id", "date", "category", "title", "theme",
+                                      "source", "date_is_capture") if r.get(k) is not None}
 
     out = {
         "captured_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),

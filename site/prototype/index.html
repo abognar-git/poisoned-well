@@ -388,6 +388,7 @@
   .spec .meta{font-family:"IBM Plex Mono",monospace; font-size:.6rem; line-height:1.5; color:var(--muted);
     min-width:0; overflow-wrap:anywhere; word-break:break-word}
   .spec .meta .cat{color:var(--amber); text-transform:uppercase; letter-spacing:.1em}
+  .spec .meta .capdate{color:var(--muted); opacity:.75; border-bottom:1px dotted var(--hairline); cursor:help}
   .spec .title{font-family:"Newsreader",serif; font-size:1.02rem; line-height:1.4; color:var(--paper)}
   .spec .theme{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:.56rem;
     letter-spacing:.12em; text-transform:uppercase; border-radius:2px; padding:.2em .5em;
@@ -1747,7 +1748,7 @@ try {
   const PAYLOAD_THEMES = new Set(['hungary', 'ukraine', 'russia', 'eu/nato', 'energy']);
   const siteInfo = sid => {
     const s = DATA.sources[sid] || {};
-    return { cls: s.tier || '', label: s.label || sid, tier: s.tier };
+    return { cls: s.tier || '', label: s.label || sid, tier: s.tier, attribution: s.attribution };
   };
   let capturedAt = null, DATA = null, ALL = [];
 
@@ -1778,9 +1779,17 @@ try {
       prov = `<div class="laundered"><span class="arr">↳ laundered from</span> <b>${esc(s.source.platform)}${
         s.source.channel ? ' · ' + esc(s.source.channel) : ''}</b></div>`;
     else if (site.tier === 'outlet')
-      prov = `<div class="laundered"><span class="arr">↳</span> Crimea-based, sanctioned outlet</div>`;
+      // was hardcoded to News Front's description, which became wrong the moment a second
+      // outlet joined the tier. Each source states its own designation in the catalog.
+      prov = `<div class="laundered"><span class="arr">↳ outlet tier</span> ${
+        esc((site.attribution || '').replace(/^Russia — /, '')) || 'sanctioned outlet'}</div>`;
     el.innerHTML =
-      `<div class="meta"><span class="cat">${esc(s.category)}</span><br>${esc(s.date)}</div>` +
+      // Some listings carry no publication date. Those rows show our capture date, and
+      // saying so is the difference between a date and a guess.
+      `<div class="meta"><span class="cat">${esc(s.category)}</span><br>${esc(s.date)}` +
+      (s.date_is_capture
+        ? `<br><span class="capdate" title="This listing gives no publication date; this is when we captured it">captured</span>`
+        : '') + `</div>` +
       `<div><span class="site ${site.cls}">${esc(site.label)} · ${esc(site.tier || '')}</span><div class="title">${esc(s.title)}</div>${themeTag}${prov}</div>`;
     return el;
   };

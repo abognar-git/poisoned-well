@@ -185,5 +185,146 @@
       "publisher": "Data & Society",
       "url": "https://datasociety.net/library/data-voids/"
     }
+  },
+  {
+    "id": "rt",
+    "term": "RT (Russia Today)",
+    "aliases": [
+      "Russia Today",
+      "ANO TV-Novosti",
+      "TV-Novosti"
+    ],
+    "definition": "Russian state-funded international broadcaster, operated by ANO TV-Novosti and financed from the federal budget. The operating entity is under an EU asset freeze (16 December 2022), a UK asset freeze (31 March 2022) and a US OFAC SDN designation (13 September 2024). The EU's March 2022 measure against RT was a broadcasting suspension rather than an asset freeze, and it named the English, UK, German, French and Spanish services — not the Russian-language service captured here.",
+    "sources": [
+      {
+        "publisher": "Official Journal of the European Union / EUR-Lex",
+        "title": "Council Regulation (EU) 2022/350 of 1 March 2022 amending Regulation (EU) No 833/2014 (inserts Article 2f and Annex XV: RT English, RT UK, RT Germany, RT France, RT Spanish, Sputnik)",
+        "url": "https://eur-lex.europa.eu/eli/reg/2022/350/oj",
+        "date": "2022-03-02"
+      },
+      {
+        "publisher": "Official Journal of the European Union / EUR-Lex",
+        "title": "Council Implementing Regulation (EU) 2022/2476 of 16 December 2022 implementing Regulation (EU) No 269/2014 (entity No. 158: ANO TV-Novosti; individual No. 1391: Alexey Nikolov)",
+        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32022R2476",
+        "date": "2022-12-16"
+      },
+      {
+        "publisher": "European Commission (DG FISMA) — EU Consolidated Financial Sanctions List (FSF)",
+        "title": "EU consolidated list of persons, groups and entities subject to financial sanctions — entry EU.9390.17, ANO TV-Novosti, designation date 16.12.2022, amended by Reg. (EU) 2024/2455",
+        "url": "https://webgate.ec.europa.eu/fsd/fsf/public/files/xmlFullSanctionsList_1_1/content?token=dG9rZW4tMjAxNw",
+        "date": "2026-08-13"
+      },
+      {
+        "publisher": "U.S. Department of the Treasury, Office of Foreign Assets Control",
+        "title": "Russia-related Designations; Issuance of Russia-related General Licenses and Amended FAQ — SDN List addition of AUTONOMOUS NON PROFIT ORGANIZATION TV NOVOSTI (a.k.a. \"RT\") [RUSSIA-EO14024]",
+        "url": "https://ofac.treasury.gov/recent-actions/20240913",
+        "date": "2024-09-13"
+      }
+    ]
+  },
+  {
+    "id": "tsargrad",
+    "term": "Tsargrad TV",
+    "aliases": [
+      "Царьград",
+      "Tsargrad-Media"
+    ],
+    "definition": "Moscow-based Russian nationalist television channel and website. Unusually, the channel itself is designated: “Tsargrad TV Channel” was placed under an EU asset freeze on 18 December 2023. The US designated the operating company Tsargrad-Media and its parent Tsargrad OOO on 20 April 2022; the UK designated only the parent. Its owner Konstantin Malofeev is separately designated in his own right by the EU (2014) and OFAC (2014) — a designation of the owner, distinct from the channel's.",
+    "sources": [
+      {
+        "publisher": "European Commission (DG FISMA)",
+        "title": "EU Consolidated Financial Sanctions List (FSD), XML full list — entry EU.11050.61 'Tsargrad TV Channel', designationDate 2023-12-18, regulation '2023/2875', contactInfo WEB = tsargrad.tv; and entry EU.4004.55 'Konstantin Valerevich MALOFEEV', date of listing 30/07/2014, regulation '826/2014 (OJ L226)'",
+        "url": "https://webgate.ec.europa.eu/fsd/fsf/public/files/xmlFullSanctionsList_1_1/content?token=dG9rZW4tMjAxNw",
+        "date": "2026-08-13 (retrieved)"
+      },
+      {
+        "publisher": "EUR-Lex / Official Journal of the European Union",
+        "title": "Council Implementing Regulation (EU) 2023/2875 of 18 December 2023 implementing Regulation (EU) No 269/2014 concerning restrictive measures in respect of actions undermining or threatening the territorial integrity, sovereignty and independence of Ukraine (publication URL cited by the EU consolidated list for the Tsargrad TV Channel listing)",
+        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ:L_202302875",
+        "date": "2023-12-18"
+      },
+      {
+        "publisher": "Publications Office of the European Union / Official Journal C 222",
+        "title": "Notice for the attention of 'RT Balkan', 'Oriental Review', 'Tsargrad', 'New Eastern Outlook', 'Katehon', regarding their inclusion in Council Decision 2014/512/CFSP and Council Regulation (EU) No 833/2014 concerning restrictive measures in view of Russia's actions destabilising the situation in Ukraine (2023/C 222/12)",
+        "url": "https://op.europa.eu/en/publication-detail/-/publication/7382bb8b-13c0-11ee-806b-01aa75ed71a1/language-en",
+        "date": "2023-06-26"
+      },
+      {
+        "publisher": "European Audiovisual Observatory (Council of Europe), IRIS Merlin",
+        "title": "EU sanctions five more Russian media outlets — identifies Council Regulation (EU) 2023/1214 of 23 June 2023 amending Regulation (EU) No 833/2014 as the instrument suspending broadcasting for RT Balkan, Oriental Review, Tsargrad, New Eastern Outlook and Katehon",
+        "url": "https://merlin.obs.coe.int/article/9822",
+        "date": "2023"
+      }
+    ]
+  },
+  {
+    "id": "ukraina-ru",
+    "term": "Ukraina.ru",
+    "aliases": [
+      "Украина.ру"
+    ],
+    "definition": "A project of the Russian state news agency Rossiya Segodnya. The designations attach to the parent group, not to this outlet by name: Rossiya Segodnya is under an EU asset freeze (25 February 2023), a US OFAC SDN designation (13 September 2024), a UK asset freeze (31 March 2022) and a Canadian listing (2 February 2023). Ukraina.ru is not itself named on the UK or Canadian lists.",
+    "sources": [
+      {
+        "publisher": "European Commission / DG FISMA",
+        "title": "EU Consolidated Financial Sanctions List (FSF), XML full list — entity EU.9764.45, Federal State Unitary Enterprise Rossiya Segodnya International Information Agency; 'Associated entities' field includes Ukraina.ru; designation date 2023-02-25 under 2023/429 (OJ L59 I)",
+        "url": "https://webgate.ec.europa.eu/fsd/fsf/public/files/xmlFullSanctionsList_1_1/content?token=dG9rZW4tMjAxNw",
+        "date": "retrieved 2026-08-13"
+      },
+      {
+        "publisher": "Publications Office of the European Union / EUR-Lex",
+        "title": "Council Implementing Regulation (EU) 2023/429 of 25 February 2023 (CELEX 32023R0429) — instrument cited by the EU consolidated list as the basis of the Rossiya Segodnya listing",
+        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32023R0429",
+        "date": "2023-02-25"
+      },
+      {
+        "publisher": "US Department of the Treasury, Office of Foreign Assets Control",
+        "title": "Russia-related Designations; Issuance of Russia-related General Licenses... (13 September 2024) — adds FEDERAL STATE UNITARY ENTERPRISE INTERNATIONAL INFORMATION AGENCY ROSSIYA SEGODNYA, ANO TV NOVOSTI (a.k.a. 'RT'), and Dmitry Kiselev to the SDN List under E.O. 14024",
+        "url": "https://ofac.treasury.gov/recent-actions/20240913",
+        "date": "2024-09-13"
+      },
+      {
+        "publisher": "US Department of the Treasury, Office of Foreign Assets Control",
+        "title": "Specially Designated Nationals and Blocked Persons List (SDN.XML) — entry uid 50690, FSUE International Information Agency Rossiya Segodnya, program RUSSIA-EO14024; no entry for Ukraina.ru",
+        "url": "https://sanctionslistservice.ofac.treas.gov/api/PublicationPreview/exports/SDN.XML",
+        "date": "retrieved 2026-08-13"
+      }
+    ]
+  },
+  {
+    "id": "zvezda",
+    "term": "Zvezda",
+    "aliases": [
+      "Звезда",
+      "Krasnaya Zvezda",
+      "TV Zvezda"
+    ],
+    "definition": "Television channel of the Russian Ministry of Defence. The operating company is under an EU asset freeze (23 June 2023) and a Canadian listing (14 October 2022); the outlet itself was added to the EU's broadcasting-suspension annex in February 2025, with the measures applying from 9 April 2025.",
+    "sources": [
+      {
+        "publisher": "Official Journal of the European Union (EUR-Lex)",
+        "title": "Council Implementing Regulation (EU) 2023/1216 of 23 June 2023 implementing Regulation (EU) No 269/2014 — entity 218, OJSC TRC AF RF \"Zvezda\"; entry 1534, Olga Belova",
+        "url": "https://eur-lex.europa.eu/eli/reg_impl/2023/1216/oj",
+        "date": "2023-06-23"
+      },
+      {
+        "publisher": "Official Journal of the European Union (EUR-Lex)",
+        "title": "Council Regulation (EU) 2025/395 of 24 February 2025 amending Regulation (EU) No 833/2014 — Annex V adds 'Krasnaya Zvezda / Tvzvezda' to Annex XV; Art. 1(39) defers applicability subject to a Council implementing act",
+        "url": "https://eur-lex.europa.eu/eli/reg/2025/395/oj",
+        "date": "2025-02-24"
+      },
+      {
+        "publisher": "Official Journal of the European Union (EUR-Lex)",
+        "title": "Council Implementing Regulation (EU) 2025/701 of 7 April 2025 implementing Regulation (EU) 2025/395 — Art. 2f measures apply as of 9 April 2025 to all entities listed in Annex V",
+        "url": "https://eur-lex.europa.eu/eli/reg_impl/2025/701/oj",
+        "date": "2025-04-08"
+      },
+      {
+        "publisher": "Official Journal of the European Union (EUR-Lex)",
+        "title": "Notice C/2025/1466 for the attention of 'EADaily / Eurasia Daily', 'Fondsk', 'Lenta', 'NewsFront', 'RuBaltic', 'SouthFront', 'Strategic Culture Foundation' and 'Krasnaya Zvezda / Tvzvezda'",
+        "url": "https://eur-lex.europa.eu/eli/C/2025/1466/oj",
+        "date": "2025-02-25"
+      }
+    ]
   }
 ]
