@@ -6,7 +6,7 @@
      operations it documents; the escaping in openEvidence is the real control, this is the
      backstop. 'unsafe-inline' is required because the styles and module are inline in this
      single-file prototype — it still blocks remote script, framing and form posts. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://raw.githubusercontent.com; frame-ancestors 'none'; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Poisoned Well — design-direction prototype</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1929,7 +1929,12 @@ try {
   }
 }
 
-/* ================= client-side live refresh (Phase D) ================= */
+/* ================= client-side live refresh (Phase D) =================
+   The one cross-origin request this page makes. connect-src allows exactly one
+   extra host for it — raw.githubusercontent.com, GitHub-served, carrying the same
+   CheckFirst dataset the repository already commits. Everything else stays 'self'.
+   The response is read for counts only and every value goes through fmt()/esc();
+   on any failure the baked figures stand and the page does not change. */
 setTimeout(async () => {
   try {
     const r = await fetch('https://raw.githubusercontent.com/CheckFirstHQ/pravda-network/main/json/hungary.news-pravda.com_viz.json', { cache: 'no-store' });
