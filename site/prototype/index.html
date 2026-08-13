@@ -1842,12 +1842,21 @@ try {
     if (missing.length) {
       const el = document.getElementById('spec-missing');
       el.classList.add('on');
-      el.innerHTML = missing.map(([, m]) =>
-        `△ <b>${esc(m.label)}</b> returned nothing on this run — ${esc(m.why)}. Its ` +
-        `<b>${esc(m.tier)}</b> tier is not represented above` +
-        (liveTiers.includes(m.tier) ? '' : ' at all') + '.').join('<br>') +
-        `<br>Older ${missing.map(([, m]) => esc(m.label)).join(', ')} items may still appear ` +
-        `below from earlier captures; every row carries the date it was captured.`;
+      // Say which of the two it is. A tier still covered by another source is a
+      // different fact from a tier that has gone dark, and conflating them would be
+      // the same overclaim in the opposite direction.
+      el.innerHTML = missing.map(([sid, m]) => {
+        const covered = liveTiers.includes(m.tier);
+        const alt = covered ? Object.entries(DATA.sources)
+          .find(([, o]) => o.tier === m.tier) : null;
+        return `△ <b>${esc(m.label)}</b> (<span class="mono">${esc(sid)}</span>) returned nothing ` +
+          `on this run — ${esc(m.why)}. ` + (covered
+            ? `Its <b>${esc(m.tier)}</b> tier is still represented above, by ` +
+              `${esc(alt ? alt[1].label : 'another source')}.`
+            : `Its <b>${esc(m.tier)}</b> tier is not represented above at all.`);
+      }).join('<br>') +
+        `<br>Older items from it may still appear below from earlier captures; every row ` +
+        `carries the date it was captured.`;
     }
     renderVolume(); renderList(); tickAgo();
     setInterval(tickAgo, 60000);

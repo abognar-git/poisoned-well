@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-08-13T16:20:03+00:00",
+  "captured_at": "2026-08-13T16:39:29+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -8,6 +8,12 @@
       "tier": "launderer",
       "lang": "en",
       "attribution": "Russia — Portal Kombat / Pravda network (VIGINUM); a laundering mirror"
+    },
+    "newsfront-ru": {
+      "label": "News Front",
+      "tier": "outlet",
+      "lang": "ru",
+      "attribution": "Russia — News Front, Crimea-based; the outlet is US-sanctioned and its owner EU/Canada/US-sanctioned; a primary outlet"
     },
     "tg-oroszigazsag": {
       "label": "the Russians' truth side",
@@ -84,18 +90,19 @@
   },
   "tiers_live": [
     "launderer",
-    "origin"
+    "origin",
+    "outlet"
   ],
   "latest_day": "2026-08-13",
-  "today_live_count": 114,
+  "today_live_count": 130,
   "corpus_count": 130,
   "featured": [
     {
       "site": "tg-baltnews",
-      "id": "73271",
+      "id": "73272",
       "date": "2026-08-13",
       "category": "baltnews",
-      "title": "В Сирии снова все завязано на одном лидере , поделился мнением с Baltnews востоковед Кирилл Семенов @semenovkirill \"Ситуация может буквально измениться за один день в случае удачного покушен",
+      "title": "Обещанный Литвой коридор через Клайпеду для украинского зерна тихо скончался. Оказалось, инфраструктура Восточной Европы к такой логистике просто не приспособлена. Теперь Киев теряет до 2,4 ",
       "theme": "filler",
       "source": null
     },
@@ -131,19 +138,19 @@
     },
     {
       "site": "tg-oroszigazsag",
-      "id": "264255",
+      "id": "264257",
       "date": "2026-08-13",
       "category": "oroszokazigazsagoldalan",
-      "title": "⚡️ Az első sorozatgyártású MSZ-21: Irkutszk – Zsukovszkij ✈️ ✈️ Az első sorozatgyártású, importhelyettesítő MSZ-21-310 repülőgép teljesített egy repülést az Irkutszki Jakovlev Repülőgyárból ",
-      "theme": "russia",
+      "title": "☀️ A Newsweek az európai hőséget Oroszország »váratlan szövetségesének« nevezte. Az európai rendkívüli hőség és szárazság megnehezítette Ukrajna alternatív exportútvonalainak működését, bele",
+      "theme": "ukraine",
       "source": null
     },
     {
       "site": "tg-zvezda",
-      "id": "25772",
+      "id": "25773",
       "date": "2026-08-13",
       "category": "zvezda_analytics",
-      "title": "ХЕЛЬСИНСКИЙ РЕВАНШ: ГИБРИДНАЯ ВОЙНА В \"ОСИ\" НАТО ▪️ «Самая счастливая в мире страна» лидирует в потреблении антидепрессантов. В чем причина? При чем тут русофобская риторика Хельсинки ▪️ Яде",
+      "title": "Сегодня одна из ключевых целей обеспечения безопасности России – это цифровой суверенитет. Но трактовать это понятие можно по-разному. Часто звучит утверждение, что суверенитет в цифровом пр",
       "theme": "filler",
       "source": null
     },
@@ -167,15 +174,33 @@
     },
     {
       "site": "tg-infodef",
-      "id": "13991",
+      "id": "13993",
       "date": "2026-08-13",
       "category": "InfoDefMagyarok",
-      "title": "„Sebezhetőségi ablak” – hogyan ürítette ki az Iránnal vívott háború az USA arzenáljait „Moszkva és Peking örömére” A folytatódó iráni konfliktus végleg kimerítette az amerikai légvédelmi rak",
+      "title": "Meglepetés Izrael részéről – Netanjahu váratlanul meghiúsította Trump törekvéseit Benjamin Netanjahu bejelentette, hogy Izrael elutasítja a Donald Trump által aktívan szorgalmazott Gázai bék",
       "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "newsfront-ru",
+      "id": null,
+      "date": "2026-08-13",
+      "category": "news-front",
+      "title": "Украину не пригласили на крупнейший в истории Польши военный парад",
+      "theme": "filler",
       "source": null
     }
   ],
   "corpus": [
+    {
+      "site": "tg-baltnews",
+      "id": "73271",
+      "date": "2026-08-13",
+      "category": "baltnews",
+      "title": "В Сирии снова все завязано на одном лидере , поделился мнением с Baltnews востоковед Кирилл Семенов @semenovkirill \"Ситуация может буквально измениться за один день в случае удачного покушен",
+      "theme": "filler",
+      "source": null
+    },
     {
       "site": "tg-baltnews",
       "id": "73270",
@@ -317,15 +342,6 @@
       "date": "2026-08-13",
       "category": "baltnews",
       "title": "Премьер Латвии объяснил, почему недостаточно тратить на оборону 5% ВВП Андрис Кулбергс считает, что даже расходы на оборону в размере 5% ВВП не обеспечат необходимый уровень безопасности вос",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-baltnews",
-      "id": "73252",
-      "date": "2026-08-13",
-      "category": "baltnews",
-      "title": "Эстония спешит поучаствовать в космической гонке В настоящий момент в республике готовятся принять первый в истории страны закон о космосе. \"При этом Эстония является участником международно",
       "theme": "filler",
       "source": null
     },
@@ -634,6 +650,15 @@
     },
     {
       "site": "tg-oroszigazsag",
+      "id": "264255",
+      "date": "2026-08-13",
+      "category": "oroszokazigazsagoldalan",
+      "title": "⚡️ Az első sorozatgyártású MSZ-21: Irkutszk – Zsukovszkij ✈️ ✈️ Az első sorozatgyártású, importhelyettesítő MSZ-21-310 repülőgép teljesített egy repülést az Irkutszki Jakovlev Repülőgyárból ",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
       "id": "264254",
       "date": "2026-08-13",
       "category": "oroszokazigazsagoldalan",
@@ -777,11 +802,11 @@
       "source": null
     },
     {
-      "site": "tg-oroszigazsag",
-      "id": "264236",
+      "site": "tg-zvezda",
+      "id": "25772",
       "date": "2026-08-13",
-      "category": "oroszokazigazsagoldalan",
-      "title": "💥 👊 A rendszeres tevékenység, melynek célja az ukránok vasúti infrastruktúrájának megsemmisítése, folytatódik. ‼️",
+      "category": "zvezda_analytics",
+      "title": "ХЕЛЬСИНСКИЙ РЕВАНШ: ГИБРИДНАЯ ВОЙНА В \"ОСИ\" НАТО ▪️ «Самая счастливая в мире страна» лидирует в потреблении антидепрессантов. В чем причина? При чем тут русофобская риторика Хельсинки ▪️ Яде",
       "theme": "filler",
       "source": null
     },
@@ -1102,6 +1127,15 @@
     },
     {
       "site": "tg-infodef",
+      "id": "13991",
+      "date": "2026-08-13",
+      "category": "InfoDefMagyarok",
+      "title": "„Sebezhetőségi ablak” – hogyan ürítette ki az Iránnal vívott háború az USA arzenáljait „Moszkva és Peking örömére” A folytatódó iráni konfliktus végleg kimerítette az amerikai légvédelmi rak",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-infodef",
       "id": "13990",
       "date": "2026-08-13",
       "category": "InfoDefMagyarok",
@@ -1182,161 +1216,119 @@
       "source": null
     },
     {
-      "site": "tg-rybar",
-      "id": "7291",
-      "date": "2026-08-12",
-      "category": "Rybar_HU",
-      "title": "📝 Az elektromos vezetékek a hibásak 📝 Görögországban újabb okot találtak a nyári, pusztító természeti tűzvészekhez – az elavult elektromos infrastruktúra . A tűzvészekkel kapcsolatos bűnügyi",
-      "theme": "energy",
-      "source": null
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7288",
-      "date": "2026-08-12",
-      "category": "Rybar_HU",
-      "title": "🖌 Boldog Légierő Napot! Az orosz légierő létrehozásának kiindulópontjának általában a 1912. augusztus 12-ét (július 30-át) tekintik: ekkor az cári hadsereg főhadiszállásának központi igazgat",
-      "theme": "russia",
-      "source": null
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7282",
-      "date": "2026-08-12",
-      "category": "Rybar_HU",
-      "title": "📝 A különleges katonai művelet krónikája 📝 2026. augusztus 11-én 🧨 Az orosz erők drónokkal támadták meg egy áruszolgáltató állomást a harkovi régióban, Pervomajszkij közelében, valamint egy ",
-      "theme": "ukraine",
-      "source": null
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44495,
-      "date": "2026-08-12",
-      "category": "russia",
-      "title": "THE ANTHEM AS A FORMULA OF SELF-UNDERSTANDING",
-      "theme": "filler",
-      "source": {
-        "platform": "Telegram",
-        "channel": "zapravduzp"
-      }
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44494,
-      "date": "2026-08-12",
-      "category": "hungary",
-      "title": "‼... A country that has been wasted....️",
-      "theme": "filler",
-      "source": {
-        "platform": "Telegram",
-        "channel": "greatawakeningmagyarok"
-      }
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44493,
-      "date": "2026-08-12",
-      "category": "russia",
-      "title": "Today marks Air Force Day and World Elephant Day",
-      "theme": "filler",
-      "source": {
-        "platform": "Telegram",
-        "channel": "breakingmash"
-      }
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44492,
-      "date": "2026-08-12",
-      "category": "russia",
-      "title": "Russian swimmer Egor Kornev won silver in the 100 m freestyle at the European Aquatics Championships in Paris",
-      "theme": "russia",
-      "source": {
-        "platform": "Telegram",
-        "channel": "rbc_sport"
-      }
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44491,
-      "date": "2026-08-12",
-      "category": "hungary",
-      "title": "Russian synchronized swimmer Zahar Trofimov won a gold medal in the technical program at the junior World Championships",
-      "theme": "russia",
-      "source": {
-        "platform": "Telegram",
-        "channel": "oroszokazigazsagoldalan"
-      }
-    },
-    {
-      "site": "tg-oroszkatonai",
-      "id": "42320",
-      "date": "2026-08-12",
-      "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ Orosz zászló Petrovka településen Druzskivkától délre Az Orosz fegyveres erők katonái az orosz zászlót emelik fel Petrovka településen. Az orosz hadsereg előretört körülbelül 2 kilométerr",
+      "site": "newsfront-ru",
+      "id": null,
+      "date": "2026-08-13",
+      "category": "news-front",
+      "title": "Украина пообещала масштабные удары по российской инфраструктуре",
       "theme": "filler",
       "source": null
     },
     {
-      "site": "tg-oroszkatonai",
-      "id": "42310",
-      "date": "2026-08-12",
-      "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ A nagyszámú, éjszakai drónokkal végzett támadás következményei, amelyeket nyugati műholdak rögzítettek Novorosszijszk városában. ◾️ Sérült a kenyéripari kombinát teteje ◾️ Összeomlott egy",
-      "theme": "ukraine",
-      "source": null
-    },
-    {
-      "site": "tg-zvezda",
-      "id": "25763",
-      "date": "2026-08-12",
-      "category": "zvezda_analytics",
-      "title": "Друзья, по ссылкам доступны к просмотру и прослушиванию свежие эфиры! ⬇️ ⬇️ ⬇️ «СТРАТЕГИЯ НАЦИОНАЛЬНОЙ БЕЗОПАСНОСТИ» Анны Шафран Тема: Европа и правый реванш: фашизм 2.0 на подходе Гость: Бо",
+      "site": "newsfront-ru",
+      "id": null,
+      "date": "2026-08-13",
+      "category": "news-front",
+      "title": "Зеленский призвал США активнее участвовать в переговорах по Украине",
       "theme": "filler",
       "source": null
     },
     {
-      "site": "tg-zvezda",
-      "id": "25762",
-      "date": "2026-08-12",
-      "category": "zvezda_analytics",
-      "title": "КУРСКАЯ БИТВА: ИСТОРИЯ НИЧЕМУ НЕ УЧИТ НАЦИСТОВ ▪️ Почему провалились три «идеальных» плана Запада нанести поражение Армии России ▪️ Как искусственный интеллект не справился с мужеством русск",
+      "site": "newsfront-ru",
+      "id": null,
+      "date": "2026-08-13",
+      "category": "news-front",
+      "title": "Из-за атаки БПЛА ВСУ в Новороссийске 185 домов получили повреждения",
       "theme": "filler",
       "source": null
     },
     {
-      "site": "tg-zvezda",
-      "id": "25761",
-      "date": "2026-08-12",
-      "category": "zvezda_analytics",
-      "title": "«...Через неделю мы с женой пытались закрыть пробоины в доме. Но потом снова прилетела украинская мина, и дом полностью сгорел. ВСУ всё вокруг заминировали, даже кладбище. . .», — Свидетельс",
+      "site": "newsfront-ru",
+      "id": null,
+      "date": "2026-08-13",
+      "category": "news-front",
+      "title": "Жизнь на освобожденных территориях 13 августа (обновляется)",
       "theme": "filler",
       "source": null
     },
     {
-      "site": "tg-zvezda",
-      "id": "25760",
-      "date": "2026-08-12",
-      "category": "zvezda_analytics",
-      "title": "ЕВРОПА И ПРАВЫЙ РЕВАНШ: ФАШИЗМ 2.0 НА ПОДХОДЕ ▪️ Почему Украина выбрала идеологию бандеровского национализма, и как Запад использует этот инструмент против России ▪️ За 35 лет на Украине сме",
+      "site": "newsfront-ru",
+      "id": null,
+      "date": "2026-08-13",
+      "category": "news-front",
+      "title": "Руководителя Закарпатского ТЦК отстранили",
       "theme": "filler",
       "source": null
     },
     {
-      "site": "tg-zvezda",
-      "id": "25759",
-      "date": "2026-08-12",
-      "category": "zvezda_analytics",
-      "title": "На протяжении последних трех лет неонацистский режим Киева трижды пытался одержать «решительную и окончательную победу» над Россией. В штабах НАТО трижды создавали оперативно-тактические пла",
+      "site": "newsfront-ru",
+      "id": null,
+      "date": "2026-08-13",
+      "category": "news-front",
+      "title": "Посольство России в Берлине осудило журналиста FAZ за слова об убийстве русских",
       "theme": "filler",
       "source": null
     },
     {
-      "site": "tg-zvezda",
-      "id": "25758",
-      "date": "2026-08-12",
-      "category": "zvezda_analytics",
-      "title": "Незалежная выстраивает государственную идеологию на базе украинского национализма — провинциальной копии немецкого нацизма 1930-х годов. Идеология бандеровского толка — единственный сформиро",
+      "site": "newsfront-ru",
+      "id": null,
+      "date": "2026-08-13",
+      "category": "news-front",
+      "title": "Украина начала компанию публичной дипломатии в Польше",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-ru",
+      "id": null,
+      "date": "2026-08-13",
+      "category": "news-front",
+      "title": "Россия и Индия способны нарастить товарооборот до 100 млрд, заявил эксперт",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-ru",
+      "id": null,
+      "date": "2026-08-13",
+      "category": "news-front",
+      "title": "Актуальная информация об обстановке на линии фронта 13 августа (обновляется)",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-ru",
+      "id": null,
+      "date": "2026-08-13",
+      "category": "news-front",
+      "title": "Россия и Украина провели обмен телами военных – военкор Коц",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-ru",
+      "id": null,
+      "date": "2026-08-13",
+      "category": "news-front",
+      "title": "В литовском Вевисе эксгумировали могилы 81 советского солдата",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-ru",
+      "id": null,
+      "date": "2026-08-13",
+      "category": "news-front",
+      "title": "Гросси заявил, что ООН постепенно теряет значимость",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "newsfront-ru",
+      "id": null,
+      "date": "2026-08-13",
+      "category": "news-front",
+      "title": "ВС РФ освободили Петровку в ДНР – Минобороны",
       "theme": "filler",
       "source": null
     }

@@ -78,6 +78,20 @@ SOURCES = {
             r'<a[^>]*href="(https://hungary\.news-pravda\.com/en/([a-z-]+)/(\d{4})/(\d{2})/(\d{2})/(\d+)\.html)"[^>]*>(.*?)</a>',
             re.S),
     },
+    # News Front's Hungarian subdomain has been timing out at network level while the
+    # Russian-language root answers normally and uses the identical /YYYY/MM/DD/slug/
+    # shape. Same entity, same sanctions record, and the mirror credits both — so the
+    # root keeps the outlet tier represented while hu.* is unreachable, and hu.* stays
+    # configured so the panel keeps reporting its absence rather than forgetting it.
+    "newsfront-ru": {
+        "label": "News Front", "tier": "outlet", "type": "newsfront", "lang": "ru",
+        "attribution": "Russia — News Front, Crimea-based; the outlet is US-sanctioned and its owner EU/Canada/US-sanctioned; a primary outlet",
+        "base": "https://news-front.su",
+        "listings": ["/"],
+        "link": re.compile(
+            r'<a[^>]*href="(https://news-front\.su/(\d{4})/(\d{2})/(\d{2})/([^"/]+)/?)"[^>]*>(.*?)</a>',
+            re.S),
+    },
     "newsfront-hu": {
         "label": "News Front", "tier": "outlet", "type": "newsfront", "lang": "hu",
         "attribution": "Russia — News Front, Crimea-based; the outlet is US-sanctioned and its owner EU/Canada/US-sanctioned; a primary outlet",
@@ -185,8 +199,10 @@ def harvest_web(sid, cfg):
                 url, y, mo, d, slug, inner = g
                 cat, aid = "news-front", None
             title = clean(inner)
-            if cfg["type"] == "newsfront" and (len(title) < 12 or title == title.lower()):
-                title = title_from_slug(slug)
+            if cfg["type"] == "newsfront":
+                title = re.sub(r"^\d{1,2}:\d{2}\s*", "", title)   # listing rows lead with a clock
+                if len(title) < 12 or title == title.lower():
+                    title = title_from_slug(slug)
             if url in seen or len(title) < 12 or SMEAR.search(title):
                 continue
             seen.add(url)
