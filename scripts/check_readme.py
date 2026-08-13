@@ -130,7 +130,9 @@ def as_regex(template):
     format spec sits, so it matches the README no matter what the current values are."""
     parts = [re.escape(p) for p in SPEC.split(template)]
     rx = r"[\d,]+(?:\.\d+)?".join(parts)
-    return re.compile(r"\s+".join(rx.split("\ ")).replace(r"\ ", r"\s+"))
+    # re.escape renders a space as an escaped space on older Pythons and bare on newer
+    # ones; normalise both to \s+ so a template still matches text wrapped across lines
+    return re.compile(re.sub(r"(?:\\ | )+", r"\\s+", rx))
 
 
 def main(sync: bool = False) -> int:
