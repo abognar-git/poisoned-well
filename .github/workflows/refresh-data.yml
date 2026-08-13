@@ -55,6 +55,11 @@ jobs:
 
       # Re-measure the dead fake-outlet domains: if one is re-registered, check_claims
       # fails rather than letting the page keep asserting it is gone.
+      # Every capture used to be overwritten by the next one. Accumulate instead: this is
+      # the only material here that nobody else publishes.
+      - name: Archive the capture
+        run: python scripts/archive_specimens.py
+
       - name: Re-check the documented fake-outlet domains
         run: python scripts/check_domains.py
         continue-on-error: true
@@ -80,7 +85,7 @@ jobs:
         run: |
           git config user.name "poisoned-well data refresh"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/derived docs/figures README.md
+          git add data/derived data/archive docs/figures README.md
           if git diff --cached --stat --exit-code; then
             echo "No data changes."
           else
