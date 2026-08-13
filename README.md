@@ -388,7 +388,7 @@ not because they were off-topic but because the classifier could not read them. 
 worse before I found it, by adding five Russian-language outlets on the same day and
 roughly doubling the Cyrillic share. Themes are now scored against a per-language lexicon,
 items no lexicon covers read `unscored` rather than `filler`, and the coverage is published
-as a table so the gap is visible rather than inferred. Fixed in `pending`.
+as a table so the gap is visible rather than inferred. Fixed in `e085410`.
 
 **5 — I let the noisiest unit win a contest about extremeness.** Having found the
 four above, I re-ran the placebo inference and reproduced 1/185 at p = 0.0054

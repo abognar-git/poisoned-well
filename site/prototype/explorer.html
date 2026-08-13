@@ -108,7 +108,8 @@
     letter-spacing:.14em; margin:1.4rem 0 .4rem}
   .spec{display:grid; grid-template-columns:6rem 1fr; gap:.2rem 1rem; align-items:baseline;
     padding:.8rem 0; border-bottom:1px solid rgba(233,228,218,.06)}
-  .spec .meta{font-family:"IBM Plex Mono",monospace; font-size:.6rem; line-height:1.5; color:var(--muted)}
+  .spec .meta{font-family:"IBM Plex Mono",monospace; font-size:.6rem; line-height:1.5; color:var(--muted);
+    min-width:0; overflow-wrap:anywhere; word-break:break-word}
   .spec .meta .cat{color:var(--amber); text-transform:uppercase; letter-spacing:.1em}
   .spec .site{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:.54rem;
     letter-spacing:.14em; text-transform:uppercase; margin-bottom:.25rem}
@@ -227,8 +228,16 @@
 
   <div id="stale"></div>
 
+  <!-- The table a researcher needs before trusting any count on this page. It is placed
+       above the corpus deliberately: the scope of the labels is not a footnote. -->
+  <div class="panel" style="margin-top:1.4rem" id="scope-panel">
+    <div class="h">WHAT THIS CORPUS IS · <b>read before counting</b></div>
+    <div id="scope"></div>
+  </div>
+
+
   <div class="controls">
-    <input id="q" type="search" placeholder="search headlines…" autocomplete="off" aria-label="search corpus">
+    <input id="q" type="search" placeholder="search the archive…" autocomplete="off" aria-label="search corpus">
     <div id="chips" style="display:flex;gap:.4rem;flex-wrap:wrap"></div>
     <select id="sort" aria-label="sort">
       <option value="new">newest first</option>
@@ -283,7 +292,7 @@ const TIER_ORDER = ['origin','launderer','outlet'];
 const siteInfo = sid => { const s = (D.sources||{})[sid] || {}; return { cls: s.tier||'', label: s.label||sid, tier: s.tier }; };
 const tierOf = s => siteInfo(s.site).tier;
 
-let D, live;
+let D, live, ARCHIVE_IDX = null, ARCHIVE = [];
 try {
   [D, live] = await Promise.all([
     fetch('../../data/derived/latest_specimens.json', {cache:'no-store'}).then(r=>r.json()),
@@ -291,7 +300,58 @@ try {
   ]);
 } catch { document.body.innerHTML = '<p style="padding:3rem;font-family:monospace">corpus unavailable</p>'; return; }
 
-const ALL = [...(D.featured||[]), ...(D.corpus||[])];
+/* The snapshot is what is on the front pages right now; the archive is everything ever
+   captured. This page is for research, so it reads the archive and falls back to the
+   snapshot only if the archive is unreachable. Month shards are fetched in parallel. */
+try {
+  ARCHIVE_IDX = await fetch('../../data/archive/index.json', {cache:'no-store'}).then(r=>r.json());
+  const shards = await Promise.all(Object.keys(ARCHIVE_IDX.months).map(m =>
+    fetch(`../../data/archive/${m}.jsonl`, {cache:'no-store'}).then(r => r.text())));
+  ARCHIVE = shards.flatMap(t => t.split('\n').filter(Boolean).map(l => JSON.parse(l)));
+} catch { ARCHIVE = []; }
+
+const SNAPSHOT = [...(D.featured||[]), ...(D.corpus||[])];
+const ALL = ARCHIVE.length ? ARCHIVE : SNAPSHOT;
+/* ---- scope panel: the labels have a language scope, and this says where it reaches ---- */
+{
+  const el = document.getElementById('scope');
+  const n = ALL.length;
+  const cov = ARCHIVE_IDX && ARCHIVE_IDX.theme_coverage;
+  const pct = (a, b) => b ? (a / b * 100).toFixed(0) + '%' : '—';
+  const cell = (v, muted) => `<td style="text-align:right;padding:.25rem .7rem;${
+    muted ? 'color:var(--muted)' : ''}">${v}</td>`;
+  let rows = '';
+  if (cov) for (const [lang, c] of Object.entries(cov)) {
+    const label = {hu: 'Hungarian', cyr: 'Cyrillic (ru)', lat: 'other Latin'}[lang] || lang;
+    rows += `<tr><td style="padding:.25rem .7rem .25rem 0">${label}</td>` +
+      cell(c.items.toLocaleString()) + cell(c.lexicon) +
+      cell(pct(c.matched_a_topic, c.items)) +
+      cell(c.items - c.matched_a_topic, true) + `</tr>`;
+  }
+  el.innerHTML = ARCHIVE.length
+    ? `<p style="margin:.2rem 0 .9rem">This is <b>${n.toLocaleString()}</b> items captured between
+        <b>${ARCHIVE_IDX.first_date}</b> and <b>${ARCHIVE_IDX.last_date}</b> — every capture kept, not
+        just the latest. <b>${(ARCHIVE_IDX.by_unit.headline||0).toLocaleString()}</b> are headlines;
+        <b>${(ARCHIVE_IDX.by_unit.post_excerpt||0).toLocaleString()}</b> are Telegram post excerpts
+        truncated to 120 characters. No article body text is collected.</p>
+       <table style="font-size:.72rem;border-collapse:collapse;margin-bottom:.7rem">
+         <tr style="color:var(--muted);text-align:left">
+           <th style="padding-right:.7rem">language</th><th style="text-align:right;padding:0 .7rem">items</th>
+           <th style="text-align:right;padding:0 .7rem">lexicon</th>
+           <th style="text-align:right;padding:0 .7rem">matched a topic</th>
+           <th style="text-align:right;padding:0 .7rem">filler / unscored</th></tr>
+         ${rows}
+       </table>
+       <p class="hint" style="margin:0">Theme tags are a keyword heuristic with a <b>language scope</b>.
+        Until 2026-08-13 the lexicon was Latin-script only and labelled 98% of Russian-language items
+        <i>filler</i> — a label confounded with language. Items no lexicon covers now read
+        <i>unscored</i>. The capture is a scheduled sample of front pages with a per-source cap, not a
+        census of what any source published, and personal-smear items are withheld.
+        <a href="../../data/DICTIONARY.md">Full dictionary and limits →</a></p>`
+    : `<p style="margin:.2rem 0">Archive unavailable — showing the latest capture only
+       (${n} items). <a href="../../data/DICTIONARY.md">Dictionary →</a></p>`;
+}
+
 const originOf = s => s.source ? (s.source.platform + (s.source.channel ? ' · ' + s.source.channel : ''))
                     : (tierOf(s) === 'origin' ? siteInfo(s.site).label + ' (origin)'
                     : tierOf(s) === 'outlet' ? siteInfo(s.site).label + ' (direct)' : 'untraced');
@@ -337,7 +397,7 @@ function tiles(rows){
   $('tiles').innerHTML = [
     ['sig', rows.length, 'specimens in selection'],
     ['',    Object.keys(D.sources).length, 'attributed sources'],
-    ['sig', rows.length ? Math.round(pn/rows.length*100)+'%' : '—', 'payload share'],
+    ['sig', rows.length ? Math.round(pn/rows.length*100)+'%' : '—', 'matched a target topic'],
     ['amb', D.today_live_count, 'seen live on ' + D.latest_day],
     ['',    hu ? fmt(hu.total) : '—', 'all-time (CheckFirst)'],
     ['',    agoStr(D.captured_at), 'last capture'],
@@ -413,7 +473,9 @@ function list(rows){
       <div class="meta"><span class="cat">${esc(s.category)}</span><br>${esc(s.date)}</div>
       <div><span class="site ${site.cls}">${esc(site.label)} · ${esc(site.tier||'')}</span>
         <div class="title">${esc(s.title)}</div>
-        <span class="tag ${pay?'pay':''}">${pay ? 'payload · '+esc(s.theme) : 'camouflage · filler'}</span>${lnd}</div>
+        <span class="tag ${pay?'pay':''}">${
+          s.theme === 'unscored' ? 'unscored · no lexicon for this language'
+          : pay ? 'target topic · '+esc(s.theme) : 'no target topic · filler'}</span>${lnd}</div>
     </div>`;
   }).join('') || '<div class="empty">No specimens match this selection.</div>';
 }
@@ -429,7 +491,8 @@ function chips(){
   const c = $('chips'); c.innerHTML = '';
   c.append(mk('tier','all','all tiers'));
   for (const t of TIER_ORDER) if (Object.values(D.sources).some(s=>s.tier===t)) c.append(mk('tier',t,t));
-  c.append(mk('theme','all','all'), mk('theme','__pay','payload'), mk('theme','__fill','filler'));
+  c.append(mk('theme','all','all'), mk('theme','__pay','target topic'),
+           mk('theme','__fill','filler'), mk('theme','unscored','unscored'));
 }
 
 function tierBoxes(rows){
@@ -492,7 +555,8 @@ function bothEnds(){
   const ch = state.channel;
   const origin = ALL.filter(s => originChannel(s)===ch).slice(0, 5);
   const mirror = ALL.filter(s => creditedChannel(s)===ch).slice(0, 5);
-  const itHtml = s => `<div class="it"><div class="d">${esc(s.date)} · ${PAY.has(s.theme)?'payload · '+esc(s.theme):'filler'}</div><div class="t">${esc(s.title)}</div></div>`;
+  const itHtml = s => `<div class="it"><div class="d">${esc(s.date)} · ${
+    PAY.has(s.theme) ? 'target topic · '+esc(s.theme) : esc(s.theme)}</div><div class="t">${esc(s.title)}</div></div>`;
   box.innerHTML =
     `<button class="close">× close both-ends view of @${esc(ch)}</button>` +
     `<div class="both">` +

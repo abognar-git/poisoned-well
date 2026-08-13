@@ -1,0 +1,58 @@
+Licence for data/ — two layers, deliberately separated
+======================================================
+
+The repository's root LICENSE is MIT and covers the CODE. It cannot and does not
+cover everything under data/, because two different things live here.
+
+
+1. THE ANNOTATIONS AND DERIVED TABLES — CC BY 4.0
+-------------------------------------------------
+Everything this project computed, decided or assembled:
+
+  data/panel/*                    the credit graph, the panel, the source index
+  data/derived/*                  every derived figure
+  data/archive/* — the FIELDS     tier, lang, unit, theme, first_seen, date_is_capture,
+                                  the credited-origin edges, the schema itself
+  data/DICTIONARY.md
+
+Licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
+Attribute as: poisoned-well, github.com/abognar-git/poisoned-well.
+
+The underlying article counts and credit labels are CheckFirst's
+(github.com/CheckFirstHQ/pravda-network); attribute them too.
+
+
+2. THE CAPTURED TEXT — NO RIGHTS ASSERTED, NONE GRANTED
+-------------------------------------------------------
+The `title` field of data/archive/* contains verbatim third-party text: headlines
+from mirror sites and sanctioned outlets, and truncated excerpts of public Telegram
+posts.
+
+This project holds no rights in that text and grants none. It is reproduced here,
+in truncated form and in limited quantity, to document and analyse an information
+operation — reporting and academic research. Anyone reusing it is responsible for
+their own basis for doing so.
+
+Note for EU users: several of the outlets captured here are subject to EU
+restrictive measures. Article 2f(3) of Council Regulation (EU) No 833/2014 provides
+that the broadcasting prohibitions do not prevent the carrying out of research and
+analysis activities in respect of that content. That provision is why this material
+is here; it is not legal advice, and it does not extend to redistributing the
+content for other purposes.
+
+This is NOT released under CC0 or any permissive licence. A clean, labelled,
+machine-readable corpus of this network's output under a permissive licence would be
+more useful to the operation being studied than to anyone studying it.
+
+
+3. WHAT IS DELIBERATELY ABSENT
+------------------------------
+  * No article body text is collected — headlines, and Telegram excerpts capped at
+    120 characters.
+  * Items reading as personal smears against named individuals are filtered out by a
+    fixture-tested rule and are described in the case files rather than reproduced.
+  * Propaganda domains appear as plain strings and are never hyperlinked anywhere in
+    this repository.
+
+Contact for takedown, correction or erasure requests: open an issue at
+github.com/abognar-git/poisoned-well/issues.

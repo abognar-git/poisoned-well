@@ -374,13 +374,28 @@ PROBLEMS = {}   # sid -> why nothing came back; surfaced in the JSON and on the 
 PUBLIC_EXCERPT = 120   # what a post_excerpt row shows publicly; the filter still sees the full text
 
 
+def excerpt(text, limit=PUBLIC_EXCERPT):
+    """Truncate at a word boundary and mark it. A hard character cut lands mid-word and
+    reads as a broken scrape rather than a deliberate excerpt — which matters, because
+    the shortening is a choice about redistribution and should look like one."""
+    if len(text) < limit:
+        return text
+    # note: `== limit` still truncates. A string that lands exactly on the limit is almost
+    # always a cut, and treating it as complete leaves an unmarked mid-word ending.
+    cut = text[:limit]
+    sp = cut.rfind(" ")
+    if sp > limit * 0.6:                     # only if it does not gut the excerpt
+        cut = cut[:sp]
+    return cut.rstrip(" ,;:—–-") + "…"
+
+
 def row(sid, cfg, *, title, date, url, category, aid=None, extra=None):
     """One archived item. `unit` records what kind of text this is — a headline, or a
     truncated slice of a post — because pooling the two silently is a category error."""
     theme, lang = classify(title)
     unit = "post_excerpt" if cfg["type"] == "telegram" else "headline"
     r = {"site": sid, "id": aid, "date": date, "category": category,
-         "title": title[:PUBLIC_EXCERPT] if unit == "post_excerpt" else title[:190],
+         "title": excerpt(title) if unit == "post_excerpt" else excerpt(title, 190),
          "theme": theme, "lang": lang, "unit": unit, "url": url}
     if extra:
         r.update(extra)
