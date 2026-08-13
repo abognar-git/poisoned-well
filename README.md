@@ -17,7 +17,7 @@ retraction, then the results for someone who wants to check the numbers, then
 what went wrong and what this cannot show. Stopping after the first section is a
 perfectly good way to read it.</sub>
 
-> ### ▶ [Read the investigation](site/prototype/index.html)
+> ### ▶ [Read the investigation](https://abognar-git.github.io/poisoned-well/)
 >
 > The findings here are also published as an evidence-first website: every
 > rendered fact carries a `§` marker resolving to a claims registry, every
