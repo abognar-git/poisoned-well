@@ -382,7 +382,11 @@
   .spec-head .cap{font-family:"IBM Plex Mono",monospace; font-size:.62rem; color:var(--muted)}
   .spec{display:grid; grid-template-columns:5.5rem 1fr; gap:.2rem 1rem; align-items:baseline;
     padding:.85rem 0; border-bottom:1px solid rgba(233,228,218,.06)}
-  .spec .meta{font-family:"IBM Plex Mono",monospace; font-size:.6rem; line-height:1.5; color:var(--muted)}
+  /* Channel handles run long (oroszspecialiskatonaihadmuvelet is 31 characters) and
+     were overflowing the 5.5rem column into the title beside it. Wrap inside the
+     column instead of spilling out of it. */
+  .spec .meta{font-family:"IBM Plex Mono",monospace; font-size:.6rem; line-height:1.5; color:var(--muted);
+    min-width:0; overflow-wrap:anywhere; word-break:break-word}
   .spec .meta .cat{color:var(--amber); text-transform:uppercase; letter-spacing:.1em}
   .spec .title{font-family:"Newsreader",serif; font-size:1.02rem; line-height:1.4; color:var(--paper)}
   .spec .theme{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:.56rem;
@@ -408,6 +412,14 @@
     color:var(--amber); border:1px solid rgba(217,160,91,.4); background:rgba(217,160,91,.06);
     border-radius:2px; padding:.5rem .7rem; margin:.6rem 0; display:none}
   #spec-stale.on{display:block}
+  /* A configured source that returns nothing used to disappear from the panel with no
+     trace, leaving the header to claim a tier the capture no longer covered. */
+  #spec-missing{display:none; font-family:"IBM Plex Mono",monospace; font-size:.64rem;
+    letter-spacing:.04em; line-height:1.7; color:var(--muted); border:1px solid rgba(217,160,91,.3);
+    border-left:2px solid var(--amber); background:rgba(217,160,91,.05);
+    padding:.6rem .8rem; margin:.6rem 0 0}
+  #spec-missing.on{display:block}
+  #spec-missing b{color:var(--amber); font-weight:500}
   #spec-more{display:flex; justify-content:flex-end; margin-top:1rem}
   #spec-toggle{font-family:"IBM Plex Mono",monospace; font-size:.62rem; letter-spacing:.08em;
     color:var(--signal); background:none; border:1px solid rgba(255,74,54,.35); border-radius:2px;
@@ -753,6 +765,7 @@
     </div>
     <div id="spec-volume"></div>
     <div id="spec-stale"></div>
+    <div id="spec-missing"></div>
     <div id="spec-list"></div>
     <div id="spec-more"><a id="spec-toggle" href="explorer.html">explore the corpus →</a></div>
     <div class="spec-why">
@@ -1817,9 +1830,25 @@ try {
     if (!DATA?.featured?.length) throw 0;
     ALL = [...DATA.featured, ...(DATA.corpus || [])];
     capturedAt = DATA.captured_at;
-    const nSrc = Object.keys(DATA.sources).length, nTier = new Set(Object.values(DATA.sources).map(s => s.tier)).size;
+    const nSrc = Object.keys(DATA.sources).length;
+    const liveTiers = DATA.tiers_live || [...new Set(Object.values(DATA.sources).map(s => s.tier))];
     document.getElementById('spec-srclabel').textContent =
-      `${nSrc} sources across ${nTier} tiers · live capture`;
+      `${nSrc} sources across ${liveTiers.length} tiers · live capture`;
+
+    /* Name what did not answer. A capture that quietly drops a source lets this panel
+       keep advertising a tier it no longer covers — the failure mode the rest of this
+       page exists to catch, so it is not one this panel gets to have. */
+    const missing = Object.entries(DATA.unreachable || {});
+    if (missing.length) {
+      const el = document.getElementById('spec-missing');
+      el.classList.add('on');
+      el.innerHTML = missing.map(([, m]) =>
+        `△ <b>${esc(m.label)}</b> returned nothing on this run — ${esc(m.why)}. Its ` +
+        `<b>${esc(m.tier)}</b> tier is not represented above` +
+        (liveTiers.includes(m.tier) ? '' : ' at all') + '.').join('<br>') +
+        `<br>Older ${missing.map(([, m]) => esc(m.label)).join(', ')} items may still appear ` +
+        `below from earlier captures; every row carries the date it was captured.`;
+    }
     renderVolume(); renderList(); tickAgo();
     setInterval(tickAgo, 60000);
     document.getElementById('spec-note').innerHTML =

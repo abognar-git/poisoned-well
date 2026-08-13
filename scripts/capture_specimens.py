@@ -95,7 +95,16 @@ TELEGRAM = {
     "tg-greatawaken":  ("greatawakeningmagyarok", "Great Awakening Magyars"),
     "tg-ebredes":      ("ebredes2017", "Awakening 2017"),
     "tg-rybar":        ("Rybar_HU", "Rybar — GRU-adjacent milblogger (HU)"),
-    # added after the flow diagram surfaced them among the mirror's most-credited feeders:
+    # The mirror's own credit counts decide what belongs here. Ranks are against the
+    # 939 sources in its topSources list; the share is of all 139,623 articles.
+    "tg-oroszkatonai": ("oroszspecialiskatonaihadmuvelet",
+                        "\u201cRussian special military operation\u201d"),   # #4  5.1%
+    "tg-infodef":      ("InfoDefMagyarok", "InfoDefense franchise, HU"),      # #6  4.8%
+    "tg-vilaghelyzete": ("VilagHelyzeteBlog", "\u201cState of the world\u201d blog"),  # #8  2.2%
+    # Network-level feeders rather than this mirror's: kept because they show the same
+    # content arriving through the wider Pravda ecosystem, but they are minor here and
+    # the labels should not imply otherwise — lomovkaa #13 (0.9%), baltnews #37 (0.3%),
+    # zvezda_analytics #82 (0.1%).
     "tg-baltnews":     ("baltnews", "Baltnews — Baltic Rossiya Segodnya brand"),
     "tg-lomovka":      ("lomovkaa", "Lomovka"),
     "tg-zvezda":       ("zvezda_analytics", "Zvezda Analytics — MoD-linked"),
@@ -160,11 +169,12 @@ def parse_source(page: str):
 
 
 def harvest_web(sid, cfg):
-    rows, seen = [], set()
+    rows, seen, errs = [], set(), []
     for path in cfg["listings"]:
         try:
             page = fetch(cfg["base"] + path)
-        except Exception:
+        except Exception as e:
+            errs.append(f"{type(e).__name__}")
             continue
         for m in cfg["link"].finditer(page):
             g = m.groups()
@@ -183,6 +193,9 @@ def harvest_web(sid, cfg):
             rows.append({"site": sid, "id": aid, "date": f"{y}-{mo}-{d}", "category": cat,
                          "title": title[:190], "theme": classify(title), "url": url})
         time.sleep(0.3)
+    if not rows:
+        PROBLEMS[sid] = (f"unreachable ({'/'.join(sorted(set(errs)))})" if errs
+                         else "reachable, but no article links matched")
     return rows
 
 
@@ -191,7 +204,8 @@ def harvest_telegram(sid, cfg):
     rows, seen = [], set()
     try:
         page = fetch(cfg["base"] + cfg["listings"][0])
-    except Exception:
+    except Exception as e:
+        PROBLEMS[sid] = f"unreachable ({type(e).__name__})"
         return rows
     for block in re.split(r'tgme_widget_message_wrap', page)[1:]:
         tm = re.search(r'datetime="([^"]+)"', block)
@@ -211,8 +225,13 @@ def harvest_telegram(sid, cfg):
     return rows
 
 
+PROBLEMS = {}   # sid -> why nothing came back; surfaced in the JSON and on the page
+
+
 def harvest(sid, cfg):
     rows = harvest_telegram(sid, cfg) if cfg["type"] == "telegram" else harvest_web(sid, cfg)
+    if not rows and sid not in PROBLEMS:
+        PROBLEMS[sid] = "reachable, but nothing usable after filtering"
     rows.sort(key=lambda r: (r["date"], str(r["id"] or "")), reverse=True)
     return rows[:PER_SOURCE_CAP]
 
@@ -303,6 +322,14 @@ def main() -> int:
         "tiers": {"origin": "Telegram channels where content starts",
                   "launderer": "mirror sites that republish origins as 'news'",
                   "outlet": "primary propaganda sites"},
+        # A configured source that returns nothing used to disappear silently, which let
+        # the panel claim three tiers while serving two. Name it instead: the reader is
+        # told which source is missing and why, and tiers_live records what is actually
+        # represented in this capture rather than what the design intends.
+        "unreachable": {sid: {"label": SOURCES[sid]["label"], "tier": SOURCES[sid]["tier"],
+                              "why": why}
+                        for sid, why in sorted(PROBLEMS.items())},
+        "tiers_live": sorted({SOURCES[sid]["tier"] for sid in ok}),
         "latest_day": latest_day,
         "today_live_count": today_live,
         "corpus_count": len(corpus),
@@ -311,6 +338,8 @@ def main() -> int:
     }
     OUT.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
     by = {sid: sum(1 for r in corpus if r["site"] == sid) for sid in ok}
+    for sid, why in sorted(PROBLEMS.items()):
+        print(f"  ! {sid} ({SOURCES[sid]['tier']} tier) returned nothing: {why}")
     print(f"latest_specimens.json: {len(corpus)} specimens across {len(ok)} sources {by}; "
           f"{len(featured)} featured; latest_day {latest_day} ({today_live} live)")
     return 0

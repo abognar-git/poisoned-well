@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-08-13T15:52:50+00:00",
+  "captured_at": "2026-08-13T16:15:44+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -33,6 +33,24 @@
       "lang": "hu/ru",
       "attribution": "Russia-aligned Telegram channel (@Rybar_HU) — a documented laundering origin"
     },
+    "tg-oroszkatonai": {
+      "label": "“Russian special military operation”",
+      "tier": "origin",
+      "lang": "hu/ru",
+      "attribution": "Russia-aligned Telegram channel (@oroszspecialiskatonaihadmuvelet) — a documented laundering origin"
+    },
+    "tg-infodef": {
+      "label": "InfoDefense franchise, HU",
+      "tier": "origin",
+      "lang": "hu/ru",
+      "attribution": "Russia-aligned Telegram channel (@InfoDefMagyarok) — a documented laundering origin"
+    },
+    "tg-vilaghelyzete": {
+      "label": "“State of the world” blog",
+      "tier": "origin",
+      "lang": "hu/ru",
+      "attribution": "Russia-aligned Telegram channel (@VilagHelyzeteBlog) — a documented laundering origin"
+    },
     "tg-baltnews": {
       "label": "Baltnews — Baltic Rossiya Segodnya brand",
       "tier": "origin",
@@ -57,10 +75,107 @@
     "launderer": "mirror sites that republish origins as 'news'",
     "outlet": "primary propaganda sites"
   },
+  "unreachable": {
+    "newsfront-hu": {
+      "label": "News Front",
+      "tier": "outlet",
+      "why": "unreachable (URLError)"
+    }
+  },
+  "tiers_live": [
+    "launderer",
+    "origin"
+  ],
   "latest_day": "2026-08-13",
-  "today_live_count": 94,
+  "today_live_count": 113,
   "corpus_count": 130,
   "featured": [
+    {
+      "site": "tg-baltnews",
+      "id": "73271",
+      "date": "2026-08-13",
+      "category": "baltnews",
+      "title": "В Сирии снова все завязано на одном лидере , поделился мнением с Baltnews востоковед Кирилл Семенов @semenovkirill \"Ситуация может буквально измениться за один день в случае удачного покушен",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-rybar",
+      "id": "7296",
+      "date": "2026-08-13",
+      "category": "Rybar_HU",
+      "title": "📝 Lehetséges lesz a kölcsönös válaszreakció? 📝 Mintha aláhúzva lenne a \"feszültség eszkalálása a feszültség csökkentése érdekében\" elvének életképessége, Vlagyimir Putyin közvetlenül kijelen",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44517,
+      "date": "2026-08-13",
+      "category": "russia",
+      "title": "The Egyptian newspaper Al-Masry Al-Youm has published an article that casts doubt on the future of Ukraine as a single state",
+      "theme": "ukraine",
+      "source": {
+        "platform": "Telegram",
+        "channel": "InfodefSpectrum"
+      }
+    },
+    {
+      "site": "tg-oroszkatonai",
+      "id": "42337",
+      "date": "2026-08-13",
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ További azonosított ukrán katonai jelenlét a a fronton Velyka Novoselkától északra. #speciáliskatonaihadművelet",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264255",
+      "date": "2026-08-13",
+      "category": "oroszokazigazsagoldalan",
+      "title": "⚡️ Az első sorozatgyártású MSZ-21: Irkutszk – Zsukovszkij ✈️ ✈️ Az első sorozatgyártású, importhelyettesítő MSZ-21-310 repülőgép teljesített egy repülést az Irkutszki Jakovlev Repülőgyárból ",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "tg-zvezda",
+      "id": "25772",
+      "date": "2026-08-13",
+      "category": "zvezda_analytics",
+      "title": "ХЕЛЬСИНСКИЙ РЕВАНШ: ГИБРИДНАЯ ВОЙНА В \"ОСИ\" НАТО ▪️ «Самая счастливая в мире страна» лидирует в потреблении антидепрессантов. В чем причина? При чем тут русофобская риторика Хельсинки ▪️ Яде",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-greatawaken",
+      "id": "154899",
+      "date": "2026-08-13",
+      "category": "greatawakeningmagyarok",
+      "title": "Románia leállította autógyárait, hazánkban viszont a lakosságot kérik, sőt több mint 600 településen (köztük Debrecenben és Pécsett) kötelezik, hogy pl. ne locsolja slaggal vagy öntözőrendsz",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "139997",
+      "date": "2026-08-13",
+      "category": "lomovkaa",
+      "title": "В июне 2026 года из Польши выехало рекордное для Евросоюза число украинских беженцев — более 6 тыс. человек. Об этом сообщает портал Wydarzenia Interia со ссылкой на данные Евростата. Такой ",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-infodef",
+      "id": "13991",
+      "date": "2026-08-13",
+      "category": "InfoDefMagyarok",
+      "title": "„Sebezhetőségi ablak” – hogyan ürítette ki az Iránnal vívott háború az USA arzenáljait „Moszkva és Peking örömére” A folytatódó iráni konfliktus végleg kimerítette az amerikai légvédelmi rak",
+      "theme": "hungary",
+      "source": null
+    }
+  ],
+  "corpus": [
     {
       "site": "tg-baltnews",
       "id": "73270",
@@ -79,74 +194,6 @@
       "theme": "filler",
       "source": null
     },
-    {
-      "site": "tg-rybar",
-      "id": "7296",
-      "date": "2026-08-13",
-      "category": "Rybar_HU",
-      "title": "📝 Lehetséges lesz a kölcsönös válaszreakció? 📝 Mintha aláhúzva lenne a \"feszültség eszkalálása a feszültség csökkentése érdekében\" elvének életképessége, Vlagyimir Putyin közvetlenül kijelen",
-      "theme": "russia",
-      "source": null
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44516,
-      "date": "2026-08-13",
-      "category": "world",
-      "title": "Magyar questioned the already issued permit for Paks-2 NPP",
-      "theme": "hungary",
-      "source": {
-        "platform": "MAX",
-        "channel": "inosmi"
-      }
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "264250",
-      "date": "2026-08-13",
-      "category": "oroszokazigazsagoldalan",
-      "title": "💥 Erős robbanás rázott meg egy lőszergyárat Olaszországban. A cég a KNDS Ammo Italy tulajdonában van. A KNDS az ukrán szárazföldi erők egyik legfontosabb partnerének nevezi magát. A gyár Róm",
-      "theme": "ukraine",
-      "source": null
-    },
-    {
-      "site": "tg-zvezda",
-      "id": "25772",
-      "date": "2026-08-13",
-      "category": "zvezda_analytics",
-      "title": "ХЕЛЬСИНСКИЙ РЕВАНШ: ГИБРИДНАЯ ВОЙНА В \"ОСИ\" НАТО ▪️ «Самая счастливая в мире страна» лидирует в потреблении антидепрессантов. В чем причина? При чем тут русофобская риторика Хельсинки ▪️ Яде",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-greatawaken",
-      "id": "154896",
-      "date": "2026-08-13",
-      "category": "greatawakeningmagyarok",
-      "title": "📌 Toroczkai üzent: a szó, amit a miniszterelnök keres, a köszönöm! A Mi Hazánk elnöke még a hétfői parlamenti ülésre vitte be többek között Tóth Máté energiajogász ötleteit. Ezeket a nyilván",
-      "theme": "hungary",
-      "source": null
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "139995",
-      "date": "2026-08-13",
-      "category": "lomovkaa",
-      "title": "Можно ожидать потепления: как изменится климат в России через 100 лет рассказал академик РАН. Жары, ливней и экстремальных погодных явлений в стране станет больше, отметил в беседе с NEWS ru",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138920",
-      "date": "2026-08-13",
-      "category": "ebredes2017",
-      "title": "Kedves Csoport tagok! A mai hírfolyam elmarad, szolgáltató váltás miatt egyelőre nincs internetem. Elnézést kérek, de erre én sem számítottam.",
-      "theme": "filler",
-      "source": null
-    }
-  ],
-  "corpus": [
     {
       "site": "tg-baltnews",
       "id": "73268",
@@ -283,15 +330,6 @@
       "source": null
     },
     {
-      "site": "tg-baltnews",
-      "id": "73251",
-      "date": "2026-08-13",
-      "category": "baltnews",
-      "title": "Россия может прекратить закупки продуктов из Латвии , заявил российский сенатор По словам Владимира Джабарова, Латвия – страна с ограниченными ресурсами, и Россия не почувствует потери латви",
-      "theme": "filler",
-      "source": null
-    },
-    {
       "site": "tg-rybar",
       "id": "7292",
       "date": "2026-08-13",
@@ -299,6 +337,18 @@
       "title": "📝 A különleges katonai művelet krónikája 📝 2026. augusztus 12-én 🧨 Az orosz erők pontos célpontokat támadtak meg tárolóhelyeken Kijev közelében. Kár érte a raktárakat Zaporozzsjában is. Peri",
       "theme": "ukraine",
       "source": null
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44516,
+      "date": "2026-08-13",
+      "category": "world",
+      "title": "Magyar questioned the already issued permit for Paks-2 NPP",
+      "theme": "hungary",
+      "source": {
+        "platform": "MAX",
+        "channel": "inosmi"
+      }
     },
     {
       "site": "pravda-hu",
@@ -517,6 +567,105 @@
       }
     },
     {
+      "site": "tg-oroszkatonai",
+      "id": "42336",
+      "date": "2026-08-13",
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ A rendelkezésre álló információk szerint holttest cserék zajlanak Oroszország és Ukrajna között - egyelőre részetek nélkül #speciáliskatonaihadművelet",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "tg-oroszkatonai",
+      "id": "42333",
+      "date": "2026-08-13",
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ Robbantásos merénylet Szevasztopolban - helyi média A Krími média hírei szerint Szevasztopolban felrobbantották Robert Sagiejev, az ukrán \"Zaporizzsja\" torpedóhajó volt vezetőjét. Ukrajná",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "tg-oroszkatonai",
+      "id": "42331",
+      "date": "2026-08-13",
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ Geran drónok repülése alacsony magasságban Ukrajna városai felett #speciáliskatonaihadművelet",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "tg-oroszkatonai",
+      "id": "42330",
+      "date": "2026-08-13",
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ A Kijevi régióban lelőtt Geran drón egy úton haladó autó közelében zuhant le. A légvédelmi tevékenységek veszélyei. #speciáliskatonaihadművelet",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-oroszkatonai",
+      "id": "42329",
+      "date": "2026-08-13",
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ A rendelkezésre álló információk szerint holttest cserék zajlanak Oroszország és Ukrajna között - egyelőre részetek nélkül #speciáliskatonaihadművelet",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "tg-oroszkatonai",
+      "id": "42324",
+      "date": "2026-08-13",
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ Ukrán dróntámadás az oroszországi Baskiria területén egy Wildberries/Iteco logisztikai központ ellen Bár a helyiek a WB-ről írnak, a homlokzat egy logisztikai vállalathoz, az ITECO-hoz ha",
+      "theme": "russia",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264254",
+      "date": "2026-08-13",
+      "category": "oroszokazigazsagoldalan",
+      "title": "Vlagyimir Putyin elnök telefonon beszélt Jevgenyij Znamenszkij veteránnal, a sztálingrádi csata és a nácizmus felett aratott második világháborús győzelem hősével, és gratulált neki 101. szü",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264253",
+      "date": "2026-08-13",
+      "category": "oroszokazigazsagoldalan",
+      "title": "Marija Zaharova, az orosz külügyminisztérium szóvivője kijelentette, hogy a NATO-országok közvetlenül részt vesznek a kijevi rezsim terrorcselekményeiben, megjegyezve, hogy az erre vonatkozó",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264252",
+      "date": "2026-08-13",
+      "category": "oroszokazigazsagoldalan",
+      "title": "Kirill Dmitrijev, az orosz elnöki megbízott a Hormuzi-szorosban uralkodó helyzetet Schrödinger híres „macska” fizikai kísérletéhez hasonlította, azt sugallva, hogy a szoros egyszerre „nyitot",
+      "theme": "energy",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264251",
+      "date": "2026-08-13",
+      "category": "oroszokazigazsagoldalan",
+      "title": "Julia Mendel, Volodimir Zelenszkij korábbi sajtótitkára azt állította, hogy volt főnöke, aki rakétákért könyörög, Donald Trump amerikai elnököt próbálja hibáztatni a hiányért. Az X platformo",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264250",
+      "date": "2026-08-13",
+      "category": "oroszokazigazsagoldalan",
+      "title": "💥 Erős robbanás rázott meg egy lőszergyárat Olaszországban. A cég a KNDS Ammo Italy tulajdonában van. A KNDS az ukrán szárazföldi erők egyik legfontosabb partnerének nevezi magát. A gyár Róm",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
       "site": "tg-oroszigazsag",
       "id": "264249",
       "date": "2026-08-13",
@@ -625,51 +774,6 @@
       "source": null
     },
     {
-      "site": "tg-oroszigazsag",
-      "id": "264235",
-      "date": "2026-08-13",
-      "category": "oroszokazigazsagoldalan",
-      "title": "Egy várható esemény történt ,egy szeméttelepen Poltavában. Valaki csalódott Zelenszkijben.",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "264234",
-      "date": "2026-08-13",
-      "category": "oroszokazigazsagoldalan",
-      "title": "Az FSZB (Orosz Szövetségi Biztonsági Szolgálat) által közzétett felvétel. Képek egy ukrán terroristának a letartóztatásáról a Krímben.",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "264233",
-      "date": "2026-08-13",
-      "category": "oroszokazigazsagoldalan",
-      "title": "Szeverodonszkban letartóztattak egy nőt, akit az ukrán titkosszolgálatok megbízásából egy katona meggyilkolásával gyanúsítanak. A Krím Köztársaság és Szeverodonszk területén működő Orosz Szö",
-      "theme": "russia",
-      "source": null
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "264232",
-      "date": "2026-08-13",
-      "category": "oroszokazigazsagoldalan",
-      "title": "Oroszország gyorsan meg tud majd szervezni egy fogadást Whitkoff és Kushner amerikai tárgyalóknak, amint ismertté válnak a terveik – mondta Szergej Rjabkov. „Úgy vélem, ez a kérdés továbbra ",
-      "theme": "ukraine",
-      "source": null
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "264231",
-      "date": "2026-08-13",
-      "category": "oroszokazigazsagoldalan",
-      "title": "⚡️ Szevasztopolban négy Vészhelyzeti Minisztérium pirotechnikusa és egy biztonsági őr vesztette életét, miközben az ukrán fegyveres erők támadását követően felderítették a területet – közölt",
-      "theme": "ukraine",
-      "source": null
-    },
-    {
       "site": "tg-zvezda",
       "id": "25771",
       "date": "2026-08-13",
@@ -734,6 +838,33 @@
     },
     {
       "site": "tg-greatawaken",
+      "id": "154898",
+      "date": "2026-08-13",
+      "category": "greatawakeningmagyarok",
+      "title": "Az Izraeli Védelmi Erők (IDF) nagyszabású rombolási műveleteket hajtanak végre Bint Jbeilben, Dél-Libanonban.",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-greatawaken",
+      "id": "154897",
+      "date": "2026-08-13",
+      "category": "greatawakeningmagyarok",
+      "title": "MOST – Hatalmas robbanás rázta meg a Róma közelében található lőszergyárat, amely a francia–német védelmi óriásvállalat, a KNDS tulajdonában van; a cég az Ukrajnának szállított fegyverrendsz",
+      "theme": "ukraine",
+      "source": null
+    },
+    {
+      "site": "tg-greatawaken",
+      "id": "154896",
+      "date": "2026-08-13",
+      "category": "greatawakeningmagyarok",
+      "title": "📌 Toroczkai üzent: a szó, amit a miniszterelnök keres, a köszönöm! A Mi Hazánk elnöke még a hétfői parlamenti ülésre vitte be többek között Tóth Máté energiajogász ötleteit. Ezeket a nyilván",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-greatawaken",
       "id": "154892",
       "date": "2026-08-13",
       "category": "greatawakeningmagyarok",
@@ -787,11 +918,20 @@
       "source": null
     },
     {
-      "site": "tg-greatawaken",
-      "id": "154876",
+      "site": "tg-lomovka",
+      "id": "139996",
       "date": "2026-08-13",
-      "category": "greatawakeningmagyarok",
-      "title": "EZ NORMÁLIS ⁉️ Minél többet tudsz... NBC NEWS",
+      "category": "lomovkaa",
+      "title": "Мы остаемся здесь — публикуем все самое оперативное и интересное. А если хотите еще больше новостей и быстро загружающихся видео, встречаемся в MАКС .",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "139995",
+      "date": "2026-08-13",
+      "category": "lomovkaa",
+      "title": "Можно ожидать потепления: как изменится климат в России через 100 лет рассказал академик РАН. Жары, ливней и экстремальных погодных явлений в стране станет больше, отметил в беседе с NEWS ru",
       "theme": "filler",
       "source": null
     },
@@ -949,20 +1089,83 @@
       "source": null
     },
     {
-      "site": "tg-lomovka",
-      "id": "139977",
+      "site": "tg-infodef",
+      "id": "13990",
       "date": "2026-08-13",
-      "category": "lomovkaa",
-      "title": "❗️ Россия и Украина провели обмен телами погибших . Москва передала Киеву 261 тело погибших военных, а украинская сторона — 24. Подпишись!",
+      "category": "InfoDefMagyarok",
+      "title": "„Véletlen volt” – a kijevi rezsim esetlenül mentegetőzött Bulgáriában történt drónja felrobbanása miatt A bolgár területen felrobbant drónt aktívan használja az AFU, közölték hivatalos szemé",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-infodef",
+      "id": "13989",
+      "date": "2026-08-13",
+      "category": "InfoDefMagyarok",
+      "title": "„Nem végeztek akadémiákat” – Ukrajnában végleg tönkretették a diplomaták képzését A kijevi rezsim modern diplomáciája már régóta hírhedtté vált az egész világon olcsó botrányaival és szégyen",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-infodef",
+      "id": "13988",
+      "date": "2026-08-13",
+      "category": "InfoDefMagyarok",
+      "title": "Tokió Achilles-sarka – hogyan süllyesztheti Oroszország Japánt általános áramkimaradásba A globális energia krízis egyre erősödik, – írja a Courrier . Oroszország, mint a világ egyik vezető ",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-infodef",
+      "id": "13987",
+      "date": "2026-08-13",
+      "category": "InfoDefMagyarok",
+      "title": "Scott Bessent amerikai pénzügyminiszter elismerte, hogy \"Hormuzi-szoros soha többé nem lesz olyan, mint korábban\" Ugyanakkor úgy véli, hogy \"pár év múlva ennek egyáltalán nem lesz jelentőség",
+      "theme": "hungary",
+      "source": null
+    },
+    {
+      "site": "tg-vilaghelyzete",
+      "id": "13954",
+      "date": "2026-08-13",
+      "category": "VilagHelyzeteBlog",
+      "title": "Kedves olvasók! Szeptembertől a VilagHelyzete független és szabad írói platformjára, a Substack oldalra helyezem át a kommunikáció súlypontját! 💬 🗣 Mivel ott cenzúra nélkül, értelmes emberek",
       "theme": "filler",
       "source": null
     },
     {
-      "site": "tg-lomovka",
-      "id": "139976",
+      "site": "tg-vilaghelyzete",
+      "id": "13953",
       "date": "2026-08-13",
-      "category": "lomovkaa",
-      "title": "⚡ УФСБ раскрыло архивные материалы о борьбе партизан Донбасса с оккупантами 83 года назад началась Донбасская стратегическая наступательная операция, ставшая началом освобождения региона от ",
+      "category": "VilagHelyzeteBlog",
+      "title": "☄️ 🇷🇺 ⚔️ 🇺🇦 Az orosz hadsereg folytatja a támadásokat az energetikai rendszer mellett az ukrán kikötői infrastruktúra és azon hajók ellen, amiket Kijev erői használnak - közölte az orosz véd",
+      "theme": "energy",
+      "source": null
+    },
+    {
+      "site": "tg-vilaghelyzete",
+      "id": "13952",
+      "date": "2026-08-13",
+      "category": "VilagHelyzeteBlog",
+      "title": "☄️ 🇺🇸 🇮🇶 Az Egyesült Államok befejezi az egyik leghosszabb katonai hadműveletét a Közel-Keleten: Washington terve szerint szeptember 30-ig kivonja minden katonáját Irakból. 👉 Erről közlemény",
+      "theme": "energy",
+      "source": null
+    },
+    {
+      "site": "tg-vilaghelyzete",
+      "id": "13949",
+      "date": "2026-08-13",
+      "category": "VilagHelyzeteBlog",
+      "title": "☄️ A tegnap esti napfogyatkozás képei! Ez a jelenség azért következik be, mert a Hold a Föld és a Nap közé kerül be pályájuk során. (VilagHelyzete)",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "138920",
+      "date": "2026-08-13",
+      "category": "ebredes2017",
+      "title": "Kedves Csoport tagok! A mai hírfolyam elmarad, szolgáltató váltás miatt egyelőre nincs internetem. Elnézést kérek, de erre én sem számítottam.",
       "theme": "filler",
       "source": null
     },
@@ -1066,16 +1269,22 @@
       }
     },
     {
-      "site": "pravda-hu",
-      "id": 44489,
+      "site": "tg-oroszkatonai",
+      "id": "42320",
       "date": "2026-08-12",
-      "category": "russia",
-      "title": "Young, technical, golden!. 18-year-old Alexandra Zavyalova and 19-year-old Zakhar Trofimov brought Russia two gold medals on the first competitive day of the Junior Synchronized Swimming Wor",
-      "theme": "russia",
-      "source": {
-        "platform": "Telegram",
-        "channel": "obyasnayemrf"
-      }
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ Orosz zászló Petrovka településen Druzskivkától délre Az Orosz fegyveres erők katonái az orosz zászlót emelik fel Petrovka településen. Az orosz hadsereg előretört körülbelül 2 kilométerr",
+      "theme": "filler",
+      "source": null
+    },
+    {
+      "site": "tg-oroszkatonai",
+      "id": "42310",
+      "date": "2026-08-12",
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ A nagyszámú, éjszakai drónokkal végzett támadás következményei, amelyeket nyugati műholdak rögzítettek Novorosszijszk városában. ◾️ Sérült a kenyéripari kombinát teteje ◾️ Összeomlott egy",
+      "theme": "ukraine",
+      "source": null
     },
     {
       "site": "tg-zvezda",
@@ -1129,186 +1338,6 @@
       "category": "zvezda_analytics",
       "title": "Незалежная выстраивает государственную идеологию на базе украинского национализма — провинциальной копии немецкого нацизма 1930-х годов. Идеология бандеровского толка — единственный сформиро",
       "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-zvezda",
-      "id": "25757",
-      "date": "2026-08-12",
-      "category": "zvezda_analytics",
-      "title": "⚡️ Идеологи и нынешние последователи бандеровцев отправятся на свалку истории, а совершившие преступления — ответят за них, заявил Шойгу, комментируя эксгумацию останков главаря ОУН-УПА* Кон",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-zvezda",
-      "id": "25756",
-      "date": "2026-08-12",
-      "category": "zvezda_analytics",
-      "title": "❗️ Россия ответит зеркально на попытки стран Запада захватывать российские торговые суда, заявил Путин. Попытки некоторых государств ограничить движение судов РФ — пиратство и разбой , добав",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-zvezda",
-      "id": "25755",
-      "date": "2026-08-12",
-      "category": "zvezda_analytics",
-      "title": "В Массачусетсе законом стёрли последнюю границу. Губернатор Мора Хили под аплодисменты подписала закон, отменяющий 24-недельный барьер для абортов. Теперь в штате нет предельного срока: форм",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-zvezda",
-      "id": "25754",
-      "date": "2026-08-12",
-      "category": "zvezda_analytics",
-      "title": "Украина по указке вице-президента США Джей Ди Вэнса прекратила удары по инфраструктуре Каспийского трубопроводного консорциума (КТК) у Новороссийска и нероссийским судам. Соответствующее обе",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-zvezda",
-      "id": "25753",
-      "date": "2026-08-12",
-      "category": "zvezda_analytics",
-      "title": "Лондон испугался тишины со стороны Москвы. Британия хочет восстановить прямые контакты с военным руководством РФ. Как пишет The Times, британские генералы опасаются, что отсутствие диалога м",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-zvezda",
-      "id": "25752",
-      "date": "2026-08-12",
-      "category": "zvezda_analytics",
-      "title": "🎖 36 военных летчиков удостоены звания Героя России за мужество и героизм, проявленные в ходе СВО. Об этом заявил министр обороны Андрей Белоусов, поздравляя военнослужащих и ветеранов с Дне",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138919",
-      "date": "2026-08-12",
-      "category": "ebredes2017",
-      "title": "💛 ⁀⋱‿. 💛 ⁀⋱‿ 💛 ⁀⋱‿ 💛 ⁀⋱ 💛 ⁀⋱‿. 💛 ⁀⋱‿ 💛 ⁀⋱‿ 💛 ⁀⋱ „A gyerekkori jóllétnek az alapélménye az, hogy a világ egy biztonságos hely, én pedig értékes és szerethető vagyok benne úgy, ahogy vagyok.” ",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138918",
-      "date": "2026-08-12",
-      "category": "ebredes2017",
-      "title": "Szenzációs CIA-dokumentumok bizonyítják, hogy a parazitaellenes gyógyszerek gyógyítják a rákot – a nagy gyógyszeripari vállalatok tudták ezt, és 60 évig eltitkolták. 1951 februárjában a Közp",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138917",
-      "date": "2026-08-12",
-      "category": "ebredes2017",
-      "title": "2026-ban ez már nem jelent problémát az oltatlanok számára. Anno megpróbáltuk figyelmeztetni az összes idiótát, hogy nemcsak a Covid-oltás volt biológiai fegyver, hanem az egész „tervezett j",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138916",
-      "date": "2026-08-12",
-      "category": "ebredes2017",
-      "title": "Ron Johnson szenátor nyilvánosságra hozta Fauci rejtett üzeneteit az oltással kapcsolatos kockázatokról.",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138915",
-      "date": "2026-08-12",
-      "category": "ebredes2017",
-      "title": "MOST(volt) – Teljes napfogyatkozás Európa egyes részein. @disclosetv",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138914",
-      "date": "2026-08-12",
-      "category": "ebredes2017",
-      "title": "✝️ 🐱 A világ legbékésebb helye… Egy brazíliai csendes temető látogatóit minden reggel ugyanaz a megható látvány fogadta: egy apró, fekete-fehér kóbor macska, amint békés elégedettséggel össz",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138913",
-      "date": "2026-08-12",
-      "category": "ebredes2017",
-      "title": "„A kontinens legerősebb hadseregét építjük” – Donald Tusk lengyel miniszterelnök úgy döntött, versenyre kel Merz kancellárral, és az adófizetők pénzéből finanszírozott varsói katonai kiadáso",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138911",
-      "date": "2026-08-12",
-      "category": "ebredes2017",
-      "title": "🇺🇸 Trump elnököt a Bedminsterben található privát klubjában látták golfozni, miközben szögesdrót vette körül, és egy AN/TWQ-1 Avenger légvédelmi rendszer is jelen volt.",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138910",
-      "date": "2026-08-12",
-      "category": "ebredes2017",
-      "title": "Lord Bebo @MyLordBebo 🇭🇰 ‼️ 🚨 KÉSES TÁMADÁS HONGKONGBAN – EGY HŐS MEGMENETETT EGY NŐT Letartóztattak egy külföldit, miután egy 28 cm-es késsel véletlenszerű járókelőket próbált megszúrni az ",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138909",
-      "date": "2026-08-12",
-      "category": "ebredes2017",
-      "title": "🇺🇦 Sergiy Gnezdilov, az ukrán hadsereg 56. különálló gépesített gyalogosdandárának katonája, és Mihail Fedorov, a korábbi védelmi miniszter aktív támogatója, azt mondta, hogy a gyermek nélkü",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138908",
-      "date": "2026-08-12",
-      "category": "ebredes2017",
-      "title": "VIDEÓ: Az emberiség jövőjének a SZABAD EMBEREKRE kell épülni!\"- Interjú Călin Georgescuval, azzal a független román politikussal, a betiltott román elnökválasztás valódi győztesével.",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138907",
-      "date": "2026-08-12",
-      "category": "ebredes2017",
-      "title": "Gáspár Károli Ki tudja hány radar dolgozik ma is azon,hogy száradjon ki Magyarország. Amikor olyan kommentek jönnek,hogy ott vannak az osztrák Alpok,és ez természetes,meg eddig is így volt,m",
-      "theme": "hungary",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138906",
-      "date": "2026-08-12",
-      "category": "ebredes2017",
-      "title": "🇮🇷 Még ma is keresik a minabi elemi iskola diákjainak a maradványait, akiket az Egyesült Államok bombázása során meggyilkoltak. A tragédiában 168 kiskorú iskolásgyermek vesztette életét.",
-      "theme": "filler",
-      "source": null
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "138905",
-      "date": "2026-08-12",
-      "category": "ebredes2017",
-      "title": "🇮🇱 Avi Dichter, Izrael mezőgazdasági minisztere: Pakisztán, Szaúd-Arábia és Törökország. Ez egy nagyon, nagyon problémás szunnita szövetség Izrael állam számára. Úgy tűnik, Egyiptom is csatl",
-      "theme": "energy",
       "source": null
     }
   ]
