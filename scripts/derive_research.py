@@ -53,11 +53,16 @@ def main() -> int:
 
     # ── §2 the four corrections ────────────────────────────────────────────────
     corr = section(doc, "2. Corrections already applied")
-    rows = re.findall(r"^\| (\d) \| (.+?) \| (.+?) \| `(\w+)` \|$", corr, re.M)
-    if len(rows) != 4:
-        sys.exit(f"derive_research: expected 4 correction rows, parsed {len(rows)}")
-    titles = ["The recovery", "The diet", "The campaign surge", "The shared grammar"]
-    for (n, published, says, commit), title in zip(rows, titles):
+    rows = re.findall(r"^\| (\d+) \| (.+?) \| (.+?) \| `(\w+)` \|$", corr, re.M)
+    if not rows:
+        sys.exit("derive_research: no correction rows parsed")
+    # Titles are per-correction labels for the cards. The count is not fixed — the whole
+    # point of this table is that it can grow — so an unnamed row gets a generic label
+    # rather than failing the build and tempting someone to leave the correction out.
+    titles = {"1": "The recovery", "2": "The diet", "3": "The campaign surge",
+              "4": "The shared grammar", "5": "The theme labels"}
+    for n, published, says, commit in rows:
+        title = titles.get(n, f"Correction {n}")
         entries.append({
             "id": f"correction-{n}", "kind": "correction", "title": title,
             # the table quotes the withdrawn sentence; the card's own styling says it is

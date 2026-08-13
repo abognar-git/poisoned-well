@@ -34,8 +34,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 LATEST = ROOT / "data" / "derived" / "latest_specimens.json"
 ARCHIVE = ROOT / "data" / "archive"
-FIELDS = ("site", "tier", "date", "title", "theme", "category", "source", "url",
-          "date_is_capture", "first_seen")
+FIELDS = ("site", "tier", "date", "published_at", "title", "theme", "lang", "unit",
+          "category", "source", "url", "id", "date_is_capture", "first_seen")
 
 
 def key(row):
@@ -102,6 +102,21 @@ def reindex(shards):
         "by_source": dict(Counter(r["site"] for r in rows).most_common()),
         "by_tier": dict(Counter(r.get("tier") or "unknown" for r in rows).most_common()),
         "by_theme": dict(Counter(r.get("theme") or "unknown" for r in rows).most_common()),
+        "by_lang": dict(Counter(r.get("lang") or "unknown" for r in rows).most_common()),
+        "by_unit": dict(Counter(r.get("unit") or "unknown" for r in rows).most_common()),
+        # The one table a reader needs before trusting any theme count: the lexicon has a
+        # language scope, and this says where it reaches. Grey cells are not zero topics —
+        # they are no terms.
+        "theme_coverage": {
+            lang: {
+                "items": sum(1 for r in rows if r.get("lang") == lang),
+                "scored": sum(1 for r in rows if r.get("lang") == lang and r.get("theme") != "unscored"),
+                "matched_a_topic": sum(1 for r in rows if r.get("lang") == lang
+                                       and r.get("theme") not in ("filler", "unscored")),
+                "lexicon": "cyr" if lang == "cyr" else "lat",
+            }
+            for lang in sorted({r.get("lang") for r in rows if r.get("lang")})
+        },
     }
     (ARCHIVE / "index.json").write_text(json.dumps(idx, ensure_ascii=False, indent=1) + "\n")
     return idx

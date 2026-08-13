@@ -53,13 +53,29 @@ SMEAR = re.compile(
     r"педофил\w*|изнасил\w*|шантаж\w*|растлен\w*"
     r")", re.I)
 
-THEMES = [
-    ("hungary",  r"hungar|orb[aá]n|budapest|magyar|fidesz|tisza"),
-    ("ukraine",  r"ukrain|kyiv|kiev|zelensk|donbas|kharkiv|odes[sa]a?\b|ukrajn"),
-    ("russia",   r"russia|putin|kremlin|moscow|lavrov|ria novosti|\btass\b|sputnik|gazprom|rosatom|oroszorsz"),
-    ("eu/nato",  r"\beu\b|europe|brussels|von der leyen|\bnato\b|sanction|baltic|migrant|migration|brusszel|eur[oó]pai"),
-    ("energy",   r"\bgas\b|\boil\b|pipeline|nord stream|druzhba|turkstream|energy|energia|olaj|g[aá]z"),
-]
+# Theme lexicons, PER LANGUAGE. They were a single Latin-script list until 2026-08-13,
+# which meant every Cyrillic item fell through to "filler" — 98.3% of them — because the
+# classifier could not read the language, not because the item was off-topic. That is a
+# label confounded with language, and it got worse the day five Russian-language outlets
+# were added. The fix is not a longer regex: it is admitting the lexicon has a language
+# scope, scoring only inside it, and rendering the coverage so a reader sees the hole.
+THEMES = {
+    "lat": [
+        ("hungary",  r"hungar|orb[aá]n|budapest|magyar|fidesz|tisza"),
+        ("ukraine",  r"ukrain|kyiv|kiev|zelensk|donbas|kharkiv|odes[sa]a?\b|ukrajn"),
+        ("russia",   r"russia|putin|kremlin|moscow|lavrov|ria novosti|\btass\b|sputnik|gazprom|rosatom|oroszorsz"),
+        ("eu/nato",  r"\beu\b|europe|brussels|von der leyen|\bnato\b|sanction|baltic|migrant|migration|brusszel|eur[oó]pai"),
+        ("energy",   r"\bgas\b|\boil\b|pipeline|nord stream|druzhba|turkstream|energy|energia|olaj|g[aá]z"),
+    ],
+    "cyr": [
+        ("hungary",  r"венгр|орбан|будапешт|мадьяр|фидес|тиса"),
+        ("ukraine",  r"украин|киев|зеленск|донбас|харьков|одесс|всу\b|незалежн"),
+        ("russia",   r"росси|путин|кремл|москв|лавров|тасс|минобороны|сво\b|спецоперац"),
+        ("eu/nato",  r"\bес\b|европ|брюссел|фон дер ляйен|нато\b|санкц|прибалт|мигрант|миграц"),
+        ("energy",   r"\bгаз\b|нефт|трубопровод|северный поток|дружба|турецкий поток|энерг"),
+    ],
+}
+SCORED_LANGS = set(THEMES)
 PAYLOAD = {"hungary", "ukraine", "russia", "eu/nato", "energy"}
 
 SOCIAL = {"t.me": "Telegram", "telegram.me": "Telegram", "max.ru": "MAX",
@@ -191,12 +207,33 @@ def title_from_slug(slug: str) -> str:
     return t[:1].upper() + t[1:] if t else t
 
 
-def classify(title: str) -> str:
+def detect_lang(title: str) -> str:
+    """Script first, then Hungarian against other Latin. Deliberately crude and reported
+    as such: it separates what the lexicons can score from what they cannot, and nothing
+    downstream may treat it as a language-identification result."""
+    cyr = sum(1 for c in title if "\u0400" <= c <= "\u04ff")
+    lat = sum(1 for c in title if c.isascii() and c.isalpha())
+    if cyr > lat:
+        return "cyr"
+    low = title.lower()
+    if any(c in low for c in "őűáéíóöúü") or re.search(
+            r"\b(hogy|nem|és|egy|meg|ez|az|van|már|is|a|szerint|után|ellen)\b", low):
+        return "hu"
+    return "lat"
+
+
+def classify(title: str) -> tuple[str, str]:
+    """(theme, lang). `unscored` where no lexicon covers the item's language — which is an
+    honest gap, not a topic. `filler` now means "scored and matched nothing"."""
+    lang = detect_lang(title)
+    lex = THEMES.get("cyr" if lang == "cyr" else "lat")
+    if lex is None:
+        return "unscored", lang
     hay = title.lower()
-    for name, pat in THEMES:
+    for name, pat in lex:
         if re.search(pat, hay):
-            return name
-    return "filler"
+            return name, lang
+    return "filler", lang
 
 
 def parse_source(page: str):
@@ -237,8 +274,8 @@ def harvest_web(sid, cfg):
             if url in seen or len(title) < 12 or SMEAR.search(title):
                 continue
             seen.add(url)
-            rows.append({"site": sid, "id": aid, "date": f"{y}-{mo}-{d}", "category": cat,
-                         "title": title[:190], "theme": classify(title), "url": url})
+            rows.append(row(sid, cfg, title=title, date=f"{y}-{mo}-{d}", url=url,
+                            category=cat, aid=aid))
         time.sleep(0.3)
     if not rows:
         PROBLEMS[sid] = (f"unreachable ({'/'.join(sorted(set(errs)))})" if errs
@@ -294,9 +331,9 @@ def harvest_cards(sid, cfg):
                 datetime.strptime(d, "%Y-%m-%d")
             except ValueError:
                 d = None
-        rows.append({"site": sid, "id": None, "date": d or TODAY, "date_is_capture": not d,
-                     "category": cfg.get("section", "news"), "title": title[:190],
-                     "theme": classify(title), "url": url})
+        rows.append(row(sid, cfg, title=title, date=d or TODAY, url=url,
+                        category=cfg.get("section", "news"),
+                        extra={"date_is_capture": not d}))
     return rows
 
 
@@ -321,12 +358,33 @@ def harvest_telegram(sid, cfg):
         if url in seen:
             continue
         seen.add(url)
-        rows.append({"site": sid, "id": pid.group(1).split("/")[-1], "date": tm.group(1)[:10],
-                     "category": cfg["channel"], "title": title[:190], "theme": classify(title), "url": url})
+        # tm.group(1) is a full ISO timestamp. It used to be sliced to [:10], throwing away
+        # minute-resolution publication times on the only tier that publishes them — and with
+        # them any hope of a lead/lag estimate. Keep both: `date` for grouping, `published_at`
+        # for ordering.
+        rows.append(row(sid, cfg, title=title, date=tm.group(1)[:10], url=url,
+                        category=cfg["channel"], aid=pid.group(1).split("/")[-1],
+                        extra={"published_at": tm.group(1)}))
     return rows
 
 
 PROBLEMS = {}   # sid -> why nothing came back; surfaced in the JSON and on the page
+
+
+PUBLIC_EXCERPT = 120   # what a post_excerpt row shows publicly; the filter still sees the full text
+
+
+def row(sid, cfg, *, title, date, url, category, aid=None, extra=None):
+    """One archived item. `unit` records what kind of text this is — a headline, or a
+    truncated slice of a post — because pooling the two silently is a category error."""
+    theme, lang = classify(title)
+    unit = "post_excerpt" if cfg["type"] == "telegram" else "headline"
+    r = {"site": sid, "id": aid, "date": date, "category": category,
+         "title": title[:PUBLIC_EXCERPT] if unit == "post_excerpt" else title[:190],
+         "theme": theme, "lang": lang, "unit": unit, "url": url}
+    if extra:
+        r.update(extra)
+    return r
 
 
 def harvest(sid, cfg):
@@ -425,8 +483,9 @@ def main() -> int:
         # date_is_capture must survive into the JSON: without it a row whose listing gave
         # no publication date is indistinguishable from one that did, and the page would
         # be presenting our capture time as the article's date.
-        return {k: r.get(k) for k in ("site", "id", "date", "category", "title", "theme",
-                                      "source", "date_is_capture") if r.get(k) is not None}
+        return {k: r.get(k) for k in ("site", "id", "date", "published_at", "category", "title",
+                                      "theme", "lang", "unit", "source", "date_is_capture")
+                if r.get(k) is not None}
 
     out = {
         "captured_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),

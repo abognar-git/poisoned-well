@@ -27,6 +27,14 @@
    "commit": "fef305a"
   },
   {
+   "id": "correction-5",
+   "kind": "correction",
+   "title": "The theme labels",
+   "published": "Theme tags on captured specimens (payload vs filler)",
+   "data_says": "The lexicon was Latin-script only, so <b>98.3% of Cyrillic items were labelled <code>filler</code></b> — a label confounded with language, not a measurement of topic. Made worse on 2026-08-13 by adding five Russian-language outlets. Now scored per language with a published coverage matrix, and <code>unscored</code> is a third value",
+   "commit": "pending"
+  },
+  {
    "id": "correction-4",
    "kind": "correction",
    "title": "The shared grammar",
