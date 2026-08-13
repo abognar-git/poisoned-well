@@ -53,6 +53,12 @@ jobs:
           python scripts/derive_diet.py
           python scripts/make_figures.py
 
+      # Re-measure the dead fake-outlet domains: if one is re-registered, check_claims
+      # fails rather than letting the page keep asserting it is gone.
+      - name: Re-check the documented fake-outlet domains
+        run: python scripts/check_domains.py
+        continue-on-error: true
+
       - name: Validate catalog
         run: python scripts/check_catalog.py
 

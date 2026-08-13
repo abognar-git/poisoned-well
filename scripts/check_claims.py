@@ -162,6 +162,24 @@ def main() -> int:
     # entry generated from RESEARCH.md, and every correction must be surfaced somewhere
     # on the page. A correction that quietly stops rendering is the exact failure this
     # project already had once, so it is an error rather than a warning.
+    # The claim `fake-outlets-dark` asserts three domains no longer resolve. Domains come
+    # back — a lapsed registration gets re-registered, a suspension is lifted — and if one
+    # does, the page would go on asserting a dead site that is live again. Fail instead.
+    dom_file = ROOT / "data" / "derived" / "domain_status.json"
+    if dom_file.exists():
+        dom = json.loads(dom_file.read_text())
+        if not dom.get("controls_resolved"):
+            warnings.append("domain_status.json: control domains failed, last run was inconclusive")
+        else:
+            back = [d["domain"] for d in dom["domains"] if d["resolves"]]
+            if back:
+                errors.append(
+                    f"fake-outlets-dark says these do not resolve, but they now do: "
+                    f"{', '.join(back)} — re-measure and revise the claim before shipping")
+            print(f"{len(dom['domains'])} documented fake-outlet domains checked, "
+                  f"{len(dom['domains']) - len(back)} still dark "
+                  f"(measured {dom['measured_at'][:10]})")
+
     research_file = ROOT / "data" / "derived" / "research.json"
     if not research_file.exists():
         errors.append("data/derived/research.json missing — run scripts/derive_research.py")

@@ -197,7 +197,7 @@ claim rests on.
 
 Everything rendered on the site carries a marker.
 
-- **`§`** resolves to `catalog/claims.json` — 32 registered claims, each with
+- **`§`** resolves to `catalog/claims.json` — 33 registered claims, each with
   status `verified`, `live-data` or `assessment`, its sources, and its caveat.
 - **`▲`** resolves to `data/derived/research.json`, parsed from `RESEARCH.md` —
   the four corrections, the root cause, the limits on each contribution, the six

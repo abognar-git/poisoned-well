@@ -685,5 +685,25 @@
         "url": "https://lakmusz.hu/2026/04/11/ai-videok-szabalytalan-hirdetesek-orosz-dezinformacio-a-kampanyban-minden-eddiginel-durvabban-probaltak-meg-zarojelbe-tenni-a-valosagot"
       }
     ]
+  },
+  {
+    "id": "fake-outlets-dark",
+    "claim": "The three Hungarian-language fake outlets built for the Storm-1516 campaign no longer exist as live sites. Measured on 2026-08-13, none of hirekhub24.hu, oknyomozoriport.hu or napihirek24.hu resolves on the system resolver, Google's (8.8.8.8) or Cloudflare's (1.1.1.1), while two control domains resolved normally. The Internet Archive dates the end of each: oknyomozoriport.hu last served content on 2026-02-26 — before the vote — and hirekhub24.hu on 2026-04-26 and napihirek24.hu on 2026-04-28, both about two weeks after it. The campaign's purpose-built publishing surface was up for roughly two months and is gone.",
+    "status": "live-data",
+    "caveat": "This dates a disappearance; it does not explain one. Domain expiry, registrar suspension, a platform takedown and an operator simply walking away are indistinguishable from outside, and nothing here picks between them. The two April dates fall close to the estimated onset of the mirror's own output drop (~27 April), which is an observation about timing and not evidence that the two are connected — two domains is not a pattern, and no mechanism links them.",
+    "support": [
+      {
+        "type": "data",
+        "data_ref": "data/derived/domain_status.json",
+        "note": "DNS across three resolvers with two controls, plus Internet Archive CDX, by scripts/check_domains.py"
+      },
+      {
+        "type": "source",
+        "publisher": "Internet Archive",
+        "title": "Wayback Machine CDX Server API — capture index used to date the last content-serving snapshot",
+        "url": "https://web.archive.org/cdx/search/cdx",
+        "date": "2026-08-13"
+      }
+    ]
   }
 ]
