@@ -28,7 +28,7 @@
    "baseline_share": 36.7,
    "after_share": 18.7,
    "in_collapsed_set": true,
-   "recovery_per_day": 45.1
+   "recovery_per_day": 45.4
   },
   {
    "source": "Telegram: ebredes2017",
@@ -38,7 +38,7 @@
    "baseline_share": 16.1,
    "after_share": 8.9,
    "in_collapsed_set": true,
-   "recovery_per_day": 29.4
+   "recovery_per_day": 29.5
   },
   {
    "source": "Telegram: greatawakeningmagyarok",
@@ -48,7 +48,7 @@
    "baseline_share": 14.7,
    "after_share": 5.0,
    "in_collapsed_set": true,
-   "recovery_per_day": 23.3
+   "recovery_per_day": 23.4
   },
   {
    "source": "Telegram: oroszspecialiskatonaihadmuvelet",
@@ -117,11 +117,11 @@
    "2026-08-10"
   ],
   "days": 41,
-  "per_day": 156.2,
-  "pct_of_baseline": 63.8,
-  "rebound_per_day": 67.7,
-  "collapsed_set_rebound_per_day": 69.0,
-  "collapsed_set_share_of_rebound": 1.018,
+  "per_day": 156.9,
+  "pct_of_baseline": 64.1,
+  "rebound_per_day": 68.4,
+  "collapsed_set_rebound_per_day": 69.4,
+  "collapsed_set_share_of_rebound": 1.014,
   "collapsed_set_share_of_output": {
    "baseline": 0.675,
    "trough": 0.326,
@@ -130,42 +130,42 @@
   "reading": "The three channels did not stay gone. They supply essentially all of the rebound, and the mirror's source composition returns to within a few points of its pre-election mix. This was an interruption in the Hungarian-language supply, not a change of diet."
  },
  "live_cross_check": {
-  "captured_at": "2026-08-11T11:16:08+00:00",
+  "captured_at": "2026-08-13T15:47:32+00:00",
   "origin_channels_we_scrape": [
-   {
-    "site": "tg-baltnews",
-    "label": "Baltnews — Baltic Rossiya Segodnya brand",
-    "captured_now": 20
-   },
    {
     "site": "tg-lomovka",
     "label": "Lomovka",
-    "captured_now": 17
+    "captured_now": 20
    },
    {
     "site": "tg-zvezda",
     "label": "Zvezda Analytics — MoD-linked",
-    "captured_now": 17
+    "captured_now": 20
    },
    {
     "site": "tg-oroszigazsag",
     "label": "the Russians' truth side",
-    "captured_now": 16
+    "captured_now": 18
    },
    {
-    "site": "tg-greatawaken",
-    "label": "Great Awakening Magyars",
-    "captured_now": 10
+    "site": "tg-baltnews",
+    "label": "Baltnews — Baltic Rossiya Segodnya brand",
+    "captured_now": 18
    },
    {
     "site": "tg-ebredes",
     "label": "Awakening 2017",
-    "captured_now": 6
+    "captured_now": 15
+   },
+   {
+    "site": "tg-greatawaken",
+    "label": "Great Awakening Magyars",
+    "captured_now": 8
    },
    {
     "site": "tg-rybar",
     "label": "Rybar — GRU-adjacent milblogger (HU)",
-    "captured_now": 3
+    "captured_now": 5
    }
   ],
   "collapsed_set_site_ids": [
@@ -173,7 +173,7 @@
    "tg-greatawaken",
    "tg-oroszigazsag"
   ],
-  "collapsed_set_captured_now": 32,
+  "collapsed_set_captured_now": 41,
   "collapsed_set_tracked": [
    "tg-ebredes",
    "tg-greatawaken",
@@ -182,75 +182,51 @@
   "mirror_articles_in_snapshot": 26,
   "mirror_currently_credits": [
    {
-    "channel": "rbc_sport",
-    "n": 2
-   },
-   {
-    "channel": "baltnews",
-    "n": 2
-   },
-   {
-    "channel": "africaninitiativeen",
-    "n": 1
-   },
-   {
-    "channel": "ostashkonews",
-    "n": 1
-   },
-   {
-    "channel": "zvezda_analytics",
-    "n": 1
-   },
-   {
-    "channel": "rt_russian",
-    "n": 1
-   },
-   {
-    "channel": "minsport_russia",
-    "n": 1
-   },
-   {
-    "channel": "africaninitiative",
-    "n": 1
-   },
-   {
-    "channel": "rbc",
-    "n": 1
-   },
-   {
-    "channel": "lomovkaa",
-    "n": 1
-   },
-   {
-    "channel": "RusEmbHungary",
-    "n": 1
-   },
-   {
-    "channel": "lomovka",
-    "n": 1
-   },
-   {
-    "channel": "Mikle1On",
-    "n": 1
-   },
-   {
-    "channel": "SportKomitetGD",
-    "n": 1
-   },
-   {
-    "channel": "russica2",
-    "n": 1
-   },
-   {
-    "channel": "readovkanews",
-    "n": 1
-   },
-   {
-    "channel": "bbbreaking",
-    "n": 1
+    "channel": "greatawakeningmagyarok",
+    "n": 5
    },
    {
     "channel": "llordofwar",
+    "n": 2
+   },
+   {
+    "channel": "inosmi",
+    "n": 1
+   },
+   {
+    "channel": "vedomosti",
+    "n": 1
+   },
+   {
+    "channel": "DDGeopolitics",
+    "n": 1
+   },
+   {
+    "channel": "prime1",
+    "n": 1
+   },
+   {
+    "channel": "tass_live",
+    "n": 1
+   },
+   {
+    "channel": "toroczkai",
+    "n": 1
+   },
+   {
+    "channel": "tassagency_en",
+    "n": 1
+   },
+   {
+    "channel": "InfoDefMagyarok",
+    "n": 1
+   },
+   {
+    "channel": "geopolitics_prime",
+    "n": 1
+   },
+   {
+    "channel": "yurasumy",
     "n": 1
    },
    {
@@ -258,15 +234,35 @@
     "n": 1
    },
    {
-    "channel": "two_majors",
+    "channel": "TASS_europe",
+    "n": 1
+   },
+   {
+    "channel": "zapravduzp",
+    "n": 1
+   },
+   {
+    "channel": "breakingmash",
+    "n": 1
+   },
+   {
+    "channel": "rbc_sport",
     "n": 1
    },
    {
     "channel": "oroszokazigazsagoldalan",
     "n": 1
+   },
+   {
+    "channel": "baltnews",
+    "n": 1
+   },
+   {
+    "channel": "obyasnayemrf",
+    "n": 1
    }
   ],
-  "collapsed_set_credited_now": 1
+  "collapsed_set_credited_now": 6
  },
  "finding": "The decline was concentrated, not general: three Hungarian-language aggregator channels account for the great majority of it, while the Russian-institutional feeds stayed flat at 21-24 articles/day throughout. But the collapse was temporary — those same three channels supply essentially all of the rebound, and the source mix returns close to its pre-election composition. The Hungarian-language supply was interrupted and then restored.",
  "cannot_show": "why the supply was interrupted. And note the bounds: the per-source series covers the top 10 credited sources only (80% of baseline articles, 70% at the trough); credit labels are the operator's own metadata, which cost nothing to omit; and our live capture harvests only the mirror's English surface while the census counts all languages, so it cannot be compared with the census to say what the mirror consumes — all it shows is that these channels were still publishing on the capture day."
