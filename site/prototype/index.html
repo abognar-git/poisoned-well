@@ -565,6 +565,7 @@
   #grammar .gfact .lbl{font-family:"Newsreader",serif; text-transform:none; letter-spacing:0;
     font-size:.86rem; line-height:1.55; color:var(--muted); margin-top:.5rem; margin-bottom:0}
   /* the provenance bar is rendered at TRUE scale — 0.08% must look like 0.08% */
+  .asof{opacity:.55;font-weight:400;letter-spacing:0}
   #prov-bar{display:flex; height:26px; width:100%; border:1px solid var(--hairline); overflow:hidden}
   #prov-bar i{display:block; height:100%}
   #prov-legend{display:flex; flex-wrap:wrap; gap:.5rem 1.3rem; margin-top:.7rem;
@@ -987,7 +988,7 @@
       </div>
 
       <div class="gtier">
-        <div class="tlbl" data-claim="no-pipeline">The pipeline test · <span class="prov-n">139,974</span> articles</div>
+        <div class="tlbl" data-claim="no-pipeline">The pipeline test · <span class="prov-n">139,974</span> articles<span class="asof" id="prov-asof"></span></div>
         <p class="gq">If the domestic machine and the Russian machine were one machine, the Russian mirror should be
           crediting Hungarian pro-government output somewhere across its <span class="prov-n">139,974</span> articles. It never does — though what
           this measures is the mirror's own credit label, and a story laundered through an intermediate repost would be
@@ -2295,6 +2296,15 @@ setTimeout(async () => {
       };
       for (const n of document.querySelectorAll('.prov-n'))
         n.textContent = P.total_articles.toLocaleString('en-US');
+      // The counter at the top of the page is refreshed live and runs ahead of this by
+      // however much the mirror has published since the last commit. Both numbers are
+      // right; without this stamp the reader has no way to know why they differ.
+      const asof = document.getElementById('prov-asof');
+      if (asof && live.generated_at) {
+        const d = new Date(live.generated_at);
+        asof.textContent = ' · census as of ' + d.toISOString().slice(0, 10) +
+                           ', not live like the counter above';
+      }
       document.getElementById('prov-note').innerHTML =
         `Across <b>${P.total_articles.toLocaleString('en-US')}</b> articles and <b>${P.credited_sources}</b> ` +
         `credited sources — which together account for <b>100%</b> of the mirror's output — the Hungarian ` +
