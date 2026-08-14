@@ -131,15 +131,31 @@ def main() -> int:
         ph = Counter(a["phase"] for a in ai)
         print(f"{len(ai)} AI-usage incidents ({dict(ph)})")
 
-    # no catalog entry may carry a URL pointing at propaganda infrastructure
+    # No catalog entry may carry a URL pointing at propaganda infrastructure, and no
+    # page may render one as a link. The key pattern used to be exactly `"url"`, which
+    # matched neither `archive_url` nor anything else ending in url — and archive_url is
+    # the one catalog field unambiguously rendered as an <a href>, eight of them today.
+    # The invariant was enforced over one key name while the field that reaches an
+    # anchor sat outside it.
     for name in CATALOGS_TO_SCAN:
         f = ROOT / "catalog" / name
         if not f.exists():
             continue
-        for m in re.finditer(r'"url"\s*:\s*"([^"]+)"', f.read_text()):
+        for m in re.finditer(r'"[a-z_]*url"\s*:\s*"([^"]+)"', f.read_text()):
             if BLOCKED_HOSTS.search(m.group(1)):
                 errors.append(f"{name}: cites propaganda infrastructure directly: {m.group(1)} "
                               f"— cite the researchers or our generated data instead")
+
+    # The render side, which nothing checked. Only href= and src= — matching arbitrary
+    # JS string literals would flag the page's own upstream feed URL and half a dozen
+    # display strings, and redden the build on a clean tree.
+    for page in PAGES:
+        if not page.exists():
+            continue
+        for m in re.finditer(r'(?:href|src)="([^"]+)"', page.read_text()):
+            if BLOCKED_HOSTS.search(m.group(1)):
+                errors.append(f"{page.name}: renders a link to propaganda infrastructure: "
+                              f"{m.group(1)}")
 
     used = set()
     for page in PAGES:

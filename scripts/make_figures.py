@@ -93,8 +93,12 @@ def f1(t, title):
             b.append(txt(X(i), M["tp"] + ih + 17, m, t, 9, anchor="middle"))
     b.append(txt(M["l"], 24, "ARTICLES PER DAY · MONTHLY MEAN · SEVEN MIRRORS OF ONE NETWORK",
                  t, 10.5, t["ink"], ls=1.6))
-    b.append(txt(M["l"], 40, "Hungary falls 63.7% while the six siblings move +1.6% on average — "
-                 "but the step lands 15 days after the vote", t, 10, t["mid"], family=SERIF))
+    C, TI = pc["comparison"], pc["timing"]
+    b.append(txt(M["l"], 40,
+                 f"Hungary falls {-C['target_change_pct']:.1f}% while the six siblings move "
+                 f"+{C['peer_mean_change_pct']:.1f}% on average — but the step lands "
+                 f"{TI['gap_days_after_election']} days after the vote",
+                 t, 10, t["mid"], family=SERIF))
     return svg(W, H, "".join(b), t, title)
 
 
@@ -152,7 +156,8 @@ def f5(t, title):
             # an explicit zero row, not an absent bar — the point is that it is empty
             b.append(f'<rect x="{M["l"]}" y="{y}" width="{iw}" height="{rh}" fill="none" '
                      f'stroke="{t["focal"]}" stroke-width="1" stroke-dasharray="3 3"/>')
-            b.append(txt(M["l"] + 10, y + rh * .68, "zero — across all 938 credited sources",
+            b.append(txt(M["l"] + 10, y + rh * .68,
+                         f"zero — across all {P['credited_sources']:,} credited sources",
                          t, 10, t["focal"], weight=500))
         else:
             w = max(2, v / mx * iw)
@@ -200,16 +205,27 @@ def f6(t, title):
 
 
 def main():
+    # The alt text IS the figure for a screen-reader user, so it is derived from the
+    # same values the figure draws rather than typed beside them.
+    pc = json.loads((DER / "peer_control.json").read_text())
+    ns = json.loads((DER / "network_scan.json").read_text())
+    TQ = json.loads((DER / "convergence.json").read_text())["technique_overlap"]
+    C = pc["comparison"]
+    HU = next(e["result"] for e in ns["events"]["tested"]
+              if e["id"] == "hu-2026-parliamentary")
     OUT.mkdir(parents=True, exist_ok=True)
     print("figures →", OUT.relative_to(ROOT))
     write("peer_event_study", f1, "Monthly output of seven mirrors of one network; the Hungarian "
-          "line falls 63.7% after April 2026 while the six others hold roughly flat")
+          f"line falls {-C['target_change_pct']:.1f}% after April 2026 while the six others hold "
+          "roughly flat")
     write("placebo_distribution", f3, "The two-month change of every donor mirror over the same "
-          "window, with the Hungarian value marked at rank 207 of 1,948")
+          f"window, with the Hungarian value marked at rank {HU['normalised_rank']:,} of "
+          f"{ns['n_windows']:,}")
     write("provenance_census", f5, "Sources the Hungarian mirror credits, by article count, with "
           "an explicit zero row for the Hungarian pro-government press")
     write("technique_overlap", f6, "Four DISARM techniques observed on both sides against a chance "
-          "expectation of 5.00 to 6.25")
+          f"expectation of {TQ['chance_baseline'][0]['expected_overlap']:.2f} to "
+          f"{TQ['chance_baseline'][1]['expected_overlap']:.2f}")
     return 0
 
 

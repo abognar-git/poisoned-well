@@ -153,8 +153,15 @@ def cross_file():
     because this gate read only the README. Same machinery, same uniqueness rule, wider
     reach. Only figures that restate a derived value belong here; a figure stamped with
     an as-of date is a snapshot, not drift, and stays out."""
+    import statistics
     P = D("convergence")["provenance_audit"]
     b = {x["bucket"]: x["articles"] for x in P["buckets"]}
+    hu = D("pravda_summary")["hungary.news-pravda.com"]
+    cats = D("mirror_clock")["categories"]
+    cat = {x["category"]: x for x in cats["buckets"]}
+    tgt = D("peer_control")["target"]
+    rec = D("source_diet")["recovery"]
+    live = [c for _, c in D("pravda_timeline")["series"] if c > 0]
     T, S, C = P["total_articles"], P["credited_sources"], P["coverage"]
     acct, fringe = b["hungarian_progov_account"], b["hungarian_fringe"]
     return [
@@ -179,6 +186,45 @@ def cross_file():
          'The pipeline test · <span class="prov-n">{:,.0f}</span> articles', [T]),
         ("site/prototype/index.html",
          'across its <span class="prov-n">{:,.0f}</span> articles', [T]),
+
+        # The § evidence cards. Nothing read their prose: check_claims verifies that a
+        # marker RESOLVES, never that the card it opens agrees with the sentence it is
+        # evidence for. Five of them had drifted — one said "recovered to 200/day, 82%"
+        # over a paragraph rendering 187/day — on the project's own proof-of-rigour
+        # surface. Registered figure by figure rather than by a blanket numeral scan,
+        # because claim prose legitimately carries seat counts, external audit figures
+        # and dates that have no derived counterpart.
+        ("catalog/claims.json",
+         "'oroszokazigazsagoldalan' ({:,.0f} articles)", [hu["top_sources"][0]["count"]]),
+        ("catalog/claims.json",
+         "It has since recovered to {:,.0f}/day, {:.1f}% of its pre-election baseline",
+         [tgt["latest_per_day"], tgt["recovery_pct_of_baseline"]]),
+        ("catalog/claims.json",
+         "100+ articles on {:,.0f} of its {:,.0f} active days (median {:,.0f}/day)",
+         [sum(1 for c in live if c >= 100), len(live), statistics.median(live)]),
+        ("catalog/claims.json",
+         "only {:.1f}% of its {:,.0f} articles are filed under 'hungary' ({:,.0f})",
+         [cat["hungary"]["share"] * 100, cats["total"], cat["hungary"]["count"]]),
+        ("catalog/claims.json",
+         "'world' {:.1f}% ({:,.0f}) and 'russia' {:.1f}% ({:,.0f})",
+         [cat["world"]["share"] * 100, cat["world"]["count"],
+          cat["russia"]["share"] * 100, cat["russia"]["count"]]),
+        # Deliberately stops before "the institutional feeds contributing −0.1": that is
+        # a different set from the three collapsed channels, derive_diet.py computes no
+        # aggregate for it, and it was independently corroborated. Registering it would
+        # fail the gate on a figure that is not drifting.
+        ("catalog/claims.json",
+         "supply {:.0f}% of the rebound (+{:.1f} of +{:.1f} articles/day",
+         [rec["collapsed_set_share_of_rebound"] * 100,
+          rec["collapsed_set_rebound_per_day"], rec["rebound_per_day"]]),
+
+        # docs/figures: a published SVG asserted 938 and 939 credited sources in one
+        # image, 42 px apart — one literal, one computed. validate.yml's figure check is
+        # a regeneration diff, which a hardcoded literal passes forever.
+        ("docs/figures/provenance_census_dark.svg",
+         "zero — across all {:,.0f} credited sources", [S]),
+        ("docs/figures/provenance_census_light.svg",
+         "zero — across all {:,.0f} credited sources", [S]),
     ]
 
 
