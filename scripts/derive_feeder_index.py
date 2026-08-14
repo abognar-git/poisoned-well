@@ -31,6 +31,7 @@ so in `relationship`.
 
     python3 scripts/derive_feeder_index.py
 """
+import argparse
 import csv
 import json
 from collections import Counter, defaultdict
@@ -55,7 +56,7 @@ def handle(name):
     return name.split(": ", 1)[1] if ": " in name else name
 
 
-def main() -> int:
+def main(force: bool = False) -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     (OUT / "mirror_source_day").mkdir(exist_ok=True)
 
@@ -63,6 +64,19 @@ def main() -> int:
     if not files:
         print("no mirror files — run scripts/fetch_pravda.py --all first")
         return 1
+
+    # This script publishes whatever is in data/raw, and data/raw holds whatever the last
+    # fetch pulled. An hourly job that fetches only the seven regional mirrors therefore
+    # republished a seven-mirror panel over the hundred-and-one-mirror one — 9,905 sources
+    # down to 2,803 — with nothing to notice it. Refuse to shrink the published panel.
+    prev = OUT / "MANIFEST.json"
+    if prev.exists() and not force:
+        had = json.loads(prev.read_text()).get("mirrors", 0)
+        if len(files) < had:
+            print(f"refusing to shrink the panel: data/raw has {len(files)} mirrors, the "
+                  f"published panel covers {had}. Run scripts/fetch_pravda.py --all, or pass "
+                  f"--force if the smaller panel is what you want.")
+            return 1
 
     mirror_day, meta, edges = [], [], []
     by_month = defaultdict(list)
@@ -181,4 +195,7 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--force", action="store_true",
+                    help="publish even if it covers fewer mirrors than the current panel")
+    raise SystemExit(main(force=ap.parse_args().force))

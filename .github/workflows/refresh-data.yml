@@ -64,9 +64,10 @@ jobs:
       - name: Recompute sampling coverage
         run: python scripts/derive_frame.py
 
-      # The credit graph is derived from data/raw, which only exists inside this job.
-      - name: Rebuild the credit graph
-        run: python scripts/derive_feeder_index.py
+      # NOT rebuilt here. The credit graph needs the full 101-domain manifest (~49 MB),
+      # and this job fetches only the seven regional mirrors — running it here republished
+      # a seven-mirror panel over the hundred-and-one-mirror one. It has its own daily
+      # workflow; the script now also refuses to shrink the published panel.
 
       - name: Re-check the documented fake-outlet domains
         run: python scripts/check_domains.py
