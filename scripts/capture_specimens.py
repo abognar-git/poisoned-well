@@ -160,15 +160,32 @@ SOURCES = {
             re.S),
     },
 }
+UNDOCUMENTED = {
+    "tg-oroszkatonai": ("No third-party documentation of this channel was found, despite it "
+                        "being the Hungarian mirror's fourth-largest credited source. Searched "
+                        "DFRLab, Átlátszó's Hungarian-Telegram investigation, Lakmusz, EUvsDisinfo, "
+                        "ISD, VIGINUM and the Pravda-network literature; the only pages naming the "
+                        "handle are the channel itself and the mirror that credits it. The "
+                        "largest published study of Hungarian-language Telegram in the campaign "
+                        "period — Vox Harbor's analysis of 628,000+ messages from 30,000+ groups, "
+                        "reported by Reuters on 10 April 2026 — does not name it either."),
+    "tg-zvezda": ("No third-party documentation of this channel was found. The Zvezda parent brand "
+                  "is documented and appears in this glossary, but no source connects that holding "
+                  "to this Telegram handle — the resemblance is in the name only. VIGINUM's Portal "
+                  "Kombat report does not mention it, nor do DFRLab's or Maldita's channel "
+                  "inventories."),
+}
+
 # Telegram origin channels — the Pravda mirror's own top-credited feeders, captured via
-# the public t.me/s/ preview. Documented as pro-Kremlin laundering origins in our own data.
+# the public t.me/s/ preview. The mirror credits all of them as origins; that is its own
+# claim, and it is not the same thing as anyone having documented the channel.
 TELEGRAM = {
     "tg-oroszigazsag": ("oroszokazigazsagoldalan", "the Russians' truth side"),
     "tg-greatawaken":  ("greatawakeningmagyarok", "Great Awakening Magyars"),
     "tg-ebredes":      ("ebredes2017", "Awakening 2017"),
     "tg-rybar":        ("Rybar_HU", "Rybar — GRU-adjacent milblogger (HU)"),
     # The mirror's own credit counts decide what belongs here. Ranks are against the
-    # 939 sources in its topSources list; the share is of all 139,623 articles.
+    # 939 sources in its topSources list; the share is of all 139,974 articles.
     "tg-oroszkatonai": ("oroszspecialiskatonaihadmuvelet",
                         "\u201cRussian special military operation\u201d"),   # #4  5.1%
     "tg-infodef":      ("InfoDefMagyarok", "InfoDefense franchise, HU"),      # #6  4.8%
@@ -179,12 +196,21 @@ TELEGRAM = {
     # zvezda_analytics #82 (0.1%).
     "tg-baltnews":     ("baltnews", "Baltnews — Baltic Rossiya Segodnya brand"),
     "tg-lomovka":      ("lomovkaa", "Lomovka"),
-    "tg-zvezda":       ("zvezda_analytics", "Zvezda Analytics — MoD-linked"),
+    "tg-zvezda":       ("zvezda_analytics", "\u201cZvezda Analytics\u201d"),
 }
 for sid, (chan, label) in TELEGRAM.items():
     SOURCES[sid] = {
         "label": label, "tier": "origin", "type": "telegram", "lang": "hu/ru", "channel": chan,
-        "attribution": f"Russia-aligned Telegram channel (@{chan}) — a documented laundering origin",
+        # This string was one f-string applied to every channel in the dict, so the two
+        # for which the literature search returned nothing asserted on the same card that
+        # documentation of them exists and that it does not. What the mirror establishes
+        # is that it credits the channel as an origin; whether anyone has written about
+        # the channel is a different question, and UNDOCUMENTED is where that is answered.
+        "attribution": (
+            f"Russia-aligned Telegram channel (@{chan}) — a documented laundering origin"
+            if sid not in UNDOCUMENTED else
+            f"Telegram channel (@{chan}) the mirror credits as an origin; no third-party "
+            f"documentation of the channel itself was found"),
         "base": "https://t.me", "listings": [f"/s/{chan}"],
     }
 
@@ -211,21 +237,6 @@ TERM_OF = {
 # output. That absence is worth stating on the page rather than leaving as a blank space a
 # reader reads as an oversight. Recorded here so the claim is that we looked, not that
 # nothing exists.
-UNDOCUMENTED = {
-    "tg-oroszkatonai": ("No third-party documentation of this channel was found, despite it "
-                        "being the Hungarian mirror's fourth-largest credited source. Searched "
-                        "DFRLab, Átlátszó's Hungarian-Telegram investigation, Lakmusz, EUvsDisinfo, "
-                        "ISD, VIGINUM and the Pravda-network literature; the only pages naming the "
-                        "handle are the channel itself and the mirror that credits it. The "
-                        "largest published study of Hungarian-language Telegram in the campaign "
-                        "period — Vox Harbor's analysis of 628,000+ messages from 30,000+ groups, "
-                        "reported by Reuters on 10 April 2026 — does not name it either."),
-    "tg-zvezda": ("No third-party documentation of this channel was found. The Zvezda parent brand "
-                  "is documented and appears in this glossary, but no source connects that holding "
-                  "to this Telegram handle — the resemblance is in the name only. VIGINUM's Portal "
-                  "Kombat report does not mention it, nor do DFRLab's or Maldita's channel "
-                  "inventories."),
-}
 
 SRC = re.compile(r'data-source-url="([^"]+)"')
 

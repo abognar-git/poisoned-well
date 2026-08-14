@@ -200,16 +200,21 @@ Everything rendered on the site carries a marker.
 - **`§`** resolves to `catalog/claims.json` — 33 registered claims, each with
   status `verified`, `live-data` or `assessment`, its sources, and its caveat.
 - **`▲`** resolves to `data/derived/research.json`, parsed from `RESEARCH.md` —
-  the four corrections, the root cause, the limits on each contribution, the six
+  the five corrections, the root cause, the limits on each contribution, the six
   pieces of framing cut from the paper, the two decisive tests not yet run.
 - Dotted terms resolve to `catalog/glossary.json` at first use.
 
-Two gates run on every push. `check_catalog.py` validates the 24 case files and
+`.github/workflows/validate.yml` runs three gates on every push and pull request.
+`check_catalog.py` validates the 24 case files and
 runs 29 fixtures against the personal-smear filter. `check_claims.py` fails if a
 `§` or `▲` marker does not resolve, if a catalog URL points at propaganda
-infrastructure, **or if any of the four corrections stops being surfaced
+infrastructure, **or if any correction in the research record stops being surfaced
 anywhere on the page** — the one thing this project must never quietly do is stop
-showing what it got wrong.
+showing what it got wrong. `check_readme.py` re-checks the figures registered in
+its `CLAIMS` list — in this file, in `RESEARCH.md`, in the claims registry and on
+the page — and fails if a correction stops being cited by commit. The same job runs
+`build_network.py --check` and re-derives `research.json` and the figures, failing
+if either parted company with its generator.
 
 ### Two rules the code enforces
 
@@ -289,8 +294,9 @@ not yet independently reproduced. Nothing marked `[R]` appears in this README.
 
 Every figure is regenerated from `data/derived/` by `scripts/make_figures.py`, as
 a light and dark pair. Colour never carries a distinction on its own — the site's
-own amber-and-sage palette simulates to a contrast ratio of 1.00 under
-deuteranopia, so the figures use one focal colour, neutral grey, and direct
+own amber-and-sage palette collapses under deuteranopia — a referee figure,
+marked `[R]` in `RESEARCH.md` and not reproduced here, which is why the number
+itself is not quoted — so the figures use one focal colour, neutral grey, and direct
 end-labels, and survive greyscale.
 
 ![Monthly output of seven mirrors of one network; the Hungarian line falls 63.7% after April 2026 while the six others hold roughly flat](docs/figures/peer_event_study_dark.svg#gh-dark-mode-only)
@@ -334,7 +340,7 @@ know whether the pattern is special or simply what this kind of network does
 everywhere. It does not have to be.
 
 **The census is the strongest claim here and the least exciting.** A full-coverage
-negative result — 139,376 articles, 938 sources, coverage 1.0000, zero credits to
+negative result — 139,974 articles, 939 sources, coverage 1.0000, zero credits to
 the domestic pro-government press — is a boring sentence that survived every test
 I could put to it, while the interesting sentence about a post-election collapse
 lost four fifths of its weight in five tests.
@@ -352,13 +358,14 @@ without also taking what it was measured against.
 
 ## What I got wrong, and what this does not show
 
-Five, in the order they were found. The first four are the retractions; the fifth
-is the one I found while fixing them.
+Five, in the order they were found — plus a sixth, numbered 4b below because it
+arrived after the others and is not a retraction. The first four are the
+retractions; the fifth is the one I found while fixing them.
 
 **1 — I read a recovery off the wrong three channels.** I published that the
 Russian institutional layer carried the mirror's rebound. I had summed the three
 *most-captured* channels rather than the three that actually collapsed. Summing
-the right ones: the collapsed set supplies **101.8%** of the rebound — more than all of it, so
+the right ones: the collapsed set supplies **101.4%** of the rebound — more than all of it, so
 everything else nets **−1.0 articles/day**. Their share of output runs
 67.5% → 32.6% → 62.6%. The channels that fell are the channels that came back,
 which is why "interrupted supply" is now the reading and "editorial decision" is
@@ -367,8 +374,8 @@ not. Fixed in `fef305a`.
 **2 — I compared a capture with a census.** I published that the mirror had changed
 what it eats, on the strength of my own live capture. That capture requests only
 the mirror's `/en/` pages; the census counts every language, and Hungarian is the
-larger surface (98,110 articles against 80,259 English). On the days I captured,
-the census shows those same channels credited in 60–77% of all articles. They had
+larger surface. On the days I captured, in August 2026, the census showed those
+same channels credited in 60–77% of all articles. They had
 never left. The claim is retired to the only thing it supports: these channels were
 observably still publishing on the day I looked. Fixed in `fef305a`.
 
@@ -408,8 +415,8 @@ contradict you before you need it to.
 
 ### What this does not show
 
-Beyond the limits stated near the top: the panel has seven comparable units and
-one treated unit, and the donors are not exchangeable — different launch dates,
+Beyond the limits stated near the top: the panel has seven units, one of them
+treated, and the donors are not exchangeable — different launch dates,
 different languages, different national news cycles. The DISARM coding is by a
 single coder with no inter-rater check. The catalog's 24 case files carry stated
 attribution confidence ranging from *confirmed* to *contested*, and the timeline
@@ -417,6 +424,38 @@ now prints that confidence rather than a bare sponsor name. And this repository
 holds no domestic-output corpus at all, so every statement about the Hungarian
 domestic machine is sourced to other people's measurement — chiefly Lakmusz,
 Telex, Political Capital, EDMO — and not to mine.
+
+---
+
+## What else this repository publishes
+
+Two datasets sit outside the analysis above and are the reason a researcher might
+want this repo rather than its conclusions.
+
+**`data/panel/` — the network's credit graph, all 101 mirrors.** Not the seven-unit
+peer panel of the event study: mirror × day articles, mirror × day × credited-source
+credits in monthly shards, and the transpose — one row per source, with how many
+mirrors it feeds and how exclusively, which is the question an analyst usually
+arrives with. Built by `scripts/derive_feeder_index.py` from CheckFirst's
+`sourcesByDay` panels; current row counts and generation date are in
+[`data/panel/MANIFEST.json`](data/panel/MANIFEST.json).
+
+**Read [`data/DICTIONARY.md`](data/DICTIONARY.md) before computing on any of it.**
+The daily panel carries only each mirror's top ten sources per day, so a
+share-of-credits denominator changes underneath you unless you condition on that
+set. Two of the three limits written down there have already produced a wrong number
+in this project once. And a credit is the mirror's own claim about where it took an
+item — never evidence that the credited channel participated, cooperated, or knows
+the mirror exists.
+
+**`data/archive/` — captured specimens.** An append-only, month-sharded JSONL record
+of what the mirror and its credited channels actually published, accumulated hourly
+since August 2026: headline or post excerpt, provenance, language, theme. It is an
+accumulated observation, not something a clone can regenerate — running the capture
+scripts extends it rather than reproducing it. It is a sample, and
+`data/archive/coverage.json` says how much of one, computed as a set difference over
+the ids each source issued. Browsable at
+[the corpus explorer](https://abognar-git.github.io/poisoned-well/site/prototype/explorer.html).
 
 ---
 
@@ -434,6 +473,10 @@ cd poisoned-well
 python3 scripts/fetch_pravda.py
 python3 scripts/fetch_pravda.py --all --delay 0.5
 
+# the DISARM framework and Meta's threat reports. derive_summaries.py reads the
+# second one, so skipping this makes the next block fail on a clean clone
+python3 scripts/fetch_frameworks.py
+
 # the instrument. --events tests only dates catalog/events.json can source;
 # --scan finds interruptions without being told where to look
 python3 scripts/analyse_network.py --events --scan --donors all
@@ -445,26 +488,43 @@ python3 scripts/derive_diet.py             # what the collapse was made of
 python3 scripts/derive_convergence.py      # the census and the overlap null
 python3 scripts/derive_research.py         # RESEARCH.md -> the site's ▲ layer
 python3 scripts/make_figures.py            # light/dark SVG pairs for this README
+python3 scripts/derive_feeder_index.py     # the 101-mirror credit graph -> data/panel/
 
-# the gates. both run in CI on every push
+# the gates. all three run in CI on every push, alongside a structural check on
+# the network graph and a drift check on the derived files
 python3 scripts/check_catalog.py           # schema, sources, smear fixtures
 python3 scripts/check_claims.py            # markers, blocklist, corrections
+python3 scripts/check_readme.py            # this file's registered figures vs data/derived
 ```
 
-Then open `site/prototype/index.html` in a browser. It needs no server; with no
-network it falls back to the committed figures rather than breaking.
+Then serve the repo and open the prototype — `python3 -m http.server 8000` in the
+repo root, then `http://localhost:8000/site/prototype/index.html`. Opening the file
+directly does not work: the page is an ES module that reads `../../data/` and
+`../../catalog/`, and browsers refuse both module imports and `fetch()` over
+`file://`. Once served it needs no internet — with no network it falls back to the
+committed figures rather than breaking.
 
-**A note on the refresh workflow.** `.github/workflows/refresh-data.yml` re-fetches
-the upstream feed, re-derives, re-validates, regenerates the figures, and commits
-only if the data changed. It is **manual** — run it from the Actions tab or with
-`gh workflow run refresh-data`. It ran hourly while this repo was public; the cron
-line is commented in place if you want it back.
+**A note on the workflows.** `.github/workflows/refresh-data.yml` runs **hourly**:
+it re-fetches the upstream feed, re-derives, re-captures the live specimens, merges
+them into the archive, recomputes coverage, regenerates the figures, syncs this
+file's registered numbers, re-runs the gates, and commits only if the data changed.
+`rebuild-panel.yml` runs daily and is the only job that rebuilds `data/panel/` — the
+credit graph needs the full 101-domain manifest, which is too much to pull hourly.
+`validate.yml` runs the gates on every push. All three can also be run by hand from
+the Actions tab, or with `gh workflow run <name>`.
 
 That matters for the figures quoted above. They are correct as of the scrape
 committed here, and the mirror keeps publishing — the pro-government
 commentator's channel went from 76 credits to 78 during the session that wrote
-this. `scripts/check_readme.py` is what catches the divergence: it re-reads every
-number in this file against `data/derived` and fails when they part company.
+this. `scripts/check_readme.py` is what catches the divergence: it re-checks the
+figures registered in its `CLAIMS` list against `data/derived` and fails when they
+part company. A number nobody registered is not checked — **including a second copy
+of a registered figure**, which is how two of the numbers in this file went stale
+under a green gate while it printed OK. It now refuses a registered fragment that
+matches more than once, so a second copy has to be registered rather than silently
+skipped, and it reaches beyond this file: the same census was restated in
+`RESEARCH.md`, in `catalog/claims.json` and three times on the page, and had drifted
+in every one of them.
 
 ---
 
@@ -500,7 +560,13 @@ analysis that pointed the way its author wanted it to point. This one found four
 
 ## License
 
-MIT — see [`LICENSE`](LICENSE).
+Code — MIT, see [`LICENSE`](LICENSE).
+
+Data — **not MIT.** See [`data/LICENSE`](data/LICENSE). Everything this project
+computed — `data/derived/`, `data/panel/`, `data/DICTIONARY.md`, and the labels and
+schema it assigned to the archive — is CC BY 4.0. The verbatim third-party text the
+archive captured is not this project's to license and no rights over it are
+granted; `data/LICENSE` gives the field-by-field split.
 
 Data from [CheckFirst's Pravda Network collection](https://github.com/CheckFirstHQ/pravda-network),
 [Meta's adversarial threat reports](https://github.com/facebook/threat-research), and the

@@ -22,9 +22,14 @@ plan, and leaving it stale is worse. So the refresh workflow syncs the registere
 numbers and commits them with the data.
 
 That does not make the gate ornamental. It only rewrites figures registered in
-CLAIMS; a number typed into the prose that nobody registered still fails the check,
-a fragment that stops appearing still fails, and every correction must still be
-cited by commit. What --sync removes is rot, not scrutiny.
+CLAIMS; a fragment that stops appearing still fails, a fragment that appears twice
+now fails too, and every correction must still be cited by commit. What --sync
+removes is rot, not scrutiny.
+
+What it does NOT do, stated plainly because this docstring used to claim otherwise:
+a number typed into the prose that nobody registered is not checked at all. Two
+figures drifted for exactly that reason — a second, unregistered copy of a
+registered number, which the old first-match-only search never reached.
 """
 import argparse
 import datetime
@@ -39,6 +44,10 @@ DER = ROOT / "data" / "derived"
 
 D = lambda name: json.loads((DER / f"{name}.json").read_text())
 NUM = re.compile(r"-?−?\d[\d,]*(?:\.\d+)?")
+
+
+MONTHS = ("January", "February", "March", "April", "May", "June", "July",
+          "August", "September", "October", "November", "December")
 
 
 def nums(fragment):
@@ -58,6 +67,7 @@ def build():
     C, PB, TI, TG = pc["comparison"], pc["placebo"], pc["timing"], pc["target"]
     R = dt["recovery"]
     ev = {e["id"]: e["result"] for e in ns["events"]["tested"]}
+    onset = datetime.date.fromisoformat(TI["estimated_onset"])
     HU, RO24, RO25 = (ev["hu-2026-parliamentary"], ev["ro-2024-presidential-annulled"],
                       ev["ro-2025-presidential-rerun"])
     span = (datetime.date.fromisoformat(hu["last_day"]) -
@@ -86,10 +96,16 @@ def build():
         ("a further {:,.0f} ({:.2f}%)", [bucket["hungarian_fringe"],
                                          bucket["hungarian_fringe"] / P["total_articles"] * 100]),
 
-        ("fell **{:.1f}%**", [abs(C["target_change_pct"])]),
-        ("from {:.1f} to {:.1f} articles a day", [TG["baseline_per_day"], TG["after_per_day"]]),
+        # One fragment, not two: "from {} to {} articles a day" also matched the
+        # illustrative 7.1 -> 8.9 further down, and --sync runs unattended on an hourly
+        # cron. A copy-edit to the real sentence would have sent --sync to the decoy and
+        # published a 63.7% collapse labelled +25%, with the gate still printing OK.
+        ("fell **{:.1f}%** after the election, from {:.1f} to {:.1f} articles a day",
+         [-C["target_change_pct"], TG["baseline_per_day"], TG["after_per_day"]]),
         ("moved **+{:.1f}%** on average", [C["peer_mean_change_pct"]]),
-        ("not one fell more than {:.1f}%", [abs(C["peer_min_change_pct"])]),
+        # negation, not abs(): abs() throws away the sign the verb "fell" asserts, so a
+        # series that turned upward would still format as a fall and still pass.
+        ("not one fell more than {:.1f}%", [-C["peer_min_change_pct"]]),
 
         ("**{:,.0f}st**, p = {:.4f}", [PB["raw_rank"], PB["raw_p"]]),
         ("sd {:.1f}% against Romania's {:.1f}%", [PB["volatility_by_mirror"]["hungary"],
@@ -98,11 +114,12 @@ def build():
                                                    PB["volatility_normalised_rank"],
                                                    PB["volatility_normalised_p"]]),
         ("**{:,.0f}th**, p = {:.4f}", [HU["normalised_rank"], HU["normalised_p"]]),
-        ("**≈{:.0f} April — {:.0f} days late**", [27, TI["gap_days_after_election"]]),
+        ("**≈{:.0f} " + MONTHS[onset.month - 1] + " — {:.0f} days late**",
+         [onset.day, TI["gap_days_after_election"]]),
         ("**highest single day at {:,.0f} articles**", [TI["day_after_election"]["count"]]),
         ("holds near {:,.0f}/day", [TI["mean_13_to_24_april"]]),
 
-        ("produced −{:.1f}%", [abs(RO24["change_pct"])]),
+        ("produced −{:.1f}%", [-RO24["change_pct"]]),
         ("**+{:.1f}% rise**", [RO25["change_pct"]]),
 
         ("supply **{:.1f}%** of the rebound", [R["collapsed_set_share_of_rebound"] * 100]),
@@ -117,8 +134,51 @@ def build():
         ("+{:.1f}% February-to-March rise against a +{:.1f}% peer mean",
          [rise(mon), peer_rise]),
 
+        # Both of these restate a figure registered above. They went stale under a green
+        # gate because rx.search stops at the first match, so the restatement was never
+        # reached — 139,376/938 against 139,974/939, and 101.8% against 101.4%.
+        ("negative result — {:,.0f} articles, {:,.0f} sources, coverage {:.4f}",
+         [P["total_articles"], P["credited_sources"], P["coverage"]]),
+        ("collapsed set supplies **{:.1f}%** of the rebound",
+         [R["collapsed_set_share_of_rebound"] * 100]),
+
         ("{:,.0f} registered claims", [cat("claims.json")]),
         ("the {:,.0f} case files", [cat("operations.json")]),
+    ]
+
+
+def cross_file():
+    """The census is restated in prose in four other documents, and it drifted in all of
+    them at once — 139,376 articles and 938 sources against a derived 139,974 and 939 —
+    because this gate read only the README. Same machinery, same uniqueness rule, wider
+    reach. Only figures that restate a derived value belong here; a figure stamped with
+    an as-of date is a snapshot, not drift, and stays out."""
+    P = D("convergence")["provenance_audit"]
+    b = {x["bucket"]: x["articles"] for x in P["buckets"]}
+    T, S, C = P["total_articles"], P["credited_sources"], P["coverage"]
+    acct, fringe = b["hungarian_progov_account"], b["hungarian_fringe"]
+    return [
+        ("RESEARCH.md",
+         "pro-government press across {:,.0f} articles", [T]),
+        ("RESEARCH.md",
+         "Across all {:,.0f} articles, the {:,.0f} credited sources sum to exactly "
+         "{:,.0f} (coverage {:.4f})", [T, S, T, C]),
+        ("RESEARCH.md", "Manual pass over all {:,.0f} sources", [S]),
+        ("catalog/claims.json",
+         "Across all {:,.0f} articles the Hungarian Pravda mirror has published, and all "
+         "{:,.0f} sources it credits", [T, S]),
+        ("catalog/claims.json",
+         "is credited {:,.0f} times ({:.2f}%), and Hungarian nationalist-fringe channels "
+         "a further {:,.0f} ({:.2f}%)", [acct, acct / T * 100, fringe, fringe / T * 100]),
+        # Three separate bakings on the page. JS overwrites them when the fetch succeeds,
+        # so these are what a reader sees when it does not — a stale census is worse there,
+        # not better, because nothing signals that it is a fallback.
+        ("site/prototype/index.html",
+         'id="pipe-total">{:,.0f}</span> articles', [T]),
+        ("site/prototype/index.html",
+         'The pipeline test · <span class="prov-n">{:,.0f}</span> articles', [T]),
+        ("site/prototype/index.html",
+         'across its <span class="prov-n">{:,.0f}</span> articles', [T]),
     ]
 
 
@@ -141,10 +201,16 @@ def main(sync: bool = False) -> int:
 
     for template, values in build():
         rx = as_regex(template)
-        m = rx.search(text)
-        if not m:
+        hits = list(rx.finditer(text))
+        if len(hits) > 1:
+            errors.append(f"{template!r} matches the README {len(hits)} times. A registered "
+                          "fragment must be unique: --sync rewrites the first match and the "
+                          "others rot behind a green gate.")
+            continue
+        if not hits:
             errors.append(f"README no longer contains: {template!r}")
             continue
+        m = hits[0]
         want = template.format(*values)
         have = re.sub(r"\s+", " ", m.group(0))
         if have != re.sub(r"\s+", " ", want):
@@ -159,7 +225,29 @@ def main(sync: bool = False) -> int:
 
     if sync and synced:
         README.write_text(text)
-        print(f"README: synced {len(synced)} figures to data/derived/")
+
+    for rel, template, values in cross_file():
+        f = ROOT / rel
+        body = f.read_text()
+        hits = list(as_regex(template).finditer(body))
+        if len(hits) > 1:
+            errors.append(f"{rel}: {template!r} matches {len(hits)} times; must be unique")
+            continue
+        if not hits:
+            errors.append(f"{rel} no longer contains: {template!r}")
+            continue
+        have = re.sub(r"\s+", " ", hits[0].group(0))
+        want = re.sub(r"\s+", " ", template.format(*values))
+        if have != want:
+            if sync:
+                f.write_text(body[:hits[0].start()] + template.format(*values) + body[hits[0].end():])
+                synced.append(f"{rel}: {have}  ->  {want}")
+            else:
+                errors.append(f"{rel}: {template!r}\n      file: {have}\n      data: {want}")
+        checked += len(values)
+
+    if sync and synced:
+        print(f"synced {len(synced)} figure(s) to data/derived/")
         for line in synced:
             print(f"  {line}")
 

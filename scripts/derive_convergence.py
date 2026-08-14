@@ -179,6 +179,7 @@ def provenance_audit():
             named[b].append({"source": nm(s), "articles": cnt(s)})
 
     counted = sum(tally.values())
+    bucket_n = lambda k: tally.get(k, 0)
     return {
         "mirror": MIRROR,
         "total_articles": total,
@@ -195,13 +196,17 @@ def provenance_audit():
                                                    key=lambda x: -x["articles"]),
         "swept_for_press": HU_PROGOV_PRESS,
         "named_progov_accounts": HU_PROGOV_ACCOUNTS,
+        # Interpolated, not typed. This sentence sat three lines below the buckets it
+        # describes and disagreed with them — 76 and 130 against a computed 78 and 131 —
+        # because it was a string literal in a file whose whole purpose is to compute.
         "finding": (
             "The Russian laundering mirror aimed at Hungary does not run on the Hungarian "
             "pro-government press: across every article it credits, those outlets appear "
             "zero times. It is not a clean zero, though — one prominent pro-government "
-            "commentator's personal Telegram channel is credited 76 times (0.05%), and "
-            "Hungarian nationalist-fringe channels a further 130. The domestic machine is "
-            "not this mirror's raw material; a thin thread does exist."
+            f"commentator's personal Telegram channel is credited {bucket_n('hungarian_progov_account'):,} "
+            f"times ({bucket_n('hungarian_progov_account') / total * 100:.2f}%), and "
+            f"Hungarian nationalist-fringe channels a further {bucket_n('hungarian_fringe'):,}. "
+            "The domestic machine is not this mirror's raw material; a thin thread does exist."
         ),
     }
 

@@ -10,7 +10,7 @@ never do.
 
 Entry ids are stable and are what the page references via data-research="<id>":
 
-    correction-1 .. correction-4   the four published claims that were falsified
+    correction-N                   the published claims that were falsified
     root-cause                     why the validation gate passed them
     limit-c1 / limit-c2 / limit-c3 what each contribution cannot show
     cut-1 .. cut-6                 framing removed from the paper
@@ -51,7 +51,7 @@ def main() -> int:
     doc = SRC.read_text()
     entries = []
 
-    # ── §2 the four corrections ────────────────────────────────────────────────
+    # ── §2 the corrections ────────────────────────────────────────────────
     corr = section(doc, "2. Corrections already applied")
     rows = re.findall(r"^\| (\d+) \| (.+?) \| (.+?) \| `(\w+)` \|$", corr, re.M)
     if not rows:
