@@ -104,6 +104,10 @@
   .mx td.cell{min-width:2.2rem}
 
   #list{margin-top:1.6rem}
+  /* A 120-character excerpt of a 1,900-character post reads as a truncated title unless
+     the row says what it is. Telegram posts have a median length near 700; none fits. */
+  .spec .frac{font-family:"IBM Plex Mono",monospace; font-size:.56rem; letter-spacing:.06em;
+    color:var(--muted); opacity:.75; margin-top:.25rem}
   /* The archive grows every hour; an unpaged list was already 694 rows and heading for
      thousands, which makes the page unusable and every chart above it unreachable. */
   #pager{display:flex; gap:.4rem; align-items:center; justify-content:center; flex-wrap:wrap;
@@ -511,7 +515,10 @@ function list(rows){
     return `<div class="spec">
       <div class="meta"><span class="cat">${esc(s.category)}</span><br>${esc(s.date)}</div>
       <div><span class="site ${site.cls}">${esc(site.label)} · ${esc(site.tier||'')}</span>
-        <div class="title">${esc(s.title)}</div>
+        <div class="title">${esc(s.title)}</div>${
+          s.chars ? `<div class="frac">first ${s.title.length} of ${s.chars.toLocaleString()} characters of the post</div>`
+          : (s.unit === 'post_excerpt' && /…$/.test(s.title||'')
+             ? `<div class="frac">opening of a longer post · full length not recorded for this capture</div>` : '')}
         <span class="tag ${pay?'pay':''}">${
           s.theme === 'unscored' ? 'unscored · no lexicon for this language'
           : pay ? 'target topic · '+esc(s.theme) : 'no target topic · filler'}</span>${lnd}</div>

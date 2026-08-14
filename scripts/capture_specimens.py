@@ -407,9 +407,16 @@ def row(sid, cfg, *, title, date, url, category, aid=None, extra=None):
     truncated slice of a post — because pooling the two silently is a category error."""
     theme, lang = classify(title)
     unit = "post_excerpt" if cfg["type"] == "telegram" else "headline"
+    shown = excerpt(title) if unit == "post_excerpt" else excerpt(title, 190)
     r = {"site": sid, "id": aid, "date": date, "category": category,
-         "title": excerpt(title) if unit == "post_excerpt" else excerpt(title, 190),
-         "theme": theme, "lang": lang, "unit": unit, "url": url}
+         "title": shown, "theme": theme, "lang": lang, "unit": unit, "url": url}
+    # Telegram posts run to a median of ~676 characters and a maximum near 1,900, so a
+    # 120-character excerpt is the opening of a post, not a title, and NONE of them fits
+    # whole. Recording the full length is what makes the excerpt usable rather than
+    # merely short: a reader can see they are looking at 120 of 1,922, and a researcher
+    # knows what fraction of the text the theme label was computed from.
+    if len(title) > len(shown):
+        r["chars"] = len(title)
     if extra:
         r.update(extra)
     return r
@@ -512,7 +519,8 @@ def main() -> int:
         # no publication date is indistinguishable from one that did, and the page would
         # be presenting our capture time as the article's date.
         return {k: r.get(k) for k in ("site", "id", "date", "published_at", "category", "title",
-                                      "theme", "lang", "unit", "source", "url", "date_is_capture")
+                                      "theme", "lang", "unit", "chars", "source", "url",
+                                      "date_is_capture")
                 if r.get(k) is not None}
 
     out = {

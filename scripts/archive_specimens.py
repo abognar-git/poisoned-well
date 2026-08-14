@@ -40,7 +40,7 @@ LATEST = ROOT / "data" / "derived" / "latest_specimens.json"
 FULL = ROOT / "data" / "derived" / "last_harvest.json"
 ARCHIVE = ROOT / "data" / "archive"
 FIELDS = ("site", "tier", "date", "published_at", "title", "theme", "lang", "unit",
-          "category", "source", "url", "id", "date_is_capture", "first_seen")
+          "chars", "category", "source", "url", "id", "date_is_capture", "first_seen")
 
 
 def key(row):

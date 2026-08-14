@@ -84,7 +84,8 @@ Append-only, built by `scripts/capture_specimens.py` and merged by
 | `published_at` | full ISO timestamp, Telegram only — minute resolution |
 | `first_seen` | when this project first observed the item. **Not a publication time.** |
 | `title` | the captured text (see `unit`) |
-| `unit` | `headline` (mirror, outlets) · `post_excerpt` (Telegram, truncated to 120 chars) |
+| `unit` | `headline` (mirror, outlets) · `post_excerpt` (Telegram) |
+| `chars` | length of the full text when `title` is truncated. Telegram posts run to a median of ~700 characters and a maximum near 1,900, so **no post fits in the 120-character excerpt** — `title` is the opening of a post, not a title, and `chars` is how a consumer knows what fraction they hold. Absent when nothing was cut — and also absent on rows captured before 2026-08-14, where the full text was discarded at capture time and cannot be recovered. A `post_excerpt` ending in `…` with no `chars` is truncated by an unrecorded amount. |
 | `lang` | `hu` · `cyr` · `lat` · `other`, from a crude script-and-function-word heuristic. `other` is any script neither lexicon covers, and is the only value that yields `unscored`. |
 | `theme` | one of five topics · `filler` (scored, matched nothing) · `unscored` (no lexicon for this language) |
 | `category` | the publisher's own section label, or the channel handle |
