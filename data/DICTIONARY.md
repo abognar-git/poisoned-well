@@ -102,16 +102,20 @@ Append-only, built by `scripts/capture_specimens.py` and merged by
 
 ### `archive/coverage.json`
 
-Derived from the frame by `scripts/derive_frame.py`. Both captured tiers number
-sequentially, so consecutive runs bracket what a source issued in between and coverage is
-arithmetic rather than an estimate. Two different numbers:
+Derived by `scripts/derive_frame.py` as a set difference: the ids the archive actually
+holds, over the ids the source issued across the whole observed span. Both captured tiers
+number sequentially, so a gap is an item that exists and this corpus does not contain.
 
-* `within_window` — of the ids in a single harvest, how many we kept. The gaps are our own
-  filters, not missed publications. This is filter attrition.
-* `between_runs` — of the ids a source issued between one run and the next, how many we
-  captured. **This is the number that bounds any claim made on this corpus.**
+**`coverage` is the number that bounds any claim made on this corpus.** As of the first
+five logged runs it is **72.0% overall**, and it varies widely by source — 93.9% for the
+mirror, 45.5% for the least-covered Telegram channel. `missing_examples` lists up to
+twenty absent ids per source so a gap can be checked rather than taken on trust.
 
-Outlet listings do not expose sequential ids and carry nulls.
+A gap has three possible causes and this measure does not distinguish them: the item was
+filtered out by our own rules, it was published and pushed off the listing between two
+runs, or it was missed. Do not read `coverage` as a miss rate.
+
+Outlet listings expose no sequential ids and carry nulls.
 
 ---
 
