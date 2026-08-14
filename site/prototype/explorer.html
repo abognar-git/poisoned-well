@@ -112,6 +112,9 @@
     border:1px solid rgba(110,168,216,.3); border-radius:2px; padding:.2em .5em;
     margin:.35rem .35rem 0 0}
   .spec .cf:hover{border-color:var(--analyst)}
+  /* A source nobody has written about is a fact, not a blank. The 4th-largest feeder of the
+     Hungarian mirror is one of these. */
+  .spec .cf.und{color:var(--muted); border-color:var(--hairline); cursor:help}
   .spec .frac:hover,.spec .frac.open{color:var(--paper); opacity:1}
   .peek{position:fixed; z-index:96; max-width:min(34rem, calc(100vw - 2rem));
     background:#0c111a; border:1px solid var(--hairline); border-left:2px solid var(--amber);
@@ -337,7 +340,7 @@ const PAY = new Set(['hungary','ukraine','russia','eu/nato','energy']);
 const TIER_ORDER = ['origin','launderer','outlet'];
 const siteInfo = sid => { const s = (D.sources||{})[sid] || {};
   return { cls: s.tier||'', label: s.label||sid, tier: s.tier, attribution: s.attribution,
-           case: s.case, term: s.term }; };
+           case: s.case, term: s.term, undocumented: s.undocumented }; };
 const tierOf = s => siteInfo(s.site).tier;
 
 let D, live, ARCHIVE_IDX = null, ARCHIVE = [];
@@ -569,7 +572,10 @@ function list(rows){
         ${site.case || site.term
           ? `<a class="cf" href="index.html#${site.case ? 'act2' : 'glossary'}" title="${
               site.case ? 'open the case file for this source' : 'this source has a sourced glossary entry but no case file of its own'}">${
-              site.case ? '▸ case file' : '▸ glossary entry'}</a>` : ''}
+              site.case ? '▸ case file' : '▸ glossary entry'}</a>`
+          : site.undocumented
+            ? `<span class="cf und" title="${esc(site.undocumented)}">▸ undocumented — we looked</span>`
+            : ''}
         <span class="tag ${pay?'pay':''}">${
           s.theme === 'unscored' ? 'unscored · no lexicon for this language'
           : pay ? 'target topic · '+esc(s.theme) : 'no target topic · filler'}</span>${lnd}</div>

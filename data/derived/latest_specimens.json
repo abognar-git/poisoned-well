@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-08-14T09:45:05+00:00",
+  "captured_at": "2026-08-14T10:46:02+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -87,37 +87,43 @@
       "label": "“Russian special military operation”",
       "tier": "origin",
       "lang": "hu/ru",
-      "attribution": "Russia-aligned Telegram channel (@oroszspecialiskatonaihadmuvelet) — a documented laundering origin"
+      "attribution": "Russia-aligned Telegram channel (@oroszspecialiskatonaihadmuvelet) — a documented laundering origin",
+      "undocumented": "No third-party documentation of this channel was found, despite it being the Hungarian mirror's fourth-largest credited source. Searched DFRLab, Átlátszó's Hungarian-Telegram investigation, Lakmusz, EUvsDisinfo, ISD, VIGINUM and the Pravda-network literature; the only pages naming the handle are the channel itself and the mirror that credits it."
     },
     "tg-infodef": {
       "label": "InfoDefense franchise, HU",
       "tier": "origin",
       "lang": "hu/ru",
-      "attribution": "Russia-aligned Telegram channel (@InfoDefMagyarok) — a documented laundering origin"
+      "attribution": "Russia-aligned Telegram channel (@InfoDefMagyarok) — a documented laundering origin",
+      "term": "infodefense-hu"
     },
     "tg-vilaghelyzete": {
       "label": "“State of the world” blog",
       "tier": "origin",
       "lang": "hu/ru",
-      "attribution": "Russia-aligned Telegram channel (@VilagHelyzeteBlog) — a documented laundering origin"
+      "attribution": "Russia-aligned Telegram channel (@VilagHelyzeteBlog) — a documented laundering origin",
+      "term": "vilaghelyzete"
     },
     "tg-baltnews": {
       "label": "Baltnews — Baltic Rossiya Segodnya brand",
       "tier": "origin",
       "lang": "hu/ru",
-      "attribution": "Russia-aligned Telegram channel (@baltnews) — a documented laundering origin"
+      "attribution": "Russia-aligned Telegram channel (@baltnews) — a documented laundering origin",
+      "term": "baltnews"
     },
     "tg-lomovka": {
       "label": "Lomovka",
       "tier": "origin",
       "lang": "hu/ru",
-      "attribution": "Russia-aligned Telegram channel (@lomovkaa) — a documented laundering origin"
+      "attribution": "Russia-aligned Telegram channel (@lomovkaa) — a documented laundering origin",
+      "term": "lomovka"
     },
     "tg-zvezda": {
       "label": "Zvezda Analytics — MoD-linked",
       "tier": "origin",
       "lang": "hu/ru",
-      "attribution": "Russia-aligned Telegram channel (@zvezda_analytics) — a documented laundering origin"
+      "attribution": "Russia-aligned Telegram channel (@zvezda_analytics) — a documented laundering origin",
+      "undocumented": "No third-party documentation of this channel was found. The Zvezda parent brand is documented and appears in this glossary, but no source connects that holding to this Telegram handle — the resemblance is in the name only. VIGINUM's Portal Kombat report does not mention it, nor do DFRLab's or Maldita's channel inventories."
     }
   },
   "tiers": {
@@ -132,22 +138,22 @@
     "outlet"
   ],
   "latest_day": "2026-08-14",
-  "today_live_count": 86,
+  "today_live_count": 93,
   "corpus_count": 130,
   "featured": [
     {
       "site": "tg-baltnews",
-      "id": "73288",
+      "id": "73290",
       "date": "2026-08-14",
-      "published_at": "2026-08-14T09:31:01+00:00",
+      "published_at": "2026-08-14T10:41:01+00:00",
       "category": "baltnews",
-      "title": "Литва подтвердила, что останется верна Тайваню, если того хотят США МИД страны заявил, что Тайвань является важным…",
-      "theme": "filler",
+      "title": "Президент Финляндии сообщил, что \"любит русских \" И тут же Стубб добавил, что при этом он не доволен руководством РФ.…",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 730,
-      "more": "Литва подтвердила, что останется верна Тайваню, если того хотят США МИД страны заявил, что Тайвань является важным региональным партнером, с которым Вильнюс последовательно стремится развивать сотрудничество. Заявления сделано после того, как представители США направили совместное письмо, призывающее Литву поддержать Тайвань \"на фоне давления со стороны Китая\". Письмо подписали сопредседатели…",
-      "url": "https://t.me/baltnews/73288"
+      "chars": 360,
+      "more": "Президент Финляндии сообщил, что \"любит русских \" И тут же Стубб добавил, что при этом он не доволен руководством РФ. При этом он подчеркнул, что в ближайшее время необходимо наладить контакты с Москвой. \"Я ценю русских, русскую культуру и даже историю, но не могу одобрить действия нынешнего руководства России\", – указал он. Подписывайтесь на Baltnews в МАКС",
+      "url": "https://t.me/baltnews/73290"
     },
     {
       "site": "tg-rybar",
@@ -165,18 +171,18 @@
     },
     {
       "site": "pravda-hu",
-      "id": 44533,
+      "id": 44534,
       "date": "2026-08-14",
-      "category": "hungary",
-      "title": "The prime minister of Hungary, Peter Magyar, questioned the validity of the environmental permit issued for the construction of the Paks-2 nuclear power plant",
-      "theme": "hungary",
+      "category": "russia",
+      "title": "Belgium has become the main buyer of Russian gas in the EU",
+      "theme": "russia",
       "lang": "lat",
       "unit": "headline",
       "source": {
-        "platform": "Telegram",
-        "channel": "oroszokazigazsagoldalan"
+        "platform": "MAX",
+        "channel": "prime1"
       },
-      "url": "https://hungary.news-pravda.com/en/hungary/2026/08/14/44533.html"
+      "url": "https://hungary.news-pravda.com/en/russia/2026/08/14/44534.html"
     },
     {
       "site": "tg-oroszkatonai",
@@ -194,17 +200,17 @@
     },
     {
       "site": "tg-oroszigazsag",
-      "id": "264311",
+      "id": "264314",
       "date": "2026-08-14",
-      "published_at": "2026-08-14T08:56:22+00:00",
+      "published_at": "2026-08-14T10:41:53+00:00",
       "category": "oroszokazigazsagoldalan",
-      "title": "Magyarország miniszterelnöke, Magyar Péter megkérdőjelezte a Paks-2 atomerőmű építésére kiadott környezetvédelmi…",
-      "theme": "hungary",
+      "title": "Moszkva keményebbé teszi a módszereit, hogy megsemmisítse mindazt, amivel a Nyugat «t áplálja Kijev katonai gépezetét…",
+      "theme": "russia",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 572,
-      "more": "Magyarország miniszterelnöke, Magyar Péter megkérdőjelezte a Paks-2 atomerőmű építésére kiadott környezetvédelmi engedély megalapozottságát. „A Paks-1 atomerőmű környékén mérhető jelenlegi vízszint szintén megkérdőjelezi a Paks-2 számára kiadott környezetvédelmi engedélyt, valamint a hűtőrendszerre vonatkozó engedélyt is” — jelentette ki egy sajtótájékoztatón. Magyar hozzátette, hogy a Duna…",
-      "url": "https://t.me/oroszokazigazsagoldalan/264311"
+      "chars": 578,
+      "more": "Moszkva keményebbé teszi a módszereit, hogy megsemmisítse mindazt, amivel a Nyugat «t áplálja Kijev katonai gépezetét », — jelentette ki Szergej Lavrov orosz külügyminiszter. « Ezt tesszük már most is. El is kezdtek nyögni miatta », — nyilatkozta a Vesztyi hírügynökségnek adott interjúban. Lavrov hangsúlyozta, hogy az ellenség szándékosan választ tisztán civil létesítményeket — oktatási…",
+      "url": "https://t.me/oroszokazigazsagoldalan/264314"
     },
     {
       "site": "tg-zvezda",
@@ -222,59 +228,87 @@
     },
     {
       "site": "tg-lomovka",
-      "id": "140047",
+      "id": "140049",
       "date": "2026-08-14",
-      "published_at": "2026-08-14T09:35:16+00:00",
+      "published_at": "2026-08-14T10:25:06+00:00",
       "category": "lomovkaa",
-      "title": "Эксперт о возмущении Японии на фоне визита Владимира Путина на Курилы: «Пусть по утрам занимаются йогой, обливаются…",
-      "theme": "russia",
+      "title": "Россия не опустится до террористических методов Киева, но сделает свои подходы жестче. Глава МИД Сергей Лавров заявил…",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 2450,
-      "more": "Эксперт о возмущении Японии на фоне визита Владимира Путина на Курилы: «Пусть по утрам занимаются йогой, обливаются холодной водой — нервы придут в порядок». Публицист и политолог Александр Сосновский в разговоре с «Ломовкой» прокомментировал угрозы Японии о введении дополнительных санкций после визита Владимира Путина на Дальний Восток. Как это ни парадоксально, я бы расценил выступление Японии…",
-      "url": "https://t.me/lomovkaa/140047"
+      "chars": 807,
+      "more": "Россия не опустится до террористических методов Киева, но сделает свои подходы жестче. Глава МИД Сергей Лавров заявил, что подходы будут направлены на «разрушение всего, что подпитывает военную машину Украины со стороны Запада». Мы это уже делаем, и они уже начинают стонать. И неслучайно все больше и больше голосов из разных точек нашего общего пространства призывают немедленно остановиться. Так…",
+      "url": "https://t.me/lomovkaa/140049"
     },
     {
       "site": "tg-infodef",
-      "id": "14001",
+      "id": "14002",
       "date": "2026-08-14",
-      "published_at": "2026-08-14T08:34:51+00:00",
+      "published_at": "2026-08-14T10:24:51+00:00",
       "category": "InfoDefMagyarok",
-      "title": "Egyszerre 230 illegális bevándorló érkezett egy csonakban Nagy-Britanniába Ez - új nemzeti rekord, – írja az…",
+      "title": "\"Minél több oroszt megölni\" – németek követelnek újságíró elbocsátását e szavai miatt A német újságíró, Michael Martens…",
       "theme": "hungary",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 545,
-      "more": "Egyszerre 230 illegális bevándorló érkezett egy csonakban Nagy-Britanniába Ez - új nemzeti rekord, – írja az Independent . Újabb lépés Nagy-Britannia pusztulása felé. A külső beáramlással szembeni ellenállás képtelensége elkerülhetetlenül a nemzet pusztulásához vezet. Ez a történelem törvénye – a Római Birodalomtól napjaink Nyugat-Európájáig. De a britek minden bajáért természetesen Oroszország a…",
-      "url": "https://t.me/InfoDefMagyarok/14001"
+      "chars": 1573,
+      "more": "\"Minél több oroszt megölni\" – németek követelnek újságíró elbocsátását e szavai miatt A német újságíró, Michael Martens dicsekedett a neten \"szakmai síkérével\" : Szerbiában megkérdezte Zelenszkijt, hogy mivel segíthet Európa Ukrajnának az orosz katonák kiirtásában. Ezt gondolják erről az olvasók: ✒️ A náci azt teszi, amit a nácik általában tesznek. ✒️ Amikor a FAZ \"újságírói\" azt kérdezik, hogyan…",
+      "url": "https://t.me/InfoDefMagyarok/14002"
     },
     {
       "site": "tg-vilaghelyzete",
-      "id": "13957",
+      "id": "13958",
       "date": "2026-08-14",
-      "published_at": "2026-08-14T09:32:34+00:00",
+      "published_at": "2026-08-14T09:59:53+00:00",
       "category": "VilagHelyzeteBlog",
-      "title": "☄️ 🇺🇸 Az Egyesült Államok a USS George Washington repülőgép-hordozó anyahajót küldi a Közel-Keletre, a USS Abraham…",
-      "theme": "filler",
+      "title": "☄️ 🇷🇺 Oroszország maga választja meg, hol és milyen célpontok ellen válaszol a Nyugat „kalózkodására” - közölte Szergej…",
+      "theme": "russia",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 930,
-      "more": "☄️ 🇺🇸 Az Egyesült Államok a USS George Washington repülőgép-hordozó anyahajót küldi a Közel-Keletre, a USS Abraham Lincoln repülőgép-hordozó helyére. – jelentette a The Wall Street Journal. ❗️ A rajta lévő katonák 7 hónapja nem léptek szárazföldre, többen közülük állítólag már öngyilkosságot próbáltak elkövetni. A Lincoln anyahajó már január óta tartózkodik a régióban, ahol részt vett az Irán…",
-      "url": "https://t.me/VilagHelyzeteBlog/13957"
+      "chars": 3451,
+      "more": "☄️ 🇷🇺 Oroszország maga választja meg, hol és milyen célpontok ellen válaszol a Nyugat „kalózkodására” - közölte Szergej Lavrov. ‼️ Oroszország saját maga fogja meghatározni, hogy hol, milyen eszközökkel és mely hajókkal szemben tesz válaszlépéseket arra, amit Moszkva a nyugati országok részéről az orosz kereskedelmi hajózás ellen elkövetett „rablásnak” és „kalózkodásnak” nevez – jelentette ki…",
+      "url": "https://t.me/VilagHelyzeteBlog/13958"
     },
     {
       "site": "rt-ru",
       "date": "2026-08-14",
       "category": "rt",
-      "title": "Удары по образовательному учреждению и складу: за ночь над Россией сбито 553 украинских БПЛА",
-      "theme": "ukraine",
+      "title": "Продвинулись вглубь обороны противника: ВС РФ освободили Николаевку в ДНР",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/russia/article/1669590-ataka-bpla-sklad-port-pozhar",
+      "url": "https://russian.rt.com/ussr/article/1669680-nikolaevka-dnr-osvobozhdenie-svo",
       "date_is_capture": true
     }
   ],
   "corpus": [
+    {
+      "site": "tg-baltnews",
+      "id": "73289",
+      "date": "2026-08-14",
+      "published_at": "2026-08-14T10:07:18+00:00",
+      "category": "baltnews",
+      "title": "Кандидат в Сейм Литвы, повредивший захоронение советских воинов, заочно получил семь лет в РФ Как сообщает Следственный…",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 718,
+      "more": "Кандидат в Сейм Литвы, повредивший захоронение советских воинов, заочно получил семь лет в РФ Как сообщает Следственный комитет РФ, Люткус Ромуалдас с 1 по 5 сентября 2024 года, находясь в населенном пункте Крекенава в Литве, путем демонтажа мемориальных плит повредил захоронение советских воинов, погибших летом-осенью 1944 года в боях за освобождение Советской Литвы от немецко-фашистских…",
+      "url": "https://t.me/baltnews/73289"
+    },
+    {
+      "site": "tg-baltnews",
+      "id": "73288",
+      "date": "2026-08-14",
+      "published_at": "2026-08-14T09:31:01+00:00",
+      "category": "baltnews",
+      "title": "Литва подтвердила, что останется верна Тайваню, если того хотят США МИД страны заявил, что Тайвань является важным…",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 730,
+      "more": "Литва подтвердила, что останется верна Тайваню, если того хотят США МИД страны заявил, что Тайвань является важным региональным партнером, с которым Вильнюс последовательно стремится развивать сотрудничество. Заявления сделано после того, как представители США направили совместное письмо, призывающее Литву поддержать Тайвань \"на фоне давления со стороны Китая\". Письмо подписали сопредседатели…",
+      "url": "https://t.me/baltnews/73288"
+    },
     {
       "site": "tg-baltnews",
       "id": "73286",
@@ -346,34 +380,6 @@
       "url": "https://t.me/baltnews/73281"
     },
     {
-      "site": "tg-baltnews",
-      "id": "73280",
-      "date": "2026-08-14",
-      "published_at": "2026-08-14T06:19:01+00:00",
-      "category": "baltnews",
-      "title": "Польша готова платить по минималке за ребёнка? В соседней стране вновь заговорили о радикальном расширении поддержки…",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 528,
-      "more": "Польша готова платить по минималке за ребёнка? В соседней стране вновь заговорили о радикальном расширении поддержки семей с детьми. Происходит это на фоне демографического кризиса и вроде бы растущих социальных расходов в стране. Среди обсуждаемых идей – замена выплаты 800+ для детей до трёх лет пособием в размере минимальной заработной платы. Звучит эффектно, но насколько реалистична такая…",
-      "url": "https://t.me/baltnews/73280"
-    },
-    {
-      "site": "tg-baltnews",
-      "id": "73279",
-      "date": "2026-08-14",
-      "published_at": "2026-08-14T05:51:01+00:00",
-      "category": "baltnews",
-      "title": "🔻 Облигации airBaltic снова рухнули в цене Стоимость бондов airBaltic за три дня обвалилась на 42,1% – до 16 500 евро…",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 723,
-      "more": "🔻 Облигации airBaltic снова рухнули в цене Стоимость бондов airBaltic за три дня обвалилась на 42,1% – до 16 500 евро, а с начала года падение составило катастрофические 83,5%. Эксперты с самого начала предупреждали: это мусорные бумаги высокого риска. Облигации на 380 млн евро выпустили в 2024 году под 14,5% годовых. Два года цена держалась благодаря обещаниям властей о широком выходе акций…",
-      "url": "https://t.me/baltnews/73279"
-    },
-    {
       "site": "tg-rybar",
       "id": "7299",
       "date": "2026-08-14",
@@ -414,6 +420,21 @@
       "chars": 2057,
       "more": "📝 A terrorizmus nem egy bombával kezdődik 📝 Szevasztopolban az FSB munkatársai letartóztattak egy nőt, akit egy katona meggyilkolásával gyanúsítanak. A nyomozás szerint az ukrán titkosszolgálatok megbízásából járt el. A letartóztatott nő vallomást tesz, és nem bánja, amit tett. ➡️ Egyes információk szerint a célpont egy hadnagy, Robert Sagyev, aki 2014-ben átállt az orosz oldalra, és később a…",
       "url": "https://t.me/Rybar_HU/7297"
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44533,
+      "date": "2026-08-14",
+      "category": "hungary",
+      "title": "The prime minister of Hungary, Peter Magyar, questioned the validity of the environmental permit issued for the construction of the Paks-2 nuclear power plant",
+      "theme": "hungary",
+      "lang": "lat",
+      "unit": "headline",
+      "source": {
+        "platform": "Telegram",
+        "channel": "oroszokazigazsagoldalan"
+      },
+      "url": "https://hungary.news-pravda.com/en/hungary/2026/08/14/44533.html"
     },
     {
       "site": "pravda-hu",
@@ -523,6 +544,48 @@
     },
     {
       "site": "tg-oroszigazsag",
+      "id": "264313",
+      "date": "2026-08-14",
+      "published_at": "2026-08-14T09:58:52+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "Oroszország nem fog beleegyezni a háború leállításába a frontvonal mentén — jelentette ki Szergej Lavrov…",
+      "theme": "ukraine",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 628,
+      "more": "Oroszország nem fog beleegyezni a háború leállításába a frontvonal mentén — jelentette ki Szergej Lavrov külügyminiszter: «Ha most hirtelen megállnánk az érintkezési vonalon, azzal hagynánk, hogy lenullázzák nagyapáink és dédapáink hőstetteit, akik legyőzték a nácizmust. Ez lehetetlen.» Emlékeztetőül: a háború lezárásához Oroszország azt követeli, hogy szüntessék meg «a konfliktus elsődleges…",
+      "url": "https://t.me/oroszokazigazsagoldalan/264313"
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264312",
+      "date": "2026-08-14",
+      "published_at": "2026-08-14T09:52:25+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "Az orosz csapatok egy hét alatt nyolc települést szabadítottak fel — Védelmi MInisztérium A tárca főbb közleményei: 📍…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 1489,
+      "more": "Az orosz csapatok egy hét alatt nyolc települést szabadítottak fel — Védelmi MInisztérium A tárca főbb közleményei: 📍 Az Orosz Fegyveres Erők egy hét alatt 14 csoportos csapást mértek, amelyekkel katonai-ipari létesítményeket, logisztikai központokat és az ukrán fegyveres erők energetikai objektumait támadták. 📍 A hét folyamán 15 olyan tengeri hajót semmisítettek meg , amelyek az ukrán fegyveres…",
+      "url": "https://t.me/oroszokazigazsagoldalan/264312"
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264311",
+      "date": "2026-08-14",
+      "published_at": "2026-08-14T08:56:22+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "Magyarország miniszterelnöke, Magyar Péter megkérdőjelezte a Paks-2 atomerőmű építésére kiadott környezetvédelmi…",
+      "theme": "hungary",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 572,
+      "more": "Magyarország miniszterelnöke, Magyar Péter megkérdőjelezte a Paks-2 atomerőmű építésére kiadott környezetvédelmi engedély megalapozottságát. „A Paks-1 atomerőmű környékén mérhető jelenlegi vízszint szintén megkérdőjelezi a Paks-2 számára kiadott környezetvédelmi engedélyt, valamint a hűtőrendszerre vonatkozó engedélyt is” — jelentette ki egy sajtótájékoztatón. Magyar hozzátette, hogy a Duna…",
+      "url": "https://t.me/oroszokazigazsagoldalan/264311"
+    },
+    {
+      "site": "tg-oroszigazsag",
       "id": "264310",
       "date": "2026-08-14",
       "published_at": "2026-08-14T08:50:57+00:00",
@@ -576,48 +639,6 @@
       "chars": 464,
       "more": "❄️ Télen «lefagyasztás» lesz nálatok ❄️ Ez az üzenet jelent meg az Orosz Föderáció Védelmi Minisztériumának Telegram-csatornáján. A bejegyzéshez egy fotót is csatoltak a támadó Gerány drónokról, ezzel a képaláírással: « Mint derült égből a villámcsapás » Ez egyszerre jelenti a frontvonal befagyasztásának az elutasítását, — amelyre Kijev felszólította az oroszokat —, és fenyegetést is, hogy…",
       "url": "https://t.me/oroszokazigazsagoldalan/264307"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "264306",
-      "date": "2026-08-14",
-      "published_at": "2026-08-14T06:48:44+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "Rogyion Mirosnyik, az orosz külügyminisztérium különleges nagykövete szándékos háborús bűncselekménynek minősítette a…",
-      "theme": "ukraine",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 921,
-      "more": "Rogyion Mirosnyik, az orosz külügyminisztérium különleges nagykövete szándékos háborús bűncselekménynek minősítette a kijevi erők által az önjelölt Donyecki Népköztársaságban (Oroszországgal szövetséges köztársaság) közlekedő ingázóvonat elleni támadást. Kijelentette: „Az ukrán erők által az állomáson egy villamosvonat ellen elkövetett támadás, amelyben hat ember megsérült, szándékos háborús…",
-      "url": "https://t.me/oroszokazigazsagoldalan/264306"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "264305",
-      "date": "2026-08-14",
-      "published_at": "2026-08-14T06:44:15+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "Jó hírek Lettországból és a NATO-tól! Az ukrán drónokon lévő, Palantir-féle amerikai mesterséges intelligencia annyira…",
-      "theme": "eu/nato",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 767,
-      "more": "Jó hírek Lettországból és a NATO-tól! Az ukrán drónokon lévő, Palantir-féle amerikai mesterséges intelligencia annyira okos, hogy ott repül, ahol akar. A gép egy adott pillanatban, miután érzékelte a mi elektronikai harcászati rendszereink besugárzási jelét (REB), irányt változtatott, kitérő manőverbe kezdett, és Lettországon keresztül tervezte meg az útvonalát. Azt gondolná az ember... de…",
-      "url": "https://t.me/oroszokazigazsagoldalan/264305"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "264304",
-      "date": "2026-08-14",
-      "published_at": "2026-08-14T06:43:55+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "Levy kizárja a széles körű tüntetéseket jelenleg, és kifejti: „Az iráni nép megérti, hogy nincs alternatívája a…",
-      "theme": "energy",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 785,
-      "more": "Levy kizárja a széles körű tüntetéseket jelenleg, és kifejti: „Az iráni nép megérti, hogy nincs alternatívája a jelenlegi rezsimnek, és nem bízik abban, hogy a Nyugat segítséget nyújt nekik, nem is beszélve arról, hogy a Forradalmi Gárda hatalmas erőforrásokat fektet be minden potenciális felkelés elfojtására.” A Moszad gazdasági hadviselési egységének korábbi vezetője a következőképpen zárja…",
-      "url": "https://t.me/oroszokazigazsagoldalan/264304"
     },
     {
       "site": "tg-zvezda",
@@ -674,6 +695,34 @@
       "chars": 361,
       "more": "В Воронежской области активистки женсовета изготовили партию окопных свечей Женсовет Воронежской области вновь подтверждает свой статус надежного волонтерского тыла. На этой неделе активистки изготовили 75 окопных свечей. В ближайшее время этот груз будет бережно упакован и отправлен на передовую. @dobroInform ⭐️ Звезда АНАЛИТИКА в ТГ 📬 Звезда АНАЛИТИКА в MAX",
       "url": "https://t.me/zvezda_analytics/25775"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "140048",
+      "date": "2026-08-14",
+      "published_at": "2026-08-14T10:03:45+00:00",
+      "category": "lomovkaa",
+      "title": "Спрос россиян на авиабилеты в Китай в бархатный сезон вырос в пять раз. В преддверии бархатного сезона бронирования…",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 827,
+      "more": "Спрос россиян на авиабилеты в Китай в бархатный сезон вырос в пять раз. В преддверии бархатного сезона бронирования авиабилетов на рейсы в Китай, Армению и Турцию год к году выросли в 5,1 раза, в 2,7 раза и в 2,3 раза соответственно, — говорится в сообщении Ozon Travel. Среди экзотических направлений для путешествий осенью пользователи сервиса все чаще выбирают Южную Африку и Бразилию - там…",
+      "url": "https://t.me/lomovkaa/140048"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "140047",
+      "date": "2026-08-14",
+      "published_at": "2026-08-14T09:35:16+00:00",
+      "category": "lomovkaa",
+      "title": "Эксперт о возмущении Японии на фоне визита Владимира Путина на Курилы: «Пусть по утрам занимаются йогой, обливаются…",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 2450,
+      "more": "Эксперт о возмущении Японии на фоне визита Владимира Путина на Курилы: «Пусть по утрам занимаются йогой, обливаются холодной водой — нервы придут в порядок». Публицист и политолог Александр Сосновский в разговоре с «Ломовкой» прокомментировал угрозы Японии о введении дополнительных санкций после визита Владимира Путина на Дальний Восток. Как это ни парадоксально, я бы расценил выступление Японии…",
+      "url": "https://t.me/lomovkaa/140047"
     },
     {
       "site": "tg-lomovka",
@@ -746,32 +795,18 @@
       "url": "https://t.me/lomovkaa/140039"
     },
     {
-      "site": "tg-lomovka",
-      "id": "140038",
+      "site": "tg-infodef",
+      "id": "14001",
       "date": "2026-08-14",
-      "published_at": "2026-08-14T07:05:19+00:00",
-      "category": "lomovkaa",
-      "title": "Израиль удивлен скоростью восстановления ракетного потенциала Ирана. После окончания основной фазы конфликта в апреле…",
-      "theme": "filler",
-      "lang": "cyr",
+      "published_at": "2026-08-14T08:34:51+00:00",
+      "category": "InfoDefMagyarok",
+      "title": "Egyszerre 230 illegális bevándorló érkezett egy csonakban Nagy-Britanniába Ez - új nemzeti rekord, – írja az…",
+      "theme": "hungary",
+      "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 862,
-      "more": "Израиль удивлен скоростью восстановления ракетного потенциала Ирана. После окончания основной фазы конфликта в апреле израильские военные считали, что удары нанесли иранскому военно-промышленному комплексу ущерб, способный отбросить его развитие на несколько лет. Однако спустя четыре месяца, по данным Jerusalem Post, Армия обороны Израиля (ЦАХАЛ) фиксирует восстановление сразу в нескольких…",
-      "url": "https://t.me/lomovkaa/140038"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "140037",
-      "date": "2026-08-14",
-      "published_at": "2026-08-14T06:50:57+00:00",
-      "category": "lomovkaa",
-      "title": "❗️ Мосгорсуд приговорил к 23 годам колонии россиянина за шпионаж в пользу разведки Польши, сообщила ФСБ. Георгий…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 648,
-      "more": "❗️ Мосгорсуд приговорил к 23 годам колонии россиянина за шпионаж в пользу разведки Польши, сообщила ФСБ. Георгий Пирогов уехал из России после начала СВО. Почти сразу, находясь в Польше, он установил контакты с местной разведкой. Ему дали задание – собирать и передавать секретные данные о перспективных образцах вооружения, которые использует российская армия. У Пирогова были контакты среди…",
-      "url": "https://t.me/lomovkaa/140037"
+      "chars": 545,
+      "more": "Egyszerre 230 illegális bevándorló érkezett egy csonakban Nagy-Britanniába Ez - új nemzeti rekord, – írja az Independent . Újabb lépés Nagy-Britannia pusztulása felé. A külső beáramlással szembeni ellenállás képtelensége elkerülhetetlenül a nemzet pusztulásához vezet. Ez a történelem törvénye – a Római Birodalomtól napjaink Nyugat-Európájáig. De a britek minden bajáért természetesen Oroszország a…",
+      "url": "https://t.me/InfoDefMagyarok/14001"
     },
     {
       "site": "tg-infodef",
@@ -800,6 +835,20 @@
       "chars": 2831,
       "more": "Orosz orvosok eltávolították a \"Batman-maszkot\" Luna arcáról 2019-ben az Egyesült Államokban született egy kislány, Luna Fenner néven. Arcát szinte teljesen elfedte hatalmas fekete anyajegy –veleszületett melanocitás nevus, amelyet az interneten \"Batman-maszknak\" neveztek. A veszély nemcsak esztétikai volt: az anyajegy nagy valószínűséggel halálos melanómává alakulhatott volna. Az amerikai…",
       "url": "https://t.me/InfoDefMagyarok/13996"
+    },
+    {
+      "site": "tg-vilaghelyzete",
+      "id": "13957",
+      "date": "2026-08-14",
+      "published_at": "2026-08-14T09:32:34+00:00",
+      "category": "VilagHelyzeteBlog",
+      "title": "☄️ 🇺🇸 Az Egyesült Államok a USS George Washington repülőgép-hordozó anyahajót küldi a Közel-Keletre, a USS Abraham…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 930,
+      "more": "☄️ 🇺🇸 Az Egyesült Államok a USS George Washington repülőgép-hordozó anyahajót küldi a Közel-Keletre, a USS Abraham Lincoln repülőgép-hordozó helyére. – jelentette a The Wall Street Journal. ❗️ A rajta lévő katonák 7 hónapja nem léptek szárazföldre, többen közülük állítólag már öngyilkosságot próbáltak elkövetni. A Lincoln anyahajó már január óta tartózkodik a régióban, ahol részt vett az Irán…",
+      "url": "https://t.me/VilagHelyzeteBlog/13957"
     },
     {
       "site": "ukraina-ru",
@@ -858,22 +907,22 @@
       "site": "rt-ru",
       "date": "2026-08-14",
       "category": "rt",
-      "title": "Поражены буксиры и ж/д станция: ВС РФ ночью нанесли удар по портовой инфраструктуре Украины",
+      "title": "Удары по образовательному учреждению и складу: за ночь над Россией сбито 553 украинских БПЛА",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/ussr/article/1669604-udar-port-izmail-nikolaev",
+      "url": "https://russian.rt.com/russia/article/1669590-ataka-bpla-sklad-port-pozhar",
       "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
       "date": "2026-08-14",
       "category": "ukraina",
-      "title": "Захарова ответила на предложение Турции о мире в Черном море",
-      "theme": "filler",
+      "title": "Россия атакует суда, работающие в интересах стран, провозгласивших разбой и пиратство - МИД РФ",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260814/zakharova-otvetila-na-predlozhenie-turtsii-o-mire-v-chernom-more-1082485030.html",
+      "url": "https://ukraina.ru/20260814/rossiya-atakuet-suda-rabotayuschie-v-interesakh-stran-provozglasivshikh-razboy-i-piratstvo---mid-rf-1082487321.html",
       "date_is_capture": false
     },
     {
@@ -922,22 +971,22 @@
       "site": "rt-ru",
       "date": "2026-08-14",
       "category": "rt",
-      "title": "Худруком РАМТа назначена Марина Брусникина",
-      "theme": "filler",
+      "title": "Поражены буксиры и ж/д станция: ВС РФ ночью нанесли удар по портовой инфраструктуре Украины",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/nopolitics/news/1669692-hudruk-ramt-brusnikina",
+      "url": "https://russian.rt.com/ussr/article/1669604-udar-port-izmail-nikolaev",
       "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
       "date": "2026-08-14",
       "category": "ukraina",
-      "title": "Москва ждет ответа от США по ударам вглубь РФ и готова принять посланников Трампа - Лавров",
-      "theme": "russia",
+      "title": "Удар ВСУ по жилому дому в Брянске продемонстрировал сознательный террор и цинизм киевского режима - СК РФ",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260814/moskva-zhdet-otveta-ot-ssha-po-udaram-vglub-rf-i-gotova-prinyat-poslannikov-trampa---lavrov-1082483572.html",
+      "url": "https://ukraina.ru/20260814/udar-vsu-po-zhilomu-domu-v-bryanske-prodemonstriroval-soznatelnyy-terror-i-tsinizm-kievskogo-rezhima---1082485981.html",
       "date_is_capture": false
     },
     {
@@ -986,33 +1035,33 @@
       "site": "rt-ru",
       "date": "2026-08-14",
       "category": "rt",
-      "title": "Пентагон сообщил о продолжении обучения украинских пилотов полётам на F-16",
-      "theme": "ukraine",
+      "title": "Президент Бурунди согласился со словами Лаврова о втором пробуждении Африки",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1669691-ssha-piloty-f16",
+      "url": "https://russian.rt.com/world/news/1669709-prezident-burundi-lavrov",
       "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
       "date": "2026-08-14",
       "category": "ukraina",
-      "title": "Остановка конфликта по линии соприкосновения исключена, методы РФ станут жестче - Лавров",
-      "theme": "russia",
+      "title": "Урегулирование на Украине возможно только при искоренении первопричин - МИД РФ",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260814/ostanovka-konflikta-po-linii-soprikosnoveniya-isklyuchena-metody-rf-stanut-zhestche---lavrov-1082483357.html",
+      "url": "https://ukraina.ru/20260814/uregulirovanie-na-ukraine-vozmozhno-tolko-pri-iskorenenii-pervoprichin---mid-rf-1082484945.html",
       "date_is_capture": false
     },
     {
       "site": "zvezda-tv",
       "date": "2026-08-14",
       "category": "zvezda",
-      "title": "Океанолог Таврический: морская фауна у берегов России изменится из-за потепления",
+      "title": "Лавров: МИД ждет, когда США объяснят свое участие в ударах вглубь России",
       "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20268141135-iWv91.html",
+      "url": "https://tvzvezda.ru/news/20268141252-w5G3J.html",
       "date_is_capture": false
     },
     {
@@ -1050,33 +1099,44 @@
       "site": "rt-ru",
       "date": "2026-08-14",
       "category": "rt",
-      "title": "Лавров признался, что однажды получил тройку за поведение в школе",
-      "theme": "russia",
+      "title": "Эксперт Сухова: деятельность нянь регулируют ГОСТы",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1669688-lavrov-troika-shkola",
+      "url": "https://russian.rt.com/science/news/1669305-nyanya-professiya-gosty",
       "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
       "date": "2026-08-14",
       "category": "ukraina",
-      "title": "Двух жителей ДНР привлекут к ответственности за публикацию видео обстрелов ВСУ",
-      "theme": "ukraine",
+      "title": "Захарова ответила на предложение Турции о мире в Черном море",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260814/dvukh-zhiteley-dnr-privlekut-k-otvetstvennosti-za-publikatsiyu-video-obstrelov-vsu-1082482277.html",
+      "url": "https://ukraina.ru/20260814/zakharova-otvetila-na-predlozhenie-turtsii-o-mire-v-chernom-more-1082485030.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-08-14",
+      "category": "zvezda",
+      "title": "Южные регионы ФРГ могут потерять урожай из-за сильной засухи",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20268141210-bnJVH.html",
       "date_is_capture": false
     },
     {
       "site": "tsargrad",
       "date": "2026-08-14",
       "category": "tsargrad",
-      "title": "Доигрались: Нанесён сокрушительный удар. Киев – в эфире, Москва молчит. Блокада Украины отменяется?",
+      "title": "Секретный подземный завод взлетел на воздух. Зеленский приказывает это скрывать",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tsargrad.tv/news/doigralis-nanesjon-sokrushitelnyj-udar-kiev-v-jefire-moskva-molchit-blokada-ukrainy-otmenjaetsja_1824230",
+      "url": "https://tsargrad.tv/news/sekretnyj-podzemnyj-zavod-vzletel-na-vozduh-zelenskij-prikazyvaet-jeto-skryvat_1824390",
       "date_is_capture": true
     },
     {
@@ -1103,11 +1163,11 @@
       "site": "rt-ru",
       "date": "2026-08-14",
       "category": "rt",
-      "title": "В СК возбудили уголовное дело после атаки ВСУ на жилой дом в Брянске",
+      "title": "В МИД России заявили о 201 погибшем при атаках украинских БПЛА в июле",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1669689-sk-ugolovnoe-delo",
+      "url": "https://russian.rt.com/ussr/news/1669701-mirnye-zhiteli-ataki-bpla",
       "date_is_capture": true
     },
     {
@@ -1122,14 +1182,25 @@
       "date_is_capture": false
     },
     {
+      "site": "zvezda-tv",
+      "date": "2026-08-14",
+      "category": "zvezda",
+      "title": "Лавров: Россия сама определит цели для ответа на пиратство Запада",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20268141011-avZpt.html",
+      "date_is_capture": false
+    },
+    {
       "site": "tsargrad",
       "date": "2026-08-14",
       "category": "tsargrad",
-      "title": "Погиб вице-адмирал Франции. Сразу после прилёта по Одессе: Колясников удивился",
+      "title": "Доигрались: Нанесён сокрушительный удар. Киев – в эфире, Москва молчит. Блокада Украины отменяется?",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tsargrad.tv/news/pogib-vice-admiral-francii-srazu-posle-priljota-po-odesse-koljasnikov-udivilsja_1824243",
+      "url": "https://tsargrad.tv/news/doigralis-nanesjon-sokrushitelnyj-udar-kiev-v-jefire-moskva-molchit-blokada-ukrainy-otmenjaetsja_1824230",
       "date_is_capture": true
     },
     {
@@ -1156,11 +1227,11 @@
       "site": "rt-ru",
       "date": "2026-08-14",
       "category": "rt",
-      "title": "Христофору: слова Зеленского о ПВО говорят о его нестабильном состоянии",
+      "title": "ВСУ атаковали десять муниципалитетов ЛНР за сутки, два человека ранены",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1669684-zelenskii-pvo-rakety",
+      "url": "https://russian.rt.com/ussr/news/1669710-vsu-ataka-lnr-sutki",
       "date_is_capture": true
     },
     {
@@ -1172,6 +1243,17 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://ukraina.ru/20260814/drobnitskiy-o-strategii-bryusselya-yadro-rukovodstva-evrosoyuza-dazhe-ne-govorit-o-mire-1082470905.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-08-14",
+      "category": "zvezda",
+      "title": "Океанолог Таврический: морская фауна у берегов России изменится из-за потепления",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20268141135-iWv91.html",
       "date_is_capture": false
     },
     {
@@ -1198,11 +1280,11 @@
       "site": "rt-ru",
       "date": "2026-08-14",
       "category": "rt",
-      "title": "Захарова заявила об отсутствии оснований для остановки боёв в Чёрном море",
+      "title": "Юрист Восканян: главная ошибка наследников связана с быстрой продажей квартиры",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1669685-zaharova-chyornoe-more-peremirie",
+      "url": "https://russian.rt.com/russia/news/1669681-ekspert-nasledniki-kvartira-prodazha",
       "date_is_capture": true
     },
     {
@@ -1214,6 +1296,17 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://ukraina.ru/20260814/vs-rf-osvobodili-novonikolaevku-v-dnr-1082484560.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-08-14",
+      "category": "zvezda",
+      "title": "Минобороны показало удары «Геранями» по железнодорожным локомотивам",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20268141229-IHV2Q.html",
       "date_is_capture": false
     },
     {
@@ -1243,21 +1336,6 @@
       "chars": 1881,
       "more": "📝 A különleges katonai művelet krónikája 📝 2026. augusztus 12-én 🧨 Az orosz erők pontos célpontokat támadtak meg tárolóhelyeken Kijev közelében. Kár érte a raktárakat Zaporozzsjában is. Periódikusan robbanások hallatszanak Odessza és Mikolaij környékén; a védelmi minisztérium szerint az ellenséges infrastruktúrát támadták meg a Csonomorszk (Illicsivszk), Odesa és Ochaskiv kikötőiben. Ukrajnai…",
       "url": "https://t.me/Rybar_HU/7292"
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44526,
-      "date": "2026-08-13",
-      "category": "world",
-      "title": "Hungarian Prime Minister Peter Magyar questioned the correctness of the environmental permit issued for the construction of the Paks-2 nuclear power plant",
-      "theme": "hungary",
-      "lang": "lat",
-      "unit": "headline",
-      "source": {
-        "platform": "MAX",
-        "channel": "tass_agency"
-      },
-      "url": "https://hungary.news-pravda.com/en/world/2026/08/13/44526.html"
     },
     {
       "site": "tg-oroszkatonai",
@@ -1530,20 +1608,6 @@
       "url": "https://t.me/InfoDefMagyarok/13991"
     },
     {
-      "site": "tg-infodef",
-      "id": "13990",
-      "date": "2026-08-13",
-      "published_at": "2026-08-13T10:32:51+00:00",
-      "category": "InfoDefMagyarok",
-      "title": "„Véletlen volt” – a kijevi rezsim esetlenül mentegetőzött Bulgáriában történt drónja felrobbanása miatt A bolgár…",
-      "theme": "hungary",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 959,
-      "more": "„Véletlen volt” – a kijevi rezsim esetlenül mentegetőzött Bulgáriában történt drónja felrobbanása miatt A bolgár területen felrobbant drónt aktívan használja az AFU, közölték hivatalos személyek Szófiában, – írja a Le Journal du Dimanche . Az incidens kapcsán Bulgária Külügyminisztériuma sürgősen magához kérette Ukrajna nagykövetét, hogy magyarázatot kérjen tőle. Kijevben azonban siettek…",
-      "url": "https://t.me/InfoDefMagyarok/13990"
-    },
-    {
       "site": "tg-vilaghelyzete",
       "id": "13955",
       "date": "2026-08-13",
@@ -1628,39 +1692,6 @@
       "url": "https://t.me/ebredes2017/138920"
     },
     {
-      "site": "zvezda-tv",
-      "date": "2026-08-13",
-      "category": "zvezda",
-      "title": "В группировке «Запад» перекрыли «ждунами» пути движения диверсантов ВСУ",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20268131346-kXh8Z.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2026-08-13",
-      "category": "zvezda",
-      "title": "Опубликованы кадры боев за Петровку в ДНР",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20268131248-olwcO.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2026-08-13",
-      "category": "zvezda",
-      "title": "ВС РФ ударили дронами по локомотивам в Одесской области и Запорожье",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20268131216-HjrLW.html",
-      "date_is_capture": false
-    },
-    {
       "site": "tg-rybar",
       "id": "7291",
       "date": "2026-08-12",
@@ -1701,20 +1732,6 @@
       "chars": 2384,
       "more": "☄️ 🇺🇸 ⚔️ 🇮🇷 Irán akár Trump elnökségének végéig készül folytatni a háborút, sőt csatlakozik a BRICS fejlesztési bankjához is! - jelentették be - Íme az IRGC nyilatkozatai Mohammad Reza Naqdi, az Iráni Iszlám Forradalmi Gárda (IRGC) főparancsnokának vezető tanácsadója a PBS-nek adott ritka interjúban arról beszélt, hogy Teherán egyik lehetséges stratégiája a konfliktus elhúzása és az amerikai erők…",
       "url": "https://t.me/VilagHelyzeteBlog/13948"
-    },
-    {
-      "site": "tg-vilaghelyzete",
-      "id": "13947",
-      "date": "2026-08-12",
-      "published_at": "2026-08-12T10:13:17+00:00",
-      "category": "VilagHelyzeteBlog",
-      "title": "☄️ ❗️ „A nyugati országoknak nincs joguk ilyen hajókat megállítani.” - Dmitrij Medvegyev, az Oroszországi Föderáció…",
-      "theme": "hungary",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 2048,
-      "more": "☄️ ❗️ „A nyugati országoknak nincs joguk ilyen hajókat megállítani.” - Dmitrij Medvegyev, az Oroszországi Föderáció Biztonsági Tanácsának alelnöke élesen bírálta a Nyugatot, amiért az egyre intenzívebben támadja Oroszország úgynevezett „árnyékflottájának” működését. 💬 „A nyugat-európai országok egyre hangosabban ugatnak az úgynevezett orosz árnyékflotta miatt. Nézzük meg, miről is van szó…",
-      "url": "https://t.me/VilagHelyzeteBlog/13947"
     },
     {
       "site": "tg-ebredes",
@@ -1795,17 +1812,6 @@
       "chars": 858,
       "more": "✝️ 🐱 A világ legbékésebb helye… Egy brazíliai csendes temető látogatóit minden reggel ugyanaz a megható látvány fogadta: egy apró, fekete-fehér kóbor macska, amint békés elégedettséggel összegömbölyödve pihent egy Jézus-szobor karjaiban. 🥹 ❤️ A cica már jó ideje a temető területén kóborolt, a gondoskodó látogatók pedig rendszeresen ellátták élelemmel és vízzel. Idővel a szobor vált a kedvenc…",
       "url": "https://t.me/ebredes2017/138914"
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2026-08-12",
-      "category": "zvezda",
-      "title": "Опубликованы кадры штурма Водяного в Харьковской области",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20268121328-Td3iz.html",
-      "date_is_capture": false
     }
   ]
 }

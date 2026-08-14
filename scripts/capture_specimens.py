@@ -203,6 +203,25 @@ CASE_OF = {
 TERM_OF = {
     "pravda-hu": "pravda-network", "newsfront-hu": "news-front", "newsfront-ru": "news-front",
     "rt-ru": "rt", "ukraina-ru": "ukraina-ru", "zvezda-tv": "zvezda", "tsargrad": "tsargrad",
+    "tg-infodef": "infodefense-hu", "tg-vilaghelyzete": "vilaghelyzete",
+    "tg-baltnews": "baltnews", "tg-lomovka": "lomovka",
+}
+# Searched for and not found. Two of these channels have no third-party documentation at
+# all — and one of them is the Hungarian mirror's fourth-largest source at 5.1% of its
+# output. That absence is worth stating on the page rather than leaving as a blank space a
+# reader reads as an oversight. Recorded here so the claim is that we looked, not that
+# nothing exists.
+UNDOCUMENTED = {
+    "tg-oroszkatonai": ("No third-party documentation of this channel was found, despite it "
+                        "being the Hungarian mirror's fourth-largest credited source. Searched "
+                        "DFRLab, Átlátszó's Hungarian-Telegram investigation, Lakmusz, EUvsDisinfo, "
+                        "ISD, VIGINUM and the Pravda-network literature; the only pages naming the "
+                        "handle are the channel itself and the mirror that credits it."),
+    "tg-zvezda": ("No third-party documentation of this channel was found. The Zvezda parent brand "
+                  "is documented and appears in this glossary, but no source connects that holding "
+                  "to this Telegram handle — the resemblance is in the name only. VIGINUM's Portal "
+                  "Kombat report does not mention it, nor do DFRLab's or Maldita's channel "
+                  "inventories."),
 }
 
 SRC = re.compile(r'data-source-url="([^"]+)"')
@@ -601,7 +620,8 @@ def main() -> int:
         "sources": {sid: {"label": SOURCES[sid]["label"], "tier": SOURCES[sid]["tier"],
                           "lang": SOURCES[sid]["lang"], "attribution": SOURCES[sid]["attribution"],
                           **({"case": CASE_OF[sid]} if sid in CASE_OF else {}),
-                          **({"term": TERM_OF[sid]} if sid in TERM_OF else {})}
+                          **({"term": TERM_OF[sid]} if sid in TERM_OF else {}),
+                          **({"undocumented": UNDOCUMENTED[sid]} if sid in UNDOCUMENTED else {})}
                     for sid in ok},
         "tiers": {"origin": "Telegram channels where content starts",
                   "launderer": "mirror sites that republish origins as 'news'",
