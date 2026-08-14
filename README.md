@@ -164,7 +164,7 @@ narrative moved first, so this project does not make one.
 
 ```
 scripts/fetch_pravda.py --all          101 domains, ~49 MB, hourly upstream
-scripts/analyse_network.py --scan --events --donors all
+scripts/analyse_network.py --scan --events --donors all --top 15
 ```
 
 **The panel.** Each mirror becomes a monthly series. First and last months are
@@ -486,7 +486,9 @@ python3 scripts/fetch_frameworks.py
 
 # the instrument. --events tests only dates catalog/events.json can source;
 # --scan finds interruptions without being told where to look
-python3 scripts/analyse_network.py --events --scan --donors all
+# --top 15 because the text claims none of the fifteen largest interruptions is
+# Hungary's; at the default of 12 the artifact cannot be checked against the claim
+python3 scripts/analyse_network.py --events --scan --donors all --top 15
 
 # regenerate every derived figure from the catalog and the raw data
 python3 scripts/derive_summaries.py

@@ -173,6 +173,48 @@ reproduced.
 
 ---
 
+## Limits that used to live only in the code
+
+Three real constraints were documented carefully — in Python docstrings, where nobody who
+has not opened the file can see them. Reviewers rediscovered all three as if they were
+bugs. They are not; they are stated here because a limit a reader cannot find is not
+disclosed.
+
+**1. The 101 donors are not 101 comparable country mirrors.** The manifest mixes country
+mirrors (`hungary`, `poland`, `serbia`), language mirrors (`francais`, `catalan`,
+`spanish`, `deutsch`), sub-national ones (`wales`, `scotland`), thematic ones (`trump`),
+apparent duplicates (`car` / `rca`) and network roots (`a.network`, `news-pravda`). A
+language mirror has no single national news cycle and no election; a thematic mirror has
+neither. They are legitimate members of a **volatility reference distribution** and not of
+a **like-for-like control group**, and `analyse_network.py` reports both pools precisely so
+that a claim has to name which one it rests on. Collapsing the eight near-duplicate pairs
+moves the headline from p = 0.1063 to p = 0.1066.
+
+**2. The network graph draws a bounded scene, and the dossiers do not.** `build_network.py`
+normalises platform names and restricts the drawn region to Hungary and its immediate
+neighbourhood. Kept case files may target far more countries than that — CopyCop and
+Doppelganger both run much wider — and their dossiers state the full scope. The bound is on
+what the picture draws, so that a regional story does not render as a world map. Every
+node, relation and platform is also stated as text one click away.
+
+**3. `frame.csv`'s `reason` column records total failure only.** A run where a source
+returned nothing is a row saying why. A run where a source returned *less* than it had is
+not distinguishable there — that is what `coverage.json`'s cross-run set difference is for,
+and it is the instrument to use for partial degradation.
+
+---
+
+## Which file is authoritative for the census
+
+`data/panel/` and `data/derived/` are rebuilt on different cadences: the derived files
+hourly from the seven regional mirrors, the panel daily from the full 101-domain manifest.
+So the two disagree on the mirror's article total by roughly a day's publishing, and
+**`data/derived/` is the newer of the two**. For any figure about the Hungarian mirror
+specifically, use `data/derived/`. Use `data/panel/` for anything that needs the other
+hundred mirrors, and expect its Hungary column to trail by up to a day.
+
+---
+
 ## An observation, stated with its control
 
 4,574 of 9,905 sources are credited by exactly one mirror. The Hungarian mirror has **none**:
