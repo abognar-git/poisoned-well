@@ -1804,6 +1804,32 @@ try {
       `The rows below are individual items from our own capture of the mirror's English-language pages — ` +
       `specimens, not a representative sample of that total</div>`;
   };
+  /* ---- excerpt peek ----
+     The stored excerpt only. The full post is not in this repository — it is discarded at
+     capture — so the card states what fraction it shows rather than implying it is all. */
+  let peekEl = null;
+  const closePeek = () => { if (peekEl) { peekEl.remove(); peekEl = null; }
+    document.querySelectorAll('.frac.open').forEach(x => x.classList.remove('open')); };
+  function openPeek(el, row) {
+    closePeek();
+    el.classList.add('open');
+    peekEl = document.createElement('div');
+    peekEl.className = 'peek';
+    const shown = (row.more || row.title || '').length, total = row.chars || shown;
+    peekEl.innerHTML =
+      `<div class="pk">Post excerpt · ${shown} of ${total.toLocaleString()} characters</div>` +
+      `<div class="pt">${esc((row.more || row.title).replace(/[.…]+$/, ''))}…</div>` +
+      `<div class="pf">The stored excerpt, not the post. The remaining ${
+        (total - shown).toLocaleString()} characters are not collected — the capture keeps a sample, ` +
+      `not a copy. Shown as evidence; not linked.</div>`;
+    document.body.appendChild(peekEl);
+    const r = el.getBoundingClientRect(), h = peekEl.offsetHeight, w = peekEl.offsetWidth;
+    peekEl.style.left = Math.min(Math.max(8, r.left), innerWidth - w - 8) + 'px';
+    peekEl.style.top = (r.bottom + h + 12 < innerHeight ? r.bottom + 6 : Math.max(8, r.top - h - 6)) + 'px';
+  }
+  addEventListener('scroll', closePeek, { passive: true });
+  addEventListener('click', closePeek);
+
   const specRow = s => {
     const el = document.createElement('div');
     el.className = 'spec';
