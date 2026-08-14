@@ -384,7 +384,15 @@ def harvest_telegram(sid, cfg):
 PROBLEMS = {}   # sid -> why nothing came back; surfaced in the JSON and on the page
 
 
-PUBLIC_EXCERPT = 120   # what a post_excerpt row shows publicly; the filter still sees the full text
+PUBLIC_EXCERPT = 120   # what a post_excerpt row shows inline
+# What the hover card can show. A card can only reveal what is stored, and the full post
+# is discarded at capture — so this is the dial. 400 keeps 38% of the median post and
+# lets 31% of posts through whole: enough for the excerpt to make sense, short enough
+# that the repository stays a sample rather than a second copy of the content, which is
+# what would forfeit the research framing the captured text is published under.
+# The smear filter runs on the FULL text before any of this, so a post carrying a smear
+# anywhere in its length is already dropped entirely and none of it is stored.
+HOVER_EXCERPT = 400
 
 
 def excerpt(text, limit=PUBLIC_EXCERPT):
@@ -417,6 +425,9 @@ def row(sid, cfg, *, title, date, url, category, aid=None, extra=None):
     # knows what fraction of the text the theme label was computed from.
     if len(title) > len(shown):
         r["chars"] = len(title)
+        more = excerpt(title, HOVER_EXCERPT)
+        if len(more) > len(shown):
+            r["more"] = more
     if extra:
         r.update(extra)
     return r
@@ -519,7 +530,7 @@ def main() -> int:
         # no publication date is indistinguishable from one that did, and the page would
         # be presenting our capture time as the article's date.
         return {k: r.get(k) for k in ("site", "id", "date", "published_at", "category", "title",
-                                      "theme", "lang", "unit", "chars", "source", "url",
+                                      "theme", "lang", "unit", "chars", "more", "source", "url",
                                       "date_is_capture")
                 if r.get(k) is not None}
 

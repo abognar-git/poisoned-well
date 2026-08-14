@@ -103,6 +103,19 @@
   .mx tr.sel td.origin{color:var(--analyst)}
   .mx td.cell{min-width:2.2rem}
 
+  /* Hover card for truncated post excerpts. Shows what is stored (400 chars), never more,
+     and says plainly how much of the post that is — a card that looked complete when it is
+     not would be a worse lie than the truncation it explains. */
+  .spec .frac{cursor:help; position:relative}
+  .spec .frac:hover,.spec .frac.open{color:var(--paper); opacity:1}
+  .peek{position:fixed; z-index:96; max-width:min(34rem, calc(100vw - 2rem));
+    background:#0c111a; border:1px solid var(--hairline); border-left:2px solid var(--amber);
+    padding:.9rem 1rem; box-shadow:0 12px 40px rgba(0,0,0,.55)}
+  .peek .pk{font-family:"IBM Plex Mono",monospace; font-size:.55rem; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--amber); margin-bottom:.5rem}
+  .peek .pt{font-family:"Newsreader",serif; font-size:.94rem; line-height:1.55; color:var(--paper)}
+  .peek .pf{font-family:"IBM Plex Mono",monospace; font-size:.58rem; line-height:1.6;
+    color:var(--muted); border-top:1px solid var(--hairline); margin-top:.7rem; padding-top:.5rem}
   #list{margin-top:1.6rem}
   /* A 120-character excerpt of a 1,900-character post reads as a truncated title unless
      the row says what it is. Telegram posts have a median length near 700; none fits. */
@@ -516,7 +529,7 @@ function list(rows){
       <div class="meta"><span class="cat">${esc(s.category)}</span><br>${esc(s.date)}</div>
       <div><span class="site ${site.cls}">${esc(site.label)} · ${esc(site.tier||'')}</span>
         <div class="title">${esc(s.title)}</div>${
-          s.chars ? `<div class="frac">first ${s.title.length} of ${s.chars.toLocaleString()} characters of the post</div>`
+          s.chars ? `<div class="frac" data-peek="${esc(s.site+'|'+(s.id||s.title.slice(0,40)))}">first ${s.title.length} of ${s.chars.toLocaleString()} characters of the post${s.more ? ' · hover to read more' : ''}</div>`
           : (s.unit === 'post_excerpt' && /…$/.test(s.title||'')
              ? `<div class="frac">opening of a longer post · full length not recorded for this capture</div>` : '')}
         <span class="tag ${pay?'pay':''}">${
@@ -524,9 +537,49 @@ function list(rows){
           : pay ? 'target topic · '+esc(s.theme) : 'no target topic · filler'}</span>${lnd}</div>
     </div>`;
   }).join('') || '<div class="empty">No specimens match this selection.</div>';
+  const byKey = new Map(slice.map(x => [x.site+'|'+(x.id||x.title.slice(0,40)), x]));
+  wirePeek($('list'), k => byKey.get(k));
 }
 
 /* Numbered pages with an ellipsis, so the control stays one line at any corpus size. */
+/* ---- excerpt peek ----
+   The stored excerpt only. The full post is not in this repository — it is discarded at
+   capture — so the card states what fraction it shows rather than implying it is all. */
+let peekEl = null;
+const closePeek = () => { if (peekEl) { peekEl.remove(); peekEl = null; }
+  document.querySelectorAll('.frac.open').forEach(x => x.classList.remove('open')); };
+function openPeek(el, row) {
+  closePeek();
+  el.classList.add('open');
+  peekEl = document.createElement('div');
+  peekEl.className = 'peek';
+  const shown = (row.more || row.title || '').length, total = row.chars || shown;
+  peekEl.innerHTML =
+    `<div class="pk">Post excerpt · ${shown} of ${total.toLocaleString()} characters</div>` +
+    `<div class="pt">${esc((row.more || row.title).replace(/[.…]+$/, ''))}…</div>` +
+    `<div class="pf">The stored excerpt, not the post. The remaining ${
+      (total - shown).toLocaleString()} characters are not collected — the capture keeps a sample, ` +
+    `not a copy. Shown as evidence; not linked.</div>`;
+  document.body.appendChild(peekEl);
+  const r = el.getBoundingClientRect(), h = peekEl.offsetHeight, w = peekEl.offsetWidth;
+  peekEl.style.left = Math.min(Math.max(8, r.left), innerWidth - w - 8) + 'px';
+  peekEl.style.top = (r.bottom + h + 12 < innerHeight ? r.bottom + 6 : Math.max(8, r.top - h - 6)) + 'px';
+}
+function wirePeek(root, lookup) {
+  root.querySelectorAll('.spec .frac[data-peek]').forEach(el => {
+    const row = lookup(el.dataset.peek);
+    if (!row || !(row.more || row.chars)) return;
+    el.addEventListener('mouseenter', () => openPeek(el, row));
+    el.addEventListener('mouseleave', closePeek);
+    el.addEventListener('click', e => {            // touch: tap holds it open
+      e.stopPropagation();
+      if (peekEl && el.classList.contains('open')) closePeek(); else openPeek(el, row);
+    });
+  });
+}
+addEventListener('scroll', closePeek, { passive: true });
+addEventListener('click', closePeek);
+
 function pager(pages){
   const el = $('pager');
   if (pages < 2) { el.innerHTML = ''; return; }

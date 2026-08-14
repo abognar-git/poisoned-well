@@ -389,6 +389,19 @@
     min-width:0; overflow-wrap:anywhere; word-break:break-word}
   .spec .meta .cat{color:var(--amber); text-transform:uppercase; letter-spacing:.1em}
   .spec .meta .capdate{color:var(--muted); opacity:.75; border-bottom:1px dotted var(--hairline); cursor:help}
+  /* Hover card for truncated post excerpts. Shows what is stored (400 chars), never more,
+     and says plainly how much of the post that is — a card that looked complete when it is
+     not would be a worse lie than the truncation it explains. */
+  .spec .frac{cursor:help; position:relative}
+  .spec .frac:hover,.spec .frac.open{color:var(--paper); opacity:1}
+  .peek{position:fixed; z-index:96; max-width:min(34rem, calc(100vw - 2rem));
+    background:#0c111a; border:1px solid var(--hairline); border-left:2px solid var(--amber);
+    padding:.9rem 1rem; box-shadow:0 12px 40px rgba(0,0,0,.55)}
+  .peek .pk{font-family:"IBM Plex Mono",monospace; font-size:.55rem; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--amber); margin-bottom:.5rem}
+  .peek .pt{font-family:"Newsreader",serif; font-size:.94rem; line-height:1.55; color:var(--paper)}
+  .peek .pf{font-family:"IBM Plex Mono",monospace; font-size:.58rem; line-height:1.6;
+    color:var(--muted); border-top:1px solid var(--hairline); margin-top:.7rem; padding-top:.5rem}
   .spec .title{font-family:"Newsreader",serif; font-size:1.02rem; line-height:1.4; color:var(--paper)}
   .spec .frac{font-family:"IBM Plex Mono",monospace; font-size:.56rem; letter-spacing:.06em;
     color:var(--muted); opacity:.75; margin-top:.25rem}
@@ -1809,6 +1822,7 @@ try {
       // outlet joined the tier. Each source states its own designation in the catalog.
       prov = `<div class="laundered"><span class="arr">↳ outlet tier</span> ${
         esc((site.attribution || '').replace(/^Russia — /, '')) || 'sanctioned outlet'}</div>`;
+    el.__row = s;
     el.innerHTML =
       // Some listings carry no publication date. Those rows show our capture date, and
       // saying so is the difference between a date and a guess.
@@ -1817,7 +1831,7 @@ try {
         ? `<br><span class="capdate" title="This listing gives no publication date; this is when we captured it">captured</span>`
         : '') + `</div>` +
       `<div><span class="site ${site.cls}">${esc(site.label)} · ${esc(site.tier || '')}</span><div class="title">${esc(s.title)}</div>${
-        s.chars ? `<div class="frac">first ${s.title.length} of ${s.chars.toLocaleString()} characters of the post</div>`
+        s.chars ? `<div class="frac" data-peek="1">first ${s.title.length} of ${s.chars.toLocaleString()} characters of the post${s.more ? ' · hover to read more' : ''}</div>`
         : (s.unit === 'post_excerpt' && /…$/.test(s.title||'')
            ? `<div class="frac">opening of a longer post · full length not recorded for this capture</div>` : '')
         }${themeTag}${prov}</div>`;
@@ -1845,6 +1859,14 @@ try {
     const list = document.getElementById('spec-list');
     list.innerHTML = '';
     for (const s of pickSample()) list.appendChild(specRow(s));
+    list.querySelectorAll('.spec').forEach(el => {
+      const f = el.querySelector('.frac[data-peek]');
+      if (!f || !el.__row || !(el.__row.more || el.__row.chars)) return;
+      f.addEventListener('mouseenter', () => openPeek(f, el.__row));
+      f.addEventListener('mouseleave', closePeek);
+      f.addEventListener('click', e => { e.stopPropagation();
+        if (peekEl && f.classList.contains('open')) closePeek(); else openPeek(f, el.__row); });
+    });
     // ALL is this capture, not the corpus. The archive index is the honest number, and
     // the link says nothing rather than a wrong something if it cannot be read.
     document.getElementById('spec-toggle').textContent = CORPUS_N
