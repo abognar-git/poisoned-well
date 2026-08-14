@@ -216,7 +216,10 @@ UNDOCUMENTED = {
                         "being the Hungarian mirror's fourth-largest credited source. Searched "
                         "DFRLab, Átlátszó's Hungarian-Telegram investigation, Lakmusz, EUvsDisinfo, "
                         "ISD, VIGINUM and the Pravda-network literature; the only pages naming the "
-                        "handle are the channel itself and the mirror that credits it."),
+                        "handle are the channel itself and the mirror that credits it. The "
+                        "largest published study of Hungarian-language Telegram in the campaign "
+                        "period — Vox Harbor's analysis of 628,000+ messages from 30,000+ groups, "
+                        "reported by Reuters on 10 April 2026 — does not name it either."),
     "tg-zvezda": ("No third-party documentation of this channel was found. The Zvezda parent brand "
                   "is documented and appears in this glossary, but no source connects that holding "
                   "to this Telegram handle — the resemblance is in the name only. VIGINUM's Portal "
