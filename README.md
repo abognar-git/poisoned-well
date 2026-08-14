@@ -369,7 +369,7 @@ the right ones: the collapsed set supplies **101.4%** of the rebound — more th
 everything else nets **−1.0 articles/day**. Their share of output runs
 67.5% → 32.6% → 62.6%. The channels that fell are the channels that came back,
 which is why "interrupted supply" is now the reading and "editorial decision" is
-not. Fixed in `fef305a`.
+not. Fixed in `53dec10`.
 
 **2 — I compared a capture with a census.** I published that the mirror had changed
 what it eats, on the strength of my own live capture. That capture requests only
@@ -377,17 +377,17 @@ the mirror's `/en/` pages; the census counts every language, and Hungarian is th
 larger surface. On the days I captured, in August 2026, the census showed those
 same channels credited in 60–77% of all articles. They had
 never left. The claim is retired to the only thing it supports: these channels were
-observably still publishing on the day I looked. Fixed in `fef305a`.
+observably still publishing on the day I looked. Fixed in `53dec10`.
 
 **3 — I asserted an absence I had never measured.** I published that there was no
 campaign surge. The scripts computed a baseline window and an after window; the
 prose asserted a third thing about the campaign period that neither of them
 touched. March 2026, at 269.6 articles/day, is the **highest month in the mirror's
 entire series**. What survives is only the comparison — a +24.0% February-to-March rise against a +12.4% peer mean, roughly double, though every sibling rose too.
-Fixed in `fef305a`.
+Fixed in `53dec10`.
 
 **4 — I called four a lot without asking what chance produces.** Covered in full
-above. Fixed in `55193a9`.
+above. Fixed in `1a0a4d5`.
 
 **4b — I labelled a language "filler".** The theme tags on captured specimens ran off a
 single Latin-script lexicon, so **98.3% of Russian-language items came back `filler`** —

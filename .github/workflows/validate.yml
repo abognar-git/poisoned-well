@@ -17,7 +17,12 @@ jobs:
   gates:
     runs-on: ubuntu-latest
     steps:
+      # Full history, not the default shallow clone: check_claims.py verifies that every
+      # commit a correction cites is still reachable, and a depth-1 checkout cannot see
+      # any of them. The repo is 116 commits; the cost is nil.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:

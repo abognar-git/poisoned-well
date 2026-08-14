@@ -10,6 +10,7 @@ Checks:
 
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -200,6 +201,29 @@ def main() -> int:
         for i in r_used & set(r_entries):
             k = r_entries[i]["kind"]
             kinds[k] = kinds.get(k, 0) + 1
+        # Every correction is cited by commit, and four of the five cited a hash that
+        # no longer exists: a history rewrite that changed the git identity orphaned
+        # the originals, leaving the retraction record pointing at objects a clone
+        # cannot resolve — and that github.com served only until its next GC, with the
+        # author's personal email on the page. The correction record is this project's
+        # central asset; a citation that does not resolve is not a citation.
+        shallow = subprocess.run(["git", "rev-parse", "--is-shallow-repository"],
+                                 capture_output=True, text=True, cwd=ROOT).stdout.strip()
+        for e in r_entries.values():
+            sha = e.get("commit")
+            if not sha:
+                continue
+            if shallow == "true":
+                print(f"  shallow clone — cannot verify {sha} is reachable")
+                continue
+            ok = subprocess.run(["git", "merge-base", "--is-ancestor", sha, "HEAD"],
+                                capture_output=True, cwd=ROOT).returncode == 0
+            if not ok:
+                errors.append(
+                    f"{e['id']} cites commit {sha}, which is not an ancestor of HEAD. "
+                    "A rewritten history orphans the hash a correction points at; "
+                    "re-point it at the surviving commit with the same tree.")
+
         print(f"{len(r_entries)} research entries from RESEARCH.md | {len(r_used)} marked on pages "
               f"({', '.join(f'{v} {k}' for k, v in sorted(kinds.items()))})")
 
