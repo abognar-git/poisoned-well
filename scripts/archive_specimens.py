@@ -28,7 +28,7 @@ import argparse
 import json
 import subprocess
 import sys
-from collections import Counter
+from collections import Counter, defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -55,6 +55,56 @@ def key(row):
     return (row.get("site"), "dt", row.get("date"), row.get("title"))
 
 
+def bare_key(row):
+    """Secondary index over rows that carried no identity when they were archived."""
+    return (row.get("site"), row.get("date"), row.get("title"))
+
+
+def collapse_forks(shards):
+    """Repair rows that were archived twice because the schema changed under them.
+
+    key() is a ladder — id, else url, else (date, title). A row captured before its
+    source exposed an id or a url was filed on the bottom rung; when the capture began
+    carrying identity, the same item came back on a higher rung and was filed again.
+    The two keys can never collide, so the ordinary dedupe cannot see it: 218 of 1,163
+    published rows were one item filed twice, and the signature is unambiguous — in
+    218 of 218 cases the row lacking identity has the earlier first_seen.
+
+    Collapse only where the group is unambiguous. Where two rows carry genuinely
+    different ids or urls they are different items and are left alone; 11 groups are
+    like that. The identity-bearing row wins every field except first_seen, which takes
+    the earliest — the bare row was scored by an older classifier and 33 of them hold a
+    theme label that predates the per-language lexicon.
+    """
+    groups = defaultdict(list)
+    for month, rows in shards.items():
+        for r in rows:
+            groups[bare_key(r)].append((month, r))
+
+    fixed = 0
+    for _, members in groups.items():
+        if len(members) < 2:
+            continue
+        ids = {str(r["id"]) for _, r in members if r.get("id") not in (None, "")}
+        urls = {r["url"] for _, r in members if r.get("url")}
+        if len(ids) > 1 or len(urls) > 1:
+            continue                                    # genuinely different items
+        rich = [(m, r) for m, r in members if r.get("id") or r.get("url")]
+        if not rich:
+            continue
+        keep_month, keep = rich[0]
+        keep["first_seen"] = min(r.get("first_seen", "9") for _, r in members)
+        for month, r in members:
+            if r is keep:
+                continue
+            shards[month].remove(r)
+            fixed += 1
+    if fixed:
+        print(f"  collapsed {fixed} forked row(s) — same item, archived twice across a "
+              f"schema change")
+    return fixed
+
+
 def load_archive():
     """Deduplicate on load, keeping the earliest sighting. Repairs change fields, and two
     rows that were distinct before an edit can become the same item after it — writing the
@@ -77,6 +127,8 @@ def load_archive():
         shards[f.stem] = kept
     if dropped:
         print(f"  collapsed {dropped} duplicate row(s) on load")
+    if collapse_forks(shards):
+        seen = {key(r): r for rows in shards.values() for r in rows}
     return seen, shards
 
 
@@ -88,10 +140,20 @@ def normalise(row, tiers, captured_at):
 
 
 def merge(snapshot, seen):
-    """Return rows in the snapshot not already archived."""
+    """Return rows in the snapshot not already archived.
+
+    An item whose source only later began exposing an id or a url arrives on a
+    different rung of the key() ladder than the row already holding it, and appending
+    it forks one item into two. That is not hypothetical — it happened twice, and
+    collapse_forks() above repairs the 218 rows it produced. Here we stop making more:
+    a row bearing identity that matches an identity-less archived row upgrades it in
+    place, keeping the earlier first_seen.
+    """
     tiers = {sid: s.get("tier") for sid, s in (snapshot.get("sources") or {}).items()}
     captured = snapshot.get("captured_at", "")
-    fresh = []
+    bare = {bare_key(r): r for r in seen.values()
+            if not r.get("id") and not r.get("url")}
+    fresh, upgraded = [], 0
     for row in ((snapshot.get("items") or [])
                 or (snapshot.get("featured") or []) + (snapshot.get("corpus") or [])):
         if not row.get("title"):
@@ -100,8 +162,21 @@ def merge(snapshot, seen):
         k = key(r)
         if k in seen:
             continue
+        prior = bare.get(bare_key(r)) if (r.get("id") or r.get("url")) else None
+        if prior is not None:
+            first = min(prior.get("first_seen", "9"), r.get("first_seen", "9"))
+            seen.pop(key(prior), None)
+            prior.clear()
+            prior.update(r)
+            prior["first_seen"] = first
+            seen[key(prior)] = prior
+            del bare[bare_key(prior)]
+            upgraded += 1
+            continue
         seen[k] = r
         fresh.append(r)
+    if upgraded:
+        print(f"  upgraded {upgraded} archived row(s) in place rather than forking them")
     return fresh
 
 

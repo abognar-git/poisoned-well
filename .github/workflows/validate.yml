@@ -31,6 +31,16 @@ jobs:
       - name: Validate catalog (includes the smear-filter fixtures)
         run: python scripts/check_catalog.py
 
+      # tests/ had no runner in CI. test_smear.py was reached only because
+      # check_catalog.py imports its fixtures; anything else added under tests/ ran
+      # nowhere. This runs every file in the directory on its own merits.
+      - name: Tests
+        run: |
+          for t in tests/test_*.py; do
+            echo "── $t"
+            python "$t" || exit 1
+          done
+
       - name: Validate claims, blocklist and page references
         run: python scripts/check_claims.py
 
