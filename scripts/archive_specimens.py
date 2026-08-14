@@ -26,6 +26,7 @@ not when it was published.
 """
 import argparse
 import json
+import re
 import subprocess
 import sys
 from collections import Counter, defaultdict
@@ -132,7 +133,17 @@ def load_archive():
     return seen, shards
 
 
+DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}$")
+
+
 def normalise(row, tiers, captured_at):
+    # This store is append-only and nothing downstream re-validates it, so a bad date
+    # written once is permanent — and `date` is interpolated into an HTML attribute on
+    # the explorer's timeline. The capture guards its own parsers; this guards the door.
+    d = row.get("date")
+    if d is not None and not DATE_RE.fullmatch(str(d)):
+        raise SystemExit(f"archive_specimens: refusing a malformed date {d!r} from "
+                         f"{row.get('site')!r} — the archive never rewrites what it takes")
     out = {k: row.get(k) for k in FIELDS if row.get(k) is not None}
     out["tier"] = tiers.get(row.get("site"))
     out["first_seen"] = captured_at

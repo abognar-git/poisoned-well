@@ -43,6 +43,29 @@ MUST_BLOCK = [
     "педофил в правительстве",
     "изнасиловал студентку, утверждает источник",
     "шантаж политика",
+    # The eighteen shapes that walked straight through the filter until 2026-08-14. Each
+    # is the ordinary phrasing of an allegation in one of the three languages this corpus
+    # actually carries — the ones a fabricated smear reaches for first. They were found by
+    # probing the filter rather than by a leak: zero rows in any archive blob across the
+    # whole history ever matched them.
+    "Nemi erőszak vádja a jelölt ellen",
+    "Szexuális zaklatással vádolják a képviselőt",
+    "Szexuális visszaélés gyanúja",
+    "Kiskorú sérelmére elkövetett bűncselekmény",
+    "Prostituáltakkal bulizott a politikus",
+    "Gyermekbántalmazás a párt háza táján",
+    "Сексуальные домогательства со стороны депутата",
+    "Секс-скандал вокруг политика",
+    "Надругался над ребёнком, утверждает источник",
+    "Совратил несовершеннолетнюю",
+    "Извращенец в правительстве",
+    "Проститутки на вечеринке чиновника",
+    "Sexual assault allegation against MP",
+    "Sex abuse claims against the minister",
+    "Underage girl in politician's flat, source says",
+    "Grooming allegations surface",
+    "Sextape leaked of opposition figure",
+    "Harassment claim against candidate",
 ]
 
 # headlines that MUST pass — the filter must not swallow ordinary political news,

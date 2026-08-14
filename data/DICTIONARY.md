@@ -68,6 +68,13 @@ file to join against.
 `mirror`, `domain`, `total_articles`, `first_day`, `last_day`, `sources_listed`,
 `avg_alternates`, `languages`.
 
+`avg_alternates` and `languages` were empty for all 101 rows until 2026-08-14 — the reader
+took `avgAlternatesPerArticle` from the top level, where it does not exist, and tested
+`languages` for a dict when upstream ships a list. Both now read the right place, and the
+generator raises on an input-shape change rather than emitting a constant again.
+`languages` is the six largest by article count, `|`-separated and **truncated** — do not
+compute diversity metrics on it.
+
 ---
 
 ## `archive/` — captured specimens
@@ -100,6 +107,11 @@ Append-only, built by `scripts/capture_specimens.py` and merged by
 `observed_fraction`, `reason`. A run where a source returned nothing is a row with a
 `reason`, not an absence.
 
+`items` and the id window describe what the source **had on offer**, not what was kept.
+Until 2026-08-14 the per-source cap was applied before this row was written, so the window
+described the kept slice and every affected source logged exactly 26 — which is the
+opposite of what a sampling frame is for.
+
 ### `archive/coverage.json`
 
 Derived by `scripts/derive_frame.py` as a set difference: the ids the archive actually
@@ -121,11 +133,24 @@ Outlet listings expose no sequential ids and carry nulls.
 
 ## Censoring and limits
 
-**1. `sourcesByDay` is top-10 per mirror per day.** The daily panel is right-censored, and
-the cut varies by mirror and by month. Any *share of credits* computed from
-`mirror_source_day` has a denominator that silently changes underneath it. Condition on the
-top-10 set explicitly, or use `source_index.csv` / `source_mirror_edges.csv`, which come
-from the uncensored per-mirror totals and have no dates.
+**1. `sourcesByDay` is a FIXED basket of each mirror's all-time top ten.** Not a per-day
+top ten — that is what this file used to say, and it is wrong. Each mirror ships one
+constant set of source columns, selected on lifetime totals, with per-day counts inside it
+(zero on days it credited none). Verified on all 101 mirrors: the column set never varies
+within a mirror and equals the head of `topSources` exactly.
+
+The consequence is worse than a varying cut, because the selection is **retroactive**. A
+source that dominated a mirror in 2024 but sits eleventh all-time has no daily row in any
+period — Hungary credits 939 distinct sources and the panel has ten columns, so
+`ukr_leaks_hu` (1,350 credits) appears in zero rows. So the panel's coverage of a mirror's
+own output drifts hard over time: for Hungary, 32% in 2024-03 and 27% in 2024-07 against
+90% in 2026-01. Across mirrors it runs from 10% (`a.network`) to 100% (`abkhazia`).
+
+Shares from `mirror_source_day` are therefore **not comparably censored** across periods or
+across mirrors. Condition on the fixed basket explicitly — use the basket's own row sum as
+the denominator, not the mirror's total articles — or use `source_index.csv` /
+`source_mirror_edges.csv`, which come from the uncensored per-mirror totals and have no
+dates.
 
 **2. Daily counts are collection-side.** A fall in `articles` is jointly a publishing
 decision and a change in what the collector saw. These files cannot separate them, and this

@@ -117,13 +117,25 @@ def main(force: bool = False) -> int:
                 s["first"] = date if not s["first"] else min(s["first"], date)
                 s["last"] = date if not s["last"] else max(s["last"], date)
 
-        langs = d.get("languages") or {}
+        # Both of these read the wrong thing and shipped a constant to 101 rows of a
+        # table pitched as regressable: avgAlternatesPerArticle lives under
+        # alternatesStats, not at the top level (0 of 101 files have it there), and
+        # `languages` is a list of {language, count}, so the isinstance(dict) test was
+        # False every time and the ternary always took the empty branch. A researcher
+        # joining this got a 0 that reads as a measurement and an empty string.
+        langs = d.get("languages")
+        alt = d.get("alternatesStats")
+        if alt is None or not isinstance(langs, list):
+            raise SystemExit(f"{f.name}: upstream shape changed — alternatesStats "
+                             f"{'missing' if alt is None else 'present'}, languages is "
+                             f"{type(langs).__name__}. Fix the reader rather than "
+                             f"letting it emit a constant.")
         meta.append((
             mirror, d["domain"], d.get("totalArticles", 0),
             days[0]["date"] if days else "", days[-1]["date"] if days else "",
             len(d.get("topSources", [])),
-            round(d.get("avgAlternatesPerArticle", 0) or 0, 2),
-            "|".join(sorted(langs)[:6]) if isinstance(langs, dict) else "",
+            round(alt.get("avgAlternatesPerArticle", 0) or 0, 2),
+            "|".join(x["language"] for x in sorted(langs, key=lambda x: -x["count"])[:6]),
         ))
 
     def dump(path, header, rows):
@@ -139,6 +151,17 @@ def main(force: bool = False) -> int:
                    "sources_listed", "avg_alternates", "languages"], sorted(meta))
 
     n_msd = 0
+    # Written without clearing first, so a month that leaves the upstream retention
+    # window leaves its CSV behind: the manifest reports 38 files and 39 sit on disk,
+    # and no gate in the repo reads data/panel to notice.
+    for stale in (OUT / "mirror_source_day").glob("*.csv"):
+        if stale.stem not in by_month:
+            stale.unlink()
+            print(f"  removed orphaned shard {stale.name}")
+    if mirror_day and not by_month:
+        print("refusing to publish: mirrors have daily counts but no sourcesByDay rows at "
+              "all — that is a schema break upstream, not an empty month.")
+        return 1
     for month, rows in sorted(by_month.items()):
         n_msd += dump(OUT / "mirror_source_day" / f"{month}.csv",
                       ["mirror", "date", "source", "source_type", "credits", "relationship"],

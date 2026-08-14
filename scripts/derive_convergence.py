@@ -23,8 +23,10 @@ Outputs are all counts and named sets, so the page can render evidence rather th
 a verdict.
 """
 
+import argparse
 import json
 import re
+import sys
 from collections import Counter
 from pathlib import Path
 
@@ -220,7 +222,19 @@ def ai_modality(ai_incidents):
     return {k: dict(v) for k, v in tally.items()}
 
 
-def main() -> int:
+def main(force: bool = False) -> int:
+    # data/raw is gitignored, so provenance_audit() returns None on any clone that has
+    # not fetched. Writing that None over a committed census destroys the project's
+    # central result in the contributor's working tree and exits 0.
+    prov = provenance_audit()
+    if prov is None and OUT.exists():
+        prior = json.loads(OUT.read_text()).get("provenance_audit")
+        if prior and not force:
+            print("refusing to overwrite the committed census with nothing: the raw Pravda "
+                  "dataset is absent (it is gitignored). Run scripts/fetch_pravda.py first, "
+                  "or pass --force if an empty census is really what you want.",
+                  file=sys.stderr)
+            return 1
     ops = load("operations.json")
     disarm = load("disarm_techniques.json")
     ai_inc = load("ai_incidents.json")
@@ -231,7 +245,7 @@ def main() -> int:
                  "sourced catalog; none is a similarity score."),
         "sides": dict(Counter(e.get("side", "unset") for e in ops)),
         "technique_overlap": technique_overlap(ops, disarm),
-        "provenance_audit": provenance_audit(),
+        "provenance_audit": prov,
         "ai_modality": ai_modality(ai_inc),
         "not_computable": [
             {"question": "Did a frame appear on one side before the other?",
@@ -277,4 +291,7 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    _ap = argparse.ArgumentParser(description=__doc__)
+    _ap.add_argument("--force", action="store_true",
+                     help="write even if the census would be emptied by a missing data/raw")
+    raise SystemExit(main(force=_ap.parse_args().force))

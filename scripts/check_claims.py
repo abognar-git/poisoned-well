@@ -185,14 +185,19 @@ def main() -> int:
     dom_file = ROOT / "data" / "derived" / "domain_status.json"
     if dom_file.exists():
         dom = json.loads(dom_file.read_text())
+        # An A record is a positive: it is evidence the domain is alive regardless of
+        # whether the controls answered. Only the NEGATIVE — "still dark" — needs the
+        # controls, and gating both behind them disabled this check whenever a control
+        # went down. One of those controls was the mirror itself.
+        back = [d["domain"] for d in dom["domains"] if d["resolves"]]
+        if back:
+            errors.append(
+                f"fake-outlets-dark says these do not resolve, but they now do: "
+                f"{', '.join(back)} — re-measure and revise the claim before shipping")
         if not dom.get("controls_resolved"):
-            warnings.append("domain_status.json: control domains failed, last run was inconclusive")
+            warnings.append("domain_status.json: control domains failed, so 'still dark' is "
+                            "inconclusive this run (a domain that came back is still reported)")
         else:
-            back = [d["domain"] for d in dom["domains"] if d["resolves"]]
-            if back:
-                errors.append(
-                    f"fake-outlets-dark says these do not resolve, but they now do: "
-                    f"{', '.join(back)} — re-measure and revise the claim before shipping")
             print(f"{len(dom['domains'])} documented fake-outlet domains checked, "
                   f"{len(dom['domains']) - len(back)} still dark "
                   f"(measured {dom['measured_at'][:10]})")

@@ -206,7 +206,7 @@ Everything rendered on the site carries a marker.
 
 `.github/workflows/validate.yml` runs three gates on every push and pull request.
 `check_catalog.py` validates the 24 case files and
-runs 29 fixtures against the personal-smear filter. `check_claims.py` fails if a
+runs 47 fixtures against the personal-smear filter. `check_claims.py` fails if a
 `§` or `▲` marker does not resolve, if a catalog URL points at propaganda
 infrastructure, **or if any correction in the research record stops being surfaced
 anywhere on the page** — the one thing this project must never quietly do is stop
@@ -225,7 +225,7 @@ generated data instead.
 
 **Personal-smear specimens are withheld.** The live capture pulls real posts, and
 some of them are sexual-abuse allegations against named private individuals. A
-regex filter with 21 must-block and 8 must-pass fixtures keeps them out of the
+regex filter with 39 must-block and 8 must-pass fixtures keeps them out of the
 page; they stay in the case files, described rather than reproduced.
 
 ---

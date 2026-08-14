@@ -47,7 +47,12 @@ TARGETS = [
     ("napihirek24.hu", "storm-1516-hungary-2026"),
 ]
 # Must resolve. If either fails the run is inconclusive rather than a finding.
-CONTROLS = ["hungary.news-pravda.com", "index.hu"]
+# Two live domains, neither of them the adversary's. The mirror used to be one of
+# these, which meant the liveness precondition for "these three fake outlets are
+# still dark" failed precisely when the mirror went dark — the event this project
+# exists to watch for. A control has to be something whose survival is uncorrelated
+# with what is being measured.
+CONTROLS = ["index.hu", "example.com"]
 RESOLVERS = [("system", None), ("google", "8.8.8.8"), ("cloudflare", "1.1.1.1")]
 
 

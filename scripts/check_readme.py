@@ -102,7 +102,7 @@ def build():
         # published a 63.7% collapse labelled +25%, with the gate still printing OK.
         ("fell **{:.1f}%** after the election, from {:.1f} to {:.1f} articles a day",
          [-C["target_change_pct"], TG["baseline_per_day"], TG["after_per_day"]]),
-        ("moved **+{:.1f}%** on average", [C["peer_mean_change_pct"]]),
+        ("moved **{:+.1f}%** on average", [C["peer_mean_change_pct"]]),
         # negation, not abs(): abs() throws away the sign the verb "fell" asserts, so a
         # series that turned upward would still format as a fall and still pass.
         ("not one fell more than {:.1f}%", [-C["peer_min_change_pct"]]),
@@ -120,7 +120,7 @@ def build():
         ("holds near {:,.0f}/day", [TI["mean_13_to_24_april"]]),
 
         ("produced −{:.1f}%", [-RO24["change_pct"]]),
-        ("**+{:.1f}% rise**", [RO25["change_pct"]]),
+        ("**{:+.1f}% rise**", [RO25["change_pct"]]),
 
         ("supply **{:.1f}%** of the rebound", [R["collapsed_set_share_of_rebound"] * 100]),
         ("everything else nets **−{:.1f} articles/day**",
@@ -131,7 +131,7 @@ def build():
         ("expected by chance **{:.2f}**", [T["chance_baseline"][0]["expected_overlap"]]),
         ("or {:.2f} if you draw", [T["chance_baseline"][1]["expected_overlap"]]),
         ("at {:.1f} articles/day", [peak]),
-        ("+{:.1f}% February-to-March rise against a +{:.1f}% peer mean",
+        ("{:+.1f}% February-to-March rise against a {:+.1f}% peer mean",
          [rise(mon), peer_rise]),
 
         # Both of these restate a figure registered above. They went stale under a green
@@ -245,7 +245,11 @@ def as_regex(template):
     """A template becomes a whitespace-tolerant regex with a number pattern wherever a
     format spec sits, so it matches the README no matter what the current values are."""
     parts = [re.escape(p) for p in SPEC.split(template)]
-    rx = r"[\d,]+(?:\.\d+)?".join(parts)
+    # Accept a sign here, because NUM at the top of this file does. When the two
+    # disagreed, --sync could write "moved **+-1.6%** on average" and then fail to match
+    # what it had just written — exit 1 on every subsequent run, unrecoverable without a
+    # hand edit, on a job that runs --sync then this check before it commits.
+    rx = r"[-−+]?[\d,]+(?:\.\d+)?".join(parts)
     # re.escape renders a space as an escaped space on older Pythons and bare on newer
     # ones; normalise both to \s+ so a template still matches text wrapped across lines
     return re.compile(re.sub(r"(?:\\ | )+", r"\\s+", rx))

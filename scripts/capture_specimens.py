@@ -56,13 +56,36 @@ TRACE_CAP = 60        # max article pages fetched to trace laundering sources
 # and only the exact-word alternatives ever fired. Covers en/hu/ru because the
 # origin and outlet tiers publish in Hungarian and Russian, which is exactly where
 # fabricated personal defamation lands. See tests/test_smear.py.
+# The list below was a 15-stem set whose docstring already claimed to cover en/hu/ru.
+# It did not: the commonest phrasing in each language walked straight through it. Hungarian
+# had only the VERB stem `er[oő]szakol`, so the standard noun "nemi erőszak" passed; there
+# was no `zaklatás`, no `bántalmazás`, no `kiskorú`. Russian had no `домогательства`, no
+# `надругался`, no `совратил`. English had no `sexual assault`, no `grooming`, no
+# `underage`. Eighteen probes in the shapes a Storm-1516 smear actually takes all passed.
+#
+# Nothing had leaked — a sweep of every archive blob across all 116 commits returns zero
+# hits — so this is recall, not a breach. It errs deliberately towards over-withholding:
+# `kiskorú` and `harassment` have innocent uses, and a specimen wrongly withheld costs a
+# row in a sample the DICTIONARY already declares incomplete, while one wrongly published
+# is a named private individual on a public page.
 SMEAR = re.compile(
     r"\b("
     r"p[ae]?edophil\w*|p[aä]?edo\w*|rapist\w*|rape[ds]?\b|molest\w*|traffick\w*|"
     r"epstein|blackmail\w*|corrupt(?:ion)?\s+charges?|"
+    r"sexual\s+(?:assault|abuse|misconduct|harass\w*)|sex\s*(?:abuse|tape)|sextape|"
+    r"grooming|underage|harassment|"
     r"pedof[ií]l\w*|er[oő]szakol\w*|zsarol\w*|megront\w*|korrupci[oó]s\s+v[aá]d\w*|"
-    r"педофил\w*|изнасил\w*|шантаж\w*|растлен\w*"
-    r")", re.I)
+    r"nemi\s+er[oő]szak\w*|szexu[aá]lis\s+(?:er[oő]szak\w*|zaklat\w*|vissza[eé]l[eé]s\w*)|"
+    r"zaklat[aá]s\w*|kiskor[uú]\w*|prostitu[aá]lt\w*|"
+    r"педофил\w*|изнасил\w*|шантаж\w*|растлен\w*|"
+    r"домогательств\w*|надруга\w*|совратил\w*|извращен\w*|секс-скандал\w*|проститутк\w*"
+    r")"
+    # Hungarian compounds productively, so a leading \b is wrong for stems that appear
+    # inside a compound: "gyermekbántalmazás" is one word and was the single probe still
+    # walking through after the widening above. Matched anywhere, not word-initial.
+    # `erőszak` deliberately stays out of this group — bare, it would withhold ordinary
+    # war reporting ("erőszakos tüntetés"), so only `nemi`/`szexuális erőszak` are listed.
+    r"|(b[aá]ntalmaz\w*)", re.I)
 
 # Theme lexicons, PER LANGUAGE. They were a single Latin-script list until 2026-08-13,
 # which meant every Cyrillic item fell through to "filler" — 98.3% of them — because the
@@ -343,7 +366,7 @@ def harvest_web(sid, cfg):
             if url in seen or len(title) < 12 or SMEAR.search(title):
                 continue
             seen.add(url)
-            rows.append(row(sid, cfg, title=title, date=f"{y}-{mo}-{d}", url=url,
+            add(rows, row(sid, cfg, title=title, date=f"{y}-{mo}-{d}", url=url,
                             category=cat, aid=aid))
         time.sleep(0.3)
     if not rows:
@@ -400,7 +423,7 @@ def harvest_cards(sid, cfg):
                 datetime.strptime(d, "%Y-%m-%d")
             except ValueError:
                 d = None
-        rows.append(row(sid, cfg, title=title, date=d or TODAY, url=url,
+        add(rows, row(sid, cfg, title=title, date=d or TODAY, url=url,
                         category=cfg.get("section", "news"),
                         extra={"date_is_capture": not d}))
     return rows
@@ -431,7 +454,7 @@ def harvest_telegram(sid, cfg):
         # minute-resolution publication times on the only tier that publishes them — and with
         # them any hope of a lead/lag estimate. Keep both: `date` for grouping, `published_at`
         # for ordering.
-        rows.append(row(sid, cfg, title=title, date=tm.group(1)[:10], url=url,
+        add(rows, row(sid, cfg, title=title, date=tm.group(1)[:10], url=url,
                         category=cfg["channel"], aid=pid.group(1).split("/")[-1],
                         extra={"published_at": tm.group(1)}))
     return rows
@@ -466,12 +489,25 @@ def excerpt(text, limit=PUBLIC_EXCERPT):
     return cut.rstrip(" ,;:—–-") + "…"
 
 
+def add(rows, r):
+    """row() returns None when it rejects the item; three call sites appended blindly."""
+    if r is not None:
+        rows.append(r)
+
+
 def row(sid, cfg, *, title, date, url, category, aid=None, extra=None):
     """One archived item. `unit` records what kind of text this is — a headline, or a
     truncated slice of a post — because pooling the two silently is a category error."""
     theme, lang = classify(title)
     unit = "post_excerpt" if cfg["type"] == "telegram" else "headline"
     shown = excerpt(title) if unit == "post_excerpt" else excerpt(title, 190)
+    # The date arrives from a path segment the publisher controls and the pattern
+    # constrains only digit counts, so 2026/19/45 parses. harvest_cards guards this with
+    # strptime; harvest_web did not, and archive_specimens shards on date[:7].
+    try:
+        datetime.strptime(date, "%Y-%m-%d")
+    except (ValueError, TypeError):
+        return None
     r = {"site": sid, "id": aid, "date": date, "category": category,
          "title": shown, "theme": theme, "lang": lang, "unit": unit, "url": url}
     # Telegram posts run to a median of ~676 characters and a maximum near 1,900, so a
@@ -497,7 +533,10 @@ def harvest(sid, cfg):
     if not rows and sid not in PROBLEMS:
         PROBLEMS[sid] = "reachable, but nothing usable after filtering"
     rows.sort(key=lambda r: (r["date"], str(r["id"] or "")), reverse=True)
-    return rows[:PER_SOURCE_CAP]
+    # Uncapped. The cap belongs to the caller: applying it here meant frame_rows() logged
+    # min_id/max_id over the kept window rather than the offered one, which is the opposite
+    # of what the frame is for, and five separate labels called the result "uncapped".
+    return rows
 
 
 def frame_rows(run_id, captured_at, harvested):
@@ -535,10 +574,10 @@ def main() -> int:
     all_rows, ok, harvested = [], [], {}
     for sid, cfg in SOURCES.items():
         rows = harvest(sid, cfg)
-        harvested[sid] = rows
+        harvested[sid] = rows                 # uncapped — the frame describes what was offered
         if rows:
             ok.append(sid)
-            all_rows.extend(rows)
+            all_rows.extend(rows[:PER_SOURCE_CAP])
     if not all_rows:
         raise SystemExit("no source reachable — leaving last good file untouched")
 
@@ -656,11 +695,15 @@ def main() -> int:
     }
     OUT.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
 
-    # everything harvested this run, uncapped, for the archive to merge from
+    # Everything kept this run, for the archive to merge from. Capped per source at
+    # PER_SOURCE_CAP but not by CORPUS_CAP — the corpus cap exists so a visitor is not
+    # sent a huge JSON and was never meant to decide what gets archived.
     FULL.write_text(json.dumps({
-        "note": ("Every item this capture saw, before the per-source and corpus caps that "
-                 "shape the page. Written for scripts/archive_specimens.py; not read by the "
-                 "site. Overwritten each run — the archive is what keeps it."),
+        "note": (f"Every item this capture kept: capped at {PER_SOURCE_CAP} per source, but "
+                 "before the corpus cap and the round-robin fill that shape the page. "
+                 "data/archive/frame.csv records how much each source had on offer. Written "
+                 "for scripts/archive_specimens.py; not read by the site. Overwritten each "
+                 "run — the archive is what keeps it."),
         "captured_at": out["captured_at"],
         "sources": out["sources"],
         "items": [strip(r) for r in all_rows],
@@ -675,7 +718,9 @@ def main() -> int:
     print(f"frame.csv: +{len(fr)} rows" + (
         f"; observed fraction across {len(covered)} sequential sources: "
         f"{sum(r['observed_fraction'] for r in covered) / len(covered):.0%}" if covered else ""))
-    print(f"last_harvest.json: {len(all_rows)} items harvested (uncapped)")
+    print(f"last_harvest.json: {len(all_rows)} items kept "
+          f"({sum(len(v) for v in harvested.values())} offered, capped at "
+          f"{PER_SOURCE_CAP}/source)")
     print(f"latest_specimens.json: {len(corpus)} specimens across {len(ok)} sources {by}; "
           f"{len(featured)} featured; latest_day {latest_day} ({today_live} live)")
     return 0
