@@ -7,8 +7,9 @@
    "kind": "correction",
    "title": "The recovery",
    "published": "The Russian-institutional layer carries the recovery",
-   "data_says": "The three <i>collapsed</i> channels supply <b>102% of the rebound</b> (+69.0 of +67.7/day) — more than all of it, so everything else nets <b>−1.3/day</b>. Their share of output goes 68% → 33% → <b>63%</b>",
-   "commit": "53dec10"
+   "data_says": "The three <i>collapsed</i> channels supply <b>101% of the rebound</b> (+69.4 of +68.4/day) — more than all of it, so everything else nets <b>−1.0/day</b>. Their share of output goes 68% → 33% → <b>63%</b>",
+   "commit": "53dec10",
+   "found_by": "adversarial review"
   },
   {
    "id": "correction-2",
@@ -16,7 +17,8 @@
    "title": "The diet",
    "published": "The mirror changed what it eats (live cross-check)",
    "data_says": "Invalid comparison. Our capture harvests only the <code>/en/</code> surface; the census counts all languages (hu 98,110 &gt; en 80,259). On the capture days the census shows those channels credited in <b>60–77%</b> of articles",
-   "commit": "53dec10"
+   "commit": "53dec10",
+   "found_by": "adversarial review"
   },
   {
    "id": "correction-3",
@@ -24,7 +26,8 @@
    "title": "The campaign surge",
    "published": "No surge for the election it was aimed at",
    "data_says": "March 2026 (269.6/day) is the mirror's <b>highest month in its entire series</b>. Only the <i>difference</i> survives: +24.0% vs peer mean +12.4%",
-   "commit": "53dec10"
+   "commit": "53dec10",
+   "found_by": "adversarial review"
   },
   {
    "id": "correction-5",
@@ -32,7 +35,8 @@
    "title": "The theme labels",
    "published": "Theme tags on captured specimens (payload vs filler)",
    "data_says": "The lexicon was Latin-script only, so <b>98.3% of Cyrillic items were labelled <code>filler</code></b> — a label confounded with language, not a measurement of topic. Made worse on 2026-08-13 by adding five Russian-language outlets. Now scored per language with a published coverage matrix, and <code>unscored</code> is a third value",
-   "commit": "e085410"
+   "commit": "e085410",
+   "found_by": "this project, while fixing the others"
   },
   {
    "id": "correction-4",
@@ -40,7 +44,8 @@
    "title": "The shared grammar",
    "published": "What the two do share is a grammar (technique overlap)",
    "data_says": "Observed overlap <b>4</b>; expected by chance <b>5.00</b> (45-technique pool) or <b>6.25</b> (36 used). At or <i>below</i> chance",
-   "commit": "1a0a4d5"
+   "commit": "1a0a4d5",
+   "found_by": "adversarial review"
   },
   {
    "id": "root-cause",

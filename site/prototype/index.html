@@ -6,7 +6,7 @@
      operations it documents; the escaping in openEvidence is the real control, this is the
      backstop. 'unsafe-inline' is required because the styles and module are inline in this
      single-file prototype — it still blocks remote script, framing and form posts. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://raw.githubusercontent.com; frame-ancestors 'none'; base-uri 'none'; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://raw.githubusercontent.com; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Poisoned Well — an investigation into AI-enabled influence operations targeting Hungary</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1109,7 +1109,7 @@
     <h2>What we published and had to withdraw</h2>
     <p>This site is pre-submission research, and the file it is drawn from records what went wrong as
        carefully as what held. An adversarial review in August 2026 found four published claims that
-       were false; all four are below, with the sentence as it ran and the data that killed it. Nothing
+       were false; those four and a fifth defect found later are below, each with the sentence as it ran and the data that killed it. Nothing
        here is retyped — it is parsed from <span class="mono">RESEARCH.md</span> by
        <span class="mono">derive_research.py</span>, and the build fails if a ▲ marker anywhere on this
        page stops resolving.</p>
@@ -1223,8 +1223,9 @@ const todayISO = new Date().toISOString().slice(0, 10);
 const dayWord = HU.latest_publication_day === todayISO
   ? 'today' : 'on ' + HU.latest_publication_day;
 document.getElementById('live-sub').innerHTML =
-  `articles published by this one Hungary-targeting mirror since March 2024. By its own section labels only 4.0% ` +
-  `are filed under Hungary at all; the bulk is world filler and Russia. · ` +
+  `articles published by this one Hungary-targeting mirror since March 2024. ` +
+  `<span data-claim="category-mix">By its own section labels only 4.0% ` +
+  `are filed under Hungary at all</span>; the bulk is world filler and Russia. · ` +
   `<b>${HU.articles_latest_day} ${dayWord}</b>, the last full day counted · ${fmt(HU.articles_last_7d)} in the past 7 days`;
 document.getElementById('today-fig').textContent = HU.articles_latest_day;
 { const td = document.getElementById('today-day'); if (td) td.textContent = dayWord; }
@@ -1333,8 +1334,9 @@ function resBody(e) {
   if (e.kind === 'correction')
     return `<div class="was"><em>Published</em><span class="wt">${e.published}</span></div>` +
            `<div class="now"><em>What the data says</em>${e.data_says}</div>` +
-           `<div class="rfoot">Corrected in <b>${esc(e.commit)}</b> · one of four claims an ` +
-           `adversarial review found wrong. <a class="src" href="#record">▸ the whole record</a></div>`;
+           `<div class="rfoot">Corrected in <b>${esc(e.commit)}</b> · found by ` +
+           `${esc(e.found_by || 'an adversarial review')}. ` +
+           `<a class="src" href="#record">▸ the whole record</a></div>`;
   return `<div class="now">${e.text}</div>` +
          (e.note ? `<div class="rfoot">${e.note}</div>` : '') +
          `<div class="rfoot">From <b>RESEARCH.md</b>, rendered not retyped. ` +
@@ -1391,7 +1393,8 @@ wireResearch();
         h += kind === 'correction'
           ? `<div class="was"><em>Published</em><span class="wt">${e.published}</span></div>` +
             `<div class="now"><em>What the data says</em>${e.data_says}</div>` +
-            `<div class="rc">corrected in ${esc(e.commit)}</div>`
+            `<div class="rc">corrected in ${esc(e.commit)} · found by ${
+               esc(e.found_by || 'an adversarial review')}</div>`
           : `<div class="rx">${e.text}</div>` + (e.note ? `<div class="rc">${e.note}</div>` : '');
         h += `</div>`;
       }
@@ -2081,11 +2084,16 @@ setTimeout(async () => {
     const sub = document.getElementById('live-sub');
     const cb = sub.querySelector('.cite');  // preserve the injected § marker
     sub.innerHTML =
-      `articles published by this one Hungary-targeting mirror since March 2024. By its own section labels only ` +
-      `4.0% are filed under Hungary at all; the bulk is world filler and Russia. · ` +
+      `articles published by this one Hungary-targeting mirror since March 2024. ` +
+      `<span data-claim="category-mix">By its own section labels only 4.0% are filed ` +
+      `under Hungary at all</span>; the bulk is world filler and Russia. · ` +
       `<b>${last.count} ${last.date === HU.latest_publication_day ? 'today' : 'on ' + last.date}</b> · ` +
       `${fmt(wk)} in the past 7 days · <span style="color:#7dc98f">checked upstream just now</span>`;
     if (cb) sub.appendChild(cb);
+    // This rebuild also destroys the nested [data-claim="category-mix"] span around the
+    // share figure, and rescuing only `cb` leaves that sentence pointing at the counter's
+    // registry entry — evidence for a different quantity. Re-wire the subtree.
+    if (window.wireMarkers) window.wireMarkers(sub);
   } catch { /* baked figures remain — the page never breaks on upstream failure */ }
 }, 2600);
 

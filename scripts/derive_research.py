@@ -53,7 +53,11 @@ def main() -> int:
 
     # ── §2 the corrections ────────────────────────────────────────────────
     corr = section(doc, "2. Corrections already applied")
-    rows = re.findall(r"^\| (\d+) \| (.+?) \| (.+?) \| `(\w+)` \|$", corr, re.M)
+    # The fifth column says who found the correction. The card used to assert "one of
+    # four claims an adversarial review found wrong" for every correction, including the
+    # one the project found itself — overstating the external review and understating its
+    # own work, on the section that is this project's central asset.
+    rows = re.findall(r"^\| (\d+) \| (.+?) \| (.+?) \| `(\w+)` \| (.+?) \|$", corr, re.M)
     if not rows:
         sys.exit("derive_research: no correction rows parsed")
     # Titles are per-correction labels for the cards. The count is not fixed — the whole
@@ -61,7 +65,7 @@ def main() -> int:
     # rather than failing the build and tempting someone to leave the correction out.
     titles = {"1": "The recovery", "2": "The diet", "3": "The campaign surge",
               "4": "The shared grammar", "5": "The theme labels"}
-    for n, published, says, commit in rows:
+    for n, published, says, commit, found_by in rows:
         title = titles.get(n, f"Correction {n}")
         entries.append({
             "id": f"correction-{n}", "kind": "correction", "title": title,
@@ -70,6 +74,7 @@ def main() -> int:
             "published": md(published.strip()).replace('"', '').strip(),
             "data_says": md(re.sub(r"\s*\*\*\[[VR]\]\*\*", "", says)),
             "commit": commit,
+            "found_by": found_by.strip(),
         })
 
     m = re.search(r"\*\*Root cause.*?\*\*(.+?)(?=\n\*\*Consequence)", corr, re.S)

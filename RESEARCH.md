@@ -34,13 +34,13 @@ The review found four published claims that were wrong, and a fifth defect was f
 fixed before this plan was written. They are listed here because a reader of the repo history deserves
 to see them, and because each one is a lesson about the pipeline.
 
-| # | Claim as published | What the data says | Commit |
-|---|---|---|---|
-| 1 | "The Russian-institutional layer carries the recovery" | The three *collapsed* channels supply **102% of the rebound** (+69.0 of +67.7/day) — more than all of it, so everything else nets **−1.3/day**. Their share of output goes 68% → 33% → **63%** **[V]** | `53dec10` |
-| 2 | "The mirror changed what it eats" (live cross-check) | Invalid comparison. Our capture harvests only the `/en/` surface; the census counts all languages (hu 98,110 > en 80,259). On the capture days the census shows those channels credited in **60–77%** of articles **[V]** | `53dec10` |
-| 3 | "No surge for the election it was aimed at" | March 2026 (269.6/day) is the mirror's **highest month in its entire series**. Only the *difference* survives: +24.0% vs peer mean +12.4% **[V]** | `53dec10` |
-| 5 | Theme tags on captured specimens ("payload" vs "filler") | The lexicon was Latin-script only, so **98.3% of Cyrillic items were labelled `filler`** — a label confounded with language, not a measurement of topic. Made worse on 2026-08-13 by adding five Russian-language outlets. Now scored per language with a published coverage matrix, and `unscored` is a third value **[V]** | `e085410` |
-| 4 | "What the two do share is a grammar" (technique overlap) | Observed overlap **4**; expected by chance **5.00** (45-technique pool) or **6.25** (36 used). At or *below* chance **[V]** | `1a0a4d5` |
+| # | Claim as published | What the data says | Commit | Found by |
+|---|---|---|---|---|
+| 1 | "The Russian-institutional layer carries the recovery" | The three *collapsed* channels supply **101% of the rebound** (+69.4 of +68.4/day) — more than all of it, so everything else nets **−1.0/day**. Their share of output goes 68% → 33% → **63%** **[V]** | `53dec10` | adversarial review |
+| 2 | "The mirror changed what it eats" (live cross-check) | Invalid comparison. Our capture harvests only the `/en/` surface; the census counts all languages (hu 98,110 > en 80,259). On the capture days the census shows those channels credited in **60–77%** of articles **[V]** | `53dec10` | adversarial review |
+| 3 | "No surge for the election it was aimed at" | March 2026 (269.6/day) is the mirror's **highest month in its entire series**. Only the *difference* survives: +24.0% vs peer mean +12.4% **[V]** | `53dec10` | adversarial review |
+| 5 | Theme tags on captured specimens ("payload" vs "filler") | The lexicon was Latin-script only, so **98.3% of Cyrillic items were labelled `filler`** — a label confounded with language, not a measurement of topic. Made worse on 2026-08-13 by adding five Russian-language outlets. Now scored per language with a published coverage matrix, and `unscored` is a third value **[V]** | `e085410` | this project, while fixing the others |
+| 4 | "What the two do share is a grammar" (technique overlap) | Observed overlap **4**; expected by chance **5.00** (45-technique pool) or **6.25** (36 used). At or *below* chance **[V]** | `1a0a4d5` | adversarial review |
 
 **Root cause, and it is not carelessness.** `check_claims.py` verifies that a rendered claim *resolves
 to a registry entry with a live data reference*. It does not verify that the entry is **true**. Claims

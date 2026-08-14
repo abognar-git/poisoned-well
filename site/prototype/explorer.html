@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://raw.githubusercontent.com; base-uri 'none'; form-action 'none'">
 <title>Poisoned Well — corpus explorer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -421,7 +422,13 @@ const state = { q:'', tier:'all', theme:'all', day:'all', origin:'all', channel:
    send to an editor and a researcher can cite. Read once on load, rewritten on change. */
 function readUrl(){
   const h = new URLSearchParams(location.hash.slice(1));
-  for (const k of ['q','tier','theme','day','origin']) if (h.has(k)) state[k] = h.get(k);
+  // Normalised on the way in. `q` is matched against a lowercased title and the other
+  // four are compared with === against lowercase data values, so a hand-edited link that
+  // capitalises a name — #q=Ukraine — returned 0 specimens beside the word FILTERED and
+  // the term still showing in the box, which reads as "the corpus has nothing on this".
+  // Self-generated links round-trip fine, which is why it would never have been noticed.
+  for (const k of ['q','tier','theme','day','origin'])
+    if (h.has(k)) state[k] = h.get(k).trim().toLowerCase();
   if (h.has('channel')) state.channel = h.get('channel');
   if (h.has('page')) page = Math.max(1, +h.get('page') || 1);
   if (h.has('per')) { const v = h.get('per'); if (['25','50','100','150'].includes(v)) urlPer = v; }
@@ -601,13 +608,21 @@ function openPeek(el, row) {
   el.classList.add('open');
   peekEl = document.createElement('div');
   peekEl.className = 'peek';
-  const shown = (row.more || row.title || '').length, total = row.chars || shown;
+  // Count code points, not UTF-16 units: `chars` is written by Python, where an astral
+  // emoji is one character and in JS it is two. The one element whose entire job is to
+  // state honestly what fraction of a post is shown was printing "175 of 170 characters"
+  // and "the remaining -5 characters", on row 0 of the default view.
+  const shown = [...(row.more || row.title || '')].length;
+  const total = Math.max(row.chars || shown, shown);
+  const rest = total - shown;
   peekEl.innerHTML =
     `<div class="pk">Post excerpt · ${shown} of ${total.toLocaleString()} characters</div>` +
-    `<div class="pt">${esc((row.more || row.title).replace(/[.…]+$/, ''))}…</div>` +
-    `<div class="pf">The stored excerpt, not the post. The remaining ${
-      (total - shown).toLocaleString()} characters are not collected — the capture keeps a sample, ` +
-    `not a copy. Shown as evidence; not linked.</div>`;
+    `<div class="pt">${esc((row.more || row.title).replace(/[.…]+$/, ''))}${rest ? '…' : ''}</div>` +
+    `<div class="pf">` + (rest
+      ? `The stored excerpt, not the post. The remaining ${rest.toLocaleString()} characters ` +
+        `are not collected — the capture keeps a sample, not a copy. `
+      : `This is the whole post as captured, not an excerpt. `) +
+    `Shown as evidence; not linked.</div>`;
   document.body.appendChild(peekEl);
   const r = el.getBoundingClientRect(), h = peekEl.offsetHeight, w = peekEl.offsetWidth;
   peekEl.style.left = Math.min(Math.max(8, r.left), innerWidth - w - 8) + 'px';

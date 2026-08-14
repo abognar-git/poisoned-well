@@ -171,6 +171,16 @@ def cross_file():
          "Across all {:,.0f} articles, the {:,.0f} credited sources sum to exactly "
          "{:,.0f} (coverage {:.4f})", [T, S, T, C]),
         ("RESEARCH.md", "Manual pass over all {:,.0f} sources", [S]),
+        # The corrections table states what the data says NOW, and the page renders it
+        # verbatim in the record section. Row 1 was published live at 102% / +69.0 /
+        # +67.7 / −1.3 while the README and the claim card both said 101.4% / +69.4 /
+        # +68.4 / −1.0 — the same quantity, three documents, two answers.
+        ("RESEARCH.md",
+         "supply **{:.0f}% of the rebound** (+{:.1f} of +{:.1f}/day) — more than all of "
+         "it, so everything else nets **−{:.1f}/day**",
+         [rec["collapsed_set_share_of_rebound"] * 100, rec["collapsed_set_rebound_per_day"],
+          rec["rebound_per_day"],
+          rec["collapsed_set_rebound_per_day"] - rec["rebound_per_day"]]),
         ("catalog/claims.json",
          "Across all {:,.0f} articles the Hungarian Pravda mirror has published, and all "
          "{:,.0f} sources it credits", [T, S]),
