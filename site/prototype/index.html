@@ -421,8 +421,11 @@
     padding:.6rem .8rem; margin:.6rem 0 0}
   #spec-missing.on{display:block}
   #spec-missing b{color:var(--amber); font-weight:500}
-  #spec-more{display:flex; justify-content:flex-end; margin-top:1rem}
-  #spec-toggle{font-family:"IBM Plex Mono",monospace; font-size:.62rem; letter-spacing:.08em;
+  /* Sits at the end of the panel, full width, because a reader who wants more looks after
+     the explanation rather than in the middle of it. */
+  #spec-more{display:flex; justify-content:center; margin-top:1.6rem;
+    border-top:1px solid var(--hairline); padding-top:1.4rem}
+  #spec-toggle{font-family:"IBM Plex Mono",monospace; font-size:.66rem; letter-spacing:.1em;
     color:var(--signal); background:none; border:1px solid rgba(255,74,54,.35); border-radius:2px;
     padding:.5em .9em; cursor:pointer; text-decoration:none; display:inline-block}
   #spec-toggle:hover{background:rgba(255,74,54,.1)}
@@ -759,16 +762,15 @@
        documented Hungary-targeting pro-Kremlin sources, one from each tier of the laundering chain —
        Telegram origin, Pravda mirror, <span data-term="news-front">sanctioned outlet</span>. Shown as evidence; deliberately not linked.<span data-research="correction-2"></span><span data-research="cut-3"></span></p>
   </div>
-  <div id="specimens" data-claim="live-specimens">
+  <div id="specimens">
     <div class="spec-head">
-      <div class="lbl"><span class="live-dot"></span><span id="spec-srclabel">live capture</span></div>
+      <div class="lbl"><span class="live-dot"></span><span data-claim="live-specimens"><span id="spec-srclabel">live capture</span></span></div>
       <div class="cap" id="spec-cap">captured —</div>
     </div>
     <div id="spec-volume"></div>
     <div id="spec-stale"></div>
     <div id="spec-missing"></div>
     <div id="spec-list"></div>
-    <div id="spec-more"><a id="spec-toggle" href="explorer.html">explore the corpus →</a></div>
     <div class="spec-why">
       <div class="h">Why this matters — read from Hungary</div>
       <p>Most of what the mirror emits is mundane, wire-style filler — sport, weather, world briefs.
@@ -780,6 +782,7 @@
         undifferentiated filler sits.</p>
     </div>
     <p class="spec-note" id="spec-note"></p>
+    <div id="spec-more"><a id="spec-toggle" href="explorer.html">explore the corpus →</a></div>
   </div>
 </section>
 
@@ -969,12 +972,12 @@
       </div>
 
       <div class="gtier">
-        <div class="tlbl">The pipeline test · <span class="prov-n">139,376</span> articles</div>
+        <div class="tlbl" data-claim="no-pipeline">The pipeline test · <span class="prov-n">139,376</span> articles</div>
         <p class="gq">If the domestic machine and the Russian machine were one machine, the Russian mirror should be
           crediting Hungarian pro-government output somewhere across its <span class="prov-n">139,376</span> articles. It never does — though what
           this measures is the mirror's own credit label, and a story laundered through an intermediate repost would be
           invisible to it by construction.<span data-research="limit-c2"></span><span data-research="open-m7"></span><span data-research="rq1"></span></p>
-        <div id="prov-bar" data-claim="no-pipeline"></div>
+        <div id="prov-bar"></div>
         <div id="prov-legend"></div>
         <p class="gnote" id="prov-note"></p>
       </div>
@@ -1166,6 +1169,15 @@ const [live, timeline, summary, spec] = await Promise.all([
 ]);
 const HU = live.mirrors['hungary.news-pravda.com'];
 const SPEC_SRC = spec?.sources || {};
+// how many items the explorer will actually show — the archive, not this snapshot
+let CORPUS_N = 0;
+dget('../../data/archive/index.json').then(a => {
+  CORPUS_N = a.items || 0;
+  // the label may already have rendered without it; fill it in rather than race
+  const t = document.getElementById('spec-toggle');
+  if (t && CORPUS_N) t.textContent =
+    `explore the full corpus · ${CORPUS_N.toLocaleString('en-US')} items →`;
+}).catch(() => {});
 window.__st.push('data-loaded');
 
 /* Act I: publishing days, generated rather than typed */
@@ -1827,8 +1839,11 @@ try {
     const list = document.getElementById('spec-list');
     list.innerHTML = '';
     for (const s of pickSample()) list.appendChild(specRow(s));
-    document.getElementById('spec-toggle').textContent =
-      `explore the full corpus (${ALL.length}) →`;
+    // ALL is this capture, not the corpus. The archive index is the honest number, and
+    // the link says nothing rather than a wrong something if it cannot be read.
+    document.getElementById('spec-toggle').textContent = CORPUS_N
+      ? `explore the full corpus · ${CORPUS_N.toLocaleString('en-US')} items →`
+      : 'explore the full corpus →';
   };
   const tickAgo = () => {
     if (!capturedAt) return;
