@@ -402,7 +402,7 @@
   .spec .laundered{font-family:"IBM Plex Mono",monospace; font-size:.62rem; color:var(--muted);
     margin-top:.4rem; display:flex; align-items:center; gap:.35rem}
   .spec .laundered b{color:var(--amber); font-weight:500}
-  .spec .laundered .arr{color:var(--signal)}
+  .spec .laundered .arr{color:var(--signal); white-space:nowrap}
   #spec-volume{display:flex; align-items:flex-end; gap:1.2rem; flex-wrap:wrap;
     padding:.7rem 0 .2rem; font-family:"IBM Plex Mono",monospace; font-size:.62rem; color:var(--muted)}
   #spec-volume .spark{display:flex; align-items:flex-end; gap:2px; height:26px}
@@ -1263,16 +1263,26 @@ function placeCard(card, btn) {
   card.style.left = Math.min(Math.max(8, r.left), innerWidth - cw - 8) + 'px';
   card.style.top = (r.bottom + chh + 16 < innerHeight ? r.bottom + 8 : Math.max(8, r.top - chh - 8)) + 'px';
 }
-document.querySelectorAll('[data-claim]').forEach(el => {
-  const c = claimById[el.dataset.claim];
-  if (!c) return;
-  const btn = document.createElement('button');
-  btn.className = 'cite';
-  btn.textContent = '§';
-  btn.setAttribute('aria-label', 'show evidence for this claim');
-  el.appendChild(btn);
-  btn.addEventListener('click', e => { e.stopPropagation(); openEvidence(c, btn); });
-});
+function wireClaims(root = document) {
+  root.querySelectorAll('[data-claim]').forEach(el => {
+    if (el.querySelector(':scope > .cite')) return;
+    const c = claimById[el.dataset.claim];
+    if (!c) return;
+    const btn = document.createElement('button');
+    btn.className = 'cite';
+    btn.textContent = '§';
+    btn.setAttribute('aria-label', 'show evidence for this claim');
+    el.appendChild(btn);
+    btn.addEventListener('click', e => { e.stopPropagation(); openEvidence(c, btn); });
+  });
+}
+wireClaims();
+
+/* Several findings are rendered by JS after this point, and replacing an element's
+   innerHTML destroys any marker already injected into it. Every generated block calls
+   this afterwards; both injectors skip elements that already carry their button, so
+   calling it twice is free and forgetting it is what silently drops the evidence. */
+window.wireMarkers = root => { wireClaims(root); if (window.wireResearch) window.wireResearch(root); };
 
 /* ---- the research layer ----
    RESEARCH.md is the pre-submission record: what was published and withdrawn, what each
@@ -1314,7 +1324,7 @@ function openResearch(e, btn) {
   placeCard(evCard, btn);
   evCard.querySelector('.close').addEventListener('click', closeEvidence);
 }
-function wireResearch(root = document) {
+window.wireResearch = function wireResearch(root = document) {
   root.querySelectorAll('[data-research]').forEach(el => {
   if (el.querySelector(':scope > .rcite')) return;
   const e = RES[el.dataset.research];
@@ -1327,7 +1337,7 @@ function wireResearch(root = document) {
   el.appendChild(btn);
   btn.addEventListener('click', ev => { ev.stopPropagation(); openResearch(e, btn); });
   });
-}
+};
 wireResearch();
 
 /* ---- the record section: the same entries, laid out in full ---- */
@@ -1880,6 +1890,7 @@ try {
       `language, and items no lexicon covers read "unscored".</span> Our capture reads the mirror's English-language ` +
       `pages only, while CheckFirst's count covers every language — so nothing here shows what the mirror mostly runs on. ` +
       `<a href="explorer.html" style="color:var(--analyst)">Explore the full ecosystem →</a>`;
+    wireMarkers(document.getElementById('spec-note'));
   } catch { document.getElementById('specimens-sec').style.display = 'none'; }
 }
 
@@ -2099,7 +2110,7 @@ setTimeout(async () => {
       `<b>What this cannot show:</b> ${esc(PC.cannot_show)}` +
       `<span data-research="limit-c3"></span><span data-research="open-m6"></span>` +
       `<span data-research="rq3"></span>`;
-    wireResearch(document.getElementById('peer-note'));
+    wireMarkers(document.getElementById('peer-note').parentElement);
   }
 }
 
@@ -2152,7 +2163,7 @@ setTimeout(async () => {
       `it held before the election. This was an interruption in the Hungarian-language supply, ` +
       `<b>not a change of diet.</b> ` +
       `<b>Limits:</b> ${esc(DT.cannot_show)}`;
-    wireResearch(document.getElementById('diet-note').parentElement);
+    wireMarkers(document.getElementById('diet-note').parentElement);
   }
 }
 

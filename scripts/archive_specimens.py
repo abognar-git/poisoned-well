@@ -15,10 +15,11 @@ So each capture is merged into month-sharded JSONL under data/archive/:
 JSONL because a research dataset should be streamable, greppable and diffable without
 a parser, and because appending must never rewrite what is already there.
 
-Identity is (site, url) where a url exists and (site, date, title) where it does not —
-Telegram previews and card listings do not always expose a stable id. First-seen wins:
-an item already in the archive is never rewritten, so a headline edited upstream after
-we captured it leaves the original standing, with `first_seen` recording when we saw it.
+Identity is most-stable-first: the publisher's own `id` where there is one, then `url`,
+then `(date, title)`. The title is the last resort because it is the one field a repair
+can change — re-truncating an excerpt once forked a single item into two. First-seen wins:
+an archived item is not rewritten, and `first_seen` records when we observed it, which is
+not when it was published.
 
     python3 scripts/archive_specimens.py                 # merge the current capture
     python3 scripts/archive_specimens.py --backfill-git  # recover snapshots from git history

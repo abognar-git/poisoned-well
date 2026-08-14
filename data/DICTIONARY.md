@@ -85,7 +85,7 @@ Append-only, built by `scripts/capture_specimens.py` and merged by
 | `first_seen` | when this project first observed the item. **Not a publication time.** |
 | `title` | the captured text (see `unit`) |
 | `unit` | `headline` (mirror, outlets) · `post_excerpt` (Telegram, truncated to 120 chars) |
-| `lang` | `hu` · `cyr` · `lat`, from a crude script-and-function-word heuristic |
+| `lang` | `hu` · `cyr` · `lat` · `other`, from a crude script-and-function-word heuristic. `other` is any script neither lexicon covers, and is the only value that yields `unscored`. |
 | `theme` | one of five topics · `filler` (scored, matched nothing) · `unscored` (no lexicon for this language) |
 | `category` | the publisher's own section label, or the channel handle |
 | `source` | for mirror articles, the origin the mirror credits |

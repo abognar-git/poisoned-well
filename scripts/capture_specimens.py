@@ -212,7 +212,15 @@ def detect_lang(title: str) -> str:
     as such: it separates what the lexicons can score from what they cannot, and nothing
     downstream may treat it as a language-identification result."""
     cyr = sum(1 for c in title if "\u0400" <= c <= "\u04ff")
-    lat = sum(1 for c in title if c.isascii() and c.isalpha())
+    lat = sum(1 for c in title if c.isalpha() and not ("\u0400" <= c <= "\u04ff")
+              and ord(c) < 0x0370)
+    other = sum(1 for c in title if c.isalpha() and ord(c) >= 0x0370
+                and not ("\u0400" <= c <= "\u04ff"))
+    if other > cyr + lat:
+        # Greek, Georgian, Arabic, Korean — the network runs mirrors in all of them, and
+        # neither lexicon covers any. Returning "other" is what makes `unscored` reachable
+        # instead of a value the schema promises and the code can never produce.
+        return "other"
     if cyr > lat:
         return "cyr"
     low = title.lower()
@@ -226,7 +234,7 @@ def classify(title: str) -> tuple[str, str]:
     """(theme, lang). `unscored` where no lexicon covers the item's language — which is an
     honest gap, not a topic. `filler` now means "scored and matched nothing"."""
     lang = detect_lang(title)
-    lex = THEMES.get("cyr" if lang == "cyr" else "lat")
+    lex = THEMES.get("cyr") if lang == "cyr" else (None if lang == "other" else THEMES.get("lat"))
     if lex is None:
         return "unscored", lang
     hay = title.lower()
