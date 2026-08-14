@@ -79,25 +79,38 @@ jobs:
       - name: Validate claims
         run: python scripts/check_claims.py
 
-      # The README quotes census figures that move every time the mirror publishes, so
-      # they are synced from the fresh data and committed with it rather than left to
-      # rot or hand-edited hourly. --sync only rewrites figures registered in CLAIMS;
-      # a claim that stops appearing, or a correction that stops being cited, still
-      # fails — which is why the plain check runs straight afterwards.
-      - name: Sync the README's figures to the new data
+      # Census figures that move every time the mirror publishes are restated in prose in
+      # several documents, so they are synced from the fresh data and committed with it
+      # rather than left to rot or hand-edited hourly. --sync only rewrites figures
+      # registered in CLAIMS; a fragment that stops appearing, one that appears twice, or
+      # a correction that stops being cited still fails — which is why the plain check
+      # runs straight afterwards.
+      - name: Sync the registered figures to the new data
         run: python scripts/check_readme.py --sync
 
-      - name: Verify the README still holds
+      - name: Verify they still hold
         run: python scripts/check_readme.py
 
       - name: Commit refreshed data
         run: |
           git config user.name "poisoned-well data refresh"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/derived data/archive data/panel docs/figures README.md
+          git add data/derived data/archive data/panel docs/figures \
+                  README.md RESEARCH.md catalog/claims.json site/prototype/index.html
           if git diff --cached --stat --exit-code; then
             echo "No data changes."
           else
             git commit -m "data: scheduled refresh"
-            git push
           fi
+          # --sync writes wherever a registered fragment lives, and this add list is a
+          # hand-maintained subset of that. When the two drifted apart, the job synced
+          # four files, committed one, and pushed a tree that fails its own gate — and
+          # nothing caught it, because a GITHUB_TOKEN push does not trigger validate.yml.
+          # A dirty tree here means --sync touched a path nobody added.
+          if ! git diff --quiet; then
+            echo "::error::check_readme.py --sync modified tracked files that this job "\
+                 "does not commit. Add them to the git add list above:"
+            git diff --name-only
+            exit 1
+          fi
+          git push
