@@ -204,7 +204,7 @@ Everything rendered on the site carries a marker.
   pieces of framing cut from the paper, the two decisive tests not yet run.
 - Dotted terms resolve to `catalog/glossary.json` at first use.
 
-`.github/workflows/validate.yml` runs three gates on every push and pull request.
+`.github/workflows/validate.yml` runs four gates on every push and pull request.
 `check_catalog.py` validates the 24 case files and
 runs 47 fixtures against the personal-smear filter. `check_claims.py` fails if a
 `§` or `▲` marker does not resolve, if a catalog URL points at propaganda
@@ -215,6 +215,13 @@ its `CLAIMS` list — in this file, in `RESEARCH.md`, in the claims registry and
 the page — and fails if a correction stops being cited by commit. The same job runs
 `build_network.py --check` and re-derives `research.json` and the figures, failing
 if either parted company with its generator.
+
+The fourth is the one that matters most, and it is late. `check_readme.py` and
+`check_claims.py` both verify that a marker's id *resolves* — and an id inside an HTML
+comment, or one whose wiring call a refactor deleted, resolves perfectly and shows the
+reader nothing. `check_render.py` serves the tree, renders it in headless Chrome and
+counts what is in the DOM. Deleting one line of marker wiring drops a correction's ▲ and
+leaves the other three gates green; this one fails.
 
 ### Two rules the code enforces
 
@@ -495,6 +502,7 @@ python3 scripts/derive_feeder_index.py     # the 101-mirror credit graph -> data
 python3 scripts/check_catalog.py           # schema, sources, smear fixtures
 python3 scripts/check_claims.py            # markers, blocklist, corrections
 python3 scripts/check_readme.py            # this file's registered figures vs data/derived
+python3 scripts/check_render.py            # renders the page; asserts the markers are really there
 ```
 
 Then serve the repo and open the prototype — `python3 -m http.server 8000` in the
@@ -507,7 +515,7 @@ committed figures rather than breaking.
 **A note on the workflows.** `.github/workflows/refresh-data.yml` runs **hourly**:
 it re-fetches the upstream feed, re-derives, re-captures the live specimens, merges
 them into the archive, recomputes coverage, regenerates the figures, syncs this
-file's registered numbers, re-runs the gates, and commits only if the data changed.
+file's registered numbers, re-runs the gates, and commits. (It commits every run: three generators stamp a time unconditionally.)
 `rebuild-panel.yml` runs daily and is the only job that rebuilds `data/panel/` — the
 credit graph needs the full 101-domain manifest, which is too much to pull hourly.
 `validate.yml` runs the gates on every push. All three can also be run by hand from

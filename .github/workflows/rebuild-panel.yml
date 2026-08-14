@@ -9,6 +9,13 @@ on:
     - cron: "40 4 * * *"
   workflow_dispatch:
 
+# Both scheduled jobs commit to main and their start times drift by tens of minutes, so
+# they can and do overlap. Not cancel-in-progress: cancelling would discard the very data
+# the group exists to protect.
+concurrency:
+  group: main-commit
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -37,5 +44,6 @@ jobs:
             echo "No panel changes."
           else
             git commit -m "data: daily panel rebuild"
-            git push
+            git pull --rebase --autostash origin main
+          git push
           fi

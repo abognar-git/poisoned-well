@@ -49,7 +49,7 @@ AFTER = ["2026-05", "2026-06"]      # the two full months after it
 
 
 def main() -> int:
-    series, monthly, full_monthly = {}, {}, {}
+    series, monthly, full_monthly, daily = {}, {}, {}, {}
     for f in sorted(RAW.glob("*_viz.json")):
         d = json.loads(f.read_text())
         key = d["domain"].split(".")[0]
@@ -59,6 +59,9 @@ def main() -> int:
         for x in d["articlesPerDay"]:
             mon[x["date"][:7]].append(x["count"])
         monthly[key] = {m: round(statistics.mean(v), 1) for m, v in sorted(mon.items())}
+        # the daily series, for a recovery figure that does not depend on where a month
+        # boundary happens to fall relative to when cron ran
+        daily[key] = sorted((x["date"], x["count"]) for x in d["articlesPerDay"])
         # the first and last months are partial; their means are not comparable with a
         # full month, so the placebo sweep excludes them
         days = sorted({x["date"] for x in d["articlesPerDay"]})
@@ -70,10 +73,30 @@ def main() -> int:
         vals = [monthly[key][m] for m in months if m in monthly[key]]
         return statistics.mean(vals) if vals else None
 
+    # The recovery figure was read off max(monthly) — the very month excluded three lines
+    # above as partial, whose last day is an in-progress collection snapshot. It moved 81.1
+    # to 76.3 in four hours purely because a new day appeared, and on the first of a month
+    # it degenerates: run against a tree truncated at 2026-08-01 it prints "22/day = 9.0% of
+    # baseline", which the page would render beside a chart contradicting it. A trailing
+    # window of COMPLETE days answers the same question — what is it doing now — without
+    # depending on when cron last ran.
+    RECOVERY_DAYS = 30
+
+    def recent_rate(key):
+        days = daily.get(key) or []
+        if len(days) < 2:
+            return None, None, None
+        complete = days[:-1][-RECOVERY_DAYS:]          # drop the in-progress last day
+        if not complete:
+            return None, None, None
+        return (round(statistics.mean(c for _, c in complete), 1),
+                complete[0][0], complete[-1][0])
+
     rows = []
     for key in sorted(monthly):
         base, after = mean_of(key, BASELINE), mean_of(key, AFTER)
         latest_month = max(monthly[key])
+        rate, win_from, win_to = recent_rate(key)
         rows.append({
             "mirror": key,
             "domain": series[key]["domain"],
@@ -82,8 +105,12 @@ def main() -> int:
             "after_per_day": round(after, 1) if after else None,
             "change_pct": round((after - base) / base * 100, 1) if base else None,
             "latest_month": latest_month,
-            "latest_per_day": monthly[key][latest_month],
-            "recovery_pct_of_baseline": round(monthly[key][latest_month] / base * 100, 1) if base else None,
+            "latest_per_day": rate,
+            "recovery_window": [win_from, win_to],
+            "recovery_days": len([1 for _ in (daily.get(key) or [])[:-1][-RECOVERY_DAYS:]]),
+            "recovery_pct_of_baseline": round(rate / base * 100, 1) if (base and rate) else None,
+            # kept so the old framing stays inspectable rather than silently replaced
+            "latest_month_per_day": monthly[key][latest_month],
             "monthly": monthly[key],
         })
 

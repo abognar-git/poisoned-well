@@ -2201,7 +2201,10 @@ setTimeout(async () => {
       `of this as a reaction to the result would have to explain. ` +
       `Across the same months the six sibling mirrors moved <b>${C.peer_mean_change_pct > 0 ? '+' : ''}` +
       `${C.peer_mean_change_pct}%</b> on average, and not one fell by more than ` +
-      `${Math.abs(C.peer_min_change_pct)}%. It has since climbed back to ${T.latest_per_day}/day — ` +
+      // The window, in the same breath as the number. This used to read off the current
+      // month, which is partial by construction and moved five points between hourly runs.
+      `${Math.abs(C.peer_min_change_pct)}%. It has since climbed back to ${T.latest_per_day}/day ` +
+      `over the ${T.recovery_days} complete days to ${T.recovery_window[1]} — ` +
       `<b>${T.recovery_pct_of_baseline}%</b> of where it started. ` +
       `<b>And how much weight it carries:</b> ranked against every two-month window in the ` +
       `seven regional mirrors, this is the most extreme of ${PB ? PB.n_windows : '—'} ` +

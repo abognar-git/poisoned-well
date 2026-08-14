@@ -47,6 +47,13 @@ jobs:
       - name: Verify the README against the data it describes
         run: python scripts/check_readme.py
 
+      # The three gates above check that a marker's id RESOLVES. This one renders the page
+      # and counts what is actually in the DOM — an id inside a comment, or one whose
+      # wireMarkers() call was deleted in a refactor, satisfies the others and shows the
+      # reader nothing. ubuntu-latest ships Chrome; the script skips cleanly without one.
+      - name: Render assertion
+        run: python scripts/check_render.py
+
       # Only generators whose inputs are committed belong here. derive_convergence and
       # derive_peer_control read data/raw, which is gitignored and updates upstream
       # every hour, so re-running them on a checkout compares a live census against a

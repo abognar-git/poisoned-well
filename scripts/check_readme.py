@@ -207,8 +207,9 @@ def cross_file():
         ("catalog/claims.json",
          "'oroszokazigazsagoldalan' ({:,.0f} articles)", [hu["top_sources"][0]["count"]]),
         ("catalog/claims.json",
-         "It has since recovered to {:,.0f}/day, {:.1f}% of its pre-election baseline",
-         [tgt["latest_per_day"], tgt["recovery_pct_of_baseline"]]),
+         "It has since recovered to {:.1f}/day over the {:,.0f} complete days to "
+         + tgt["recovery_window"][1] + ", {:.1f}% of its pre-election baseline",
+         [tgt["latest_per_day"], tgt["recovery_days"], tgt["recovery_pct_of_baseline"]]),
         ("catalog/claims.json",
          "100+ articles on {:,.0f} of its {:,.0f} active days (median {:,.0f}/day)",
          [sum(1 for c in live if c >= 100), len(live), statistics.median(live)]),
