@@ -30,9 +30,11 @@ other people's audits and belongs on the website, not in our results.
 
 ## 2. Corrections already applied
 
-The review found four published claims that were wrong, and a fifth defect was found later in the specimen labels. All were verified against our own data and
-fixed before this plan was written. They are listed here because a reader of the repo history deserves
-to see them, and because each one is a lesson about the pipeline.
+The review found four published claims that were wrong. All four were verified against our own
+data and fixed before this plan was written. The fifth row is not one of them: the specimen
+labelling defect was found by this project thirty-five hours later, after the review had closed,
+and the `Found by` column says which is which. They are listed here because a reader of the repo
+history deserves to see them, and because each one is a lesson about the pipeline.
 
 | # | Claim as published | What the data says | Commit | Found by |
 |---|---|---|---|---|

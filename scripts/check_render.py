@@ -63,11 +63,22 @@ def free_port():
         return s.getsockname()[1]
 
 
-def serve(port):
-    """The pages are ES modules that fetch ../../data, so file:// cannot render them."""
+def serve(port, drop=None):
+    """The pages are ES modules that fetch ../../data, so file:// cannot render them.
+
+    `drop` 404s one path, which is how the degraded case gets exercised: three fetches on
+    index.html were unguarded, and guarding them exposed a second unguarded line that took
+    the whole provenance-census paragraph with it. That shipped because nothing rendered
+    the failure path — the verification was a marker count, and the markers were fine."""
     class Quiet(SimpleHTTPRequestHandler):
         def log_message(self, *a):    # one request line per asset drowns the result
             pass
+
+        def send_head(self):
+            if drop and self.path.split("?")[0].endswith(drop):
+                self.send_error(404)
+                return None
+            return super().send_head()
     handler = partial(Quiet, directory=str(ROOT))
     httpd = ThreadingHTTPServer(("127.0.0.1", port), handler)
     threading.Thread(target=httpd.serve_forever, daemon=True).start()
@@ -151,8 +162,55 @@ def main() -> int:
         errors.append(f"markers missing entirely: {n_cite} §, {n_term} dotted terms — the "
                       f"evidence layer did not run")
 
+    # ── the explorer, which this gate did not load at all. Both regressions that reached
+    # main from the QA fix set were on surfaces nothing rendered in CI: the origin axis
+    # returning zero for the links the page itself writes, and index.html printing
+    # "undefined" into prose once a guarded fetch failed.
+    port2 = free_port()
+    httpd = serve(port2)
+    time.sleep(0.3)
+    try:
+        base = f"http://127.0.0.1:{port2}/site/prototype/explorer.html"
+        counts = {h: re.search(r"([\d,]+) SPECIMENS", dom(chrome, base + "#" + h))
+                  for h in ("origin=News+Front+%28direct%29", "origin=news+front+%28direct%29",
+                            "theme=ukraine", "theme=Ukraine")}
+    finally:
+        httpd.shutdown()
+    got = {k: (m.group(1) if m else None) for k, m in counts.items()}
+    for a, b, what in (("origin=News+Front+%28direct%29", "origin=news+front+%28direct%29", "origin"),
+                       ("theme=ukraine", "theme=Ukraine", "theme")):
+        if got[a] != got[b]:
+            errors.append(f"explorer {what} filter is case-sensitive: {got[a]} vs {got[b]} — "
+                          f"a link the page writes and the same link retyped must agree")
+        elif got[a] in (None, "0"):
+            errors.append(f"explorer {what} filter returns {got[a]} for a label that exists")
+
+    # ── and the degraded path: one derived file missing must not print undefined/NaN into
+    # prose or silently delete a section.
+    port3 = free_port()
+    httpd = serve(port3, drop="live_status.json")
+    time.sleep(0.3)
+    try:
+        deg = dom(chrome, f"http://127.0.0.1:{port3}/site/prototype/index.html")
+    finally:
+        httpd.shutdown()
+    deg_body = re.sub(r"<script.*?</script>", "", deg, flags=re.S | re.I)
+    for bad in ("undefined", "NaN"):
+        if bad in deg_body:
+            errors.append(f"with live_status.json missing the page renders the literal "
+                          f"{bad!r} into prose")
+    if "zero times" not in deg_body:
+        errors.append("with live_status.json missing the provenance-census paragraph "
+                      "disappears — the page must degrade to baked figures, not to silence")
+    deg_cite = deg_body.count('class="cite"')
+    if deg_cite < n_cite - 2:
+        errors.append(f"with live_status.json missing the evidence layer drops to "
+                      f"{deg_cite} § from {n_cite}")
+
     print(f"check_render: {len(html):,} bytes of DOM | {n_cite} § · {n_rcite} ▲ "
           f"({n_correction_markers} corrections) · {n_term} dotted terms")
+    print(f"  explorer axes case-insensitive · degraded path {deg_cite} § and no "
+          f"undefined/NaN")
     if errors:
         print("FAIL:")
         for e in errors:
