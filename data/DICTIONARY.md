@@ -79,7 +79,7 @@ Append-only, built by `scripts/capture_specimens.py` and merged by
 |---|---|
 | `site` | capture source id (`pravda-hu`, `tg-rybar`, `rt-ru`, …) |
 | `tier` | `origin` (Telegram) · `launderer` (Pravda mirror) · `outlet` (sanctioned outlets) |
-| `date` | publication date where the listing gives one |
+| `date` | publication date where the listing gives one. Reaches back further than the collection window — front pages link to their own archives, so Zvezda alone contributes items from 2022. Use `first_seen` for when we saw it. |
 | `date_is_capture` | present and true when the listing gave **no** date and `date` is our capture day |
 | `published_at` | full ISO timestamp, Telegram only — minute resolution |
 | `first_seen` | when this project first observed the item. **Not a publication time.** |

@@ -32,6 +32,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "derived" / "latest_specimens.json"
+# The capped set above is what the page loads; this is everything the run actually saw.
+# The caps exist so a visitor is not sent a huge JSON — they were never meant to decide
+# what gets kept, and while the archive merged from the capped file they were throwing
+# away about two thirds of every capture before it could be archived.
+FULL = ROOT / "data" / "derived" / "last_harvest.json"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 FEATURED = 9
 MIN_PAYLOAD = 2
@@ -507,7 +512,7 @@ def main() -> int:
         # no publication date is indistinguishable from one that did, and the page would
         # be presenting our capture time as the article's date.
         return {k: r.get(k) for k in ("site", "id", "date", "published_at", "category", "title",
-                                      "theme", "lang", "unit", "source", "date_is_capture")
+                                      "theme", "lang", "unit", "source", "url", "date_is_capture")
                 if r.get(k) is not None}
 
     out = {
@@ -540,9 +545,20 @@ def main() -> int:
         "corpus": [strip(r) for r in corpus if r["url"] not in feat_urls],
     }
     OUT.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
+
+    # everything harvested this run, uncapped, for the archive to merge from
+    FULL.write_text(json.dumps({
+        "note": ("Every item this capture saw, before the per-source and corpus caps that "
+                 "shape the page. Written for scripts/archive_specimens.py; not read by the "
+                 "site. Overwritten each run — the archive is what keeps it."),
+        "captured_at": out["captured_at"],
+        "sources": out["sources"],
+        "items": [strip(r) for r in all_rows],
+    }, ensure_ascii=False) + "\n")
     by = {sid: sum(1 for r in corpus if r["site"] == sid) for sid in ok}
     for sid, why in sorted(PROBLEMS.items()):
         print(f"  ! {sid} ({SOURCES[sid]['tier']} tier) returned nothing: {why}")
+    print(f"last_harvest.json: {len(all_rows)} items harvested (uncapped)")
     print(f"latest_specimens.json: {len(corpus)} specimens across {len(ok)} sources {by}; "
           f"{len(featured)} featured; latest_day {latest_day} ({today_live} live)")
     return 0

@@ -34,6 +34,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 LATEST = ROOT / "data" / "derived" / "latest_specimens.json"
+# Prefer the uncapped harvest. Merging from the capped file discarded roughly two thirds
+# of every run before it reached the archive; LATEST stays the fallback for git backfill,
+# where only the capped file exists.
+FULL = ROOT / "data" / "derived" / "last_harvest.json"
 ARCHIVE = ROOT / "data" / "archive"
 FIELDS = ("site", "tier", "date", "published_at", "title", "theme", "lang", "unit",
           "category", "source", "url", "id", "date_is_capture", "first_seen")
@@ -88,7 +92,8 @@ def merge(snapshot, seen):
     tiers = {sid: s.get("tier") for sid, s in (snapshot.get("sources") or {}).items()}
     captured = snapshot.get("captured_at", "")
     fresh = []
-    for row in (snapshot.get("featured") or []) + (snapshot.get("corpus") or []):
+    for row in ((snapshot.get("items") or [])
+                or (snapshot.get("featured") or []) + (snapshot.get("corpus") or [])):
         if not row.get("title"):
             continue
         r = normalise(row, tiers, captured)
@@ -120,7 +125,14 @@ def reindex(shards):
                  "item, which is not necessarily when it was published."),
         "updated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "items": len(rows),
+        # Publication dates, which reach back further than this project does: a front page
+        # links to its own archive, so Zvezda alone contributes items from 2022. The
+        # observation window is what says how long we have been collecting, and conflating
+        # the two would present a two-week corpus as a four-year one.
         "first_date": dates[0], "last_date": dates[-1],
+        "published_range": [dates[0], dates[-1]],
+        "observed_range": [min(seen), max(seen)] if (seen := [r["first_seen"][:10]
+                            for r in rows if r.get("first_seen")]) else None,
         "months": {m: len(v) for m, v in sorted(shards.items())},
         "by_source": dict(Counter(r["site"] for r in rows).most_common()),
         "by_tier": dict(Counter(r.get("tier") or "unknown" for r in rows).most_common()),
@@ -178,8 +190,9 @@ def main() -> int:
     if a.backfill_git:
         backfill_git(seen, shards)
 
-    if LATEST.exists():
-        snap = json.loads(LATEST.read_text())
+    src_file = FULL if FULL.exists() else LATEST
+    if src_file.exists():
+        snap = json.loads(src_file.read_text())
         for r in merge(snap, seen):
             shards.setdefault(r.get("date", "unknown")[:7], []).append(r)
 

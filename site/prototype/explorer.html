@@ -104,6 +104,17 @@
   .mx td.cell{min-width:2.2rem}
 
   #list{margin-top:1.6rem}
+  /* The archive grows every hour; an unpaged list was already 694 rows and heading for
+     thousands, which makes the page unusable and every chart above it unreachable. */
+  #pager{display:flex; gap:.4rem; align-items:center; justify-content:center; flex-wrap:wrap;
+    margin:1.8rem 0 .4rem; font-family:"IBM Plex Mono",monospace; font-size:.66rem}
+  #pager button{font:inherit; letter-spacing:.06em; color:var(--muted); background:none;
+    border:1px solid var(--hairline); border-radius:2px; padding:.35em .7em; cursor:pointer}
+  #pager button:hover:not(:disabled){color:var(--paper); border-color:var(--muted)}
+  #pager button.on{color:var(--signal); border-color:var(--signal)}
+  #pager button:disabled{opacity:.3; cursor:default}
+  #pager .gap{color:var(--muted); padding:0 .2em}
+  #pager .of{color:var(--muted); margin-left:.6rem}
   #count{font-family:"IBM Plex Mono",monospace; font-size:.62rem; color:var(--muted);
     letter-spacing:.14em; margin:1.4rem 0 .4rem}
   .spec{display:grid; grid-template-columns:6rem 1fr; gap:.2rem 1rem; align-items:baseline;
@@ -239,6 +250,12 @@
   <div class="controls">
     <input id="q" type="search" placeholder="search the archive…" autocomplete="off" aria-label="search corpus">
     <div id="chips" style="display:flex;gap:.4rem;flex-wrap:wrap"></div>
+    <select id="pagesize" aria-label="items per page">
+      <option value="25">25 per page</option>
+      <option value="50" selected>50 per page</option>
+      <option value="100">100 per page</option>
+      <option value="150">150 per page</option>
+    </select>
     <select id="sort" aria-label="sort">
       <option value="new">newest first</option>
       <option value="old">oldest first</option>
@@ -268,6 +285,7 @@
 
   <div id="count"></div>
   <div id="list"></div>
+  <div id="pager" role="navigation" aria-label="corpus pages"></div>
   </div><!-- /#corpus-view -->
 
   <footer>
@@ -289,7 +307,8 @@ const safeUrl = u => /^https?:\/\//i.test(String(u || '')) ? String(u) : '';
 const fmt = n => Number(n).toLocaleString('en-US');
 const PAY = new Set(['hungary','ukraine','russia','eu/nato','energy']);
 const TIER_ORDER = ['origin','launderer','outlet'];
-const siteInfo = sid => { const s = (D.sources||{})[sid] || {}; return { cls: s.tier||'', label: s.label||sid, tier: s.tier }; };
+const siteInfo = sid => { const s = (D.sources||{})[sid] || {};
+  return { cls: s.tier||'', label: s.label||sid, tier: s.tier, attribution: s.attribution }; };
 const tierOf = s => siteInfo(s.site).tier;
 
 let D, live, ARCHIVE_IDX = null, ARCHIVE = [];
@@ -329,9 +348,11 @@ const ALL = ARCHIVE.length ? ARCHIVE : SNAPSHOT;
       cell(c.items - c.matched_a_topic, true) + `</tr>`;
   }
   el.innerHTML = ARCHIVE.length
-    ? `<p style="margin:.2rem 0 .9rem">This is <b>${n.toLocaleString()}</b> items captured between
-        <b>${ARCHIVE_IDX.first_date}</b> and <b>${ARCHIVE_IDX.last_date}</b> — every capture kept, not
-        just the latest. <b>${(ARCHIVE_IDX.by_unit.headline||0).toLocaleString()}</b> are headlines;
+    ? `<p style="margin:.2rem 0 .9rem">This is <b>${n.toLocaleString()}</b> items, collected between
+        <b>${(ARCHIVE_IDX.observed_range||[])[0]}</b> and <b>${(ARCHIVE_IDX.observed_range||[])[1]}</b> —
+        every capture kept, not just the latest. They carry publication dates from
+        <b>${ARCHIVE_IDX.first_date}</b> onward, because a front page links to its own archive;
+        that is the articles' age, not ours. <b>${(ARCHIVE_IDX.by_unit.headline||0).toLocaleString()}</b> are headlines;
         <b>${(ARCHIVE_IDX.by_unit.post_excerpt||0).toLocaleString()}</b> are Telegram post excerpts
         truncated to 120 characters. No article body text is collected.</p>
        <table style="font-size:.72rem;border-collapse:collapse;margin-bottom:.7rem">
@@ -363,6 +384,9 @@ const originChannel = s => tierOf(s) === 'origin' ? (s.category || '').toLowerCa
 const channelOf = s => creditedChannel(s) || originChannel(s);
 
 const state = { q:'', tier:'all', theme:'all', day:'all', origin:'all', channel:null };
+// any change to the selection resets paging — otherwise filtering down to 12 rows while
+// on page 9 shows an empty list and looks broken
+const reset = () => { page = 1; };
 const active = () => state.q||state.tier!=='all'||state.theme!=='all'||state.day!=='all'||state.origin!=='all'||state.channel;
 
 const filtered = () => ALL.filter(s =>
@@ -416,7 +440,7 @@ function themesChart(rows){
        <div class="track"><div class="fill" style="width:${n/max*100}%"></div></div>
        <div class="n">${n}</div></div>`).join('') || '<div class="empty">—</div>';
   [...$('themes').querySelectorAll('.hbar')].forEach(b =>
-    b.addEventListener('click', () => { state.theme = state.theme===b.dataset.t ? 'all' : b.dataset.t; render(); }));
+    b.addEventListener('click', () => { state.theme = state.theme===b.dataset.t ? 'all' : b.dataset.t; reset(); render(); }));
 }
 
 function daysChart(rows){
@@ -429,7 +453,7 @@ function daysChart(rows){
        <i style="height:${Math.max(3, counts[d]/max*62)}px"></i><span>${d.slice(5)}</span></div>`).join('')
     || '<div class="empty">—</div>';
   [...$('days').querySelectorAll('.day')].forEach(b =>
-    b.addEventListener('click', () => { state.day = state.day===b.dataset.d ? 'all' : b.dataset.d; render(); }));
+    b.addEventListener('click', () => { state.day = state.day===b.dataset.d ? 'all' : b.dataset.d; reset(); render(); }));
 }
 
 function matrix(rows){
@@ -450,25 +474,40 @@ function matrix(rows){
           return `<td class="cell" style="background:rgba(255,74,54,${n?(.08+.4*n/maxCell).toFixed(2):0})">${n||''}</td>`; }).join('')
       }<td style="color:var(--muted)">${v.n}</td></tr>`).join('');
   [...$('matrix').querySelectorAll('td.origin')].forEach(c =>
-    c.addEventListener('click', () => { state.origin = state.origin===c.dataset.o ? 'all' : c.dataset.o; render(); }));
+    c.addEventListener('click', () => { state.origin = state.origin===c.dataset.o ? 'all' : c.dataset.o; reset(); render(); }));
   [...$('matrix').querySelectorAll('th[data-t]')].forEach(h =>
-    h.addEventListener('click', () => { state.theme = state.theme===h.dataset.t ? 'all' : h.dataset.t; render(); }));
+    h.addEventListener('click', () => { state.theme = state.theme===h.dataset.t ? 'all' : h.dataset.t; reset(); render(); }));
 }
 
+let page = 1;
 function list(rows){
   const sort = $('sort').value;
   const sorted = [...rows];
   if (sort==='new') sorted.sort((a,b)=> a.date===b.date ? (b.id||0)-(a.id||0) : (a.date<b.date?1:-1));
   if (sort==='old') sorted.sort((a,b)=> a.date===b.date ? (a.id||0)-(b.id||0) : (a.date>b.date?1:-1));
   if (sort==='theme') sorted.sort((a,b)=> (a.theme>b.theme?1:-1));
-  $('count').textContent = `${sorted.length} SPECIMEN${sorted.length===1?'':'S'}` + (active() ? ' · FILTERED' : '');
-  $('list').innerHTML = sorted.map(s => {
+
+  const per = +$('pagesize').value;
+  const pages = Math.max(1, Math.ceil(sorted.length / per));
+  if (page > pages) page = pages;
+  const from = (page - 1) * per;
+  const slice = sorted.slice(from, from + per);
+
+  $('count').textContent = `${sorted.length} SPECIMEN${sorted.length===1?'':'S'}` +
+    (active() ? ' · FILTERED' : '') +
+    (pages > 1 ? ` · SHOWING ${from+1}–${from+slice.length}` : '');
+  pager(pages);
+  $('list').innerHTML = slice.map(s => {
     const site = siteInfo(s.site);
     const pay = PAY.has(s.theme);
     const lnd = site.tier === 'origin'
       ? `<div class="lnd">↳ origin — where the narrative starts</div>`
       : s.source ? `<div class="lnd">↳ laundered from <b>${esc(originOf(s))}</b></div>`
-      : (site.tier === 'outlet' ? `<div class="lnd">↳ Crimea-based, sanctioned outlet — direct</div>` : '');
+      // was hardcoded to News Front's description, which became wrong as soon as a second
+      // outlet joined the tier — it was labelling RT as Crimea-based
+      : (site.tier === 'outlet'
+         ? `<div class="lnd">↳ outlet tier — ${esc((site.attribution||'').replace(/^Russia — /,'')) || 'primary propaganda site'}</div>`
+         : '');
     return `<div class="spec">
       <div class="meta"><span class="cat">${esc(s.category)}</span><br>${esc(s.date)}</div>
       <div><span class="site ${site.cls}">${esc(site.label)} · ${esc(site.tier||'')}</span>
@@ -478,6 +517,27 @@ function list(rows){
           : pay ? 'target topic · '+esc(s.theme) : 'no target topic · filler'}</span>${lnd}</div>
     </div>`;
   }).join('') || '<div class="empty">No specimens match this selection.</div>';
+}
+
+/* Numbered pages with an ellipsis, so the control stays one line at any corpus size. */
+function pager(pages){
+  const el = $('pager');
+  if (pages < 2) { el.innerHTML = ''; return; }
+  const go = n => { page = n; render(); $('count').scrollIntoView({block:'start'}); };
+  const win = new Set([1, pages, page, page-1, page+1, page-2, page+2]);
+  let html = `<button data-p="${page-1}" ${page===1?'disabled':''}>‹ prev</button>`;
+  let last = 0;
+  for (let n = 1; n <= pages; n++) {
+    if (!win.has(n)) continue;
+    if (n - last > 1) html += `<span class="gap">…</span>`;
+    html += `<button data-p="${n}" class="${n===page?'on':''}">${n}</button>`;
+    last = n;
+  }
+  html += `<button data-p="${page+1}" ${page===pages?'disabled':''}>next ›</button>` +
+          `<span class="of">page ${page} of ${pages}</span>`;
+  el.innerHTML = html;
+  el.querySelectorAll('button[data-p]').forEach(b =>
+    b.addEventListener('click', () => { if (!b.disabled) go(+b.dataset.p); }));
 }
 
 function chips(){
@@ -505,7 +565,7 @@ function tierBoxes(rows){
       <div class="td">${esc(desc[t]||'')}<br><span style="opacity:.7">${esc(labels)}</span></div></div>`;
   }).join('');
   [...$('tierboxes').querySelectorAll('.tierbox')].forEach(b =>
-    b.addEventListener('click', () => { state.tier = state.tier===b.dataset.t ? 'all' : b.dataset.t; render(); }));
+    b.addEventListener('click', () => { state.tier = state.tier===b.dataset.t ? 'all' : b.dataset.t; reset(); render(); }));
 }
 
 const NS = 'http://www.w3.org/2000/svg';
@@ -534,7 +594,7 @@ function flow(){
     el('path', { d:`M ${lx} ${y} C ${(lx+mx)/2} ${y}, ${(lx+mx)/2} ${midY}, ${mx-8} ${midY+(y-midY)*.35}`,
       fill:'none', stroke:col, 'stroke-width':Math.max(1, c.credited/maxC*9), 'stroke-opacity':.5 });
     const lbl = el('text', {x:lx-10, y:y+4, 'text-anchor':'end', class:'chlbl', fill: c.tracked?'#6ea8d8':'#e9e4da'}, c.ch);
-    lbl.addEventListener('click', () => { state.channel = state.channel===c.ch ? null : c.ch; render(); });
+    lbl.addEventListener('click', () => { state.channel = state.channel===c.ch ? null : c.ch; reset(); render(); });
     el('text', {x:lx-10, y:y+16, 'text-anchor':'end', class:'sub'}, `${c.credited}×${c.tracked?' · ●live':''}`);
   });
   el('text', {x:lx-10, y:26, 'text-anchor':'end', fill:'#6ea8d8', 'font-size':10, 'letter-spacing':'1.5'}, 'TELEGRAM ORIGINS');
@@ -564,7 +624,7 @@ function bothEnds(){
       (origin.length ? origin.map(itHtml).join('') : '<div class="empty" style="padding:.5rem 0">We do not capture this channel\'s origin feed — only the mirror\'s credit to it.</div>') + `</div>` +
     `<div class="col mirror"><div class="h2">mirror articles crediting it ▶ (${mirror.length})</div>` +
       (mirror.length ? mirror.map(itHtml).join('') : '<div class="empty">—</div>') + `</div></div>`;
-  box.querySelector('.close').addEventListener('click', () => { state.channel = null; render(); });
+  box.querySelector('.close').addEventListener('click', () => { state.channel = null; reset(); render(); });
 }
 
 function render(){
@@ -625,11 +685,12 @@ document.querySelectorAll('.vtab').forEach(t => t.addEventListener('click', () =
   if (ai) aiRender();
 }));
 
-$('q').addEventListener('input', e => { state.q = e.target.value.trim().toLowerCase(); render(); });
-$('sort').addEventListener('change', render);
+$('q').addEventListener('input', e => { state.q = e.target.value.trim().toLowerCase(); reset(); render(); });
+$('sort').addEventListener('change', () => { reset(); render(); });
+$('pagesize').addEventListener('change', () => { reset(); render(); });
 $('clear').addEventListener('click', () => {
   state.q=''; state.tier='all'; state.theme='all'; state.day='all'; state.origin='all'; state.channel=null;
-  $('q').value=''; render();
+  $('q').value=''; reset(); render();
 });
 render();
 })();
