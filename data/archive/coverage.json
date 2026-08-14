@@ -1,0 +1,181 @@
+{
+ "note": "Coverage of this corpus, computed from the capture log rather than estimated. `within_window` is filter attrition inside one harvest; `between_runs` is sampling coverage across consecutive runs and is the number that bounds any claim made on the archive. Sources whose ids are not sequential (the outlet listings) cannot be measured this way and carry nulls.",
+ "generated": "2026-08-14T06:59:10+00:00",
+ "runs_logged": 2,
+ "first_run": "20260814T065530+0000",
+ "last_run": "20260814T065842+0000",
+ "measurable_sources": 0,
+ "coverage_between_runs": null,
+ "by_source": {
+  "newsfront-hu": {
+   "runs": 2,
+   "sequential_ids": false,
+   "within_window": null,
+   "issued_between_runs": null,
+   "captured_of_those": null,
+   "between_runs": null,
+   "ids_past_the_window": 0,
+   "empty_runs": 0
+  },
+  "newsfront-ru": {
+   "runs": 2,
+   "sequential_ids": false,
+   "within_window": null,
+   "issued_between_runs": null,
+   "captured_of_those": null,
+   "between_runs": null,
+   "ids_past_the_window": 0,
+   "empty_runs": 0
+  },
+  "pravda-hu": {
+   "runs": 2,
+   "sequential_ids": true,
+   "within_window": 0.9286,
+   "issued_between_runs": null,
+   "captured_of_those": null,
+   "between_runs": null,
+   "ids_past_the_window": 0,
+   "empty_runs": 0
+  },
+  "rt-ru": {
+   "runs": 2,
+   "sequential_ids": false,
+   "within_window": null,
+   "issued_between_runs": null,
+   "captured_of_those": null,
+   "between_runs": null,
+   "ids_past_the_window": 0,
+   "empty_runs": 0
+  },
+  "tg-baltnews": {
+   "runs": 2,
+   "sequential_ids": true,
+   "within_window": 0.9,
+   "issued_between_runs": null,
+   "captured_of_those": null,
+   "between_runs": null,
+   "ids_past_the_window": 0,
+   "empty_runs": 0
+  },
+  "tg-ebredes": {
+   "runs": 2,
+   "sequential_ids": true,
+   "within_window": 0.9,
+   "issued_between_runs": null,
+   "captured_of_those": null,
+   "between_runs": null,
+   "ids_past_the_window": 0,
+   "empty_runs": 0
+  },
+  "tg-greatawaken": {
+   "runs": 2,
+   "sequential_ids": true,
+   "within_window": 0.5263,
+   "issued_between_runs": null,
+   "captured_of_those": null,
+   "between_runs": null,
+   "ids_past_the_window": 0,
+   "empty_runs": 0
+  },
+  "tg-infodef": {
+   "runs": 2,
+   "sequential_ids": true,
+   "within_window": 0.75,
+   "issued_between_runs": null,
+   "captured_of_those": null,
+   "between_runs": null,
+   "ids_past_the_window": 0,
+   "empty_runs": 0
+  },
+  "tg-lomovka": {
+   "runs": 2,
+   "sequential_ids": true,
+   "within_window": 0.8,
+   "issued_between_runs": null,
+   "captured_of_those": null,
+   "between_runs": null,
+   "ids_past_the_window": 0,
+   "empty_runs": 0
+  },
+  "tg-oroszigazsag": {
+   "runs": 2,
+   "sequential_ids": true,
+   "within_window": 0.8182,
+   "issued_between_runs": null,
+   "captured_of_those": null,
+   "between_runs": null,
+   "ids_past_the_window": 0,
+   "empty_runs": 0
+  },
+  "tg-oroszkatonai": {
+   "runs": 2,
+   "sequential_ids": true,
+   "within_window": 0.45,
+   "issued_between_runs": null,
+   "captured_of_those": null,
+   "between_runs": null,
+   "ids_past_the_window": 0,
+   "empty_runs": 0
+  },
+  "tg-rybar": {
+   "runs": 2,
+   "sequential_ids": true,
+   "within_window": 0.5,
+   "issued_between_runs": null,
+   "captured_of_those": null,
+   "between_runs": null,
+   "ids_past_the_window": 0,
+   "empty_runs": 0
+  },
+  "tg-vilaghelyzete": {
+   "runs": 2,
+   "sequential_ids": true,
+   "within_window": 0.85,
+   "issued_between_runs": null,
+   "captured_of_those": null,
+   "between_runs": null,
+   "ids_past_the_window": 0,
+   "empty_runs": 0
+  },
+  "tg-zvezda": {
+   "runs": 2,
+   "sequential_ids": true,
+   "within_window": 0.6667,
+   "issued_between_runs": null,
+   "captured_of_those": null,
+   "between_runs": null,
+   "ids_past_the_window": 0,
+   "empty_runs": 0
+  },
+  "tsargrad": {
+   "runs": 2,
+   "sequential_ids": false,
+   "within_window": null,
+   "issued_between_runs": null,
+   "captured_of_those": null,
+   "between_runs": null,
+   "ids_past_the_window": 0,
+   "empty_runs": 0
+  },
+  "ukraina-ru": {
+   "runs": 2,
+   "sequential_ids": false,
+   "within_window": null,
+   "issued_between_runs": null,
+   "captured_of_those": null,
+   "between_runs": null,
+   "ids_past_the_window": 0,
+   "empty_runs": 0
+  },
+  "zvezda-tv": {
+   "runs": 2,
+   "sequential_ids": false,
+   "within_window": null,
+   "issued_between_runs": null,
+   "captured_of_those": null,
+   "between_runs": null,
+   "ids_past_the_window": 0,
+   "empty_runs": 0
+  }
+ }
+}

@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-08-14T06:44:49+00:00",
+  "captured_at": "2026-08-14T07:02:34+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -7,67 +7,81 @@
       "label": "Pravda network",
       "tier": "launderer",
       "lang": "en",
-      "attribution": "Russia — Portal Kombat / Pravda network (VIGINUM); a laundering mirror"
+      "attribution": "Russia — Portal Kombat / Pravda network (VIGINUM); a laundering mirror",
+      "case": "pravda-hungary",
+      "term": "pravda-network"
     },
     "rt-ru": {
       "label": "RT (Russian service)",
       "tier": "outlet",
       "lang": "ru",
-      "attribution": "Russia — RT, operated by ANO TV-Novosti: the operating entity is under EU, UK and US asset freezes; the EU's broadcasting suspension names other RT services, not this one"
+      "attribution": "Russia — RT, operated by ANO TV-Novosti: the operating entity is under EU, UK and US asset freezes; the EU's broadcasting suspension names other RT services, not this one",
+      "term": "rt"
     },
     "ukraina-ru": {
       "label": "Ukraina.ru",
       "tier": "outlet",
       "lang": "ru",
-      "attribution": "Russia — Ukraina.ru, a project of the state agency Rossiya Segodnya; the designations attach to the parent group, not to this outlet by name"
+      "attribution": "Russia — Ukraina.ru, a project of the state agency Rossiya Segodnya; the designations attach to the parent group, not to this outlet by name",
+      "term": "ukraina-ru"
     },
     "zvezda-tv": {
       "label": "Zvezda",
       "tier": "outlet",
       "lang": "ru",
-      "attribution": "Russia — Zvezda, the Ministry of Defence television channel; its operating company is under an EU asset freeze and the outlet is in the EU broadcasting-suspension annex"
+      "attribution": "Russia — Zvezda, the Ministry of Defence television channel; its operating company is under an EU asset freeze and the outlet is in the EU broadcasting-suspension annex",
+      "term": "zvezda"
     },
     "tsargrad": {
       "label": "Tsargrad TV",
       "tier": "outlet",
       "lang": "ru",
-      "attribution": "Russia — Tsargrad TV: the channel itself is under an EU asset freeze, its operator and parent under US designations, and its owner Konstantin Malofeev separately designated"
+      "attribution": "Russia — Tsargrad TV: the channel itself is under an EU asset freeze, its operator and parent under US designations, and its owner Konstantin Malofeev separately designated",
+      "term": "tsargrad"
     },
     "newsfront-ru": {
       "label": "News Front",
       "tier": "outlet",
       "lang": "ru",
-      "attribution": "Russia — News Front, Crimea-based; the outlet is US-sanctioned and its owner EU/Canada/US-sanctioned; a primary outlet"
+      "attribution": "Russia — News Front, Crimea-based; the outlet is US-sanctioned and its owner EU/Canada/US-sanctioned; a primary outlet",
+      "case": "newsfront-hungary",
+      "term": "news-front"
     },
     "newsfront-hu": {
       "label": "News Front",
       "tier": "outlet",
       "lang": "hu",
-      "attribution": "Russia — News Front, Crimea-based; the outlet is US-sanctioned and its owner EU/Canada/US-sanctioned; a primary outlet"
+      "attribution": "Russia — News Front, Crimea-based; the outlet is US-sanctioned and its owner EU/Canada/US-sanctioned; a primary outlet",
+      "case": "newsfront-hungary",
+      "term": "news-front"
     },
     "tg-oroszigazsag": {
       "label": "the Russians' truth side",
       "tier": "origin",
       "lang": "hu/ru",
-      "attribution": "Russia-aligned Telegram channel (@oroszokazigazsagoldalan) — a documented laundering origin"
+      "attribution": "Russia-aligned Telegram channel (@oroszokazigazsagoldalan) — a documented laundering origin",
+      "case": "pravda-hungary"
     },
     "tg-greatawaken": {
       "label": "Great Awakening Magyars",
       "tier": "origin",
       "lang": "hu/ru",
-      "attribution": "Russia-aligned Telegram channel (@greatawakeningmagyarok) — a documented laundering origin"
+      "attribution": "Russia-aligned Telegram channel (@greatawakeningmagyarok) — a documented laundering origin",
+      "case": "pravda-hungary"
     },
     "tg-ebredes": {
       "label": "Awakening 2017",
       "tier": "origin",
       "lang": "hu/ru",
-      "attribution": "Russia-aligned Telegram channel (@ebredes2017) — a documented laundering origin"
+      "attribution": "Russia-aligned Telegram channel (@ebredes2017) — a documented laundering origin",
+      "case": "pravda-hungary"
     },
     "tg-rybar": {
       "label": "Rybar — GRU-adjacent milblogger (HU)",
       "tier": "origin",
       "lang": "hu/ru",
-      "attribution": "Russia-aligned Telegram channel (@Rybar_HU) — a documented laundering origin"
+      "attribution": "Russia-aligned Telegram channel (@Rybar_HU) — a documented laundering origin",
+      "case": "pravda-hungary"
     },
     "tg-oroszkatonai": {
       "label": "“Russian special military operation”",
@@ -118,7 +132,7 @@
     "outlet"
   ],
   "latest_day": "2026-08-14",
-  "today_live_count": 62,
+  "today_live_count": 69,
   "corpus_count": 130,
   "featured": [
     {
@@ -136,63 +150,75 @@
       "url": "https://t.me/baltnews/73281"
     },
     {
-      "site": "pravda-hu",
-      "id": 44529,
+      "site": "tg-rybar",
+      "id": "7300",
       "date": "2026-08-14",
-      "category": "russia",
-      "title": "August 14 in Russia:. 1590 — The Swedish king granted significant lands of Sweden to the Novgorod nobleman Fyodor Baranov, who laid the foundation for the Von Baranov family. 1790 — The…",
-      "theme": "russia",
-      "lang": "lat",
+      "published_at": "2026-08-14T07:01:14+00:00",
+      "category": "Rybar_HU",
+      "title": "📝 A különleges katonai művelet krónikája 📝 2026. augusztus 13-án Az Orosz Fegyveres Erők egységei sorozatos, célzott…",
+      "theme": "ukraine",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 1306,
+      "more": "📝 A különleges katonai művelet krónikája 📝 2026. augusztus 13-án Az Orosz Fegyveres Erők egységei sorozatos, célzott támadásokat hajtottak végre az ellenség objektumaira a frontvonal közelében. Ukrán források szerint a Csernyihov régiót intenzívebb lövöldözés érte, a Szumi és Harkov régiók is erős tűz alatt állnak. Az ellenség kikötői infrastruktúrája továbbra is célpont. Az Ocsałów és Odessza…",
+      "url": "https://t.me/Rybar_HU/7300"
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44530,
+      "date": "2026-08-14",
+      "category": "world",
+      "title": "Due to the drought, a tugboat from the First World War appeared from the bottom of the river in Serbia.:",
+      "theme": "filler",
+      "lang": "hu",
       "unit": "headline",
-      "chars": 226,
-      "more": "August 14 in Russia:. 1590 — The Swedish king granted significant lands of Sweden to the Novgorod nobleman Fyodor Baranov, who laid the foundation for the Von Baranov family. 1790 — The Treaty of Verel was signed between Rus..",
       "source": {
-        "platform": "Telegram",
-        "channel": "fr0m_Russia_with_L0ve"
+        "platform": "MAX",
+        "channel": "dimsmirnov175"
       },
-      "url": "https://hungary.news-pravda.com/en/russia/2026/08/14/44529.html"
+      "url": "https://hungary.news-pravda.com/en/world/2026/08/14/44530.html"
     },
     {
       "site": "tg-oroszigazsag",
-      "id": "264305",
+      "id": "264306",
       "date": "2026-08-14",
-      "published_at": "2026-08-14T06:44:15+00:00",
+      "published_at": "2026-08-14T06:48:44+00:00",
       "category": "oroszokazigazsagoldalan",
-      "title": "Jó hírek Lettországból és a NATO-tól! Az ukrán drónokon lévő, Palantir-féle amerikai mesterséges intelligencia annyira…",
-      "theme": "eu/nato",
+      "title": "Rogyion Mirosnyik, az orosz külügyminisztérium különleges nagykövete szándékos háborús bűncselekménynek minősítette a…",
+      "theme": "ukraine",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 767,
-      "more": "Jó hírek Lettországból és a NATO-tól! Az ukrán drónokon lévő, Palantir-féle amerikai mesterséges intelligencia annyira okos, hogy ott repül, ahol akar. A gép egy adott pillanatban, miután érzékelte a mi elektronikai harcászati rendszereink besugárzási jelét (REB), irányt változtatott, kitérő manőverbe kezdett, és Lettországon keresztül tervezte meg az útvonalát. Azt gondolná az ember... de…",
-      "url": "https://t.me/oroszokazigazsagoldalan/264305"
+      "chars": 921,
+      "more": "Rogyion Mirosnyik, az orosz külügyminisztérium különleges nagykövete szándékos háborús bűncselekménynek minősítette a kijevi erők által az önjelölt Donyecki Népköztársaságban (Oroszországgal szövetséges köztársaság) közlekedő ingázóvonat elleni támadást. Kijelentette: „Az ukrán erők által az állomáson egy villamosvonat ellen elkövetett támadás, amelyben hat ember megsérült, szándékos háborús…",
+      "url": "https://t.me/oroszokazigazsagoldalan/264306"
     },
     {
       "site": "tg-zvezda",
-      "id": "25784",
+      "id": "25785",
       "date": "2026-08-14",
-      "published_at": "2026-08-14T06:05:49+00:00",
+      "published_at": "2026-08-14T07:00:52+00:00",
       "category": "zvezda_analytics",
-      "title": "$533 млн, 8 сорванных сроков и 0 снарядов. Администрация Байдена построила в Техасе завод General Dynamics, который…",
-      "theme": "ukraine",
+      "title": "Троянский контейнер: США записали 40 стран в сообщники Китая Белый дом включил более 40 государств, в том числе Канаду…",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 796,
-      "more": "$533 млн, 8 сорванных сроков и 0 снарядов. Администрация Байдена построила в Техасе завод General Dynamics, который должен был выпускать 155-мм снаряды для Украины и восполнения запасов США. Спустя 2 года предприятие не изготовило ни одного пригодного корпуса, выяснила ProPublica. Проект запускали в спешке, без конкурса и полноценной проверки турецкого оборудования. Роботы загорались и…",
-      "url": "https://t.me/zvezda_analytics/25784"
+      "chars": 782,
+      "more": "Троянский контейнер: США записали 40 стран в сообщники Китая Белый дом включил более 40 государств, в том числе Канаду, Мексику и Японию, в сеть повышенного риска по обходу антикитайских пошлин. В докладе «Большая афера с перевалкой грузов» утверждается, что товары из КНР слегка дорабатывают, переупаковывают или перемаркировывают в третьих странах, выдавая за местную продукцию. Возможный объём…",
+      "url": "https://t.me/zvezda_analytics/25785"
     },
     {
       "site": "tg-lomovka",
-      "id": "140036",
+      "id": "140037",
       "date": "2026-08-14",
-      "published_at": "2026-08-14T06:40:07+00:00",
+      "published_at": "2026-08-14T06:50:57+00:00",
       "category": "lomovkaa",
-      "title": "Прибалтийский суицид: на латвийском полигоне у границ России и Белоруссии идут военные учения Baltic Trust. На июльском…",
-      "theme": "ukraine",
+      "title": "❗️ Мосгорсуд приговорил к 23 годам колонии россиянина за шпионаж в пользу разведки Польши, сообщила ФСБ. Георгий…",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 943,
-      "more": "Прибалтийский суицид: на латвийском полигоне у границ России и Белоруссии идут военные учения Baltic Trust. На июльском саммите в Анкаре было принято решение о наращивании сил на восточном фланге НАТО. Теперь многонациональная бригада НАТО «Латвия» во главе с корпусом Royal Canadians отрабатывает разные модели нападения - от роя дронов до ядерного оружия. Военные учения на одном из крупнейших в…",
-      "url": "https://t.me/lomovkaa/140036"
+      "chars": 648,
+      "more": "❗️ Мосгорсуд приговорил к 23 годам колонии россиянина за шпионаж в пользу разведки Польши, сообщила ФСБ. Георгий Пирогов уехал из России после начала СВО. Почти сразу, находясь в Польше, он установил контакты с местной разведкой. Ему дали задание – собирать и передавать секретные данные о перспективных образцах вооружения, которые использует российская армия. У Пирогова были контакты среди…",
+      "url": "https://t.me/lomovkaa/140037"
     },
     {
       "site": "tg-infodef",
@@ -223,23 +249,12 @@
       "site": "ukraina-ru",
       "date": "2026-08-14",
       "category": "ukraina",
-      "title": "Суда, ж/д станция и склад в Броварах: Минобороны раскрыло новые цели ударов \"Гераней\"",
-      "theme": "russia",
+      "title": "Голодные игры по-украински: полки пустеют, а Зеленскому не до этого — только мобилизация",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260814/suda-zhd-stantsiya-i-sklad-v-brovarakh-minoborony-raskrylo-novye-tseli-udarov-geraney-1082477743.html",
+      "url": "https://ukraina.ru/20260814/golodnye-igry-po-ukrainski-polki-pusteyut-a-zelenskomu-ne-do-etogo--tolko-mobilizatsiya-1082460936.html",
       "date_is_capture": false
-    },
-    {
-      "site": "tsargrad",
-      "date": "2026-08-14",
-      "category": "tsargrad",
-      "title": "Сводка с фронтов СВО 14 августа: Оборону разбивают на куски. Планы генштаба рухнули",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/svodka-s-frontov-svo-14-avgusta-oboronu-razbivajut-na-kuski-plany-genshtaba-ruhnuli_1823981",
-      "date_is_capture": true
     }
   ],
   "corpus": [
@@ -286,6 +301,65 @@
       "url": "https://t.me/baltnews/73278"
     },
     {
+      "site": "tg-rybar",
+      "id": "7299",
+      "date": "2026-08-14",
+      "published_at": "2026-08-14T07:00:07+00:00",
+      "category": "Rybar_HU",
+      "title": "📝 A Krímért és Moszkváért felelősök 📝 Hogyan szerveznek támadásokat Oroszország ellen? Az ukrán támadások az orosz…",
+      "theme": "hungary",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 2603,
+      "more": "📝 A Krímért és Moszkváért felelősök 📝 Hogyan szerveznek támadásokat Oroszország ellen? Az ukrán támadások az orosz területen rendszeresen kérdéseket vetnek fel az olvasókban: „Hogyan?”, „Honnan?”, „Mivel?”, „Hogyan repülnek ilyen távolságokat?” . Az Oroszország feletti drónok számának hirtelen növekedésének oka nem csupán a termelési kapacitások bővítése. Emellett az ukrán fél különböző egységek…",
+      "url": "https://t.me/Rybar_HU/7299"
+    },
+    {
+      "site": "tg-rybar",
+      "id": "7298",
+      "date": "2026-08-14",
+      "published_at": "2026-08-14T06:59:07+00:00",
+      "category": "Rybar_HU",
+      "title": "📝 Kié a nagyobb jog? 📝 Válaszul Vladimir Putyin kijelentésére a brit hajók elleni illegális foglalásokra adott…",
+      "theme": "russia",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 1425,
+      "more": "📝 Kié a nagyobb jog? 📝 Válaszul Vladimir Putyin kijelentésére a brit hajók elleni illegális foglalásokra adott szimmetrikus válasz valószínűségéről, a britek óvatosan próbálták a \"nemzetközi jog\" árnyékában rejteni magukat , amely szerint állítólag ők működnek. Először is, felmerül a kérdés a brit hatóságok felé: ez a \"nemzetközi jog\", amire hivatkoznak, jelenleg velünk van ugyanitt? Másodszor…",
+      "url": "https://t.me/Rybar_HU/7298"
+    },
+    {
+      "site": "tg-rybar",
+      "id": "7297",
+      "date": "2026-08-14",
+      "published_at": "2026-08-14T06:58:36+00:00",
+      "category": "Rybar_HU",
+      "title": "📝 A terrorizmus nem egy bombával kezdődik 📝 Szevasztopolban az FSB munkatársai letartóztattak egy nőt, akit egy katona…",
+      "theme": "ukraine",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 2057,
+      "more": "📝 A terrorizmus nem egy bombával kezdődik 📝 Szevasztopolban az FSB munkatársai letartóztattak egy nőt, akit egy katona meggyilkolásával gyanúsítanak. A nyomozás szerint az ukrán titkosszolgálatok megbízásából járt el. A letartóztatott nő vallomást tesz, és nem bánja, amit tett. ➡️ Egyes információk szerint a célpont egy hadnagy, Robert Sagyev, aki 2014-ben átállt az orosz oldalra, és később a…",
+      "url": "https://t.me/Rybar_HU/7297"
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44529,
+      "date": "2026-08-14",
+      "category": "russia",
+      "title": "August 14 in Russia:. 1590 — The Swedish king granted significant lands of Sweden to the Novgorod nobleman Fyodor Baranov, who laid the foundation for the Von Baranov family. 1790 — The…",
+      "theme": "russia",
+      "lang": "lat",
+      "unit": "headline",
+      "chars": 226,
+      "more": "August 14 in Russia:. 1590 — The Swedish king granted significant lands of Sweden to the Novgorod nobleman Fyodor Baranov, who laid the foundation for the Von Baranov family. 1790 — The Treaty of Verel was signed between Rus..",
+      "source": {
+        "platform": "Telegram",
+        "channel": "fr0m_Russia_with_L0ve"
+      },
+      "url": "https://hungary.news-pravda.com/en/russia/2026/08/14/44529.html"
+    },
+    {
       "site": "pravda-hu",
       "id": 44528,
       "date": "2026-08-14",
@@ -314,6 +388,20 @@
         "channel": "SputnikInt"
       },
       "url": "https://hungary.news-pravda.com/en/world/2026/08/14/44527.html"
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "264305",
+      "date": "2026-08-14",
+      "published_at": "2026-08-14T06:44:15+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "Jó hírek Lettországból és a NATO-tól! Az ukrán drónokon lévő, Palantir-féle amerikai mesterséges intelligencia annyira…",
+      "theme": "eu/nato",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 767,
+      "more": "Jó hírek Lettországból és a NATO-tól! Az ukrán drónokon lévő, Palantir-féle amerikai mesterséges intelligencia annyira okos, hogy ott repül, ahol akar. A gép egy adott pillanatban, miután érzékelte a mi elektronikai harcászati rendszereink besugárzási jelét (REB), irányt változtatott, kitérő manőverbe kezdett, és Lettországon keresztül tervezte meg az útvonalát. Azt gondolná az ember... de…",
+      "url": "https://t.me/oroszokazigazsagoldalan/264305"
     },
     {
       "site": "tg-oroszigazsag",
@@ -400,18 +488,18 @@
       "url": "https://t.me/oroszokazigazsagoldalan/264297"
     },
     {
-      "site": "tg-oroszigazsag",
-      "id": "264296",
+      "site": "tg-zvezda",
+      "id": "25784",
       "date": "2026-08-14",
-      "published_at": "2026-08-14T05:24:18+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "A lett védelmi minisztérium közölte, hogy egy NATO-vadászgép lelőtt egy drónt az ország légterében: A lett légtérben…",
-      "theme": "eu/nato",
-      "lang": "hu",
+      "published_at": "2026-08-14T06:05:49+00:00",
+      "category": "zvezda_analytics",
+      "title": "$533 млн, 8 сорванных сроков и 0 снарядов. Администрация Байдена построила в Техасе завод General Dynamics, который…",
+      "theme": "ukraine",
+      "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 636,
-      "more": "A lett védelmi minisztérium közölte, hogy egy NATO-vadászgép lelőtt egy drónt az ország légterében: A lett légtérben, Balvi település felett a balti régió légterének őrzésében részt vevő NATO-vadászgépek sikeresen lelőttek egy külföldi drónt, amely orosz elektronikus hadviselési eszközök alkalmazásának eredményeként hatolt be Lettországba. Ugyanakkor a Nemzeti Fegyveres Erők közölték, hogy az…",
-      "url": "https://t.me/oroszokazigazsagoldalan/264296"
+      "chars": 796,
+      "more": "$533 млн, 8 сорванных сроков и 0 снарядов. Администрация Байдена построила в Техасе завод General Dynamics, который должен был выпускать 155-мм снаряды для Украины и восполнения запасов США. Спустя 2 года предприятие не изготовило ни одного пригодного корпуса, выяснила ProPublica. Проект запускали в спешке, без конкурса и полноценной проверки турецкого оборудования. Роботы загорались и…",
+      "url": "https://t.me/zvezda_analytics/25784"
     },
     {
       "site": "tg-zvezda",
@@ -454,6 +542,20 @@
       "chars": 361,
       "more": "В Воронежской области активистки женсовета изготовили партию окопных свечей Женсовет Воронежской области вновь подтверждает свой статус надежного волонтерского тыла. На этой неделе активистки изготовили 75 окопных свечей. В ближайшее время этот груз будет бережно упакован и отправлен на передовую. @dobroInform ⭐️ Звезда АНАЛИТИКА в ТГ 📬 Звезда АНАЛИТИКА в MAX",
       "url": "https://t.me/zvezda_analytics/25775"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "140036",
+      "date": "2026-08-14",
+      "published_at": "2026-08-14T06:40:07+00:00",
+      "category": "lomovkaa",
+      "title": "Прибалтийский суицид: на латвийском полигоне у границ России и Белоруссии идут военные учения Baltic Trust. На июльском…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 943,
+      "more": "Прибалтийский суицид: на латвийском полигоне у границ России и Белоруссии идут военные учения Baltic Trust. На июльском саммите в Анкаре было принято решение о наращивании сил на восточном фланге НАТО. Теперь многонациональная бригада НАТО «Латвия» во главе с корпусом Royal Canadians отрабатывает разные модели нападения - от роя дронов до ядерного оружия. Военные учения на одном из крупнейших в…",
+      "url": "https://t.me/lomovkaa/140036"
     },
     {
       "site": "tg-lomovka",
@@ -540,20 +642,6 @@
       "url": "https://t.me/lomovkaa/140028"
     },
     {
-      "site": "tg-lomovka",
-      "id": "140027",
-      "date": "2026-08-14",
-      "published_at": "2026-08-14T04:02:01+00:00",
-      "category": "lomovkaa",
-      "title": "Дочери Билла Гейтса грозит до 20 лет тюрьмы. 23-летняя Фиби Гейтс оказалась в центре федерального расследования в США.…",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1730,
-      "more": "Дочери Билла Гейтса грозит до 20 лет тюрьмы. 23-летняя Фиби Гейтс оказалась в центре федерального расследования в США. Ее модный шопинг-стартап Phia поймали на масштабных махинациях, а американские юристы уже подсчитывают потенциальный тюремный срок для наследницы миллиардера. Приложение Phia позиционировалось как удобный помощник для поиска скидок и покупок. Однако, как выяснилось, компания…",
-      "url": "https://t.me/lomovkaa/140027"
-    },
-    {
       "site": "tg-infodef",
       "id": "13996",
       "date": "2026-08-14",
@@ -568,14 +656,25 @@
       "url": "https://t.me/InfoDefMagyarok/13996"
     },
     {
+      "site": "tsargrad",
+      "date": "2026-08-14",
+      "category": "tsargrad",
+      "title": "Сводка с фронтов СВО 14 августа: Оборону разбивают на куски. Планы генштаба рухнули",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/svodka-s-frontov-svo-14-avgusta-oboronu-razbivajut-na-kuski-plany-genshtaba-ruhnuli_1823981",
+      "date_is_capture": true
+    },
+    {
       "site": "newsfront-ru",
       "date": "2026-08-14",
       "category": "news-front",
-      "title": "Силы ПВО за ночь сбили 553 БПЛА ВСУ – Минобороны",
-      "theme": "ukraine",
+      "title": "Жизнь на освобожденных территориях 14 августа (обновляется)",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://news-front.su/2026/08/14/sily-pvo-za-noch-sbili-553-bpla-vsu-minoborony/"
+      "url": "https://news-front.su/2026/08/14/zhizn-na-osvobozhdennyh-territoriyah-14-avgusta-obnovlyaetsya-3/"
     },
     {
       "site": "newsfront-hu",
@@ -602,11 +701,11 @@
       "site": "ukraina-ru",
       "date": "2026-08-14",
       "category": "ukraina",
-      "title": "В Донецке без света остались почти 30 тысяч абонентов",
-      "theme": "filler",
+      "title": "У Киева заканчиваются ракеты для ПВО - доклад Пентагона и Госдепа",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260814/v-donetske-bez-sveta-ostalis-pochti-30-tysyach-abonentov-1082477304.html",
+      "url": "https://ukraina.ru/20260814/u-kieva-zakanchivayutsya-rakety-dlya-pvo---doklad-pentagona-i-gosdepa-1082480110.html",
       "date_is_capture": false
     },
     {
@@ -624,11 +723,11 @@
       "site": "newsfront-ru",
       "date": "2026-08-14",
       "category": "news-front",
-      "title": "В порту Ленинградской области произошло возгорание из-за атаки БПЛА ВСУ",
-      "theme": "ukraine",
+      "title": "ВС РФ атаковали морские суда и жд станцию порта Измаил – Минобороны",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://news-front.su/2026/08/14/v-portu-leningradskoj-oblasti-proizoshlo-vozgoranie-iz-za-ataki-bpla-vsu/"
+      "url": "https://news-front.su/2026/08/14/vs-rf-atakovali-morskie-suda-i-zhd-stancziyu-porta-izmail-minoborony/"
     },
     {
       "site": "newsfront-hu",
@@ -644,22 +743,22 @@
       "site": "rt-ru",
       "date": "2026-08-14",
       "category": "rt",
-      "title": "В Финляндии вводили ограничения в воздушном пространстве из-за угрозы БПЛА",
-      "theme": "filler",
+      "title": "СК возбудил дело о теракте после атаки ВСУ на электричку в ДНР",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1669607-finlyandiya-ogranicheniya-polyoty",
+      "url": "https://russian.rt.com/ussr/news/1669618-delo-terakt-dnr",
       "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
       "date": "2026-08-14",
       "category": "ukraina",
-      "title": "Киев через посредников просит Россию прекратить атаки в море - Reuters",
-      "theme": "ukraine",
+      "title": "Суда, ж/д станция и склад в Броварах: Минобороны раскрыло новые цели ударов \"Гераней\"",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260814/kiev-cherez-posrednikov-prosit-rossiyu-prekratit-ataki-v-more---reuters-1082477124.html",
+      "url": "https://ukraina.ru/20260814/suda-zhd-stantsiya-i-sklad-v-brovarakh-minoborony-raskrylo-novye-tseli-udarov-geraney-1082477743.html",
       "date_is_capture": false
     },
     {
@@ -697,22 +796,22 @@
       "site": "rt-ru",
       "date": "2026-08-14",
       "category": "rt",
-      "title": "Число пострадавших при крушении поезда в Британии выросло до 20",
-      "theme": "filler",
+      "title": "Суд арестовал подозреваемую в подрыве военного МО России в Севастополе",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1669606-krushenie-poezd-britaniya",
+      "url": "https://russian.rt.com/russia/news/1669619-podozrevaemaya-podryv-sevastopol-arest",
       "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
       "date": "2026-08-14",
       "category": "ukraina",
-      "title": "Силы ПВО сбили над Россией за ночь более полутысячи украинских БПЛА",
-      "theme": "ukraine",
+      "title": "В Донецке без света остались почти 30 тысяч абонентов",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260814/sily-pvo-sbili-nad-rossiey-za-noch-bolee-polutysyachi-ukrainskikh-bpla-1082478161.html",
+      "url": "https://ukraina.ru/20260814/v-donetske-bez-sveta-ostalis-pochti-30-tysyach-abonentov-1082477304.html",
       "date_is_capture": false
     },
     {
@@ -730,11 +829,11 @@
       "site": "newsfront-ru",
       "date": "2026-08-14",
       "category": "news-front",
-      "title": "Жизнь на освобожденных территориях 14 августа (обновляется)",
-      "theme": "filler",
+      "title": "Силы ПВО за ночь сбили 553 БПЛА ВСУ – Минобороны",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://news-front.su/2026/08/14/zhizn-na-osvobozhdennyh-territoriyah-14-avgusta-obnovlyaetsya-3/"
+      "url": "https://news-front.su/2026/08/14/sily-pvo-za-noch-sbili-553-bpla-vsu-minoborony/"
     },
     {
       "site": "newsfront-hu",
@@ -750,22 +849,22 @@
       "site": "rt-ru",
       "date": "2026-08-14",
       "category": "rt",
-      "title": "Более 700 человек эвакуировали из-за лесного пожара в Испании",
-      "theme": "filler",
+      "title": "В Брянской области мирный житель получил ранения в результате атаки БПЛА ВСУ",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1669605-lesnoy-pozhar-aragon-evakuaciya",
+      "url": "https://russian.rt.com/ussr/news/1669615-zhitel-bryanskaya-oblast-ranenie",
       "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
       "date": "2026-08-14",
       "category": "ukraina",
-      "title": "Белгородскую область за сутки атаковали более 250 БПЛА, погиб человек",
-      "theme": "filler",
+      "title": "Киев через посредников просит Россию прекратить атаки в море - Reuters",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260814/belgorodskuyu-oblast-za-sutki-atakovali-bolee-250-bpla-pogib-chelovek-1082477578.html",
+      "url": "https://ukraina.ru/20260814/kiev-cherez-posrednikov-prosit-rossiyu-prekratit-ataki-v-more---reuters-1082477124.html",
       "date_is_capture": false
     },
     {
@@ -778,6 +877,16 @@
       "unit": "headline",
       "url": "https://tsargrad.tv/news/snova-gorit-port-ust-luga-drony-vsu-atakujut-lenoblast-glavnoe_1824026",
       "date_is_capture": true
+    },
+    {
+      "site": "newsfront-ru",
+      "date": "2026-08-14",
+      "category": "news-front",
+      "title": "В порту Ленинградской области произошло возгорание из-за атаки БПЛА ВСУ",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://news-front.su/2026/08/14/v-portu-leningradskoj-oblasti-proizoshlo-vozgoranie-iz-za-ataki-bpla-vsu/"
     },
     {
       "site": "newsfront-hu",
@@ -793,22 +902,22 @@
       "site": "rt-ru",
       "date": "2026-08-14",
       "category": "rt",
-      "title": "Разведка США заявила о нехватке личного состава в ВСУ",
-      "theme": "ukraine",
+      "title": "ФСБ: суд приговорил россиянина к 23 годам колонии за шпионаж в пользу Польши",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1669608-razvedka-ssha-nehvatka-vsu",
+      "url": "https://russian.rt.com/russia/news/1669613-sud-shpionazh-polsha",
       "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
       "date": "2026-08-14",
       "category": "ukraina",
-      "title": "Силы ПВО ночью уничтожили в Ростовской области около 20 БПЛА",
+      "title": "Политолог о крахе Америки: США превращаются в неуправляемого монстра с ядерным оружием",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260814/sily-pvo-nochyu-unichtozhili-v-rostovskoy-oblasti-okolo-20-bpla-1082475350.html",
+      "url": "https://ukraina.ru/20260814/politolog-o-krakhe-ameriki-ssha-prevraschayutsya-v-neupravlyaemogo-monstra-s-yadernym-oruzhiem-1082471375.html",
       "date_is_capture": false
     },
     {
@@ -825,22 +934,22 @@
       "site": "rt-ru",
       "date": "2026-08-14",
       "category": "rt",
-      "title": "Синоптик Шувалов: в ближайшие дни в Москву вернётся тепло",
-      "theme": "russia",
+      "title": "Разведка США оценила сроки восстановления повреждённых электростанций Украины",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/nopolitics/news/1669600-sinoptik-teplo-moskva",
+      "url": "https://russian.rt.com/world/news/1669614-razvedka-ssha-energetika-ukrainy",
       "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
       "date": "2026-08-14",
       "category": "ukraina",
-      "title": "Число сбитых в Ленобласти БПЛА выросло до 51. В порту Усть-Луга возгорание",
-      "theme": "filler",
+      "title": "Дробницкий о стратегии Брюсселя: \"Ядро руководства Евросоюза даже не говорит о мире\"",
+      "theme": "eu/nato",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260814/chislo-sbitykh-v-lenoblasti-bpla-vyroslo-do-51-v-portu-ust-luga-vozgoranie-1082474980.html",
+      "url": "https://ukraina.ru/20260814/drobnitskiy-o-strategii-bryusselya-yadro-rukovodstva-evrosoyuza-dazhe-ne-govorit-o-mire-1082470905.html",
       "date_is_capture": false
     },
     {
@@ -857,22 +966,22 @@
       "site": "rt-ru",
       "date": "2026-08-14",
       "category": "rt",
-      "title": "РИА Новости: спецслужбы Украины пытаются вербовать пенсионеров в Сумской области",
-      "theme": "ukraine",
+      "title": "В Финляндии вводили ограничения в воздушном пространстве из-за угрозы БПЛА",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1669601-otpuska-liderov-evropy-krizisy",
+      "url": "https://russian.rt.com/world/news/1669610-derevnya-germaniya-lesnoy-pozhar",
       "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
       "date": "2026-08-14",
       "category": "ukraina",
-      "title": "Для чего NASA включило Крым в состав России: Хавич объяснил, какие сигналы Трамп посылает Путину",
-      "theme": "russia",
+      "title": "Силы ПВО сбили над Россией за ночь более полутысячи украинских БПЛА",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260814/dlya-chego-nasa-vklyuchilo-krym-v-sostav-rossii-khavich-obyasnil-kakie-signaly-tramp-posylaet-putinu-1082476109.html",
+      "url": "https://ukraina.ru/20260814/sily-pvo-sbili-nad-rossiey-za-noch-bolee-polutysyachi-ukrainskikh-bpla-1082478161.html",
       "date_is_capture": false
     },
     {
@@ -1030,21 +1139,6 @@
       "url": "https://hungary.news-pravda.com/en/russia/2026/08/13/44523.html"
     },
     {
-      "site": "pravda-hu",
-      "id": 44522,
-      "date": "2026-08-13",
-      "category": "russia",
-      "title": "The main news for this hour:",
-      "theme": "filler",
-      "lang": "lat",
-      "unit": "headline",
-      "source": {
-        "platform": "MAX",
-        "channel": "ria"
-      },
-      "url": "https://hungary.news-pravda.com/en/russia/2026/08/13/44522.html"
-    },
-    {
       "site": "tg-oroszkatonai",
       "id": "42350",
       "date": "2026-08-13",
@@ -1191,20 +1285,6 @@
       "chars": 1079,
       "more": "ХЕЛЬСИНСКИЙ РЕВАНШ: ГИБРИДНАЯ ВОЙНА В \"ОСИ\" НАТО ▪️ «Самая счастливая в мире страна» лидирует в потреблении антидепрессантов. В чем причина? При чем тут русофобская риторика Хельсинки ▪️ Ядерное оружие, базы НАТО и реванш за Карелию: зачем Финляндия так спешит стать форпостом альянса. Кто стоит за этим ▪️ Западная практика объявлять персонами «нон-грата» за правду о Донбассе. Как преследуют…",
       "url": "https://t.me/zvezda_analytics/25772"
-    },
-    {
-      "site": "tg-zvezda",
-      "id": "25771",
-      "date": "2026-08-13",
-      "published_at": "2026-08-13T14:32:20+00:00",
-      "category": "zvezda_analytics",
-      "title": "АРМИЯ РОССИИ: УКРАИНЕ ПЕРЕКРЫЛИ МОРЕ, ДАЛЕЕ – КОСМОС ◾️ Какими реальными возможностями сегодня обладает Запад для…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1322,
-      "more": "АРМИЯ РОССИИ: УКРАИНЕ ПЕРЕКРЫЛИ МОРЕ, ДАЛЕЕ – КОСМОС ◾️ Какими реальными возможностями сегодня обладает Запад для поддержания украинского конфликта? ◾️ Украина заблокирована с моря. Спонсоры Киева грозят нашему торговому флоту. Как ответит Россия? ◾️ Зачем британские военные говорят о готовности диалога с нашим Генштабом, и у кого сегодня «позиция силы»? ◾️ Какой будет грядущая зима для Украины в…",
-      "url": "https://t.me/zvezda_analytics/25771"
     },
     {
       "site": "tg-greatawaken",
@@ -1508,11 +1588,33 @@
       "site": "zvezda-tv",
       "date": "2026-08-13",
       "category": "zvezda",
-      "title": "Российские войска поразили дронами нефтебазу в Измаиле",
-      "theme": "russia",
+      "title": "В группировке «Запад» перекрыли «ждунами» пути движения диверсантов ВСУ",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20268131141-QT794.html",
+      "url": "https://tvzvezda.ru/news/20268131346-kXh8Z.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-08-13",
+      "category": "zvezda",
+      "title": "Опубликованы кадры боев за Петровку в ДНР",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20268131248-olwcO.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-08-13",
+      "category": "zvezda",
+      "title": "ВС РФ ударили дронами по локомотивам в Одесской области и Запорожье",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20268131216-HjrLW.html",
       "date_is_capture": false
     },
     {
@@ -1546,16 +1648,6 @@
       "url": "https://news-front.su/2026/08/13/aktualnaya-informacziya-ob-obstanovke-na-linii-fronta-13-avgusta-obnovlyaetsya-2/"
     },
     {
-      "site": "newsfront-ru",
-      "date": "2026-08-13",
-      "category": "news-front",
-      "title": "Жизнь на освобожденных территориях 13 августа (обновляется)",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://news-front.su/2026/08/13/zhizn-na-osvobozhdennyh-territoriyah-13-avgusta-obnovlyaetsya-3/"
-    },
-    {
       "site": "tg-rybar",
       "id": "7291",
       "date": "2026-08-12",
@@ -1582,20 +1674,6 @@
       "chars": 1105,
       "more": "🖌 Boldog Légierő Napot! Az orosz légierő létrehozásának kiindulópontjának általában a 1912. augusztus 12-ét (július 30-át) tekintik: ekkor az cári hadsereg főhadiszállásának központi igazgatóságában létrejött a Légihajózási Osztály, amelynek minden repüléssel kapcsolatos ügyet átadtak. Napjainkban az orosz fegyveres erőket egyszerűen nem lehet elképzelni a légierő nélkül. Óriási mennyiségű…",
       "url": "https://t.me/Rybar_HU/7288"
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7282",
-      "date": "2026-08-12",
-      "published_at": "2026-08-12T04:33:31+00:00",
-      "category": "Rybar_HU",
-      "title": "📝 A különleges katonai művelet krónikája 📝 2026. augusztus 11-én 🧨 Az orosz erők drónokkal támadták meg egy…",
-      "theme": "ukraine",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 2690,
-      "more": "📝 A különleges katonai művelet krónikája 📝 2026. augusztus 11-én 🧨 Az orosz erők drónokkal támadták meg egy áruszolgáltató állomást a harkovi régióban, Pervomajszkij közelében, valamint egy \"Nova Posta\" teherfuvarozó telepet Volnyanszk**ban, a zaporizzsjai régióban, és a **\"Zaporozstal\" gyárat az azonos nevű városban. Robbanások hallatszottak Kijevben, valamint a szumijai, poltavai és harkovi…",
-      "url": "https://t.me/Rybar_HU/7282"
     },
     {
       "site": "tg-vilaghelyzete",
@@ -1709,86 +1787,22 @@
       "site": "zvezda-tv",
       "date": "2026-08-12",
       "category": "zvezda",
-      "title": "Российский космонавт показал солнечное затмение с высоты 400 км",
-      "theme": "russia",
+      "title": "Опубликованы кадры штурма Водяного в Харьковской области",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20268122233-EKCaq.html",
+      "url": "https://tvzvezda.ru/news/20268121328-Td3iz.html",
       "date_is_capture": false
     },
     {
       "site": "zvezda-tv",
       "date": "2026-08-12",
       "category": "zvezda",
-      "title": "В США создали отдел по борьбе с родильным туризмом",
+      "title": "МО РФ показало кадры поражения боевиков авиабомбами ФАБ-500",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20268122042-g8cvb.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7281",
-      "date": "2026-08-11",
-      "published_at": "2026-08-11T19:19:45+00:00",
-      "category": "Rybar_HU",
-      "title": "📝 Az apokalipszis automatikus üzemmódban 📝 Washingtonban vitatják a nukleáris fenyegetések automatizálását A War on the…",
-      "theme": "hungary",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 3721,
-      "more": "📝 Az apokalipszis automatikus üzemmódban 📝 Washingtonban vitatják a nukleáris fenyegetések automatizálását A War on the Rocks szerzői – a Carnegie Mellon Egyetem és a Nemzetközi Kapcsolatok Tanácsa kutatói – publikáltak egy cikket a nukleáris fegyverek alkalmazásáról szóló döntések potenciális átruházásáról mesterséges intelligencia rendszerekre. A cikk kiindulópontja a szovjet „Perimeter” (Dead…",
-      "url": "https://t.me/Rybar_HU/7281"
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7280",
-      "date": "2026-08-11",
-      "published_at": "2026-08-11T19:10:44+00:00",
-      "category": "Rybar_HU",
-      "title": "📝 Egy támadás története 📝 A korábbi bejegyzésekben objektív felvételeket mutattunk be, amelyek a gyalogság és a…",
-      "theme": "ukraine",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 1334,
-      "more": "📝 Egy támadás története 📝 A korábbi bejegyzésekben objektív felvételeket mutattunk be, amelyek a gyalogság és a technika tömeges megsemmisítését ábrázolják. Azonban nem minden ilyen videó anonim – egyesek mögött egész történetek húzódnak, amelyek külön figyelmet érdemelnek. ➡️ Egy kiemelkedő példa a közelmúltból: egy orosz FPV-drón operatőr nyomon követte és eltalálta azt az ukrán alakulat…",
-      "url": "https://t.me/Rybar_HU/7280"
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7279",
-      "date": "2026-08-11",
-      "published_at": "2026-08-11T19:09:32+00:00",
-      "category": "Rybar_HU",
-      "title": "📝 A határvidéken való előrejutás 📝 A \"Észak\" csoportba tartozó orosz katonai egységek a viszonylagos nyugalmi időszak…",
-      "theme": "ukraine",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 2096,
-      "more": "📝 A határvidéken való előrejutás 📝 A \"Észak\" csoportba tartozó orosz katonai egységek a viszonylagos nyugalmi időszak után ismét aktív harcokat folytatnak a Szlobodzanszkij irányon . A védelmi minisztérium szerint a Scserbakivka település orosz fegyveres erők ellenőrzése alá került. Ez a település a Kazacsa Lopan település keleti részén található, ahol továbbra is heves harcok zajlanak. ➡️ Ha az…",
-      "url": "https://t.me/Rybar_HU/7279"
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2023-04-25",
-      "category": "zvezda",
-      "title": "В Военном университете имени Невского обсудили опыт спецоперации при подготовке офицеров",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20234251650-J1F5j.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2022-11-21",
-      "category": "zvezda",
-      "title": "Освоить боевую машину: как экипажи БМП тренируются на полигоне в зоне спецоперации",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/202211211630-qn1TB.html",
+      "url": "https://tvzvezda.ru/news/20268121012-0AFWF.html",
       "date_is_capture": false
     }
   ]

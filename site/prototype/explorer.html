@@ -107,6 +107,11 @@
      and says plainly how much of the post that is — a card that looked complete when it is
      not would be a worse lie than the truncation it explains. */
   .spec .frac{cursor:help; position:relative}
+  .spec .cf{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:.56rem;
+    letter-spacing:.1em; text-transform:uppercase; color:var(--analyst); text-decoration:none;
+    border:1px solid rgba(110,168,216,.3); border-radius:2px; padding:.2em .5em;
+    margin:.35rem .35rem 0 0}
+  .spec .cf:hover{border-color:var(--analyst)}
   .spec .frac:hover,.spec .frac.open{color:var(--paper); opacity:1}
   .peek{position:fixed; z-index:96; max-width:min(34rem, calc(100vw - 2rem));
     background:#0c111a; border:1px solid var(--hairline); border-left:2px solid var(--amber);
@@ -132,6 +137,11 @@
   #pager button:disabled{opacity:.3; cursor:default}
   #pager .gap{color:var(--muted); padding:0 .2em}
   #pager .of{color:var(--muted); margin-left:.6rem}
+  #export{display:flex; justify-content:center; margin:.6rem 0 2rem}
+  #export button{font-family:"IBM Plex Mono",monospace; font-size:.64rem; letter-spacing:.1em;
+    color:var(--signal); background:none; border:1px solid var(--signal); border-radius:2px;
+    padding:.5em 1.1em; cursor:pointer}
+  #export button:hover{background:rgba(255,74,54,.1)}
   #count{font-family:"IBM Plex Mono",monospace; font-size:.62rem; color:var(--muted);
     letter-spacing:.14em; margin:1.4rem 0 .4rem}
   .spec{display:grid; grid-template-columns:6rem 1fr; gap:.2rem 1rem; align-items:baseline;
@@ -303,6 +313,7 @@
   <div id="count"></div>
   <div id="list"></div>
   <div id="pager" role="navigation" aria-label="corpus pages"></div>
+  <div id="export"></div>
   </div><!-- /#corpus-view -->
 
   <footer>
@@ -325,7 +336,8 @@ const fmt = n => Number(n).toLocaleString('en-US');
 const PAY = new Set(['hungary','ukraine','russia','eu/nato','energy']);
 const TIER_ORDER = ['origin','launderer','outlet'];
 const siteInfo = sid => { const s = (D.sources||{})[sid] || {};
-  return { cls: s.tier||'', label: s.label||sid, tier: s.tier, attribution: s.attribution }; };
+  return { cls: s.tier||'', label: s.label||sid, tier: s.tier, attribution: s.attribution,
+           case: s.case, term: s.term }; };
 const tierOf = s => siteInfo(s.site).tier;
 
 let D, live, ARCHIVE_IDX = null, ARCHIVE = [];
@@ -401,6 +413,28 @@ const originChannel = s => tierOf(s) === 'origin' ? (s.category || '').toLowerCa
 const channelOf = s => creditedChannel(s) || originChannel(s);
 
 const state = { q:'', tier:'all', theme:'all', day:'all', origin:'all', channel:null };
+
+/* The whole selection lives in the URL, so a filtered view is something a reporter can
+   send to an editor and a researcher can cite. Read once on load, rewritten on change. */
+function readUrl(){
+  const h = new URLSearchParams(location.hash.slice(1));
+  for (const k of ['q','tier','theme','day','origin']) if (h.has(k)) state[k] = h.get(k);
+  if (h.has('channel')) state.channel = h.get('channel');
+  if (h.has('page')) page = Math.max(1, +h.get('page') || 1);
+  if (h.has('per')) { const v = h.get('per'); if (['25','50','100','150'].includes(v)) urlPer = v; }
+}
+function writeUrl(){
+  const h = new URLSearchParams();
+  for (const k of ['q','tier','theme','day','origin'])
+    if (state[k] && state[k] !== 'all') h.set(k, state[k]);
+  if (state.channel) h.set('channel', state.channel);
+  if (page > 1) h.set('page', page);
+  const per = $('pagesize') && $('pagesize').value;
+  if (per && per !== '50') h.set('per', per);
+  const q = h.toString();
+  history.replaceState(null, '', q ? '#' + q : location.pathname);
+}
+let urlPer = null;
 // any change to the selection resets paging — otherwise filtering down to 12 rows while
 // on page 9 shows an empty list and looks broken
 const reset = () => { page = 1; };
@@ -532,6 +566,10 @@ function list(rows){
           s.chars ? `<div class="frac" data-peek="${esc(s.site+'|'+(s.id||s.title.slice(0,40)))}">first ${s.title.length} of ${s.chars.toLocaleString()} characters of the post${s.more ? ' · hover to read more' : ''}</div>`
           : (s.unit === 'post_excerpt' && /…$/.test(s.title||'')
              ? `<div class="frac">opening of a longer post · full length not recorded for this capture</div>` : '')}
+        ${site.case || site.term
+          ? `<a class="cf" href="index.html#${site.case ? 'act2' : 'glossary'}" title="${
+              site.case ? 'open the case file for this source' : 'this source has a sourced glossary entry but no case file of its own'}">${
+              site.case ? '▸ case file' : '▸ glossary entry'}</a>` : ''}
         <span class="tag ${pay?'pay':''}">${
           s.theme === 'unscored' ? 'unscored · no lexicon for this language'
           : pay ? 'target topic · '+esc(s.theme) : 'no target topic · filler'}</span>${lnd}</div>
@@ -539,6 +577,10 @@ function list(rows){
   }).join('') || '<div class="empty">No specimens match this selection.</div>';
   const byKey = new Map(slice.map(x => [x.site+'|'+(x.id||x.title.slice(0,40)), x]));
   wirePeek($('list'), k => byKey.get(k));
+  $('export').innerHTML = sorted.length
+    ? `<button type="button">↓ export these ${sorted.length.toLocaleString()} as a dossier</button>` : '';
+  const b = $('export').querySelector('button');
+  if (b) b.addEventListener('click', () => exportDossier(sorted));
 }
 
 /* Numbered pages with an ellipsis, so the control stays one line at any corpus size. */
@@ -579,6 +621,74 @@ function wirePeek(root, lookup) {
 }
 addEventListener('scroll', closePeek, { passive: true });
 addEventListener('click', closePeek);
+
+/* ---- dossier export ----
+   A self-contained HTML file of the current selection, for someone who has to show an
+   editor or a lawyer what they found. The method and the limits go at the TOP, in the
+   same weight as the content: a clean letterheaded page of forty propaganda headlines
+   gets quoted as a finding, and it is not one. No propaganda domain is linked. */
+function exportDossier(rows){
+  const now = new Date().toISOString().replace('T',' ').slice(0,16) + ' UTC';
+  const filt = [];
+  if (state.q) filt.push(`search “${state.q}”`);
+  for (const k of ['tier','theme','day','origin'])
+    if (state[k] && state[k] !== 'all') filt.push(`${k}: ${state[k]}`);
+  if (state.channel) filt.push(`channel: ${state.channel}`);
+
+  const item = s => {
+    const site = siteInfo(s.site);
+    return `<article>
+      <div class="m">${esc(s.date)}${s.date_is_capture ? ' (capture date — listing gave none)' : ''}
+        · ${esc(site.label)} · ${esc(site.tier||'')} · ${esc(s.lang||'')} · ${esc(s.theme||'')}</div>
+      <p class="t">${esc(s.title)}</p>
+      ${s.chars ? `<div class="f">${s.title.length} of ${s.chars.toLocaleString()} characters of the post; the rest is not collected</div>` : ''}
+      ${s.source ? `<div class="f">credited by the mirror to ${esc(originOf(s))}</div>` : ''}
+      <div class="f">${esc(site.attribution || '')}</div>
+    </article>`;
+  };
+
+  const html = `<!doctype html><meta charset="utf-8">
+<title>poisoned-well — ${rows.length} specimens — ${now}</title>
+<style>
+ body{max-width:46rem;margin:2rem auto;padding:0 1.4rem;font:15px/1.6 Georgia,serif;color:#14181f}
+ h1{font-size:1.4rem;margin:0 0 .2rem} .sub{color:#666;font-size:.8rem;margin-bottom:1.4rem}
+ .limits{border:1px solid #d8d2c6;border-left:3px solid #b4441f;background:#fbf9f5;
+   padding:1rem 1.1rem;margin-bottom:2rem;font-size:.82rem;line-height:1.55}
+ .limits b{color:#b4441f} .limits ul{margin:.5rem 0 0;padding-left:1.1rem} .limits li{margin:.25rem 0}
+ article{border-top:1px solid #e6e1d8;padding:.9rem 0}
+ .m{font:11px/1.5 ui-monospace,monospace;color:#7a7a7a;letter-spacing:.04em;text-transform:uppercase}
+ .t{margin:.35rem 0;font-size:1rem} .f{font:11px/1.5 ui-monospace,monospace;color:#8a8a8a}
+ footer{margin-top:2rem;border-top:1px solid #e6e1d8;padding-top:.8rem;font-size:.75rem;color:#666}
+</style>
+<h1>poisoned-well — ${rows.length} specimen${rows.length===1?'':'s'}</h1>
+<div class="sub">Exported ${now}${filt.length ? ' · selection: ' + esc(filt.join(' · ')) : ' · no filter'}</div>
+<div class="limits">
+ <b>Read this before quoting anything below.</b>
+ <ul>
+  <li>These are <b>specimens, not a sample</b>. The capture reads front pages on a schedule with a
+      per-source cap, so it is biased toward whatever was listed when the job ran.</li>
+  <li>Telegram rows are <b>excerpts</b>, not posts — a median post runs to ~700 characters and none
+      fits in the stored excerpt. Each row says what fraction it is.</li>
+  <li>Theme tags are a <b>disclosed keyword heuristic with a language scope</b>, not a judgement of
+      intent. Until 2026-08-13 the lexicon was Latin-script only and mislabelled Russian-language
+      items as filler.</li>
+  <li>Items reading as personal smears are <b>withheld</b>, so this set is deliberately not
+      exhaustive.</li>
+  <li>An attribution line describes the <b>source</b>, not the item. A credit is the mirror's own
+      claim about provenance and is not evidence the credited channel took part.</li>
+  <li>This project has <b>retracted five of its own published claims</b>; the record is in the
+      repository.</li>
+ </ul>
+</div>
+${rows.map(item).join('')}
+<footer>poisoned-well · github.com/abognar-git/poisoned-well · specimens shown as evidence and
+deliberately not linked · annotations CC BY, captured text not ours to license</footer>`;
+
+  const url = URL.createObjectURL(new Blob([html], {type:'text/html'}));
+  const a = document.createElement('a');
+  a.href = url; a.download = `poisoned-well-${rows.length}-specimens.html`;
+  a.click(); setTimeout(() => URL.revokeObjectURL(url), 2000);
+}
 
 function pager(pages){
   const el = $('pager');
@@ -688,6 +798,7 @@ function bothEnds(){
 }
 
 function render(){
+  writeUrl();
   const rows = filtered();
   tiles(rows); tierBoxes(rows); flow(); bothEnds(); themesChart(rows); daysChart(rows); matrix(rows); list(rows); chips();
   $('clear').classList.toggle('on', active());
@@ -752,6 +863,9 @@ $('clear').addEventListener('click', () => {
   state.q=''; state.tier='all'; state.theme='all'; state.day='all'; state.origin='all'; state.channel=null;
   $('q').value=''; reset(); render();
 });
+readUrl();
+if (urlPer) $('pagesize').value = urlPer;
+if (state.q) $('q').value = state.q;      // the box must show what the URL selected
 render();
 })();
 </script>

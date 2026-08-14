@@ -22,6 +22,7 @@ Editorial rules baked in:
 """
 
 import html
+import csv
 import json
 import re
 import time
@@ -37,6 +38,11 @@ OUT = ROOT / "data" / "derived" / "latest_specimens.json"
 # what gets kept, and while the archive merged from the capped file they were throwing
 # away about two thirds of every capture before it could be archived.
 FULL = ROOT / "data" / "derived" / "last_harvest.json"
+# The sampling frame. Every run appends one row per source: which id range the source had
+# on offer and how much of it we took. Both tiers number sequentially, so with this the
+# coverage of this corpus is arithmetic rather than a guess — and a run where a source
+# returned nothing is a row saying why, not an absence somebody has to notice.
+FRAME = ROOT / "data" / "archive" / "frame.csv"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 FEATURED = 9
 MIN_PAYLOAD = 2
@@ -181,6 +187,23 @@ for sid, (chan, label) in TELEGRAM.items():
         "attribution": f"Russia-aligned Telegram channel (@{chan}) — a documented laundering origin",
         "base": "https://t.me", "listings": [f"/s/{chan}"],
     }
+
+# Each capture source tied to the catalog entry that documents it. A source with no case
+# file says nothing rather than borrowing a neighbour's — the outlets added on 2026-08-14
+# carry sourced glossary terms but no case of their own, and the difference matters.
+CASE_OF = {
+    "pravda-hu": "pravda-hungary",
+    "newsfront-hu": "newsfront-hungary",
+    "newsfront-ru": "newsfront-hungary",
+    "tg-oroszigazsag": "pravda-hungary",
+    "tg-greatawaken": "pravda-hungary",
+    "tg-ebredes": "pravda-hungary",
+    "tg-rybar": "pravda-hungary",
+}
+TERM_OF = {
+    "pravda-hu": "pravda-network", "newsfront-hu": "news-front", "newsfront-ru": "news-front",
+    "rt-ru": "rt", "ukraina-ru": "ukraina-ru", "zvezda-tv": "zvezda", "tsargrad": "tsargrad",
+}
 
 SRC = re.compile(r'data-source-url="([^"]+)"')
 
@@ -444,10 +467,42 @@ def harvest(sid, cfg):
     return rows[:PER_SOURCE_CAP]
 
 
+def frame_rows(run_id, captured_at, harvested):
+    """One row per source per run: the id window observed, and the reason when empty."""
+    out = []
+    for sid, cfg in SOURCES.items():
+        rows = harvested.get(sid, [])
+        ids = sorted(int(r["id"]) for r in rows
+                     if str(r.get("id") or "").isdigit())
+        out.append({
+            "run_id": run_id, "captured_at": captured_at, "site": sid,
+            "tier": cfg["tier"], "type": cfg["type"],
+            "items": len(rows),
+            "min_id": ids[0] if ids else "", "max_id": ids[-1] if ids else "",
+            # what the source issued across the window we saw, where ids are sequential
+            "id_span": (ids[-1] - ids[0] + 1) if len(ids) > 1 else "",
+            "observed_fraction": (round(len(ids) / (ids[-1] - ids[0] + 1), 4)
+                                  if len(ids) > 1 else ""),
+            "reason": PROBLEMS.get(sid, "" if rows else "no usable items after filtering"),
+        })
+    return out
+
+
+def append_frame(rows):
+    FRAME.parent.mkdir(parents=True, exist_ok=True)
+    new = not FRAME.exists()
+    with open(FRAME, "a", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=list(rows[0]))
+        if new:
+            w.writeheader()
+        w.writerows(rows)
+
+
 def main() -> int:
-    all_rows, ok = [], []
+    all_rows, ok, harvested = [], [], {}
     for sid, cfg in SOURCES.items():
         rows = harvest(sid, cfg)
+        harvested[sid] = rows
         if rows:
             ok.append(sid)
             all_rows.extend(rows)
@@ -544,7 +599,9 @@ def main() -> int:
                        "scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage "
                        "— a heuristic on topic, not a judgement of intent."),
         "sources": {sid: {"label": SOURCES[sid]["label"], "tier": SOURCES[sid]["tier"],
-                          "lang": SOURCES[sid]["lang"], "attribution": SOURCES[sid]["attribution"]}
+                          "lang": SOURCES[sid]["lang"], "attribution": SOURCES[sid]["attribution"],
+                          **({"case": CASE_OF[sid]} if sid in CASE_OF else {}),
+                          **({"term": TERM_OF[sid]} if sid in TERM_OF else {})}
                     for sid in ok},
         "tiers": {"origin": "Telegram channels where content starts",
                   "launderer": "mirror sites that republish origins as 'news'",
@@ -577,6 +634,13 @@ def main() -> int:
     by = {sid: sum(1 for r in corpus if r["site"] == sid) for sid in ok}
     for sid, why in sorted(PROBLEMS.items()):
         print(f"  ! {sid} ({SOURCES[sid]['tier']} tier) returned nothing: {why}")
+    run_id = out["captured_at"].replace(":", "").replace("-", "")
+    fr = frame_rows(run_id, out["captured_at"], harvested)
+    append_frame(fr)
+    covered = [r for r in fr if r["observed_fraction"] != ""]
+    print(f"frame.csv: +{len(fr)} rows" + (
+        f"; observed fraction across {len(covered)} sequential sources: "
+        f"{sum(r['observed_fraction'] for r in covered) / len(covered):.0%}" if covered else ""))
     print(f"last_harvest.json: {len(all_rows)} items harvested (uncapped)")
     print(f"latest_specimens.json: {len(corpus)} specimens across {len(ok)} sources {by}; "
           f"{len(featured)} featured; latest_day {latest_day} ({today_live} live)")

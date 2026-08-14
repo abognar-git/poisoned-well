@@ -60,6 +60,10 @@ jobs:
       - name: Archive the capture
         run: python scripts/archive_specimens.py
 
+      # Coverage is computed from the capture log, so it can only be recomputed here.
+      - name: Recompute sampling coverage
+        run: python scripts/derive_frame.py
+
       # The credit graph is derived from data/raw, which only exists inside this job.
       - name: Rebuild the credit graph
         run: python scripts/derive_feeder_index.py

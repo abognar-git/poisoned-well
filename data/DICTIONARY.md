@@ -94,6 +94,27 @@ Append-only, built by `scripts/capture_specimens.py` and merged by
 
 ---
 
+### `archive/frame.csv` — the sampling frame, one row per source per run
+
+`run_id`, `captured_at`, `site`, `tier`, `type`, `items`, `min_id`, `max_id`, `id_span`,
+`observed_fraction`, `reason`. A run where a source returned nothing is a row with a
+`reason`, not an absence.
+
+### `archive/coverage.json`
+
+Derived from the frame by `scripts/derive_frame.py`. Both captured tiers number
+sequentially, so consecutive runs bracket what a source issued in between and coverage is
+arithmetic rather than an estimate. Two different numbers:
+
+* `within_window` — of the ids in a single harvest, how many we kept. The gaps are our own
+  filters, not missed publications. This is filter attrition.
+* `between_runs` — of the ids a source issued between one run and the next, how many we
+  captured. **This is the number that bounds any claim made on this corpus.**
+
+Outlet listings do not expose sequential ids and carry nulls.
+
+---
+
 ## Censoring and limits
 
 **1. `sourcesByDay` is top-10 per mirror per day.** The daily panel is right-censored, and
