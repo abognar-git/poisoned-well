@@ -332,6 +332,20 @@
 (async () => {
 const $ = id => document.getElementById(id);
 // escapes for text AND attribute position — see the note in index.html
+// Every drill-down control on this page was a click-only <div>/<td>/<text>: no tabindex,
+// no role, no key handler, and grep for keydown across the file returned nothing. Three
+// of the four axes the page advertises — theme, day, origin — were mouse-only, WCAG
+// 2.1.1 Level A with no in-page workaround. index.html got a focus pass in 0754dff and
+// this page never did.
+const activate = (el, fn, pressed) => {
+  if (!el.hasAttribute('role')) el.setAttribute('role', 'button');
+  if (!el.hasAttribute('tabindex')) el.tabIndex = 0;
+  if (pressed !== undefined) el.setAttribute('aria-pressed', String(!!pressed));
+  el.addEventListener('click', fn);
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fn(); }
+  });
+};
 const esc = s => String(s ?? '')
   .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
   .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
@@ -382,9 +396,9 @@ const ALL = ARCHIVE.length ? ARCHIVE : SNAPSHOT;
   }
   el.innerHTML = ARCHIVE.length
     ? `<p style="margin:.2rem 0 .9rem">This is <b>${n.toLocaleString()}</b> items, collected between
-        <b>${(ARCHIVE_IDX.observed_range||[])[0]}</b> and <b>${(ARCHIVE_IDX.observed_range||[])[1]}</b> —
+        <b>${esc((ARCHIVE_IDX.observed_range||[])[0])}</b> and <b>${esc((ARCHIVE_IDX.observed_range||[])[1])}</b> —
         every capture kept, not just the latest. They carry publication dates from
-        <b>${ARCHIVE_IDX.first_date}</b> onward, because a front page links to its own archive;
+        <b>${esc(ARCHIVE_IDX.first_date)}</b> onward, because a front page links to its own archive;
         that is the articles' age, not ours. <b>${(ARCHIVE_IDX.by_unit.headline||0).toLocaleString()}</b> are headlines;
         <b>${(ARCHIVE_IDX.by_unit.post_excerpt||0).toLocaleString()}</b> are Telegram post excerpts
         truncated to 120 characters. No article body text is collected.</p>
@@ -501,7 +515,7 @@ function themesChart(rows){
        <div class="track"><div class="fill" style="width:${n/max*100}%"></div></div>
        <div class="n">${n}</div></div>`).join('') || '<div class="empty">—</div>';
   [...$('themes').querySelectorAll('.hbar')].forEach(b =>
-    b.addEventListener('click', () => { state.theme = state.theme===b.dataset.t ? 'all' : b.dataset.t; reset(); render(); }));
+    activate(b, () => { state.theme = state.theme===b.dataset.t ? 'all' : b.dataset.t; reset(); render(); }));
 }
 
 function daysChart(rows){
@@ -510,11 +524,28 @@ function daysChart(rows){
   const days = Object.keys(counts).sort();
   const max = Math.max(...Object.values(counts), 1);
   $('days').innerHTML = days.map(d =>
-    `<div class="day ${state.day===d?'sel':''}" data-d="${d}" title="${d}: ${counts[d]}">
-       <i style="height:${Math.max(3, counts[d]/max*62)}px"></i><span>${d.slice(5)}</span></div>`).join('')
+    // esc() in BOTH positions. The attribute-only fix still executes an injected
+    // <img src=x onerror=…> because the same variable lands in text position below, and
+    // this page's CSP allows 'unsafe-inline', so it is not the mitigation either.
+    `<div class="day ${state.day===d?'sel':''}" role="button" aria-pressed="${state.day===d}"` +
+    ` data-d="${esc(d)}" title="${esc(d)}: ${counts[d]}">` +
+    `<i style="height:${Math.max(3, counts[d]/max*62)}px"></i>` +
+    `<span>${esc(d.slice(5))}</span></div>`).join('')
     || '<div class="empty">—</div>';
-  [...$('days').querySelectorAll('.day')].forEach(b =>
-    b.addEventListener('click', () => { state.day = state.day===b.dataset.d ? 'all' : b.dataset.d; reset(); render(); }));
+  // Roving tabindex: 21 columns would otherwise be 21 consecutive tab stops between the
+  // filters and the results. One stop into the group, then arrow keys within it.
+  const dayEls = [...$('days').querySelectorAll('.day')];
+  dayEls.forEach((b, i) => {
+    b.tabIndex = i === 0 ? 0 : -1;
+    activate(b, () => { state.day = state.day === b.dataset.d ? 'all' : b.dataset.d; reset(); render(); });
+    b.addEventListener('keydown', e => {
+      const step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!step) return;
+      e.preventDefault();
+      const n = dayEls[(i + step + dayEls.length) % dayEls.length];
+      dayEls.forEach(x => x.tabIndex = -1); n.tabIndex = 0; n.focus();
+    });
+  });
 }
 
 function matrix(rows){
@@ -535,9 +566,9 @@ function matrix(rows){
           return `<td class="cell" style="background:rgba(255,74,54,${n?(.08+.4*n/maxCell).toFixed(2):0})">${n||''}</td>`; }).join('')
       }<td style="color:var(--muted)">${v.n}</td></tr>`).join('');
   [...$('matrix').querySelectorAll('td.origin')].forEach(c =>
-    c.addEventListener('click', () => { state.origin = state.origin===c.dataset.o ? 'all' : c.dataset.o; reset(); render(); }));
+    activate(c, () => { state.origin = state.origin===c.dataset.o ? 'all' : c.dataset.o; reset(); render(); }));
   [...$('matrix').querySelectorAll('th[data-t]')].forEach(h =>
-    h.addEventListener('click', () => { state.theme = state.theme===h.dataset.t ? 'all' : h.dataset.t; reset(); render(); }));
+    activate(h, () => { state.theme = state.theme===h.dataset.t ? 'all' : h.dataset.t; reset(); render(); }));
 }
 
 let page = 1;
@@ -577,7 +608,7 @@ function list(rows){
           : (s.unit === 'post_excerpt' && /…$/.test(s.title||'')
              ? `<div class="frac">opening of a longer post · full length not recorded for this capture</div>` : '')}
         ${site.case || site.term
-          ? `<a class="cf" href="index.html#${site.case ? 'act2' : 'glossary'}" title="${
+          ? `<a class="cf" href="index.html#${site.case ? 'case=' + esc(site.case) : 'glossary'}" title="${
               site.case ? 'open the case file for this source' : 'this source has a sourced glossary entry but no case file of its own'}">${
               site.case ? '▸ case file' : '▸ glossary entry'}</a>`
           : site.undocumented
@@ -756,7 +787,7 @@ function tierBoxes(rows){
       <div class="td">${esc(desc[t]||'')}<br><span style="opacity:.7">${esc(labels)}</span></div></div>`;
   }).join('');
   [...$('tierboxes').querySelectorAll('.tierbox')].forEach(b =>
-    b.addEventListener('click', () => { state.tier = state.tier===b.dataset.t ? 'all' : b.dataset.t; reset(); render(); }));
+    activate(b, () => { state.tier = state.tier===b.dataset.t ? 'all' : b.dataset.t; reset(); render(); }));
 }
 
 const NS = 'http://www.w3.org/2000/svg';
@@ -785,7 +816,7 @@ function flow(){
     el('path', { d:`M ${lx} ${y} C ${(lx+mx)/2} ${y}, ${(lx+mx)/2} ${midY}, ${mx-8} ${midY+(y-midY)*.35}`,
       fill:'none', stroke:col, 'stroke-width':Math.max(1, c.credited/maxC*9), 'stroke-opacity':.5 });
     const lbl = el('text', {x:lx-10, y:y+4, 'text-anchor':'end', class:'chlbl', fill: c.tracked?'#6ea8d8':'#e9e4da'}, c.ch);
-    lbl.addEventListener('click', () => { state.channel = state.channel===c.ch ? null : c.ch; reset(); render(); });
+    activate(lbl, () => { state.channel = state.channel===c.ch ? null : c.ch; reset(); render(); });
     el('text', {x:lx-10, y:y+16, 'text-anchor':'end', class:'sub'}, `${c.credited}×${c.tracked?' · ●live':''}`);
   });
   el('text', {x:lx-10, y:26, 'text-anchor':'end', fill:'#6ea8d8', 'font-size':10, 'letter-spacing':'1.5'}, 'TELEGRAM ORIGINS');

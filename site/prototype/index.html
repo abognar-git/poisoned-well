@@ -30,7 +30,7 @@
   .serif-d{font-family:"Instrument Serif", Georgia, serif; font-weight:400}
 
   /* ---------- header ---------- */
-  header{
+  header{gap:1rem; flex-wrap:wrap;
     position:fixed; inset:0 0 auto 0; z-index:40;
     display:flex; justify-content:space-between; align-items:baseline;
     padding:1.4rem 2rem; mix-blend-mode:screen; pointer-events:none;
@@ -53,7 +53,7 @@
   /* the page carries two click affordances; introduce both where the first § appears,
      rather than explaining one of them in the footer at 100% depth */
   .marker-key{margin-top:.5rem; font-family:"IBM Plex Mono",monospace; font-size:.56rem;
-    letter-spacing:.1em; text-transform:uppercase; color:var(--muted); opacity:.75}
+    letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
   .marker-key b{color:var(--analyst); font-weight:400; border:1px solid rgba(110,168,216,.35);
     border-radius:2px; padding:.05em .28em; margin-right:.25em}
   .marker-key .k-term{border-bottom:1px dotted var(--analyst); color:var(--paper)}
@@ -388,7 +388,7 @@
   .spec .meta{font-family:"IBM Plex Mono",monospace; font-size:.6rem; line-height:1.5; color:var(--muted);
     min-width:0; overflow-wrap:anywhere; word-break:break-word}
   .spec .meta .cat{color:var(--amber); text-transform:uppercase; letter-spacing:.1em}
-  .spec .meta .capdate{color:var(--muted); opacity:.75; border-bottom:1px dotted var(--hairline); cursor:help}
+  .spec .meta .capdate{color:var(--muted); border-bottom:1px dotted var(--hairline); cursor:help}
   /* Hover card for truncated post excerpts. Shows what is stored (400 chars), never more,
      and says plainly how much of the post that is — a card that looked complete when it is
      not would be a worse lie than the truncation it explains. */
@@ -404,7 +404,7 @@
     color:var(--muted); border-top:1px solid var(--hairline); margin-top:.7rem; padding-top:.5rem}
   .spec .title{font-family:"Newsreader",serif; font-size:1.02rem; line-height:1.4; color:var(--paper)}
   .spec .frac{font-family:"IBM Plex Mono",monospace; font-size:.56rem; letter-spacing:.06em;
-    color:var(--muted); opacity:.75; margin-top:.25rem}
+    color:var(--muted); margin-top:.25rem}
   .spec .theme{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:.56rem;
     letter-spacing:.12em; text-transform:uppercase; border-radius:2px; padding:.2em .5em;
     margin-top:.35rem; margin-right:.35rem}
@@ -565,7 +565,7 @@
   #grammar .gfact .lbl{font-family:"Newsreader",serif; text-transform:none; letter-spacing:0;
     font-size:.86rem; line-height:1.55; color:var(--muted); margin-top:.5rem; margin-bottom:0}
   /* the provenance bar is rendered at TRUE scale — 0.08% must look like 0.08% */
-  .asof{opacity:.55;font-weight:400;letter-spacing:0}
+  .asof{font-weight:400;letter-spacing:0}
   #prov-bar{display:flex; height:26px; width:100%; border:1px solid var(--hairline); overflow:hidden}
   #prov-bar i{display:block; height:100%}
   #prov-legend{display:flex; flex-wrap:wrap; gap:.5rem 1.3rem; margin-top:.7rem;
@@ -665,6 +665,10 @@
     .step .card{margin:0 auto}
   }
   @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    /* .pflow was added after this block and never gated. Its only animated property is
+       background-position, so stopping it leaves a static dashed connector, no reflow. */
+    .pflow{animation:none}
     .live-dot,.scroll-cue{animation:none}
   }
   /* the rewritten H1 runs longer than the old one; keep it clear of the header
@@ -727,7 +731,7 @@
       <span class="n">I·1 — THE SWITCH FLIPS</span>
       <p>The Hungarian mirror went live in a <b data-claim="wave-31">31-domain wave</b> that hit 19 EU countries in a single week —
       documented by France's VIGINUM. <span data-claim="ramp">From a single article on launch day, output passed <b>250 a day within a month</b> —
-      and has cleared 100 on 531 of its 869 days since.</span></p>
+      and has cleared 100 on <span id="ramp-100">534</span> of its <span id="ramp-days">873</span> days since.</span></p>
       <div class="cf-links"><button class="cf-open" data-case="pravda-hungary">case file: Pravda Magyarország</button></div>
     </div></div>
     <div class="step" data-step="1"><div class="card">
@@ -775,7 +779,7 @@
     <h2>What they published today</h2>
     <p>These are items we fetched ourselves, so the reader does not have to take the publication rate on trust.
        A sample from the latest server-side capture of
-       documented Hungary-targeting pro-Kremlin sources, one from each tier of the laundering chain —
+       pro-Kremlin sources this mirror credits, one from each tier of the laundering chain —
        Telegram origin, Pravda mirror, <span data-term="news-front">sanctioned outlet</span>. Shown as evidence; deliberately not linked.<span data-research="correction-2"></span><span data-research="cut-3"></span></p>
   </div>
   <div id="specimens">
@@ -868,7 +872,7 @@
   </div>
   <div class="pipe">
     <div class="pnode"><div class="pico">✉</div><div class="pt">FRINGE TELEGRAM</div>
-      <div class="ps" data-claim="laundering"><span id="pipe-tg">37,859</span> articles credited to a single channel</div></div>
+      <div class="ps" data-claim="laundering"><span id="pipe-tg">38,073</span> articles credited to a single channel</div></div>
     <div class="pflow"></div>
     <div class="pnode hot"><div class="pico">▣</div><div class="pt">THE MIRROR</div>
       <div class="ps" data-claim="live-counters"><span id="pipe-total">139,989</span> articles · still publishing</div></div>
@@ -1178,12 +1182,16 @@ const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* ================= data ================= */
 const dget = u => fetch(u, { cache: 'no-store' }).then(r => r.json());
 const [live, timeline, summary, spec] = await Promise.all([
-  dget('../../data/derived/live_status.json'),
-  dget('../../data/derived/pravda_timeline.json'),
-  dget('../../data/derived/pravda_summary.json'),
+  dget('../../data/derived/live_status.json').catch(() => null),
+  dget('../../data/derived/pravda_timeline.json').catch(() => null),
+  dget('../../data/derived/pravda_summary.json').catch(() => null),
   dget('../../data/derived/latest_specimens.json').catch(() => null),  // drop stream in the hero well
 ]);
-const HU = live.mirrors['hungary.news-pravda.com'];
+// Guard the SHAPE, not just the fetch: a file that arrives but lacks the mirror key
+// throws on the next line exactly as a 404 does. Every consumer below is gated
+// separately, because `summary` is read in places `live` is not.
+const HU = live?.mirrors?.['hungary.news-pravda.com'] || {};
+if (!live) console.warn('live_status unavailable — hero figures render as —, and the evidence layer below still wires');
 const SPEC_SRC = spec?.sources || {};
 // how many items the explorer will actually show — the archive, not this snapshot
 let CORPUS_N = 0;
@@ -1207,7 +1215,9 @@ window.__st.push('data-loaded');
 
 /* ================= hero counters ================= */
 const counterEl = document.getElementById('counter');
-const fmt = n => n.toLocaleString('en-US');
+// An em dash, not NaN: when a derived file fails to load the hero should say it has
+// no number, not print one that is wrong.
+const fmt = n => Number.isFinite(n) ? n.toLocaleString('en-US') : '—';
 if (reduced) counterEl.textContent = fmt(HU.total);
 else {
   const t0 = performance.now(), dur = 2200;
@@ -1517,12 +1527,23 @@ const CONF = {
   unattributed: {n: 1, color: '#8b93a3', label: 'UNATTRIBUTED — origin unknown'},
 };
 const drawer = document.getElementById('case-drawer');
+let lastTrigger = null;
+drawer.inert = true;
 function confMeter(level) {
   const c = CONF[level] || CONF.unattributed;
   return `<span class="conf c${c.n}" style="--conf-color:${c.color}" title="${c.label}">` +
          '<i></i><i></i><i></i><i></i><i></i></span>';
 }
-function closeCase() { document.body.classList.remove('drawer-on'); drawer.setAttribute('aria-hidden', 'true'); }
+function closeCase() {
+  // Escape fires this unconditionally, so guard on the open state or every stray Escape
+  // steals focus back to a trigger the reader may have left long ago.
+  if (!document.body.classList.contains('drawer-on')) return;
+  document.body.classList.remove('drawer-on');
+  drawer.setAttribute('aria-hidden', 'true');
+  drawer.inert = true;
+  lastTrigger?.focus();
+  lastTrigger = null;
+}
 function openCase(id) {
   const c = caseById[id];
   if (!c) return;
@@ -1567,9 +1588,22 @@ function openCase(id) {
   drawer.scrollTop = 0;
   drawer.setAttribute('aria-hidden', 'false');
   document.body.classList.add('drawer-on');
+  drawer.inert = false;
   drawer.querySelector('.close').addEventListener('click', closeCase);
+  lastTrigger = document.activeElement;
+  drawer.querySelector('.close').focus();
 }
 window.__openCase = openCase; // dev hook
+
+// #case=<id> opens that dossier. Own-property guard because caseById comes from
+// Object.fromEntries and openCase only checks falsiness — "#case=toString" would pass
+// that check and then throw on c.sources.length.
+function caseFromHash() {
+  const id = new URLSearchParams(location.hash.slice(1)).get('case');
+  if (id && Object.hasOwn(caseById, id)) openCase(id);
+}
+caseFromHash();
+addEventListener('hashchange', caseFromHash);
 
 // provenance card for a clicked falling drop in the hero well
 window.__openDrop = (s, e) => {
@@ -1796,7 +1830,7 @@ try {
   let capturedAt = null, DATA = null, ALL = [];
 
   const renderVolume = () => {
-    const days = timeline.series.filter(d => d[1] > 0).slice(-7);
+    const days = (timeline?.series || []).filter(d => d[1] > 0).slice(-7);
     const max = Math.max(...days.map(d => d[1]), 1);
     const bars = days.map((d, i) =>
       `<i class="${i === days.length - 1 ? 'today' : ''}" style="height:${Math.max(3, d[1] / max * 26)}px"
@@ -2039,7 +2073,7 @@ try {
       'font-size': 13, 'font-family': 'IBM Plex Mono, monospace', 'font-weight': 500 }, p.v + '%');
     mk('text', { x: X(i), y: H - 18, 'text-anchor': anc(i), fill: '#8b93a3', 'font-size': 10,
       'font-family': 'IBM Plex Mono, monospace' }, p.t);
-    mk('text', { x: X(i), y: H - 6, 'text-anchor': anc(i), fill: '#6b7280', 'font-size': 8.5,
+    mk('text', { x: X(i), y: H - 6, 'text-anchor': anc(i), fill: '#8b93a3', 'font-size': 8.5,
       'font-family': 'IBM Plex Mono, monospace' }, p.note);
   });
 }
@@ -2204,7 +2238,7 @@ setTimeout(async () => {
       const grew = s.change_pct >= 0;
       host.insertAdjacentHTML('beforeend',
         `<div class="drow${grew ? ' up' : ''}"><div>` +
-        `<div class="dn">${short(s.source)}</div>` +
+        `<div class="dn">${short(s.source)}</div>` +   // short() escapes
         `<div class="dbars">` +
           `<i class="db" style="width:${(s.baseline_per_day / max * 100).toFixed(1)}%"></i>` +
           `<i class="da" style="width:${(s.after_per_day / max * 100).toFixed(1)}%"></i>` +
@@ -2250,6 +2284,16 @@ setTimeout(async () => {
   const CK = await jget('../../data/derived/mirror_clock.json').catch(() => null);
   const el = document.getElementById('cat-hu');
   if (CK && el) el.textContent = (CK.categories.about_target_share * 100).toFixed(1) + '%';
+
+  // "cleared 100 on 531 of its 869 days" was typed once and never revisited, while the
+  // same section computes "873 of the 876 days" from this very series two paragraphs up.
+  const TL = await jget('../../data/derived/pravda_timeline.json').catch(() => null);
+  const live = (TL?.series || []).map(x => x[1]).filter(c => c > 0);
+  if (live.length) {
+    const h = document.getElementById('ramp-100'), d = document.getElementById('ramp-days');
+    if (h) h.textContent = live.filter(c => c >= 100).length.toLocaleString('en-US');
+    if (d) d.textContent = live.length.toLocaleString('en-US');
+  }
 }
 
 /* ================= V·ii convergence bench =================
@@ -2663,8 +2707,13 @@ try {
   const capEl = document.getElementById('well-cap');
   if (todays.length)
     document.getElementById('well-cap-txt').textContent =
+      // "9" was written when SOURCES had exactly nine entries. There are seventeen
+      // configured now, so the caption understated the capture's own breadth by 40%
+      // beside an item count computed from the same array. Derived from the items
+      // actually drawn, not from the configured census — a different quantity.
       `each falling dot = one of the ${todays.length} items our own capture collected across ` +
-      `9 sources on ${spec.latest_day} — hover to read it, click for provenance · time compressed`;
+      `${new Set(todays.map(d => d.site)).size} sources on ${spec.latest_day} — ` +
+      `hover to read it, click for provenance · time compressed`;
   else if (capEl) capEl.style.display = 'none';
 
   const MAXD = 10, SPAWN_S = 2.1, DUR_S = 7;
