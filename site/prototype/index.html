@@ -1230,16 +1230,18 @@ else {
 // The mirror's counts come from CheckFirst's last COMPLETE day, which is normally
 // yesterday — so "today" was wrong most of the time. Say which day, once, everywhere.
 const todayISO = new Date().toISOString().slice(0, 10);
-const dayWord = HU.latest_publication_day === todayISO
-  ? 'today' : 'on ' + HU.latest_publication_day;
+// fmt() cannot cover these: it is Number.isFinite-gated and latest_publication_day is a
+// date string, so routing it through fmt would render "on —" on a clean load.
+const dayWord = HU.latest_publication_day == null ? 'on an unrecorded day'
+  : HU.latest_publication_day === todayISO ? 'today' : 'on ' + HU.latest_publication_day;
 document.getElementById('live-sub').innerHTML =
   `articles published by this one Hungary-targeting mirror since March 2024. ` +
   `<span data-claim="category-mix">By its own section labels only 4.0% ` +
   `are filed under Hungary at all</span>; the bulk is world filler and Russia. · ` +
   `<b>${HU.articles_latest_day} ${dayWord}</b>, the last full day counted · ${fmt(HU.articles_last_7d)} in the past 7 days`;
-document.getElementById('today-fig').textContent = HU.articles_latest_day;
+document.getElementById('today-fig').textContent = fmt(HU.articles_latest_day);
 { const td = document.getElementById('today-day'); if (td) td.textContent = dayWord; }
-{ const n = document.getElementById('coda-n'); if (n) n.textContent = HU.articles_latest_day; }
+{ const n = document.getElementById('coda-n'); if (n) n.textContent = fmt(HU.articles_latest_day); }
 { const cd = document.getElementById('coda-day'); if (cd) cd.textContent = dayWord; }
 
 /* ================= evidence layer =================
@@ -2355,7 +2357,7 @@ setTimeout(async () => {
       // however much the mirror has published since the last commit. Both numbers are
       // right; without this stamp the reader has no way to know why they differ.
       const asof = document.getElementById('prov-asof');
-      if (asof && live.generated_at) {
+      if (asof && live?.generated_at) {
         const d = new Date(live.generated_at);
         asof.textContent = ' · census as of ' + d.toISOString().slice(0, 10) +
                            ', not live like the counter above';

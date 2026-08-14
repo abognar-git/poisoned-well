@@ -94,7 +94,18 @@ def collapse_forks(shards):
         if not rich:
             continue
         keep_month, keep = rich[0]
-        keep["first_seen"] = min(r.get("first_seen", "9") for _, r in members)
+        # Union, with the identity row still winning every field it actually has. Never
+        # inherit date_is_capture from a discarded row: it marks a listing that gave no
+        # date, and carrying it onto a row that HAS one would relabel a real publication
+        # date as a capture date. That does not occur in today's data; merge() is live.
+        merged = {}
+        for _, r in members:
+            if r is not keep:
+                merged.update({k: v for k, v in r.items() if k != "date_is_capture"})
+        merged.update(keep)
+        merged["first_seen"] = min(r.get("first_seen", "9") for _, r in members)
+        keep.clear()
+        keep.update(merged)
         for month, r in members:
             if r is keep:
                 continue
@@ -177,8 +188,13 @@ def merge(snapshot, seen):
         if prior is not None:
             first = min(prior.get("first_seen", "9"), r.get("first_seen", "9"))
             seen.pop(key(prior), None)
+            # Same union as collapse_forks: the incoming row wins, but a field only the
+            # archived row holds — the mirror's own `source` credit, most of all — is
+            # carried forward rather than dropped.
+            merged = {k: v for k, v in prior.items() if k != "date_is_capture"}
+            merged.update(r)
             prior.clear()
-            prior.update(r)
+            prior.update(merged)
             prior["first_seen"] = first
             seen[key(prior)] = prior
             del bare[bare_key(prior)]

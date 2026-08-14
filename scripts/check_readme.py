@@ -207,9 +207,10 @@ def cross_file():
         ("catalog/claims.json",
          "'oroszokazigazsagoldalan' ({:,.0f} articles)", [hu["top_sources"][0]["count"]]),
         ("catalog/claims.json",
-         "It has since recovered to {:.1f}/day over the {:,.0f} complete days to "
-         + tgt["recovery_window"][1] + ", {:.1f}% of its pre-election baseline",
-         [tgt["latest_per_day"], tgt["recovery_days"], tgt["recovery_pct_of_baseline"]]),
+         "It has since recovered to {:.1f}/day over the {:,.0f} complete days to {}, "
+         "{:.1f}% of its pre-election baseline",
+         [tgt["latest_per_day"], tgt["recovery_days"], tgt["recovery_window"][1],
+          tgt["recovery_pct_of_baseline"]]),
         ("catalog/claims.json",
          "100+ articles on {:,.0f} of its {:,.0f} active days (median {:,.0f}/day)",
          [sum(1 for c in live if c >= 100), len(live), statistics.median(live)]),
@@ -242,15 +243,34 @@ def cross_file():
 SPEC = re.compile(r"\{[^}]*\}")
 
 
+# Accept a sign in NUMPAT, because NUM at the top of this file does. When the two
+# disagreed, --sync could write "moved **+-1.6%** on average" and then fail to match what
+# it had just written — exit 1 on every subsequent run, unrecoverable without a hand edit,
+# on a job that runs --sync then this check before it commits.
+NUMPAT = r"[-−+]?[\d,]+(?:\.\d+)?"
+DATEPAT = r"\d{4}-\d{2}-\d{2}"
+
+
 def as_regex(template):
-    """A template becomes a whitespace-tolerant regex with a number pattern wherever a
-    format spec sits, so it matches the README no matter what the current values are."""
+    """A template becomes a whitespace-tolerant regex with a value pattern wherever a
+    format spec sits, so it matches the file no matter what the current values are.
+
+    The spec decides the pattern. `{}` means a date; everything else means a number. That
+    distinction exists because the first version of the recovery registration concatenated
+    the window's end date into the template as a literal, which re.escape then froze into
+    the matcher — and that date advances every calendar day by construction. On the first
+    rollover the fragment stopped matching, main() took the `not hits` branch, and that
+    branch errors even under --sync. So the hourly job would fail at the sync step, before
+    the commit step, discarding that hour's specimen capture, every hour, until someone
+    hand-edited the file. Which bought exactly one more day.
+
+    This is the second incarnation of that failure mode; the sign mismatch above was the
+    first. A value that moves must be a value, never part of the pattern."""
     parts = [re.escape(p) for p in SPEC.split(template)]
-    # Accept a sign here, because NUM at the top of this file does. When the two
-    # disagreed, --sync could write "moved **+-1.6%** on average" and then fail to match
-    # what it had just written — exit 1 on every subsequent run, unrecoverable without a
-    # hand edit, on a job that runs --sync then this check before it commits.
-    rx = r"[-−+]?[\d,]+(?:\.\d+)?".join(parts)
+    pats = [DATEPAT if sp == "{}" else NUMPAT for sp in SPEC.findall(template)]
+    rx = parts[0]
+    for pat, part in zip(pats, parts[1:]):
+        rx += pat + part
     # re.escape renders a space as an escaped space on older Pythons and bare on newer
     # ones; normalise both to \s+ so a template still matches text wrapped across lines
     return re.compile(re.sub(r"(?:\\ | )+", r"\\s+", rx))

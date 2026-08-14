@@ -227,7 +227,7 @@
   <div class="lede">
     <div class="no">EVIDENCE ROOM · LIVE CORPUS</div>
     <h1>The corpus explorer</h1>
-    <p>Every specimen captured from documented Hungary-targeting pro-Kremlin sources, as data —
+    <p>Every specimen captured from pro-Kremlin sources this mirror credits, as data —
        across the whole laundering chain, from the Telegram channels where narratives start to the
        mirror that republishes them. Slice it by tier, theme, day or origin; every chart recomputes
        from your selection, and every row is a real post they published.</p>
@@ -420,6 +420,7 @@ const ALL = ARCHIVE.length ? ARCHIVE : SNAPSHOT;
        (${n} items). <a href="../../data/DICTIONARY.md">Dictionary →</a></p>`;
 }
 
+const originEq = (a, b) => String(a).toLowerCase() === String(b).toLowerCase();
 const originOf = s => s.source ? (s.source.platform + (s.source.channel ? ' · ' + s.source.channel : ''))
                     : (tierOf(s) === 'origin' ? siteInfo(s.site).label + ' (origin)'
                     : tierOf(s) === 'outlet' ? siteInfo(s.site).label + ' (direct)' : 'untraced');
@@ -436,14 +437,19 @@ const state = { q:'', tier:'all', theme:'all', day:'all', origin:'all', channel:
    send to an editor and a researcher can cite. Read once on load, rewritten on change. */
 function readUrl(){
   const h = new URLSearchParams(location.hash.slice(1));
-  // Normalised on the way in. `q` is matched against a lowercased title and the other
-  // four are compared with === against lowercase data values, so a hand-edited link that
-  // capitalises a name — #q=Ukraine — returned 0 specimens beside the word FILTERED and
-  // the term still showing in the box, which reads as "the corpus has nothing on this".
-  // Self-generated links round-trip fine, which is why it would never have been noticed.
-  for (const k of ['q','tier','theme','day','origin'])
+  // Normalised on the way in, but only where the DATA is lowercase. q/tier/theme/day are
+  // matched against lowercase values, so a hand-edited "#q=Ukraine" used to return 0
+  // beside the word FILTERED — "the corpus has nothing on this" — while the page's own
+  // links round-tripped fine, which is why nobody saw it.
+  //
+  // `origin` is the opposite case and lowercasing it broke the axis outright: originOf()
+  // builds mixed-case labels, so "#origin=News Front (direct)" — what the page writes
+  // when you click a matrix row — went to zero. Keep the case and compare case-insensitively
+  // at every site, so both the generated link and the retyped one work.
+  for (const k of ['q','tier','theme','day'])
     if (h.has(k)) state[k] = h.get(k).trim().toLowerCase();
-  if (h.has('channel')) state.channel = h.get('channel');
+  if (h.has('origin')) state.origin = h.get('origin').trim();
+  if (h.has('channel')) state.channel = h.get('channel').trim().toLowerCase();
   if (h.has('page')) page = Math.max(1, +h.get('page') || 1);
   if (h.has('per')) { const v = h.get('per'); if (['25','50','100','150'].includes(v)) urlPer = v; }
 }
@@ -468,8 +474,8 @@ const filtered = () => ALL.filter(s =>
   (state.tier==='all'   || tierOf(s)===state.tier) &&
   (state.theme==='all'  || (state.theme==='__pay' ? PAY.has(s.theme) : state.theme==='__fill' ? !PAY.has(s.theme) : s.theme===state.theme)) &&
   (state.day==='all'    || s.date===state.day) &&
-  (state.origin==='all' || originOf(s)===state.origin) &&
-  (!state.channel       || channelOf(s)===state.channel) &&
+  (state.origin==='all' || originEq(originOf(s), state.origin)) &&
+  (!state.channel       || originEq(channelOf(s), state.channel)) &&
   (!state.q || s.title.toLowerCase().includes(state.q)));
 
 // channel stats: which Telegram channels the mirror credits, and whether we also capture them
@@ -561,12 +567,12 @@ function matrix(rows){
   $('matrix').innerHTML =
     `<tr><th>origin</th>${themes.map(t=>`<th data-t="${esc(t)}">${esc(t)}</th>`).join('')}<th>total</th></tr>` +
     origins.map(([o,v]) =>
-      `<tr class="${state.origin===o?'sel':''}"><td class="origin" data-o="${esc(o)}" title="${esc(o)}">${esc(o)}</td>${
+      `<tr class="${originEq(state.origin, o)?'sel':''}"><td class="origin" data-o="${esc(o)}" title="${esc(o)}">${esc(o)}</td>${
         themes.map(t => { const n=v[t]||0;
           return `<td class="cell" style="background:rgba(255,74,54,${n?(.08+.4*n/maxCell).toFixed(2):0})">${n||''}</td>`; }).join('')
       }<td style="color:var(--muted)">${v.n}</td></tr>`).join('');
   [...$('matrix').querySelectorAll('td.origin')].forEach(c =>
-    activate(c, () => { state.origin = state.origin===c.dataset.o ? 'all' : c.dataset.o; reset(); render(); }));
+    activate(c, () => { state.origin = originEq(state.origin, c.dataset.o) ? 'all' : c.dataset.o; reset(); render(); }));
   [...$('matrix').querySelectorAll('th[data-t]')].forEach(h =>
     activate(h, () => { state.theme = state.theme===h.dataset.t ? 'all' : h.dataset.t; reset(); render(); }));
 }

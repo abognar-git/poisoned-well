@@ -228,11 +228,31 @@ def main() -> int:
         # cannot resolve — and that github.com served only until its next GC, with the
         # author's personal email on the page. The correction record is this project's
         # central asset; a citation that does not resolve is not a citation.
-        shallow = subprocess.run(["git", "rev-parse", "--is-shallow-repository"],
-                                 capture_output=True, text=True, cwd=ROOT).stdout.strip()
+        # Three states, not two. The first version treated only "shallow" as
+        # unverifiable and took the "not an ancestor" branch for everything else — so a
+        # `git archive` tarball, a downloaded ZIP, a vendored copy or a box without git
+        # printed "53dec10 is not an ancestor of HEAD" about a perfectly reachable sha,
+        # and did it on the correction record, which is the asset this repo exists to
+        # hold. .resolve() on both sides because a clone at /tmp/x reports /private/tmp/x
+        # on macOS, and an unresolved compare would skip the gate on a real checkout —
+        # trading a false alarm for a hole, which is the worse trade.
+        try:
+            top = subprocess.run(["git", "rev-parse", "--show-toplevel"],
+                                 capture_output=True, text=True, cwd=ROOT)
+            in_repo = (top.returncode == 0 and top.stdout.strip()
+                       and Path(top.stdout.strip()).resolve() == ROOT.resolve())
+        except (FileNotFoundError, OSError):
+            in_repo = False
+        shallow = ""
+        if in_repo:
+            shallow = subprocess.run(["git", "rev-parse", "--is-shallow-repository"],
+                                     capture_output=True, text=True, cwd=ROOT).stdout.strip()
         for e in r_entries.values():
             sha = e.get("commit")
             if not sha:
+                continue
+            if not in_repo:
+                print(f"  not a git checkout — cannot verify {sha} is reachable")
                 continue
             if shallow == "true":
                 print(f"  shallow clone — cannot verify {sha} is reachable")

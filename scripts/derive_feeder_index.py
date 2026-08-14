@@ -145,27 +145,45 @@ def main(force: bool = False) -> int:
             w.writerows(rows)
         return len(rows)
 
+    # Before ANY write. "Refusing to publish" has to mean nothing was published, and the
+    # first version of this guard sat below two dumps and an unlink loop.
+    if mirror_day and not by_month:
+        print("refusing to publish: mirrors have daily counts but no sourcesByDay rows at "
+              "all — that is a schema break upstream, not an empty month.")
+        return 1
+
+    # And the partial break, which the total one hides. Upstream's retention window rolls
+    # forward a month at a time, so losing one shard is ordinary and losing thirty-six is
+    # not. Without this, a feed that returns only the last few months quietly deletes the
+    # rest — the guard above never fires because by_month is non-empty, and in CI the
+    # deletion reaches `git add data/panel` and lands on main.
+    if prev.exists() and not force:
+        had_months = json.loads(prev.read_text()).get("months", 0)
+        if had_months and len(by_month) < had_months - 1:
+            print(f"refusing to publish: {len(by_month)} monthly shards against "
+                  f"{had_months} in the current panel. The retention window moves one "
+                  f"month at a time; this is a truncated feed. Re-fetch, or pass --force.")
+            return 1
+
     n_md = dump(OUT / "mirror_day.csv", ["mirror", "date", "articles"], sorted(mirror_day))
     n_meta = dump(OUT / "mirror_meta.csv",
                   ["mirror", "domain", "total_articles", "first_day", "last_day",
                    "sources_listed", "avg_alternates", "languages"], sorted(meta))
 
+    # Write first, delete second. A shard is only orphaned once its replacement set is on
+    # disk; the reverse order means any failure between the two leaves a hole where the
+    # largest table this project publishes used to be.
     n_msd = 0
-    # Written without clearing first, so a month that leaves the upstream retention
-    # window leaves its CSV behind: the manifest reports 38 files and 39 sit on disk,
-    # and no gate in the repo reads data/panel to notice.
-    for stale in (OUT / "mirror_source_day").glob("*.csv"):
-        if stale.stem not in by_month:
-            stale.unlink()
-            print(f"  removed orphaned shard {stale.name}")
-    if mirror_day and not by_month:
-        print("refusing to publish: mirrors have daily counts but no sourcesByDay rows at "
-              "all — that is a schema break upstream, not an empty month.")
-        return 1
     for month, rows in sorted(by_month.items()):
         n_msd += dump(OUT / "mirror_source_day" / f"{month}.csv",
                       ["mirror", "date", "source", "source_type", "credits", "relationship"],
                       [(*r, REL) for r in sorted(rows)])
+    # A month that leaves the upstream retention window used to leave its CSV behind: the
+    # manifest reported 38 files while 39 sat on disk, and no gate reads data/panel.
+    for stale in (OUT / "mirror_source_day").glob("*.csv"):
+        if stale.stem not in by_month:
+            stale.unlink()
+            print(f"  removed orphaned shard {stale.name}")
 
     # the transpose: one row per source, which is the view that does not exist elsewhere
     index_rows = []
@@ -198,6 +216,7 @@ def main(force: bool = False) -> int:
                  "share-of-credits denominator wrong unless conditioned on the top-10 set."),
         "generated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "mirrors": len(files),
+        "months": len(by_month),
         "rows": {"mirror_day": n_md, "mirror_source_day": n_msd,
                  "source_index": n_src, "source_mirror_edges": n_edge, "mirror_meta": n_meta},
         "sources_total": len(src),

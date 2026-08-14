@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Capture recent specimens from documented Hungary-targeting pro-Kremlin sources,
+"""Capture recent specimens from the pro-Kremlin sources this mirror credits,
 modelled as a three-tier ecosystem, with the laundering source behind mirror items.
 
 Run SERVER-SIDE ONLY (locally / in CI) — never from a visitor's browser — so the site
