@@ -130,7 +130,7 @@
   "reading": "The three channels did not stay gone. They supply essentially all of the rebound, and the mirror's source composition returns to within a few points of its pre-election mix. This was an interruption in the Hungarian-language supply, not a change of diet."
  },
  "live_cross_check": {
-  "captured_at": "2026-08-15T16:59:27+00:00",
+  "captured_at": "2026-08-15T17:54:28+00:00",
   "origin_channels_we_scrape": [
    {
     "site": "tg-oroszigazsag",
@@ -197,6 +197,22 @@
   "mirror_articles_in_snapshot": 8,
   "mirror_currently_credits": [
    {
+    "channel": "rbc_sport",
+    "n": 1
+   },
+   {
+    "channel": "SolovievLive",
+    "n": 1
+   },
+   {
+    "channel": "RT",
+    "n": 1
+   },
+   {
+    "channel": "vesti",
+    "n": 1
+   },
+   {
     "channel": "SputnikInt",
     "n": 1
    },
@@ -211,21 +227,9 @@
    {
     "channel": "ukr_leaks_hu",
     "n": 1
-   },
-   {
-    "channel": "ukr_2025_ru",
-    "n": 1
-   },
-   {
-    "channel": "greatawakeningmagyarok",
-    "n": 1
-   },
-   {
-    "channel": "InfodefSpectrum",
-    "n": 1
    }
   ],
-  "collapsed_set_credited_now": 1
+  "collapsed_set_credited_now": 0
  },
  "finding": "The decline was concentrated, not general: three Hungarian-language aggregator channels account for the great majority of it, while the Russian-institutional feeds stayed flat at 21-24 articles/day throughout. But the collapse was temporary — those same three channels supply essentially all of the rebound, and the source mix returns close to its pre-election composition. The Hungarian-language supply was interrupted and then restored.",
  "cannot_show": "why the supply was interrupted. And note the bounds: the per-source series covers the top 10 credited sources only (80% of baseline articles, 70% at the trough); credit labels are the operator's own metadata, which cost nothing to omit; and our live capture harvests only the mirror's English surface while the census counts all languages, so it cannot be compared with the census to say what the mirror consumes — all it shows is that these channels were still publishing on the capture day."
