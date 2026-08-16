@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-08-16T22:54:20+00:00",
+  "captured_at": "2026-08-16T23:52:56+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -138,7 +138,7 @@
     "outlet"
   ],
   "latest_day": "2026-08-17",
-  "today_live_count": 5,
+  "today_live_count": 7,
   "corpus_count": 130,
   "featured": [
     {
@@ -160,11 +160,11 @@
       "site": "ukraina-ru",
       "date": "2026-08-17",
       "category": "ukraina",
-      "title": "Трамп сократит масштаб учений США с Южной Кореей ради \"хороших отношений с КНДР\"",
+      "title": "Росавиация из-за БПЛА закрыла второй аэропорт и корректирует расписание в третьем",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260817/tramp-sokratit-masshtab-ucheniy-ssha-s-yuzhnoy-koreey-radi-khoroshikh-otnosheniy-s-kndr-1082540348.html",
+      "url": "https://ukraina.ru/20260817/rosaviatsiya-iz-za-bpla-zakryla-vtoroy-aeroport-i-korrektiruet-raspisanie-v-tretem-1082540536.html",
       "date_is_capture": false
     },
     {
@@ -251,17 +251,17 @@
     },
     {
       "site": "tg-lomovka",
-      "id": "140220",
+      "id": "140222",
       "date": "2026-08-16",
-      "published_at": "2026-08-16T22:42:57+00:00",
+      "published_at": "2026-08-16T23:40:07+00:00",
       "category": "lomovkaa",
-      "title": "Трамп тайно связался с руководством КСИР. Axios сообщает, что администрация Белого дома тайно выходила на руководство…",
-      "theme": "filler",
+      "title": "Людоловы продолжают хватать людей на улицах Киева. В столице 404-ой за сутки зафиксированы сразу несколько случаев…",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 776,
-      "more": "Трамп тайно связался с руководством КСИР. Axios сообщает, что администрация Белого дома тайно выходила на руководство иранского КСИР через главу Иракского Курдистана Нечирвана Барзани. Именно он, по данным портала, передавал сообщения из Вашингтона тогдашнему командующему элитными частями Ирана Ахмаду Вахиди. Дональд Трамп пытался проверить, насколько КСИР готов поддержать переговорную линию…",
-      "url": "https://t.me/lomovkaa/140220"
+      "chars": 475,
+      "more": "Людоловы продолжают хватать людей на улицах Киева. В столице 404-ой за сутки зафиксированы сразу несколько случаев жесткой мобилизации прямо на улицах города. Кадры, освещающие ситуацию на левом берегу города, в очередной раз демонстрируют, как на Украине работают ТЦКшники: без объяснений, без церемоний и без совести. В Киеве уже давно ведут бои не столько с внешним противником, сколько с…",
+      "url": "https://t.me/lomovkaa/140222"
     }
   ],
   "corpus": [
@@ -284,11 +284,33 @@
       "site": "ukraina-ru",
       "date": "2026-08-17",
       "category": "ukraina",
+      "title": "Трамп сократит масштаб учений США с Южной Кореей ради \"хороших отношений с КНДР\"",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260817/tramp-sokratit-masshtab-ucheniy-ssha-s-yuzhnoy-koreey-radi-khoroshikh-otnosheniy-s-kndr-1082540348.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-08-17",
+      "category": "ukraina",
       "title": "Венгрия бьётся за энергию от СССР: АЭС \"Пакш\" может снова сократить мощность",
       "theme": "hungary",
       "lang": "cyr",
       "unit": "headline",
       "url": "https://ukraina.ru/20260817/vengriya-btsya-za-energiyu-ot-sssr-aes-paksh-mozhet-snova-sokratit-moschnost--1082540019.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-08-17",
+      "category": "ukraina",
+      "title": "В Херсонской области украинский дрон убил семью в автомобиле",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260817/v-khersonskoy-oblasti-ukrainskiy-dron-ubil-semyu-v-avtomobile-1082540854.html",
       "date_is_capture": false
     },
     {
@@ -817,6 +839,34 @@
       "url": "https://t.me/InfoDefMagyarok/14024"
     },
     {
+      "site": "tg-lomovka",
+      "id": "140221",
+      "date": "2026-08-16",
+      "published_at": "2026-08-16T23:11:01+00:00",
+      "category": "lomovkaa",
+      "title": "Поляки готовятся делить Украину. Варшава стремится войти в переговорный процесс по урегулированию украинского конфликта…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 1184,
+      "more": "Поляки готовятся делить Украину. Варшава стремится войти в переговорный процесс по урегулированию украинского конфликта в его завершающей стадии. Это позволит им не только участвовать в переделе территорий, но и повлиять на формирование новых органов власти на оставшихся подконтрольных Киеву землях. Знаете для чего поляки так хотят сейчас влезть в переговорный кейс по украинскому кризису? Ответ…",
+      "url": "https://t.me/lomovkaa/140221"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "140220",
+      "date": "2026-08-16",
+      "published_at": "2026-08-16T22:42:57+00:00",
+      "category": "lomovkaa",
+      "title": "Трамп тайно связался с руководством КСИР. Axios сообщает, что администрация Белого дома тайно выходила на руководство…",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 776,
+      "more": "Трамп тайно связался с руководством КСИР. Axios сообщает, что администрация Белого дома тайно выходила на руководство иранского КСИР через главу Иракского Курдистана Нечирвана Барзани. Именно он, по данным портала, передавал сообщения из Вашингтона тогдашнему командующему элитными частями Ирана Ахмаду Вахиди. Дональд Трамп пытался проверить, насколько КСИР готов поддержать переговорную линию…",
+      "url": "https://t.me/lomovkaa/140220"
+    },
+    {
       "site": "tg-infodef",
       "id": "14022",
       "date": "2026-08-16",
@@ -899,34 +949,6 @@
       "chars": 710,
       "more": "Германия не справляется с планом депортаций. В ФРГ громко объявили о «наступательной кампании по возвращению» мигрантов, но на деле все снова закончилось немецкой бюрократической имитацией. По данным Welt am Sonntag со ссылкой на МВД, в первом полугодии 2026 года Германия депортировала 9 663 иностранца — это на 18% меньше, чем годом ранее, когда показатель составлял 11 807. При этом на конец 2025…",
       "url": "https://t.me/lomovkaa/140214"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "140213",
-      "date": "2026-08-16",
-      "published_at": "2026-08-16T19:55:57+00:00",
-      "category": "lomovkaa",
-      "title": "Европейский бизнес продолжает сотрудничать с Россией вопреки своим лидерам. Об этом заявил советник президента России…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1070,
-      "more": "Европейский бизнес продолжает сотрудничать с Россией вопреки своим лидерам. Об этом заявил советник президента России Антон Кобяков: Бизнесмены из всех страны Европы. Да, они и не скрывают этого. Достаточно проследить последние 4-5 форумов в Санкт-Петербурге и Владивостоке. По его словам, на российских форумах в последние годы стабильно присутствуют предприниматели почти из всех крупных стран…",
-      "url": "https://t.me/lomovkaa/140213"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "140212",
-      "date": "2026-08-16",
-      "published_at": "2026-08-16T19:27:01+00:00",
-      "category": "lomovkaa",
-      "title": "Союзники США в Персидском заливе все больше недовольны Трампом. Ближневосточные партнеры разочарованы в Вашингтоне…",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1064,
-      "more": "Союзники США в Персидском заливе все больше недовольны Трампом. Ближневосточные партнеры разочарованы в Вашингтоне из-за неспособности Белого дома добиться мирного урегулирования конфликта с Ираном. В Саудовской Аравии, Катаре, Кувейте и Бахрейне растет раздражение, а некоторые государства уже обсуждают целесообразность размещения американских военных баз на своей территории. Трамп начал эту…",
-      "url": "https://t.me/lomovkaa/140212"
     },
     {
       "site": "tg-infodef",
@@ -1240,11 +1262,11 @@
       "site": "rt-ru",
       "date": "2026-08-16",
       "category": "rt",
-      "title": "Победительницей конкурса «Миссис Москва — 2026» стала Валентина Вылегжанина",
+      "title": "РИА Новости: ЯНАО лидирует по уровню зарплат в России",
       "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1670630-missis-moskva-pobeditelnica",
+      "url": "https://russian.rt.com/russia/news/1670632-regiony-zarplaty-reiting",
       "date_is_capture": true
     },
     {
@@ -1280,6 +1302,81 @@
       "url": "https://news-front.su/2026/08/16/zhizn-na-osvobozhdennyh-territoriyah-16-avgusta-obnovlyaetsya-3/"
     },
     {
+      "site": "rt-ru",
+      "date": "2026-08-16",
+      "category": "rt",
+      "title": "Победительницей конкурса «Миссис Москва — 2026» стала Валентина Вылегжанина",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/world/news/1670631-ormuz-neft-perevozka",
+      "date_is_capture": true
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-08-16",
+      "category": "zvezda",
+      "title": "Групповой полет четырех Су-57 показали на уникальных кадрах",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20268161111-gi4UW.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-08-16",
+      "category": "tsargrad",
+      "title": "Удары по Украине стали жёстче. Но есть неловкий нюанс: Секрет эффективности раскрыл Юрий Котенок",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/udary-po-ukraine-stali-zhjostche-no-est-nelovkij-njuans-sekret-jeffektivnosti-raskryl-jurij-kotenok_1823222",
+      "date_is_capture": true
+    },
+    {
+      "site": "newsfront-ru",
+      "date": "2026-08-16",
+      "category": "news-front",
+      "title": "Актуальная информация об обстановке на линии фронта 16 августа (обновляется)",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://news-front.su/2026/08/16/aktualnaya-informacziya-ob-obstanovke-na-linii-fronta-16-avgusta-obnovlyaetsya-2/"
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-08-16",
+      "category": "rt",
+      "title": "Победительницей конкурса «Миссис Москва — 2026» стала Валентина Вылегжанина",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1670630-missis-moskva-pobeditelnica",
+      "date_is_capture": true
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-08-16",
+      "category": "zvezda",
+      "title": "Четыре фугасные авиабомбы разгромили вражеский пункт управления дронами",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20268161026-VuIej.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "newsfront-ru",
+      "date": "2026-08-16",
+      "category": "news-front",
+      "title": "ВС РФ нанесли удары по портовой инфраструктуре и судам ВСУ – Минобороны",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://news-front.su/2026/08/16/vs-rf-nanesli-udary-po-portovoj-infrastrukture-i-sudam-vsu-minoborony/"
+    },
+    {
       "site": "ukraina-ru",
       "date": "2026-08-16",
       "category": "ukraina",
@@ -1305,33 +1402,22 @@
       "site": "zvezda-tv",
       "date": "2026-08-16",
       "category": "zvezda",
-      "title": "Групповой полет четырех Су-57 показали на уникальных кадрах",
-      "theme": "filler",
+      "title": "Американский аналитик: русским больше неважно, примут ли их в Европе",
+      "theme": "eu/nato",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20268161111-gi4UW.html",
+      "url": "https://tvzvezda.ru/news/20268162235-QpVto.html",
       "date_is_capture": false
-    },
-    {
-      "site": "tsargrad",
-      "date": "2026-08-16",
-      "category": "tsargrad",
-      "title": "Военкор Коц: \"Мы отключили Одессу от моря\"",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/turbopatrioty-zanjali-poziciju-obizhennogo-rebenka-insajder-raskryl-tri-vyzova-dlja-rossii_1826530",
-      "date_is_capture": true
     },
     {
       "site": "newsfront-ru",
       "date": "2026-08-16",
       "category": "news-front",
-      "title": "Актуальная информация об обстановке на линии фронта 16 августа (обновляется)",
-      "theme": "filler",
+      "title": "Количество пропавших за время конфликта на Украине увеличилось до 266 тысяч",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://news-front.su/2026/08/16/aktualnaya-informacziya-ob-obstanovke-na-linii-fronta-16-avgusta-obnovlyaetsya-2/"
+      "url": "https://news-front.su/2026/08/16/kolichestvo-propavshih-za-vremya-konflikta-na-ukraine-uvelichilos-do-266-tysyach/"
     },
     {
       "site": "ukraina-ru",
@@ -1356,68 +1442,25 @@
       "date_is_capture": true
     },
     {
-      "site": "tsargrad",
+      "site": "zvezda-tv",
       "date": "2026-08-16",
-      "category": "tsargrad",
-      "title": "Военкор Коц: \"Мы отключили Одессу от моря\"",
-      "theme": "ukraine",
+      "category": "zvezda",
+      "title": "Российские пловцы выиграли золото чемпионата Европы в комбинированной эстафете",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tsargrad.tv/news/voenkor-koc-my-otkljuchili-odessu-ot-morja_1824370",
-      "date_is_capture": true
-    },
-    {
-      "site": "newsfront-ru",
-      "date": "2026-08-16",
-      "category": "news-front",
-      "title": "ВС РФ нанесли удары по портовой инфраструктуре и судам ВСУ – Минобороны",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://news-front.su/2026/08/16/vs-rf-nanesli-udary-po-portovoj-infrastrukture-i-sudam-vsu-minoborony/"
-    },
-    {
-      "site": "ukraina-ru",
-      "date": "2026-08-16",
-      "category": "ukraina",
-      "title": "Командир \"Ахмата\" заявил о миллиардных потерях Украины из-за ударов ВС РФ",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20260816/komandir-akhmata-zayavil-o-milliardnykh-poteryakh-ukrainy-iz-za-udarov-vs-rf-1082533971.html",
+      "url": "https://tvzvezda.ru/news/20268162135-Ct46O.html",
       "date_is_capture": false
     },
     {
-      "site": "rt-ru",
-      "date": "2026-08-16",
-      "category": "rt",
-      "title": "В Адыгее грузовик столкнулся с легковушкой и протаранил ещё семь автомобилей",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1670627-adygeya-gruzovik-avariya",
-      "date_is_capture": true
-    },
-    {
-      "site": "tsargrad",
-      "date": "2026-08-16",
-      "category": "tsargrad",
-      "title": "Самое интересное начнётся осенью и зимой: Киев получит ещё больше огня",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/samoe-interesnoe-nachnjotsja-osenju-i-zimoj-kiev-poluchit-eshhjo-bolshe-ognja_1822049",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-08-16",
       "category": "news-front",
-      "title": "Количество пропавших за время конфликта на Украине увеличилось до 266 тысяч",
+      "title": "На Украине сотрудники ТЦК задержали двух священнослужителей",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://news-front.su/2026/08/16/kolichestvo-propavshih-za-vremya-konflikta-na-ukraine-uvelichilos-do-266-tysyach/"
+      "url": "https://news-front.su/2026/08/16/na-ukraine-sotrudniki-tczk-zaderzhali-dvuh-svyashhennosluzhitelej/"
     },
     {
       "site": "ukraina-ru",
@@ -1434,44 +1477,33 @@
       "site": "rt-ru",
       "date": "2026-08-16",
       "category": "rt",
-      "title": "На Украине сотрудники ТЦК отпустили митрополита УПЦ, изъяв его паспорт",
-      "theme": "ukraine",
+      "title": "В Адыгее грузовик столкнулся с легковушкой и протаранил ещё семь автомобилей",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1670626-ukraina-tck-mitropolit",
+      "url": "https://russian.rt.com/russia/news/1670627-adygeya-gruzovik-avariya",
       "date_is_capture": true
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-08-16",
+      "category": "zvezda",
+      "title": "Сотрудники ТЦК отпустили задержанного митрополита УПЦ",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20268162122-MApGj.html",
+      "date_is_capture": false
     },
     {
       "site": "newsfront-ru",
       "date": "2026-08-16",
       "category": "news-front",
-      "title": "На Украине сотрудники ТЦК задержали двух священнослужителей",
+      "title": "В Курской области погибла женщина из-за атаки ВСУ",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://news-front.su/2026/08/16/na-ukraine-sotrudniki-tczk-zaderzhali-dvuh-svyashhennosluzhitelej/"
-    },
-    {
-      "site": "ukraina-ru",
-      "date": "2026-08-16",
-      "category": "ukraina",
-      "title": "Евгений Норин: России поможет выиграть войну только освобождение \"СлавКрама\"",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20260816/evgeniy-norin-rossii-pomozhet-vyigrat-voynu-tolko-osvobozhdenie-slavkrama-1082524273.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-08-16",
-      "category": "rt",
-      "title": "Посольство: Бразилия увеличивает закупки удобрений из России",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/business/news/1670624-rossiya-braziliya-udobreniya",
-      "date_is_capture": true
+      "url": "https://news-front.su/2026/08/16/v-kurskoj-oblasti-pogibla-zhenshhina-iz-za-ataki-vsu/"
     },
     {
       "site": "tg-rybar",
@@ -1598,17 +1630,6 @@
       "url": "https://t.me/VilagHelyzeteBlog/13967"
     },
     {
-      "site": "zvezda-tv",
-      "date": "2026-08-15",
-      "category": "zvezda",
-      "title": "Багаи обвинил США во лжи цитатой из «Братьев Карамазовых»",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20268151241-ob9Hk.html",
-      "date_is_capture": false
-    },
-    {
       "site": "tg-rybar",
       "id": "7304",
       "date": "2026-08-14",
@@ -1649,6 +1670,20 @@
       "chars": 1466,
       "more": "📝 Keresztút 📝 az identitás kifejezésének egyik formája A különleges katonai művelet új lendületet adott az orosz identitás kifejezésére irányuló törekvéseknek. A társadalomban igény alakult ki olyan rendezvények iránt, amelyek képesek összetartani az embereket a külső és belső fenyegetésekkel szemben. E tendencia egyik legszembetűnőbb megnyilvánulása a keresztutakon részt vevők számának…",
       "url": "https://t.me/Rybar_HU/7301"
+    },
+    {
+      "site": "tg-rybar",
+      "id": "7300",
+      "date": "2026-08-14",
+      "published_at": "2026-08-14T07:01:14+00:00",
+      "category": "Rybar_HU",
+      "title": "📝 A különleges katonai művelet krónikája 📝 2026. augusztus 13-án Az Orosz Fegyveres Erők egységei sorozatos, célzott…",
+      "theme": "ukraine",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 1306,
+      "more": "📝 A különleges katonai művelet krónikája 📝 2026. augusztus 13-án Az Orosz Fegyveres Erők egységei sorozatos, célzott támadásokat hajtottak végre az ellenség objektumaira a frontvonal közelében. Ukrán források szerint a Csernyihov régiót intenzívebb lövöldözés érte, a Szumi és Harkov régiók is erős tűz alatt állnak. Az ellenség kikötői infrastruktúrája továbbra is célpont. Az Ocsałów és Odessza…",
+      "url": "https://t.me/Rybar_HU/7300"
     },
     {
       "site": "tg-zvezda",
@@ -1757,17 +1792,6 @@
       "url": "https://hu.news-front.su/2026/08/14/dmitrij-medvegyev-a-specialis-hadmuvelet-csak-oroszorszag-feltetelei-szerint-fejezodhet-be/"
     },
     {
-      "site": "zvezda-tv",
-      "date": "2026-08-14",
-      "category": "zvezda",
-      "title": "Белоусов: осенью в Курске откроют памятник в честь корейских и российских бойцов",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20268142018-SRnqw.html",
-      "date_is_capture": false
-    },
-    {
       "site": "newsfront-hu",
       "date": "2026-08-14",
       "category": "news-front",
@@ -1786,28 +1810,6 @@
       "lang": "hu",
       "unit": "headline",
       "url": "https://hu.news-front.su/2026/08/14/putyin-kotelessegunk-az-orosz-allam-biztonsaganak-biztositasa-az-osszes-hatara-menten/"
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2023-04-25",
-      "category": "zvezda",
-      "title": "В Военном университете имени Невского обсудили опыт спецоперации при подготовке офицеров",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20234251650-J1F5j.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2022-11-21",
-      "category": "zvezda",
-      "title": "Освоить боевую машину: как экипажи БМП тренируются на полигоне в зоне спецоперации",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/202211211630-qn1TB.html",
-      "date_is_capture": false
     }
   ]
 }
