@@ -7,7 +7,7 @@ siblings — including the claims you would rather keep.**
 I built the instrument that does the checking and pointed it at the mirror aimed
 at Hungary's April 2026 election. It took away four of my own published findings
 and cut a fifth down to a fifteen-day gap it cannot explain. What survived is one
-number: across **140,594 articles** and the **941 sources** that account for all
+number: across **140,614 articles** and the **941 sources** that account for all
 of them, the Hungarian pro-government press is credited **zero times**.
 
 <sub>**How to read this.** The section below stands on its own — it is the whole
@@ -347,7 +347,7 @@ know whether the pattern is special or simply what this kind of network does
 everywhere. It does not have to be.
 
 **The census is the strongest claim here and the least exciting.** A full-coverage
-negative result — 140,594 articles, 941 sources, coverage 1.0000, zero credits to
+negative result — 140,614 articles, 941 sources, coverage 1.0000, zero credits to
 the domestic pro-government press — is a boring sentence that survived every test
 I could put to it, while the interesting sentence about a post-election collapse
 lost four fifths of its weight in five tests.
