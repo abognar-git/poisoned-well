@@ -1,14 +1,14 @@
 {
  "note": "Coverage of this corpus, computed by comparing the ids actually held in the archive against the id span observed across every logged run. Both captured tiers number sequentially, so a gap is an item the source issued and this corpus does not contain — filtered out, published between runs, or missed. This does not say which. Outlet listings expose no sequential ids and carry nulls.",
- "generated": "2026-08-17T21:04:47+00:00",
- "runs_logged": 55,
+ "generated": "2026-08-17T21:58:56+00:00",
+ "runs_logged": 56,
  "first_run": "20260814T065530+0000",
- "last_run": "20260817T210446+0000",
+ "last_run": "20260817T215856+0000",
  "measurable_sources": 11,
- "coverage_overall": 0.6737,
+ "coverage_overall": 0.6741,
  "by_source": {
   "newsfront-hu": {
-   "runs": 55,
+   "runs": 56,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -19,7 +19,7 @@
    "empty_runs": 0
   },
   "newsfront-ru": {
-   "runs": 55,
+   "runs": 56,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -30,7 +30,7 @@
    "empty_runs": 0
   },
   "pravda-hu": {
-   "runs": 55,
+   "runs": 56,
    "sequential_ids": true,
    "captured": 202,
    "id_span_observed": 208,
@@ -48,7 +48,7 @@
    "empty_runs": 0
   },
   "rt-ru": {
-   "runs": 55,
+   "runs": 56,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -59,7 +59,7 @@
    "empty_runs": 1
   },
   "tg-baltnews": {
-   "runs": 55,
+   "runs": 56,
    "sequential_ids": true,
    "captured": 118,
    "id_span_observed": 127,
@@ -80,7 +80,7 @@
    "empty_runs": 0
   },
   "tg-ebredes": {
-   "runs": 55,
+   "runs": 56,
    "sequential_ids": true,
    "captured": 233,
    "id_span_observed": 319,
@@ -112,7 +112,7 @@
    "empty_runs": 0
   },
   "tg-greatawaken": {
-   "runs": 55,
+   "runs": 56,
    "sequential_ids": true,
    "captured": 165,
    "id_span_observed": 534,
@@ -144,7 +144,7 @@
    "empty_runs": 0
   },
   "tg-infodef": {
-   "runs": 55,
+   "runs": 56,
    "sequential_ids": true,
    "captured": 50,
    "id_span_observed": 67,
@@ -173,13 +173,13 @@
    "empty_runs": 0
   },
   "tg-lomovka": {
-   "runs": 55,
+   "runs": 56,
    "sequential_ids": true,
-   "captured": 246,
-   "id_span_observed": 291,
+   "captured": 248,
+   "id_span_observed": 294,
    "first_id": 139995,
-   "last_id": 140285,
-   "coverage": 0.8454,
+   "last_id": 140288,
+   "coverage": 0.8435,
    "missing_examples": [
     140009,
     140013,
@@ -205,13 +205,13 @@
    "empty_runs": 0
   },
   "tg-oroszigazsag": {
-   "runs": 55,
+   "runs": 56,
    "sequential_ids": true,
-   "captured": 365,
-   "id_span_observed": 480,
+   "captured": 372,
+   "id_span_observed": 489,
    "first_id": 264254,
-   "last_id": 264733,
-   "coverage": 0.7604,
+   "last_id": 264742,
+   "coverage": 0.7607,
    "missing_examples": [
     264256,
     264262,
@@ -237,7 +237,7 @@
    "empty_runs": 0
   },
   "tg-oroszkatonai": {
-   "runs": 55,
+   "runs": 56,
    "sequential_ids": true,
    "captured": 54,
    "id_span_observed": 113,
@@ -269,7 +269,7 @@
    "empty_runs": 0
   },
   "tg-rybar": {
-   "runs": 55,
+   "runs": 56,
    "sequential_ids": true,
    "captured": 21,
    "id_span_observed": 34,
@@ -294,7 +294,7 @@
    "empty_runs": 0
   },
   "tg-vilaghelyzete": {
-   "runs": 55,
+   "runs": 56,
    "sequential_ids": true,
    "captured": 41,
    "id_span_observed": 48,
@@ -313,7 +313,7 @@
    "empty_runs": 0
   },
   "tg-zvezda": {
-   "runs": 55,
+   "runs": 56,
    "sequential_ids": true,
    "captured": 31,
    "id_span_observed": 44,
@@ -338,7 +338,7 @@
    "empty_runs": 0
   },
   "tsargrad": {
-   "runs": 55,
+   "runs": 56,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -349,7 +349,7 @@
    "empty_runs": 0
   },
   "ukraina-ru": {
-   "runs": 55,
+   "runs": 56,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -360,7 +360,7 @@
    "empty_runs": 0
   },
   "zvezda-tv": {
-   "runs": 55,
+   "runs": 56,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
