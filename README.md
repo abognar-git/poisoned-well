@@ -7,7 +7,7 @@ siblings — including the claims you would rather keep.**
 I built the instrument that does the checking and pointed it at the mirror aimed
 at Hungary's April 2026 election. It took away four of my own published findings
 and cut a fifth down to a fifteen-day gap it cannot explain. What survived is one
-number: across **140,829 articles** and the **941 sources** that account for all
+number: across **140,835 articles** and the **941 sources** that account for all
 of them, the Hungarian pro-government press is credited **zero times**.
 
 <sub>**How to read this.** The section below stands on its own — it is the whole
@@ -37,7 +37,7 @@ readers — is aimed less at the people of the country named on the domain than 
 the machines that now answer questions about it.
 
 One of those sites points at Hungary. It went up in March 2024 and has published
-on **876 of the 879 days** since. Hungary held a national election on 12 April
+on **877 of the 880 days** since. Hungary held a national election on 12 April
 2026; the government lost. That is the case this project started as.
 
 **The thing that makes it a study rather than a story is the other hundred
@@ -347,7 +347,7 @@ know whether the pattern is special or simply what this kind of network does
 everywhere. It does not have to be.
 
 **The census is the strongest claim here and the least exciting.** A full-coverage
-negative result — 140,829 articles, 941 sources, coverage 1.0000, zero credits to
+negative result — 140,835 articles, 941 sources, coverage 1.0000, zero credits to
 the domestic pro-government press — is a boring sentence that survived every test
 I could put to it, while the interesting sentence about a post-election collapse
 lost four fifths of its weight in five tests.
