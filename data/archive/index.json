@@ -1,7 +1,7 @@
 {
  "note": "Append-only archive of every item captured by scripts/capture_specimens.py. Headlines and provenance only — no article body text is collected. Items are never rewritten once archived; `first_seen` is when this project observed the item, which is not necessarily when it was published.",
- "updated": "2026-08-19T12:00:54+00:00",
- "items": 4520,
+ "updated": "2026-08-19T14:09:53+00:00",
+ "items": 4615,
  "first_date": "2022-03-30",
  "last_date": "2026-08-19",
  "published_range": [
@@ -19,66 +19,66 @@
   "2022-11": 2,
   "2023-04": 1,
   "2026-07": 2,
-  "2026-08": 4511
+  "2026-08": 4606
  },
  "by_source": {
-  "rt-ru": 959,
-  "tg-oroszigazsag": 508,
-  "ukraina-ru": 472,
-  "tg-lomovka": 385,
-  "newsfront-ru": 380,
-  "pravda-hu": 318,
-  "tg-ebredes": 305,
-  "tg-greatawaken": 257,
-  "tg-baltnews": 199,
-  "zvezda-tv": 177,
-  "tsargrad": 130,
+  "rt-ru": 975,
+  "tg-oroszigazsag": 523,
+  "ukraina-ru": 480,
+  "tg-lomovka": 393,
+  "newsfront-ru": 389,
+  "pravda-hu": 323,
+  "tg-ebredes": 310,
+  "tg-greatawaken": 263,
+  "tg-baltnews": 203,
+  "zvezda-tv": 188,
+  "tsargrad": 133,
   "newsfront-hu": 123,
   "tg-zvezda": 83,
-  "tg-oroszkatonai": 77,
-  "tg-infodef": 64,
-  "tg-vilaghelyzete": 48,
+  "tg-oroszkatonai": 80,
+  "tg-infodef": 65,
+  "tg-vilaghelyzete": 49,
   "tg-rybar": 35
  },
  "by_tier": {
-  "outlet": 2241,
-  "origin": 1961,
-  "launderer": 318
+  "outlet": 2288,
+  "origin": 2004,
+  "launderer": 323
  },
  "by_theme": {
-  "filler": 1854,
-  "ukraine": 1254,
-  "russia": 730,
-  "hungary": 332,
-  "eu/nato": 180,
-  "energy": 170
+  "filler": 1886,
+  "ukraine": 1273,
+  "russia": 754,
+  "hungary": 342,
+  "eu/nato": 183,
+  "energy": 177
  },
  "by_lang": {
-  "cyr": 2596,
-  "hu": 1513,
-  "lat": 411
+  "cyr": 2651,
+  "hu": 1547,
+  "lat": 417
  },
  "by_unit": {
-  "headline": 2559,
-  "post_excerpt": 1961
+  "headline": 2611,
+  "post_excerpt": 2004
  },
  "theme_coverage": {
   "cyr": {
-   "items": 2596,
-   "scored": 2596,
-   "matched_a_topic": 1676,
+   "items": 2651,
+   "scored": 2651,
+   "matched_a_topic": 1713,
    "lexicon": "cyr"
   },
   "hu": {
-   "items": 1513,
-   "scored": 1513,
-   "matched_a_topic": 780,
+   "items": 1547,
+   "scored": 1547,
+   "matched_a_topic": 804,
    "lexicon": "lat"
   },
   "lat": {
-   "items": 411,
-   "scored": 411,
-   "matched_a_topic": 210,
+   "items": 417,
+   "scored": 417,
+   "matched_a_topic": 212,
    "lexicon": "lat"
   }
  }
