@@ -1,14 +1,14 @@
 {
  "note": "Coverage of this corpus, computed by comparing the ids actually held in the archive against the id span observed across every logged run. Both captured tiers number sequentially, so a gap is an item the source issued and this corpus does not contain — filtered out, published between runs, or missed. This does not say which. Outlet listings expose no sequential ids and carry nulls.",
- "generated": "2026-08-19T23:56:36+00:00",
- "runs_logged": 86,
+ "generated": "2026-08-20T03:15:31+00:00",
+ "runs_logged": 87,
  "first_run": "20260814T065530+0000",
- "last_run": "20260819T235635+0000",
+ "last_run": "20260820T031530+0000",
  "measurable_sources": 11,
- "coverage_overall": 0.6678,
+ "coverage_overall": 0.6679,
  "by_source": {
   "newsfront-hu": {
-   "runs": 86,
+   "runs": 87,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -19,7 +19,7 @@
    "empty_runs": 0
   },
   "newsfront-ru": {
-   "runs": 86,
+   "runs": 87,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -30,7 +30,7 @@
    "empty_runs": 0
   },
   "pravda-hu": {
-   "runs": 86,
+   "runs": 87,
    "sequential_ids": true,
    "captured": 275,
    "id_span_observed": 286,
@@ -53,7 +53,7 @@
    "empty_runs": 0
   },
   "rt-ru": {
-   "runs": 86,
+   "runs": 87,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -64,7 +64,7 @@
    "empty_runs": 1
   },
   "tg-baltnews": {
-   "runs": 86,
+   "runs": 87,
    "sequential_ids": true,
    "captured": 186,
    "id_span_observed": 201,
@@ -91,7 +91,7 @@
    "empty_runs": 0
   },
   "tg-ebredes": {
-   "runs": 86,
+   "runs": 87,
    "sequential_ids": true,
    "captured": 341,
    "id_span_observed": 459,
@@ -123,7 +123,7 @@
    "empty_runs": 0
   },
   "tg-greatawaken": {
-   "runs": 86,
+   "runs": 87,
    "sequential_ids": true,
    "captured": 255,
    "id_span_observed": 847,
@@ -155,7 +155,7 @@
    "empty_runs": 0
   },
   "tg-infodef": {
-   "runs": 86,
+   "runs": 87,
    "sequential_ids": true,
    "captured": 69,
    "id_span_observed": 92,
@@ -187,12 +187,12 @@
    "empty_runs": 0
   },
   "tg-lomovka": {
-   "runs": 86,
+   "runs": 87,
    "sequential_ids": true,
-   "captured": 381,
-   "id_span_observed": 443,
+   "captured": 387,
+   "id_span_observed": 450,
    "first_id": 139995,
-   "last_id": 140437,
+   "last_id": 140444,
    "coverage": 0.86,
    "missing_examples": [
     140009,
@@ -219,7 +219,7 @@
    "empty_runs": 0
   },
   "tg-oroszigazsag": {
-   "runs": 86,
+   "runs": 87,
    "sequential_ids": true,
    "captured": 525,
    "id_span_observed": 686,
@@ -251,13 +251,13 @@
    "empty_runs": 0
   },
   "tg-oroszkatonai": {
-   "runs": 86,
+   "runs": 87,
    "sequential_ids": true,
-   "captured": 86,
-   "id_span_observed": 178,
+   "captured": 94,
+   "id_span_observed": 191,
    "first_id": 42320,
-   "last_id": 42497,
-   "coverage": 0.4831,
+   "last_id": 42510,
+   "coverage": 0.4921,
    "missing_examples": [
     42321,
     42322,
@@ -283,7 +283,7 @@
    "empty_runs": 0
   },
   "tg-rybar": {
-   "runs": 86,
+   "runs": 87,
    "sequential_ids": true,
    "captured": 21,
    "id_span_observed": 34,
@@ -308,7 +308,7 @@
    "empty_runs": 0
   },
   "tg-vilaghelyzete": {
-   "runs": 86,
+   "runs": 87,
    "sequential_ids": true,
    "captured": 55,
    "id_span_observed": 64,
@@ -329,7 +329,7 @@
    "empty_runs": 0
   },
   "tg-zvezda": {
-   "runs": 86,
+   "runs": 87,
    "sequential_ids": true,
    "captured": 59,
    "id_span_observed": 84,
@@ -361,7 +361,7 @@
    "empty_runs": 0
   },
   "tsargrad": {
-   "runs": 86,
+   "runs": 87,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -372,7 +372,7 @@
    "empty_runs": 1
   },
   "ukraina-ru": {
-   "runs": 86,
+   "runs": 87,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -383,7 +383,7 @@
    "empty_runs": 0
   },
   "zvezda-tv": {
-   "runs": 86,
+   "runs": 87,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
