@@ -14,7 +14,7 @@ tells. Its defensible core:
 
 > The Pravda network's one-mirror-per-country architecture can be used as a **control group**. Applied
 > to the mirror aimed at Hungary's April 2026 election, it yields (a) a full-coverage negative
-> provenance census — zero credits to the Hungarian pro-government press across 141,389 articles — and
+> provenance census — zero credits to the Hungarian pro-government press across 141,401 articles — and
 > (b) a demonstration that output interruptions in such a network are common and largely not
 > election-aligned — including the Hungarian one, which is the largest in its own window but 6th of 12
 > episodes network-wide and 15 days late to the event it is usually attributed to.
@@ -67,7 +67,7 @@ news cycles); and the design cannot separate a change in operator behaviour from
 CheckFirst's collector sees.
 
 **C2 — A full-coverage negative provenance census.**
-Across all 141,389 articles, the 941 credited sources sum to exactly 141,389 (coverage 1.0000). The
+Across all 141,401 articles, the 941 credited sources sum to exactly 141,401 (coverage 1.0000). The
 Hungarian pro-government press appears **zero** times. One pro-government commentator's personal
 Telegram channel appears 76 times (0.05%); nationalist-fringe channels 130 (0.09%) **[V]**.
 *Limit — must sit inside the claim sentence, not in a caveat:* this measures the mirror's **own credit
