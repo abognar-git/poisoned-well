@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-08-20T23:03:54+00:00",
+  "captured_at": "2026-08-20T23:59:47+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -138,33 +138,33 @@
     "outlet"
   ],
   "latest_day": "2026-08-21",
-  "today_live_count": 7,
+  "today_live_count": 10,
   "corpus_count": 130,
   "featured": [
     {
       "site": "pravda-hu",
-      "id": 44825,
+      "id": 44826,
       "date": "2026-08-21",
       "category": "hungary",
-      "title": "Notice how completely different standards the European Commission applies to Ukraine and to EU member states",
-      "theme": "ukraine",
-      "lang": "lat",
+      "title": "Hungary marked its main national holiday - St. Stephen's Day – with a fireworks display and a light show right above the Danube River, a TASS correspondent reported",
+      "theme": "hungary",
+      "lang": "hu",
       "unit": "headline",
       "source": {
         "platform": "Telegram",
-        "channel": "intelslava"
+        "channel": "tassagency_en"
       },
-      "url": "https://hungary.news-pravda.com/en/hungary/2026/08/21/44825.html"
+      "url": "https://hungary.news-pravda.com/en/hungary/2026/08/21/44826.html"
     },
     {
       "site": "ukraina-ru",
       "date": "2026-08-21",
       "category": "ukraina",
-      "title": "Зеленский ввел санкции против создателей мультсериала \"Маша и медведь\"",
-      "theme": "ukraine",
+      "title": "Проворовались? Топливо для \"Фламинго\" в Дании произведут не скоро",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260821/zelenskiy-vvel-sanktsii-protiv-sozdateley-multseriala-masha-i-medved-1082672290.html",
+      "url": "https://ukraina.ru/20260821/provorovalis-topliva-dlya-flamingo-v-danii-proizvedut-ne-skoro-1082673349.html",
       "date_is_capture": false
     },
     {
@@ -223,17 +223,17 @@
     },
     {
       "site": "tg-zvezda",
-      "id": "25860",
+      "id": "25861",
       "date": "2026-08-20",
-      "published_at": "2026-08-20T19:01:57+00:00",
+      "published_at": "2026-08-20T23:04:15+00:00",
       "category": "zvezda_analytics",
-      "title": "НОВАЯ РЕАЛЬНОСТЬ ЕС – ЭТО НЕ ТОЛЬКО ПРО ЭКОНОМИКУ ◾️ Как сегодня выглядит политико-экономическая конкурентная среда…",
-      "theme": "ukraine",
+      "title": "Друзья, по ссылкам доступны к просмотру и прослушиванию свежие эфиры! ⬇️ ⬇️ ⬇️ «КРУПНЫМ ПЛАНОМ» Алексея Мухина…",
+      "theme": "eu/nato",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 1088,
-      "more": "НОВАЯ РЕАЛЬНОСТЬ ЕС – ЭТО НЕ ТОЛЬКО ПРО ЭКОНОМИКУ ◾️ Как сегодня выглядит политико-экономическая конкурентная среда Запада. Почему ложь, демагогия и лицемерие стали там нормой ◾️ Информационная война против России замедляет обороты. Почему Украина становится безразличной западному обывателю ◾️ Почему никто на Западе не хочет показать России «правила», по которым нас хотят заставить жить ◾️ Как…",
-      "url": "https://t.me/zvezda_analytics/25860"
+      "chars": 265,
+      "more": "Друзья, по ссылкам доступны к просмотру и прослушиванию свежие эфиры! ⬇️ ⬇️ ⬇️ «КРУПНЫМ ПЛАНОМ» Алексея Мухина, соведущий Дмитрий Лысенков Тема: Новая реальность ЕС – это не только про экономику 📻 СМОТРЕТЬ И СЛУШАТЬ ⭐️ Звезда АНАЛИТИКА в ТГ 📬 Звезда АНАЛИТИКА в MAX",
+      "url": "https://t.me/zvezda_analytics/25861"
     },
     {
       "site": "tg-greatawaken",
@@ -264,6 +264,32 @@
   ],
   "corpus": [
     {
+      "site": "pravda-hu",
+      "id": 44825,
+      "date": "2026-08-21",
+      "category": "hungary",
+      "title": "Notice how completely different standards the European Commission applies to Ukraine and to EU member states",
+      "theme": "ukraine",
+      "lang": "lat",
+      "unit": "headline",
+      "source": {
+        "platform": "Telegram",
+        "channel": "intelslava"
+      },
+      "url": "https://hungary.news-pravda.com/en/hungary/2026/08/21/44825.html"
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-08-21",
+      "category": "ukraina",
+      "title": "Зеленский ввел санкции против создателей мультсериала \"Маша и медведь\"",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260821/zelenskiy-vvel-sanktsii-protiv-sozdateley-multseriala-masha-i-medved-1082672290.html",
+      "date_is_capture": false
+    },
+    {
       "site": "ukraina-ru",
       "date": "2026-08-21",
       "category": "ukraina",
@@ -283,6 +309,17 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://ukraina.ru/20260821/es-otkazalsya-predostavit-kievu-220-millionov-evro-dlya-fermerov-iz-za-blokady-portov-1082671990.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-08-21",
+      "category": "ukraina",
+      "title": "Пули вместо денег: киевский заградотряд расстрелял группу иностранных наемников",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260821/puli-vmesto-deneg-kievskiy-zagradotryad-rasstrelyal-gruppu-inostrannykh-naemnikov-1082673522.html",
       "date_is_capture": false
     },
     {
@@ -507,21 +544,6 @@
       "url": "https://hungary.news-pravda.com/en/hungary/2026/08/20/44819.html"
     },
     {
-      "site": "pravda-hu",
-      "id": 44818,
-      "date": "2026-08-20",
-      "category": "world",
-      "title": "The case regarding the Ukrainian \"gold convoy\" has been closed in Hungary \"due to the absence of a crime.\"",
-      "theme": "hungary",
-      "lang": "hu",
-      "unit": "headline",
-      "source": {
-        "platform": "Telegram",
-        "channel": "ukr_leaks_eng"
-      },
-      "url": "https://hungary.news-pravda.com/en/world/2026/08/20/44818.html"
-    },
-    {
       "site": "tg-oroszkatonai",
       "id": "42579",
       "date": "2026-08-20",
@@ -715,6 +737,20 @@
     },
     {
       "site": "tg-zvezda",
+      "id": "25860",
+      "date": "2026-08-20",
+      "published_at": "2026-08-20T19:01:57+00:00",
+      "category": "zvezda_analytics",
+      "title": "НОВАЯ РЕАЛЬНОСТЬ ЕС – ЭТО НЕ ТОЛЬКО ПРО ЭКОНОМИКУ ◾️ Как сегодня выглядит политико-экономическая конкурентная среда…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 1088,
+      "more": "НОВАЯ РЕАЛЬНОСТЬ ЕС – ЭТО НЕ ТОЛЬКО ПРО ЭКОНОМИКУ ◾️ Как сегодня выглядит политико-экономическая конкурентная среда Запада. Почему ложь, демагогия и лицемерие стали там нормой ◾️ Информационная война против России замедляет обороты. Почему Украина становится безразличной западному обывателю ◾️ Почему никто на Западе не хочет показать России «правила», по которым нас хотят заставить жить ◾️ Как…",
+      "url": "https://t.me/zvezda_analytics/25860"
+    },
+    {
+      "site": "tg-zvezda",
       "id": "25859",
       "date": "2026-08-20",
       "published_at": "2026-08-20T16:34:47+00:00",
@@ -796,20 +832,6 @@
       "chars": 2010,
       "more": "🔴 Британия не скрывает своего участия в террористических атаках на Россию. Новый премьер Энди Бёрнэм объявил, что продолжит «100%» поддержку киевского режима. МИД РФ заявил, что Лондону придется ответить за дроны, бьющие по мирным городам России. При этом глава нашего внешнеполитического ведомства Сергей Лавров подчеркнул: «Мне жаль Британию, если она будет с Украиной до самого конца». Каким…",
       "url": "https://t.me/zvezda_analytics/25852"
-    },
-    {
-      "site": "tg-zvezda",
-      "id": "25851",
-      "date": "2026-08-20",
-      "published_at": "2026-08-20T06:17:27+00:00",
-      "category": "zvezda_analytics",
-      "title": "👊 Этой ночью ВС РФ нанесли массированный удар высокоточным оружием и БПЛА большой дальности. Атака была по предприятиям…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1544,
-      "more": "👊 Этой ночью ВС РФ нанесли массированный удар высокоточным оружием и БПЛА большой дальности. Атака была по предприятиям военной промышленности, транспортно-логистическому центру и складам в Киеве и Киевской области. В Киеве поражены: 🔴 промышленное предприятие ООО \"Файер Поинт\" – производившее компоненты для ударных БПЛА большой и средней дальности, а также осуществлявшее сборку и хранение…",
-      "url": "https://t.me/zvezda_analytics/25851"
     },
     {
       "site": "tg-greatawaken",
@@ -965,6 +987,34 @@
     },
     {
       "site": "tg-lomovka",
+      "id": "140512",
+      "date": "2026-08-20",
+      "published_at": "2026-08-20T23:45:02+00:00",
+      "category": "lomovkaa",
+      "title": "С начала эксперимента по сбору биометрических персональных данных около 70 тыс. иностранцев не пропустили через…",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 1177,
+      "more": "С начала эксперимента по сбору биометрических персональных данных около 70 тыс. иностранцев не пропустили через пограничные пункты в Россию. Всего около 14 млн иностранных граждан прошли через пункты пропуска на российской границе с момента запуска эксперимента по сбору биометрических персональных данных. Эксперимент стартовал 1 декабря 2024 года. На первом этапе биометрические системы заработали…",
+      "url": "https://t.me/lomovkaa/140512"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "140511",
+      "date": "2026-08-20",
+      "published_at": "2026-08-20T23:20:07+00:00",
+      "category": "lomovkaa",
+      "title": "Подборка материалов зарубежных СМИ к ночи 20 августа. Al Arabiya : Страны Персидского залива должны перенять опыт…",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 862,
+      "more": "Подборка материалов зарубежных СМИ к ночи 20 августа. Al Arabiya : Страны Персидского залива должны перенять опыт Тайваня в подготовке к возможным боевым действиям. Продолжающаяся война между США и Ираном доказала, что исход вероятной конфронтации будет зависеть не только от действий вооруженных сил, но и от реакции обычных граждан. Toyo Keizai : Визит Путина на Итуруп ослабил политические…",
+      "url": "https://t.me/lomovkaa/140511"
+    },
+    {
+      "site": "tg-lomovka",
       "id": "140510",
       "date": "2026-08-20",
       "published_at": "2026-08-20T22:55:14+00:00",
@@ -1046,34 +1096,6 @@
       "chars": 899,
       "more": "Правительство выделит более миллиарда рублей на закупки машин скорой помощи. На закупки автомобилей скорой помощи выделим свыше миллиарда рублей. До конца текущего года почти два десятка регионов получат порядка 200 машин российского производства, — сказал премьер-министр РФ Михаил Мишустин. Таким образом, удастся поддержать обновление парка скорых в субъектах РФ, добавил Мишустин. По словам…",
       "url": "https://t.me/lomovkaa/140504"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "140503",
-      "date": "2026-08-20",
-      "published_at": "2026-08-20T20:31:33+00:00",
-      "category": "lomovkaa",
-      "title": "Украина готова. Опять. Первый заместитель руководителя офиса Зеленского* Сергей Кислица заявил, что Украина готова к…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1268,
-      "more": "Украина готова. Опять. Первый заместитель руководителя офиса Зеленского* Сергей Кислица заявил, что Украина готова к переговорам с Россией. По словам Кислицы, украинская сторона настроена на диалог и готова отстаивать свою позицию за столом переговоров. При этом замглавы офиса президента сообщил, что переговорный трек с участием США в настоящее время приостановлен. Киев рассчитывает на визит…",
-      "url": "https://t.me/lomovkaa/140503"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "140502",
-      "date": "2026-08-20",
-      "published_at": "2026-08-20T20:15:09+00:00",
-      "category": "lomovkaa",
-      "title": "Бывший министр обороны Украины выступил за мобилизацию женщин. Алексей Резников уверен, что призыв женщин позволил бы…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 522,
-      "more": "Бывший министр обороны Украины выступил за мобилизацию женщин. Алексей Резников уверен, что призыв женщин позволил бы примерно вдвое расширить мобилизационный ресурс страны. Мобилизация и мужчин, и женщин. Чтобы мы с вами выжили, нам требуется, чтобы женщины тоже надели форму и защищали страну вместе с мужчинами, — заявил он. Сам Резников на фронт, естественно, не пойдет, он будет рассказывать в…",
-      "url": "https://t.me/lomovkaa/140502"
     },
     {
       "site": "tg-vilaghelyzete",
@@ -1227,11 +1249,11 @@
       "site": "rt-ru",
       "date": "2026-08-20",
       "category": "rt",
-      "title": "Европейцы переезжают в Россию из-за пропаганды ЛГБТ и неравенства",
-      "theme": "russia",
+      "title": "Мошенники атаковали игроков Hamster Kombat через поддельный кошелёк Gram",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1672252-evropeycy-pereezd-rossiya-prichiny",
+      "url": "https://russian.rt.com/russia/news/1672257-hamster-kombat-moshenniki-gram",
       "date_is_capture": true
     },
     {
@@ -1280,11 +1302,11 @@
       "site": "rt-ru",
       "date": "2026-08-20",
       "category": "rt",
-      "title": "В Одесской области прогремели взрывы",
-      "theme": "ukraine",
+      "title": "Освобождённый в Египте российский турист вылетит домой в пятницу",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1672253-vzryvy-odesskaya-oblast",
+      "url": "https://russian.rt.com/world/news/1672258-osvobozhdennyy-turist-egipet-vylet",
       "date_is_capture": true
     },
     {
@@ -1333,11 +1355,11 @@
       "site": "rt-ru",
       "date": "2026-08-20",
       "category": "rt",
-      "title": "Латвиец донёс в спецслужбу на брата за настройку российских каналов",
-      "theme": "russia",
+      "title": "Налоговый вычет за долгосрочное страхование жизни начнёт действовать с сентября",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1672254-latviets-donos-brat-kanaly",
+      "url": "https://russian.rt.com/russia/news/1672256-nalogovy-vychet-strahovanie-zhizni",
       "date_is_capture": true
     },
     {
@@ -1386,11 +1408,11 @@
       "site": "rt-ru",
       "date": "2026-08-20",
       "category": "rt",
-      "title": "Роспотребнадзор заблокировал более 600 млн продаж молочной продукции с нарушениями",
+      "title": "В Сумах прогремели взрывы на фоне воздушной тревоги",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1672249-rospotrebnadzor-moloko-narusheniya",
+      "url": "https://russian.rt.com/ussr/news/1672255-vzryvy-sumy-trevoga",
       "date_is_capture": true
     },
     {
@@ -1439,11 +1461,11 @@
       "site": "rt-ru",
       "date": "2026-08-20",
       "category": "rt",
-      "title": "МИД предупредил о возможных провокациях на выборах за рубежом",
-      "theme": "filler",
+      "title": "Европейцы переезжают в Россию из-за пропаганды ЛГБТ и неравенства",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1672251-mid-predupredil-provokacii-vyborah",
+      "url": "https://russian.rt.com/world/news/1672252-evropeycy-pereezd-rossiya-prichiny",
       "date_is_capture": true
     },
     {
@@ -1492,12 +1514,23 @@
       "site": "rt-ru",
       "date": "2026-08-20",
       "category": "rt",
-      "title": "Россия и Индия обсуждают создание перевалочных мощностей во Владивостоке",
-      "theme": "russia",
+      "title": "В Одесской области прогремели взрывы",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/business/news/1672246-rossiya-indiya-perevalka-vladivostok",
+      "url": "https://russian.rt.com/ussr/news/1672253-vzryvy-odesskaya-oblast",
       "date_is_capture": true
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-08-20",
+      "category": "zvezda",
+      "title": "ВС РФ поразили складской логистический центр «Фора» в Киевской области",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20268201415-Rkc7q.html",
+      "date_is_capture": false
     },
     {
       "site": "tsargrad",
@@ -1531,26 +1564,26 @@
       "url": "https://hu.news-front.su/2026/08/20/elon-musk-szerint-hamarosan-beke-lesz-ukrajnaban/"
     },
     {
-      "site": "ukraina-ru",
-      "date": "2026-08-20",
-      "category": "ukraina",
-      "title": "Кто вы, мистер Фёдоров? Бывший министр обороны повторяет судьбу Зеленского",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20260820/kto-vy-mister-fdorov-byvshiy-ministr-oborony-povtoryaet-sudbu-zelenskogo-1082660653.html",
-      "date_is_capture": false
-    },
-    {
       "site": "rt-ru",
       "date": "2026-08-20",
       "category": "rt",
-      "title": "НАБУ опубликовало записи об отмывании денег через госбанк Украины",
+      "title": "Латвиец донёс в спецслужбу на брата за настройку российских каналов",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/ussr/news/1672254-latviets-donos-brat-kanaly",
+      "date_is_capture": true
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-08-20",
+      "category": "zvezda",
+      "title": "Дроноводы сожгли украинские пикапы в Дружковке",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1672248-zapisi-otmyvanie-deneg-ukraina",
-      "date_is_capture": true
+      "url": "https://tvzvezda.ru/news/20268201032-ipiSo.html",
+      "date_is_capture": false
     },
     {
       "site": "newsfront-ru",
@@ -1573,26 +1606,26 @@
       "url": "https://hu.news-front.su/2026/08/20/kazem-gharibabadi-gyorsan-eloszlatjuk-trump-teveszmeit-a-hormuzi-szorosrol/"
     },
     {
-      "site": "ukraina-ru",
-      "date": "2026-08-20",
-      "category": "ukraina",
-      "title": "Кислица: отказ от переговоров с Россией опасен для Украины",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20260820/kislitsa-otkaz-ot-peregovorov-s-rossiey-opasen-dlya-ukrainy-1082670660.html",
-      "date_is_capture": false
-    },
-    {
       "site": "rt-ru",
       "date": "2026-08-20",
       "category": "rt",
-      "title": "Бананы в России подешевели почти на 8% за месяц",
+      "title": "Роспотребнадзор заблокировал более 600 млн продаж молочной продукции с нарушениями",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1672249-rospotrebnadzor-moloko-narusheniya",
+      "date_is_capture": true
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-08-20",
+      "category": "zvezda",
+      "title": "Песков заявил, что встреча с Канье Уэстом - не тематика Кремля",
       "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1672247-banany-podesheveli-8-procentov",
-      "date_is_capture": true
+      "url": "https://tvzvezda.ru/news/20268201459-kmSqL.html",
+      "date_is_capture": false
     },
     {
       "site": "newsfront-ru",
@@ -1671,28 +1704,6 @@
       "chars": 1096,
       "more": "☄️ 🇬🇧 🇷🇺 Oroszország már Nagy-Britanniát is „a háború résztvevőjeként” emlegeti! Szergej Lavrov külügyminiszter szerint Oroszország jogosult lehet arra, hogy Nagy-Britannia közvetlen részvételét az orosz területek elleni támadásokban a háborúban való részvételként értelmezze. A kijelentés egy Times-beszámoló után hangzott el, amely szerint ukrán erők brit gyártmányú drónokat használtak mélységi…",
       "url": "https://t.me/VilagHelyzeteBlog/13994"
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2026-08-18",
-      "category": "zvezda",
-      "title": "Танк времен ВОВ обнаружили на территории казанского вуза",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20268181751-OFXBd.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2026-08-18",
-      "category": "zvezda",
-      "title": "Разведчик ГрВ «Центр» рассказал, как пленные пытаются обмануть бойцов",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20268181337-koEOF.html",
-      "date_is_capture": false
     },
     {
       "site": "tg-rybar",
@@ -1791,17 +1802,6 @@
       "chars": 1466,
       "more": "📝 Keresztút 📝 az identitás kifejezésének egyik formája A különleges katonai művelet új lendületet adott az orosz identitás kifejezésére irányuló törekvéseknek. A társadalomban igény alakult ki olyan rendezvények iránt, amelyek képesek összetartani az embereket a külső és belső fenyegetésekkel szemben. E tendencia egyik legszembetűnőbb megnyilvánulása a keresztutakon részt vevők számának…",
       "url": "https://t.me/Rybar_HU/7301"
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2026-08-14",
-      "category": "zvezda",
-      "title": "Белоусов: осенью в Курске откроют памятник в честь корейских и российских бойцов",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20268142018-SRnqw.html",
-      "date_is_capture": false
     }
   ]
 }
