@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-08-22T22:58:37+00:00",
+  "captured_at": "2026-08-22T23:55:03+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -11,12 +11,26 @@
       "case": "pravda-hungary",
       "term": "pravda-network"
     },
+    "rt-ru": {
+      "label": "RT (Russian service)",
+      "tier": "outlet",
+      "lang": "ru",
+      "attribution": "Russia — RT, operated by ANO TV-Novosti: the operating entity is under EU, UK and US asset freezes; the EU's broadcasting suspension names other RT services, not this one",
+      "term": "rt"
+    },
     "ukraina-ru": {
       "label": "Ukraina.ru",
       "tier": "outlet",
       "lang": "ru",
       "attribution": "Russia — Ukraina.ru, a project of the state agency Rossiya Segodnya; the designations attach to the parent group, not to this outlet by name",
       "term": "ukraina-ru"
+    },
+    "zvezda-tv": {
+      "label": "Zvezda",
+      "tier": "outlet",
+      "lang": "ru",
+      "attribution": "Russia — Zvezda, the Ministry of Defence television channel; its operating company is under an EU asset freeze and the outlet is in the EU broadcasting-suspension annex",
+      "term": "zvezda"
     },
     "tsargrad": {
       "label": "Tsargrad TV",
@@ -117,18 +131,7 @@
     "launderer": "mirror sites that republish origins as 'news'",
     "outlet": "primary propaganda sites"
   },
-  "unreachable": {
-    "rt-ru": {
-      "label": "RT (Russian service)",
-      "tier": "outlet",
-      "why": "unreachable (URLError)"
-    },
-    "zvezda-tv": {
-      "label": "Zvezda",
-      "tier": "outlet",
-      "why": "unreachable (URLError)"
-    }
-  },
+  "unreachable": {},
   "tiers_live": [
     "launderer",
     "origin",
@@ -147,6 +150,10 @@
       "theme": "ukraine",
       "lang": "lat",
       "unit": "headline",
+      "source": {
+        "platform": "Telegram",
+        "channel": "i20028843"
+      },
       "url": "https://hungary.news-pravda.com/en/world/2026/08/23/44879.html"
     },
     {
@@ -249,28 +256,28 @@
     },
     {
       "site": "tg-lomovka",
-      "id": "140665",
+      "id": "140667",
       "date": "2026-08-22",
-      "published_at": "2026-08-22T22:42:01+00:00",
+      "published_at": "2026-08-22T23:40:10+00:00",
       "category": "lomovkaa",
-      "title": "«Принц вопельский». Британские газеты, похоже, окончательно забыли обо всем и обо всех, кроме Гарри и Меган: везде…",
+      "title": "«Спасибо героям — Мерца отменить». Канцлера ФРГ встретили свистом уже в первый рабочий день после отпуска. Фридрих Мерц…",
       "theme": "filler",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 447,
-      "more": "«Принц вопельский». Британские газеты, похоже, окончательно забыли обо всем и обо всех, кроме Гарри и Меган: везде только и говорят/пишут про Сассексов и их возвращение на остров. The Times даже иронизирует, что принц Уильям на этом фоне будто бы остается за кадром. «Принц вопельский (уэльский)» вынужден реветь в окружении газет с лицом его брата на обложке. #БританскаяКорона #Гарри #Меган…",
-      "url": "https://t.me/lomovkaa/140665"
+      "chars": 595,
+      "more": "«Спасибо героям — Мерца отменить». Канцлера ФРГ встретили свистом уже в первый рабочий день после отпуска. Фридрих Мерц приехал в общину Хюртгенвальд, где недавно бушевал сильный лесной пожар, однако вместо уважительного приема получил холодный ответ от местных жителей, сообщает Bild. На встречу пришли около 200 человек, и часть из них вышла с плакатами против главы правительства. На одном из них…",
+      "url": "https://t.me/lomovkaa/140667"
     },
     {
-      "site": "ukraina-ru",
+      "site": "rt-ru",
       "date": "2026-08-22",
-      "category": "ukraina",
-      "title": "Дезертируют везде: украинские военные бегут из армии",
-      "theme": "ukraine",
+      "category": "rt",
+      "title": "Импорт арбузов из Грузии в Россию достиг рекорда",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260822/dezertiruyut-vezde-ukrainskie-voennye-begut-iz-armii-1082696531.html",
-      "date_is_capture": false
+      "url": "https://russian.rt.com/russia/news/1673054-import-arbuzov-gruziya-rekord",
+      "date_is_capture": true
     }
   ],
   "corpus": [
@@ -371,20 +378,6 @@
       "chars": 563,
       "more": "Премьер-министр Литвы заявил о желании добиться полноценного членства республики в ЦЕРН Европейская организация по ядерным исследованиям (ЦЕРН), по мнению Миндаугаса Синкявичюса, позволит \"расширить горизонты\" литовских возможностей. Премьер также сообщил, что ЦЕРН может позволить республике получить \"более весомый голос\" в вопросах европейской инновационной политики. Интересно, на сколько…",
       "url": "https://t.me/baltnews/73541"
-    },
-    {
-      "site": "tg-baltnews",
-      "id": "73540",
-      "date": "2026-08-22",
-      "published_at": "2026-08-22T11:50:30+00:00",
-      "category": "baltnews",
-      "title": "Дания перенесла сроки по строительству завода для Украины. Запуск завода украинской компании Fire Point по производству…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 895,
-      "more": "Дания перенесла сроки по строительству завода для Украины. Запуск завода украинской компании Fire Point по производству твердого топлива для крылатых ракет «Фламинго» в Дании перенесли с конца 2026-го на конец 2027 года. Об этом сообщил портал Euractiv . «Изначально планировалось завершить весь проект в пределах €50 млн. Теперь стоимость выросла до более чем €150 млн», — говорится в материале.…",
-      "url": "https://t.me/baltnews/73540"
     },
     {
       "site": "pravda-hu",
@@ -494,21 +487,6 @@
       "url": "https://hungary.news-pravda.com/en/hungary/2026/08/22/44872.html"
     },
     {
-      "site": "pravda-hu",
-      "id": 44871,
-      "date": "2026-08-22",
-      "category": "russia",
-      "title": "The Russian Embassy in Hungary:",
-      "theme": "hungary",
-      "lang": "lat",
-      "unit": "headline",
-      "source": {
-        "platform": "MAX",
-        "channel": "MID_Russia"
-      },
-      "url": "https://hungary.news-pravda.com/en/russia/2026/08/22/44871.html"
-    },
-    {
       "site": "tg-oroszkatonai",
       "id": "42642",
       "date": "2026-08-22",
@@ -607,20 +585,6 @@
       "url": "https://t.me/oroszspecialiskatonaihadmuvelet/42636"
     },
     {
-      "site": "tg-oroszkatonai",
-      "id": "42627",
-      "date": "2026-08-22",
-      "published_at": "2026-08-22T07:26:31+00:00",
-      "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ Éjszakai ballisztikus rakétatámadás történt Kijevben, illetve Vaszilkiv település környékén Éjfél után rakétatámadás…",
-      "theme": "russia",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 809,
-      "more": "⚡️ Éjszakai ballisztikus rakétatámadás történt Kijevben, illetve Vaszilkiv település környékén Éjfél után rakétatámadás érte az ukrán főváros Darnyickij kerületét és a Vaszilkiv környékét, körülbelül 8 \"Iskander-M\" ballisztikus rakétával. A támadás helyszínein tűz ütött ki. ◾️ Kijevben, az éjszakai támadás után, egy csoport hőjel jelent meg a Darnica mozdonytelep területén. ➖️ \"Oroszország…",
-      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/42627"
-    },
-    {
       "site": "tg-oroszigazsag",
       "id": "265271",
       "date": "2026-08-22",
@@ -711,20 +675,6 @@
       "chars": 228,
       "more": "🇮🇷 🇺🇸 | Irán Nemzetbiztonsági Tanácsának titkára: Erőink készen állnak a műveletekre, de racionális és logikus módon haladunk tovább. Reméljük, hogy az amerikaiak abbahagyják a káros tevékenységüket, így nem kell tovább lépnünk.",
       "url": "https://t.me/oroszokazigazsagoldalan/265264"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "265263",
-      "date": "2026-08-22",
-      "published_at": "2026-08-22T19:37:26+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "🇮🇷 🇺🇸 | Irán Nemzetbiztonsági Tanácsának titkára: Eddig nem támadtunk meg egyetlen amerikai gazdasági érdeket sem.…",
-      "theme": "energy",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 256,
-      "more": "🇮🇷 🇺🇸 | Irán Nemzetbiztonsági Tanácsának titkára: Eddig nem támadtunk meg egyetlen amerikai gazdasági érdeket sem. Eddig kizárólag katonai támaszpontokat vettünk célba, de ha ők úgy döntenek, hogy a helyzetet gazdasági háborúvá eszkalálják, készek vagyunk…",
-      "url": "https://t.me/oroszokazigazsagoldalan/265263"
     },
     {
       "site": "tg-zvezda",
@@ -879,20 +829,6 @@
       "url": "https://t.me/greatawakeningmagyarok/155987"
     },
     {
-      "site": "tg-greatawaken",
-      "id": "155985",
-      "date": "2026-08-22",
-      "published_at": "2026-08-22T13:40:13+00:00",
-      "category": "greatawakeningmagyarok",
-      "title": "DONALD J. TRUMP 🌶️ 👊 Tucker Carlson épp most találkozott a könnyűsúlyú „volt” kongresszusi képviselővel, Thomas…",
-      "theme": "energy",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 1692,
-      "more": "DONALD J. TRUMP 🌶️ 👊 Tucker Carlson épp most találkozott a könnyűsúlyú „volt” kongresszusi képviselővel, Thomas Massie-vel és Marjorie „Áruló” Greene-nel, MIND VESZTESEK! Tucker „nézettsége” a földbe süllyedtek, és csak rosszabbak lesznek. Senkit sem érdekel már, mivel teljesen jelentéktelenné vált, és meglepő módon egy nagyon alacsony IQ-jú egyén. Alig tudta elvégezni az egyetemet, és talán nem…",
-      "url": "https://t.me/greatawakeningmagyarok/155985"
-    },
-    {
       "site": "tg-infodef",
       "id": "14100",
       "date": "2026-08-22",
@@ -991,18 +927,32 @@
       "url": "https://t.me/InfoDefMagyarok/14093"
     },
     {
-      "site": "tg-infodef",
-      "id": "14092",
+      "site": "tg-lomovka",
+      "id": "140666",
       "date": "2026-08-22",
-      "published_at": "2026-08-22T04:36:56+00:00",
-      "category": "InfoDefMagyarok",
-      "title": "Na ez aztán a fordulat! – Vilnius tilalma az orosz nyelvű szolgáltatások nyújtásáról diszkriminálja az ukránokat És ezt…",
-      "theme": "hungary",
-      "lang": "hu",
+      "published_at": "2026-08-22T23:11:01+00:00",
+      "category": "lomovkaa",
+      "title": "Харьковские активисты совместили гей*-парад со сбором на ВСУ. В Харькове в начале сентября пройдет ЛГБТ*-фестиваль, а…",
+      "theme": "ukraine",
+      "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 749,
-      "more": "Na ez aztán a fordulat! – Vilnius tilalma az orosz nyelvű szolgáltatások nyújtásáról diszkriminálja az ukránokat És ezt már nemcsak maguk az ukránok mondják, hanem litván parlamenti képviselők is. A probléma az, hogy az ukrán menekültek nem beszélnek más nyelveket, csak ukránul (és az sem mindig) és oroszul, de az állami segítségnyújtásról valahogy meg kell állapodniuk. Valóban, Litvánia nem…",
-      "url": "https://t.me/InfoDefMagyarok/14092"
+      "chars": 849,
+      "more": "Харьковские активисты совместили гей*-парад со сбором на ВСУ. В Харькове в начале сентября пройдет ЛГБТ*-фестиваль, а чуть позже — шествие с требованием легализовать однополые* браки. Организаторы решили заодно провести сбор средств для Вооруженных сил Украины. Видимо, среди украинских солдат немало тех, кто оценит эту инициативу с особым интересом. Местные власти готовятся обеспечивать порядок.…",
+      "url": "https://t.me/lomovkaa/140666"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "140665",
+      "date": "2026-08-22",
+      "published_at": "2026-08-22T22:42:01+00:00",
+      "category": "lomovkaa",
+      "title": "«Принц вопельский». Британские газеты, похоже, окончательно забыли обо всем и обо всех, кроме Гарри и Меган: везде…",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 447,
+      "more": "«Принц вопельский». Британские газеты, похоже, окончательно забыли обо всем и обо всех, кроме Гарри и Меган: везде только и говорят/пишут про Сассексов и их возвращение на остров. The Times даже иронизирует, что принц Уильям на этом фоне будто бы остается за кадром. «Принц вопельский (уэльский)» вынужден реветь в окружении газет с лицом его брата на обложке. #БританскаяКорона #Гарри #Меган…",
+      "url": "https://t.me/lomovkaa/140665"
     },
     {
       "site": "tg-lomovka",
@@ -1073,48 +1023,6 @@
       "chars": 772,
       "more": "Торговые переговоры между США и Канадой закончились провалом. По данным Politico, сделка сорвана, а пошлины Трампа теперь вступают в силу. Белый дом в последний момент внес в соглашение несогласованные изменения, после чего Канада отказалась подписывать документ и пообещала зеркальный ответ. Под ударом — канадские товары на $20 млрд, на которые Вашингтон вводит 50% пошлины. Для Трампа это не…",
       "url": "https://t.me/lomovkaa/140659"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "140658",
-      "date": "2026-08-22",
-      "published_at": "2026-08-22T19:58:01+00:00",
-      "category": "lomovkaa",
-      "title": "Брюссель проигрывает гонку за стратегическое сырье. За 18 месяцев Евросоюз выделил на проекты по добыче критически…",
-      "theme": "eu/nato",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 868,
-      "more": "Брюссель проигрывает гонку за стратегическое сырье. За 18 месяцев Евросоюз выделил на проекты по добыче критически важных минералов всего $6 млрд. США с 2022 года инвестировали около $40 млрд. Китай контролирует 70% мировых поставок редкоземельных элементов и до 90% их переработки. Речь идет о сырье для оборонки и зеленых технологий. Как отмечает Financial Times, в ЕС процесс согласования…",
-      "url": "https://t.me/lomovkaa/140658"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "140657",
-      "date": "2026-08-22",
-      "published_at": "2026-08-22T19:29:01+00:00",
-      "category": "lomovkaa",
-      "title": "Ормузский пролив пытаются открыть без участия НАТО. Верховное командование альянса провело видеоконференцию с…",
-      "theme": "eu/nato",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 795,
-      "more": "Ормузский пролив пытаются открыть без участия НАТО. Верховное командование альянса провело видеоконференцию с начальниками штабов стран-членов для координации действий по обеспечению свободы судоходства. В НАТО настаивают, что это не миссия организации, а лишь площадка для обсуждения возможных вкладов союзников, пишет Reuters. До конфликта через пролив проходило около пятой части мирового объема…",
-      "url": "https://t.me/lomovkaa/140657"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "140656",
-      "date": "2026-08-22",
-      "published_at": "2026-08-22T19:00:27+00:00",
-      "category": "lomovkaa",
-      "title": "ЛОМОВКА. ГЛАВНОЕ К 22:00 ▪️ ВС РФ нанесли групповой удар по объектам транспортной инфраструктуры и логистическому…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1063,
-      "more": "ЛОМОВКА. ГЛАВНОЕ К 22:00 ▪️ ВС РФ нанесли групповой удар по объектам транспортной инфраструктуры и логистическому центру ВСУ. ▪️ Президент России сказал , что Россия — суверенная страна, которая сама и только сама определяет свое будущее. ▪️ Путин уверен, что удары по Украине эффективны и своевременны, они помогают нашим бойцам на фронте решать стоящие перед ними боевые задачи. ▪️ Медведев заявил…",
-      "url": "https://t.me/lomovkaa/140656"
     },
     {
       "site": "tg-vilaghelyzete",
@@ -1293,18 +1201,26 @@
       "url": "https://t.me/ebredes2017/139543"
     },
     {
-      "site": "tg-ebredes",
-      "id": "139542",
+      "site": "ukraina-ru",
       "date": "2026-08-22",
-      "published_at": "2026-08-22T19:11:02+00:00",
-      "category": "ebredes2017",
-      "title": "konzervativiranytu 📢 Szűcs Gábor éles kritikája: Mi a helyzet a Tisza Pártban és a miniszterelnök körül? 📢 ​Szűcs Gábor…",
-      "theme": "hungary",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 231,
-      "more": "konzervativiranytu 📢 Szűcs Gábor éles kritikája: Mi a helyzet a Tisza Pártban és a miniszterelnök körül? 📢 ​Szűcs Gábor kendőzetlenül fejtette ki a véleményét Magyar Péter miniszterelnökről és a Tisza szigetek mozgalmáról. ⬇️ ⬇️ ⬇️",
-      "url": "https://t.me/ebredes2017/139542"
+      "category": "ukraina",
+      "title": "Дезертируют везде: украинские военные бегут из армии",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260822/dezertiruyut-vezde-ukrainskie-voennye-begut-iz-armii-1082696531.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-08-22",
+      "category": "zvezda",
+      "title": "Путин назвал удары ВС РФ по Украине эффективными и своевременными",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20268221735-C1Bvj.html",
+      "date_is_capture": false
     },
     {
       "site": "tsargrad",
@@ -1328,6 +1244,17 @@
       "url": "https://news-front.su/2026/08/22/sily-pvo-za-den-sbili-250-bpla-vsu-minoborony/"
     },
     {
+      "site": "rt-ru",
+      "date": "2026-08-22",
+      "category": "rt",
+      "title": "Отдых на Гоа обойдётся туристам от $35 до $75 в день",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1673052-otdyh-goa-stoimost",
+      "date_is_capture": true
+    },
+    {
       "site": "ukraina-ru",
       "date": "2026-08-22",
       "category": "ukraina",
@@ -1336,6 +1263,17 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://ukraina.ru/20260822/eks-diplomat-britanii-predupredil-o-posledstviyakh-davleniya-na-moskvu-1082718087.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-08-22",
+      "category": "zvezda",
+      "title": "Путин связал варварские атаки Киева с неудачами ВСУ на фронте",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20268221512-Sq9M5.html",
       "date_is_capture": false
     },
     {
@@ -1360,6 +1298,17 @@
       "url": "https://news-front.su/2026/08/22/muzhchine-ubivshego-sotrudnika-tczk-vo-lvove-predyavyat-obvineniya/"
     },
     {
+      "site": "rt-ru",
+      "date": "2026-08-22",
+      "category": "rt",
+      "title": "Роспотребнадзор предупредил о вреде гаджетов перед сном для школьников",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1673051-gadzhety-son-shkolniki",
+      "date_is_capture": true
+    },
+    {
       "site": "ukraina-ru",
       "date": "2026-08-22",
       "category": "ukraina",
@@ -1368,6 +1317,17 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://ukraina.ru/20260822/moskva-izuchaet-signaly-po-ukraine-no-nekotorye-idei-nepriemlemy--putin-1082717413.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-08-22",
+      "category": "zvezda",
+      "title": "Российские фигуристы забрали все золотые медали на Гран-при юниоров",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20268221316-tauwl.html",
       "date_is_capture": false
     },
     {
@@ -1392,6 +1352,17 @@
       "url": "https://news-front.su/2026/08/22/aktualnaya-informacziya-ob-obstanovke-na-linii-fronta-22-avgusta-obnovlyaetsya-3/"
     },
     {
+      "site": "rt-ru",
+      "date": "2026-08-22",
+      "category": "rt",
+      "title": "Губернатор Севастополя объявил воздушную тревогу",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/ussr/news/1673050-sevastopol-trevoga-rassiya",
+      "date_is_capture": true
+    },
+    {
       "site": "ukraina-ru",
       "date": "2026-08-22",
       "category": "ukraina",
@@ -1400,6 +1371,17 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://ukraina.ru/20260822/obvinyaemyy-po-severnym-potokam-nazval-svoikh-zakazchikov-1082717256.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-08-22",
+      "category": "zvezda",
+      "title": "Российские боксеры выиграли в общекомандном зачете первенства Европы",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20268221048-nWT6b.html",
       "date_is_capture": false
     },
     {
@@ -1424,6 +1406,17 @@
       "url": "https://news-front.su/2026/08/22/zhizn-na-osvobozhdennyh-territoriyah-22-avgusta-obnovlyaetsya-3/"
     },
     {
+      "site": "rt-ru",
+      "date": "2026-08-22",
+      "category": "rt",
+      "title": "Восемь обстрелов ДНР оставили двух мирных жителей ранеными",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/ussr/news/1673049-vosem-atak-dnr",
+      "date_is_capture": true
+    },
+    {
       "site": "ukraina-ru",
       "date": "2026-08-22",
       "category": "ukraina",
@@ -1432,6 +1425,17 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://ukraina.ru/20260822/zelenskiy-ostanetsya-u-vlasti-do-tekh-por-poka-ego-podderzhivaet-zapad--saldo-1082715868.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-08-22",
+      "category": "zvezda",
+      "title": "Российский парашютист совершил рекордный прыжок в День России",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20268221634-5iqfC.html",
       "date_is_capture": false
     },
     {
@@ -1445,6 +1449,17 @@
       "url": "https://news-front.su/2026/08/22/es-neobhodimo-soglasovat-poziczii-po-voprosu-dialoga-s-rf-politolog-galeotti/"
     },
     {
+      "site": "rt-ru",
+      "date": "2026-08-22",
+      "category": "rt",
+      "title": "Ограничили полёты в аэропортах Саратова и Тамбова",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1673047-ogranicheniya-saratov-tambov",
+      "date_is_capture": true
+    },
+    {
       "site": "ukraina-ru",
       "date": "2026-08-22",
       "category": "ukraina",
@@ -1453,6 +1468,17 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://ukraina.ru/20260822/zelenskiy-nashl-sponsora-patriot-v-litse-makrona-1082715721.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-08-22",
+      "category": "zvezda",
+      "title": "Эвакуацию застрявших на Камчатке туристов отложили до утра",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20268221557-58t7M.html",
       "date_is_capture": false
     },
     {
@@ -1466,6 +1492,17 @@
       "url": "https://news-front.su/2026/08/22/v-sevastopole-dva-cheloveka-pogibli-iz-za-ataki-bpla-vsu/"
     },
     {
+      "site": "rt-ru",
+      "date": "2026-08-22",
+      "category": "rt",
+      "title": "РЖД рассказали о льготах на детские билеты",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1673048-skidki-detskie-zhd-bilety",
+      "date_is_capture": true
+    },
+    {
       "site": "ukraina-ru",
       "date": "2026-08-22",
       "category": "ukraina",
@@ -1474,6 +1511,17 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://ukraina.ru/20260822/minoborony-rf-otchitalos-o-dnevnykh-uspekhakh-rossiyskoy-armii-v-zone-svo-1082717553.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-08-22",
+      "category": "zvezda",
+      "title": "Эксперт рассказал, зачем хакеры могут взломать мультимедиа-панель машины",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20268221437-qSr3H.html",
       "date_is_capture": false
     },
     {
@@ -1487,6 +1535,17 @@
       "url": "https://news-front.su/2026/08/22/ukraina-poteryala-znachitelnuyu-chast-naseleniya-medvedev/"
     },
     {
+      "site": "rt-ru",
+      "date": "2026-08-22",
+      "category": "rt",
+      "title": "Пенсии лётчиков-испытателей увеличились почти на 50 тысяч рублей",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1673046-pensii-letchikov-ispytateley-rost",
+      "date_is_capture": true
+    },
+    {
       "site": "ukraina-ru",
       "date": "2026-08-22",
       "category": "ukraina",
@@ -1498,35 +1557,15 @@
       "date_is_capture": false
     },
     {
-      "site": "newsfront-ru",
+      "site": "zvezda-tv",
       "date": "2026-08-22",
-      "category": "news-front",
-      "title": "Украинский финмониторинг скрывает данные о коррупции",
-      "theme": "ukraine",
+      "category": "zvezda",
+      "title": "Путин уверен, что ветераны СВО будут достойно работать в парламенте",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://news-front.su/2026/08/22/ukrainskij-finmonitoring-skryvaet-dannye-o-korrupczii/"
-    },
-    {
-      "site": "ukraina-ru",
-      "date": "2026-08-22",
-      "category": "ukraina",
-      "title": "Риттер: Украина утратила право на существование, денацификация неизбежна",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20260822/ritter-ukraina-utratila-pravo-na-suschestvovanie-denatsifikatsiya-neizbezhna-1082715559.html",
+      "url": "https://tvzvezda.ru/news/20268221445-wqcdX.html",
       "date_is_capture": false
-    },
-    {
-      "site": "newsfront-ru",
-      "date": "2026-08-22",
-      "category": "news-front",
-      "title": "ВС РФ уничтожили 40 машин с пусковыми установками для запуска БПЛА ВСУ – Минобороны",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://news-front.su/2026/08/22/vs-rf-unichtozhili-40-mashin-s-puskovymi-ustanovkami-dlya-zapuska-bpla-vsu-minoborony/"
     },
     {
       "site": "tg-rybar",
@@ -1627,20 +1666,6 @@
       "url": "https://t.me/zvezda_analytics/25874"
     },
     {
-      "site": "tg-zvezda",
-      "id": "25873",
-      "date": "2026-08-21",
-      "published_at": "2026-08-21T15:33:16+00:00",
-      "category": "zvezda_analytics",
-      "title": "Премьер Польши против того, чтобы судить подрывников «Северных потоков». Дональд Туск призвал Германию не преследовать…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1788,
-      "more": "Премьер Польши против того, чтобы судить подрывников «Северных потоков». Дональд Туск призвал Германию не преследовать подозреваемых в подрыве российско-немецкого трубопровода. Поляк явно глумится над немцами, припоминая им времена Второй мировой. Заявление прозвучало на фоне накрывшего ФРГ энергетического кризиса, в результате которого многие немцы потеряли рабочие места, цены на коммунальные…",
-      "url": "https://t.me/zvezda_analytics/25873"
-    },
-    {
       "site": "tg-vilaghelyzete",
       "id": "14010",
       "date": "2026-08-21",
@@ -1681,20 +1706,6 @@
       "chars": 1148,
       "more": "☄️ 🌋 A Stromboli is beindult egy látványos vulkáni robbanással az Etna után! - Videó 2026. augusztus 20-án a Strombolin egy az átlagosnál jóval erősebb, úgynevezett „nagyobb” robbanásos vulkáni esemény történt . Sűrű füstoszlop emelkedett a vulkán fölé, izzó törmelék és vulkáni anyag hullott vissza elsősorban a Sciara del Fuoco felső részére. A lakott területeket nem érte el, károkról nem…",
       "url": "https://t.me/VilagHelyzeteBlog/14008"
-    },
-    {
-      "site": "tg-vilaghelyzete",
-      "id": "14007",
-      "date": "2026-08-21",
-      "published_at": "2026-08-21T15:17:29+00:00",
-      "category": "VilagHelyzeteBlog",
-      "title": "🇮🇱 🇹🇷 🇸🇾 Szíria lett újra az izraeli–török hatalmi versengés új ütközőzónája ! Egyre nagyobb a feszültség a török és a…",
-      "theme": "hungary",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 1295,
-      "more": "🇮🇱 🇹🇷 🇸🇾 Szíria lett újra az izraeli–török hatalmi versengés új ütközőzónája ! Egyre nagyobb a feszültség a török és a zsidó állam között! - Íme a HÁTTÉR elemzése ❗️ Izrael már nemcsak Irántól tart: Ankara katonai felemelkedése is vörös vonallá válhat! Izrael és Törökország egymással egyre élesebb hangnemben beszél a szíriai katonai jelenléttel kapcsolatban. 💣 Izrael a héten lebombázta a szíriai…",
-      "url": "https://t.me/VilagHelyzeteBlog/14007"
     },
     {
       "site": "newsfront-hu",
@@ -1767,26 +1778,6 @@
       "url": "https://hu.news-front.su/2026/08/21/tomoko-akane-japan-tamogatta-az-icc-t-a-nemzetkozi-buncselekmenyek-kivizsgalasaban/"
     },
     {
-      "site": "newsfront-hu",
-      "date": "2026-08-21",
-      "category": "news-front",
-      "title": "Jean-Noel Barrot elítélte Itamár Bengvír kijelentését a gázaiakról",
-      "theme": "energy",
-      "lang": "hu",
-      "unit": "headline",
-      "url": "https://hu.news-front.su/2026/08/21/jean-noel-barrot-elitelte-itamar-bengvir-kijelenteset-a-gazaiakrol/"
-    },
-    {
-      "site": "newsfront-hu",
-      "date": "2026-08-21",
-      "category": "news-front",
-      "title": "Kim Dzsongun szerint az ukrajnai háborúért a felelősség az Egyesült Államokat és a Nyugatot terheli",
-      "theme": "ukraine",
-      "lang": "hu",
-      "unit": "headline",
-      "url": "https://hu.news-front.su/2026/08/21/kim-dzsongun-szerint-az-ukrajnai-haboruert-a-felelosseg-az-egyesult-allamokat-es-a-nyugatot-terheli/"
-    },
-    {
       "site": "tg-rybar",
       "id": "7311",
       "date": "2026-08-20",
@@ -1827,20 +1818,6 @@
       "chars": 1759,
       "more": "📝 Hol van a rendező? 📝 A Ceuta felé vezető menekülésről Számos közösségi média poszt szólít fel egy menetre Ceutába, ami újra felveti a kérdést: ki a ezek az események \"rendezője\"? A július végén történt tömeges határátlépés után a közösségi médiában megkezdődtek a felhívások, hogy augusztus 15-én ismét megpróbálják átlépni a határt. Ezek a felhívások néhány hét alatt több tízmillió megtekintést…",
       "url": "https://t.me/Rybar_HU/7309"
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7308",
-      "date": "2026-08-15",
-      "published_at": "2026-08-15T08:57:03+00:00",
-      "category": "Rybar_HU",
-      "title": "📝 Brüsszeli csomagolási szabályok 📝 Először a szabályok, majd az útmutató Brüsszelben ismét úgy döntöttek, hogy…",
-      "theme": "hungary",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 1834,
-      "more": "📝 Brüsszeli csomagolási szabályok 📝 Először a szabályok, majd az útmutató Brüsszelben ismét úgy döntöttek, hogy megmentik az európaiakat önmagukkal szemben – most a pizzás dobozoktól, a popcorn zacskóktól és a sütőpapírtól. Augusztus 12-től az EU összes országában érvényes egy egységes csomagolási szabályozás: a PFAS (per- és polifluorealkil-szemcsék) tartalmú élelmiszer-csomagolás értékesítése…",
-      "url": "https://t.me/Rybar_HU/7308"
     }
   ]
 }
