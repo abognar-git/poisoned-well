@@ -1,7 +1,7 @@
 {
  "note": "Append-only archive of every item captured by scripts/capture_specimens.py. Headlines and provenance only — no article body text is collected. Items are never rewritten once archived; `first_seen` is when this project observed the item, which is not necessarily when it was published.",
- "updated": "2026-08-22T03:11:59+00:00",
- "items": 6467,
+ "updated": "2026-08-22T04:57:33+00:00",
+ "items": 6489,
  "first_date": "2022-03-30",
  "last_date": "2026-08-22",
  "published_range": [
@@ -19,60 +19,60 @@
   "2022-11": 2,
   "2023-04": 1,
   "2026-07": 2,
-  "2026-08": 6458
+  "2026-08": 6480
  },
  "by_source": {
-  "rt-ru": 1406,
+  "rt-ru": 1418,
   "tg-oroszigazsag": 726,
-  "ukraina-ru": 708,
+  "ukraina-ru": 711,
+  "tg-lomovka": 557,
   "newsfront-ru": 557,
-  "tg-lomovka": 553,
   "tg-ebredes": 464,
   "pravda-hu": 414,
   "tg-greatawaken": 326,
   "tg-baltnews": 284,
-  "zvezda-tv": 247,
+  "zvezda-tv": 249,
   "tsargrad": 197,
   "newsfront-hu": 158,
   "tg-oroszkatonai": 128,
   "tg-zvezda": 108,
-  "tg-infodef": 86,
+  "tg-infodef": 87,
   "tg-vilaghelyzete": 65,
   "tg-rybar": 40
  },
  "by_tier": {
-  "outlet": 3273,
-  "origin": 2780,
+  "outlet": 3290,
+  "origin": 2785,
   "launderer": 414
  },
  "by_theme": {
-  "filler": 2647,
-  "ukraine": 1802,
-  "russia": 1029,
-  "hungary": 474,
-  "eu/nato": 258,
+  "filler": 2658,
+  "ukraine": 1808,
+  "russia": 1032,
+  "hungary": 475,
+  "eu/nato": 259,
   "energy": 257
  },
  "by_lang": {
-  "cyr": 3774,
-  "hu": 2133,
+  "cyr": 3795,
+  "hu": 2134,
   "lat": 560
  },
  "by_unit": {
-  "headline": 3687,
-  "post_excerpt": 2780
+  "headline": 3704,
+  "post_excerpt": 2785
  },
  "theme_coverage": {
   "cyr": {
-   "items": 3774,
-   "scored": 3774,
-   "matched_a_topic": 2443,
+   "items": 3795,
+   "scored": 3795,
+   "matched_a_topic": 2453,
    "lexicon": "cyr"
   },
   "hu": {
-   "items": 2133,
-   "scored": 2133,
-   "matched_a_topic": 1095,
+   "items": 2134,
+   "scored": 2134,
+   "matched_a_topic": 1096,
    "lexicon": "lat"
   },
   "lat": {
