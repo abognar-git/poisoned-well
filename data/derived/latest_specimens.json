@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-08-23T21:55:14+00:00",
+  "captured_at": "2026-08-23T22:56:03+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -138,18 +138,18 @@
     "outlet"
   ],
   "latest_day": "2026-08-24",
-  "today_live_count": 1,
+  "today_live_count": 3,
   "corpus_count": 130,
   "featured": [
     {
       "site": "ukraina-ru",
       "date": "2026-08-24",
       "category": "ukraina",
-      "title": "Ракетная опасность, БПЛА, закрытые аэропорты и Крымский мост. Сводка по регионам России к этому часу",
+      "title": "Спецпредставитель Путина поддержал экс-чиновника США в оценке глобализма",
       "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260824/raketnaya-opasnost-bpla-zakrytye-aeroporty-i-krymskiy-most-svodka-po-regionam-rossii-k-etomu-chasu-1082732246.html",
+      "url": "https://ukraina.ru/20260824/spetspredstavitel-putina-podderzhal-eks-chinovnika-ssha-v-otsenke-globalizma-1082732701.html",
       "date_is_capture": false
     },
     {
@@ -269,6 +269,28 @@
     }
   ],
   "corpus": [
+    {
+      "site": "ukraina-ru",
+      "date": "2026-08-24",
+      "category": "ukraina",
+      "title": "От Чёрного до Белого морей: силы ПВО за день сбили над регионами России 269 украинских БПЛА",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260824/ot-chrnogo-do-belogo-morey-sily-pvo-za-den-sbili-nad-regionami-rossii-269-ukrainskikh-bpla-1082732512.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-08-24",
+      "category": "ukraina",
+      "title": "Ракетная опасность, БПЛА, закрытые аэропорты и Крымский мост. Сводка по регионам России к этому часу",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260824/raketnaya-opasnost-bpla-zakrytye-aeroporty-i-krymskiy-most-svodka-po-regionam-rossii-k-etomu-chasu-1082732246.html",
+      "date_is_capture": false
+    },
     {
       "site": "tg-baltnews",
       "id": "73566",
@@ -820,6 +842,34 @@
     },
     {
       "site": "tg-lomovka",
+      "id": "140728",
+      "date": "2026-08-23",
+      "published_at": "2026-08-23T22:42:01+00:00",
+      "category": "lomovkaa",
+      "title": "«Очень сложно делать ставку на Израиль». Новые власти Сирии заявляют, что готовы как можно скорее возобновить…",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 1080,
+      "more": "«Очень сложно делать ставку на Израиль». Новые власти Сирии заявляют, что готовы как можно скорее возобновить переговоры с Тель-Авивом по соглашению о безопасности и надеются, что оно приведет к выводу израильских войск с сирийской территории. Министр иностранных дел Асаад Шаибани в интервью Reuters рассказал, что прямо призвал Израиль использовать «историческую возможность», пока дверь для…",
+      "url": "https://t.me/lomovkaa/140728"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "140727",
+      "date": "2026-08-23",
+      "published_at": "2026-08-23T22:13:01+00:00",
+      "category": "lomovkaa",
+      "title": "«Надписи «Чего ждать? И доколе?» будут множиться». Украинское общество все сильнее сомневается в том, куда вообще ведет…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 892,
+      "more": "«Надписи «Чего ждать? И доколе?» будут множиться». Украинское общество все сильнее сомневается в том, куда вообще ведет страну нынешний курс. Об этом в колонке для NV заявил посол 404-ой в Великобритании и бывший главком ВСУ Валерий Залужный: Сегодня Украина подошла едва ли не ближе всего к состоянию, когда сомнения относительно дальнейшего пути могут пронизать — и уже начали пронизывать…",
+      "url": "https://t.me/lomovkaa/140727"
+    },
+    {
+      "site": "tg-lomovka",
       "id": "140725",
       "date": "2026-08-23",
       "published_at": "2026-08-23T21:44:01+00:00",
@@ -901,34 +951,6 @@
       "chars": 426,
       "more": "На Украине признали банкротство и невыплаты военным. Верховная рада может не успеть принять необходимые законы до конца октября, что приведет к полному финансовому краху страны, заявил депутат Никита Потураев. До конца октября, если мы не примем 27 законов, Украина окажется банкротом. Уже сейчас нечем платить зарплаты военным, нечем. И дальше будет только хуже, — заявил Потураев. #Украина #ВСУ…",
       "url": "https://t.me/lomovkaa/140719"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "140718",
-      "date": "2026-08-23",
-      "published_at": "2026-08-23T19:00:07+00:00",
-      "category": "lomovkaa",
-      "title": "ЛОМОВКА. ГЛАВНОЕ К 22:00 ▪️ Вооруженные силы России в течение суток нанесли удары по портам и морским судам…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1112,
-      "more": "ЛОМОВКА. ГЛАВНОЕ К 22:00 ▪️ Вооруженные силы России в течение суток нанесли удары по портам и морским судам, задействованным в интересах доставки грузов для ВСУ. ▪️ Путин заявил, что правительство России активно работает над решением проблем с топливом в стране. ▪️ Медведев приговорил «кровавого клоуна» Зеленского* к гибели от рук бандеровцев. ▪️ Ушаков уверен, что Путин и Трамп неизбежно…",
-      "url": "https://t.me/lomovkaa/140718"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "140717",
-      "date": "2026-08-23",
-      "published_at": "2026-08-23T18:31:10+00:00",
-      "category": "lomovkaa",
-      "title": "Европа раскололась по вопросу запрета на въезд россиянам. В Евросоюзе не могут прийти к единому решению по ужесточению…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 825,
-      "more": "Европа раскололась по вопросу запрета на въезд россиянам. В Евросоюзе не могут прийти к единому решению по ужесточению визовой политики для граждан России, заявила председатель подкомитета по безопасности и обороне Европарламента Мари-Агнес Штрак-Циммерман. Франция, Италия и Испания скептически относятся к полному закрытию границ, тогда как скандинавские и балтийские государства настаивают на…",
-      "url": "https://t.me/lomovkaa/140717"
     },
     {
       "site": "tg-vilaghelyzete",
@@ -1154,25 +1176,14 @@
       "url": "https://news-front.su/2026/08/23/etot-god-stal-samym-tyazhyolym-dlya-zelenskogo-the-times/"
     },
     {
-      "site": "ukraina-ru",
-      "date": "2026-08-23",
-      "category": "ukraina",
-      "title": "Западная Украина за неделю: атаки на сотрудников ТЦК по всему региону и экспансия Румынии на Буковине",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20260823/zapadnaya-ukraina-za-nedelyu-ataki-na-sotrudnikov-ttsk-po-vsemu-regionu-i-ekspansiya-rumynii-na-1082721087.html",
-      "date_is_capture": false
-    },
-    {
       "site": "rt-ru",
       "date": "2026-08-23",
       "category": "rt",
-      "title": "Число пострадавших при атаке в Шебекино выросло до двух",
+      "title": "Два мирных жителя погибли при обстрелах ДНР за сутки",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1673347-dva-postradavshih-belgorod",
+      "url": "https://russian.rt.com/ussr/news/1673353-obstrely-dnr-zhertvy",
       "date_is_capture": true
     },
     {
@@ -1208,25 +1219,14 @@
       "url": "https://news-front.su/2026/08/23/zhizn-na-osvobozhdennyh-territoriyah-23-avgusta-obnovlyaetsya-3/"
     },
     {
-      "site": "ukraina-ru",
-      "date": "2026-08-23",
-      "category": "ukraina",
-      "title": "Зеленский заявил о непричастности Киева к подрывам \"Северных потоков\"",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20260823/zelenskiy-zayavil-o-neprichastnosti-kieva-k-podryvam-severnykh-potokov-1082730946.html",
-      "date_is_capture": false
-    },
-    {
       "site": "rt-ru",
       "date": "2026-08-23",
       "category": "rt",
-      "title": "Дагестан стал регионом с минимальной долей расходов на ЖКУ",
+      "title": "Росавиация сняла ограничения в трёх аэропортах",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1673351-dolya-rashodov-zhku-regiony",
+      "url": "https://russian.rt.com/russia/news/1673356-snyatie-ogranicheniy-tri-aeroporta",
       "date_is_capture": true
     },
     {
@@ -1265,22 +1265,22 @@
       "site": "ukraina-ru",
       "date": "2026-08-23",
       "category": "ukraina",
-      "title": "Буданов* заявил о возможном \"оживлении\" переговоров с Россией",
-      "theme": "russia",
+      "title": "Западная Украина за неделю: атаки на сотрудников ТЦК по всему региону и экспансия Румынии на Буковине",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260823/budanov-zayavil-o-vozmozhnom-ozhivlenii-peregovorov-s-rossiey-1082730792.html",
+      "url": "https://ukraina.ru/20260823/zapadnaya-ukraina-za-nedelyu-ataki-na-sotrudnikov-ttsk-po-vsemu-regionu-i-ekspansiya-rumynii-na-1082721087.html",
       "date_is_capture": false
     },
     {
       "site": "rt-ru",
       "date": "2026-08-23",
       "category": "rt",
-      "title": "Полёты ограничили в Пензе, Саратове, Саранске и Геленджике",
+      "title": "Крымский мост временно перекрыли для автотранспорта",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1673346-ogranicheniya-penza-saratov-gelendzhik",
+      "url": "https://russian.rt.com/russia/news/1673357-krymskiy-most-perekrytie",
       "date_is_capture": true
     },
     {
@@ -1319,22 +1319,22 @@
       "site": "ukraina-ru",
       "date": "2026-08-23",
       "category": "ukraina",
-      "title": "Фёдоров потребовал от Зеленского ответить о коррупции в его окружении",
+      "title": "Зеленский заявил о непричастности Киева к подрывам \"Северных потоков\"",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260823/fdorov-potreboval-ot-zelenskogo-otvetit-o-korruptsii-v-ego-okruzhenii-1082729528.html",
+      "url": "https://ukraina.ru/20260823/zelenskiy-zayavil-o-neprichastnosti-kieva-k-podryvam-severnykh-potokov-1082730946.html",
       "date_is_capture": false
     },
     {
       "site": "rt-ru",
       "date": "2026-08-23",
       "category": "rt",
-      "title": "Экзитпол: партия «Адилет» лидирует на выборах в Казахстане",
+      "title": "Роспотребнадзор заблокировал почти 37 тысяч сайтов с запрещёнными БАДами",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1673343-partii-vybory-kazahstan",
+      "url": "https://russian.rt.com/russia/news/1673348-blokirovka-saytov-bady-rossiya",
       "date_is_capture": true
     },
     {
@@ -1373,22 +1373,22 @@
       "site": "ukraina-ru",
       "date": "2026-08-23",
       "category": "ukraina",
-      "title": "Хинштейн представит к наградам добровольцев, сбивших украинскую ракету",
-      "theme": "ukraine",
+      "title": "Буданов* заявил о возможном \"оживлении\" переговоров с Россией",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260823/khinshteyn-predstavit-k-nagradam-dobrovoltsev-sbivshikh-ukrainskuyu-raketu-1082729392.html",
+      "url": "https://ukraina.ru/20260823/budanov-zayavil-o-vozmozhnom-ozhivlenii-peregovorov-s-rossiey-1082730792.html",
       "date_is_capture": false
     },
     {
       "site": "rt-ru",
       "date": "2026-08-23",
       "category": "rt",
-      "title": "В Харькове произошёл взрыв на фоне воздушной тревоги",
-      "theme": "ukraine",
+      "title": "Число пострадавших при атаке в Шебекино выросло до двух",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1673344-vzryv-harkov-vozdushnaya-trevoga",
+      "url": "https://russian.rt.com/ussr/news/1673347-dva-postradavshih-belgorod",
       "date_is_capture": true
     },
     {
@@ -1427,22 +1427,22 @@
       "site": "ukraina-ru",
       "date": "2026-08-23",
       "category": "ukraina",
-      "title": "Россия не подвела: Вучич раскрыл детали помощи с Ил-76 для тушения пожаров",
-      "theme": "russia",
+      "title": "Фёдоров потребовал от Зеленского ответить о коррупции в его окружении",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260823/rossiya-ne-podvela-vuchich-raskryl-detali-pomoschi-s-il-76-dlya-tusheniya-pozharov-1082727338.html",
+      "url": "https://ukraina.ru/20260823/fdorov-potreboval-ot-zelenskogo-otvetit-o-korruptsii-v-ego-okruzhenii-1082729528.html",
       "date_is_capture": false
     },
     {
       "site": "rt-ru",
       "date": "2026-08-23",
       "category": "rt",
-      "title": "Иран: транзит нефти через Ормуз остановится при продолжении экономической войны",
-      "theme": "energy",
+      "title": "Дагестан стал регионом с минимальной долей расходов на ЖКУ",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1673342-ormuz-neft-iran",
+      "url": "https://russian.rt.com/russia/news/1673351-dolya-rashodov-zhku-regiony",
       "date_is_capture": true
     },
     {
@@ -1470,22 +1470,22 @@
       "site": "ukraina-ru",
       "date": "2026-08-23",
       "category": "ukraina",
-      "title": "ВСУ зажаты в котле, ВС РФ закрепились в Купино и давят на Чёрное: Алехин о ситуации в зоне СВО",
+      "title": "Хинштейн представит к наградам добровольцев, сбивших украинскую ракету",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260823/vsu-zazhaty-v-kotle-vs-rf-zakrepilis-v-kupino-i-davyat-na-chrnoe-alekhin-o-situatsii-v-zone-svo-1082719180.html",
+      "url": "https://ukraina.ru/20260823/khinshteyn-predstavit-k-nagradam-dobrovoltsev-sbivshikh-ukrainskuyu-raketu-1082729392.html",
       "date_is_capture": false
     },
     {
       "site": "rt-ru",
       "date": "2026-08-23",
       "category": "rt",
-      "title": "Пожар на мебельном складе в Красноярске ликвидировали",
+      "title": "Полёты ограничили в Пензе, Саратове, Саранске и Геленджике",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1673341-krasnoyarsk-pozhar-likvidaciya",
+      "url": "https://russian.rt.com/russia/news/1673346-ogranicheniya-penza-saratov-gelendzhik",
       "date_is_capture": true
     },
     {
