@@ -113,7 +113,7 @@
   },
   {
     "id": "ramp",
-    "claim": "The Hungarian mirror published a single article on its first scraped day (22 Mar 2024), passed 250 articles/day within a month (first 100+ day: 14 Apr 2024, at 254), and has published 100+ articles on 543 of its 881 active days (median 180/day).",
+    "claim": "The Hungarian mirror published a single article on its first scraped day (22 Mar 2024), passed 250 articles/day within a month (first 100+ day: 14 Apr 2024, at 254), and has published 100+ articles on 543 of its 882 active days (median 180/day).",
     "status": "live-data",
     "support": [
       {
@@ -352,7 +352,7 @@
   },
   {
     "id": "laundering",
-    "claim": "The mirror writes no original journalism: it republishes fringe Hungarian-language pro-Kremlin Telegram channels and Russian state outlets. Its top all-time sources include the Telegram channels 'oroszokazigazsagoldalan' (38,686 articles) and Rybar_HU, plus News Front and TASS.",
+    "claim": "The mirror writes no original journalism: it republishes fringe Hungarian-language pro-Kremlin Telegram channels and Russian state outlets. Its top all-time sources include the Telegram channels 'oroszokazigazsagoldalan' (38,698 articles) and Rybar_HU, plus News Front and TASS.",
     "status": "verified",
     "support": [
       {
@@ -527,7 +527,7 @@
   {
     "id": "no-pipeline",
     "status": "live-data",
-    "claim": "Across all 141,809 articles the Hungarian Pravda mirror has published, and all 941 sources it credits (which account for 100% of its output), the Hungarian pro-government press appears zero times. It is not a clean zero: one prominent pro-government commentator's personal Telegram channel is credited 80 times (0.06%), and Hungarian nationalist-fringe channels a further 134 (0.09%). The mirror runs on Russian-origin Telegram (85%) and News Front. On the strongest available test of a pipeline between the domestic machine and the Russian infrastructure aimed at Hungary, the domestic machine is not the mirror's raw material — though a thin thread does exist.",
+    "claim": "Across all 141,822 articles the Hungarian Pravda mirror has published, and all 941 sources it credits (which account for 100% of its output), the Hungarian pro-government press appears zero times. It is not a clean zero: one prominent pro-government commentator's personal Telegram channel is credited 80 times (0.06%), and Hungarian nationalist-fringe channels a further 134 (0.09%). The mirror runs on Russian-origin Telegram (85%) and News Front. On the strongest available test of a pipeline between the domestic machine and the Russian infrastructure aimed at Hungary, the domestic machine is not the mirror's raw material — though a thin thread does exist.",
     "support": [
       {
         "type": "data",
@@ -587,7 +587,7 @@
   {
     "id": "category-mix",
     "status": "live-data",
-    "claim": "By the mirror's own category labels, only 4.2% of its 141,809 articles are filed under 'hungary' (5,960). The bulk is undifferentiated filler and Russia coverage: 'world' 60.9% (86,361) and 'russia' 27.8% (39,448), with 'ukraine' 3.6%, 'eu' 3.4% and 'nato' 0.2%. A site built to look like a Hungarian news outlet is, by volume, almost never about Hungary.",
+    "claim": "By the mirror's own category labels, only 4.2% of its 141,822 articles are filed under 'hungary' (5,960). The bulk is undifferentiated filler and Russia coverage: 'world' 60.9% (86,369) and 'russia' 27.8% (39,453), with 'ukraine' 3.6%, 'eu' 3.4% and 'nato' 0.2%. A site built to look like a Hungarian news outlet is, by volume, almost never about Hungary.",
     "support": [
       {
         "type": "data",
@@ -612,7 +612,7 @@
   {
     "id": "peer-control",
     "status": "live-data",
-    "claim": "The Pravda network runs one mirror per target country, which makes the six non-Hungarian mirrors a control group: same network, same infrastructure, same period, no Hungarian election. Against that control the Hungarian mirror rose into the campaign faster than its siblings did — March 2026 is the highest month in its entire series, and its February-to-March rise of +24.0% was roughly double the +12.4% peer mean, though all six siblings also rose — and then fell 63.7%, though not at the election: 13 April, the day after the vote, is April's highest day (356 articles), output holds near 223/day for a further twelve days, and the step lands around 27 April. Measured over the two full calendar months either side, the fall is 63.7% (from 243/day across February–March to 88/day across May–June), while the six peers moved +1.6% on average and none fell more than 16.3%. It has since recovered to 207.3/day over the 30 complete days to 2026-08-21, 85.1% of its pre-election baseline. Ranked against all 185 two-month windows in the seven-mirror network this is the most extreme (p = 0.005); normalised by each mirror's own historical volatility — Hungary's two-month swings vary by 58.8% against Romania's 13.2% — it is 1.08 standard deviations and ranks 13th (p = 0.070). Scanned blind — every two-month window in all seven mirrors, with no election dates supplied — the Hungarian interruption sits at the 7th percentile of the seven regional mirrors' 185 windows and the 11th percentile of the full network's 1,948 (rank 207), with none of the 15 largest episodes being Hungary's. Of the other national votes whose dates this project has verified, Romania's annulled 2024 presidential round produced −5.6% (z = −0.42) and its 2025 rerun +16.5%. Interruptions in this network are common and, on the evidence available, mostly not election-aligned.",
+    "claim": "The Pravda network runs one mirror per target country, which makes the six non-Hungarian mirrors a control group: same network, same infrastructure, same period, no Hungarian election. Against that control the Hungarian mirror rose into the campaign faster than its siblings did — March 2026 is the highest month in its entire series, and its February-to-March rise of +24.0% was roughly double the +12.4% peer mean, though all six siblings also rose — and then fell 63.7%, though not at the election: 13 April, the day after the vote, is April's highest day (356 articles), output holds near 223/day for a further twelve days, and the step lands around 27 April. Measured over the two full calendar months either side, the fall is 63.7% (from 243/day across February–March to 88/day across May–June), while the six peers moved +1.6% on average and none fell more than 16.3%. It has since recovered to 206.0/day over the 30 complete days to 2026-08-22, 84.6% of its pre-election baseline. Ranked against all 185 two-month windows in the seven-mirror network this is the most extreme (p = 0.005); normalised by each mirror's own historical volatility — Hungary's two-month swings vary by 58.8% against Romania's 13.2% — it is 1.08 standard deviations and ranks 13th (p = 0.070). Scanned blind — every two-month window in all seven mirrors, with no election dates supplied — the Hungarian interruption sits at the 7th percentile of the seven regional mirrors' 185 windows and the 11th percentile of the full network's 1,948 (rank 207), with none of the 15 largest episodes being Hungary's. Of the other national votes whose dates this project has verified, Romania's annulled 2024 presidential round produced −5.6% (z = −0.42) and its 2025 rerun +16.5%. Interruptions in this network are common and, on the evidence available, mostly not election-aligned.",
     "support": [
       {
         "type": "data",
