@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-08-24T21:47:22+00:00",
+  "captured_at": "2026-08-24T23:55:07+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -138,18 +138,33 @@
     "outlet"
   ],
   "latest_day": "2026-08-25",
-  "today_live_count": 1,
+  "today_live_count": 6,
   "corpus_count": 130,
   "featured": [
+    {
+      "site": "pravda-hu",
+      "id": 44946,
+      "date": "2026-08-25",
+      "category": "russia",
+      "title": "The United States did not join the joint statement condemning Russia at the UN",
+      "theme": "russia",
+      "lang": "lat",
+      "unit": "headline",
+      "source": {
+        "platform": "MAX",
+        "channel": "kommersant"
+      },
+      "url": "https://hungary.news-pravda.com/en/russia/2026/08/25/44946.html"
+    },
     {
       "site": "ukraina-ru",
       "date": "2026-08-25",
       "category": "ukraina",
-      "title": "Ракетная опасность, угроза БПЛА и закрытые аэропорты. Сводка по регионам России к этому часу",
-      "theme": "russia",
+      "title": "Лишь четверть членов ООН поддержали антироссийское заявление по Украине",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260825/raketnaya-opasnost-ugroza-bpla-i-zakrytye-aeroporty-svodka-po-regionam-rossii-k-etomu-chasu-1082765097.html",
+      "url": "https://ukraina.ru/20260825/lish-chetvert-chlenov-oon-prisoedinilis-k-antirossiyskomu-zayavleniyu-po-ukraine-1082765973.html",
       "date_is_capture": false
     },
     {
@@ -181,21 +196,6 @@
       "url": "https://t.me/Rybar_HU/7325"
     },
     {
-      "site": "pravda-hu",
-      "id": 44944,
-      "date": "2026-08-24",
-      "category": "world",
-      "title": "The United States did not support the anti-Russian statement on Ukraine at the UN, a TASS correspondent reports",
-      "theme": "ukraine",
-      "lang": "hu",
-      "unit": "headline",
-      "source": {
-        "platform": "MAX",
-        "channel": "mir_tass"
-      },
-      "url": "https://hungary.news-pravda.com/en/world/2026/08/24/44944.html"
-    },
-    {
       "site": "tg-oroszkatonai",
       "id": "42742",
       "date": "2026-08-24",
@@ -225,17 +225,17 @@
     },
     {
       "site": "tg-zvezda",
-      "id": "25897",
+      "id": "25899",
       "date": "2026-08-24",
-      "published_at": "2026-08-24T19:03:58+00:00",
+      "published_at": "2026-08-24T23:03:27+00:00",
       "category": "zvezda_analytics",
-      "title": "ОСВОЕНИЕ СОЛНЕЧНОЙ СИСТЕМЫ: МИФ ИЛИ НЕОБХОДИМОСТЬ ▪️ Зачем осваивать Солнечную систему? ▪️ Стоит ли тратить земные…",
-      "theme": "russia",
+      "title": "Друзья, по ссылкам доступны к просмотру и прослушиванию вчерашние эфиры! ⬇️ ⬇️ ⬇️ «СТРАТЕГИЯ НАЦИОНАЛЬНОЙ БЕЗОПАСНОСТИ»…",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 874,
-      "more": "ОСВОЕНИЕ СОЛНЕЧНОЙ СИСТЕМЫ: МИФ ИЛИ НЕОБХОДИМОСТЬ ▪️ Зачем осваивать Солнечную систему? ▪️ Стоит ли тратить земные ресурсы на освоение других планет? Не лучше ли сосредоточиться на решении земных проблем? ▪️ Почему в Советском Союзе были энтузиасты Лунных и Марсианских проектов, а сегодня их нет? ▪️ Каков прогноз развития проектов освоения Дальнего космоса в мире и в России? ▪️ Станет ли Марс…",
-      "url": "https://t.me/zvezda_analytics/25897"
+      "chars": 438,
+      "more": "Друзья, по ссылкам доступны к просмотру и прослушиванию вчерашние эфиры! ⬇️ ⬇️ ⬇️ «СТРАТЕГИЯ НАЦИОНАЛЬНОЙ БЕЗОПАСНОСТИ» Анны Шафран Тема: Удары ВСУ по детям — реальность технофашизма Гость: Инна Ямбулатова , политолог. 📻 СМОТРЕТЬ И СЛУШАТЬ «ДЕНЬ КОСМОНАВТИКИ» Николая Севастьянова , соведущий — Дмитрий Лысенков Тема: Освоение Солнечной системы: миф или необходимость 📻 СМОТРЕТЬ И СЛУШАТЬ ⭐️ Звезда…",
+      "url": "https://t.me/zvezda_analytics/25899"
     },
     {
       "site": "tg-greatawaken",
@@ -265,6 +265,50 @@
     }
   ],
   "corpus": [
+    {
+      "site": "ukraina-ru",
+      "date": "2026-08-25",
+      "category": "ukraina",
+      "title": "Замгенсека ООН признала рост числа жертв ударов ВСУ по мирным жителям России",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260825/zamgenseka-oon-priznala-rost-chisla-zhertv-udarov-vsu-po-mirnym-zhitelyam-rossii-1082765501.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-08-25",
+      "category": "ukraina",
+      "title": "Боевые беспилотники ВСУ поработают на британскую разведку",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260825/boevye-bespilotniki-vsu-porabotayut-na-britanskuyu-razvedku-1082765334.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-08-25",
+      "category": "ukraina",
+      "title": "Над Калужской областью сбили ракету \"Фламинго\", летевшую на Москву",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260825/nad-kaluzhskoy-oblastyu-sbili-raketu-flamingo-letevshuyu-na-moskvu-1082765679.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-08-25",
+      "category": "ukraina",
+      "title": "Ракетная опасность, угроза БПЛА и закрытые аэропорты. Сводка по регионам России к этому часу",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260825/raketnaya-opasnost-ugroza-bpla-i-zakrytye-aeroporty-svodka-po-regionam-rossii-k-etomu-chasu-1082765097.html",
+      "date_is_capture": false
+    },
     {
       "site": "tg-baltnews",
       "id": "73604",
@@ -364,20 +408,6 @@
       "url": "https://t.me/baltnews/73597"
     },
     {
-      "site": "tg-baltnews",
-      "id": "73596",
-      "date": "2026-08-24",
-      "published_at": "2026-08-24T16:02:16+00:00",
-      "category": "baltnews",
-      "title": "Разговоры о передаче аналогов Storm Shadow – это лишь риторика для придания себе большего веса, считает политик и…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 747,
-      "more": "Разговоры о передаче аналогов Storm Shadow – это лишь риторика для придания себе большего веса, считает политик и военный эксперт Ян Гагин @PapaKottt \"Дело в том, что любое производство на территории Украины, тем более таких видов вооружений, не останется незамеченным нашими ВКС и будет поражено моментально. По большому счету, практически вся оборонная промышленность Украины сейчас находится за…",
-      "url": "https://t.me/baltnews/73596"
-    },
-    {
       "site": "tg-rybar",
       "id": "7324",
       "date": "2026-08-24",
@@ -418,6 +448,36 @@
       "chars": 1427,
       "more": "📝 Üdvözöljük! 📝 Úgy tűnik, a brit hatóságok úgy döntöttek, hogy a falvakat élhetetlen helyekké alakítják át, mivel a bevándorlókat elhelyező tervek nem csak Piddingtont érintik. Londonban tervezték , hogy akár 1200 menedékkérőt is elhelyezzenek a korábbi Linton-on-Ouse légibázis területén, amelynek környékén mindössze körülbelül 700 ember él. A helyiek számításai szerint a projekt több mint 400…",
       "url": "https://t.me/Rybar_HU/7322"
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44945,
+      "date": "2026-08-24",
+      "category": "world",
+      "title": "Gripen collapsed near Szolnok",
+      "theme": "filler",
+      "lang": "lat",
+      "unit": "headline",
+      "source": {
+        "platform": "MAX",
+        "channel": "lomovka"
+      },
+      "url": "https://hungary.news-pravda.com/en/world/2026/08/24/44945.html"
+    },
+    {
+      "site": "pravda-hu",
+      "id": 44944,
+      "date": "2026-08-24",
+      "category": "world",
+      "title": "The United States did not support the anti-Russian statement on Ukraine at the UN, a TASS correspondent reports",
+      "theme": "ukraine",
+      "lang": "hu",
+      "unit": "headline",
+      "source": {
+        "platform": "MAX",
+        "channel": "mir_tass"
+      },
+      "url": "https://hungary.news-pravda.com/en/world/2026/08/24/44944.html"
     },
     {
       "site": "pravda-hu",
@@ -510,23 +570,6 @@
         "channel": null
       },
       "url": "https://hungary.news-pravda.com/en/hungary/2026/08/24/44938.html"
-    },
-    {
-      "site": "pravda-hu",
-      "id": 44937,
-      "date": "2026-08-24",
-      "category": "hungary",
-      "title": "There is still no substantive answer to the important questions – the right to pardon the more than 45 thousand deceased or the recognition of the damages and deaths caused by the protocols…",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "headline",
-      "chars": 227,
-      "more": "There is still no substantive answer to the important questions – the right to pardon the more than 45 thousand deceased or the recognition of the damages and deaths caused by the protocols – the minister does not ask them to..",
-      "source": {
-        "platform": "Telegram",
-        "channel": "greatawakeningmagyarok"
-      },
-      "url": "https://hungary.news-pravda.com/en/hungary/2026/08/24/44937.html"
     },
     {
       "site": "tg-oroszkatonai",
@@ -652,6 +695,20 @@
     },
     {
       "site": "tg-zvezda",
+      "id": "25897",
+      "date": "2026-08-24",
+      "published_at": "2026-08-24T19:03:58+00:00",
+      "category": "zvezda_analytics",
+      "title": "ОСВОЕНИЕ СОЛНЕЧНОЙ СИСТЕМЫ: МИФ ИЛИ НЕОБХОДИМОСТЬ ▪️ Зачем осваивать Солнечную систему? ▪️ Стоит ли тратить земные…",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 874,
+      "more": "ОСВОЕНИЕ СОЛНЕЧНОЙ СИСТЕМЫ: МИФ ИЛИ НЕОБХОДИМОСТЬ ▪️ Зачем осваивать Солнечную систему? ▪️ Стоит ли тратить земные ресурсы на освоение других планет? Не лучше ли сосредоточиться на решении земных проблем? ▪️ Почему в Советском Союзе были энтузиасты Лунных и Марсианских проектов, а сегодня их нет? ▪️ Каков прогноз развития проектов освоения Дальнего космоса в мире и в России? ▪️ Станет ли Марс…",
+      "url": "https://t.me/zvezda_analytics/25897"
+    },
+    {
+      "site": "tg-zvezda",
       "id": "25896",
       "date": "2026-08-24",
       "published_at": "2026-08-24T17:02:27+00:00",
@@ -733,20 +790,6 @@
       "chars": 1012,
       "more": "⚡️ Ереван волен покинуть ОДКБ, если больше не нуждается в силу своих национальных интересов в членстве в важной по обеспечению безопасности организации, заявил Песков, отвечая на вопрос Zvezdanews. \"Что касается заявки на членство в ЕС, ну, я здесь рекомендую все-таки вспомнить опыт Турции, опыт ряда других стран, с момента подачи заявки которых уже прошли десятилетия, десятилетия, а воз и ныне…",
       "url": "https://t.me/zvezda_analytics/25891"
-    },
-    {
-      "site": "tg-zvezda",
-      "id": "25890",
-      "date": "2026-08-24",
-      "published_at": "2026-08-24T08:58:50+00:00",
-      "category": "zvezda_analytics",
-      "title": "❕ Армения была бы довольна, если бы ее исключили из ОДКБ, заявил Пашинян. Он подчеркнул, что страна не намерена…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1273,
-      "more": "❕ Армения была бы довольна, если бы ее исключили из ОДКБ, заявил Пашинян. Он подчеркнул, что страна не намерена активизировать свою работу в организации. \"Буду очень доволен, если решат исключить Армению из ОДКБ, таким образом нас освободят от выбора — выходить или нет. Наша заинтересованность в ОДКБ исчерпана\". Также Ереван в ближайшее время начнет процесс подачи заявки для вступления в ЕС. \"Для…",
-      "url": "https://t.me/zvezda_analytics/25890"
     },
     {
       "site": "tg-greatawaken",
@@ -942,6 +985,62 @@
     },
     {
       "site": "tg-lomovka",
+      "id": "140802",
+      "date": "2026-08-24",
+      "published_at": "2026-08-24T23:35:12+00:00",
+      "category": "lomovkaa",
+      "title": "Секретный бункер под Белым домом поставил под удар стройку бального зала Трампа. Апелляционный суд США 7 августа…",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 840,
+      "more": "Секретный бункер под Белым домом поставил под удар стройку бального зала Трампа. Апелляционный суд США 7 августа запретил возводить новое здание без согласия Конгресса и фактически поставил процесс на паузу. Трамп, как обычно, пошел оспаривать решение в Верховный суд, но выяснилось, что под резиденцией уже давно существует тайный бункер, построенный еще при Обаме, способный выдержать ядерный удар…",
+      "url": "https://t.me/lomovkaa/140802"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "140801",
+      "date": "2026-08-24",
+      "published_at": "2026-08-24T23:11:01+00:00",
+      "category": "lomovkaa",
+      "title": "Пашинян сорвал заседание парламента в Армении. В армянском парламенте очередное выступление Никола Пашиняна…",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 951,
+      "more": "Пашинян сорвал заседание парламента в Армении. В армянском парламенте очередное выступление Никола Пашиняна превратилось в показательное политическое унижение оппозиции. Представляя пятилетнюю программу правительства, премьер вновь демонстративно назвал Католикоса всех армян Гарегина II мирским именем — и сделал это не случайно, а с явным упором на провокацию. Оппозиционные депутаты, как и…",
+      "url": "https://t.me/lomovkaa/140801"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "140798",
+      "date": "2026-08-24",
+      "published_at": "2026-08-24T22:42:01+00:00",
+      "category": "lomovkaa",
+      "title": "Зарево над Украиной — мощные взрывы гремят в районах, связанных со снабжением ВСУ: ▪️ Удары возмездия наносятся по…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 525,
+      "more": "Зарево над Украиной — мощные взрывы гремят в районах, связанных со снабжением ВСУ: ▪️ Удары возмездия наносятся по военной инфраструктуре врага в Киеве и области. Под атакой — Святошинский и Голосеевский районы столицы. ▪️ В Днепропетровске после удара начался пожар в ТЦ «Караван». Есть прилеты в Павлограде. ▪️ В Харькове зафиксированы попадания в промышленной зоне Основянского района. ▪️ Также…",
+      "url": "https://t.me/lomovkaa/140798"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "140797",
+      "date": "2026-08-24",
+      "published_at": "2026-08-24T22:13:01+00:00",
+      "category": "lomovkaa",
+      "title": "«Овчарка не обижается на овцу». «Звезда» группы «Бумбокс» и по совместительству вечно прячущийся в тылу командир взвода…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 573,
+      "more": "«Овчарка не обижается на овцу». «Звезда» группы «Бумбокс» и по совместительству вечно прячущийся в тылу командир взвода БПЛА Андрей Хливнюк, в попытке оправдать насильственную мобилизацию и зверства людоловов, выдал очередной шедевр украинской пропаганды: Овчарка не обижается на овцу за то, что она боится волка. Она просто защищает. Таким образом, по его логике получается, что украинский народ…",
+      "url": "https://t.me/lomovkaa/140797"
+    },
+    {
+      "site": "tg-lomovka",
       "id": "140796",
       "date": "2026-08-24",
       "published_at": "2026-08-24T21:44:01+00:00",
@@ -995,62 +1094,6 @@
       "chars": 469,
       "more": "Подборка материалов зарубежных СМИ за 24 августа. «Страна» (Украина): Бывший спецпосланник президента США по Украине Кит Келлог предложил начать мобилизовать женщин в ВСУ. Bild (ФРГ): Германия удвоит военное присутствие у границы с КНДР с одного до двух солдат. Bloomberg (США): Йеменские хуситы атаковали саудовский супертанкер, следовавший через Красное море. Reuters (Великобритания): Канадский…",
       "url": "https://t.me/lomovkaa/140793"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "140792",
-      "date": "2026-08-24",
-      "published_at": "2026-08-24T20:27:01+00:00",
-      "category": "lomovkaa",
-      "title": "Россия и Белоруссия согласуют дополнительные расходы по самолету «Освей». Как сообщил глава Минпромторга Антон…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 811,
-      "more": "Россия и Белоруссия согласуют дополнительные расходы по самолету «Освей». Как сообщил глава Минпромторга Антон Алиханов, на этапе эскизного проекта обсуждаются требования гражданских и военных заказчиков. После завершения рабочей конструкторской документации станет известна окончательная стоимость продолжения работ. Девятнадцатиместный самолет разрабатывается в кооперации: головным исполнителем…",
-      "url": "https://t.me/lomovkaa/140792"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "140791",
-      "date": "2026-08-24",
-      "published_at": "2026-08-24T19:58:01+00:00",
-      "category": "lomovkaa",
-      "title": "Администрация США вводит антииранские санкции против более чем 60 организаций, физических лиц и судов по всему миру…",
-      "theme": "eu/nato",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 916,
-      "more": "Администрация США вводит антииранские санкции против более чем 60 организаций, физических лиц и судов по всему миру, якобы сотрудничающих с Тегераном. Основные заявления главы минфина США Скотта Бессента об экономической операции против Ирана: ▪️ Экономическая операция против Ирана будет направлена также против всех, кто ему помогает. ▪️ США в рамках операции против Ирана намерены блокировать…",
-      "url": "https://t.me/lomovkaa/140791"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "140790",
-      "date": "2026-08-24",
-      "published_at": "2026-08-24T19:29:01+00:00",
-      "category": "lomovkaa",
-      "title": "Мировой рынок пшеницы захлестнул кризис из-за климата и войн. Как пишет The New York Times, боевые действия в Черном…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 915,
-      "more": "Мировой рынок пшеницы захлестнул кризис из-за климата и войн. Как пишет The New York Times, боевые действия в Черном море между Россией и Украиной, а также атаки хуситов в Красном море серьезно осложнили судоходство по ключевым маршрутам. Дополнительным ударом стали климатические аномалии у основных экспортеров зерна. Природный феномен Эль-Ниньо снизил уровень воды на важнейших транспортных…",
-      "url": "https://t.me/lomovkaa/140790"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "140789",
-      "date": "2026-08-24",
-      "published_at": "2026-08-24T19:00:13+00:00",
-      "category": "lomovkaa",
-      "title": "ЛОМОВКА. ГЛАВНОЕ К 22:00 ▪️ ВС РФ продолжают наносить групповые удары по портам Украины и судам, задействованным в…",
-      "theme": "hungary",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 905,
-      "more": "ЛОМОВКА. ГЛАВНОЕ К 22:00 ▪️ ВС РФ продолжают наносить групповые удары по портам Украины и судам, задействованным в интересах доставки грузов для ВСУ. ▪️ Путин обсудил с главой МИД Индии поставки удобрений. ▪️ Президент России подписал указ о мерах по обеспечению безопасности объектов критической инфраструктуры РФ. ▪️ Путин поздравил Токаева с победой правящей партии «Адилет» на первых в истории…",
-      "url": "https://t.me/lomovkaa/140789"
     },
     {
       "site": "tg-vilaghelyzete",
@@ -1314,25 +1357,14 @@
       "url": "https://hu.news-front.su/2026/08/24/konstantin-knyrik-az-europai-unio-kezdemenyezte-a-nok-mozgositasat-ukrajnaban/"
     },
     {
-      "site": "ukraina-ru",
-      "date": "2026-08-24",
-      "category": "ukraina",
-      "title": "Девальвация суверенитета: как Украина за 35 лет растеряла почти все, кроме внешнего долга",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20260824/devalvatsiya-suvereniteta-kak-ukraina-za-35-let-rasteryala-pochti-vse-krome-vneshnego-dolga-1082755494.html",
-      "date_is_capture": false
-    },
-    {
       "site": "rt-ru",
       "date": "2026-08-24",
       "category": "rt",
-      "title": "Внуково перешло на особый режим работы из-за временных ограничений",
+      "title": "Кравцов сообщил о разработке нового учебного стандарта для 5-9-х классов",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1673799-vnukovo-reisy-ogranicheniya",
+      "url": "https://russian.rt.com/russia/news/1673807-kravcov-standart-5-klassy",
       "date_is_capture": true
     },
     {
@@ -1378,25 +1410,14 @@
       "url": "https://hu.news-front.su/2026/08/24/the-times-a-zelenszkij-fedorov-konfliktus-alaashatja-a-nyugatiak-ukrajna-iranti-tamogatasat/"
     },
     {
-      "site": "ukraina-ru",
-      "date": "2026-08-24",
-      "category": "ukraina",
-      "title": "Постпред Китая при ООН призвал к конструктивному подходу по Украине",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20260824/postpred-kitaya-pri-oon-prizval-k-konstruktivnomu-podkhodu-po-ukraine-1082764880.html",
-      "date_is_capture": false
-    },
-    {
       "site": "rt-ru",
       "date": "2026-08-24",
       "category": "rt",
-      "title": "В Киеве объявили воздушную тревогу",
-      "theme": "ukraine",
+      "title": "Трамп продлил эмбарго против Кубы до сентября 2027 года",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1673793-vozdushnaya-trevoga-kiev",
+      "url": "https://russian.rt.com/world/news/1673808-tramp-embargo-kuba-prodlenie",
       "date_is_capture": true
     },
     {
@@ -1442,25 +1463,14 @@
       "url": "https://hu.news-front.su/2026/08/24/az-eu-orszagok-tobbsegenek-elege-van-zelenszkijbol-es-ukrajnabol/"
     },
     {
-      "site": "ukraina-ru",
-      "date": "2026-08-24",
-      "category": "ukraina",
-      "title": "Стубб: удары по Wildberries — способ заставить Россию сесть за переговоры",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20260824/stubb-udary-po-wildberries--sposob-zastavit-rossiyu-sest-za-peregovory-1082764539.html",
-      "date_is_capture": false
-    },
-    {
       "site": "rt-ru",
       "date": "2026-08-24",
       "category": "rt",
-      "title": "Роспотребнадзор объяснил, как вернуть ребёнка в учебный ритм",
+      "title": "Росфинмониторинг получит данные о переводах с 1 сентября",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1673790-rospotrebnadzor-rebenok-uchebnyj-ritm",
+      "url": "https://russian.rt.com/russia/news/1673803-rosfinmonitoring-dannye-perevody",
       "date_is_capture": true
     },
     {
@@ -1478,11 +1488,11 @@
       "site": "tsargrad",
       "date": "2026-08-24",
       "category": "tsargrad",
-      "title": "Новый премьер Британии сделал подарок Украине. Чем он опасен для России?",
-      "theme": "ukraine",
+      "title": "Краснодарцы несут свечи и игрушки к кресту у собора Александра Невского в память о погибших детях",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tsargrad.tv/news/novyj-premer-britanii-sdelal-podarok-ukraine-chem-on-opasen-dlja-rossii_1836768",
+      "url": "https://tsargrad.tv/news/krasnodarcy-nesut-svechi-i-igrushki-k-krestu-u-sobora-aleksandra-nevskogo-v-pamjat-o-pogibshih-detjah_1836877",
       "date_is_capture": true
     },
     {
@@ -1506,25 +1516,14 @@
       "url": "https://hu.news-front.su/2026/08/24/az-orosz-erok-tamadast-hajtottak-vegre-kijevi-celpontok-ellen/"
     },
     {
-      "site": "ukraina-ru",
-      "date": "2026-08-24",
-      "category": "ukraina",
-      "title": "Нардеп Федиенко обеспокоен доверием украинцев к телеграм-каналам",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20260824/nardep-fedienko-obespokoen-doveriem-ukraintsev-k-telegram-kanalam-1082764408.html",
-      "date_is_capture": false
-    },
-    {
       "site": "rt-ru",
       "date": "2026-08-24",
       "category": "rt",
-      "title": "В США заявили о готовности к конструктивной роли для урегулирования на Украине",
-      "theme": "ukraine",
+      "title": "В Павлограде прогремели взрывы при воздушной тревоге",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1673785-ssha-konstruktiv-ukraina",
+      "url": "https://russian.rt.com/ussr/news/1673805-vzryvy-pavlograd-trevoga",
       "date_is_capture": true
     },
     {
@@ -1542,11 +1541,11 @@
       "site": "tsargrad",
       "date": "2026-08-24",
       "category": "tsargrad",
-      "title": "Танки стали \"одноразовыми\": Киев показал оружие новой войны. Что теперь угрожает России",
+      "title": "Новый премьер Британии сделал подарок Украине. Чем он опасен для России?",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tsargrad.tv/news/tanki-stali-odnorazovymi-kiev-pokazal-oruzhie-novoj-vojny-chto-teper-ugrozhaet-rossii_1836735",
+      "url": "https://tsargrad.tv/news/novyj-premer-britanii-sdelal-podarok-ukraine-chem-on-opasen-dlja-rossii_1836768",
       "date_is_capture": true
     },
     {
@@ -1573,22 +1572,22 @@
       "site": "ukraina-ru",
       "date": "2026-08-24",
       "category": "ukraina",
-      "title": "В Белгороде усиливают подготовку к отопительному сезону после прошлогодних атак ВСУ",
+      "title": "Девальвация суверенитета: как Украина за 35 лет растеряла почти все, кроме внешнего долга",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260824/v-belgorode-usilivayut-podgotovku-k-otopitelnomu-sezonu-posle-proshlogodnikh-atak-vsu-1082764262.html",
+      "url": "https://ukraina.ru/20260824/devalvatsiya-suvereniteta-kak-ukraina-za-35-let-rasteryala-pochti-vse-krome-vneshnego-dolga-1082755494.html",
       "date_is_capture": false
     },
     {
       "site": "rt-ru",
       "date": "2026-08-24",
       "category": "rt",
-      "title": "В Днепропетровске прогремели взрывы",
-      "theme": "filler",
+      "title": "Пенсии неработающих россиян выросли до 25,8 тысячи рублей",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1673783-dnepropetrovsk-vzryv-ukraina",
+      "url": "https://russian.rt.com/russia/news/1673804-pensii-nerabotayushchih-rossiyan",
       "date_is_capture": true
     },
     {
@@ -1601,6 +1600,17 @@
       "unit": "headline",
       "url": "https://tvzvezda.ru/news/20268241457-vvrsL.html",
       "date_is_capture": false
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-08-24",
+      "category": "tsargrad",
+      "title": "Танки стали \"одноразовыми\": Киев показал оружие новой войны. Что теперь угрожает России",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/tanki-stali-odnorazovymi-kiev-pokazal-oruzhie-novoj-vojny-chto-teper-ugrozhaet-rossii_1836735",
+      "date_is_capture": true
     },
     {
       "site": "newsfront-ru",
@@ -1626,22 +1636,22 @@
       "site": "ukraina-ru",
       "date": "2026-08-24",
       "category": "ukraina",
-      "title": "Премьер Британии в Киеве подработал гитаристом",
+      "title": "Постпред Китая при ООН призвал к конструктивному подходу по Украине",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260824/premer-britanii-v-kieve-podrabotal-gitaristom-1082764043.html",
+      "url": "https://ukraina.ru/20260824/postpred-kitaya-pri-oon-prizval-k-konstruktivnomu-podkhodu-po-ukraine-1082764880.html",
       "date_is_capture": false
     },
     {
       "site": "rt-ru",
       "date": "2026-08-24",
       "category": "rt",
-      "title": "Каллас призвала усилить санкционное давление на Россию осенью",
-      "theme": "russia",
+      "title": "В Киеве прогремели взрывы при воздушной тревоге",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1673782-kallas-sankcionnoe-davlenie",
+      "url": "https://russian.rt.com/ussr/news/1673806-vzryvy-kiev-trevoga",
       "date_is_capture": true
     },
     {
@@ -1679,22 +1689,22 @@
       "site": "ukraina-ru",
       "date": "2026-08-24",
       "category": "ukraina",
-      "title": "Арена-М\" показала себя выше ожидаемого — Беднарский об эффективной защите танков от дронов",
-      "theme": "filler",
+      "title": "Стубб: удары по Wildberries — способ заставить Россию сесть за переговоры",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260824/arena-m-pokazala-sebya-vyshe-ozhidaemogo--bednarskiy-ob-effektivnoy-zaschite-tankov-ot-dronov-1082758113.html",
+      "url": "https://ukraina.ru/20260824/stubb-udary-po-wildberries--sposob-zastavit-rossiyu-sest-za-peregovory-1082764539.html",
       "date_is_capture": false
     },
     {
       "site": "rt-ru",
       "date": "2026-08-24",
       "category": "rt",
-      "title": "Песков: в Кремле негативно оценивают планы Лондона передать Киеву данные о SCALP",
-      "theme": "ukraine",
+      "title": "Ледовый лайнер с казино и аквапарком спроектировали в России",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1673780-peskov-kreml-plany",
+      "url": "https://russian.rt.com/russia/news/1673797-ledovyj-lainer-kazino-akvapark",
       "date_is_capture": true
     },
     {
@@ -1727,17 +1737,6 @@
       "lang": "hu",
       "unit": "headline",
       "url": "https://hu.news-front.su/2026/08/24/vlagyimir-putyin-moszkva-csak-a-helyszini-valos-helyzet-alapjan-hajlando-bekerol-targyalni/"
-    },
-    {
-      "site": "ukraina-ru",
-      "date": "2026-08-24",
-      "category": "ukraina",
-      "title": "Сергей Липовой: Британия обкатывает на Украине оружие для будущей войны с Россией",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20260824/sergey-lipovoy-britaniya-obkatyvaet-na-ukraine-oruzhie-dlya-buduschey-voyny-s-rossiey-1082755302.html",
-      "date_is_capture": false
     },
     {
       "site": "tg-rybar",

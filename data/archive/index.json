@@ -1,7 +1,7 @@
 {
  "note": "Append-only archive of every item captured by scripts/capture_specimens.py. Headlines and provenance only — no article body text is collected. Items are never rewritten once archived; `first_seen` is when this project observed the item, which is not necessarily when it was published.",
- "updated": "2026-08-24T21:47:23+00:00",
- "items": 8478,
+ "updated": "2026-08-24T23:55:07+00:00",
+ "items": 8499,
  "first_date": "2022-03-30",
  "last_date": "2026-08-25",
  "published_range": [
@@ -19,54 +19,54 @@
   "2022-11": 2,
   "2023-04": 1,
   "2026-07": 2,
-  "2026-08": 8469
+  "2026-08": 8490
  },
  "by_source": {
-  "rt-ru": 1926,
+  "rt-ru": 1935,
   "tg-oroszigazsag": 991,
-  "ukraina-ru": 899,
-  "tg-lomovka": 742,
+  "ukraina-ru": 903,
+  "tg-lomovka": 746,
   "newsfront-ru": 740,
   "tg-ebredes": 617,
-  "pravda-hu": 503,
+  "pravda-hu": 505,
   "tg-greatawaken": 427,
   "tg-baltnews": 350,
   "zvezda-tv": 329,
-  "tsargrad": 239,
+  "tsargrad": 240,
   "newsfront-hu": 176,
   "tg-oroszkatonai": 170,
-  "tg-zvezda": 127,
+  "tg-zvezda": 128,
   "tg-infodef": 114,
   "tg-vilaghelyzete": 82,
   "tg-rybar": 46
  },
  "by_tier": {
-  "outlet": 4309,
-  "origin": 3666,
-  "launderer": 503
+  "outlet": 4323,
+  "origin": 3671,
+  "launderer": 505
  },
  "by_theme": {
-  "filler": 3389,
-  "ukraine": 2452,
-  "russia": 1334,
+  "filler": 3398,
+  "ukraine": 2460,
+  "russia": 1338,
   "hungary": 613,
   "eu/nato": 354,
   "energy": 336
  },
  "by_lang": {
-  "cyr": 4979,
+  "cyr": 4998,
   "hu": 2808,
-  "lat": 691
+  "lat": 693
  },
  "by_unit": {
-  "headline": 4812,
-  "post_excerpt": 3666
+  "headline": 4828,
+  "post_excerpt": 3671
  },
  "theme_coverage": {
   "cyr": {
-   "items": 4979,
-   "scored": 4979,
-   "matched_a_topic": 3281,
+   "items": 4998,
+   "scored": 4998,
+   "matched_a_topic": 3292,
    "lexicon": "cyr"
   },
   "hu": {
@@ -76,9 +76,9 @@
    "lexicon": "lat"
   },
   "lat": {
-   "items": 691,
-   "scored": 691,
-   "matched_a_topic": 348,
+   "items": 693,
+   "scored": 693,
+   "matched_a_topic": 349,
    "lexicon": "lat"
   }
  }
