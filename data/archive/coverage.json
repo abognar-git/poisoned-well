@@ -1,14 +1,14 @@
 {
  "note": "Coverage of this corpus, computed by comparing the ids actually held in the archive against the id span observed across every logged run. Both captured tiers number sequentially, so a gap is an item the source issued and this corpus does not contain — filtered out, published between runs, or missed. This does not say which. Outlet listings expose no sequential ids and carry nulls.",
- "generated": "2026-08-25T23:04:35+00:00",
- "runs_logged": 163,
+ "generated": "2026-08-26T03:38:53+00:00",
+ "runs_logged": 164,
  "first_run": "20260814T065530+0000",
- "last_run": "20260825T230434+0000",
+ "last_run": "20260826T033852+0000",
  "measurable_sources": 11,
- "coverage_overall": 0.6755,
+ "coverage_overall": 0.676,
  "by_source": {
   "newsfront-hu": {
-   "runs": 163,
+   "runs": 164,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -19,7 +19,7 @@
    "empty_runs": 0
   },
   "newsfront-ru": {
-   "runs": 163,
+   "runs": 164,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -30,7 +30,7 @@
    "empty_runs": 0
   },
   "pravda-hu": {
-   "runs": 163,
+   "runs": 164,
    "sequential_ids": true,
    "captured": 462,
    "id_span_observed": 479,
@@ -59,7 +59,7 @@
    "empty_runs": 0
   },
   "rt-ru": {
-   "runs": 163,
+   "runs": 164,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -70,7 +70,7 @@
    "empty_runs": 2
   },
   "tg-baltnews": {
-   "runs": 163,
+   "runs": 164,
    "sequential_ids": true,
    "captured": 353,
    "id_span_observed": 380,
@@ -102,7 +102,7 @@
    "empty_runs": 0
   },
   "tg-ebredes": {
-   "runs": 163,
+   "runs": 164,
    "sequential_ids": true,
    "captured": 632,
    "id_span_observed": 827,
@@ -134,7 +134,7 @@
    "empty_runs": 0
   },
   "tg-greatawaken": {
-   "runs": 163,
+   "runs": 164,
    "sequential_ids": true,
    "captured": 449,
    "id_span_observed": 1395,
@@ -166,7 +166,7 @@
    "empty_runs": 0
   },
   "tg-infodef": {
-   "runs": 163,
+   "runs": 164,
    "sequential_ids": true,
    "captured": 123,
    "id_span_observed": 168,
@@ -198,13 +198,13 @@
    "empty_runs": 0
   },
   "tg-lomovka": {
-   "runs": 163,
+   "runs": 164,
    "sequential_ids": true,
-   "captured": 765,
-   "id_span_observed": 872,
+   "captured": 774,
+   "id_span_observed": 882,
    "first_id": 139995,
-   "last_id": 140866,
-   "coverage": 0.8773,
+   "last_id": 140876,
+   "coverage": 0.8776,
    "missing_examples": [
     140009,
     140013,
@@ -230,7 +230,7 @@
    "empty_runs": 0
   },
   "tg-oroszigazsag": {
-   "runs": 163,
+   "runs": 164,
    "sequential_ids": true,
    "captured": 1007,
    "id_span_observed": 1357,
@@ -262,13 +262,13 @@
    "empty_runs": 0
   },
   "tg-oroszkatonai": {
-   "runs": 163,
+   "runs": 164,
    "sequential_ids": true,
-   "captured": 184,
-   "id_span_observed": 449,
+   "captured": 185,
+   "id_span_observed": 450,
    "first_id": 42320,
-   "last_id": 42768,
-   "coverage": 0.4098,
+   "last_id": 42769,
+   "coverage": 0.4111,
    "missing_examples": [
     42321,
     42322,
@@ -294,7 +294,7 @@
    "empty_runs": 0
   },
   "tg-rybar": {
-   "runs": 163,
+   "runs": 164,
    "sequential_ids": true,
    "captured": 33,
    "id_span_observed": 50,
@@ -323,7 +323,7 @@
    "empty_runs": 0
   },
   "tg-vilaghelyzete": {
-   "runs": 163,
+   "runs": 164,
    "sequential_ids": true,
    "captured": 85,
    "id_span_observed": 99,
@@ -349,7 +349,7 @@
    "empty_runs": 0
   },
   "tg-zvezda": {
-   "runs": 163,
+   "runs": 164,
    "sequential_ids": true,
    "captured": 115,
    "id_span_observed": 153,
@@ -381,7 +381,7 @@
    "empty_runs": 0
   },
   "tsargrad": {
-   "runs": 163,
+   "runs": 164,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -392,7 +392,7 @@
    "empty_runs": 1
   },
   "ukraina-ru": {
-   "runs": 163,
+   "runs": 164,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -403,7 +403,7 @@
    "empty_runs": 2
   },
   "zvezda-tv": {
-   "runs": 163,
+   "runs": 164,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
