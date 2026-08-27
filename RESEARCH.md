@@ -156,13 +156,16 @@ C2 (the census) is untouched by any of this and remains the paper's strongest cl
 | ~~M3~~ | ~~Randomisation inference + volatility-normalised rank~~ | **done** — pooled 1/185 (p=0.0054), within-unit 1/24, volatility-normalised **13/185 (p=0.070)** | done | `derive_peer_control.py` |
 | M4 | Specification curve over window × gap × offset | is the estimate a property of the data or of window choice | small | automatable |
 | M5 | Collector-artefact audit: network-wide single-day collapses | does the instrument manufacture drops (note 2026-04-25 = 28 articles) | small | automatable |
-| M6 | **Telegram archive reconstruction** — back-page `t.me/s/` for the three channels, Feb–Aug 2026 | **the decisive question:** did the channels stop publishing, or did the mirror stop crediting them? | medium | **PI** go/no-go |
+| ~~M6~~ | ~~**Telegram archive reconstruction** — back-page `t.me/s/` for the three channels, Feb–Aug 2026~~ | **done** — the channels did not stop. Across the trough's 65 days they published on **65, 65 and 61** of them; their own volume fell **15.5%** while the mirror's credits to them fell **82.9%**. Most of what was interrupted was the crediting, not the supply — and the rule that says so sits **0.5** points from its stronger verdict | done | `backpage_telegram.py` → `derive_supply_test.py` |
 | M7 | Manual pass over all 940 sources for Hungarian markers | hardens the headline zero from "robust to my string list" to "exhaustively verified" | ~1 day | **PI** — this is the number that will be quoted |
 | ~~M8~~ | ~~Extend donor pool to the full 101 mirrors~~ | **done** — 1,948 windows; Hungary at the 11th percentile. Next: classify the 101 into country / language / thematic so the control group is like-for-like | done | `fetch_pravda.py --all` |
 
-**M6 is the study's hinge.** If the channels kept publishing through May–June, the interruption is on
-the mirror's side. If they went quiet, it is upstream. Our current data cannot distinguish these, and
-the paper must not pretend otherwise until this is run.
+**M6 was the study's hinge, and it has been run.** The channels kept publishing through May–June —
+55,597 posts reconstructed from Telegram's public preview, independently of the mirror — so the
+interruption is mostly on the mirror's side rather than upstream. The reading the paper carried until
+then is withdrawn. Two things bound it: the counts are lower bounds, because a post deleted before the
+walk is invisible, and that bias runs toward the conclusion drawn; and why the crediting stopped is
+past anything this design can reach. M7 is now the only decisive test still outstanding.
 
 ---
 

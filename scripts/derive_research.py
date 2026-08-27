@@ -14,7 +14,7 @@ Entry ids are stable and are what the page references via data-research="<id>":
     root-cause                     why the validation gate passed them
     limit-c1 / limit-c2 / limit-c3 what each contribution cannot show
     cut-1 .. cut-6                 framing removed from the paper
-    open-m6 / open-m7              the decisive tests not yet run
+    open-m7                        the decisive test not yet run (m6 ran; see correction-6)
     limitations                    the limitations paragraph, as drafted for the paper
     rq1 / rq2 / rq3                the research questions
 """
@@ -114,8 +114,11 @@ def main() -> int:
 
     # ── §5 the tests that would settle it, not yet run ────────────────────────
     meth = section(doc, "5. Methods to strengthen, in priority order")
-    for mid, title in (("M6", "Did the channels stop, or did the mirror stop crediting them?"),
-                       ("M7", "Hardening the headline zero")):
+    # M6 sat here until the Telegram walk answered it. A method that has been run is struck
+    # through in the table and leaves this registry the way M3 and M8 did; its result moves to
+    # §2 as a correction. Retiring one means deleting its id from this tuple as well — a struck
+    # row still listed here exits the build, which is the direction the failure should point.
+    for mid, title in (("M7", "Hardening the headline zero"),):
         row = re.search(rf"^\|\s*{mid}\s*\|(.+?)\|(.+?)\|(.+?)\|(.+?)\|$", meth, re.M)
         if not row:
             sys.exit(f"derive_research: method row {mid} not found")
@@ -123,9 +126,6 @@ def main() -> int:
             "id": f"open-{mid.lower()}", "kind": "open", "title": title,
             "text": md(row.group(1)) + " — " + md(row.group(2)),
         })
-    hinge = re.search(r"\*\*M6 is the study's hinge\.\*\*(.+?)(?=\n---)", meth, re.S)
-    if hinge:
-        entries[-2]["text"] += " " + md(hinge.group(1))
 
     # ── §7 the limitations paragraph and the research questions ───────────────
     arch = section(doc, "7. Paper architecture")

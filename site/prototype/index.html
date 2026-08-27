@@ -1206,11 +1206,18 @@ window.__st.push('data-loaded');
 
 /* Act I: publishing days, generated rather than typed */
 {
-  const S = summary['hungary.news-pravda.com'];
-  const spanDays = Math.round((new Date(S.last_day) - new Date(S.first_day)) / 864e5) + 1;
-  const a = document.getElementById('act1-active'), b = document.getElementById('act1-span');
-  if (a) a.textContent = S.active_days.toLocaleString('en-US');
-  if (b) b.textContent = spanDays.toLocaleString('en-US');
+  // Guarded like `live` above, and for the same reason. This line read `summary[...]`
+  // unguarded until a missing pravda_summary.json was actually rendered: it threw here, and
+  // because this is module top-level the throw took every section below it — 59% of the DOM,
+  // the provenance-census paragraph included — leaving the hero on its baked 0. The comment
+  // fifteen lines up already claimed every consumer was gated separately. It was not.
+  const S = summary?.['hungary.news-pravda.com'];
+  if (S) {
+    const spanDays = Math.round((new Date(S.last_day) - new Date(S.first_day)) / 864e5) + 1;
+    const a = document.getElementById('act1-active'), b = document.getElementById('act1-span');
+    if (a) a.textContent = S.active_days.toLocaleString('en-US');
+    if (b) b.textContent = spanDays.toLocaleString('en-US');
+  }
 }
 
 /* ================= hero counters ================= */
@@ -2083,8 +2090,9 @@ try {
 // mechanism figures, confidence legend, glossary (Phase C)
 {
   document.getElementById('pipe-total').textContent = fmt(HU.total);
-  const hu = summary['hungary.news-pravda.com'];
-  document.getElementById('pipe-tg').textContent = fmt(hu.top_sources[0].count);
+  const hu = summary?.['hungary.news-pravda.com'];
+  if (hu?.top_sources?.length)
+    document.getElementById('pipe-tg').textContent = fmt(hu.top_sources[0].count);
 
   const leg = document.getElementById('conf-legend');
   for (const [k, v] of Object.entries(CONF))
@@ -2225,7 +2233,7 @@ setTimeout(async () => {
       `Romania's annulled 2024 round produced −5.6% and its 2025 rerun <b>+16.5%</b>. Interruptions ` +
       `here are common, and on this evidence mostly not election-aligned. ` +
       `<b>What this cannot show:</b> ${esc(PC.cannot_show)}` +
-      `<span data-research="limit-c3"></span><span data-research="open-m6"></span>` +
+      `<span data-research="limit-c3"></span>` +
       `<span data-research="rq3"></span>`;
     wireMarkers(document.getElementById('peer-note').parentElement);
   }
@@ -3005,7 +3013,10 @@ function buildChart() {
   const M = {l:46, r:24, t:30, b:34};
   const iw = W - M.l - M.r, ih = H - M.t - M.b;
 
-  const series = timeline.series.filter(d => d[1] >= 0);
+  // Every scale below derives from this series, so without it the chart cannot be drawn at
+  // all — leave the section empty rather than throw out of a function the scroller calls.
+  const series = (timeline?.series || []).filter(d => d[1] >= 0);
+  if (!series.length) return;
   const dates = series.map(d => new Date(d[0]));
   const t0 = dates[0].getTime(), t1 = dates[dates.length-1].getTime();
   const ymax = Math.max(...series.map(d => d[1])) * 1.06;
@@ -3108,8 +3119,8 @@ function buildChart() {
     'hu.news-front.su':'News Front — Crimea, sanctioned',
     'tass.ru':'Russian state agency',
   };
-  const top = summary['hungary.news-pravda.com'].top_sources.slice(0, 8);
-  const bmax = top[0].count;
+  const top = (summary?.['hungary.news-pravda.com']?.top_sources || []).slice(0, 8);
+  const bmax = top.length ? top[0].count : 1;   // forEach below no-ops on an empty list
   el('text', {x:M.l, y:M.t+6, fill:'#e9e4da', 'font-size':'12px', 'letter-spacing':'.16em'}, srcG)
     .textContent = 'MOST-CREDITED SOURCES · ALL-TIME';
   top.forEach((s, i) => {

@@ -95,9 +95,11 @@ rerun produced a **+16.5% rise**.
 elections.** The drop is real, it is the largest in its own window, it is
 ordinary against the mirror's own history, it starts a fortnight after the event
 it gets attributed to, and the recovery restores the original source mix to
-within five points. Those five facts together are more consistent with an
-interrupted supply than with a response to a result, and **I claim no cause for
-it.**
+within five points. I read those five facts as more consistent with an interrupted
+supply than with a response to a result. **That reading did not survive.**
+Back-paging the three channels the drop is concentrated in shows they went on
+publishing straight through it, so whatever was interrupted was mostly not the
+supply — finding 6 below. **I claim no cause for it either way.**
 
 What is left standing is the census. Across every article the mirror has
 published, and every source it credits — 940 of them, accounting for 100.00% of
@@ -141,10 +143,13 @@ answer.**
 CheckFirst's scrape observes is observationally equivalent to a change in what the
 mirror publishes.
 
-**It cannot tell you whether the channels stopped or the mirror stopped crediting
-them.** That is the study's hinge and it is not yet run — it needs back-paging
-`t.me/s/` for three channels across February to August 2026. Until then, "the
-supply was interrupted" is the reading the evidence best supports, not a fact.
+**It cannot tell you why the mirror stopped crediting channels that were still
+publishing.** The study's hinge has now been run: Telegram's public preview
+back-paged for the three channels across February to August 2026, 55,597 posts,
+ids and timestamps only. It settles the narrower question and it costs this
+project a reading — the channels did not go quiet. What nothing here separates is
+a block from a rebuild, a redirect or an instruction, so I claim no cause. Finding
+6 below.
 
 **Convergence is never coordination.** Where the Russian operation and Hungarian
 domestic campaigns used the same techniques, that is measured, reported as a null,
@@ -365,9 +370,10 @@ without also taking what it was measured against.
 
 ## What I got wrong, and what this does not show
 
-Five, in the order they were found — plus a sixth, numbered 4b below because it
+Six, in the order they were found — plus a seventh, numbered 4b below because it
 arrived after the others and is not a retraction. The first four are the
-retractions; the fifth is the one I found while fixing them.
+retractions; the fifth is the one I found while fixing them; the sixth retires a
+reading the other five had all left standing.
 
 **1 — I read a recovery off the wrong three channels.** I published that the
 Russian institutional layer carried the mirror's rebound. I had summed the three
@@ -375,8 +381,9 @@ Russian institutional layer carried the mirror's rebound. I had summed the three
 the right ones: the collapsed set supplies **101.4%** of the rebound — more than all of it, so
 everything else nets **−1.0 articles/day**. Their share of output runs
 67.5% → 32.6% → 62.6%. The channels that fell are the channels that came back,
-which is why "interrupted supply" is now the reading and "editorial decision" is
-not. Fixed in `53dec10`.
+which is why "interrupted supply" became the reading and "editorial decision" did
+not. Fixed in `53dec10`. What fell was the mirror's crediting of them, and reading
+that as the channels themselves going quiet is the step finding 6 retires.
 
 **2 — I compared a capture with a census.** I published that the mirror had changed
 what it eats, on the strength of my own live capture. That capture requests only
@@ -414,11 +421,33 @@ volatility — standard practice in synthetic-control work, for exactly this rea
 the donor pool to all 101 mirrors moves it to **207 of 1,948**. Nobody made me run
 either check.
 
-**The pattern in all five.** Every one of them pointed the way I wanted it to
+**6 — I called it an interrupted supply without ever checking the supply.** The
+mirror's credits to three Hungarian aggregator channels collapsed after the
+election, and finding 1 and the conclusion near the top both read that as the
+channels having gone quiet. Everything this repository holds is the mirror's side
+of that relationship, so the reading was never tested — it was the more
+comfortable of two possibilities that fit the same data equally well. Back-paging
+Telegram's public preview reconstructs the channels' own output independently of
+the mirror, and it does not support it. Across the 65 days of the trough the three
+channels published on **65, 65 and 61** of them; their own volume fell **15.5%** on
+average while the mirror's credits to them fell **82.9%**; credits per post went
+**0.62 → 0.16**, **0.50 → 0.09** and **0.33 → 0.06**. The channels never stopped.
+Most of what was interrupted was the crediting, not the supply. Two things keep
+this from being stronger than it reads. The decision rule sits **0.5 percentage
+points** from concluding the interruption was entirely on the mirror's side, which
+is close enough that the margin belongs in the finding and not just in the data;
+and a post deleted before the walk is invisible to it, so the counts are lower
+bounds and the bias runs toward exactly the conclusion drawn here. This is the
+weaker version of it. Why the crediting stopped is past anything this project can
+reach.
+
+**The pattern in all six.** Every one of them pointed the way I wanted it to
 point. That is not a coincidence and it is not carelessness — it is what happens
 when the analysis and the argument are written by the same person in the same
 session, and the only defence I have found is to build the tool that can
-contradict you before you need it to.
+contradict you before you need it to. Finding 6 is that defence working: the walk
+was written to test a question the prose had already answered, and it came back
+with the other answer.
 
 ### What this does not show
 

@@ -66,6 +66,17 @@ def build():
     P, T = cv["provenance_audit"], cv["technique_overlap"]
     C, PB, TI, TG = pc["comparison"], pc["placebo"], pc["timing"], pc["target"]
     R = dt["recovery"]
+    # The hinge test. Its figures are the ones most likely to be restated from memory in a
+    # later edit, because finding 6 is the only place in the README where a retraction and
+    # its evidence sit in the same paragraph.
+    st, ca = D("supply_test"), D("channel_activity")
+    SC = list(st["channels"].values())
+    trough_days = (datetime.date.fromisoformat(st["windows"]["trough"][1])
+                   - datetime.date.fromisoformat(st["windows"]["trough"][0])).days + 1
+    walked = sum(c["posts_in_window"] for c in ca["channels"].values())
+    # Read from the data, not restated here: the rule lives in derive_supply_test.py and the
+    # margin moves with it.
+    margin = st["margin_to_mirror_side"]
     ev = {e["id"]: e["result"] for e in ns["events"]["tested"]}
     onset = datetime.date.fromisoformat(TI["estimated_onset"])
     HU, RO24, RO25 = (ev["hu-2026-parliamentary"], ev["ro-2024-presidential-annulled"],
@@ -141,6 +152,19 @@ def build():
          [P["total_articles"], P["credited_sources"], P["coverage"]]),
         ("collapsed set supplies **{:.1f}%** of the rebound",
          [R["collapsed_set_share_of_rebound"] * 100]),
+
+        # Finding 6 and the two places above it that the finding corrects.
+        ("across February to August 2026, {:,.0f} posts", [walked]),
+        ("Across the {:,.0f} days of the trough", [trough_days]),
+        ("published on **{:,.0f}, {:,.0f} and {:,.0f}** of them",
+         [c["days_with_posts_in_trough"] for c in SC]),
+        ("own volume fell **{:.1f}%** on average", [-st["posts_change_pct_mean"]]),
+        ("credits to them fell **{:.1f}%**", [-st["credits_change_pct_mean"]]),
+        ("**{:.2f} → {:.2f}**, **{:.2f} → {:.2f}** and **{:.2f} → {:.2f}**",
+         [v for c in SC
+          for v in (c["windows"]["baseline"]["credits_per_post"],
+                    c["windows"]["trough"]["credits_per_post"])]),
+        ("**{:.1f} percentage points** from concluding", [margin]),
 
         ("{:,.0f} registered claims", [cat("claims.json")]),
         ("the {:,.0f} case files", [cat("operations.json")]),

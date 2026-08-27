@@ -1,0 +1,105 @@
+{
+ "note": "The decisive test named in RESEARCH.md. Channel posting history comes from Telegram's public preview, independently of the mirror; credits come from CheckFirst's per-day panel. credits_per_post is a ratio between two differently-collected series — read its movement, not its level.",
+ "generated": "2026-08-27T11:21:46+00:00",
+ "windows": {
+  "baseline": [
+   "2026-02-01",
+   "2026-04-11"
+  ],
+  "trough": [
+   "2026-04-27",
+   "2026-06-30"
+  ],
+  "recovery": [
+   "2026-07-01",
+   "2026-08-10"
+  ]
+ },
+ "channels": {
+  "oroszokazigazsagoldalan": {
+   "windows": {
+    "baseline": {
+     "posts_per_day": 142.7,
+     "credits_per_day": 88.4,
+     "credits_per_post": 0.62
+    },
+    "trough": {
+     "posts_per_day": 105.1,
+     "credits_per_day": 16.3,
+     "credits_per_post": 0.16
+    },
+    "recovery": {
+     "posts_per_day": 99.8,
+     "credits_per_day": 45.4,
+     "credits_per_post": 0.45
+    }
+   },
+   "posts_change_pct": -26.3,
+   "credits_change_pct": -81.6,
+   "days_with_posts_in_trough": 65,
+   "id_coverage": 0.8309,
+   "in_mean": true,
+   "empty_windows": []
+  },
+  "ebredes2017": {
+   "windows": {
+    "baseline": {
+     "posts_per_day": 83.1,
+     "credits_per_day": 41.5,
+     "credits_per_post": 0.5
+    },
+    "trough": {
+     "posts_per_day": 87.5,
+     "credits_per_day": 7.8,
+     "credits_per_post": 0.09
+    },
+    "recovery": {
+     "posts_per_day": 73.9,
+     "credits_per_day": 29.5,
+     "credits_per_post": 0.4
+    }
+   },
+   "posts_change_pct": 5.3,
+   "credits_change_pct": -81.2,
+   "days_with_posts_in_trough": 65,
+   "id_coverage": 0.923,
+   "in_mean": true,
+   "empty_windows": []
+  },
+  "greatawakeningmagyarok": {
+   "windows": {
+    "baseline": {
+     "posts_per_day": 106.1,
+     "credits_per_day": 35.1,
+     "credits_per_post": 0.33
+    },
+    "trough": {
+     "posts_per_day": 79.2,
+     "credits_per_day": 4.9,
+     "credits_per_post": 0.06
+    },
+    "recovery": {
+     "posts_per_day": 122.5,
+     "credits_per_day": 25.9,
+     "credits_per_post": 0.21
+    }
+   },
+   "posts_change_pct": -25.4,
+   "credits_change_pct": -86.0,
+   "days_with_posts_in_trough": 61,
+   "id_coverage": 0.8496,
+   "in_mean": true,
+   "empty_windows": []
+  }
+ },
+ "channels_total": 3,
+ "channels_in_mean": 3,
+ "channels_excluded": {},
+ "forced_past_gate": false,
+ "posts_change_pct_mean": -15.5,
+ "credits_change_pct_mean": -82.9,
+ "mirror_side_threshold": -15,
+ "margin_to_mirror_side": 0.5,
+ "reading": "Both fell, but the channels fell substantially less than the credits. Part of the interruption is upstream and part is on the mirror's side; neither reading carries it alone.",
+ "cannot_show": "Why the credits moved. A mirror that stopped crediting could have been blocked, rebuilt, redirected or instructed; nothing here separates those and this project claims no cause. Channel counts are lower bounds — a post deleted before the walk is invisible — which biases toward 'the channels kept posting'."
+}

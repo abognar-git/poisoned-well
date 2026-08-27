@@ -187,30 +187,41 @@ def main() -> int:
 
     # ── and the degraded path: one derived file missing must not print undefined/NaN into
     # prose or silently delete a section.
-    port3 = free_port()
-    httpd = serve(port3, drop="live_status.json")
-    time.sleep(0.3)
-    try:
-        deg = dom(chrome, f"http://127.0.0.1:{port3}/site/prototype/index.html")
-    finally:
-        httpd.shutdown()
-    deg_body = re.sub(r"<script.*?</script>", "", deg, flags=re.S | re.I)
-    for bad in ("undefined", "NaN"):
-        if bad in deg_body:
-            errors.append(f"with live_status.json missing the page renders the literal "
-                          f"{bad!r} into prose")
-    if "zero times" not in deg_body:
-        errors.append("with live_status.json missing the provenance-census paragraph "
-                      "disappears — the page must degrade to baked figures, not to silence")
-    deg_cite = deg_body.count('class="cite"')
-    if deg_cite < n_cite - 2:
-        errors.append(f"with live_status.json missing the evidence layer drops to "
-                      f"{deg_cite} § from {n_cite}")
+    # This dropped live_status.json and nothing else, and it passed while a missing
+    # pravda_summary.json threw at module top-level and took 59% of the DOM with it — the
+    # census paragraph included — leaving the hero on the 0 baked into the markup. Testing one
+    # file is not testing the degraded path, it is testing one degraded path. Each file the
+    # page fetches at load now gets its own run: four Chrome launches instead of one, which is
+    # the price of the assertion actually meaning what it says.
+    DEGRADE = ("live_status.json", "pravda_timeline.json", "pravda_summary.json",
+               "latest_specimens.json")
+    deg_cites = {}
+    for drop in DEGRADE:
+        port3 = free_port()
+        httpd = serve(port3, drop=drop)
+        time.sleep(0.3)
+        try:
+            deg = dom(chrome, f"http://127.0.0.1:{port3}/site/prototype/index.html")
+        finally:
+            httpd.shutdown()
+        deg_body = re.sub(r"<script.*?</script>", "", deg, flags=re.S | re.I)
+        for bad in ("undefined", "NaN"):
+            if bad in deg_body:
+                errors.append(f"with {drop} missing the page renders the literal "
+                              f"{bad!r} into prose")
+        if "zero times" not in deg_body:
+            errors.append(f"with {drop} missing the provenance-census paragraph "
+                          "disappears — the page must degrade to baked figures, not to silence")
+        deg_cites[drop] = deg_body.count('class="cite"')
+        if deg_cites[drop] < n_cite - 2:
+            errors.append(f"with {drop} missing the evidence layer drops to "
+                          f"{deg_cites[drop]} § from {n_cite}")
+    deg_cite = min(deg_cites.values())
 
     print(f"check_render: {len(html):,} bytes of DOM | {n_cite} § · {n_rcite} ▲ "
           f"({n_correction_markers} corrections) · {n_term} dotted terms")
-    print(f"  explorer axes case-insensitive · degraded path {deg_cite} § and no "
-          f"undefined/NaN")
+    print(f"  explorer axes case-insensitive · {len(DEGRADE)} degraded paths, worst "
+          f"{deg_cite} § of {n_cite}, none printing undefined/NaN")
     if errors:
         print("FAIL:")
         for e in errors:
