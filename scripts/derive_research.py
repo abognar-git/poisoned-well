@@ -64,7 +64,8 @@ def main() -> int:
     # point of this table is that it can grow — so an unnamed row gets a generic label
     # rather than failing the build and tempting someone to leave the correction out.
     titles = {"1": "The recovery", "2": "The diet", "3": "The campaign surge",
-              "4": "The shared grammar", "5": "The theme labels"}
+              "4": "The shared grammar", "5": "The theme labels",
+              "6": "The interrupted supply"}
     for n, published, says, commit, found_by in rows:
         title = titles.get(n, f"Correction {n}")
         entries.append({

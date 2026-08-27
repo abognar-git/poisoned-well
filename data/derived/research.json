@@ -48,6 +48,15 @@
    "found_by": "adversarial review"
   },
   {
+   "id": "correction-6",
+   "kind": "correction",
+   "title": "The interrupted supply",
+   "published": "The supply was interrupted",
+   "data_says": "The channels never stopped. Across the trough's 65 days the three published on <b>65, 65 and 61</b> of them; their own volume fell <b>15.5%</b> while the mirror's credits to them fell <b>82.9%</b>; credits per post went 0.62 → 0.16, 0.50 → 0.09, 0.33 → 0.06. Most of what was interrupted was the crediting, not the supply — <b>0.5</b> points from the rule's stronger verdict, and the counts are lower bounds biased toward this very reading",
+   "commit": "aae5df5",
+   "found_by": "this project, running its own hinge test"
+  },
+  {
    "id": "root-cause",
    "kind": "root-cause",
    "title": "Why the gate passed four false claims",
@@ -69,7 +78,7 @@
    "id": "limit-c3",
    "kind": "limit",
    "title": "A dated output interruption, network-largest in its window but not exceptional against the mirror's own history, with no cause claimed",
-   "text": "the recovery restores the original source composition to within five points, which is more consistent with an <b>interrupted supply</b> than an editorial response."
+   "text": "the recovery restores the original source composition to within five points. I read that as an"
   },
   {
    "id": "cut-1",
@@ -138,7 +147,7 @@
    "kind": "question",
    "title": "Research question 3",
    "text": "Is any anomaly attributable to the mirror or to its upstream supply?",
-   "note": "requires M6"
+   "note": "M6 answers it: mostly the mirror, and why is out of reach"
   }
  ]
 }

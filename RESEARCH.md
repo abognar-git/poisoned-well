@@ -33,8 +33,10 @@ other people's audits and belongs on the website, not in our results.
 The review found four published claims that were wrong. All four were verified against our own
 data and fixed before this plan was written. The fifth row is not one of them: the specimen
 labelling defect was found by this project thirty-five hours later, after the review had closed,
-and the `Found by` column says which is which. They are listed here because a reader of the repo
-history deserves to see them, and because each one is a lesson about the pipeline.
+and the `Found by` column says which is which. The sixth is not one of them either, and it is the
+one that cost the most: it is the reading the other five all left standing, withdrawn when the
+study's own hinge test was finally run against it. They are listed here because a reader of the
+repo history deserves to see them, and because each one is a lesson about the pipeline.
 
 | # | Claim as published | What the data says | Commit | Found by |
 |---|---|---|---|---|
@@ -43,6 +45,7 @@ history deserves to see them, and because each one is a lesson about the pipelin
 | 3 | "No surge for the election it was aimed at" | March 2026 (269.6/day) is the mirror's **highest month in its entire series**. Only the *difference* survives: +24.0% vs peer mean +12.4% **[V]** | `53dec10` | adversarial review |
 | 5 | Theme tags on captured specimens ("payload" vs "filler") | The lexicon was Latin-script only, so **98.3% of Cyrillic items were labelled `filler`** — a label confounded with language, not a measurement of topic. Made worse on 2026-08-13 by adding five Russian-language outlets. Now scored per language with a published coverage matrix, and `unscored` is a third value **[V]** | `e085410` | this project, after the review closed |
 | 4 | "What the two do share is a grammar" (technique overlap) | Observed overlap **4**; expected by chance **5.00** (45-technique pool) or **6.25** (36 used). At or *below* chance **[V]** | `1a0a4d5` | adversarial review |
+| 6 | "The supply was interrupted" | The channels never stopped. Across the trough's 65 days the three published on **65, 65 and 61** of them; their own volume fell **15.5%** while the mirror's credits to them fell **82.9%**; credits per post went 0.62 → 0.16, 0.50 → 0.09, 0.33 → 0.06. Most of what was interrupted was the crediting, not the supply — **0.5** points from the rule's stronger verdict, and the counts are lower bounds biased toward this very reading **[V]** | `aae5df5` | this project, running its own hinge test |
 
 **Root cause, and it is not carelessness.** `check_claims.py` verifies that a rendered claim *resolves
 to a registry entry with a live data reference*. It does not verify that the entry is **true**. Claims
@@ -89,8 +92,10 @@ won by being noisy. Normalising each window by its own mirror's volatility puts 
 **−1.08 sd, rank 13/185 (p = 0.0703)**. The drop is the largest in its window; it is **not exceptional
 against this mirror's own history.** Report both, lead with the second.
 *Still to reproduce:* log DiD −1.024 and the 136-specification sweep spanning −65.1% to −38.1% **[R]**.
-*Limit:* the recovery restores the original source composition to within five points, which is more
-consistent with an **interrupted supply** than an editorial response.
+*Limit:* the recovery restores the original source composition to within five points. I read that as an
+**interrupted supply** rather than an editorial response, and correction 6 retires the reading: the
+channels went on publishing straight through the trough, so what was interrupted was mostly the
+crediting. What the design still cannot reach is why the crediting stopped.
 
 ---
 
@@ -125,7 +130,10 @@ reports both and requires the analyst to say which a claim rests on.
 two other votes we can date produced a small dip and a *rise*. C3 therefore cannot carry an
 election-related reading: the Hungarian episode is real, is the largest in its own window, and is
 otherwise ordinary. Combined with the 15-day onset gap and the restored source composition, three
-independent lines now point the same way — **an interrupted supply, not a response to a result.**
+independent lines pointed the same way — an interrupted supply, not a response to a result. **M6 has
+since taken that reading away:** the channels kept publishing, so what was interrupted was mostly the
+crediting rather than the supply. The election-related reading is no more available than before; what
+changed is which side of the mirror the interruption sits on.
 
 C2 (the census) is untouched by any of this and remains the paper's strongest claim.
 
@@ -204,7 +212,7 @@ Pravda mirror targeting Hungary's 2026 election*
 **RQ1.** Does the mirror targeting Hungary credit Hungarian domestic media? *(census; answerable now)*
 **RQ2.** Does its output behave anomalously around the election relative to its sibling mirrors?
 *(panel; answerable now)*
-**RQ3.** Is any anomaly attributable to the mirror or to its upstream supply? *(requires M6)*
+**RQ3.** Is any anomaly attributable to the mirror or to its upstream supply? *(M6 answers it: mostly the mirror, and why is out of reach)*
 
 | Section | Words |
 |---|---|

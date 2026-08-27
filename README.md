@@ -439,7 +439,7 @@ is close enough that the margin belongs in the finding and not just in the data;
 and a post deleted before the walk is invisible to it, so the counts are lower
 bounds and the bias runs toward exactly the conclusion drawn here. This is the
 weaker version of it. Why the crediting stopped is past anything this project can
-reach.
+reach. Retired in `aae5df5` — the walk and the join, not a code fix.
 
 **The pattern in all six.** Every one of them pointed the way I wanted it to
 point. That is not a coincidence and it is not carelessness — it is what happens
