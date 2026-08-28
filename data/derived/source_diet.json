@@ -130,7 +130,7 @@
   "reading": "The three channels did not stay gone. They supply essentially all of the rebound, and the mirror's source composition returns to within a few points of its pre-election mix. This was an interruption in the Hungarian-language supply, not a change of diet."
  },
  "live_cross_check": {
-  "captured_at": "2026-08-28T01:32:45+00:00",
+  "captured_at": "2026-08-28T21:55:54+00:00",
   "origin_channels_we_scrape": [
    {
     "site": "tg-oroszigazsag",
@@ -143,8 +143,8 @@
     "captured_now": 8
    },
    {
-    "site": "tg-rybar",
-    "label": "Rybar — GRU-adjacent milblogger (HU)",
+    "site": "tg-ebredes",
+    "label": "Awakening 2017",
     "captured_now": 8
    },
    {
@@ -178,8 +178,8 @@
     "captured_now": 8
    },
    {
-    "site": "tg-ebredes",
-    "label": "Awakening 2017",
+    "site": "tg-rybar",
+    "label": "Rybar — GRU-adjacent milblogger (HU)",
     "captured_now": 7
    }
   ],
@@ -188,7 +188,7 @@
    "tg-greatawaken",
    "tg-oroszigazsag"
   ],
-  "collapsed_set_captured_now": 23,
+  "collapsed_set_captured_now": 24,
   "collapsed_set_tracked": [
    "tg-ebredes",
    "tg-greatawaken",
@@ -197,31 +197,15 @@
   "mirror_articles_in_snapshot": 8,
   "mirror_currently_credits": [
    {
-    "channel": "oroszokazigazsagoldalan",
-    "n": 2
+    "channel": "greatawakeningmagyarok",
+    "n": 7
    },
    {
-    "channel": "olegtsarov",
-    "n": 1
-   },
-   {
-    "channel": "node_of_time_en",
-    "n": 1
-   },
-   {
-    "channel": "barantchik",
-    "n": 1
-   },
-   {
-    "channel": "llordofwar",
-    "n": 1
-   },
-   {
-    "channel": "tass_world",
+    "channel": "ukr_2025_ru",
     "n": 1
    }
   ],
-  "collapsed_set_credited_now": 2
+  "collapsed_set_credited_now": 7
  },
  "finding": "The decline was concentrated, not general: three Hungarian-language aggregator channels account for the great majority of it, while the Russian-institutional feeds stayed flat at 21-24 articles/day throughout. But the collapse was temporary — those same three channels supply essentially all of the rebound, and the source mix returns close to its pre-election composition. The Hungarian-language supply was interrupted and then restored.",
  "cannot_show": "why the supply was interrupted. And note the bounds: the per-source series covers the top 10 credited sources only (80% of baseline articles, 70% at the trough); credit labels are the operator's own metadata, which cost nothing to omit; and our live capture harvests only the mirror's English surface while the census counts all languages, so it cannot be compared with the census to say what the mirror consumes — all it shows is that these channels were still publishing on the capture day."
