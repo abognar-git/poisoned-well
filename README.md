@@ -7,7 +7,7 @@ siblings — including the claims you would rather keep.**
 I built the instrument that does the checking and pointed it at the mirror aimed
 at Hungary's April 2026 election. It took away four of my own published findings
 and cut a fifth down to a fifteen-day gap it cannot explain. What survived is one
-number: across **142,506 articles** and the **943 sources** that account for all
+number: across **142,744 articles** and the **944 sources** that account for all
 of them, the Hungarian pro-government press is credited **zero times**.
 
 <sub>**How to read this.** The section below stands on its own — it is the whole
@@ -37,7 +37,7 @@ readers — is aimed less at the people of the country named on the domain than 
 the machines that now answer questions about it.
 
 One of those sites points at Hungary. It went up in March 2024 and has published
-on **885 of the 888 days** since. Hungary held a national election on 12 April
+on **886 of the 889 days** since. Hungary held a national election on 12 April
 2026; the government lost. That is the case this project started as.
 
 **The thing that makes it a study rather than a story is the other hundred
@@ -102,10 +102,10 @@ publishing straight through it, so whatever was interrupted was mostly not the
 supply — finding 6 below. **I claim no cause for it either way.**
 
 What is left standing is the census. Across every article the mirror has
-published, and every source it credits — 943 of them, accounting for 100.00% of
+published, and every source it credits — 944 of them, accounting for 100.00% of
 its output — the Hungarian pro-government press appears **zero times**. It is not
 a clean zero: one pro-government commentator's personal Telegram channel is
-credited 89 times (0.06%), and nationalist-fringe channels a further 145 (0.10%).
+credited 92 times (0.06%), and nationalist-fringe channels a further 145 (0.10%).
 A thread exists; a pipeline does not.
 
 That matters because roughly **90%** of the disinformation in Hungary's 2026
@@ -352,7 +352,7 @@ know whether the pattern is special or simply what this kind of network does
 everywhere. It does not have to be.
 
 **The census is the strongest claim here and the least exciting.** A full-coverage
-negative result — 142,506 articles, 943 sources, coverage 1.0000, zero credits to
+negative result — 142,744 articles, 944 sources, coverage 1.0000, zero credits to
 the domestic pro-government press — is a boring sentence that survived every test
 I could put to it, while the interesting sentence about a post-election collapse
 lost four fifths of its weight in five tests.
