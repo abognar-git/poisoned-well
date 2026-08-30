@@ -1,7 +1,7 @@
 {
  "note": "Append-only archive of every item captured by scripts/capture_specimens.py. Headlines and provenance only — no article body text is collected. Items are never rewritten once archived; `first_seen` is when this project observed the item, which is not necessarily when it was published.",
- "updated": "2026-08-29T22:40:13+00:00",
- "items": 10500,
+ "updated": "2026-08-30T01:15:32+00:00",
+ "items": 10519,
  "first_date": "2022-03-30",
  "last_date": "2026-08-30",
  "published_range": [
@@ -10,7 +10,7 @@
  ],
  "observed_range": [
   "2026-08-11",
-  "2026-08-29"
+  "2026-08-30"
  ],
  "months": {
   "2022-03": 1,
@@ -19,20 +19,20 @@
   "2022-11": 2,
   "2023-04": 1,
   "2026-07": 2,
-  "2026-08": 10491
+  "2026-08": 10510
  },
  "by_source": {
-  "rt-ru": 2248,
-  "tg-oroszigazsag": 1155,
+  "rt-ru": 2258,
+  "tg-oroszigazsag": 1156,
   "ukraina-ru": 1142,
   "newsfront-ru": 965,
-  "tg-lomovka": 918,
+  "tg-lomovka": 924,
   "tg-ebredes": 739,
   "pravda-hu": 654,
   "tg-greatawaken": 537,
   "tg-baltnews": 463,
-  "zvezda-tv": 430,
-  "tsargrad": 291,
+  "zvezda-tv": 431,
+  "tsargrad": 292,
   "newsfront-hu": 247,
   "tg-oroszkatonai": 224,
   "tg-zvezda": 171,
@@ -41,37 +41,37 @@
   "tg-rybar": 51
  },
  "by_tier": {
-  "outlet": 5323,
-  "origin": 4523,
+  "outlet": 5335,
+  "origin": 4530,
   "launderer": 654
  },
  "by_theme": {
-  "filler": 4168,
-  "ukraine": 3043,
-  "russia": 1649,
+  "filler": 4178,
+  "ukraine": 3048,
+  "russia": 1653,
   "hungary": 812,
   "eu/nato": 414,
   "energy": 414
  },
  "by_lang": {
-  "cyr": 6147,
-  "hu": 3467,
+  "cyr": 6165,
+  "hu": 3468,
   "lat": 886
  },
  "by_unit": {
-  "headline": 5977,
-  "post_excerpt": 4523
+  "headline": 5989,
+  "post_excerpt": 4530
  },
  "theme_coverage": {
   "cyr": {
-   "items": 6147,
-   "scored": 6147,
-   "matched_a_topic": 4089,
+   "items": 6165,
+   "scored": 6165,
+   "matched_a_topic": 4098,
    "lexicon": "cyr"
   },
   "hu": {
-   "items": 3467,
-   "scored": 3467,
+   "items": 3468,
+   "scored": 3468,
    "matched_a_topic": 1808,
    "lexicon": "lat"
   },
