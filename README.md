@@ -7,7 +7,7 @@ siblings — including the claims you would rather keep.**
 I built the instrument that does the checking and pointed it at the mirror aimed
 at Hungary's April 2026 election. It took away four of my own published findings
 and cut a fifth down to a fifteen-day gap it cannot explain. What survived is one
-number: across **143,539 articles** and the **946 sources** that account for all
+number: across **143,594 articles** and the **946 sources** that account for all
 of them, the Hungarian pro-government press is credited **zero times**.
 
 <sub>**How to read this.** The section below stands on its own — it is the whole
@@ -105,7 +105,7 @@ What is left standing is the census. Across every article the mirror has
 published, and every source it credits — 946 of them, accounting for 100.00% of
 its output — the Hungarian pro-government press appears **zero times**. It is not
 a clean zero: one pro-government commentator's personal Telegram channel is
-credited 96 times (0.07%), and nationalist-fringe channels a further 149 (0.10%).
+credited 98 times (0.07%), and nationalist-fringe channels a further 149 (0.10%).
 A thread exists; a pipeline does not.
 
 That matters because roughly **90%** of the disinformation in Hungary's 2026
@@ -352,7 +352,7 @@ know whether the pattern is special or simply what this kind of network does
 everywhere. It does not have to be.
 
 **The census is the strongest claim here and the least exciting.** A full-coverage
-negative result — 143,539 articles, 946 sources, coverage 1.0000, zero credits to
+negative result — 143,594 articles, 946 sources, coverage 1.0000, zero credits to
 the domestic pro-government press — is a boring sentence that survived every test
 I could put to it, while the interesting sentence about a post-election collapse
 lost four fifths of its weight in five tests.
