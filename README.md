@@ -7,7 +7,7 @@ siblings — including the claims you would rather keep.**
 I built the instrument that does the checking and pointed it at the mirror aimed
 at Hungary's April 2026 election. It took away four of my own published findings
 and cut a fifth down to a fifteen-day gap it cannot explain. What survived is one
-number: across **143,488 articles** and the **945 sources** that account for all
+number: across **143,491 articles** and the **945 sources** that account for all
 of them, the Hungarian pro-government press is credited **zero times**.
 
 <sub>**How to read this.** The section below stands on its own — it is the whole
@@ -37,7 +37,7 @@ readers — is aimed less at the people of the country named on the domain than 
 the machines that now answer questions about it.
 
 One of those sites points at Hungary. It went up in March 2024 and has published
-on **890 of the 893 days** since. Hungary held a national election on 12 April
+on **891 of the 894 days** since. Hungary held a national election on 12 April
 2026; the government lost. That is the case this project started as.
 
 **The thing that makes it a study rather than a story is the other hundred
@@ -78,8 +78,8 @@ large and correctly measured. Then:
 | Test | What it asked | Result |
 |---|---|---|
 | Peer window | did the siblings do it too, in the same weeks? | **−63.7% vs +1.6%** |
-| Placebo, raw | where does it rank among all 185 regional windows? | **1st**, p = 0.0054 |
-| Volatility-normalised | is Hungary simply the noisiest mirror? (sd 58.8% against Romania's 13.2%) | **−1.08 sd, 13th**, p = 0.0703 |
+| Placebo, raw | where does it rank among all 185 regional windows? | **1st**, p = 0.0052 |
+| Volatility-normalised | is Hungary simply the noisiest mirror? (sd 57.6% against Romania's 13.0%) | **−1.11 sd, 13th**, p = 0.0677 |
 | Blind scan, 101 mirrors | ranked against 1,948 windows, with nobody telling it where the election was | **207th**, p = 0.1063 |
 | Onset date | when did it actually start? | **≈27 April — 15 days late** |
 
@@ -352,7 +352,7 @@ know whether the pattern is special or simply what this kind of network does
 everywhere. It does not have to be.
 
 **The census is the strongest claim here and the least exciting.** A full-coverage
-negative result — 143,488 articles, 945 sources, coverage 1.0000, zero credits to
+negative result — 143,491 articles, 945 sources, coverage 1.0000, zero credits to
 the domestic pro-government press — is a boring sentence that survived every test
 I could put to it, while the interesting sentence about a post-election collapse
 lost four fifths of its weight in five tests.
