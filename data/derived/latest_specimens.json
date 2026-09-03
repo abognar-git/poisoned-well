@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-09-02T21:48:06+00:00",
+  "captured_at": "2026-09-03T00:13:42+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -138,19 +138,41 @@
     "outlet"
   ],
   "latest_day": "2026-09-03",
-  "today_live_count": 3,
+  "today_live_count": 21,
   "corpus_count": 130,
   "featured": [
+    {
+      "site": "rt-ru",
+      "date": "2026-09-03",
+      "category": "rt",
+      "title": "Три логистических центра, два сухогруза и склады: ВС РФ нанесли удары высокоточным оружием и БПЛА по целям на Украине",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/ussr/article/1677379-minoborony-logisticheskie-centry-suhogruzy",
+      "date_is_capture": true
+    },
     {
       "site": "ukraina-ru",
       "date": "2026-09-03",
       "category": "ukraina",
-      "title": "Постпред США при НАТО признал низкий уровень угрозы со стороны России",
-      "theme": "russia",
+      "title": "Миллионы погибших требуют защитить правду: Володин напомнил, кто победил во Второй мировой войне",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260903/postpred-ssha-pri-nato-priznal-nizkiy-uroven-ugrozy-so-storony-rossii-1082978724.html",
+      "url": "https://ukraina.ru/20260903/milliony-pogibshikh-trebuyut-zaschitit-pravdu-volodin-napomnil-kto-pobedil-vo-vtoroy-mirovoy-voyne-1082979590.html",
       "date_is_capture": false
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-09-03",
+      "category": "tsargrad",
+      "title": "Главное к вечеру 2 сентября. Дрон в Лейпциге стал \"русским\" не случайно. Как стоит ответить на угрозы Зеленского. Восстание западенцев",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/glavnoe-k-vecheru-2-sentjabrja-dron-v-lejpcige-stal-russkim-ne-sluchajno-kak-stoit-otvetit-na-ugrozy-zelenskogo-vosstanie-zapadencev_1849712",
+      "date_is_capture": true
     },
     {
       "site": "tg-baltnews",
@@ -182,18 +204,18 @@
     },
     {
       "site": "pravda-hu",
-      "id": 45381,
+      "id": 45382,
       "date": "2026-09-02",
-      "category": "eu",
-      "title": "Hungary opposes the accelerated accession of any country to the European Union, Peter Magyar said after a meeting with President of the European Council Antonio Costa",
+      "category": "hungary",
+      "title": "Hungary has once again blocked negotiations on two points regarding Ukraine's accession to the EU, according to Euractiv, citing sources",
       "theme": "hungary",
-      "lang": "hu",
+      "lang": "lat",
       "unit": "headline",
       "source": {
         "platform": "Telegram",
-        "channel": "vestiru24"
+        "channel": "llordofwar"
       },
-      "url": "https://hungary.news-pravda.com/en/eu/2026/09/02/45381.html"
+      "url": "https://hungary.news-pravda.com/en/hungary/2026/09/02/45382.html"
     },
     {
       "site": "tg-oroszkatonai",
@@ -223,46 +245,97 @@
     },
     {
       "site": "tg-zvezda",
-      "id": "26008",
+      "id": "26009",
       "date": "2026-09-02",
-      "published_at": "2026-09-02T19:04:46+00:00",
+      "published_at": "2026-09-02T23:03:35+00:00",
       "category": "zvezda_analytics",
-      "title": "ЭЛИТА: ПРАВО И ОБЯЗАННОСТЬ ОТВЕЧАТЬ ЗА БУДУЩЕЕ ▪️ Ветераны СВО, молодые чиновники, инженеры и учёные. Как формируется…",
-      "theme": "russia",
+      "title": "Друзья, по ссылкам доступны к просмотру и прослушиванию свежие эфиры! ⬇️ ⬇️ ⬇️ «СТРАТЕГИЯ НАЦИОНАЛЬНОЙ БЕЗОПАСНОСТИ»…",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 950,
-      "more": "ЭЛИТА: ПРАВО И ОБЯЗАННОСТЬ ОТВЕЧАТЬ ЗА БУДУЩЕЕ ▪️ Ветераны СВО, молодые чиновники, инженеры и учёные. Как формируется новая властная команда России ▪️ Почему высокие посты требуют полной самоотдачи и отказа от личного времени ▪️ Кадровый резерв: какую роль в строительстве мирной жизни сыграют офицеры, получившие боевой опыт ▪️ Обществу нужны независимые мыслители, способные смотреть на…",
-      "url": "https://t.me/zvezda_analytics/26008"
-    },
-    {
-      "site": "tg-greatawaken",
-      "id": "157235",
-      "date": "2026-09-02",
-      "published_at": "2026-09-02T19:50:12+00:00",
-      "category": "greatawakeningmagyarok",
-      "title": "🌙 Jó Éjszakát! 🌙 Nyugtató háterzene, amely Javítja az alvás minőségét,nyugtatja az elmét. 😴 🎧",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "url": "https://t.me/greatawakeningmagyarok/157235"
-    },
-    {
-      "site": "tg-infodef",
-      "id": "14229",
-      "date": "2026-09-02",
-      "published_at": "2026-09-02T20:41:01+00:00",
-      "category": "InfoDefMagyarok",
-      "title": "Az amerikai üzleti élet felkészül a republikánusok választási vereségére Az amerikai vállalatok megpróbálnak…",
-      "theme": "hungary",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 1218,
-      "more": "Az amerikai üzleti élet felkészül a republikánusok választási vereségére Az amerikai vállalatok megpróbálnak kapcsolatokat kiépíteni a Demokrata Párttal arra az esetre, ha az győzne a félidős választásokon, – közli a The Wall Street Journal. Ha a republikánusok elveszítik a kontrollt a Képviselőház felett, az üzleti élet a baloldal célpontjává válhat: a vezetők már készülnek a kongresszusi…",
-      "url": "https://t.me/InfoDefMagyarok/14229"
+      "chars": 451,
+      "more": "Друзья, по ссылкам доступны к просмотру и прослушиванию свежие эфиры! ⬇️ ⬇️ ⬇️ «СТРАТЕГИЯ НАЦИОНАЛЬНОЙ БЕЗОПАСНОСТИ» Анны Шафран Тема : Цивилизация против гегемона: где споткнулся трамп Гость: Аббас Джума — востоковед, журналист-международник 📻 СМОТРЕТЬ И СЛУШАТЬ «ГЕОСТРАТЕГИЯ» Андрея Школьникова, соведущий – Дмитрий Лысенков Тема: Элита: право и обязанность отвечать за будущее 📻 СМОТРЕТЬ И…",
+      "url": "https://t.me/zvezda_analytics/26009"
     }
   ],
   "corpus": [
+    {
+      "site": "rt-ru",
+      "date": "2026-09-03",
+      "category": "rt",
+      "title": "Захарова: Россия готова рассмотреть запрос на агреман для нового посла США",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/world/news/1677500-rossiya-ssha-posol",
+      "date_is_capture": true
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-09-03",
+      "category": "ukraina",
+      "title": "Напоминание... и предупреждение: ФСБ раскрыла новые детали казней советских граждан японцами в 1945 году",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260903/napominanie-i-preduprezhdenie-fsb-raskryla-novye-detali-kazney-sovetskikh-grazhdan-yapontsami-v-1945-1082979437.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-09-03",
+      "category": "tsargrad",
+      "title": "Патриарх Кирилл назвал второе обретение мощей Дмитрия Донского особым знамением",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/patriarh-kirill-nazval-vtoroe-obretenie-moshhej-dmitrija-donskogo-osobym-znameniem_1849342",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-03",
+      "category": "rt",
+      "title": "Гуцан: ГП завершает разработку модуля для контроля реализации инвестпроектов",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1677499-genprokuratura-investproekty-kontrol",
+      "date_is_capture": true
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-09-03",
+      "category": "ukraina",
+      "title": "Постпред США при НАТО признал низкий уровень угрозы со стороны России",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260903/postpred-ssha-pri-nato-priznal-nizkiy-uroven-ugrozy-so-storony-rossii-1082978724.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-09-03",
+      "category": "tsargrad",
+      "title": "Заявление Путина по НАТО вызвало переполох: Медведев интриги добавил. Будет удар?",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/zajavlenie-putina-po-nato-vyzvalo-perepoloh-medvedev-intrigi-dobavil-budet-udar_1849289",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-03",
+      "category": "rt",
+      "title": "Мирошник заявил о наёмниках ВСУ из бедных стран Азии, Африки и Латинской Америки",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/ussr/news/1677498-nayomniki-vsu-miroshnik",
+      "date_is_capture": true
+    },
     {
       "site": "ukraina-ru",
       "date": "2026-09-03",
@@ -275,6 +348,83 @@
       "date_is_capture": false
     },
     {
+      "site": "tsargrad",
+      "date": "2026-09-03",
+      "category": "tsargrad",
+      "title": "В Сети появились кадры перестрелки силовиков в Киеве. Кричали исключительно по-русски",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/v-seti-pojavilis-kadry-perestrelki-silovikov-v-kieve-krichali-iskljuchitelno-po-russki_1849857",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-03",
+      "category": "rt",
+      "title": "Жительница ДНР рассказала, как 12 дней пряталась от дронов ВСУ в гаражной яме",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/ussr/news/1677497-dnr-yama-drony",
+      "date_is_capture": true
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-09-03",
+      "category": "ukraina",
+      "title": "Силы ПВО отражают очередной налёт на Москву, аэропорты вновь ограничили полёты",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260903/sily-pvo-otrazhayut-ocherednoy-nalt-na-moskvu-aeroporty-vnov-ogranichili-polty-1082979091.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-09-03",
+      "category": "tsargrad",
+      "title": "Мэр Москвы сообщил о ликвидации уже 34 БПЛА, летевших на столицу",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/mjer-moskvy-soobshhil-o-likvidacii-uzhe-34-bpla-letevshih-na-stolicu_1849820",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-03",
+      "category": "rt",
+      "title": "Депутат Аксаков заявил о необходимости изучать финансовую грамотность в школах",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1677496-finansovaya-gramotnost-shkola",
+      "date_is_capture": true
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-09-03",
+      "category": "ukraina",
+      "title": "ПВО работает днём и ночью: Минобороны доложило о сбитых над Россией БПЛА",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260903/pvo-rabotaet-dnm-i-nochyu-minoborony-dolozhilo-o-sbitykh-nad-rossiey-bpla-1082978868.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-03",
+      "category": "rt",
+      "title": "Росстат: рост реальных зарплат в России в июне замедлился до 3,4%",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1677495-zarplata-rost-zamedlenie",
+      "date_is_capture": true
+    },
+    {
       "site": "ukraina-ru",
       "date": "2026-09-03",
       "category": "ukraina",
@@ -284,6 +434,28 @@
       "unit": "headline",
       "url": "https://ukraina.ru/20260903/nad-sevastopolem-neytralizovany-tri-ukrainskikh-bespilotnika-1082978590.html",
       "date_is_capture": false
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-03",
+      "category": "rt",
+      "title": "Взрыв прогремел в Кировограде",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/ussr/news/1677494-vzryv-kirovograd-ukraina",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-03",
+      "category": "rt",
+      "title": "Минобрнауки: более 1 млн человек поступили в вузы в России в 2026 году",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1677493-vuzy-rossiya-priyom",
+      "date_is_capture": true
     },
     {
       "site": "tg-baltnews",
@@ -441,6 +613,21 @@
     },
     {
       "site": "pravda-hu",
+      "id": 45381,
+      "date": "2026-09-02",
+      "category": "eu",
+      "title": "Hungary opposes the accelerated accession of any country to the European Union, Peter Magyar said after a meeting with President of the European Council Antonio Costa",
+      "theme": "hungary",
+      "lang": "hu",
+      "unit": "headline",
+      "source": {
+        "platform": "Telegram",
+        "channel": "vestiru24"
+      },
+      "url": "https://hungary.news-pravda.com/en/eu/2026/09/02/45381.html"
+    },
+    {
+      "site": "pravda-hu",
       "id": 45380,
       "date": "2026-09-02",
       "category": "eu",
@@ -532,21 +719,6 @@
         "channel": "greatawakeningmagyarok"
       },
       "url": "https://hungary.news-pravda.com/en/hungary/2026/09/02/45375.html"
-    },
-    {
-      "site": "pravda-hu",
-      "id": 45374,
-      "date": "2026-09-02",
-      "category": "russia",
-      "title": "LOMOVKA. THE MAIN THING BY 22:00:. Vladimir Putin started his working day in Primorye, where he visited the Zvezda shipbuilding complex",
-      "theme": "russia",
-      "lang": "lat",
-      "unit": "headline",
-      "source": {
-        "platform": "MAX",
-        "channel": "lomovka"
-      },
-      "url": "https://hungary.news-pravda.com/en/russia/2026/09/02/45374.html"
     },
     {
       "site": "tg-oroszkatonai",
@@ -686,6 +858,20 @@
     },
     {
       "site": "tg-zvezda",
+      "id": "26008",
+      "date": "2026-09-02",
+      "published_at": "2026-09-02T19:04:46+00:00",
+      "category": "zvezda_analytics",
+      "title": "ЭЛИТА: ПРАВО И ОБЯЗАННОСТЬ ОТВЕЧАТЬ ЗА БУДУЩЕЕ ▪️ Ветераны СВО, молодые чиновники, инженеры и учёные. Как формируется…",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 950,
+      "more": "ЭЛИТА: ПРАВО И ОБЯЗАННОСТЬ ОТВЕЧАТЬ ЗА БУДУЩЕЕ ▪️ Ветераны СВО, молодые чиновники, инженеры и учёные. Как формируется новая властная команда России ▪️ Почему высокие посты требуют полной самоотдачи и отказа от личного времени ▪️ Кадровый резерв: какую роль в строительстве мирной жизни сыграют офицеры, получившие боевой опыт ▪️ Обществу нужны независимые мыслители, способные смотреть на…",
+      "url": "https://t.me/zvezda_analytics/26008"
+    },
+    {
+      "site": "tg-zvezda",
       "id": "26007",
       "date": "2026-09-02",
       "published_at": "2026-09-02T18:02:14+00:00",
@@ -769,18 +955,16 @@
       "url": "https://t.me/zvezda_analytics/25999"
     },
     {
-      "site": "tg-zvezda",
-      "id": "25998",
+      "site": "tg-greatawaken",
+      "id": "157235",
       "date": "2026-09-02",
-      "published_at": "2026-09-02T05:05:03+00:00",
-      "category": "zvezda_analytics",
-      "title": "⁉️ \"Какой беспилотник? Куда?\": инцидент в аэропорту Лейпцига был только поводом для того, чтобы закрыть Русский дом и…",
+      "published_at": "2026-09-02T19:50:12+00:00",
+      "category": "greatawakeningmagyarok",
+      "title": "🌙 Jó Éjszakát! 🌙 Nyugtató háterzene, amely Javítja az alvás minőségét,nyugtatja az elmét. 😴 🎧",
       "theme": "filler",
-      "lang": "cyr",
+      "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 463,
-      "more": "⁉️ \"Какой беспилотник? Куда?\": инцидент в аэропорту Лейпцига был только поводом для того, чтобы закрыть Русский дом и генконсульство РФ в Германии. При этом доказательств и обоснований по этому вопросу нет, отметила официальный представитель МИД РФ. Кроме того, сейчас в Германии идут выборы, где большие перспективы имеют кандидаты, которые отказываются от \"заезженной русофобской пластинки\". Такой…",
-      "url": "https://t.me/zvezda_analytics/25998"
+      "url": "https://t.me/greatawakeningmagyarok/157235"
     },
     {
       "site": "tg-greatawaken",
@@ -880,6 +1064,34 @@
     },
     {
       "site": "tg-infodef",
+      "id": "14230",
+      "date": "2026-09-02",
+      "published_at": "2026-09-02T21:55:18+00:00",
+      "category": "InfoDefMagyarok",
+      "title": "🇪🇪 🇺🇦 \"Контракты не читал\": министр обороны Эстонии уходит в отставку из-за испарившихся €70 млн на снаряды для ВСУ…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 793,
+      "more": "🇪🇪 🇺🇦 \"Контракты не читал\": министр обороны Эстонии уходит в отставку из-за испарившихся €70 млн на снаряды для ВСУ Ханно Певкур подал в отставку на фоне скандала с распилом средств, выделенных на закупку артиллерийских боеприпасов для киевского режима. Как выяснили местное ТВ и аудиторы, Минобороны Эстонии перевело авансом около 70 миллионов евро фирмам, которые до этого не продали ни одного…",
+      "url": "https://t.me/InfoDefMagyarok/14230"
+    },
+    {
+      "site": "tg-infodef",
+      "id": "14229",
+      "date": "2026-09-02",
+      "published_at": "2026-09-02T20:41:01+00:00",
+      "category": "InfoDefMagyarok",
+      "title": "Az amerikai üzleti élet felkészül a republikánusok választási vereségére Az amerikai vállalatok megpróbálnak…",
+      "theme": "hungary",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 1218,
+      "more": "Az amerikai üzleti élet felkészül a republikánusok választási vereségére Az amerikai vállalatok megpróbálnak kapcsolatokat kiépíteni a Demokrata Párttal arra az esetre, ha az győzne a félidős választásokon, – közli a The Wall Street Journal. Ha a republikánusok elveszítik a kontrollt a Képviselőház felett, az üzleti élet a baloldal célpontjává válhat: a vezetők már készülnek a kongresszusi…",
+      "url": "https://t.me/InfoDefMagyarok/14229"
+    },
+    {
+      "site": "tg-infodef",
       "id": "14228",
       "date": "2026-09-02",
       "published_at": "2026-09-02T20:12:22+00:00",
@@ -963,18 +1175,60 @@
       "url": "https://t.me/InfoDefMagyarok/14222"
     },
     {
-      "site": "tg-infodef",
-      "id": "14221",
+      "site": "tg-lomovka",
+      "id": "141499",
       "date": "2026-09-02",
-      "published_at": "2026-09-02T08:26:01+00:00",
-      "category": "InfoDefMagyarok",
-      "title": "Victoria Nuland, az USA külügyminiszter-helyettese 2016-ban dicsekedett a Kongresszus előtt azzal, hogy Washington…",
-      "theme": "hungary",
-      "lang": "hu",
+      "published_at": "2026-09-02T23:51:01+00:00",
+      "category": "lomovkaa",
+      "title": "Министр армии США подтвердил увольнение после конфликта в Пентагоне. Дэниел Дрисколл, покинувший пост главы Сухопутных…",
+      "theme": "ukraine",
+      "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 1050,
-      "more": "Victoria Nuland, az USA külügyminiszter-helyettese 2016-ban dicsekedett a Kongresszus előtt azzal, hogy Washington milyen alaposan vette ellenőrzése alá Ukrajnát a 2014-es puccs után Amerikai ügynököket építettek be több tucat ukrán minisztériumba, több száz millió dollárt irányítottak az ukrán hadsereg kiépítésére, és egész ukrán újságokat vásároltak fel tíz évre előre. Amerikai és brit ügynökök…",
-      "url": "https://t.me/InfoDefMagyarok/14221"
+      "chars": 967,
+      "more": "Министр армии США подтвердил увольнение после конфликта в Пентагоне. Дэниел Дрисколл, покинувший пост главы Сухопутных войск, признал свой уход и поблагодарил президента Трампа и главу Пентагона Хегсета за возможность служить. В своем заявлении экс-министр подчеркнул, что работал над ускорением комплектования и модернизацией армии. Его преемником, по данным портала Semafor, может стать Шон…",
+      "url": "https://t.me/lomovkaa/141499"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "141498",
+      "date": "2026-09-02",
+      "published_at": "2026-09-02T23:22:01+00:00",
+      "category": "lomovkaa",
+      "title": "Норвегия устроила пиратский захват российского научного судна. Полиция Шпицбергена задержала корабль «Профессор…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 577,
+      "more": "Норвегия устроила пиратский захват российского научного судна. Полиция Шпицбергена задержала корабль «Профессор Молчанов» в порту Баренцбург по иску украинского «Нафтогаза». Компания требует взыскать с России $4,22 млрд по решению гаагского арбитража, которое Москва не признает. Судно с июня 2025 года выполняло регулярные рейсы между Мурманском и Шпицбергеном, доставляя ученых, шахтеров и грузы…",
+      "url": "https://t.me/lomovkaa/141498"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "141497",
+      "date": "2026-09-02",
+      "published_at": "2026-09-02T22:53:01+00:00",
+      "category": "lomovkaa",
+      "title": "Эстонцы перевели €70 млн на снаряды для Киева и потеряли деньги с министром. Минобороны Эстонии авансировало закупку…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 763,
+      "more": "Эстонцы перевели €70 млн на снаряды для Киева и потеряли деньги с министром. Минобороны Эстонии авансировало закупку боеприпасов для Украины, перечислив деньги итальянской компании Datasel S.R.L. Но есть нюанс —снаряды до получателя так и не дошли. Оказалось, итальянская фирма никогда раньше и не продавала военную продукцию. Ее создали предприимчивые граждане Индии. Теперь эстонских чиновников…",
+      "url": "https://t.me/lomovkaa/141497"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "141495",
+      "date": "2026-09-02",
+      "published_at": "2026-09-02T21:55:04+00:00",
+      "category": "lomovkaa",
+      "title": "Подборка материалов зарубежных СМИ к ночи 3 сентября. Javan : Иранские элиты и общество прошли через поворотный этап…",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 842,
+      "more": "Подборка материалов зарубежных СМИ к ночи 3 сентября. Javan : Иранские элиты и общество прошли через поворотный этап, окончательно отказавшись от прозападных иллюзий. Осознание того, что США и их союзники требуют полного отказа от национального суверенитета, заставило Тегеран сделать выбор в пользу партнерства с Россией и Китаем. Global Times : Юбилейный саммит ШОС в Бишкеке показал, что…",
+      "url": "https://t.me/lomovkaa/141495"
     },
     {
       "site": "tg-lomovka",
@@ -1031,62 +1285,6 @@
       "chars": 671,
       "more": "Цены на газ в ЕС достигли трехлетнего максимума. Биржевая цена на газ в Европе достигла 73,95 евро за МВт·ч — это на 70% выше, чем в начале июля, и максимум с января 2023 года, констатирует Bloomberg. Рост ускорился после возобновления взаимных ударов США и Ирана, которые фактически остановили поставки сжиженного природного газа через Ормузский пролив. У Европы остался месяц, чтобы пополнить…",
       "url": "https://t.me/lomovkaa/141490"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "141489",
-      "date": "2026-09-02",
-      "published_at": "2026-09-02T19:50:00+00:00",
-      "category": "lomovkaa",
-      "title": "ИИ увеличит мировую экономику на 20–30%. Искусственный интеллект и робототехника обеспечат значительный рост…",
-      "theme": "energy",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1107,
-      "more": "ИИ увеличит мировую экономику на 20–30%. Искусственный интеллект и робототехника обеспечат значительный рост производительности и могут увеличить мировую экономику на 20–30%, заявил Илон Маск на заседании глав минфинов G20. Я думаю, что ИИ, вероятно, увеличит мировую экономику на 20–30%. Это моя грубая оценка. То есть речь идет о порядке $20–30 трлн в год. А ИИ сможет делать все, что связано с…",
-      "url": "https://t.me/lomovkaa/141489"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "141488",
-      "date": "2026-09-02",
-      "published_at": "2026-09-02T19:25:00+00:00",
-      "category": "lomovkaa",
-      "title": "«Роскосмос» опубликовал спутниковые снимки затопленных районов Непала, сделанные с высоты более 500 км. На кадрах видны…",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 619,
-      "more": "«Роскосмос» опубликовал спутниковые снимки затопленных районов Непала, сделанные с высоты более 500 км. На кадрах видны масштабы стихийного бедствия, обрушившегося на Гималаи неделю назад. Число погибших, по данным национального управления по снижению рисков и устранению последствий бедствий, превысило 1,2 тыс. человек, еще 4,2 тыс. числятся пропавшими без вести. За неделю спасатели эвакуировали…",
-      "url": "https://t.me/lomovkaa/141488"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "141487",
-      "date": "2026-09-02",
-      "published_at": "2026-09-02T19:00:00+00:00",
-      "category": "lomovkaa",
-      "title": "ЛОМОВКА. ГЛАВНОЕ К 22:00: ▪ Владимир Путин начал рабочий день в Приморье, где посетил судостроительный комплекс…",
-      "theme": "hungary",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 624,
-      "more": "ЛОМОВКА. ГЛАВНОЕ К 22:00: ▪ Владимир Путин начал рабочий день в Приморье, где посетил судостроительный комплекс «Звезда». ▪ Отношения России и Монголии достигли уровня всеобъемлющего партнерства, — Путин. ▪ За развитием Дальнего Востока в значительной степени будущее всей нашей страны — Путин. ▪ Россия и Мьянма подписали новую программу борьбы с коррупцией. ▪ Венгрия вновь заблокировала…",
-      "url": "https://t.me/lomovkaa/141487"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "141486",
-      "date": "2026-09-02",
-      "published_at": "2026-09-02T18:45:00+00:00",
-      "category": "lomovkaa",
-      "title": "Volkswagen утвердил сроки закрытия четырех заводов в Германии. Руководство Volkswagen единогласно утвердило сроки…",
-      "theme": "eu/nato",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1074,
-      "more": "Volkswagen утвердил сроки закрытия четырех заводов в Германии. Руководство Volkswagen единогласно утвердило сроки прекращения производства на четырех ключевых заводах в Германии: в Эмдене и Цвиккау — в 2031 году, в Ганновере — в 2032-м, в Неккарзульме — в 2034-м, сообщает WirtschaftsWoche. Производство будет перенесено на менее затратные площадки в Чехию, Словакию и Польшу. Сотрудники…",
-      "url": "https://t.me/lomovkaa/141486"
     },
     {
       "site": "tg-vilaghelyzete",
@@ -1283,28 +1481,6 @@
       "url": "https://t.me/ebredes2017/140278"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-09-02",
-      "category": "rt",
-      "title": "Три логистических центра, два сухогруза и склады: ВС РФ нанесли удары высокоточным оружием и БПЛА по целям на Украине",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/ussr/article/1677379-minoborony-logisticheskie-centry-suhogruzy",
-      "date_is_capture": true
-    },
-    {
-      "site": "tsargrad",
-      "date": "2026-09-02",
-      "category": "tsargrad",
-      "title": "Главное к вечеру 2 сентября. Дрон в Лейпциге стал \"русским\" не случайно. Как стоит ответить на угрозы Зеленского. Восстание западенцев",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/glavnoe-k-vecheru-2-sentjabrja-dron-v-lejpcige-stal-russkim-ne-sluchajno-kak-stoit-otvetit-na-ugrozy-zelenskogo-vosstanie-zapadencev_1849712",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-09-02",
       "category": "news-front",
@@ -1323,28 +1499,6 @@
       "lang": "hu",
       "unit": "headline",
       "url": "https://hu.news-front.su/2026/09/02/tuzparbaj-volt-kijevben-az-szbu-es-a-gur-tisztjei-kozott-2/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-02",
-      "category": "rt",
-      "title": "Володин заявил о необходимости защитить правду о Второй мировой войне",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1677490-volodin-voina-pravda",
-      "date_is_capture": true
-    },
-    {
-      "site": "tsargrad",
-      "date": "2026-09-02",
-      "category": "tsargrad",
-      "title": "Патриарх Кирилл назвал второе обретение мощей Дмитрия Донского особым знамением",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/patriarh-kirill-nazval-vtoroe-obretenie-moshhej-dmitrija-donskogo-osobym-znameniem_1849342",
-      "date_is_capture": true
     },
     {
       "site": "newsfront-ru",
@@ -1367,28 +1521,6 @@
       "url": "https://hu.news-front.su/2026/09/02/lengyelorszagban-kigyulladt-egy-gyar-amely-az-ukran-fegyveres-erok-szamara-dronokat-gyart/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-09-02",
-      "category": "rt",
-      "title": "Собянин сообщил об уничтожении десяти летевших на Москву БПЛА",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1677489-moskva-bespilotniki-sobyanin",
-      "date_is_capture": true
-    },
-    {
-      "site": "tsargrad",
-      "date": "2026-09-02",
-      "category": "tsargrad",
-      "title": "Заявление Путина по НАТО вызвало переполох: Медведев интриги добавил. Будет удар?",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/zajavlenie-putina-po-nato-vyzvalo-perepoloh-medvedev-intrigi-dobavil-budet-udar_1849289",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-09-02",
       "category": "news-front",
@@ -1407,39 +1539,6 @@
       "lang": "hu",
       "unit": "headline",
       "url": "https://hu.news-front.su/2026/09/02/az-sco-vezetoi-alairtak-a-biskeki-nyilatkozatot-a-szervezet-25-evfordulojan/"
-    },
-    {
-      "site": "ukraina-ru",
-      "date": "2026-09-02",
-      "category": "ukraina",
-      "title": "Россия нашла противоядие против ракет \"Фламинго\". Но военные предупреждают, что расслабляться рано",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20260902/rossiya-nashla-protivoyadie-protiv-raket-flamingo-no-voennye-preduprezhdayut-chto-rasslablyatsya-rano--1082934646.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-02",
-      "category": "rt",
-      "title": "МИД: Россия принимает меры по недопущению провокаций за рубежом в день выборов",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1677488-vybory-provokacii-nedopuschenie",
-      "date_is_capture": true
-    },
-    {
-      "site": "tsargrad",
-      "date": "2026-09-02",
-      "category": "tsargrad",
-      "title": "В Сети появились кадры перестрелки силовиков в Киеве. Кричали исключительно по-русски",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/v-seti-pojavilis-kadry-perestrelki-silovikov-v-kieve-krichali-iskljuchitelno-po-russki_1849857",
-      "date_is_capture": true
     },
     {
       "site": "newsfront-ru",
@@ -1462,39 +1561,6 @@
       "url": "https://hu.news-front.su/2026/09/02/zelenszkij-orosz-polgari-repuloterek-elleni-csapasokkal-fenyegetozik/"
     },
     {
-      "site": "ukraina-ru",
-      "date": "2026-09-02",
-      "category": "ukraina",
-      "title": "Венгрия вновь заблокировала переговоры о вступлении Украины в ЕС",
-      "theme": "hungary",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20260902/vengriya-vnov-zablokirovala-peregovory-o-vstuplenii-ukrainy-v-es-1082978450.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-02",
-      "category": "rt",
-      "title": "Минздрав намерен расширить программу диспансеризации в России",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1677487-dispanserizaciya-programma-rossiya",
-      "date_is_capture": true
-    },
-    {
-      "site": "tsargrad",
-      "date": "2026-09-02",
-      "category": "tsargrad",
-      "title": "Мэр Москвы сообщил о ликвидации уже 34 БПЛА, летевших на столицу",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/mjer-moskvy-soobshhil-o-likvidacii-uzhe-34-bpla-letevshih-na-stolicu_1849820",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-09-02",
       "category": "news-front",
@@ -1515,28 +1581,6 @@
       "url": "https://hu.news-front.su/2026/09/02/brusszel-egyre-csak-gyartja-az-oroszellenes-szankciokat/"
     },
     {
-      "site": "ukraina-ru",
-      "date": "2026-09-02",
-      "category": "ukraina",
-      "title": "Европарламент уличили в молчании: правозащитники проигнорировали охоту ТЦК на украинцев",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20260902/evroparlament-ulichili-v-molchanii-pravozaschitniki-proignorirovali-okhotu-ttsk-na-ukraintsev-1082978310.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-02",
-      "category": "rt",
-      "title": "Родригес: Венесуэла работает с США над снятием санкций",
-      "theme": "eu/nato",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1677486-venesuela-ssha-sankcii",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-09-02",
       "category": "news-front",
@@ -1555,28 +1599,6 @@
       "lang": "hu",
       "unit": "headline",
       "url": "https://hu.news-front.su/2026/09/02/vlagyimir-putyin-oroszorszag-kesz-kinaval-egyuttmukodni-az-allando-vizummentessegben/"
-    },
-    {
-      "site": "ukraina-ru",
-      "date": "2026-09-02",
-      "category": "ukraina",
-      "title": "На Украине в супермаркетах запретили снимать пустые полки под угрозой штрафа",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20260902/na-ukraine-v-supermarketakh-zapretili-snimat-pustye-polki-pod-ugrozoy-shtrafa-1082977712.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-02",
-      "category": "rt",
-      "title": "Мадьяр: Венгрия не поддерживает ускоренное вступление в ЕС какой-либо страны",
-      "theme": "hungary",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1677484-vengriya-vstuplenie-es",
-      "date_is_capture": true
     },
     {
       "site": "newsfront-ru",
@@ -1602,23 +1624,12 @@
       "site": "ukraina-ru",
       "date": "2026-09-02",
       "category": "ukraina",
-      "title": "Почему Россия начала бить по мостам через Днепр: генерал-майор Попов о новой тактике ВС РФ",
+      "title": "Россия нашла противоядие против ракет \"Фламинго\". Но военные предупреждают, что расслабляться рано",
       "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260902/pochemu-rossiya-nachala-bit-po-mostam-cherez-dnepr-general-mayor-popov-o-novoy-taktike-vs-rf-1082954733.html",
+      "url": "https://ukraina.ru/20260902/rossiya-nashla-protivoyadie-protiv-raket-flamingo-no-voennye-preduprezhdayut-chto-rasslablyatsya-rano--1082934646.html",
       "date_is_capture": false
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-02",
-      "category": "rt",
-      "title": "Развожаев: российские военные отразили атаку ВСУ на Севастополь",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1677483-razvozhaev-ataka-sevastopol",
-      "date_is_capture": true
     },
     {
       "site": "newsfront-ru",
@@ -1639,17 +1650,6 @@
       "lang": "hu",
       "unit": "headline",
       "url": "https://hu.news-front.su/2026/09/02/zelenszkij-telefonon-targyalt-steve-witkoffal-jared-kushnerrel/"
-    },
-    {
-      "site": "ukraina-ru",
-      "date": "2026-09-02",
-      "category": "ukraina",
-      "title": "В ДНР при атаках БПЛА погибли четыре человека, ещё пятеро ранены",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20260902/v-dnr-pri-atakakh-bpla-pogibli-chetyre-cheloveka-esch-pyatero-raneny-1082975365.html",
-      "date_is_capture": false
     },
     {
       "site": "tg-rybar",
@@ -1725,28 +1725,6 @@
       "site": "zvezda-tv",
       "date": "2026-08-31",
       "category": "zvezda",
-      "title": "Артиллеристы группировки «Юг» уничтожили укрытие боевиков в Веролюбовке",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20268311449-ZzsEB.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2026-08-31",
-      "category": "zvezda",
-      "title": "Книги, нейросети и панда Катюша: Московская книжная ярмарка обещает самый насыщенный сезон за последние годы",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20268311312-Bc3Sq.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2026-08-31",
-      "category": "zvezda",
       "title": "ВС РФ поразили объекты топливно-энергетической инфраструктуры Украины",
       "theme": "ukraine",
       "lang": "cyr",
@@ -1789,24 +1767,46 @@
     },
     {
       "site": "zvezda-tv",
-      "date": "2026-08-28",
+      "date": "2023-04-25",
       "category": "zvezda",
-      "title": "От штыкового боя до караоке: чем удивляет популярный квест «Победный сезон»",
-      "theme": "filler",
+      "title": "В Военном университете имени Невского обсудили опыт спецоперации при подготовке офицеров",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20268281434-AdMeS.html",
+      "url": "https://tvzvezda.ru/news/20234251650-J1F5j.html",
       "date_is_capture": false
     },
     {
       "site": "zvezda-tv",
-      "date": "2026-08-28",
+      "date": "2022-11-21",
       "category": "zvezda",
-      "title": "Представители более 70 стран подтвердили участие в ВЭФ-2026",
+      "title": "Освоить боевую машину: как экипажи БМП тренируются на полигоне в зоне спецоперации",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/202211211630-qn1TB.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2022-11-14",
+      "category": "zvezda",
+      "title": "В Кремле рассказали о намерении Путина встретиться с мобилизованными",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/202211141115-7lcSr.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2022-08-24",
+      "category": "zvezda",
+      "title": "Шойгу: замедление наступления обусловлено стремлением минимизировать потери гражданских",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20268281246-5H5Vm.html",
+      "url": "https://tvzvezda.ru/news/20228241023-uleYI.html",
       "date_is_capture": false
     }
   ]
