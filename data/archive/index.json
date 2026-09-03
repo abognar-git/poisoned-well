@@ -1,7 +1,7 @@
 {
  "note": "Append-only archive of every item captured by scripts/capture_specimens.py. Headlines and provenance only — no article body text is collected. Items are never rewritten once archived; `first_seen` is when this project observed the item, which is not necessarily when it was published.",
- "updated": "2026-09-03T00:13:43+00:00",
- "items": 12603,
+ "updated": "2026-09-03T04:21:15+00:00",
+ "items": 12639,
  "first_date": "2022-03-30",
  "last_date": "2026-09-03",
  "published_range": [
@@ -20,20 +20,20 @@
   "2023-04": 1,
   "2026-07": 2,
   "2026-08": 11368,
-  "2026-09": 1226
+  "2026-09": 1262
  },
  "by_source": {
-  "rt-ru": 2571,
-  "ukraina-ru": 1383,
+  "rt-ru": 2586,
+  "ukraina-ru": 1389,
   "tg-oroszigazsag": 1369,
   "newsfront-ru": 1175,
-  "tg-lomovka": 1154,
+  "tg-lomovka": 1166,
   "tg-ebredes": 858,
-  "pravda-hu": 834,
+  "pravda-hu": 835,
   "tg-greatawaken": 654,
   "tg-baltnews": 570,
   "zvezda-tv": 476,
-  "tsargrad": 350,
+  "tsargrad": 352,
   "newsfront-hu": 306,
   "tg-oroszkatonai": 299,
   "tg-zvezda": 205,
@@ -42,38 +42,38 @@
   "tg-rybar": 71
  },
  "by_tier": {
-  "outlet": 6261,
-  "origin": 5508,
-  "launderer": 834
+  "outlet": 6284,
+  "origin": 5520,
+  "launderer": 835
  },
  "by_theme": {
-  "filler": 4943,
-  "ukraine": 3621,
-  "russia": 2066,
+  "filler": 4952,
+  "ukraine": 3631,
+  "russia": 2083,
   "hungary": 1006,
   "eu/nato": 493,
   "energy": 474
  },
  "by_lang": {
-  "cyr": 7302,
-  "hu": 4212,
+  "cyr": 7337,
+  "hu": 4213,
   "lat": 1089
  },
  "by_unit": {
-  "headline": 7095,
-  "post_excerpt": 5508
+  "headline": 7119,
+  "post_excerpt": 5520
  },
  "theme_coverage": {
   "cyr": {
-   "items": 7302,
-   "scored": 7302,
-   "matched_a_topic": 4933,
+   "items": 7337,
+   "scored": 7337,
+   "matched_a_topic": 4959,
    "lexicon": "cyr"
   },
   "hu": {
-   "items": 4212,
-   "scored": 4212,
-   "matched_a_topic": 2200,
+   "items": 4213,
+   "scored": 4213,
+   "matched_a_topic": 2201,
    "lexicon": "lat"
   },
   "lat": {
