@@ -130,7 +130,7 @@
   "reading": "The three channels did not stay gone. They supply essentially all of the rebound, and the mirror's source composition returns to within a few points of its pre-election mix. This was an interruption in the Hungarian-language supply, not a change of diet."
  },
  "live_cross_check": {
-  "captured_at": "2026-09-04T04:28:23+00:00",
+  "captured_at": "2026-09-04T09:36:34+00:00",
   "origin_channels_we_scrape": [
    {
     "site": "tg-oroszigazsag",
@@ -158,11 +158,6 @@
     "captured_now": 8
    },
    {
-    "site": "tg-vilaghelyzete",
-    "label": "“State of the world” blog",
-    "captured_now": 8
-   },
-   {
     "site": "tg-baltnews",
     "label": "Baltnews — Baltic Rossiya Segodnya brand",
     "captured_now": 8
@@ -181,6 +176,11 @@
     "site": "tg-ebredes",
     "label": "Awakening 2017",
     "captured_now": 7
+   },
+   {
+    "site": "tg-vilaghelyzete",
+    "label": "“State of the world” blog",
+    "captured_now": 7
    }
   ],
   "collapsed_set_site_ids": [
@@ -197,35 +197,31 @@
   "mirror_articles_in_snapshot": 8,
   "mirror_currently_credits": [
    {
-    "channel": "oroszokazigazsagoldalan",
+    "channel": "lomovkaa",
     "n": 2
    },
    {
-    "channel": "lomovkaa",
+    "channel": "Slavyangrad",
+    "n": 2
+   },
+   {
+    "channel": "izvestia_ru",
     "n": 1
    },
    {
-    "channel": "Slavyangrad",
+    "channel": "bbbreaking",
+    "n": 1
+   },
+   {
+    "channel": "pobediteli_1945",
     "n": 1
    },
    {
     "channel": "ukr_2025_ru",
     "n": 1
-   },
-   {
-    "channel": "oroszspecialiskatonaihadmuvelet",
-    "n": 1
-   },
-   {
-    "channel": "tassagency_en",
-    "n": 1
-   },
-   {
-    "channel": "llordofwar",
-    "n": 1
    }
   ],
-  "collapsed_set_credited_now": 2
+  "collapsed_set_credited_now": 0
  },
  "finding": "The decline was concentrated, not general: three Hungarian-language aggregator channels account for the great majority of it, while the Russian-institutional feeds stayed flat at 21-24 articles/day throughout. But the collapse was temporary — those same three channels supply essentially all of the rebound, and the source mix returns close to its pre-election composition. The Hungarian-language supply was interrupted and then restored.",
  "cannot_show": "why the supply was interrupted. And note the bounds: the per-source series covers the top 10 credited sources only (80% of baseline articles, 70% at the trough); credit labels are the operator's own metadata, which cost nothing to omit; and our live capture harvests only the mirror's English surface while the census counts all languages, so it cannot be compared with the census to say what the mirror consumes — all it shows is that these channels were still publishing on the capture day."
