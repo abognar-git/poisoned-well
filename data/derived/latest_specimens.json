@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-09-05T20:22:57+00:00",
+  "captured_at": "2026-09-05T22:53:25+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -17,6 +17,13 @@
       "lang": "ru",
       "attribution": "Russia — RT, operated by ANO TV-Novosti: the operating entity is under EU, UK and US asset freezes; the EU's broadcasting suspension names other RT services, not this one",
       "term": "rt"
+    },
+    "ukraina-ru": {
+      "label": "Ukraina.ru",
+      "tier": "outlet",
+      "lang": "ru",
+      "attribution": "Russia — Ukraina.ru, a project of the state agency Rossiya Segodnya; the designations attach to the parent group, not to this outlet by name",
+      "term": "ukraina-ru"
     },
     "zvezda-tv": {
       "label": "Zvezda",
@@ -124,20 +131,14 @@
     "launderer": "mirror sites that republish origins as 'news'",
     "outlet": "primary propaganda sites"
   },
-  "unreachable": {
-    "ukraina-ru": {
-      "label": "Ukraina.ru",
-      "tier": "outlet",
-      "why": "unreachable (URLError)"
-    }
-  },
+  "unreachable": {},
   "tiers_live": [
     "launderer",
     "origin",
     "outlet"
   ],
   "latest_day": "2026-09-05",
-  "today_live_count": 100,
+  "today_live_count": 107,
   "corpus_count": 130,
   "featured": [
     {
@@ -170,46 +171,46 @@
     },
     {
       "site": "pravda-hu",
-      "id": 45484,
+      "id": 45485,
       "date": "2026-09-05",
-      "category": "eu",
-      "title": "London investment banker's opinion on the situation in Europe:",
-      "theme": "eu/nato",
+      "category": "hungary",
+      "title": "Two Ukrainian views on the current situation",
+      "theme": "ukraine",
       "lang": "lat",
       "unit": "headline",
       "source": {
         "platform": "Telegram",
-        "channel": "infantmilitario"
+        "channel": "oroszokazigazsagoldalan"
       },
-      "url": "https://hungary.news-pravda.com/en/eu/2026/09/05/45484.html"
+      "url": "https://hungary.news-pravda.com/en/hungary/2026/09/05/45485.html"
     },
     {
       "site": "tg-oroszkatonai",
-      "id": "43281",
+      "id": "43284",
       "date": "2026-09-05",
-      "published_at": "2026-09-05T20:14:34+00:00",
+      "published_at": "2026-09-05T22:11:44+00:00",
       "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ Putyin három órája tárgyal Witkoffal és Kushnerrel. A találkozó teljesen zárt formában zajlik.…",
+      "title": "⚡️ A tűzszünet ellenére a kijevi régió támadás alatt áll? Fontos megemlíteni, hogy a Putyin által bejelentett 3 napos…",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 125,
-      "more": "⚡️ Putyin három órája tárgyal Witkoffal és Kushnerrel. A találkozó teljesen zárt formában zajlik. #speciáliskatonaihadművelet",
-      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/43281"
+      "chars": 411,
+      "more": "⚡️ A tűzszünet ellenére a kijevi régió támadás alatt áll? Fontos megemlíteni, hogy a Putyin által bejelentett 3 napos tűzszünet egy légi tűzszünet, és csak és kizárólag Kijev városára vonatkozik. Olyanokra mint például Boriszpil, Brovary, vagy Bucsa nem vonatkoznak tilalmak az orosz fegyveres erők számára a 3 napos tűzszünet értelmében. Mindeközben drónok támadják a kijevi régiót.…",
+      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/43284"
     },
     {
       "site": "tg-oroszigazsag",
-      "id": "266692",
+      "id": "266694",
       "date": "2026-09-05",
-      "published_at": "2026-09-05T20:22:28+00:00",
+      "published_at": "2026-09-05T20:54:18+00:00",
       "category": "oroszokazigazsagoldalan",
-      "title": "Két ukrán vélemény a jelenlegi helyzetről Az egyik egy egyszeri ukrán tiktokker, a másik Szolomija Bobrovszkaja, a…",
+      "title": "Maszkos sor tüntetők blokkolták a Dover kikötőjéhez vezető utakat „Dacolás” a migránshajók beáramlása ellen „Kinek az…",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 187,
-      "more": "Két ukrán vélemény a jelenlegi helyzetről Az egyik egy egyszeri ukrán tiktokker, a másik Szolomija Bobrovszkaja, a felsőház nemzetbiztonsági bizottságának tagja. Dereng valami, dereng....",
-      "url": "https://t.me/oroszokazigazsagoldalan/266692"
+      "chars": 188,
+      "more": "Maszkos sor tüntetők blokkolták a Dover kikötőjéhez vezető utakat „Dacolás” a migránshajók beáramlása ellen „Kinek az utcái? A MI utcáink” Lassan háborúk lesznek európa utcáin a civilekkel",
+      "url": "https://t.me/oroszokazigazsagoldalan/266694"
     },
     {
       "site": "tg-zvezda",
@@ -241,41 +242,41 @@
     },
     {
       "site": "tg-infodef",
-      "id": "14262",
+      "id": "14263",
       "date": "2026-09-05",
-      "published_at": "2026-09-05T18:21:01+00:00",
+      "published_at": "2026-09-05T20:34:01+00:00",
       "category": "InfoDefMagyarok",
-      "title": "Az ukránok dühöngnek: a hadsereg fegyverraktárait rendezett be civil házaikban A Kijev melletti AFU-arzenál elleni…",
+      "title": "Katasztrófa az eurósólymok számára és jó hírek a világnak \"Belgium becsapja az ajtót az orosz vagyon Ukrajna javára…",
       "theme": "hungary",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 897,
-      "more": "Az ukránok dühöngnek: a hadsereg fegyverraktárait rendezett be civil házaikban A Kijev melletti AFU-arzenál elleni pontos rakétacsapás megerősítette azt, amit a \"orosz propaganda\" régóta hangoztat. Az ukrán hadsereg lőszerraktárakat fedez civil lakossággal, – írja Guardian . Konkrétan ez alkalommal idősek otthona szolgált \"élő pajzsként\". A cikk szerzője szánalmas kísérletet tesz arra, hogy…",
-      "url": "https://t.me/InfoDefMagyarok/14262"
+      "chars": 911,
+      "more": "Katasztrófa az eurósólymok számára és jó hírek a világnak \"Belgium becsapja az ajtót az orosz vagyon Ukrajna javára történő felhasználása előtt! Ez nem alku tárgya!\" – jelentette ki Theo Franken ország védelmi minisztere, elutasítva Svédország új kezdeményezését. Az eurósólymok, élükön Ursula von der Leyennel, dühöngnek. De mindazok számára, akik az Oroszországgal való totális háborúhoz vezető…",
+      "url": "https://t.me/InfoDefMagyarok/14263"
     },
     {
       "site": "tg-lomovka",
-      "id": "141724",
+      "id": "141732",
       "date": "2026-09-05",
-      "published_at": "2026-09-05T20:20:03+00:00",
+      "published_at": "2026-09-05T22:50:06+00:00",
       "category": "lomovkaa",
-      "title": "«Принудительной мобилизации женщин на Украине не будет». Об этом заявил секретарь комитета по нацбезопасности Роман…",
+      "title": "Франция прекратит финансирование Киева. Это произойдет в случае прихода к власти партии Марин Ле Пен, заявил…",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 738,
-      "more": "«Принудительной мобилизации женщин на Украине не будет». Об этом заявил секретарь комитета по нацбезопасности Роман Костенко. Он уверяет: это — мужская обязанность по принуждению ТЦК . Он выразил недоумение, кто же распространяет такую информацию, и зачем женщин пытаются втянуть в этот вопрос. Костенко отметил, что служба женщин есть и будет добровольной. Только вот не уточнил, какую роль отводят…",
-      "url": "https://t.me/lomovkaa/141724"
+      "chars": 725,
+      "more": "Франция прекратит финансирование Киева. Это произойдет в случае прихода к власти партии Марин Ле Пен, заявил вице-председатель фракции «Национальное объединение» в парламенте Луи Алио. Мы «перекроем кран». Система здравоохранения, образование, вся экономика уже на пределе, а мы продолжаем находить деньги на оружие для защиты Украины. Но кто за это платит? Нужно уметь заканчивать, — сказал…",
+      "url": "https://t.me/lomovkaa/141732"
     },
     {
       "site": "rt-ru",
       "date": "2026-09-05",
       "category": "rt",
-      "title": "На Солнце 5 сентября произошла сильная вспышка класса М",
+      "title": "Проезд по Крымскому мосту временно остановили",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/science/news/1678735-solnce-vspyshka-m",
+      "url": "https://russian.rt.com/russia/news/1678765-krymskiy-most-perekrytie",
       "date_is_capture": true
     }
   ],
@@ -394,6 +395,21 @@
     },
     {
       "site": "pravda-hu",
+      "id": 45484,
+      "date": "2026-09-05",
+      "category": "eu",
+      "title": "London investment banker's opinion on the situation in Europe:",
+      "theme": "eu/nato",
+      "lang": "lat",
+      "unit": "headline",
+      "source": {
+        "platform": "Telegram",
+        "channel": "infantmilitario"
+      },
+      "url": "https://hungary.news-pravda.com/en/eu/2026/09/05/45484.html"
+    },
+    {
+      "site": "pravda-hu",
       "id": 45483,
       "date": "2026-09-05",
       "category": "russia",
@@ -485,34 +501,46 @@
       "url": "https://hungary.news-pravda.com/en/hungary/2026/09/05/45478.html"
     },
     {
-      "site": "pravda-hu",
-      "id": 45477,
+      "site": "tg-oroszkatonai",
+      "id": "43283",
       "date": "2026-09-05",
-      "category": "world",
-      "title": "Energy diversification. North Macedonia has officially joined the Vertical Gas Corridor, a regional project that links the gas systems of Southeastern and Central Europe",
-      "theme": "eu/nato",
+      "published_at": "2026-09-05T22:11:04+00:00",
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ Az amerikaiak figyelembe vették Putyin megjegyzését, miszerint a kijevi rezsim abbahagyta a náci természetének…",
+      "theme": "filler",
       "lang": "hu",
-      "unit": "headline",
-      "source": {
-        "platform": "Telegram",
-        "channel": "balkanar"
-      },
-      "url": "https://hungary.news-pravda.com/en/world/2026/09/05/45477.html"
+      "unit": "post_excerpt",
+      "chars": 1178,
+      "more": "⚡️ Az amerikaiak figyelembe vették Putyin megjegyzését, miszerint a kijevi rezsim abbahagyta a náci természetének eltitkolását – Usakov elnöki segéd ◾️ Putyin és az amerikai tárgyalópartnerek közötti beszélgetés tartalmas, konstruktív és nyílt volt; ◾️ A tárgyalások nem korlátozódtak az ukrán válságra vonatkozó véleménycsere-re, hanem a lehetséges jelentős orosz-amerikai projektekről is szólt; ◾️…",
+      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/43283"
     },
     {
-      "site": "pravda-hu",
-      "id": 45476,
+      "site": "tg-oroszkatonai",
+      "id": "43282",
       "date": "2026-09-05",
-      "category": "hungary",
-      "title": "I have a statement that will surely hurt the tiszas: Peter Magyar saved Fidesz",
-      "theme": "hungary",
+      "published_at": "2026-09-05T20:23:00+00:00",
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ Whitkoff és Kushner konvojja azonnal elhagyta a Kremlt a Putyinnal való tárgyalásuk után – közölték a médiaforrások.…",
+      "theme": "filler",
       "lang": "hu",
-      "unit": "headline",
-      "source": {
-        "platform": "Telegram",
-        "channel": "greatawakeningmagyarok"
-      },
-      "url": "https://hungary.news-pravda.com/en/hungary/2026/09/05/45476.html"
+      "unit": "post_excerpt",
+      "chars": 147,
+      "more": "⚡️ Whitkoff és Kushner konvojja azonnal elhagyta a Kremlt a Putyinnal való tárgyalásuk után – közölték a médiaforrások. #speciáliskatonaihadművelet",
+      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/43282"
+    },
+    {
+      "site": "tg-oroszkatonai",
+      "id": "43281",
+      "date": "2026-09-05",
+      "published_at": "2026-09-05T20:14:34+00:00",
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ Putyin három órája tárgyal Witkoffal és Kushnerrel. A találkozó teljesen zárt formában zajlik.…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 125,
+      "more": "⚡️ Putyin három órája tárgyal Witkoffal és Kushnerrel. A találkozó teljesen zárt formában zajlik. #speciáliskatonaihadművelet",
+      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/43281"
     },
     {
       "site": "tg-oroszkatonai",
@@ -569,44 +597,18 @@
       "url": "https://t.me/oroszspecialiskatonaihadmuvelet/43268"
     },
     {
-      "site": "tg-oroszkatonai",
-      "id": "43266",
+      "site": "tg-oroszigazsag",
+      "id": "266692",
       "date": "2026-09-05",
-      "published_at": "2026-09-05T18:20:29+00:00",
-      "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ 🟣 Ukrán zászló jelenléte Szumi régióban #speciáliskatonaihadművelet",
+      "published_at": "2026-09-05T20:22:28+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "Két ukrán vélemény a jelenlegi helyzetről Az egyik egy egyszeri ukrán tiktokker, a másik Szolomija Bobrovszkaja, a…",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/43266"
-    },
-    {
-      "site": "tg-oroszkatonai",
-      "id": "43265",
-      "date": "2026-09-05",
-      "published_at": "2026-09-05T18:11:31+00:00",
-      "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ Putyin segítői a Whitcoffal és Kushnerrel tartott találkozó előtt vörös mappában adtak át dokumentumokat neki. Az…",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 181,
-      "more": "⚡️ Putyin segítői a Whitcoffal és Kushnerrel tartott találkozó előtt vörös mappában adtak át dokumentumokat neki. Az orosz média ezt \"jelentősnek\" tartja #speciáliskatonaihadművelet",
-      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/43265"
-    },
-    {
-      "site": "tg-oroszkatonai",
-      "id": "43262",
-      "date": "2026-09-05",
-      "published_at": "2026-09-05T18:03:18+00:00",
-      "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ Putyin találkozott Trump képviselőivel a Kremlben ◾️ Az orosz elnök köszöntötte az amerikai tárgyalókat, Steve…",
-      "theme": "ukraine",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 1309,
-      "more": "⚡️ Putyin találkozott Trump képviselőivel a Kremlben ◾️ Az orosz elnök köszöntötte az amerikai tárgyalókat, Steve Witkoffot és Jared Kushnert, és elmondta, hogy a megbeszélés tárgya összetett kérdések. ◾️ Oroszország részéről a találkozón jelen volt Putyin elnök tanácsadója, Jurij Usakov, valamint Putyin elnök különleges képviselője, Kirill Dmitrijev. Usakov egy vörös mappát adott át Putyinnak ◾️…",
-      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/43262"
+      "chars": 187,
+      "more": "Két ukrán vélemény a jelenlegi helyzetről Az egyik egy egyszeri ukrán tiktokker, a másik Szolomija Bobrovszkaja, a felsőház nemzetbiztonsági bizottságának tagja. Dereng valami, dereng....",
+      "url": "https://t.me/oroszokazigazsagoldalan/266692"
     },
     {
       "site": "tg-oroszigazsag",
@@ -691,30 +693,6 @@
       "chars": 161,
       "more": "Yasmine Pahlavi, az iráni monarchista vezető, Reza Pahlavi felesége az Iran International csatornával karöltve megpróbálja igazolni az Irán elleni atombombázást.",
       "url": "https://t.me/oroszokazigazsagoldalan/266681"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "266680",
-      "date": "2026-09-05",
-      "published_at": "2026-09-05T19:31:05+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "💥 Újabb \"Novaja Pocsta\" csomagfeladó pontot semmisítettek meg Hmelnyickijben.",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "url": "https://t.me/oroszokazigazsagoldalan/266680"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "266679",
-      "date": "2026-09-05",
-      "published_at": "2026-09-05T19:29:02+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "💥 Csugujevben, Harkov megyében rendkívül erős robbanás történt.",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "url": "https://t.me/oroszokazigazsagoldalan/266679"
     },
     {
       "site": "tg-zvezda",
@@ -870,6 +848,20 @@
     },
     {
       "site": "tg-infodef",
+      "id": "14262",
+      "date": "2026-09-05",
+      "published_at": "2026-09-05T18:21:01+00:00",
+      "category": "InfoDefMagyarok",
+      "title": "Az ukránok dühöngnek: a hadsereg fegyverraktárait rendezett be civil házaikban A Kijev melletti AFU-arzenál elleni…",
+      "theme": "hungary",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 897,
+      "more": "Az ukránok dühöngnek: a hadsereg fegyverraktárait rendezett be civil házaikban A Kijev melletti AFU-arzenál elleni pontos rakétacsapás megerősítette azt, amit a \"orosz propaganda\" régóta hangoztat. Az ukrán hadsereg lőszerraktárakat fedez civil lakossággal, – írja Guardian . Konkrétan ez alkalommal idősek otthona szolgált \"élő pajzsként\". A cikk szerzője szánalmas kísérletet tesz arra, hogy…",
+      "url": "https://t.me/InfoDefMagyarok/14262"
+    },
+    {
+      "site": "tg-infodef",
       "id": "14261",
       "date": "2026-09-05",
       "published_at": "2026-09-05T16:34:01+00:00",
@@ -953,116 +945,116 @@
       "url": "https://t.me/InfoDefMagyarok/14256"
     },
     {
-      "site": "tg-infodef",
-      "id": "14255",
-      "date": "2026-09-05",
-      "published_at": "2026-09-05T04:41:01+00:00",
-      "category": "InfoDefMagyarok",
-      "title": "Autók helyett – drónok: a válság arra kényszeríti a Volkswagent, hogy fegyvereket gyártson a Bundeswehr számára A…",
-      "theme": "hungary",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 1017,
-      "more": "Autók helyett – drónok: a válság arra kényszeríti a Volkswagent, hogy fegyvereket gyártson a Bundeswehr számára A Volkswagen autóipari konszern vezetése kétségbeesetten módot talált arra, hogy megmentsen két német gyárat a csődtől, – írja a Bild. Az egyiknek telephelyét Németországból Kínába helyezik át , a másikat pedig sürgősen átalakítják a hadiipar igényeire. A hadi megrendelés drónokat és…",
-      "url": "https://t.me/InfoDefMagyarok/14255"
-    },
-    {
       "site": "tg-lomovka",
-      "id": "141723",
+      "id": "141731",
       "date": "2026-09-05",
-      "published_at": "2026-09-05T20:05:24+00:00",
+      "published_at": "2026-09-05T22:13:01+00:00",
       "category": "lomovkaa",
-      "title": "⚡️ Переговоры Владимира Путина со Стивеном Уиткоффом и Джаредом Кушнером завершились. Они прошли в закрытом режиме и…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 144,
-      "more": "⚡️ Переговоры Владимира Путина со Стивеном Уиткоффом и Джаредом Кушнером завершились. Они прошли в закрытом режиме и длились три часа. Подпишись",
-      "url": "https://t.me/lomovkaa/141723"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "141721",
-      "date": "2026-09-05",
-      "published_at": "2026-09-05T19:56:01+00:00",
-      "category": "lomovkaa",
-      "title": "Токио потребовал демонтировать памятник, посвященный победе СССР над Японией. Церемония открытия бронзовой статуи…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 824,
-      "more": "Токио потребовал демонтировать памятник, посвященный победе СССР над Японией. Церемония открытия бронзовой статуи советского солдата, уничтожающего пограничный столб с изображением герба в виде хризантемы, прошла в Хабаровске 4 сентября. Герб с хризантемой широко известен как символ Японии, и установка мемориала, изображающего его уничтожение, совершенно недопустима. Это вопрос, затрагивающий…",
-      "url": "https://t.me/lomovkaa/141721"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "141720",
-      "date": "2026-09-05",
-      "published_at": "2026-09-05T19:31:01+00:00",
-      "category": "lomovkaa",
-      "title": "Иран намерен использовать грядущие выборы в США, чтобы усилить давление на Трампа. Это поможет Тегерану добиться более…",
+      "title": "«Давайте бомбить аргентинцев!» Британская газета The Times полагает, что лидер партии Reform UK Найджел Фарадж пытается…",
       "theme": "filler",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 1302,
-      "more": "Иран намерен использовать грядущие выборы в США, чтобы усилить давление на Трампа. Это поможет Тегерану добиться более выгодных условий. Похожую тактику Иран применял в 1980 году, когда освобождение американских заложников было отложено до победы Рейгана на выборах. Сейчас иранские лидеры учитывают непопулярность войны в США, в том числе из-за роста цен на бензин. По мере того как время начинает…",
-      "url": "https://t.me/lomovkaa/141720"
+      "chars": 457,
+      "more": "«Давайте бомбить аргентинцев!» Британская газета The Times полагает, что лидер партии Reform UK Найджел Фарадж пытается отвлечь СМИ от темы финансовых махинаций , связанных с его политобъединением. Фарадж использует проверенный способ, переключаясь на внешнюю политику и вспоминая о давнем конфликте с Буэнос-Айресом вокруг Фолклендских островов: Из этой передряги есть только один выход. Давайте…",
+      "url": "https://t.me/lomovkaa/141731"
     },
     {
       "site": "tg-lomovka",
-      "id": "141719",
+      "id": "141730",
       "date": "2026-09-05",
-      "published_at": "2026-09-05T19:00:11+00:00",
+      "published_at": "2026-09-05T21:44:01+00:00",
       "category": "lomovkaa",
-      "title": "ЛОМОВКА. ГЛАВНОЕ К 22:00 ▪ Владимир Путин и американские переговорщики начали встречу в Кремле; ▪ Глава государства…",
+      "title": "Арабские дипломаты опасаются, что Иран расширяет войну с США . Возобновление атак Тегерана повышает ставки для…",
+      "theme": "energy",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 975,
+      "more": "Арабские дипломаты опасаются, что Иран расширяет войну с США . Возобновление атак Тегерана повышает ставки для региональных держав, некоторые из них заявляют, что теряют надежду на компромисс. Есть опасения, что Иран сейчас, в преддверии промежуточных выборов в США, особенно мотивирован на увеличение количества ударов, что повышает вероятность расширения регионального конфликта. Иран хотел бы…",
+      "url": "https://t.me/lomovkaa/141730"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "141729",
+      "date": "2026-09-05",
+      "published_at": "2026-09-05T21:27:47+00:00",
+      "category": "lomovkaa",
+      "title": "❗️ Беседа Путина с американскими переговорщиками продолжалась 3 часа 10 минут, заявил Ушаков. Встреча была…",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 549,
-      "more": "ЛОМОВКА. ГЛАВНОЕ К 22:00 ▪ Владимир Путин и американские переговорщики начали встречу в Кремле; ▪ Глава государства поздравил москвичей и всех россиян с 879-летием столицы; ▪ России нужно укреплять устойчивость государственности, несмотря ни на какие угрозы, убежден президент; ▪ ВС РФ минувшей ночью успешно поразили военные цели на Украине; ▪ Грузопоток по Севморпути должен вырасти до 70 млн…",
-      "url": "https://t.me/lomovkaa/141719"
+      "chars": 1474,
+      "more": "❗️ Беседа Путина с американскими переговорщиками продолжалась 3 часа 10 минут, заявил Ушаков. Встреча была содержательной, конструктивной, предельно откровенной, отметил он. Главное: Позиция России по СВО: ▪️ Дана исчерпывающая оценка ситуации в зоне спецоперации. ▪️ Отмечены реальные успехи российских войск в продвижении. ▪️ Выражена уверенность в достижении всех поставленных целей. ▪️…",
+      "url": "https://t.me/lomovkaa/141729"
     },
     {
       "site": "tg-lomovka",
-      "id": "141718",
+      "id": "141728",
       "date": "2026-09-05",
-      "published_at": "2026-09-05T18:39:01+00:00",
+      "published_at": "2026-09-05T21:15:14+00:00",
       "category": "lomovkaa",
-      "title": "НАТО пробует защититься от российских атомных подлодок без участия США. В Исландии проходят учения «Северный викинг».…",
+      "title": "Герои РФ и кавалеры Ордена Мужества сражаются на СВО ради будущего России. Об этом заявил первый замруководителя…",
       "theme": "russia",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 1043,
-      "more": "НАТО пробует защититься от российских атомных подлодок без участия США. В Исландии проходят учения «Северный викинг». Союзники пытаются отработать механизм поисков российских подводных лодок. Отсутствие американских кораблей или самолетов поразительно для учений, которые США проводят уже несколько десятилетий. И хотя американцы не исчезли полностью — строительные бригады ВМС США возводят новые…",
-      "url": "https://t.me/lomovkaa/141718"
+      "chars": 1122,
+      "more": "Герои РФ и кавалеры Ордена Мужества сражаются на СВО ради будущего России. Об этом заявил первый замруководителя администрации президента РФ Сергей Кириенко: который посетил Волгоградскую область, где прошел финальный бой третьего сезона Всероссийской военно-патриотической игры «Зарница 2.0». Кириенко отметил, что по традиции наставниками в «Зарнице 2.0» выступают участники президентской…",
+      "url": "https://t.me/lomovkaa/141728"
     },
     {
       "site": "tg-lomovka",
-      "id": "141717",
+      "id": "141726",
       "date": "2026-09-05",
-      "published_at": "2026-09-05T18:17:01+00:00",
+      "published_at": "2026-09-05T20:58:05+00:00",
       "category": "lomovkaa",
-      "title": "Супермаркеты на Украине — зло. Примерно такую мысль пытаются привить с экранов оставшимся без еды громадянам. Некий…",
+      "title": "❗️ Кирилл Дмитриев квалифицировал визит Стива Уиткоффа и Джареда Кушнера в Российскую Федерацию как значимый…",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 711,
-      "more": "Супермаркеты на Украине — зло. Примерно такую мысль пытаются привить с экранов оставшимся без еды громадянам. Некий экономист Олег Пендзин с серьезным лицом уверяет: в магазинах продукты покупает ограниченное количество людей. А у остальных вообще-то есть огороды, на которых все и растет. Супермаркет — комфортная вещь лишь для определенной социальной группы людей, проживающих в большом городе, у…",
-      "url": "https://t.me/lomovkaa/141717"
+      "chars": 295,
+      "more": "❗️ Кирилл Дмитриев квалифицировал визит Стива Уиткоффа и Джареда Кушнера в Российскую Федерацию как значимый миротворческий шаг. После переговоров в Кремле Кирилл Дмитриев проводил американских представителей в аэропорт Внуково. Ожидается, что следующим пунктом их поездки станет Киев. Подпишись",
+      "url": "https://t.me/lomovkaa/141726"
     },
     {
       "site": "tg-lomovka",
-      "id": "141716",
+      "id": "141725",
       "date": "2026-09-05",
-      "published_at": "2026-09-05T17:39:49+00:00",
+      "published_at": "2026-09-05T20:42:01+00:00",
       "category": "lomovkaa",
-      "title": "Владимир Путин и американские переговорщики начали встречу в Кремле. Главные заявления российского лидера на встрече со…",
+      "title": "Подборка материалов зарубежных СМИ за 5 сентября. IL Fatto Quotidiano (Италия): Киев готов пожертвовать Европой и…",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 1616,
-      "more": "Владимир Путин и американские переговорщики начали встречу в Кремле. Главные заявления российского лидера на встрече со Стивом Уиткоффом и Джаредом Кушнером : ▪ Трамп не останавливается в своих попытках внести вклад в урегулирование российско-украинского конфликта; ▪ Чтобы там дальше не происходило, контакты подобного рода идут на пользу; ▪ Уиткофф и Кушнер после Москвы отправятся в Киев; ▪ Путин…",
-      "url": "https://t.me/lomovkaa/141716"
+      "chars": 991,
+      "more": "Подборка материалов зарубежных СМИ за 5 сентября. IL Fatto Quotidiano (Италия): Киев готов пожертвовать Европой и спровоцировать ядерную войну. И самое страшное — европейские элиты поддерживают это безумие. Закрывая глаза на подрыв «Северных потоков» и удары западным оружием по России, Брюссель ввел информационную блокаду, чтобы европейцы не узнали правду. The New York Times (США): ЕС накрыла…",
+      "url": "https://t.me/lomovkaa/141725"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "141724",
+      "date": "2026-09-05",
+      "published_at": "2026-09-05T20:20:03+00:00",
+      "category": "lomovkaa",
+      "title": "«Принудительной мобилизации женщин на Украине не будет». Об этом заявил секретарь комитета по нацбезопасности Роман…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 738,
+      "more": "«Принудительной мобилизации женщин на Украине не будет». Об этом заявил секретарь комитета по нацбезопасности Роман Костенко. Он уверяет: это — мужская обязанность по принуждению ТЦК . Он выразил недоумение, кто же распространяет такую информацию, и зачем женщин пытаются втянуть в этот вопрос. Костенко отметил, что служба женщин есть и будет добровольной. Только вот не уточнил, какую роль отводят…",
+      "url": "https://t.me/lomovkaa/141724"
+    },
+    {
+      "site": "tg-vilaghelyzete",
+      "id": "14130",
+      "date": "2026-09-05",
+      "published_at": "2026-09-05T20:55:20+00:00",
+      "category": "VilagHelyzeteBlog",
+      "title": "☄️ Mark Rutte NATO-főtitkár hirtelen felpattant a Fehér Házban és előre elkészített demonstrációs paneleken elkezdte…",
+      "theme": "eu/nato",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 1017,
+      "more": "☄️ Mark Rutte NATO-főtitkár hirtelen felpattant a Fehér Házban és előre elkészített demonstrációs paneleken elkezdte bizonygatni Trumpnak, hogy márpedig mind az európaiak, mind Kanada mennyivel növelték a katonai kiadásokat és hozzájárulásukat a védelmi kiadásokhoz! Bizonyítékot akart? Hát itt a bizonyíték! 👉 A NATO főtitkára, Mark Rutte bemutatta azt, amit „Trump-billiónak” nevezett, és Donald…",
+      "url": "https://t.me/VilagHelyzeteBlog/14130"
     },
     {
       "site": "tg-vilaghelyzete",
@@ -1241,14 +1233,25 @@
       "url": "https://t.me/ebredes2017/140452"
     },
     {
+      "site": "ukraina-ru",
+      "date": "2026-09-05",
+      "category": "ukraina",
+      "title": "Разоблачения в Венеции, Шекспир в Полтаве и Потап с Настей в шоке",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260905/razoblacheniya-v-venetsii-shekspir-v-poltave-i-potap-s-nastey-v-shoke-1083025301.html",
+      "date_is_capture": false
+    },
+    {
       "site": "tsargrad",
       "date": "2026-09-05",
       "category": "tsargrad",
-      "title": "Главное к вечеру 5 сентября. Уиткофф и Кушнер в Москве. Погиб глава фонда \"Народный фронт. Всё для победы\"",
+      "title": "Уиткофф и Кушнер привезли в Кремль ультиматум. Россию провоцируют на ядерный удар?",
       "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tsargrad.tv/news/glavnoe-k-vecheru-5-sentjabrja-uitkoff-i-kushner-v-moskve-pogib-glava-fonda-narodnyj-front-vsjo-dlja-pobedy_1852872",
+      "url": "https://tsargrad.tv/news/uitkoff-i-kushner-privezli-v-kreml-ultimatum-rossiju-provocirujut-na-jadernyj-udar_1852992",
       "date_is_capture": true
     },
     {
@@ -1265,22 +1268,33 @@
       "site": "rt-ru",
       "date": "2026-09-05",
       "category": "rt",
-      "title": "Кортеж Уиткоффа и Кушнера покинул Кремль",
-      "theme": "russia",
+      "title": "ВСУ 13 раз атаковали ДНР, ранен мирный житель",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1678734-kortezh-uitkoff-kreml",
+      "url": "https://russian.rt.com/ussr/news/1678749-vsu-ataki-dnr-postradal",
       "date_is_capture": true
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-09-05",
+      "category": "ukraina",
+      "title": "Украинские F-16 остались без ракет: пилотам приходится атаковать из пушки",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260905/ukrainskie-f-16-ostalis-bez-raket-pilotam-prikhoditsya-atakovat-iz-pushki-1083031138.html",
+      "date_is_capture": false
     },
     {
       "site": "tsargrad",
       "date": "2026-09-05",
       "category": "tsargrad",
-      "title": "Уиткофф и Кушнер в Москве. Ультиматум? Чем закончатся переговоры. Прогноз",
+      "title": "Главное к вечеру 5 сентября. Уиткофф и Кушнер в Москве. Погиб глава фонда \"Народный фронт. Всё для победы\"",
       "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tsargrad.tv/news/uitkoff-i-kushner-v-moskve-ultimatum-chem-zakonchatsja-peregovory-prognoz_1852746",
+      "url": "https://tsargrad.tv/news/glavnoe-k-vecheru-5-sentjabrja-uitkoff-i-kushner-v-moskve-pogib-glava-fonda-narodnyj-front-vsjo-dlja-pobedy_1852872",
       "date_is_capture": true
     },
     {
@@ -1297,22 +1311,33 @@
       "site": "rt-ru",
       "date": "2026-09-05",
       "category": "rt",
-      "title": "Переговоры Путина с Уиткоффом и Кушнером завершились",
-      "theme": "russia",
+      "title": "В Донецке ждут скорого освобождения Славянска и Краматорска",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1678733-peregovory-putin-uitkoff",
+      "url": "https://russian.rt.com/ussr/news/1678748-osvobozhdenie-slavyansk-kramatorsk",
       "date_is_capture": true
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-09-05",
+      "category": "ukraina",
+      "title": "Офис Генпрокурора Украины подтвердил обыски НАБУ в кабинетах руководства",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260905/ofis-genprokurora-ukrainy-podtverdil-obyski-nabu-v-kabinetakh-rukovodstva-1083028243.html",
+      "date_is_capture": false
     },
     {
       "site": "tsargrad",
       "date": "2026-09-05",
       "category": "tsargrad",
-      "title": "Главное в ИноСМИ 5 сентября: Детали поездки Уиткоффа и Кушнера в Москву и Киев. Volkswagen - всё? Латвия и Литва готовят удар по России",
-      "theme": "ukraine",
+      "title": "Уиткофф и Кушнер в Москве. Ультиматум? Чем закончатся переговоры. Прогноз",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tsargrad.tv/news/glavnoe-v-inosmi-5-sentjabrja-detali-poezdki-uitkoffa-i-kushnera-v-moskvu-i-kiev-volkswagen-vsjo-latvija-i-litva-gotovjat-udar-po-rossii_1852610",
+      "url": "https://tsargrad.tv/news/uitkoff-i-kushner-v-moskve-ultimatum-chem-zakonchatsja-peregovory-prognoz_1852746",
       "date_is_capture": true
     },
     {
@@ -1329,22 +1354,33 @@
       "site": "rt-ru",
       "date": "2026-09-05",
       "category": "rt",
-      "title": "Фицо заявил о крахе стратегии Запада поставить Россию на колени через Украину",
+      "title": "Путин указал на необходимость устранить первопричины украинского конфликта",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1678730-fico-zapad-rossiya",
+      "url": "https://russian.rt.com/ussr/news/1678762-uitkoff-kushner-prichiny-konflikta",
       "date_is_capture": true
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-09-05",
+      "category": "ukraina",
+      "title": "Путин приказал не наносить удары по Киеву в течение трёх суток",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260905/putin-prikazal-ne-nanosit-udary-po-kievu-v-techenie-trkh-sutok-1083028026.html",
+      "date_is_capture": false
     },
     {
       "site": "tsargrad",
       "date": "2026-09-05",
       "category": "tsargrad",
-      "title": "Бывший глава MI6 назвал сроки завершения конфликта на Украине",
-      "theme": "ukraine",
+      "title": "Путин поддержал Поддубного: Защищать небо в регионах смогут бойцы с категорией \"Д\"",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tsargrad.tv/news/byvshij-glava-mi6-nazval-sroki-zavershenija-konflikta-na-ukraine_1852962",
+      "url": "https://tsargrad.tv/news/putin-podderzhal-poddubnogo-zashhishhat-nebo-v-regionah-smogut-bojcy-s-kategoriej-d_1853003",
       "date_is_capture": true
     },
     {
@@ -1361,22 +1397,33 @@
       "site": "rt-ru",
       "date": "2026-09-05",
       "category": "rt",
-      "title": "Переговоры Путина с Уиткоффом и Кушнером длятся уже более трёх часов",
+      "title": "Путин обсудил с Уиткоффом и Кушнером совместные экономические проекты",
       "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1678731-peregovory-putin-uitkoff",
+      "url": "https://russian.rt.com/world/news/1678760-putin-uitkoff-kushner-proekty",
       "date_is_capture": true
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-09-05",
+      "category": "ukraina",
+      "title": "В Кремле раскрыли дату переговоров Путина со спецпосланниками Трампа",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260905/v-kremle-raskryli-datu-peregovorov-putina-so-spetsposlannikami-trampa-1083027245.html",
+      "date_is_capture": false
     },
     {
       "site": "tsargrad",
       "date": "2026-09-05",
       "category": "tsargrad",
-      "title": "Украинские беженцы массово покидают Польшу: Раскрыты причины разлада",
+      "title": "ФАБ ликвидировала знаменитого украинского дроновода",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tsargrad.tv/news/ukrainskie-bezhency-massovo-pokidajut-polshu-raskryty-prichiny-razlada_1852913",
+      "url": "https://tsargrad.tv/news/fab-likvidirovala-znamenitogo-ukrainskogo-dronovoda_1852999",
       "date_is_capture": true
     },
     {
@@ -1393,22 +1440,33 @@
       "site": "rt-ru",
       "date": "2026-09-05",
       "category": "rt",
-      "title": "В КСИР заявили об ударе по шести судам в Ормузском проливе",
+      "title": "Принц Уильям представит короля Карла III на похоронах короля Норвегии Харальда V",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1678729-ksir-udar-suda",
+      "url": "https://russian.rt.com/world/news/1678750-princ-uilyam-karl",
       "date_is_capture": true
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-09-05",
+      "category": "ukraina",
+      "title": "Вечер в хутор: Полтава без вареников, депутаты в борделях, \"пасхалка\" в стратегии Драпатого",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260905/vecher-v-khutor-poltava-bez-varenikov-deputaty-v-bordelyakh-paskhalka-v-strategii-drapatogo-1083014862.html",
+      "date_is_capture": false
     },
     {
       "site": "tsargrad",
       "date": "2026-09-05",
       "category": "tsargrad",
-      "title": "Удары по Киеву - прекратить: Приказ Путина",
+      "title": "Бывший глава MI6 назвал сроки завершения конфликта на Украине",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tsargrad.tv/news/udary-po-kievu-prekratit-prikaz-putina_1852889",
+      "url": "https://tsargrad.tv/news/byvshij-glava-mi6-nazval-sroki-zavershenija-konflikta-na-ukraine_1852962",
       "date_is_capture": true
     },
     {
@@ -1425,12 +1483,23 @@
       "site": "rt-ru",
       "date": "2026-09-05",
       "category": "rt",
-      "title": "Тегеран пригрозил США ударами в случае новых нападений на иранские суда",
-      "theme": "filler",
+      "title": "Уиткофф и Кушнер представили соображения по урегулированию украинского конфликта",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1678726-ksir-ssha-udary",
+      "url": "https://russian.rt.com/ussr/news/1678761-uitkoff-kushner-uregulirovanie",
       "date_is_capture": true
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-09-05",
+      "category": "ukraina",
+      "title": "У пострадавшего множественные ранения: ВСУ атаковали автобус в Белгородской области",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260905/vsu-atakovali-avtobus-v-belgorodskoy-oblasti-1083031532.html",
+      "date_is_capture": false
     },
     {
       "site": "newsfront-ru",
@@ -1446,12 +1515,23 @@
       "site": "rt-ru",
       "date": "2026-09-05",
       "category": "rt",
-      "title": "На Украине допустили наличие в стране около 2 тысяч мошеннических кол-центров",
-      "theme": "ukraine",
+      "title": "Ушаков: президенты России и США продолжат поддерживать личные контакты",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1678727-koll-centry-ukraina",
+      "url": "https://russian.rt.com/russia/news/1678759-ushakov-prezidenty-rossii-ssha",
       "date_is_capture": true
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-09-05",
+      "category": "ukraina",
+      "title": "ВС России освободили населённый пункт Куртовка в ДНР",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260905/vs-rossii-osvobodili-naselnnyy-punkt-kurtovka-v-dnr-1083028935.html",
+      "date_is_capture": false
     },
     {
       "site": "newsfront-ru",
@@ -1548,20 +1628,6 @@
       "url": "https://t.me/zvezda_analytics/26032"
     },
     {
-      "site": "tg-zvezda",
-      "id": "26031",
-      "date": "2026-09-04",
-      "published_at": "2026-09-04T15:32:16+00:00",
-      "category": "zvezda_analytics",
-      "title": "Победа в войне на Украине, где сегодня Россия отстаивает принципы русского мира, право говорить на родном языке…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1863,
-      "more": "Победа в войне на Украине, где сегодня Россия отстаивает принципы русского мира, право говорить на родном языке, воспитывать детей не по лекалам сошедшего с ума Запада, зависит и от тех, кто приезжает на фронты СВО с концертами и спектаклями. Актёры, музыканты, поэты и писатели России стали бойцами культурного фронта. Артисты и творческие коллективы из всех регионов страны с первых дней…",
-      "url": "https://t.me/zvezda_analytics/26031"
-    },
-    {
       "site": "tg-vilaghelyzete",
       "id": "14117",
       "date": "2026-09-04",
@@ -1588,20 +1654,6 @@
       "chars": 1491,
       "more": "☄️ 🇺🇸 A republikánus jelöltek félnek Trump részvételétől a kampányaikban és szeretnék, ha az amerikai elnök körei inkább nem kapcsolódnának az ő \"népszerűsítésükhöz\" a félidei választások során! emoji-id=\"5210956306952758910\" 👀 Donald Trump lett a \"forró krumpli\", amiből senki nem kér és egymás között dobálgatják éppen... ↪️ Ennek oka Donald Trump, az Egyesült Államok elnökének alacsony…",
       "url": "https://t.me/VilagHelyzeteBlog/14116"
-    },
-    {
-      "site": "tg-vilaghelyzete",
-      "id": "14115",
-      "date": "2026-09-04",
-      "published_at": "2026-09-04T14:03:48+00:00",
-      "category": "VilagHelyzeteBlog",
-      "title": "☄️ 🆘 ❗️ A “lipcsei drón” színjáték marionett bohócainak megszólalása megmutatta, hogy ugyanazok a gazdák rángatják…",
-      "theme": "hungary",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 4337,
-      "more": "☄️ 🆘 ❗️ A “lipcsei drón” színjáték marionett bohócainak megszólalása megmutatta, hogy ugyanazok a gazdák rángatják drótokat! - Teljes áttekintés Az összes globalista, háborús hergelésben élenjáró európai politikus megszólalt a lipcsei gagyi drón ügyében. Mondataik “Ctrl C + Ctrl V” másolása csak megerősítette, hogy gazdáik ugyanazok! 🔴 Az ügy feltárása érdekében az összes legfontosabb tényt, majd…",
-      "url": "https://t.me/VilagHelyzeteBlog/14115"
     },
     {
       "site": "newsfront-hu",
@@ -1770,61 +1822,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://tvzvezda.ru/news/20268301224-7OyHt.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2023-04-25",
-      "category": "zvezda",
-      "title": "В Военном университете имени Невского обсудили опыт спецоперации при подготовке офицеров",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20234251650-J1F5j.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2022-11-21",
-      "category": "zvezda",
-      "title": "Освоить боевую машину: как экипажи БМП тренируются на полигоне в зоне спецоперации",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/202211211630-qn1TB.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2022-11-14",
-      "category": "zvezda",
-      "title": "В Кремле рассказали о намерении Путина встретиться с мобилизованными",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/202211141115-7lcSr.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2022-08-24",
-      "category": "zvezda",
-      "title": "Шойгу: замедление наступления обусловлено стремлением минимизировать потери гражданских",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20228241023-uleYI.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2022-08-16",
-      "category": "zvezda",
-      "title": "Шойгу: западное оружие не оказало существенного влияния на ситуацию в спецоперации",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20228161021-YFrGO.html",
       "date_is_capture": false
     }
   ]
