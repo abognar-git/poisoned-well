@@ -14,7 +14,7 @@ tells. Its defensible core:
 
 > The Pravda network's one-mirror-per-country architecture can be used as a **control group**. Applied
 > to the mirror aimed at Hungary's April 2026 election, it yields (a) a full-coverage negative
-> provenance census — zero credits to the Hungarian pro-government press across 144,363 articles — and
+> provenance census — zero credits to the Hungarian pro-government press across 144,412 articles — and
 > (b) a demonstration that output interruptions in such a network are common and largely not
 > election-aligned — including the Hungarian one, which is the largest in its own window but 6th of 12
 > episodes network-wide and 15 days late to the event it is usually attributed to.
@@ -70,7 +70,7 @@ news cycles); and the design cannot separate a change in operator behaviour from
 CheckFirst's collector sees.
 
 **C2 — A full-coverage negative provenance census.**
-Across all 144,363 articles, the 948 credited sources sum to exactly 144,363 (coverage 1.0000). The
+Across all 144,412 articles, the 949 credited sources sum to exactly 144,412 (coverage 1.0000). The
 Hungarian pro-government press appears **zero** times. One pro-government commentator's personal
 Telegram channel appears 76 times (0.05%); nationalist-fringe channels 130 (0.09%) **[V]**.
 *Limit — must sit inside the claim sentence, not in a caveat:* this measures the mirror's **own credit
@@ -165,7 +165,7 @@ C2 (the census) is untouched by any of this and remains the paper's strongest cl
 | M4 | Specification curve over window × gap × offset | is the estimate a property of the data or of window choice | small | automatable |
 | M5 | Collector-artefact audit: network-wide single-day collapses | does the instrument manufacture drops (note 2026-04-25 = 28 articles) | small | automatable |
 | ~~M6~~ | ~~**Telegram archive reconstruction** — back-page `t.me/s/` for the three channels, Feb–Aug 2026~~ | **done** — the channels did not stop. Across the trough's 65 days they published on **65, 65 and 61** of them; their own volume fell **15.5%** while the mirror's credits to them fell **82.9%**. Most of what was interrupted was the crediting, not the supply — and the rule that says so sits **0.5** points from its stronger verdict | done | `backpage_telegram.py` → `derive_supply_test.py` |
-| M7 | Manual pass over all 948 sources for Hungarian markers | hardens the headline zero from "robust to my string list" to "exhaustively verified" | ~1 day | **PI** — this is the number that will be quoted |
+| M7 | Manual pass over all 949 sources for Hungarian markers | hardens the headline zero from "robust to my string list" to "exhaustively verified" | ~1 day | **PI** — this is the number that will be quoted |
 | ~~M8~~ | ~~Extend donor pool to the full 101 mirrors~~ | **done** — 1,948 windows; Hungary at the 11th percentile. Next: classify the 101 into country / language / thematic so the control group is like-for-like | done | `fetch_pravda.py --all` |
 
 **M6 was the study's hinge, and it has been run.** The channels kept publishing through May–June —
