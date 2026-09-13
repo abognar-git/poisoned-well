@@ -1,12 +1,12 @@
 {
  "note": "Append-only archive of every item captured by scripts/capture_specimens.py. Headlines and provenance only — no article body text is collected. Items are never rewritten once archived; `first_seen` is when this project observed the item, which is not necessarily when it was published.",
- "updated": "2026-09-13T20:47:46+00:00",
- "items": 18353,
+ "updated": "2026-09-13T23:07:56+00:00",
+ "items": 18377,
  "first_date": "2022-03-30",
- "last_date": "2026-09-13",
+ "last_date": "2026-09-14",
  "published_range": [
   "2022-03-30",
-  "2026-09-13"
+  "2026-09-14"
  ],
  "observed_range": [
   "2026-08-11",
@@ -20,14 +20,14 @@
   "2023-04": 1,
   "2026-07": 2,
   "2026-08": 11368,
-  "2026-09": 6976
+  "2026-09": 7000
  },
  "by_source": {
-  "rt-ru": 3569,
-  "tg-oroszigazsag": 2009,
-  "ukraina-ru": 1857,
+  "rt-ru": 3580,
+  "tg-oroszigazsag": 2012,
+  "ukraina-ru": 1860,
   "newsfront-ru": 1831,
-  "tg-lomovka": 1783,
+  "tg-lomovka": 1788,
   "pravda-hu": 1308,
   "tg-ebredes": 1275,
   "tg-greatawaken": 994,
@@ -38,42 +38,42 @@
   "newsfront-hu": 430,
   "tg-infodef": 291,
   "tg-zvezda": 276,
-  "tg-vilaghelyzete": 211,
+  "tg-vilaghelyzete": 213,
   "tg-rybar": 88
  },
  "by_tier": {
-  "outlet": 8773,
-  "origin": 8272,
+  "outlet": 8787,
+  "origin": 8282,
   "launderer": 1308
  },
  "by_theme": {
-  "filler": 7076,
-  "ukraine": 5228,
-  "russia": 3032,
+  "filler": 7085,
+  "ukraine": 5234,
+  "russia": 3038,
   "hungary": 1612,
-  "energy": 705,
-  "eu/nato": 700
+  "energy": 707,
+  "eu/nato": 701
  },
  "by_lang": {
-  "cyr": 10388,
-  "hu": 6269,
+  "cyr": 10407,
+  "hu": 6274,
   "lat": 1696
  },
  "by_unit": {
-  "headline": 10081,
-  "post_excerpt": 8272
+  "headline": 10095,
+  "post_excerpt": 8282
  },
  "theme_coverage": {
   "cyr": {
-   "items": 10388,
-   "scored": 10388,
-   "matched_a_topic": 7154,
+   "items": 10407,
+   "scored": 10407,
+   "matched_a_topic": 7166,
    "lexicon": "cyr"
   },
   "hu": {
-   "items": 6269,
-   "scored": 6269,
-   "matched_a_topic": 3311,
+   "items": 6274,
+   "scored": 6274,
+   "matched_a_topic": 3314,
    "lexicon": "lat"
   },
   "lat": {
