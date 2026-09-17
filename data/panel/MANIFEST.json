@@ -1,33 +1,33 @@
 {
  "note": "Credit graph of the Pravda network, derived from CheckFirst's per-mirror sourcesByDay panels. A credit is the mirror's own claim about where it took an item; it is not evidence that the credited channel participated or cooperated. See DICTIONARY.md for the top-10 censoring, which makes any share-of-credits denominator wrong unless conditioned on the top-10 set.",
- "generated": "2026-09-16T09:29:54+00:00",
+ "generated": "2026-09-17T09:38:25+00:00",
  "mirrors": 101,
  "months": 40,
  "rows": {
-  "mirror_day": 74113,
-  "mirror_source_day": 365072,
-  "source_index": 9993,
-  "source_mirror_edges": 70396,
+  "mirror_day": 74212,
+  "mirror_source_day": 365520,
+  "source_index": 9999,
+  "source_mirror_edges": 70439,
   "mirror_meta": 101
  },
- "sources_total": 9993,
- "sources_exclusive_to_one_mirror": 4654,
+ "sources_total": 9999,
+ "sources_exclusive_to_one_mirror": 4661,
  "exclusive_by_mirror": {
-  "estonia": 816,
-  "italy": 418,
+  "estonia": 815,
+  "italy": 419,
   "ua": 250,
-  "spain": 221,
+  "spain": 222,
   "slovakia": 191,
   "bulgaria": 188,
   "denmark": 145,
   "belgium": 145,
   "burkina-faso": 138,
   "spanish": 133,
-  "czechia": 117,
-  "france": 109,
-  "portuguese": 108,
+  "czechia": 116,
+  "portuguese": 111,
+  "france": 108,
   "poland": 105,
-  "armenia": 93
+  "armenia": 95
  },
  "hungary_exclusive_sources": 0
 }
