@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-09-18T21:39:57+00:00",
+  "captured_at": "2026-09-19T00:18:52+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -137,10 +137,46 @@
     "origin",
     "outlet"
   ],
-  "latest_day": "2026-09-18",
-  "today_live_count": 120,
+  "latest_day": "2026-09-19",
+  "today_live_count": 12,
   "corpus_count": 130,
   "featured": [
+    {
+      "site": "tg-oroszkatonai",
+      "id": "43795",
+      "date": "2026-09-19",
+      "published_at": "2026-09-19T00:16:05+00:00",
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ Új \"pokoli\" szankciók Oroszország ellen? Trump kezében a döntés Az amerikai képviselőház jóváhagyta a tervezetet…",
+      "theme": "russia",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 255,
+      "more": "⚡️ Új \"pokoli\" szankciók Oroszország ellen? Trump kezében a döntés Az amerikai képviselőház jóváhagyta a tervezetet, amely új, \"pokoli\" szankciókat vezet be Oroszország ellen. A dokumentum, melyet a már elhunyt szenátor, Graham jegyzett, most eljut Trump…",
+      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/43795"
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-19",
+      "category": "rt",
+      "title": "Внуково и Домодедово согласуют рейсы из-за ограничений",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1684399-vnukovo-domodedovo-ogranicheniya",
+      "date_is_capture": true
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-09-19",
+      "category": "tsargrad",
+      "title": "Главное к вечеру 18 сентября. \"Ашан\" и Nestle переданы во временное управление - что это значит. Лучший день за всю войну. \"Наступление ВСУ\"",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/glavnoe-k-vecheru-18-sentjabrja-ashan-i-nestle-peredany-vo-vremennoe-upravlenie-chto-jeto-znachit-luchshij-den-za-vsju-vojnu-nastuplenie-vsu_1871652",
+      "date_is_capture": true
+    },
     {
       "site": "tg-baltnews",
       "id": "74433",
@@ -171,20 +207,6 @@
       "url": "https://hungary.news-pravda.com/en/world/2026/09/18/46164.html"
     },
     {
-      "site": "tg-oroszkatonai",
-      "id": "43794",
-      "date": "2026-09-18",
-      "published_at": "2026-09-18T20:33:02+00:00",
-      "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ Egy ukrán drón csapódott a Kurszki Atomerőmű 1-es blokkjának hűtőtornyába Szeptember 17-én egy drón robbant a…",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 399,
-      "more": "⚡️ Egy ukrán drón csapódott a Kurszki Atomerőmű 1-es blokkjának hűtőtornyába Szeptember 17-én egy drón robbant a becsapódás helyén. A létesítmény továbbra is teljes kapacitással működik. Enyhe sérülések keletkeztek. Az atomerőmű üzemeltetésének biztonsága garantált. A sugárzás szintje nem változott, és megfelel a természetes, környezeti értékeknek - közölte a Roszatom. #speciáliskatonaihadművelet",
-      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/43794"
-    },
-    {
       "site": "tg-oroszigazsag",
       "id": "268084",
       "date": "2026-09-18",
@@ -200,17 +222,17 @@
     },
     {
       "site": "tg-zvezda",
-      "id": "26166",
+      "id": "26167",
       "date": "2026-09-18",
-      "published_at": "2026-09-18T19:03:38+00:00",
+      "published_at": "2026-09-18T23:03:46+00:00",
       "category": "zvezda_analytics",
-      "title": "КОСОВО В ОБМЕН НА ЕВРОПУ: ПОСЛЕДНЯЯ ЦЕНА СЕРБИИ ▪️ Почему досрочные выборы в Сербии станут голосованием не за премьера…",
-      "theme": "ukraine",
+      "title": "Друзья, по ссылкам доступны к просмотру и прослушиванию свежие эфиры! ⬇️ ⬇️ ⬇️ «СТРАТЕГИЯ НАЦИОНАЛЬНОЙ БЕЗОПАСНОСТИ»…",
+      "theme": "eu/nato",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 1100,
-      "more": "КОСОВО В ОБМЕН НА ЕВРОПУ: ПОСЛЕДНЯЯ ЦЕНА СЕРБИИ ▪️ Почему досрочные выборы в Сербии станут голосованием не за премьера, а за исторический курс страны ▪️ Что такое народ-ядро, и почему многонациональное государство распадается, когда этот народ отказывается от ответственности за целое ▪️ Почему распад Югославии стал не только геополитическим поражением, но и местью сербам за их антифашистский…",
-      "url": "https://t.me/zvezda_analytics/26166"
+      "chars": 427,
+      "more": "Друзья, по ссылкам доступны к просмотру и прослушиванию свежие эфиры! ⬇️ ⬇️ ⬇️ «СТРАТЕГИЯ НАЦИОНАЛЬНОЙ БЕЗОПАСНОСТИ» Анны Шафран Тема: Вместе с русским миром: Восток выбрал ценности Гость: Сергей Перевезенцев - доктор исторических наук, профессор МГУ им. Ломоносова . 📻 СМОТРЕТЬ И СЛУШАТЬ «РАЗГОВОР С МУДРЕЦОМ» Сергея Кургиняна Тема: Косово в обмен на Европу: последняя цена Сербии 📻 СМОТРЕТЬ И…",
+      "url": "https://t.me/zvezda_analytics/26167"
     },
     {
       "site": "tg-greatawaken",
@@ -237,48 +259,108 @@
       "chars": 823,
       "more": "Ukrajna gazdasága hajszálon függ – a közelgő tél fogja elpusztítani, ami a csapások után megmarad Az ukrán gazdaság az összeomlás szélén áll, – jelenti Reuters. Alekszandr Kravcsenko gazdasági miniszter elismerte: az orosz hadsereg csapásaiból származó közvetlen kár több tízmilliárdra tehető, a védelmi kiadások mértani arányban nőnek, a tengeri blokád pedig gyakorlatilag megölte az exportot. A…",
       "url": "https://t.me/InfoDefMagyarok/14402"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "142711",
-      "date": "2026-09-18",
-      "published_at": "2026-09-18T21:16:01+00:00",
-      "category": "lomovkaa",
-      "title": "Трамп наплевал на Конституцию США и свободу слова. Президент США запретил критиковавшим его CNN, MSNOW и Politico…",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1101,
-      "more": "Трамп наплевал на Конституцию США и свободу слова. Президент США запретил критиковавшим его CNN, MSNOW и Politico доступ в Белый дом. Официальной причиной он назвал «постоянное распространение фейковых новостей». Политик заявил, что решение вступает в силу немедленно, и пообещал аналогичные меры против других СМИ, которые не восхваляют его бесконечные победы по всем фронтам. На брифинге в Белом…",
-      "url": "https://t.me/lomovkaa/142711"
-    },
-    {
-      "site": "tg-vilaghelyzete",
-      "id": "14223",
-      "date": "2026-09-18",
-      "published_at": "2026-09-18T18:22:30+00:00",
-      "category": "VilagHelyzeteBlog",
-      "title": "⚡️ ‼️ ‼️ ‼️ 🆘 Glenn Beck: Aggasztó, ami most Magyarországon történik és ez figyelmeztetés lehet Amerikának is - A…",
-      "theme": "hungary",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 4617,
-      "more": "⚡️ ‼️ ‼️ ‼️ 🆘 Glenn Beck: Aggasztó, ami most Magyarországon történik és ez figyelmeztetés lehet Amerikának is - A teljes videó! ‼️ 🇭🇺 Glenn Beck amerikai konzervatív műsorvezető 2026. szeptember 17-i műsorában Magyarországot állította az amerikai közönség elé ELRETTENTŐ példaként. A Terror Háza botrányos ügye is kiemelt szerepet kap! Érvelésének középpontjában az állt, mi történt a magyar…",
-      "url": "https://t.me/VilagHelyzeteBlog/14223"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-18",
-      "category": "rt",
-      "title": "Шесть выходных в мае и 11 — на Новый год: в России утвердили производственный календарь на 2027 год",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/russia/article/1684109-vyhodnoi-prazdnik-kalendar-novyi-god",
-      "date_is_capture": true
     }
   ],
   "corpus": [
+    {
+      "site": "rt-ru",
+      "date": "2026-09-19",
+      "category": "rt",
+      "title": "Военные пенсии проиндексируют на 4% с октября",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1684398-voennye-pensii-indeksaciya-oktyabr",
+      "date_is_capture": true
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-09-19",
+      "category": "tsargrad",
+      "title": "Вчера Киев. Сегодня - Одесса: Новый уровень ударов ВС России напрямую касается США",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/vchera-kiev-segodnja-odessa-novyj-uroven-udarov-vs-rossii-naprjamuju-kasaetsja-ssha_1871351",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-19",
+      "category": "rt",
+      "title": "Таиланд, Турция и Китай возглавили список направлений россиян на Новый год",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1684397-novogodnie-napravleniya-rossiyane",
+      "date_is_capture": true
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-09-19",
+      "category": "tsargrad",
+      "title": "Вчера Киев. Сегодня - Одесса: Новый уровень ударов ВС России напрямую касается США",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/razrushenie-svjaznosti-jekonomiki-rossija-na-ukraine-pereshla-k-novomu-jetapu-infrastrukturnoj-vojny_1871367",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-19",
+      "category": "rt",
+      "title": "Хегсет отверг обвинения в занижении потерь США в Иране",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/world/news/1684395-hegseth-poteri-iran-ssha",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-19",
+      "category": "rt",
+      "title": "Сахалин, Якутия и Алтай лидируют по оплате подработок",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1684394-sahalin-yakutiya-altay-podrabotki",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-19",
+      "category": "rt",
+      "title": "Эстония усилила меры безопасности на выборах в Госдуму",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1684392-estonia-vybory-gosduma-bezopasnost",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-19",
+      "category": "rt",
+      "title": "Трамп заявил, что соглашение с Данией по Гренландии решает все претензии США",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/world/news/1684390-tramp-grenlandiya-bessrochnoe-soglashenie",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-19",
+      "category": "rt",
+      "title": "США, Дания и Гренландия подпишут договор по Арктике",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/world/news/1684391-ssha-daniya-grenlandiya-arktika",
+      "date_is_capture": true
+    },
     {
       "site": "tg-baltnews",
       "id": "74432",
@@ -484,6 +566,20 @@
     },
     {
       "site": "tg-oroszkatonai",
+      "id": "43794",
+      "date": "2026-09-18",
+      "published_at": "2026-09-18T20:33:02+00:00",
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ Egy ukrán drón csapódott a Kurszki Atomerőmű 1-es blokkjának hűtőtornyába Szeptember 17-én egy drón robbant a…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 399,
+      "more": "⚡️ Egy ukrán drón csapódott a Kurszki Atomerőmű 1-es blokkjának hűtőtornyába Szeptember 17-én egy drón robbant a becsapódás helyén. A létesítmény továbbra is teljes kapacitással működik. Enyhe sérülések keletkeztek. Az atomerőmű üzemeltetésének biztonsága garantált. A sugárzás szintje nem változott, és megfelel a természetes, környezeti értékeknek - közölte a Roszatom. #speciáliskatonaihadművelet",
+      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/43794"
+    },
+    {
+      "site": "tg-oroszkatonai",
       "id": "43793",
       "date": "2026-09-18",
       "published_at": "2026-09-18T20:28:03+00:00",
@@ -565,20 +661,6 @@
       "chars": 1790,
       "more": "⚡️ Oroszország nagyszámú mennyiségben indít átalakított gyakorlórakétákat az \"Iskander\" helyett, ezzel kimerítve az ukrán légvédelmet – Reuters Oroszország állítólag egyre aktívabban használja a felújított RM-48U rakétákat a célpontok elleni támadásokhoz Ukrajnában. Ezek a rakéták eredetileg a S-300/S-400 légvédelmi rakétarendszerek képzési célú lövéseire voltak tervezve. ◾️ Júliusban az ukrán…",
       "url": "https://t.me/oroszspecialiskatonaihadmuvelet/43779"
-    },
-    {
-      "site": "tg-oroszkatonai",
-      "id": "43778",
-      "date": "2026-09-18",
-      "published_at": "2026-09-18T18:01:01+00:00",
-      "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ Rakétatámadás történt Kijevben, azonban a jelek szerint a rakéta nem hagyott nyomot, vagy elfogták a légvédelmi…",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 153,
-      "more": "⚡️ Rakétatámadás történt Kijevben, azonban a jelek szerint a rakéta nem hagyott nyomot, vagy elfogták a légvédelmi rendszerek #speciáliskatonaihadművelet",
-      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/43778"
     },
     {
       "site": "tg-oroszigazsag",
@@ -673,6 +755,20 @@
       "lang": "hu",
       "unit": "post_excerpt",
       "url": "https://t.me/oroszokazigazsagoldalan/268075"
+    },
+    {
+      "site": "tg-zvezda",
+      "id": "26166",
+      "date": "2026-09-18",
+      "published_at": "2026-09-18T19:03:38+00:00",
+      "category": "zvezda_analytics",
+      "title": "КОСОВО В ОБМЕН НА ЕВРОПУ: ПОСЛЕДНЯЯ ЦЕНА СЕРБИИ ▪️ Почему досрочные выборы в Сербии станут голосованием не за премьера…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 1100,
+      "more": "КОСОВО В ОБМЕН НА ЕВРОПУ: ПОСЛЕДНЯЯ ЦЕНА СЕРБИИ ▪️ Почему досрочные выборы в Сербии станут голосованием не за премьера, а за исторический курс страны ▪️ Что такое народ-ядро, и почему многонациональное государство распадается, когда этот народ отказывается от ответственности за целое ▪️ Почему распад Югославии стал не только геополитическим поражением, но и местью сербам за их антифашистский…",
+      "url": "https://t.me/zvezda_analytics/26166"
     },
     {
       "site": "tg-zvezda",
@@ -936,99 +1032,129 @@
     },
     {
       "site": "tg-lomovka",
-      "id": "142709",
+      "id": "142719",
       "date": "2026-09-18",
-      "published_at": "2026-09-18T20:40:03+00:00",
+      "published_at": "2026-09-18T23:53:01+00:00",
       "category": "lomovkaa",
-      "title": "Минздрав отметил рост числа медиков в России в 2026 году. По данным формы федерального статистического наблюдения № 30…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 975,
-      "more": "Минздрав отметил рост числа медиков в России в 2026 году. По данным формы федерального статистического наблюдения № 30 «Сведения о медицинской организации», в государственных и муниципальных медицинских организациях в 2025 году количество медицинских работников увеличилось, эта же тенденция наблюдается и по итогам первого полугодия 2026 года, — сообщили в пресс-службе Минздрава России. Одним из…",
-      "url": "https://t.me/lomovkaa/142709"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "142708",
-      "date": "2026-09-18",
-      "published_at": "2026-09-18T20:15:06+00:00",
-      "category": "lomovkaa",
-      "title": "Вучич согласился с премьерами Чехии и Польши: «мир катится в ад». Несколько дней назад премьер Чехии Андрей Бабиш и…",
+      "title": "Европа не получит саудовскую нефть в октябре. Компания Saudi Aramco уведомила европейских клиентов, что в следующем…",
       "theme": "eu/nato",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 727,
-      "more": "Вучич согласился с премьерами Чехии и Польши: «мир катится в ад». Несколько дней назад премьер Чехии Андрей Бабиш и премьер Польши Дональд Туск выступили с жесткими заявлениями о том, что нас ждет ад в Европе. Судя по ценам на нефть и газ, они недалеки от истины, — сказал президент Сербии. Цены на топливо в Европе бьют исторические рекорды из-за конфликта на Ближнем Востоке и перекрытия…",
-      "url": "https://t.me/lomovkaa/142708"
+      "chars": 785,
+      "more": "Европа не получит саудовскую нефть в октябре. Компания Saudi Aramco уведомила европейских клиентов, что в следующем месяце они не получат ни барреля сырой нефти после атаки на ключевой трубопровод королевства, ведущий к Красному морю, констатирует Bloomberg. Европейские покупатели получали саудовскую нефть по срочным контрактам, обеспечивавшим стабильные поставки на уровне 577 тыс. баррелей в…",
+      "url": "https://t.me/lomovkaa/142719"
     },
     {
       "site": "tg-lomovka",
-      "id": "142707",
+      "id": "142718",
       "date": "2026-09-18",
-      "published_at": "2026-09-18T19:50:00+00:00",
+      "published_at": "2026-09-18T23:22:01+00:00",
       "category": "lomovkaa",
-      "title": "В России создали программу, повышающую точность посадки ракет и самолетов. Так называемый геометрический фактор…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1675,
-      "more": "В России создали программу, повышающую точность посадки ракет и самолетов. Так называемый геометрический фактор - главная проблема, с которой сталкиваются навигационные системы. Для ее решения разработчики аэрокосмического факультета ЮУрГУ создали уникальное решение - первую в России специальную программу. Она в среднем это повышает точность посадки более чем в четыре раза, — сообщили в…",
-      "url": "https://t.me/lomovkaa/142707"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "142700",
-      "date": "2026-09-18",
-      "published_at": "2026-09-18T19:25:00+00:00",
-      "category": "lomovkaa",
-      "title": "Сергей Кириенко и Сергей Кравцов открыли форум «Время дошкольного образования» в «Зарядье». В концертном зале «Зарядье»…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1598,
-      "more": "Сергей Кириенко и Сергей Кравцов открыли форум «Время дошкольного образования» в «Зарядье». В концертном зале «Зарядье» стартовал всероссийский форум «Время дошкольного образования». Первый заместитель руководителя администрации президента Сергей Кириенко и министр просвещения Сергей Кравцов дали официальный старт мероприятию. Участникам направил приветствие президент Владимир Путин, подчеркнув…",
-      "url": "https://t.me/lomovkaa/142700"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "142699",
-      "date": "2026-09-18",
-      "published_at": "2026-09-18T19:00:00+00:00",
-      "category": "lomovkaa",
-      "title": "ЛОМОВКА. ГЛАВНОЕ К 22-00: ▪ Владимир Путин удаленно проголосовал на проходящих выборах в Госдуму. ▪ Поставки первых 18…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 958,
-      "more": "ЛОМОВКА. ГЛАВНОЕ К 22-00: ▪ Владимир Путин удаленно проголосовал на проходящих выборах в Госдуму. ▪ Поставки первых 18 самолетов МС-21 «Аэрофлоту» должны начаться уже в следующем году. Об этом заявил Владимир Путин на презентации объектов гражданской авиации. ▪ Запасы газа должны в первую очередь служить России и ее развитию, заявил Владимир Путин на открытии объектов социальной газификации в…",
-      "url": "https://t.me/lomovkaa/142699"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "142698",
-      "date": "2026-09-18",
-      "published_at": "2026-09-18T18:52:08+00:00",
-      "category": "lomovkaa",
-      "title": "❗️ Явка на выборах после закрытия всех участков в первый день голосования составила 29,43%, заявили в ЦИК. Подпишись!",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "url": "https://t.me/lomovkaa/142698"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "142697",
-      "date": "2026-09-18",
-      "published_at": "2026-09-18T18:43:35+00:00",
-      "category": "lomovkaa",
-      "title": "Владимир Путин предложил на заседании Военно-промышленной комиссии обсудить новую госпрограмму вооружений. Другие…",
+      "title": "США предупредили союзников о задержках с поставками ракет и ключевых вооружений на пять лет. Как сообщает Bloomberg…",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 1338,
-      "more": "Владимир Путин предложил на заседании Военно-промышленной комиссии обсудить новую госпрограмму вооружений. Другие заявления президента РФ: ▪️ Угроз меньше не становится, НАТО разбухает и расширяется. ▪️ Европейцы на выборах дают понять, что никакой войны с Россией не хотят. Европейские лидеры пытаются прикрыть свои ошибки в политике, но продолжают нагнетать ситуацию вокруг России. ▪️ Европейцы…",
-      "url": "https://t.me/lomovkaa/142697"
+      "chars": 958,
+      "more": "США предупредили союзников о задержках с поставками ракет и ключевых вооружений на пять лет. Как сообщает Bloomberg, это связано с тем, что американские военные истощили свой собственный арсенал в войне с Ираном. В частности, Германия обратилась к США с просьбой ускорить поставку крылатых ракет большой дальности Tomahawk и наземных пусковых установок Typhon. Однако выяснилось, что на фоне…",
+      "url": "https://t.me/lomovkaa/142718"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "142717",
+      "date": "2026-09-18",
+      "published_at": "2026-09-18T22:50:09+00:00",
+      "category": "lomovkaa",
+      "title": "«Аэрофлот» и «Ростех» заключили суперсделку. «Аэрофлот» и «Ростех» подписали контракт на поставку второй партии из 90…",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 1481,
+      "more": "«Аэрофлот» и «Ростех» заключили суперсделку. «Аэрофлот» и «Ростех» подписали контракт на поставку второй партии из 90 отечественных самолетов МС-21, сообщает пресс-служба госкорпорации. Воздушные суда перевозчик получит в период с 2029 по 2032 год. Документ подписали авиакомпания, Объединенная авиастроительная корпорация (ОАК), «Авиакапитал-Сервис» и Объединенная двигателестроительная корпорация…",
+      "url": "https://t.me/lomovkaa/142717"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "142716",
+      "date": "2026-09-18",
+      "published_at": "2026-09-18T22:20:14+00:00",
+      "category": "lomovkaa",
+      "title": "Подборка материалов зарубежных СМИ к ночи 19 сентября. Focus : ВСУ не могут перехватывать новые реактивные российские…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 695,
+      "more": "Подборка материалов зарубежных СМИ к ночи 19 сентября. Focus : ВСУ не могут перехватывать новые реактивные российские дроны — нет равных им по скорости систем. Поэтому «Герани-4» и «Герани-5» сейчас полностью доминируют в украинском небе. Die Welt : В то время, как способности искусственного интеллекта быстро растут, уровень знаний школьников в ведущих странах Запада снижается, это показали…",
+      "url": "https://t.me/lomovkaa/142716"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "142715",
+      "date": "2026-09-18",
+      "published_at": "2026-09-18T22:02:01+00:00",
+      "category": "lomovkaa",
+      "title": "Трамп объявил о сделке с Данией по контролю над «безопасностью» Гренландии. Подробности соглашения между США, Данией и…",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 741,
+      "more": "Трамп объявил о сделке с Данией по контролю над «безопасностью» Гренландии. Подробности соглашения между США, Данией и Гренландией: ▪️ США получают постоянный контроль над безопасностью и «всеми другими потребностями» в Гренландии без каких-либо затрат. ▪️ Ни один противник США никогда не сможет иметь базу, военное присутствие или делать важные инвестиции на Гренландии без письменного разрешения…",
+      "url": "https://t.me/lomovkaa/142715"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "142714",
+      "date": "2026-09-18",
+      "published_at": "2026-09-18T21:50:31+00:00",
+      "category": "lomovkaa",
+      "title": "❗️ Трамп подписал законопроект «Об ужесточении санкций против России и Ирана», названный именем признанного в РФ…",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 572,
+      "more": "❗️ Трамп подписал законопроект «Об ужесточении санкций против России и Ирана», названный именем признанного в РФ экстремистом сенатора Линдси Грэма. Закон предусматривает возможность введения дополнительных пошлин до 100% на импорт в США из стран, которые попадут под критерии крупнейших покупателей российских нефти и газа и продолжат их закупать. Отдельно предусмотрены пошлины до 500% на товары…",
+      "url": "https://t.me/lomovkaa/142714"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "142713",
+      "date": "2026-09-18",
+      "published_at": "2026-09-18T21:49:01+00:00",
+      "category": "lomovkaa",
+      "title": "Российский ОПК будет и впредь обеспечивать ВС РФ самым передовым оружием и техникой. Об этом заявил Владимир Путин в…",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 662,
+      "more": "Российский ОПК будет и впредь обеспечивать ВС РФ самым передовым оружием и техникой. Об этом заявил Владимир Путин в поздравлении с Днем оружейника. Этот праздник – дань уважения созидательному труду многих поколений конструкторов, инженеров, организаторов производства, рабочих самых разных специальностей. Мы по праву гордимся многовековой историей отечественного оборонно-промышленного комплекса…",
+      "url": "https://t.me/lomovkaa/142713"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "142711",
+      "date": "2026-09-18",
+      "published_at": "2026-09-18T21:16:01+00:00",
+      "category": "lomovkaa",
+      "title": "Трамп наплевал на Конституцию США и свободу слова. Президент США запретил критиковавшим его CNN, MSNOW и Politico…",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 1101,
+      "more": "Трамп наплевал на Конституцию США и свободу слова. Президент США запретил критиковавшим его CNN, MSNOW и Politico доступ в Белый дом. Официальной причиной он назвал «постоянное распространение фейковых новостей». Политик заявил, что решение вступает в силу немедленно, и пообещал аналогичные меры против других СМИ, которые не восхваляют его бесконечные победы по всем фронтам. На брифинге в Белом…",
+      "url": "https://t.me/lomovkaa/142711"
+    },
+    {
+      "site": "tg-vilaghelyzete",
+      "id": "14223",
+      "date": "2026-09-18",
+      "published_at": "2026-09-18T18:22:30+00:00",
+      "category": "VilagHelyzeteBlog",
+      "title": "⚡️ ‼️ ‼️ ‼️ 🆘 Glenn Beck: Aggasztó, ami most Magyarországon történik és ez figyelmeztetés lehet Amerikának is - A…",
+      "theme": "hungary",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 4617,
+      "more": "⚡️ ‼️ ‼️ ‼️ 🆘 Glenn Beck: Aggasztó, ami most Magyarországon történik és ez figyelmeztetés lehet Amerikának is - A teljes videó! ‼️ 🇭🇺 Glenn Beck amerikai konzervatív műsorvezető 2026. szeptember 17-i műsorában Magyarországot állította az amerikai közönség elé ELRETTENTŐ példaként. A Terror Háza botrányos ügye is kiemelt szerepet kap! Érvelésének középpontjában az állt, mi történt a magyar…",
+      "url": "https://t.me/VilagHelyzeteBlog/14223"
     },
     {
       "site": "tg-vilaghelyzete",
@@ -1245,17 +1371,6 @@
       "date_is_capture": false
     },
     {
-      "site": "tsargrad",
-      "date": "2026-09-18",
-      "category": "tsargrad",
-      "title": "Главное к вечеру 18 сентября. \"Ашан\" и Nestle переданы во временное управление - что это значит. Лучший день за всю войну. \"Наступление ВСУ\"",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/glavnoe-k-vecheru-18-sentjabrja-ashan-i-nestle-peredany-vo-vremennoe-upravlenie-chto-jeto-znachit-luchshij-den-za-vsju-vojnu-nastuplenie-vsu_1871652",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-09-18",
       "category": "news-front",
@@ -1274,17 +1389,6 @@
       "lang": "hu",
       "unit": "headline",
       "url": "https://hu.news-front.su/2026/09/18/a-bucsai-civilek-meggyilkolasat-oroszorszag-hibaztatasara-hasznaltak-fel/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-18",
-      "category": "rt",
-      "title": "ВСУ атаковали Дмитриев, в доме выбило окна в девяти квартирах",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1684388-vsy-ataka-dmitriev-okna",
-      "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
@@ -1309,17 +1413,6 @@
       "date_is_capture": false
     },
     {
-      "site": "tsargrad",
-      "date": "2026-09-18",
-      "category": "tsargrad",
-      "title": "Вчера Киев. Сегодня - Одесса: Новый уровень ударов ВС России напрямую касается США",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/vchera-kiev-segodnja-odessa-novyj-uroven-udarov-vs-rossii-naprjamuju-kasaetsja-ssha_1871351",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-09-18",
       "category": "news-front",
@@ -1338,17 +1431,6 @@
       "lang": "hu",
       "unit": "headline",
       "url": "https://hu.news-front.su/2026/09/18/torok-felperesek-fellebbezest-nyujtottak-be-a-nemzetkozi-buntetobirosaghoz-a-reyhan-sar-elleni-tamadassal-kapcsolatban/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-18",
-      "category": "rt",
-      "title": "Выплаты по ОСАГО в России увеличат на 7—8%",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1684386-osago-vyplaty-rost",
-      "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
@@ -1373,17 +1455,6 @@
       "date_is_capture": false
     },
     {
-      "site": "tsargrad",
-      "date": "2026-09-18",
-      "category": "tsargrad",
-      "title": "Вчера Киев. Сегодня - Одесса: Новый уровень ударов ВС России напрямую касается США",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/razrushenie-svjaznosti-jekonomiki-rossija-na-ukraine-pereshla-k-novomu-jetapu-infrastrukturnoj-vojny_1871367",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-09-18",
       "category": "news-front",
@@ -1402,17 +1473,6 @@
       "lang": "hu",
       "unit": "headline",
       "url": "https://hu.news-front.su/2026/09/18/robbanas-tortent-a-lvivi-regioban-talalhato-teruleti-toborzo-es-szocialis-tamogato-kozpont-epulete-kozeleben/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-18",
-      "category": "rt",
-      "title": "Участник СВО Гусев спас трёх бойцов из-под перекрёстного огня",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1684385-gusev-spasenie-marinka",
-      "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
@@ -1457,17 +1517,6 @@
       "url": "https://hu.news-front.su/2026/09/18/az-usa-haborus-minisztere-beadta-lemondasat/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-09-18",
-      "category": "rt",
-      "title": "Путин: Россию невозможно запугать, это всем очевидно",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1684384-zapugivanie-rossiya-putin",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-09-18",
       "category": "ukraina",
@@ -1510,17 +1559,6 @@
       "url": "https://hu.news-front.su/2026/09/18/prozerno-iran-lett-az-orosz-gabona-legnagyobb-felvasarloja/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-09-18",
-      "category": "rt",
-      "title": "Трамп пригрозил ещё двум СМИ запретить появляться в Белом доме",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1684383-tramp-smi-zapret",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-09-18",
       "category": "ukraina",
@@ -1529,17 +1567,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://ukraina.ru/20260918/kharkovskogo-okruzhnogo-prokurora-ulichili-v-sverkhdokhodakh-1083286768.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2026-09-18",
-      "category": "zvezda",
-      "title": "Портфель экспортных заказов российского ОПК превысил $70 млрд",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20269181816-a38GC.html",
       "date_is_capture": false
     },
     {
@@ -1563,17 +1590,6 @@
       "url": "https://hu.news-front.su/2026/09/18/nincs-eletveszelyben-a-vilaghiru-orosz-karmester-valerij-gergijev/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-09-18",
-      "category": "rt",
-      "title": "Туск: Польша присоединилась к антибаллистической коалиции с Украиной",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1684382-tusk-polsha-koaliciya",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-09-18",
       "category": "ukraina",
@@ -1582,17 +1598,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://ukraina.ru/20260918/skolko-chasov-proydt-prezhde-chem-ne-stanet-varshavy-gasparyan-ob-aktivnoy-faze-novoy-kholodnoy-voyny-1083294865.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2026-09-18",
-      "category": "zvezda",
-      "title": "Путин: крупнейший запас газа в России должен повышать качество жизни",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20269181727-tcdIR.html",
       "date_is_capture": false
     },
     {
@@ -1616,17 +1621,6 @@
       "url": "https://hu.news-front.su/2026/09/18/dmitrij-csernyisenko-oroszorszag-egyszerusitette-a-vizumeljarasokat/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-09-18",
-      "category": "rt",
-      "title": "Трамп заявил, что США шпионят за Китаем",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1684380-tramp-ssha-shpionyat",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-09-18",
       "category": "ukraina",
@@ -1635,17 +1629,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://ukraina.ru/20260918/bezopasnost-prevyshe-vsego-kak-prokhodyat-vybory-v-kurskoy-oblasti-1083292656.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2026-09-18",
-      "category": "zvezda",
-      "title": "МИД России потребовал от Британии отказаться от эскалационной линии",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20269181247-XXThz.html",
       "date_is_capture": false
     },
     {
@@ -1681,20 +1664,6 @@
       "chars": 474,
       "more": "Друзья, по ссылкам доступны к просмотру и прослушиванию свежие эфиры! ⬇️ ⬇️ ⬇️ «СТРАТЕГИЯ НАЦИОНАЛЬНОЙ БЕЗОПАСНОСТИ» Анны Шафран Тема: Сектанты Кремниевой долины: кто навязывает власть ИИ Гость: Александр Лосев , член Президиума Совета по внешней и оборонной политике. 📻 СМОТРЕТЬ И СЛУШАТЬ «КРУПНЫМ ПЛАНОМ» Алексея Мухина, соведущий Дмитрий Лысенков Тема: Страшно аж брикс: почему Запад движется в…",
       "url": "https://t.me/zvezda_analytics/26158"
-    },
-    {
-      "site": "tg-zvezda",
-      "id": "26157",
-      "date": "2026-09-17",
-      "published_at": "2026-09-17T19:00:59+00:00",
-      "category": "zvezda_analytics",
-      "title": "СТРАШНО, АЖ БРИКС: ПОЧЕМУ ЗАПАД ДВИЖЕТСЯ В ТУПИК ▪️ Что такое Большая Евразия и почему Запад начинает быстро терять…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1084,
-      "more": "СТРАШНО, АЖ БРИКС: ПОЧЕМУ ЗАПАД ДВИЖЕТСЯ В ТУПИК ▪️ Что такое Большая Евразия и почему Запад начинает быстро терять политические и экономические позиции ▪️ Почему политологи и экономисты больше не спорят о многополярном мире, а анализируют преимущества, которых нет у Запада ▪️ Ресурсы, экономика, традиции, гарантии: какие ещё факторы влияют на число заявок на вступление в БРИКС ▪️ Зачем Трамп…",
-      "url": "https://t.me/zvezda_analytics/26157"
     },
     {
       "site": "tg-vilaghelyzete",
@@ -1781,6 +1750,17 @@
       "url": "https://t.me/Rybar_HU/7406"
     },
     {
+      "site": "zvezda-tv",
+      "date": "2026-09-11",
+      "category": "zvezda",
+      "title": "Белые, опята, маслята: в Подмосковье стартовал супергрибной сезон",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20269111623-udNQr.html",
+      "date_is_capture": false
+    },
+    {
       "site": "tg-rybar",
       "id": "7405",
       "date": "2026-09-09",
@@ -1807,6 +1787,28 @@
       "chars": 2504,
       "more": "📝 Az ideghálózat kölcsönére 📝 A francia startup, a Mistral AI , az amerikai mesterséges intelligencia óriások alternatívájának kell lennie: európai modellek, az EU joghatósága alá tartozó adatok, Franciaországban található adatközpontok. Azonban a Mistral főbb eredményeit eddig nem annyira a modellek minősége, hanem az összegyűjtött pénz és hitel volumene határozta meg. 2025 szeptemberében a…",
       "url": "https://t.me/Rybar_HU/7404"
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2023-04-25",
+      "category": "zvezda",
+      "title": "В Военном университете имени Невского обсудили опыт спецоперации при подготовке офицеров",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20234251650-J1F5j.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2022-11-21",
+      "category": "zvezda",
+      "title": "Освоить боевую машину: как экипажи БМП тренируются на полигоне в зоне спецоперации",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/202211211630-qn1TB.html",
+      "date_is_capture": false
     }
   ]
 }
