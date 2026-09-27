@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-09-26T22:47:41+00:00",
+  "captured_at": "2026-09-27T01:25:05+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -138,23 +138,61 @@
     "outlet"
   ],
   "latest_day": "2026-09-27",
-  "today_live_count": 1,
+  "today_live_count": 20,
   "corpus_count": 130,
   "featured": [
     {
       "site": "pravda-hu",
-      "id": 46510,
+      "id": 46512,
       "date": "2026-09-27",
-      "category": "world",
-      "title": "An egg was thrown at the Hungarian Prime Minister at a speech",
+      "category": "russia",
+      "title": "By this hour. In Kiev, there was a strong explosion as a result of the arrival and a large-scale fire after it Boeing has a glitch in the 737 MAX aircraft software An egg was thrown at the…",
       "theme": "hungary",
       "lang": "hu",
       "unit": "headline",
+      "chars": 224,
+      "more": "By this hour. In Kiev, there was a strong explosion as a result of the arrival and a large-scale fire after it Boeing has a glitch in the 737 MAX aircraft software An egg was thrown at the Hungarian Prime Minister from the..",
       "source": {
-        "platform": "MAX",
-        "channel": "ria"
+        "platform": "Telegram",
+        "channel": "rt_russian"
       },
-      "url": "https://hungary.news-pravda.com/en/world/2026/09/27/46510.html"
+      "url": "https://hungary.news-pravda.com/en/russia/2026/09/27/46512.html"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "143297",
+      "date": "2026-09-27",
+      "published_at": "2026-09-27T01:18:01+00:00",
+      "category": "lomovkaa",
+      "title": "Минпросвещения обновит программу дошкольного образования. Детский сад должен оставаться местом воспитания, а не только…",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 601,
+      "more": "Минпросвещения обновит программу дошкольного образования. Детский сад должен оставаться местом воспитания, а не только подготовки к школе, — заявил глава Минпросвещения Сергей Кравцов. Ведомство разрабатывает обновление стандарта и федеральной программы дошкольного образования. Это главное условие защиты будущего наших детей, — добавил министр. Акцент будет сделан на знакомство детей с родной…",
+      "url": "https://t.me/lomovkaa/143297"
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-27",
+      "category": "rt",
+      "title": "ВС России поразили логистический центр в Одессе, распределявший грузы для ВСУ",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/ussr/news/1687558-odessa-logisticheskii-centr",
+      "date_is_capture": true
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-09-27",
+      "category": "tsargrad",
+      "title": "Главное к вечеру 26 сентября. Трамп гонит Зеленского в Москву. На Украине \"вырубаются\" телеканалы. Польша готова строить военную базу США",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/glavnoe-k-vecheru-26-sentjabrja-tramp-gonit-zelenskogo-v-moskvu-na-ukraine-vyrubajutsja-telekanaly-polsha-gotova-stroit-voennuju-bazu-ssha_1882595",
+      "date_is_capture": true
     },
     {
       "site": "tg-baltnews",
@@ -221,62 +259,199 @@
       "lang": "hu",
       "unit": "post_excerpt",
       "url": "https://t.me/greatawakeningmagyarok/159913"
-    },
-    {
-      "site": "tg-infodef",
-      "id": "14476",
-      "date": "2026-09-26",
-      "published_at": "2026-09-26T20:21:58+00:00",
-      "category": "InfoDefMagyarok",
-      "title": "Ha azt hiszitek, hogy ez valamilyen afrikai táncegyüttes tallinni koncerten, akkor nagyon tévedtek Ez - Juliana Baffo…",
-      "theme": "hungary",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 336,
-      "more": "Ha azt hiszitek, hogy ez valamilyen afrikai táncegyüttes tallinni koncerten, akkor nagyon tévedtek Ez - Juliana Baffo, Norvégia észtországi nagykövete. Tipikus „valkűr”. Mostanában a skandinávok többnyire pontosan így néznek ki ... 🔹 Légy te is InfoDefence! Oszd meg ezt a publikációt a barátaiddal! 🔹 ❤️ InfoDefMagyarok ❤️ InfoDefens e",
-      "url": "https://t.me/InfoDefMagyarok/14476"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "143289",
-      "date": "2026-09-26",
-      "published_at": "2026-09-26T22:24:01+00:00",
-      "category": "lomovkaa",
-      "title": "Украинские телеканалы исчезли из онлайн-сервисов после удара по дата-центру. Пользователи платформ Megogo и других…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 697,
-      "more": "Украинские телеканалы исчезли из онлайн-сервисов после удара по дата-центру. Пользователи платформ Megogo и других украинских онлайн-сервисов лишились части привычного контента. Это произошло из-за удара, который повредил центр обработки данных компании Cosmonova, что привело к перебоям в вещании на многих каналах. Телеканалы 1+1 и STB, входившие в число самых популярных среди зрителей…",
-      "url": "https://t.me/lomovkaa/143289"
-    },
-    {
-      "site": "tg-vilaghelyzete",
-      "id": "14288",
-      "date": "2026-09-26",
-      "published_at": "2026-09-26T20:33:22+00:00",
-      "category": "VilagHelyzeteBlog",
-      "title": "☄️ 🇷🇺 Szergej Lavrov, orosz külügyminiszter friss mai (2026. szeptember 26.) nyilatkozatai - ezek egy része a New…",
-      "theme": "ukraine",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 2344,
-      "more": "☄️ 🇷🇺 Szergej Lavrov, orosz külügyminiszter friss mai (2026. szeptember 26.) nyilatkozatai - ezek egy része a New York-i ENSZ-közgyűlésen, illetve az ahhoz kapcsolódó sajtónyilatkozataiban hangzott el. Az ENSZ saját oldalán is elérhető Lavrov mai sajtótájékoztatójának átirata. 💬 \"Kérjük, hogy a venezuelai Maduro elnököt és feleségét Cilia Florest azonnal szabadítsák ki, engedjék el és hogy…",
-      "url": "https://t.me/VilagHelyzeteBlog/14288"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-26",
-      "category": "rt",
-      "title": "ВС России поразили логистический центр в Одессе, распределявший грузы для ВСУ",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1687558-odessa-logisticheskii-centr",
-      "date_is_capture": true
     }
   ],
   "corpus": [
+    {
+      "site": "pravda-hu",
+      "id": 46511,
+      "date": "2026-09-27",
+      "category": "russia",
+      "title": "An egg was thrown at the Hungarian Prime Minister during a speech from the crowd, and then booed",
+      "theme": "hungary",
+      "lang": "hu",
+      "unit": "headline",
+      "source": {
+        "platform": "MAX",
+        "channel": "RT"
+      },
+      "url": "https://hungary.news-pravda.com/en/russia/2026/09/27/46511.html"
+    },
+    {
+      "site": "pravda-hu",
+      "id": 46510,
+      "date": "2026-09-27",
+      "category": "world",
+      "title": "An egg was thrown at the Hungarian Prime Minister at a speech",
+      "theme": "hungary",
+      "lang": "hu",
+      "unit": "headline",
+      "source": {
+        "platform": "MAX",
+        "channel": "ria"
+      },
+      "url": "https://hungary.news-pravda.com/en/world/2026/09/27/46510.html"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "143296",
+      "date": "2026-09-27",
+      "published_at": "2026-09-27T00:49:01+00:00",
+      "category": "lomovkaa",
+      "title": "США и Китай договорились о снижении пошлин на $30 млрд. Соглашение стало итогом визита председателя КНР Си Цзиньпина в…",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 633,
+      "more": "США и Китай договорились о снижении пошлин на $30 млрд. Соглашение стало итогом визита председателя КНР Си Цзиньпина в Вашингтон. Как сообщило агентство Reuters, тарифы снизят на нечувствительные категории товаров. Американский экспорт затронет сельхозпродукцию, древесину и косметику. Встречные поставки из Китая включают мелкую бытовую технику, игрушки и декоративные изделия. Обе стороны…",
+      "url": "https://t.me/lomovkaa/143296"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "143295",
+      "date": "2026-09-27",
+      "published_at": "2026-09-27T00:20:07+00:00",
+      "category": "lomovkaa",
+      "title": "Захарова сообщила об интересе к докладу по Буче в ООН. Сергей Лавров представил новые данные об инсценировке в Буче.…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 589,
+      "more": "Захарова сообщила об интересе к докладу по Буче в ООН. Сергей Лавров представил новые данные об инсценировке в Буче. Они вошли в доклад Международного общественного трибунала по преступлениям украинских неонацистов. По просьбам самих журналистов раздавали печатную версию доклада в ходе пресс-конференции, а также в кулуарах и во время рабочих встреч, — сказала официальный представитель МИД РФ…",
+      "url": "https://t.me/lomovkaa/143295"
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-27",
+      "category": "rt",
+      "title": "Министр иностранных дел России Сергей Лавров провёл пресс-конференцию по итогам 81-й сессии Генассамблеи ООН. RT вёл прямую трансляцию.",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/world/article/1687445-lavrov-press-konferenciya-oon",
+      "date_is_capture": true
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-09-27",
+      "category": "tsargrad",
+      "title": "Медведи \"закрыли\" самую длинную лестницу в России. В Подмосковье – рост числа жалоб на хищников. Когда решится проблема?",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/medvedi-zakryli-samuju-dlinnuju-lestnicu-v-rossii-v-podmoskove-rost-chisla-zhalob-na-hishhnikov-kogda-reshitsja-problema_1882561",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-27",
+      "category": "rt",
+      "title": "Минздрав расширил список методов лечения депрессии у взрослых",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1687684-minzdrav-depressiya-metody",
+      "date_is_capture": true
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-09-27",
+      "category": "tsargrad",
+      "title": "Двойная игра: Трамп тянет войну с Ираном до выборов — и уже прибрал Гренландию",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/dvojnaja-igra-tramp-tjanet-vojnu-s-iranom-do-vyborov-i-uzhe-pribral-grenlandiju_1882303",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-27",
+      "category": "rt",
+      "title": "На фоне тревоги в Киеве произошёл взрыв",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/ussr/news/1687685-kiev-vzryv-trevoga-smi",
+      "date_is_capture": true
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-09-27",
+      "category": "tsargrad",
+      "title": "Украинские роботы в русском тылу. Пинчук честно сказал о большой проблеме",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/ukrainskie-roboty-v-russkom-tylu-pinchuk-chestno-skazal-o-bolshoj-probleme_1882701",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-27",
+      "category": "rt",
+      "title": "В Киеве повторно объявили воздушную тревогу",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/ussr/news/1687683-kiev-povtornaya-trevoga",
+      "date_is_capture": true
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-09-27",
+      "category": "tsargrad",
+      "title": "Скотт Риттер: \"Украина проиграла. Чем скорее мир это признает, тем больше украинцев останется в живых\"",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/skott-ritter-ukraina-proigrala-chem-skoree-mir-jeto-priznaet-tem-bolshe-ukraincev-ostanetsja-v-zhivyh_1876253",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-27",
+      "category": "rt",
+      "title": "Регионы получат право передать Соцфонду выплаты пособий",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1687681-regiony-socfond-vyplaty",
+      "date_is_capture": true
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-09-27",
+      "category": "tsargrad",
+      "title": "В Ульяновске волонтёры присоединились к ликвидации последствий атаки БПЛА",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/v-uljanovske-volontjory-prisoedinilis-k-likvidacii-posledstvij-ataki-bpla_1882621",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-27",
+      "category": "rt",
+      "title": "Юрист объяснила, когда банк вправе не принять наличные",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1687682-bank-otkaz-nalichnye",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-27",
+      "category": "rt",
+      "title": "Долгожителям Москвы к 100-летию выплатят 37 тысяч рублей",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1687680-moskva-dolgozhiteli-vyplata",
+      "date_is_capture": true
+    },
     {
       "site": "tg-baltnews",
       "id": "74691",
@@ -449,36 +624,6 @@
         "channel": "lomovkaa"
       },
       "url": "https://hungary.news-pravda.com/en/russia/2026/09/26/46505.html"
-    },
-    {
-      "site": "pravda-hu",
-      "id": 46504,
-      "date": "2026-09-26",
-      "category": "eu",
-      "title": "\"There is no money\": The European Union left the Kiev regime without the promised tranches",
-      "theme": "ukraine",
-      "lang": "hu",
-      "unit": "headline",
-      "source": {
-        "platform": "MAX",
-        "channel": "inosmi"
-      },
-      "url": "https://hungary.news-pravda.com/en/eu/2026/09/26/46504.html"
-    },
-    {
-      "site": "pravda-hu",
-      "id": 46503,
-      "date": "2026-09-26",
-      "category": "russia",
-      "title": "Day 0 with RIA Novosti Crimea",
-      "theme": "russia",
-      "lang": "lat",
-      "unit": "headline",
-      "source": {
-        "platform": "Telegram",
-        "channel": "rian_crimea"
-      },
-      "url": "https://hungary.news-pravda.com/en/russia/2026/09/26/46503.html"
     },
     {
       "site": "tg-oroszkatonai",
@@ -794,6 +939,20 @@
     },
     {
       "site": "tg-infodef",
+      "id": "14476",
+      "date": "2026-09-26",
+      "published_at": "2026-09-26T20:21:58+00:00",
+      "category": "InfoDefMagyarok",
+      "title": "Ha azt hiszitek, hogy ez valamilyen afrikai táncegyüttes tallinni koncerten, akkor nagyon tévedtek Ez - Juliana Baffo…",
+      "theme": "hungary",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 336,
+      "more": "Ha azt hiszitek, hogy ez valamilyen afrikai táncegyüttes tallinni koncerten, akkor nagyon tévedtek Ez - Juliana Baffo, Norvégia észtországi nagykövete. Tipikus „valkűr”. Mostanában a skandinávok többnyire pontosan így néznek ki ... 🔹 Légy te is InfoDefence! Oszd meg ezt a publikációt a barátaiddal! 🔹 ❤️ InfoDefMagyarok ❤️ InfoDefens e",
+      "url": "https://t.me/InfoDefMagyarok/14476"
+    },
+    {
+      "site": "tg-infodef",
       "id": "14475",
       "date": "2026-09-26",
       "published_at": "2026-09-26T18:22:58+00:00",
@@ -892,6 +1051,62 @@
     },
     {
       "site": "tg-lomovka",
+      "id": "143294",
+      "date": "2026-09-26",
+      "published_at": "2026-09-26T23:51:01+00:00",
+      "category": "lomovkaa",
+      "title": "Республиканская партия США теряет позиции в опросах из-за рейтинга Трампа. Причиной этого является низкий рейтинг…",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 863,
+      "more": "Республиканская партия США теряет позиции в опросах из-за рейтинга Трампа. Причиной этого является низкий рейтинг президента Дональда Трампа. Издание Axios сравнило ситуацию с красной сиреной. Трамп призывал избирателей голосовать так, как если бы он сам участвовал в выборах. Однако, судя по данным, многие проголосовали против. Республиканцев тянет вниз мощное течение, связанное с непопулярностью…",
+      "url": "https://t.me/lomovkaa/143294"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "143291",
+      "date": "2026-09-26",
+      "published_at": "2026-09-26T23:22:01+00:00",
+      "category": "lomovkaa",
+      "title": "Российские военные нанесли удары по объектам ВСУ в регионах Украины. Собрали основные сведения из сообщений военкоров и…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 971,
+      "more": "Российские военные нанесли удары по объектам ВСУ в регионах Украины. Собрали основные сведения из сообщений военкоров и соцсетей: ▪️ В Киеве власти официально подтвердили атаку на складское здание, начался пожар. ▪️ Также сообщается об ударе по целям в Бородянке Киевской области. ▪️ В Одессе после прилета в логистический центр «Эпицентр» вспыхнул сильный пожар. Минобороны России ранее сообщало…",
+      "url": "https://t.me/lomovkaa/143291"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "143290",
+      "date": "2026-09-26",
+      "published_at": "2026-09-26T22:53:01+00:00",
+      "category": "lomovkaa",
+      "title": "Поляки потребовали от властей пересмотра правил для украинских беженцев. Издание Mysl Polska призвало Варшаву изменить…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 761,
+      "more": "Поляки потребовали от властей пересмотра правил для украинских беженцев. Издание Mysl Polska призвало Варшаву изменить подход к украинским беженцам после инцидента, в котором гражданин Украины с ножом ранил пятерых человек в аббатстве, включая троих священников. Поляки требуют от политиков ответственности за предоставление украинцам особых условий на протяжении многих лет. В этом виновны все, кто…",
+      "url": "https://t.me/lomovkaa/143290"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "143289",
+      "date": "2026-09-26",
+      "published_at": "2026-09-26T22:24:01+00:00",
+      "category": "lomovkaa",
+      "title": "Украинские телеканалы исчезли из онлайн-сервисов после удара по дата-центру. Пользователи платформ Megogo и других…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 697,
+      "more": "Украинские телеканалы исчезли из онлайн-сервисов после удара по дата-центру. Пользователи платформ Megogo и других украинских онлайн-сервисов лишились части привычного контента. Это произошло из-за удара, который повредил центр обработки данных компании Cosmonova, что привело к перебоям в вещании на многих каналах. Телеканалы 1+1 и STB, входившие в число самых популярных среди зрителей…",
+      "url": "https://t.me/lomovkaa/143289"
+    },
+    {
+      "site": "tg-lomovka",
       "id": "143288",
       "date": "2026-09-26",
       "published_at": "2026-09-26T21:55:06+00:00",
@@ -905,88 +1120,18 @@
       "url": "https://t.me/lomovkaa/143288"
     },
     {
-      "site": "tg-lomovka",
-      "id": "143287",
+      "site": "tg-vilaghelyzete",
+      "id": "14288",
       "date": "2026-09-26",
-      "published_at": "2026-09-26T21:31:17+00:00",
-      "category": "lomovkaa",
-      "title": "Подборка материалов зарубежных СМИ к ночи 27 сентября. Haqqin : Сергей Лавров не обделил вниманием ни один регион мира…",
+      "published_at": "2026-09-26T20:33:22+00:00",
+      "category": "VilagHelyzeteBlog",
+      "title": "☄️ 🇷🇺 Szergej Lavrov, orosz külügyminiszter friss mai (2026. szeptember 26.) nyilatkozatai - ezek egy része a New…",
       "theme": "ukraine",
-      "lang": "cyr",
+      "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 853,
-      "more": "Подборка материалов зарубежных СМИ к ночи 27 сентября. Haqqin : Сергей Лавров не обделил вниманием ни один регион мира в своем выступлении на ГА ООН. Глава российского МИД высказался о Венесуэле, Ормузском кризисе, конфликте на Украине, блокаде Кубы и давлении Запада на другие страны. Neue Zürcher Zeitung : Посол США в НАТО Мэтью Уитакер поставил Старый Свет на четвертое место среди военных…",
-      "url": "https://t.me/lomovkaa/143287"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "143286",
-      "date": "2026-09-26",
-      "published_at": "2026-09-26T21:05:13+00:00",
-      "category": "lomovkaa",
-      "title": "Куба будет защищаться при военной угрозе со стороны США. Сохраняется опасность военной угрозы в отношении Кубы со…",
-      "theme": "energy",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1204,
-      "more": "Куба будет защищаться при военной угрозе со стороны США. Сохраняется опасность военной угрозы в отношении Кубы со стороны США. Если это произойдет, это станет позором для США, это приведет к смерти кубинцев и молодых американцев, — подчеркнул глава МИД карибской республики Бруно Родригес Паррилья. По его словам, Куба «со всей энергией и решимостью использует свое легитимное право защищаться».…",
-      "url": "https://t.me/lomovkaa/143286"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "143285",
-      "date": "2026-09-26",
-      "published_at": "2026-09-26T21:00:08+00:00",
-      "category": "lomovkaa",
-      "title": "Мы остаемся здесь — публикуем все самое оперативное и интересное. А если хотите еще больше новостей и быстро…",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 150,
-      "more": "Мы остаемся здесь — публикуем все самое оперативное и интересное. А если хотите еще больше новостей и быстро загружающихся видео, встречаемся в MАКС .",
-      "url": "https://t.me/lomovkaa/143285"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "143284",
-      "date": "2026-09-26",
-      "published_at": "2026-09-26T20:40:19+00:00",
-      "category": "lomovkaa",
-      "title": "Пленный ВСУ рассказал о задании сделать фото с флагом Украины в Могрицах. По словам пленного бойца ВСУ Игоря Мухина, он…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 881,
-      "more": "Пленный ВСУ рассказал о задании сделать фото с флагом Украины в Могрицах. По словам пленного бойца ВСУ Игоря Мухина, он 25 лет прожил в Португалии и получил гражданство этой страны, при этом от украинского гражданства не отказался. Весной этого года его мать, проживающая на Украине, перестала отвечать на телефонные звонки, после чего Игорь приехал на родину, где его мобилизовали, распределили в…",
-      "url": "https://t.me/lomovkaa/143284"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "143283",
-      "date": "2026-09-26",
-      "published_at": "2026-09-26T20:15:16+00:00",
-      "category": "lomovkaa",
-      "title": "Трамп отверг план Ирана по Ормузу из-за отсутствия доверия к Тегерану. В эфире телеканала Fox News у американского…",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 699,
-      "more": "Трамп отверг план Ирана по Ормузу из-за отсутствия доверия к Тегерану. В эфире телеканала Fox News у американского постпреда при ООН Майка Уолтца спросили, связан ли отказ Трампа с тем, что он не верит, что Иран будет придерживаться своих обязательств по договоренности. Это отчасти так. Они нарушили прошлую сделку, — ответил он. Уолтц ушел от ответа на вопрос о готовности США возобновить…",
-      "url": "https://t.me/lomovkaa/143283"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "143282",
-      "date": "2026-09-26",
-      "published_at": "2026-09-26T19:50:19+00:00",
-      "category": "lomovkaa",
-      "title": "Зеленский* на переговорах требует обеспечить его золотым парашютом. Глава киевского режима живет в постоянном страхе…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 769,
-      "more": "Зеленский* на переговорах требует обеспечить его золотым парашютом. Глава киевского режима живет в постоянном страхе из-за того, что с ним произойдет, отметил бывший премьер Украины Николай Азаров. И поэтому одна из тем всех его абсолютно переговоров, особенно когда они проходят кулуарно, это обеспечение его «золотого парашюта», — заявил он. Срок полномочий Зеленского истек 20 мая 2024 года.…",
-      "url": "https://t.me/lomovkaa/143282"
+      "chars": 2344,
+      "more": "☄️ 🇷🇺 Szergej Lavrov, orosz külügyminiszter friss mai (2026. szeptember 26.) nyilatkozatai - ezek egy része a New York-i ENSZ-közgyűlésen, illetve az ahhoz kapcsolódó sajtónyilatkozataiban hangzott el. Az ENSZ saját oldalán is elérhető Lavrov mai sajtótájékoztatójának átirata. 💬 \"Kérjük, hogy a venezuelai Maduro elnököt és feleségét Cilia Florest azonnal szabadítsák ki, engedjék el és hogy…",
+      "url": "https://t.me/VilagHelyzeteBlog/14288"
     },
     {
       "site": "tg-vilaghelyzete",
@@ -1221,17 +1366,6 @@
       "date_is_capture": false
     },
     {
-      "site": "tsargrad",
-      "date": "2026-09-26",
-      "category": "tsargrad",
-      "title": "Главное к вечеру 26 сентября. Трамп гонит Зеленского в Москву. На Украине \"вырубаются\" телеканалы. Польша готова строить военную базу США",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/glavnoe-k-vecheru-26-sentjabrja-tramp-gonit-zelenskogo-v-moskvu-na-ukraine-vyrubajutsja-telekanaly-polsha-gotova-stroit-voennuju-bazu-ssha_1882595",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-09-26",
       "category": "news-front",
@@ -1240,17 +1374,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://news-front.su/2026/09/26/sily-pvo-za-den-unichtozhili-105-bpla-vsu/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-26",
-      "category": "rt",
-      "title": "Министр иностранных дел России Сергей Лавров провёл пресс-конференцию по итогам 81-й сессии Генассамблеи ООН. RT вёл прямую трансляцию.",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/article/1687445-lavrov-press-konferenciya-oon",
-      "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
@@ -1275,17 +1398,6 @@
       "date_is_capture": false
     },
     {
-      "site": "tsargrad",
-      "date": "2026-09-26",
-      "category": "tsargrad",
-      "title": "Медведи \"закрыли\" самую длинную лестницу в России. В Подмосковье – рост числа жалоб на хищников. Когда решится проблема?",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/medvedi-zakryli-samuju-dlinnuju-lestnicu-v-rossii-v-podmoskove-rost-chisla-zhalob-na-hishhnikov-kogda-reshitsja-problema_1882561",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-09-26",
       "category": "news-front",
@@ -1294,17 +1406,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://news-front.su/2026/09/26/zhizn-na-osvobozhdennyh-territoriyah-26-sentyabrya-obnovlyaetsya-3/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-26",
-      "category": "rt",
-      "title": "Минфин раскрыл новые виды сбережений под страховку с 2027 года",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1687670-minfin-strahovanie-vklady",
-      "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
@@ -1329,17 +1430,6 @@
       "date_is_capture": false
     },
     {
-      "site": "tsargrad",
-      "date": "2026-09-26",
-      "category": "tsargrad",
-      "title": "Двойная игра: Трамп тянет войну с Ираном до выборов — и уже прибрал Гренландию",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/dvojnaja-igra-tramp-tjanet-vojnu-s-iranom-do-vyborov-i-uzhe-pribral-grenlandiju_1882303",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-09-26",
       "category": "news-front",
@@ -1348,17 +1438,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://news-front.su/2026/09/26/lavrov-ozvuchil-neobhodimye-kachestva-dlya-novogo-genseka-oon/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-26",
-      "category": "rt",
-      "title": "В аэропорту Сочи сняты ограничения на полёты",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1687671-sochi-aeroport-ogranicheniya-snyaty",
-      "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
@@ -1383,17 +1462,6 @@
       "date_is_capture": false
     },
     {
-      "site": "tsargrad",
-      "date": "2026-09-26",
-      "category": "tsargrad",
-      "title": "Украинские роботы в русском тылу. Пинчук честно сказал о большой проблеме",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/ukrainskie-roboty-v-russkom-tylu-pinchuk-chestno-skazal-o-bolshoj-probleme_1882701",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-09-26",
       "category": "news-front",
@@ -1402,17 +1470,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://news-front.su/2026/09/26/rossiya-prizyvaet-ssha-snyat-morskuyu-blokadu-s-kuby-lavrov/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-26",
-      "category": "rt",
-      "title": "В премьера Венгрии Мадьяра бросили яйцо во время выступления",
-      "theme": "hungary",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1687668-vengriya-premer-yaytso",
-      "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
@@ -1437,17 +1494,6 @@
       "date_is_capture": false
     },
     {
-      "site": "tsargrad",
-      "date": "2026-09-26",
-      "category": "tsargrad",
-      "title": "Скотт Риттер: \"Украина проиграла. Чем скорее мир это признает, тем больше украинцев останется в живых\"",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/skott-ritter-ukraina-proigrala-chem-skoree-mir-jeto-priznaet-tem-bolshe-ukraincev-ostanetsja-v-zhivyh_1876253",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-09-26",
       "category": "news-front",
@@ -1456,17 +1502,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://news-front.su/2026/09/26/aktualnaya-informacziya-ob-obstanovke-na-linii-fronta-26-sentyabrya-obnovlyaetsya-3/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-26",
-      "category": "rt",
-      "title": "В Швейцарии пройдёт референдум об ужесточении нейтралитета",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1687666-shveytsariya-referendum-neytralitet",
-      "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
@@ -1491,17 +1526,6 @@
       "date_is_capture": false
     },
     {
-      "site": "tsargrad",
-      "date": "2026-09-26",
-      "category": "tsargrad",
-      "title": "В Ульяновске волонтёры присоединились к ликвидации последствий атаки БПЛА",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/v-uljanovske-volontjory-prisoedinilis-k-likvidacii-posledstvij-ataki-bpla_1882621",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-09-26",
       "category": "news-front",
@@ -1510,17 +1534,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://news-front.su/2026/09/26/vo-franczii-otmenili-czeremoniyu-otkrytiya-pamyatnika-sovetskim-zhenshhinam-partizanam/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-26",
-      "category": "rt",
-      "title": "Владивосток отметит День тигра шествием и концертами",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1687663-den-tigra-vladivostok",
-      "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
@@ -1553,17 +1566,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://news-front.su/2026/09/26/vs-rf-porazili-logisticheskij-czentr-vsu-v-odesskoj-oblasti/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-26",
-      "category": "rt",
-      "title": "Росавиация ограничила приём и выпуск судов в Сочи",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1687661-sochi-aeroport-ogranicheniya",
-      "date_is_capture": true
     },
     {
       "site": "ukraina-ru",

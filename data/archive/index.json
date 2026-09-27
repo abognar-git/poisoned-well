@@ -1,7 +1,7 @@
 {
  "note": "Append-only archive of every item captured by scripts/capture_specimens.py. Headlines and provenance only — no article body text is collected. Items are never rewritten once archived; `first_seen` is when this project observed the item, which is not necessarily when it was published.",
- "updated": "2026-09-26T22:47:41+00:00",
- "items": 25226,
+ "updated": "2026-09-27T01:25:06+00:00",
+ "items": 25245,
  "first_date": "2022-03-30",
  "last_date": "2026-09-27",
  "published_range": [
@@ -10,7 +10,7 @@
  ],
  "observed_range": [
   "2026-08-11",
-  "2026-09-26"
+  "2026-09-27"
  ],
  "months": {
   "2022-03": 1,
@@ -20,15 +20,15 @@
   "2023-04": 1,
   "2026-07": 2,
   "2026-08": 11369,
-  "2026-09": 13848
+  "2026-09": 13867
  },
  "by_source": {
-  "rt-ru": 4685,
+  "rt-ru": 4696,
   "tg-oroszigazsag": 2775,
   "newsfront-ru": 2619,
-  "tg-lomovka": 2575,
+  "tg-lomovka": 2581,
   "ukraina-ru": 2487,
-  "pravda-hu": 1827,
+  "pravda-hu": 1829,
   "tg-ebredes": 1681,
   "tg-baltnews": 1281,
   "tg-greatawaken": 1268,
@@ -42,38 +42,38 @@
   "tg-rybar": 99
  },
  "by_tier": {
-  "outlet": 11981,
-  "origin": 11418,
-  "launderer": 1827
+  "outlet": 11992,
+  "origin": 11424,
+  "launderer": 1829
  },
  "by_theme": {
-  "filler": 9702,
-  "ukraine": 7107,
-  "russia": 4235,
-  "hungary": 2218,
+  "filler": 9710,
+  "ukraine": 7113,
+  "russia": 4238,
+  "hungary": 2220,
   "eu/nato": 1020,
   "energy": 944
  },
  "by_lang": {
-  "cyr": 14332,
-  "hu": 8518,
+  "cyr": 14349,
+  "hu": 8520,
   "lat": 2376
  },
  "by_unit": {
-  "headline": 13808,
-  "post_excerpt": 11418
+  "headline": 13821,
+  "post_excerpt": 11424
  },
  "theme_coverage": {
   "cyr": {
-   "items": 14332,
-   "scored": 14332,
-   "matched_a_topic": 9854,
+   "items": 14349,
+   "scored": 14349,
+   "matched_a_topic": 9863,
    "lexicon": "cyr"
   },
   "hu": {
-   "items": 8518,
-   "scored": 8518,
-   "matched_a_topic": 4558,
+   "items": 8520,
+   "scored": 8520,
+   "matched_a_topic": 4560,
    "lexicon": "lat"
   },
   "lat": {
