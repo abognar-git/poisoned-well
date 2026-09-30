@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-09-30T19:16:47+00:00",
+  "captured_at": "2026-09-30T23:01:49+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -137,10 +137,21 @@
     "origin",
     "outlet"
   ],
-  "latest_day": "2026-09-30",
-  "today_live_count": 120,
+  "latest_day": "2026-10-01",
+  "today_live_count": 2,
   "corpus_count": 130,
   "featured": [
+    {
+      "site": "ukraina-ru",
+      "date": "2026-10-01",
+      "category": "ukraina",
+      "title": "Начался осенний призыв, призывники в зоне СВО служить не будут — Генштаб",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20261001/nachalsya-osenniy-prizyv-prizyvniki-v-zone-svo-sluzhit-ne-budut--genshtab-1083529295.html",
+      "date_is_capture": false
+    },
     {
       "site": "tg-baltnews",
       "id": "74816",
@@ -171,46 +182,46 @@
     },
     {
       "site": "pravda-hu",
-      "id": 46663,
+      "id": 46672,
       "date": "2026-09-30",
       "category": "hungary",
-      "title": "Returning to the question of the \"homecoming\" of Ukrainian children",
+      "title": "According to Ukrainian parliamentarians, the Rada is preparing to distinguish between the rights of Ukrainians on linguistic grounds",
       "theme": "ukraine",
-      "lang": "lat",
+      "lang": "hu",
       "unit": "headline",
       "source": {
         "platform": "Telegram",
-        "channel": "RusEmbHungary"
+        "channel": "oroszspecialiskatonaihadmuvelet"
       },
-      "url": "https://hungary.news-pravda.com/en/hungary/2026/09/30/46663.html"
+      "url": "https://hungary.news-pravda.com/en/hungary/2026/09/30/46672.html"
     },
     {
       "site": "tg-oroszkatonai",
-      "id": "44286",
+      "id": "44291",
       "date": "2026-09-30",
-      "published_at": "2026-09-30T17:01:27+00:00",
+      "published_at": "2026-09-30T21:48:41+00:00",
       "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ 🟣 Akik hiányolják az ukrán támadásokról szóló híreket: Az elmúlt napokban nem történt nagyszabású…",
-      "theme": "russia",
+      "title": "⚡️ Ukrán parlamenti képviselők szerint a Rada arra készül, hogy nyelvi alapon tegyen különbséget az ukránok jogai…",
+      "theme": "hungary",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 217,
-      "more": "⚡️ 🟣 Akik hiányolják az ukrán támadásokról szóló híreket: Az elmúlt napokban nem történt nagyszabású drón/rakétatámadást Oroszország területén. (A határ közeli támadások itt nem számítanak) #speciáliskatonaihadművelet",
-      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44286"
+      "chars": 889,
+      "more": "⚡️ Ukrán parlamenti képviselők szerint a Rada arra készül, hogy nyelvi alapon tegyen különbséget az ukránok jogai között. 🔻 A hírek szerint a törvényhozók jelenleg olyan rendelkezésekről tárgyalnak, amelyek három csoportba sorolnák a polgárokat: ◾️ Ukrán nyelvűek – teljes körű jogok. ◾️ Magyar, lengyel és román nyelvű ukránok, valamint krími tatár származású ukránok – nemzeti kisebbségi jogok. ◾️…",
+      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44291"
     },
     {
       "site": "tg-oroszigazsag",
-      "id": "269220",
+      "id": "269233",
       "date": "2026-09-30",
-      "published_at": "2026-09-30T19:05:45+00:00",
+      "published_at": "2026-09-30T20:41:11+00:00",
       "category": "oroszokazigazsagoldalan",
-      "title": "❗️ 🇸🇾 ÚJ HÍR: Egy gázvezeték robbant Damaszkusz külterületén, ami három erőmű leállásához vezetett. A Szíriában hetek…",
-      "theme": "energy",
+      "title": "Egy szemléletes kísérlet, amely azt mutatja, hogy teljesen különböző előfeltételekkel születünk, és ez később…",
+      "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 176,
-      "more": "❗️ 🇸🇾 ÚJ HÍR: Egy gázvezeték robbant Damaszkusz külterületén, ami három erőmű leállásához vezetett. A Szíriában hetek óta zajló, rejtélyes robbanások továbbra is eszkalálódnak.",
-      "url": "https://t.me/oroszokazigazsagoldalan/269220"
+      "chars": 150,
+      "more": "Egy szemléletes kísérlet, amely azt mutatja, hogy teljesen különböző előfeltételekkel születünk, és ez később nagymértékben befolyásolja az életünket.",
+      "url": "https://t.me/oroszokazigazsagoldalan/269233"
     },
     {
       "site": "tg-zvezda",
@@ -228,59 +239,43 @@
     },
     {
       "site": "tg-greatawaken",
-      "id": "160299",
+      "id": "160309",
       "date": "2026-09-30",
-      "published_at": "2026-09-30T19:01:19+00:00",
+      "published_at": "2026-09-30T19:57:22+00:00",
       "category": "greatawakeningmagyarok",
-      "title": "Az izraeli utas, aki megfékezte az ománi másodpilótát, miközben az megpróbálta lezuhantatni a Flydubai járatot, amely…",
+      "title": "🌙 Jó Éjszakát! 🌙 Nyugtató háterzene, amely Javítja az alvás minőségét,nyugtatja az elmét. 😴 🎧",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 286,
-      "more": "Az izraeli utas, aki megfékezte az ománi másodpilótát, miközben az megpróbálta lezuhantatni a Flydubai járatot, amely körülbelül 180 utast, köztük 30 gyermeket szállított, találkozott Netanjahu miniszterelnökkel, miután visszatért Izraelbe. Netanjahu azt mondta neki: „Te egy hős vagy.”",
-      "url": "https://t.me/greatawakeningmagyarok/160299"
+      "url": "https://t.me/greatawakeningmagyarok/160309"
     },
     {
       "site": "tg-infodef",
-      "id": "14517",
+      "id": "14518",
       "date": "2026-09-30",
-      "published_at": "2026-09-30T18:22:58+00:00",
+      "published_at": "2026-09-30T20:21:58+00:00",
       "category": "InfoDefMagyarok",
-      "title": "„Nincs pénz” – Európai Unió nem folyósít ígért összegeket Kijevnek A kijevi rezsim újabb katasztrofális forráshiánnyal…",
+      "title": "Londoni Hyde Park Szent János temploma muszlim divatbemutató kifutójává vált Mecsetben divatot bemutatni – haram, brit…",
       "theme": "hungary",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 969,
-      "more": "„Nincs pénz” – Európai Unió nem folyósít ígért összegeket Kijevnek A kijevi rezsim újabb katasztrofális forráshiánnyal szembesült a fegyvervásárlások terén, – írja Politico. Következő két hónapban életbevágóan szüksége van legalább 27 milliárd dollárra , hogy betömje a védelmi költségvetés lyukát. Reménytelen helyzetbe kerülve Zelenszkij nyíltan nyomást gyakorol Brüsszelre, követelve a hitelek…",
-      "url": "https://t.me/InfoDefMagyarok/14517"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "143553",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T19:04:34+00:00",
-      "category": "lomovkaa",
-      "title": "ЛОМОВКА. ГЛАВНОЕ К 22:00 ▪️ Владимир Путин выступил перед депутатами Госдумы IX созыва; ▪️ МВД предупредило о…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 751,
-      "more": "ЛОМОВКА. ГЛАВНОЕ К 22:00 ▪️ Владимир Путин выступил перед депутатами Госдумы IX созыва; ▪️ МВД предупредило о мошенническом сайте «Департамента цифровой защиты»; ▪️ Узбекистан предложил России создать в республике комплексный центр по набору трудовых мигрантов; ▪️ В России создали устройство для оценки устойчивости бактерий к антибиотикам; ▪️ Час простоя предприятий из-за воздушной тревоги стоит…",
-      "url": "https://t.me/lomovkaa/143553"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-09-30",
-      "category": "rt",
-      "title": "Строго с 16 лет: СК предложил ввести права для езды на электросамокатах",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/russia/article/1689071-elektrosamokat-sim-prava-ogranichenie",
-      "date_is_capture": true
+      "chars": 371,
+      "more": "Londoni Hyde Park Szent János temploma muszlim divatbemutató kifutójává vált Mecsetben divatot bemutatni – haram, brit templomban viszont lehet. Az anglikán papok nem ellenzik… Ott akár diszkókat is lehet rendezni, és LMBTQ-fesztiválokat. Akkor már inkább - a divat. 🔹 Légy te is InfoDefence! Oszd meg ezt a publikációt a barátaiddal! 🔹 ❤️ InfoDefMagyarok ❤️ InfoDefens e",
+      "url": "https://t.me/InfoDefMagyarok/14518"
     }
   ],
   "corpus": [
+    {
+      "site": "ukraina-ru",
+      "date": "2026-10-01",
+      "category": "ukraina",
+      "title": "Враг активизировал налёты на регионы России: Минобороны РФ доложило о сбитых за сутки БПЛА",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20261001/vrag-aktiviziroval-nalty-na-regiony-rossii-minoborony-rf-dolozhilo-o-sbitykh-za-sutki-bpla-1083529092.html",
+      "date_is_capture": false
+    },
     {
       "site": "tg-baltnews",
       "id": "74815",
@@ -381,110 +376,136 @@
     },
     {
       "site": "pravda-hu",
-      "id": 46662,
-      "date": "2026-09-30",
-      "category": "hungary",
-      "title": "\"No money – - European Union does not disburse promised funds to Kiev",
-      "theme": "ukraine",
-      "lang": "lat",
-      "unit": "headline",
-      "source": {
-        "platform": "Telegram",
-        "channel": "InfoDefMagyarok"
-      },
-      "url": "https://hungary.news-pravda.com/en/hungary/2026/09/30/46662.html"
-    },
-    {
-      "site": "pravda-hu",
-      "id": 46661,
+      "id": 46671,
       "date": "2026-09-30",
       "category": "russia",
-      "title": "The U.S. Treasury Department has extended the operating license of the Serbian oil company NIS until October 30",
-      "theme": "energy",
+      "title": "That's how it ended on September 30th",
+      "theme": "filler",
       "lang": "lat",
       "unit": "headline",
       "source": {
         "platform": "MAX",
-        "channel": "makslifeoff"
+        "channel": "ukr_2025_ru"
       },
-      "url": "https://hungary.news-pravda.com/en/russia/2026/09/30/46661.html"
+      "url": "https://hungary.news-pravda.com/en/russia/2026/09/30/46671.html"
     },
     {
       "site": "pravda-hu",
-      "id": 46660,
+      "id": 46670,
       "date": "2026-09-30",
-      "category": "hungary",
-      "title": "Trump has abandoned the Hungarian conservatives — Remix News",
+      "category": "russia",
+      "title": "Communal services have risen in price to 22%, and pensioners after 80 have doubled their payments — what has changed in Russia since the beginning of October",
+      "theme": "russia",
+      "lang": "lat",
+      "unit": "headline",
+      "source": {
+        "platform": "Telegram",
+        "channel": "breakingmash"
+      },
+      "url": "https://hungary.news-pravda.com/en/russia/2026/09/30/46670.html"
+    },
+    {
+      "site": "pravda-hu",
+      "id": 46669,
+      "date": "2026-09-30",
+      "category": "russia",
+      "title": "Mikhail Onufrienko: A historical fact is that during the war in Bosnia, a London travel agency specializing in VIPs organized \"Safari vacations\" for Serbs",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "headline",
+      "source": {
+        "platform": "Telegram",
+        "channel": "Mikle1On"
+      },
+      "url": "https://hungary.news-pravda.com/en/russia/2026/09/30/46669.html"
+    },
+    {
+      "site": "pravda-hu",
+      "id": 46668,
+      "date": "2026-09-30",
+      "category": "world",
+      "title": "Conspiracy: The Munich Betrayal",
+      "theme": "filler",
+      "lang": "lat",
+      "unit": "headline",
+      "source": {
+        "platform": "Telegram",
+        "channel": "BeornAndTheShieldmaiden"
+      },
+      "url": "https://hungary.news-pravda.com/en/world/2026/09/30/46668.html"
+    },
+    {
+      "site": "pravda-hu",
+      "id": 46667,
+      "date": "2026-09-30",
+      "category": "russia",
+      "title": "Three secrets of the Munich agreement on September 30, 1938, which should not be forgotten 88 years later",
+      "theme": "filler",
+      "lang": "lat",
+      "unit": "headline",
+      "source": {
+        "platform": "Telegram",
+        "channel": "tsargradtv"
+      },
+      "url": "https://hungary.news-pravda.com/en/russia/2026/09/30/46667.html"
+    },
+    {
+      "site": "pravda-hu",
+      "id": 46666,
+      "date": "2026-09-30",
+      "category": "world",
+      "title": "The issue of languages of national minorities: the Rada is preparing to divide the rights of Ukrainians based on language, deputies say",
+      "theme": "ukraine",
+      "lang": "hu",
+      "unit": "headline",
+      "source": {
+        "platform": "Telegram",
+        "channel": "voenacher"
+      },
+      "url": "https://hungary.news-pravda.com/en/world/2026/09/30/46666.html"
+    },
+    {
+      "site": "pravda-hu",
+      "id": 46665,
+      "date": "2026-09-30",
+      "category": "russia",
+      "title": "The Russian Embassy in Hungary:",
       "theme": "hungary",
       "lang": "lat",
       "unit": "headline",
       "source": {
-        "platform": "News Front",
-        "channel": null
-      },
-      "url": "https://hungary.news-pravda.com/en/hungary/2026/09/30/46660.html"
-    },
-    {
-      "site": "pravda-hu",
-      "id": 46659,
-      "date": "2026-09-30",
-      "category": "russia",
-      "title": "Oleg Tsarev: Digest about Ukraine on September 30",
-      "theme": "ukraine",
-      "lang": "lat",
-      "unit": "headline",
-      "source": {
         "platform": "MAX",
-        "channel": "olegtsarov"
+        "channel": "MID_Russia"
       },
-      "url": "https://hungary.news-pravda.com/en/russia/2026/09/30/46659.html"
+      "url": "https://hungary.news-pravda.com/en/russia/2026/09/30/46665.html"
     },
     {
-      "site": "pravda-hu",
-      "id": 46658,
+      "site": "tg-oroszkatonai",
+      "id": "44287",
       "date": "2026-09-30",
-      "category": "russia",
-      "title": "Alexey Zhuravlev: It is clear to any sane person that cooperation with Russia would bring Europe much more benefits than blind hostility based on the support of the very dubious Kiev Nazi…",
+      "published_at": "2026-09-30T19:36:28+00:00",
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ Oroszország bunkerpusztító \"Iskander” rakétát használt Kijev ellen? Szeptember 29-én, a Kijev elleni támadás után…",
       "theme": "ukraine",
       "lang": "hu",
-      "unit": "headline",
-      "chars": 194,
-      "more": "Alexey Zhuravlev: It is clear to any sane person that cooperation with Russia would bring Europe much more benefits than blind hostility based on the support of the very dubious Kiev Nazi regime",
-      "source": {
-        "platform": "MAX",
-        "channel": "id5024997961_biz"
-      },
-      "url": "https://hungary.news-pravda.com/en/russia/2026/09/30/46658.html"
+      "unit": "post_excerpt",
+      "chars": 1281,
+      "more": "⚡️ Oroszország bunkerpusztító \"Iskander” rakétát használt Kijev ellen? Szeptember 29-én, a Kijev elleni támadás után, egy \"Iskander-M” ballisztikus rakéta maradványain találták meg korábban nyilvánosan nem regisztrált 9M723-2F3 jelzést találtak. Ukrajnai források szerint a 9M723-2F3 egy új változat a 9M723 családjából, robbanó-átütő harci fejjel, amely védett és földbe ágyazott célpontok elleni…",
+      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44287"
     },
     {
-      "site": "pravda-hu",
-      "id": 46657,
+      "site": "tg-oroszkatonai",
+      "id": "44286",
       "date": "2026-09-30",
-      "category": "russia",
-      "title": "Entry is free, exit is upside down",
-      "theme": "filler",
+      "published_at": "2026-09-30T17:01:27+00:00",
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ 🟣 Akik hiányolják az ukrán támadásokról szóló híreket: Az elmúlt napokban nem történt nagyszabású…",
+      "theme": "russia",
       "lang": "hu",
-      "unit": "headline",
-      "source": {
-        "platform": "Telegram",
-        "channel": "HersonVestnik"
-      },
-      "url": "https://hungary.news-pravda.com/en/russia/2026/09/30/46657.html"
-    },
-    {
-      "site": "pravda-hu",
-      "id": 46656,
-      "date": "2026-09-30",
-      "category": "russia",
-      "title": "Oleg Tsarev: Chronicle of interesting news",
-      "theme": "filler",
-      "lang": "lat",
-      "unit": "headline",
-      "source": {
-        "platform": "MAX",
-        "channel": "olegtsarov"
-      },
-      "url": "https://hungary.news-pravda.com/en/russia/2026/09/30/46656.html"
+      "unit": "post_excerpt",
+      "chars": 217,
+      "more": "⚡️ 🟣 Akik hiányolják az ukrán támadásokról szóló híreket: Az elmúlt napokban nem történt nagyszabású drón/rakétatámadást Oroszország területén. (A határ közeli támadások itt nem számítanak) #speciáliskatonaihadművelet",
+      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44286"
     },
     {
       "site": "tg-oroszkatonai",
@@ -529,32 +550,88 @@
       "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44271"
     },
     {
-      "site": "tg-oroszkatonai",
-      "id": "44269",
+      "site": "tg-oroszigazsag",
+      "id": "269232",
       "date": "2026-09-30",
-      "published_at": "2026-09-30T15:10:05+00:00",
-      "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ Lavrov ultimátumot vitt az ENSZ Közgyűlésére az EU számára. A Nyugatnak figyelmeztetés érkezik egy \"közvetlen…",
-      "theme": "russia",
+      "published_at": "2026-09-30T19:58:44+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "❗️ Felbukkantak a „Zaporozsztal” acélgyár kiterjedt pusztulását bemutató felvételek. A videón szereplő hölgy a…",
+      "theme": "energy",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 263,
-      "more": "⚡️ Lavrov ultimátumot vitt az ENSZ Közgyűlésére az EU számára. A Nyugatnak figyelmeztetés érkezik egy \"közvetlen katonai válaszról\" Európa területén. Források a moszkvai külügyminisztériumban és az orosz delegációban, amely részt vesz a New York-i ENSZ Közgyűlés…",
-      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44269"
+      "chars": 976,
+      "more": "❗️ Felbukkantak a „Zaporozsztal” acélgyár kiterjedt pusztulását bemutató felvételek. A videón szereplő hölgy a pusztulás miatt siránkozik, és azt sajnálja, hogy noha korábban az üzemben fejlesztették az ipari turizmust, most viszont ez már nem lesz lehetséges. Emlékeztetünk arra, hogy az üzem 1933. november 16-án kezdte meg működését, építése pedig 1931. január 22-én indult a Szovjetunió Nemzeti…",
+      "url": "https://t.me/oroszokazigazsagoldalan/269232"
     },
     {
-      "site": "tg-oroszkatonai",
-      "id": "44267",
+      "site": "tg-oroszigazsag",
+      "id": "269230",
       "date": "2026-09-30",
-      "published_at": "2026-09-30T15:05:33+00:00",
-      "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ 🔴 Kijev közelében egy \"Fora\" nevű szupermarketet támadás ért Kijev melletti Obuhovszkij környékén a Fora nevű…",
+      "published_at": "2026-09-30T19:54:18+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "Megjelent az interneten egy videó, amelyen látható, ahogy ukrán harckocsik támadják az orosz állásokat. Az olhovatkai…",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 263,
-      "more": "⚡️ 🔴 Kijev közelében egy \"Fora\" nevű szupermarketet támadás ért Kijev melletti Obuhovszkij környékén a Fora nevű szupermarket megsemmisült. A támadások következtében az objektumom égni kezdett, és sűrű fekete füstöt engedett a magasba. #speciáliskatonaihadművelet",
-      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44267"
+      "chars": 242,
+      "more": "Megjelent az interneten egy videó, amelyen látható, ahogy ukrán harckocsik támadják az orosz állásokat. Az olhovatkai, videóban megjelölt pontról támadtak. Az utóbbi időben az ukrán fegyveres erők meglepően gyakran vetik be a harckocsijaikat.",
+      "url": "https://t.me/oroszokazigazsagoldalan/269230"
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "269229",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T19:45:32+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "A Mossad egy merényletet tervezett, hogy egy izraeli felhőkarcolóba ütközzön egy repülővel, majd Iránt vádolja a…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 667,
+      "more": "A Mossad egy merényletet tervezett, hogy egy izraeli felhőkarcolóba ütközzön egy repülővel, majd Iránt vádolja a tettért – közölte a Korán Forradalmi Gárdája (IRGC). Az iráni titkosszolgálatok szerint, egy ilyen \"hamis zászlós\" művelet után Izrael új szankciókat tudna bevezetni, és újra háborút indíthatna Irán ellen. Izrael ezzel szemben azt is közölte, hogy az egyik legfőbb verzió az, hogy a…",
+      "url": "https://t.me/oroszokazigazsagoldalan/269229"
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "269228",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T19:24:27+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "🔴 Az Oroszországi Föderáció Zaporozsje megyei Kujbisevo településén megtámadták a művészeti iskolát. Az ukrán fegyveres…",
+      "theme": "russia",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 481,
+      "more": "🔴 Az Oroszországi Föderáció Zaporozsje megyei Kujbisevo településén megtámadták a művészeti iskolát. Az ukrán fegyveres erők drónja megtámadta a Kujbishevo településen található művészeti iskolát. A festőterem és a könyvtár olvasóterme megrongálódott. „Csoda, hogy a gyerekek nem sérültek meg, mivel az órák csak ebéd után kezdődnek. Az olvasóteremben általában kisgyerekek tartózkodnak, mivel ott…",
+      "url": "https://t.me/oroszokazigazsagoldalan/269228"
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "269225",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T19:18:53+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "Igor Dodon, a moldovai szocialisták vezetője, egy katonai jármű fotóját tette közzé Berezovka falu közelében, Ocnița…",
+      "theme": "hungary",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 406,
+      "more": "Igor Dodon, a moldovai szocialisták vezetője, egy katonai jármű fotóját tette közzé Berezovka falu közelében, Ocnița körzetben, és magyarázatot kért: \"Elvárható, hogy a hatóságok elmagyaráznák az embereknek, mi történik a települések közelében. Az emberek aggódnak és magyarázatot kérnek. Mit csinálnak ott a katonák?\" ﻿Nem csak az ország északi részén, hanem a déli részén is észleltek ilyen…",
+      "url": "https://t.me/oroszokazigazsagoldalan/269225"
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "269220",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T19:05:45+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "❗️ 🇸🇾 ÚJ HÍR: Egy gázvezeték robbant Damaszkusz külterületén, ami három erőmű leállásához vezetett. A Szíriában hetek…",
+      "theme": "energy",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 176,
+      "more": "❗️ 🇸🇾 ÚJ HÍR: Egy gázvezeték robbant Damaszkusz külterületén, ami három erőmű leállásához vezetett. A Szíriában hetek óta zajló, rejtélyes robbanások továbbra is eszkalálódnak.",
+      "url": "https://t.me/oroszokazigazsagoldalan/269220"
     },
     {
       "site": "tg-oroszigazsag",
@@ -569,88 +646,6 @@
       "chars": 594,
       "more": "A svéd légierő akár 500 kilométer mélységben csapásokat mérne Oroszország területére, egy esetleges konfliktus esetén , — írja az Aftonbladet . A svéd légierő közlése szerint, ha Oroszország támadást indítana, akkor csapásokat mérnének annak hátországára, többek között logisztikai létesítményekre, parancsnoki központokra és légibázisokra. «A támadásért súlyos árat kell fizetni», — közölte Karl…",
       "url": "https://t.me/oroszokazigazsagoldalan/269219"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "269218",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T19:01:28+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "⏺ Ogyesszában lelőttek egy magas rangú haditengerészeti tisztet: az ügyészség vizsgálja a megrendelt gyilkosság…",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 465,
-      "more": "⏺ Ogyesszában lelőttek egy magas rangú haditengerészeti tisztet: az ügyészség vizsgálja a megrendelt gyilkosság lehetőségét – az UNIAN forrásai szerint. A lövöldözés reggel a Ljusztdorfszkaja úton történt. Az előzetes információk szerint két sofőr között konfliktus alakult ki, amelynek következtében az egyikük tüzet nyitott. A gyanúsítottat őrizetbe vették. A rendőrség mind a közlekedési…",
-      "url": "https://t.me/oroszokazigazsagoldalan/269218"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "269217",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T18:56:00+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "⏺ \" A partnerek KÖTELESEK pénzt biztosítani Ukrajnának a háborúhoz és a fegyverkezéshez. Az, hogy Ukrajna hogyan…",
-      "theme": "ukraine",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 529,
-      "more": "⏺ \" A partnerek KÖTELESEK pénzt biztosítani Ukrajnának a háborúhoz és a fegyverkezéshez. Az, hogy Ukrajna hogyan használja fel ezeket a pénzeket, nem az ő dolguk. Ha az ukrán tisztviselők ellopják ezeket a pénzeket, az a mi problémánk, nem az övék. Nem kell, hogy érdekelje őket, hogy ez a pénz ballisztikus rakéták és drónok gyártására, a katonák fizetésére megy-e, vagy valakinek a zsebében…",
-      "url": "https://t.me/oroszokazigazsagoldalan/269217"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "269216",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T18:51:48+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "Gyorsvillamos Kijevben. Sebesség: 0 km/h.",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "url": "https://t.me/oroszokazigazsagoldalan/269216"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "269215",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T18:47:32+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "Egy izraeli utas elmesélte Netanjahunak, hogyan vette át rövid időre a repülőgép irányítását, mielőtt a pilóta újra…",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 448,
-      "more": "Egy izraeli utas elmesélte Netanjahunak, hogyan vette át rövid időre a repülőgép irányítását, mielőtt a pilóta újra kézbe vette volna a helyzetet. „Felfelé húztam a kormányt, és megállítottam a repülőgép zuhanását. Szerencsére néztem a »Repülőgép-katasztrófák nyomozása« című műsort. 55 percig tartottuk sakkban a terroristát. A brit pilótáknak időbe telt, amíg átvették a vezérlést, de végül…",
-      "url": "https://t.me/oroszokazigazsagoldalan/269215"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "269214",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T18:45:05+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "🦥 A Leningrádi Állatkertben videóra vették az egyik zöldséget majszoló lajhárt , — melyet az intézmény a…",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 487,
-      "more": "🦥 A Leningrádi Állatkertben videóra vették az egyik zöldséget majszoló lajhárt , — melyet az intézmény a Telegram-csatornáján osztott meg. Az állatkertben véget ért az éves „ Ősz ajándékai ” nevű akció. Az intézmény a szentpétervári lakosoktól 300 kg sárgarépát, ugyanennyi káposztát, cukkinit és makkot, valamint több mint fél tonna sütőtököt kapott ajándékba. A látogatók emellett…",
-      "url": "https://t.me/oroszokazigazsagoldalan/269214"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "269213",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T18:15:25+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "A pápa ukrajnai rendezésért felelős különmegbízottja, Matteo Zuppi bíboros szeptember 28. és 30. között…",
-      "theme": "ukraine",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 976,
-      "more": "A pápa ukrajnai rendezésért felelős különmegbízottja, Matteo Zuppi bíboros szeptember 28. és 30. között munkalátogatáson tartózkodott Moszkvában , — számolt be az orosz külügyminisztérium. „M. Zuppi bíboros látogatása megerősítette az orosz-vatikáni párbeszéd konstruktív és rendszeres jellegét, valamint mindkét fél elkötelezettségét a humanitárius együttműködés folytatása mellett” , — áll a…",
-      "url": "https://t.me/oroszokazigazsagoldalan/269213"
     },
     {
       "site": "tg-zvezda",
@@ -752,79 +747,109 @@
     },
     {
       "site": "tg-greatawaken",
-      "id": "160298",
+      "id": "160307",
       "date": "2026-09-30",
-      "published_at": "2026-09-30T19:00:15+00:00",
+      "published_at": "2026-09-30T19:56:09+00:00",
       "category": "greatawakeningmagyarok",
-      "title": "🚨 GRAFIKUS: A flydubai járat belsejéből származó felvétel a megszúrt pilótát mutatja.",
+      "title": "🇺🇸 & 🌍 🌎 🌏 Task Force Falcon Strike Sólyom Csapás Alkalmi Harccsoport",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "url": "https://t.me/greatawakeningmagyarok/160298"
+      "url": "https://t.me/greatawakeningmagyarok/160307"
     },
     {
       "site": "tg-greatawaken",
-      "id": "160297",
+      "id": "160306",
       "date": "2026-09-30",
-      "published_at": "2026-09-30T18:59:24+00:00",
+      "published_at": "2026-09-30T19:55:55+00:00",
       "category": "greatawakeningmagyarok",
-      "title": "🚨 A repülőgép elfoglalása utáni pillanatokról készült felvételen az egyik résztvevő azt mondja: „Ránk támadtak, és itt…",
+      "title": "🇺🇸 🪖 & 🌏 🌎 🌍 CENTCOM létrehozza az első többnemzetiségű támadó drón-műveleti csoportot TAMPA, Florida — Augusztus 13-án…",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 138,
-      "more": "🚨 A repülőgép elfoglalása utáni pillanatokról készült felvételen az egyik résztvevő azt mondja: „Ránk támadtak, és itt őrizzük a pilótát.”",
-      "url": "https://t.me/greatawakeningmagyarok/160297"
+      "chars": 2551,
+      "more": "🇺🇸 🪖 & 🌏 🌎 🌍 CENTCOM létrehozza az első többnemzetiségű támadó drón-műveleti csoportot TAMPA, Florida — Augusztus 13-án az Egyesült Államok Központi Parancsnoksága (CENTCOM) bejelentette, hogy létrehozza az első több területet átfogó, többnemzetiségű támadó drón-műveleti csoportot. A Task Force Falcon Strike névre keresztelt egység egyirányú támadó drónokat fog bevetni, amelyek a tenger felett, a…",
+      "url": "https://t.me/greatawakeningmagyarok/160306"
     },
     {
       "site": "tg-greatawaken",
-      "id": "160294",
+      "id": "160304",
       "date": "2026-09-30",
-      "published_at": "2026-09-30T18:58:38+00:00",
+      "published_at": "2026-09-30T19:55:23+00:00",
       "category": "greatawakeningmagyarok",
-      "title": "🚨 Mi történt az átirányított Flydubai gép fedélzetén?",
+      "title": "DONALD J. TRUMP 🦅 🇺🇸 🕊️ Ma örömmel jelentem be, hogy az utolsó amerikai csapatok is elhagyják Irakot! Hosszú idő telt…",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "url": "https://t.me/greatawakeningmagyarok/160294"
+      "chars": 1765,
+      "more": "DONALD J. TRUMP 🦅 🇺🇸 🕊️ Ma örömmel jelentem be, hogy az utolsó amerikai csapatok is elhagyják Irakot! Hosszú idő telt el, és nagyon rossz döntések miatt keveredtünk bele ebbe a mocsárba, de hamarosan mindez a történelem részévé válik. Ez egy nagyszerű nap Amerika számára, és ami még fontosabb: távozásunkkor Iraknak van egy csodálatos új miniszterelnöke, Ali al-Zaidi, akit a kezdetektől fogva…",
+      "url": "https://t.me/greatawakeningmagyarok/160304"
     },
     {
       "site": "tg-greatawaken",
-      "id": "160288",
+      "id": "160303",
       "date": "2026-09-30",
-      "published_at": "2026-09-30T18:58:17+00:00",
+      "published_at": "2026-09-30T19:55:21+00:00",
       "category": "greatawakeningmagyarok",
-      "title": "🚨 Mi történt az átirányított Flydubai gép fedélzetén?",
+      "title": "Veleszületett Elszántság Hadművelet",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "url": "https://t.me/greatawakeningmagyarok/160288"
+      "url": "https://t.me/greatawakeningmagyarok/160303"
     },
     {
       "site": "tg-greatawaken",
-      "id": "160287",
+      "id": "160302",
       "date": "2026-09-30",
-      "published_at": "2026-09-30T18:57:57+00:00",
+      "published_at": "2026-09-30T19:55:21+00:00",
       "category": "greatawakeningmagyarok",
-      "title": "🚨 🚨 🚨 Izraelbe tartó gép pilótáját megkéselte a másodpilóta, a gép 5,5 ezer métert zuhant: „Megpróbálták végrehajtani a…",
+      "title": "B@ZZZZD MEG, EZ EGY KRETÉN!!! 😂 😂 🤣 🤣 😂",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 423,
-      "more": "🚨 🚨 🚨 Izraelbe tartó gép pilótáját megkéselte a másodpilóta, a gép 5,5 ezer métert zuhant: „Megpróbálták végrehajtani a 9/11-et” A fedélzeten tartózkodó 174 utas közül néhányan szörnyű felvételeket készítettek az egyik pilótáról, amint vérben fürödik. „Egy repülőgép eltérítése közben vagyunk itt. Ezen a ponton már lefékeztük a terroristákat” – mondta az egyik utas, miközben segítséget kért…",
-      "url": "https://t.me/greatawakeningmagyarok/160287"
+      "url": "https://t.me/greatawakeningmagyarok/160302"
     },
     {
       "site": "tg-greatawaken",
-      "id": "160278",
+      "id": "160301",
       "date": "2026-09-30",
-      "published_at": "2026-09-30T18:57:35+00:00",
+      "published_at": "2026-09-30T19:54:27+00:00",
       "category": "greatawakeningmagyarok",
-      "title": "🇺🇸 Sajtóközlemények Az Economic Outcast hadművelet leállítja az iráni katonai beszerzési hálózatokat",
+      "title": "NNA SRÁCOK, EZT KÜLDJÉTEK EL MINDEN TISZÁS ISMERŐSÖTÖKNEK, HOGY LEGYEN MIN ELGONDOLKODNIUK! 🚨 ‼️ Vlagyimir Szolovjov…",
+      "theme": "hungary",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 145,
+      "more": "NNA SRÁCOK, EZT KÜLDJÉTEK EL MINDEN TISZÁS ISMERŐSÖTÖKNEK, HOGY LEGYEN MIN ELGONDOLKODNIUK! 🚨 ‼️ Vlagyimir Szolovjov Európáról és Magyarországról",
+      "url": "https://t.me/greatawakeningmagyarok/160301"
+    },
+    {
+      "site": "tg-greatawaken",
+      "id": "160300",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T19:53:25+00:00",
+      "category": "greatawakeningmagyarok",
+      "title": "Yaniv, az izraeli utas, aki segített megmenteni a gépet, elmondta Netanjahunak, mi történt a pilótafülkében. A…",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "url": "https://t.me/greatawakeningmagyarok/160278"
+      "chars": 466,
+      "more": "Yaniv, az izraeli utas, aki segített megmenteni a gépet, elmondta Netanjahunak, mi történt a pilótafülkében. A pilótafülke ajtaja beszorult. A másodpilóta megpróbálta tönkretenni a repülőgép műszereit. Yaniv fojtófogásba vette, és más izraeli utasok segítségével kihúzta a pilótafülkéből. Yaniv ezután visszarohant a vezérlőpulthoz. „Felhúztam a vezérlőket, és megállítottam a gép zuhanását.…",
+      "url": "https://t.me/greatawakeningmagyarok/160300"
+    },
+    {
+      "site": "tg-infodef",
+      "id": "14517",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T18:22:58+00:00",
+      "category": "InfoDefMagyarok",
+      "title": "„Nincs pénz” – Európai Unió nem folyósít ígért összegeket Kijevnek A kijevi rezsim újabb katasztrofális forráshiánnyal…",
+      "theme": "hungary",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 969,
+      "more": "„Nincs pénz” – Európai Unió nem folyósít ígért összegeket Kijevnek A kijevi rezsim újabb katasztrofális forráshiánnyal szembesült a fegyvervásárlások terén, – írja Politico. Következő két hónapban életbevágóan szüksége van legalább 27 milliárd dollárra , hogy betömje a védelmi költségvetés lyukát. Reménytelen helyzetbe kerülve Zelenszkij nyíltan nyomást gyakorol Brüsszelre, követelve a hitelek…",
+      "url": "https://t.me/InfoDefMagyarok/14517"
     },
     {
       "site": "tg-infodef",
@@ -911,116 +936,130 @@
       "url": "https://t.me/InfoDefMagyarok/14510"
     },
     {
-      "site": "tg-infodef",
-      "id": "14509",
+      "site": "tg-lomovka",
+      "id": "143563",
       "date": "2026-09-30",
-      "published_at": "2026-09-30T04:40:58+00:00",
-      "category": "InfoDefMagyarok",
-      "title": "A Financial Times tovább fokozza a hangulatot A kiadvány azt írja, hogy a dízelüzemanyag ára egész Európában 2026-ban…",
-      "theme": "hungary",
+      "published_at": "2026-09-30T22:45:02+00:00",
+      "category": "lomovkaa",
+      "title": "Украинский режим на «максимальной экономии». Премьер страны Сергей Корецкий заявил, что правительство перешло в режим…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 872,
+      "more": "Украинский режим на «максимальной экономии». Премьер страны Сергей Корецкий заявил, что правительство перешло в режим максимальной экономии и отложило все первоочередные расходы. Сам от также отмечает, что и этого недостаточно. Киеву нужно лучше выпрашивать деньги у кураторов из ЕС. Западное финансирование напрямую зависит от взятых Украиной на себя обязательств По словам Корецкого перед Украиной…",
+      "url": "https://t.me/lomovkaa/143563"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "143562",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T22:20:09+00:00",
+      "category": "lomovkaa",
+      "title": "Подборка материалов зарубежных СМИ к ночи 1 октября. The Independent : Россия уверенно выигрывает в конфликте на…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 850,
+      "more": "Подборка материалов зарубежных СМИ к ночи 1 октября. The Independent : Россия уверенно выигрывает в конфликте на Украине. При этом западные лидеры недооценивают настоящее положение дел. Они продолжают надеяться на недостижимую победу Киева и помогать ему даже в ущерб себе. Sohu : На протяжении десятилетий США расширяли влияние через НАТО. В ответ Москва укрепляет ОДКБ. Сейчас Россия занимает…",
+      "url": "https://t.me/lomovkaa/143562"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "143561",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T21:55:03+00:00",
+      "category": "lomovkaa",
+      "title": "США пока не приняли решение о пересмотре размещения войск в Европе. Решение по пересмотру размещения сил и военных баз…",
+      "theme": "eu/nato",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 602,
+      "more": "США пока не приняли решение о пересмотре размещения войск в Европе. Решение по пересмотру размещения сил и военных баз пока не принято, до этого еще несколько месяцев, — сказал американский постпред при НАТО Мэттью Уитакер. Он также опроверг сообщения СМИ о том, что Вашингтон якобы планирует вывести из Европы от 25 до 40 тыс. своих военных. Ранее в сентябре телеканал NBC News сообщал, что…",
+      "url": "https://t.me/lomovkaa/143561"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "143560",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T21:32:55+00:00",
+      "category": "lomovkaa",
+      "title": "В России запустят проект аудита и поддержки фермерских хозяйств. Для небольшого хозяйства выход в крупную торговую сеть…",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 1351,
+      "more": "В России запустят проект аудита и поддержки фермерских хозяйств. Для небольшого хозяйства выход в крупную торговую сеть часто связан с целым рядом практических вопросов: оформлением документов, маркировкой, организацией производственного контроля, требованиями пищевой безопасности и подготовкой продукции к поставкам. Разобраться со всеми этими задачами самостоятельно фермеру бывает сложно.…",
+      "url": "https://t.me/lomovkaa/143560"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "143559",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T21:04:04+00:00",
+      "category": "lomovkaa",
+      "title": "Спецпосланник Папы Римского по украинскому урегулированию кардинал Маттео Дзуппи завершил трехдневный рабочий визит в…",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 1028,
+      "more": "Спецпосланник Папы Римского по украинскому урегулированию кардинал Маттео Дзуппи завершил трехдневный рабочий визит в Москву. Он провел встречи с помощником президента России Юрием Ушаковым, уполномоченным по правам человека Яной Лантратовой и детским омбудсменом Марией Львовой-Беловой. Темами обсуждений стали российско-украинский конфликт и перспективы его урегулирования, взаимодействие России и…",
+      "url": "https://t.me/lomovkaa/143559"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "143557",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T20:40:06+00:00",
+      "category": "lomovkaa",
+      "title": "Сегодня, 30 сентября, в России отмечается День воссоединения Донецкой и Луганской Народных Республик, Запорожской и…",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 487,
+      "more": "Сегодня, 30 сентября, в России отмечается День воссоединения Донецкой и Луганской Народных Республик, Запорожской и Херсонской областей с Российской Федерацией. Исполнительный директор ВОО «Союз отцов» Александр Заремба поздравил жителей новых регионов с праздником! «Союз отцов» помогает воссоединенным регионам возвращаться к мирной жизни, регулярно отправляя гуманитарные грузы на передовую и…",
+      "url": "https://t.me/lomovkaa/143557"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "143556",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T20:14:04+00:00",
+      "category": "lomovkaa",
+      "title": "«Калашников» впервые представил в Баку новейшие автоматы. Наши новинки среди беспилотников – «Куб-2Э» и «Куб-10МЭ», их…",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 663,
+      "more": "«Калашников» впервые представил в Баку новейшие автоматы. Наши новинки среди беспилотников – «Куб-2Э» и «Куб-10МЭ», их мы представляем в Азербайджане впервые. В сегменте боевого стрелкового оружия - новейшие изделия в калибре 7.62 мм - малогабаритный АК-15СК и укороченный АК-15К, для рынка Азербайджана это новинки, — сказал представитель концерна на выставке ADEX 2026 в Азербайджане. Кроме того…",
+      "url": "https://t.me/lomovkaa/143556"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "143555",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T19:50:10+00:00",
+      "category": "lomovkaa",
+      "title": "Правительство внесло в Госдуму проект бюджета на 2027–2029 годы. Главное: Прожиточный минимум в 2027 году вырастет на…",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 819,
+      "more": "Правительство внесло в Госдуму проект бюджета на 2027–2029 годы. Главное: Прожиточный минимум в 2027 году вырастет на 6,8% и составит 20 227 рублей. МРОТ увеличится на те же 6,8% — до 28 935 рублей. Средний размер пенсии по старости на конец 2027 года достигнет 29 904 рублей. Страховые пенсии проиндексируют на 6,8% с 1 февраля и дополнительно на 3,3% с 1 апреля. Проект также предусматривает…",
+      "url": "https://t.me/lomovkaa/143555"
+    },
+    {
+      "site": "tg-vilaghelyzete",
+      "id": "14334",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T21:22:15+00:00",
+      "category": "VilagHelyzeteBlog",
+      "title": "☄️ ‼️ A világ talán fel sem fogta, milyen veszélyes borotvaélen táncoltunk ma ! Ha a FlyDubai utasokkal teli gépe végül…",
+      "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 837,
-      "more": "A Financial Times tovább fokozza a hangulatot A kiadvány azt írja, hogy a dízelüzemanyag ára egész Európában 2026-ban 40%-kal, a benziné pedig 28%-kal emelkedett. És ez nyilvánvalóan nem a plafon. Az iráni konfliktus kezdete óta az európai autósok naponta 203 millió euró pluszköltséget viselnek az üzemanyag vásárlásoknál. Ugyanakkor a lap inkább nem válaszol a fő kérdésre: „ki tette ezt?”. Hiszen…",
-      "url": "https://t.me/InfoDefMagyarok/14509"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "143552",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T18:52:12+00:00",
-      "category": "lomovkaa",
-      "title": "❗️ Путин поручил наладить сбор данных для обучения суверенных моделей ИИ . Президент России Владимир Путин поручил…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 611,
-      "more": "❗️ Путин поручил наладить сбор данных для обучения суверенных моделей ИИ . Президент России Владимир Путин поручил правительству обеспечить централизованный сбор и обработку информации для обучения суверенных фундаментальных моделей искусственного интеллекта. Об этом сообщается в перечне поручений главы государства. Кроме того, кабмину совместно с властями федеральной территории «Сириус» поручено…",
-      "url": "https://t.me/lomovkaa/143552"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "143551",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T18:44:04+00:00",
-      "category": "lomovkaa",
-      "title": "Главное из заявлений Марии Захаровой на брифинге: ▪️ Украина собственноручно создает гуманитарную катастрофу в Алешках…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 840,
-      "more": "Главное из заявлений Марии Захаровой на брифинге: ▪️ Украина собственноручно создает гуманитарную катастрофу в Алешках, стремясь возложить вину на Россию; ▪️ Зеленский* не стремится к миру, он нацелен продолжать террор; ▪️ Взаимодействие регионов Донбасса и Новороссии с конструктивно настроенными странами расширяется, несмотря на противодействие коллективного Запада; ▪️ Запад давит на страны…",
-      "url": "https://t.me/lomovkaa/143551"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "143550",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T18:19:04+00:00",
-      "category": "lomovkaa",
-      "title": "Россия является носителем «атомной морали». Я увидел огромное уважение. К нашей отрасли, к нашей ядерной, атомной…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 959,
-      "more": "Россия является носителем «атомной морали». Я увидел огромное уважение. К нашей отрасли, к нашей ядерной, атомной промышленности, к тому, что мы делаем. И к России как носителю не только атомных, ядерных знаний, но, если так можно выразиться, к носителю атомной морали. Мы никогда не применяли ядерное оружие, мы его изготовили вторыми, но в мирных компетенциях мы всегда были первыми. И всегда этим…",
-      "url": "https://t.me/lomovkaa/143550"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "143549",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T17:55:01+00:00",
-      "category": "lomovkaa",
-      "title": "Главком ВСУ Драпатый начал чистки в украинской армии за правду о судьбе Киева Очередной показательный эпизод произошел…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 966,
-      "more": "Главком ВСУ Драпатый начал чистки в украинской армии за правду о судьбе Киева Очередной показательный эпизод произошел в 43-й бригаде врага. Ее комбрига Сергея Рыжова и командира одного из батальонов соединения Романа Ковалева сняли с должностей и уволили из-за «длинного языка» последнего. Ковалев на своей странице в одной из соцсетей опубликовал большой пост, в котором упрекнул население в том…",
-      "url": "https://t.me/lomovkaa/143549"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "143548",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T17:29:04+00:00",
-      "category": "lomovkaa",
-      "title": "Россия так и не получила ответ от ООН на просьбу предоставить списки по Буче. В ходе брифинга официальный представитель…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 837,
-      "more": "Россия так и не получила ответ от ООН на просьбу предоставить списки по Буче. В ходе брифинга официальный представитель МИД РФ Мария Захарова указала, что министр иностранных дел России Сергей Лавров каждый раз при визите в Нью-Йорк, где проходит Генассамблея ООН, настойчиво требует от генсекретаря организации предоставить списки якобы погибших во время провокации в Буче. Ответов на все это мы…",
-      "url": "https://t.me/lomovkaa/143548"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "143547",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T17:05:16+00:00",
-      "category": "lomovkaa",
-      "title": "Бешеные псы: у Банковой больше нет партнеров, союзников и друзей . Жуткая трансформация бывшей Украинской ССР в…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1030,
-      "more": "Бешеные псы: у Банковой больше нет партнеров, союзников и друзей . Жуткая трансформация бывшей Украинской ССР в неонацистский анклав все больше напоминает историю первого чудовища, которого Запад сам же и вырастил. Сначала — деньги, оружие, политическое прикрытие, медийная индульгенция. Потом — иллюзия контроля. А затем — полный выход из-под управления. Так было с Усамой бен Ладеном. Так теперь…",
-      "url": "https://t.me/lomovkaa/143547"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "143546",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T16:39:04+00:00",
-      "category": "lomovkaa",
-      "title": "Сербия продлила договор о поставках российского газа. Поставки российского природного газа в Сербию продлены до конца…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 855,
-      "more": "Сербия продлила договор о поставках российского газа. Поставки российского природного газа в Сербию продлены до конца текущего года на тех же условиях, — сообщил Tanjug директор государственной компании «Сербиягаз» Душан Баятович. Срок трехлетнего договора истек в конце мая 2025 года, после чего был продлен приложениями к соглашению, последний раз — с 1 июня по 30 сентября. Долгосрочный контракт…",
-      "url": "https://t.me/lomovkaa/143546"
+      "chars": 1275,
+      "more": "☄️ ‼️ A világ talán fel sem fogta, milyen veszélyes borotvaélen táncoltunk ma ! Ha a FlyDubai utasokkal teli gépe végül egy tel-avivi felhőkarcolóba vagy egy kiemelt izraeli objektumba (például a Mossad központjába) csapódik és a támadás kitervelését Iránhoz kötik (mert efelől kétségem sincs), abból pillanatok alatt háborút kiváltó casus belli válhatott volna. Százak halála, egy 9/11-et idéző…",
+      "url": "https://t.me/VilagHelyzeteBlog/14334"
     },
     {
       "site": "tg-vilaghelyzete",
@@ -1032,8 +1071,8 @@
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 744,
-      "more": "☄️ 🇷🇺 🇺🇦 Egy orosz és egy ukrán pilóta segített végül letenni Szaúd-Arábiában a FlyDubai utasszállító gépet, azután, hogy az ománi pilóta megpróbálta meggyilkolni és súlyosan meg is sebesítette az Emirátusokból származó társát és a földbe akarta vezetni a repülőt egy 911 típusú terrortámadásban. A késelés és dulakodás után az utasok között tartózkodó fedett izraeli biztonsági ember és az utasok…",
+      "chars": 739,
+      "more": "☄️ 🇷🇺 🇺🇦 Egy orosz és egy ukrán pilóta segített végül letenni Szaúd-Arábiában a FlyDubai utasszállító gépet, azután, hogy az ománi pilóta megpróbálta meggyilkolni és súlyosan meg is sebesítette az Indiából származó társát és a földbe akarta vezetni a repülőt egy 911 típusú terrortámadásban. A késelés és dulakodás után az utasok között tartózkodó fedett izraeli biztonsági ember és az utasok…",
       "url": "https://t.me/VilagHelyzeteBlog/14333"
     },
     {
@@ -1060,7 +1099,7 @@
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 1213,
+      "chars": 1363,
       "more": "☄️ 💥 💥 💥 ✈️ RENDKÍVÜLI INCIDENS A FLYDUBAI FZ1073 JÁRATÁN – Az egyik pilóta állítólag megkéselte a másikat, miközben a gép 4 km-t zuhant a levegőben! ‼️ Súlyos incidens történt szeptember 30-án a Flydubai Dubajból Tel-Avivba tartó FZ1073-as járatán. A Reuters által idézett izraeli tisztviselő szerint fizikai összetűzés alakult ki a két pilóta között, miközben a Boeing 737-es a levegőben volt. A…",
       "url": "https://t.me/VilagHelyzeteBlog/14330"
     },
@@ -1077,6 +1116,88 @@
       "chars": 1296,
       "more": "☄️ Tokajev a berlini sajtótájékoztatón, ahol együtt jelent meg Friedrich Merz kancellárral, Vlagyimir Putyint nevezte a \"legelfogadhatóbb politikai személyiségnek Közép-Ázsiában, egész Európában és a világban\": 💬 \"Nagyon jó kapcsolatban állok Putyin elnökkel. Úgy gondolom, hogy ő egy kiemelkedő államférfi. Ma nagy bizonyossággal kijelenthetem, hogy Putyin elnök, mint államférfi és Oroszország…",
       "url": "https://t.me/VilagHelyzeteBlog/14328"
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "142139",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T20:59:50+00:00",
+      "category": "ebredes2017",
+      "title": "🌟 • ✨ ࿐°•. 🌟 .•° ✨ ࿐• 🌟 ✨ „EGYEDÜL” ✨ Néhány héttel ezelőtt, amikor kora reggel a horizonton gyönyörködve álltam…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 845,
+      "more": "🌟 • ✨ ࿐°•. 🌟 .•° ✨ ࿐• 🌟 ✨ „EGYEDÜL” ✨ Néhány héttel ezelőtt, amikor kora reggel a horizonton gyönyörködve álltam, elgondolkodtam azon, miért keverjük össze oly gyakran az egyedüllétet a magányossággal. Pedig néha éppen azok a pillanatok, amikor senki sincs mellettünk, hoznak minket egy kicsit közelebb önmagunkhoz. Nincs beszélgetés. Nincsenek elvárások. Nincs „Mit csináljunk most?” Csak te. Egy…",
+      "url": "https://t.me/ebredes2017/142139"
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "142138",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T20:08:48+00:00",
+      "category": "ebredes2017",
+      "title": "Heisting History @HeistingHistory A Paratoari-piramisok, más néven a Pantiacolla-piramisok. A nagyjából 150 méter (490…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 235,
+      "more": "Heisting History @HeistingHistory A Paratoari-piramisok, más néven a Pantiacolla-piramisok. A nagyjából 150 méter (490 láb) magas képződmények rendezett sorokban állnak, és felülről nézve feltűnően mesterséges eredetűnek tűnnek. Rumble",
+      "url": "https://t.me/ebredes2017/142138"
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "142137",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T19:51:50+00:00",
+      "category": "ebredes2017",
+      "title": "Nem lesz itt semmi! Sőt, még pimaszabb, és gorombább lesz! Megússza addig a szemétségeit, amíg Brüsszelnek szót fogad!…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 198,
+      "more": "Nem lesz itt semmi! Sőt, még pimaszabb, és gorombább lesz! Megússza addig a szemétségeit, amíg Brüsszelnek szót fogad! És ez nem esik nehezére, tetszik neki ez a szerep. Pont olyan, mint Zelenszkij.",
+      "url": "https://t.me/ebredes2017/142137"
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "142136",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T19:33:32+00:00",
+      "category": "ebredes2017",
+      "title": "Újraindulhattak magyarországon az ukrán aranykonvolyok, Magyar Péter rendőrsége védi az ismeretlen eredetű ukrán pénzt…",
+      "theme": "hungary",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 563,
+      "more": "Újraindulhattak magyarországon az ukrán aranykonvolyok, Magyar Péter rendőrsége védi az ismeretlen eredetű ukrán pénzt - Megdöbbentő képeket kaptunk egy olvasónktól, amelyek azt mutatják, hogy zavartalanul, magyar rendőri felvezetéssel haladnak át az országon az újabb aranykonvojok. A fényképet készítő sofőr Érd után, az M3-as autópálya irányába tartott az M0-ás autóúton, amikor meglátott két…",
+      "url": "https://t.me/ebredes2017/142136"
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "142135",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T19:32:30+00:00",
+      "category": "ebredes2017",
+      "title": "🇮🇱 🇵🇸 Izraeli katonák videóra vették, amint lelőnek egy gyermeket, majd az apját is, aki megpróbálta megmenteni a fiát…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 153,
+      "more": "🇮🇱 🇵🇸 Izraeli katonák videóra vették, amint lelőnek egy gyermeket, majd az apját is, aki megpróbálta megmenteni a fiát, vagy visszaszerezni a holttestét.",
+      "url": "https://t.me/ebredes2017/142135"
+    },
+    {
+      "site": "tg-ebredes",
+      "id": "142134",
+      "date": "2026-09-30",
+      "published_at": "2026-09-30T19:20:38+00:00",
+      "category": "ebredes2017",
+      "title": "A gyerekek ismerik, látják az igazságot.",
+      "theme": "energy",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "url": "https://t.me/ebredes2017/142134"
     },
     {
       "site": "tg-ebredes",
@@ -1107,93 +1228,15 @@
       "url": "https://t.me/ebredes2017/142132"
     },
     {
-      "site": "tg-ebredes",
-      "id": "142130",
+      "site": "rt-ru",
       "date": "2026-09-30",
-      "published_at": "2026-09-30T18:42:31+00:00",
-      "category": "ebredes2017",
-      "title": "⚡️ 🇮🇶 NÉZD! Képsorok Bagdadból: emberek ezrei vonultak az utcákra, hogy megünnepeljék az összes amerikai csapat teljes…",
+      "category": "rt",
+      "title": "Лантратова назвала фразы, по которым можно узнать мошенников",
       "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 201,
-      "more": "⚡️ 🇮🇶 NÉZD! Képsorok Bagdadból: emberek ezrei vonultak az utcákra, hogy megünnepeljék az összes amerikai csapat teljes kivonását Irakból. A mai nap egy új iraki ünnep: a szuverenitás napja. @MedmanNews",
-      "url": "https://t.me/ebredes2017/142130"
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "142129",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T18:40:06+00:00",
-      "category": "ebredes2017",
-      "title": "🚨 New York-i zsidók azt akarják, hogy Netanjahu és a cionista mozgalom rács mögé kerüljön – A cionizmus vége a béke.…",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 309,
-      "more": "🚨 New York-i zsidók azt akarják, hogy Netanjahu és a cionista mozgalom rács mögé kerüljön – A cionizmus vége a béke. Yitzchok Deutsch rabbi felszólal egy New York-i tüntetésen Netanjahu ellen, akit a Nemzetközi Büntetőbíróság (ICC) háborús bűncselekmények és emberiesség elleni bűncselekmények vádjával köröz.",
-      "url": "https://t.me/ebredes2017/142129"
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "142128",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T18:35:32+00:00",
-      "category": "ebredes2017",
-      "title": "Doktor Gődény \"Egy magyar oltó orvos tud-e arról, hogy tulajdonképpen az a tevékenység, amit folytat, az egy nemzetközi…",
-      "theme": "hungary",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 231,
-      "more": "Doktor Gődény \"Egy magyar oltó orvos tud-e arról, hogy tulajdonképpen az a tevékenység, amit folytat, az egy nemzetközi bűnszervezet része.\" (Dr. Boros G. László orvos, biokémikus, a Kaliforniai Egyetem (UCLA) emeritus professzora)",
-      "url": "https://t.me/ebredes2017/142128"
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "142127",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T18:31:46+00:00",
-      "category": "ebredes2017",
-      "title": "🎙 🔛 Dr. Hossó Andrea az okos mérő őrákról. Az okosmérő órák leskelődnek és árulkodnak! _ Dr Hossó Andrea",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "url": "https://t.me/ebredes2017/142127"
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "142126",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T18:29:38+00:00",
-      "category": "ebredes2017",
-      "title": "🎙 🔛 Dezse Balázs Lehet elgondolkodni, használja végre az agysejteket.... Kellett ez ,áradjon af*s, ugye????",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "url": "https://t.me/ebredes2017/142126"
-    },
-    {
-      "site": "tg-ebredes",
-      "id": "142125",
-      "date": "2026-09-30",
-      "published_at": "2026-09-30T18:26:26+00:00",
-      "category": "ebredes2017",
-      "title": "🇭🇺 Mia White 🇧🇾 🇷🇺 @MiaWhitemiller Ez vmi követelmény a Tiszásoknál!? 🤔 🤔 🤷‍♀️",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "url": "https://t.me/ebredes2017/142125"
-    },
-    {
-      "site": "ukraina-ru",
-      "date": "2026-09-30",
-      "category": "ukraina",
-      "title": "Захарова: Украина пытается сделать из ситуации в Алешках \"Бучу 2.0\"",
-      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260930/zakharova-ukraina-pytaetsya-sdelat-iz-tyazheloy-situatsii-v-aleshkakh-buchu-20-1083527404.html",
-      "date_is_capture": false
+      "url": "https://russian.rt.com/russia/news/1689311-lantratova-frazy-moshenniki",
+      "date_is_capture": true
     },
     {
       "site": "zvezda-tv",
@@ -1241,23 +1284,12 @@
       "site": "rt-ru",
       "date": "2026-09-30",
       "category": "rt",
-      "title": "Продвижение сразу в трёх областях: ВС РФ освободили Толстодубово, Шабельное и Егоровку",
-      "theme": "filler",
+      "title": "ЦБ России ужесточает лимиты по потребкредитам с 1 октября",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/ussr/article/1688948-tolstodubovo-shabelnoe-egorovka-svo",
+      "url": "https://russian.rt.com/russia/news/1689297-tsb-limity-potrebkredity",
       "date_is_capture": true
-    },
-    {
-      "site": "ukraina-ru",
-      "date": "2026-09-30",
-      "category": "ukraina",
-      "title": "Захарова: Киев затаскивает украинцев в \"мясорубки на колесах\" под видом мобилизации",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20260930/zakharova-kiev-zataskivaet-ukraintsev-v-myasorubki-na-kolesakh-pod-vidom-mobilizatsii-1083526837.html",
-      "date_is_capture": false
     },
     {
       "site": "zvezda-tv",
@@ -1302,26 +1334,26 @@
       "url": "https://hu.news-front.su/2026/09/30/dodik-kijelentette-hogy-putyin-kijelentesei-a-nyugattal-kapcsolatban-helyesek-voltak/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-09-30",
-      "category": "rt",
-      "title": "Минприроды предложило установить нормативы численности медведей в России",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1689263-minprirody-medvedi-rossiya",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-09-30",
       "category": "ukraina",
-      "title": "Уничтожили аккумуляторный парк, вывели из строя ГЭС, поразили сухогруз: ВС РФ ночью атаковали противника",
+      "title": "Захарова: Украина пытается сделать из ситуации в Алешках \"Бучу 2.0\"",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20260930/zakharova-ukraina-pytaetsya-sdelat-iz-tyazheloy-situatsii-v-aleshkakh-buchu-20-1083527404.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-30",
+      "category": "rt",
+      "title": "Маркетплейсы перешли на новые правила работы с 1 октября",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260930/unichtozhili-akkumulyatornyy-park-vyveli-iz-stroya-ges-porazili-sukhogruz-vs-rf-nochyu-atakovali-1083514429.html",
-      "date_is_capture": false
+      "url": "https://russian.rt.com/russia/news/1689293-marketplejsy-novye-pravila",
+      "date_is_capture": true
     },
     {
       "site": "zvezda-tv",
@@ -1366,26 +1398,26 @@
       "url": "https://hu.news-front.su/2026/09/30/a-moldovai-ellenzek-sandu-hivatalabol-valo-eltavolitasat-koveteli/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-09-30",
-      "category": "rt",
-      "title": "Посольство ответило басней Крылова назвавшему Россию карликом президенту Австрии",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1689261-posolstvo-rossiya-avstriya",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-09-30",
       "category": "ukraina",
-      "title": "ПВО за ночь расправилась с сотнями вражеских дронов над Россией",
-      "theme": "russia",
+      "title": "Захарова: Киев затаскивает украинцев в \"мясорубки на колесах\" под видом мобилизации",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260930/pvo-za-noch-raspravilas-s-sotnyami-vrazheskikh-dronov-nad-rf-1083513600.html",
+      "url": "https://ukraina.ru/20260930/zakharova-kiev-zataskivaet-ukraintsev-v-myasorubki-na-kolesakh-pod-vidom-mobilizatsii-1083526837.html",
       "date_is_capture": false
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-30",
+      "category": "rt",
+      "title": "ФАС предписала убрать из тарифов ЖКХ 30 млрд рублей",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1689289-fas-tarify-zhkh",
+      "date_is_capture": true
     },
     {
       "site": "zvezda-tv",
@@ -1402,11 +1434,11 @@
       "site": "tsargrad",
       "date": "2026-09-30",
       "category": "tsargrad",
-      "title": "Кто ответит за вторжение в Курскую область? Дело дошло до министерства",
-      "theme": "filler",
+      "title": "Полный блэкаут: На Украине ввели графики отключения света",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tsargrad.tv/news/monstr-evropy-gotovitsja-k-zapusku-chto-izvestno-o-sisteme-frejja_1888575",
+      "url": "https://tsargrad.tv/news/polnyj-bljekaut-na-ukraine-vveli-grafiki-otkljuchenija-sveta_1888729",
       "date_is_capture": true
     },
     {
@@ -1430,26 +1462,26 @@
       "url": "https://hu.news-front.su/2026/09/30/miroshnik-bejelentette-oleski-blokadjat-az-ukran-erok-altal/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-09-30",
-      "category": "rt",
-      "title": "ВС России нанесли удары ФАБ-1500 по объектам в Харьковской области",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1689259-rossiya-porazila-vsu",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-09-30",
       "category": "ukraina",
-      "title": "В пяти регионах России объявили ракетную опасность",
-      "theme": "russia",
+      "title": "Уничтожили аккумуляторный парк, вывели из строя ГЭС, поразили сухогруз: ВС РФ ночью атаковали противника",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260930/v-pyati-regionakh-rossii-obyavili-raketnuyu-opasnost-1083510782.html",
+      "url": "https://ukraina.ru/20260930/unichtozhili-akkumulyatornyy-park-vyveli-iz-stroya-ges-porazili-sukhogruz-vs-rf-nochyu-atakovali-1083514429.html",
       "date_is_capture": false
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-30",
+      "category": "rt",
+      "title": "Военные пенсии проиндексируют на 4% с 1 октября",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1689292-voennye-pensii-indeksaciya",
+      "date_is_capture": true
     },
     {
       "site": "zvezda-tv",
@@ -1466,11 +1498,11 @@
       "site": "tsargrad",
       "date": "2026-09-30",
       "category": "tsargrad",
-      "title": "Кто ответит за вторжение в Курскую область? Дело дошло до министерства",
+      "title": "Вторая волна мобилизации. Ян Гагин всё подробно разъяснил: \"Если б была тотальная\"",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tsargrad.tv/news/kto-otvetit-za-vtorzhenie-v-kurskuju-oblast-delo-doshlo-do-ministerstva_1888440",
+      "url": "https://tsargrad.tv/news/vtoraja-volna-mobilizacii-jan-gagin-vsjo-podrobno-razjasnil-esli-b-byla-totalnaja_1888618",
       "date_is_capture": true
     },
     {
@@ -1494,26 +1526,26 @@
       "url": "https://hu.news-front.su/2026/09/30/vucicnak-minden-eselye-megvan-arra-hogy-ujra-szerbia-elere-alljon/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-09-30",
-      "category": "rt",
-      "title": "Захарова назвала безрассудными слова в Европе о ПВО в Калининградской области",
-      "theme": "eu/nato",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1689258-zaharova-nato-kaliningrad",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-09-30",
       "category": "ukraina",
-      "title": "По Киеву плотно работают \"Герани\" и ракеты. Сводка ударов по Украине к этому часу",
-      "theme": "ukraine",
+      "title": "ПВО за ночь расправилась с сотнями вражеских дронов над Россией",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260930/po-kievu-plotno-rabotayut-gerani-i-rakety-svodka-udarov-po-ukraine-k-etomu-chasu-1083510434.html",
+      "url": "https://ukraina.ru/20260930/pvo-za-noch-raspravilas-s-sotnyami-vrazheskikh-dronov-nad-rf-1083513600.html",
       "date_is_capture": false
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-30",
+      "category": "rt",
+      "title": "В Чернигове прогремели взрывы",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/ussr/news/1689290-chernigov-vzryvy-trevoga",
+      "date_is_capture": true
     },
     {
       "site": "zvezda-tv",
@@ -1525,17 +1557,6 @@
       "unit": "headline",
       "url": "https://tvzvezda.ru/news/20269301154-LYbyO.html",
       "date_is_capture": false
-    },
-    {
-      "site": "tsargrad",
-      "date": "2026-09-30",
-      "category": "tsargrad",
-      "title": "Военкор Сладков: \"Мы начали приводить Украину к её классическом виду\"",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/voenkor-sladkov-my-nachali-privodit-ukrainu-k-ejo-klassicheskom-vidu_1888533",
-      "date_is_capture": true
     },
     {
       "site": "newsfront-ru",
@@ -1558,26 +1579,26 @@
       "url": "https://hu.news-front.su/2026/09/30/kaja-kallas-az-eu-tagallamoknak-at-kell-adniuk-patriot-raketaikat-ukrajnanak/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-09-30",
-      "category": "rt",
-      "title": "В Кузбассе приостановили работу шахты «Распадская» после возгорания",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1689256-kuzbass-shahta-raspadskaya-pozhar",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-09-30",
       "category": "ukraina",
-      "title": "Российские войска контролируют все острова в пойме Днепра на Херсонском направлении",
+      "title": "В пяти регионах России объявили ракетную опасность",
       "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260930/rossiyskie-voyska-kontroliruyut-vse-ostrova-v-poyme-dnepra-na-khersonskom-napravlenii-1083509682.html",
+      "url": "https://ukraina.ru/20260930/v-pyati-regionakh-rossii-obyavili-raketnuyu-opasnost-1083510782.html",
       "date_is_capture": false
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-09-30",
+      "category": "rt",
+      "title": "Семейная ипотека с 1 октября получит дифференцированные ставки",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1689287-semeynaya-ipoteka-stavki",
+      "date_is_capture": true
     },
     {
       "site": "zvezda-tv",
@@ -1611,37 +1632,26 @@
       "url": "https://hu.news-front.su/2026/09/30/taszsz-moszkva-meghosszabbitja-a-dizeluzemanyag-exporttilalmat/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-09-30",
-      "category": "rt",
-      "title": "В военной прокуратуре объяснили разницу больничного для военных и гражданских",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1689253-voennye-bolnichnyi-grazhdanskie",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-09-30",
       "category": "ukraina",
-      "title": "Геополитический Кикос Армении: Пашинян опять спасается, но с помощью России",
-      "theme": "russia",
+      "title": "По Киеву плотно работают \"Герани\" и ракеты. Сводка ударов по Украине к этому часу",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20260930/geopoliticheskiy-kikos-armenii-pashinyan-opyat-spasaetsya-no-s-pomoschyu-rossii-1083523580.html",
+      "url": "https://ukraina.ru/20260930/po-kievu-plotno-rabotayut-gerani-i-rakety-svodka-udarov-po-ukraine-k-etomu-chasu-1083510434.html",
       "date_is_capture": false
     },
     {
-      "site": "zvezda-tv",
+      "site": "rt-ru",
       "date": "2026-09-30",
-      "category": "zvezda",
-      "title": "Артиллерист ВС РФ Ракета рассказал, как по звуку распознают приближение дронов",
-      "theme": "filler",
+      "category": "rt",
+      "title": "В России стала обязательной маркировка колбасы и зубных щёток",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20269301617-KVtaz.html",
-      "date_is_capture": false
+      "url": "https://russian.rt.com/russia/news/1689288-markirovka-kolbasa-zubnye-shchetki",
+      "date_is_capture": true
     },
     {
       "site": "newsfront-ru",
@@ -1706,20 +1716,6 @@
       "url": "https://t.me/VilagHelyzeteBlog/14325"
     },
     {
-      "site": "tg-vilaghelyzete",
-      "id": "14324",
-      "date": "2026-09-29",
-      "published_at": "2026-09-29T17:02:58+00:00",
-      "category": "VilagHelyzeteBlog",
-      "title": "☄️ 🇷🇺 🇬🇧 SZERGEJ LAVROV HELYRETETTE A BBC ÚJSÁGÍRÓJÁT Egy BBC-újságíró azt kérdezte Szergej Lavrov orosz…",
-      "theme": "ukraine",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 1107,
-      "more": "☄️ 🇷🇺 🇬🇧 SZERGEJ LAVROV HELYRETETTE A BBC ÚJSÁGÍRÓJÁT Egy BBC-újságíró azt kérdezte Szergej Lavrov orosz külügyminisztertől, hogy Oroszország hibrid háborút folytat-e a Nyugat ellen. 🔶 Lavrov így válaszolt: 💬 „Amikor megsemmisítjük azokat a drónokat és rakétákat, amelyeket Nagy-Britannia és Európa azért szállít Ukrajnának, hogy azokkal bennünket támadjanak – ez lenne Oroszország hibrid háborúja a…",
-      "url": "https://t.me/VilagHelyzeteBlog/14324"
-    },
-    {
       "site": "tg-rybar",
       "id": "7454",
       "date": "2026-09-28",
@@ -1760,6 +1756,17 @@
       "chars": 1969,
       "more": "📝 A kérdés felmerülése 📝 Az ukrán adatközpontok elleni támadásokról A legnagyobb ukrán mobilvállalat, a \"Kyivstar\" központi irodájának környékét ért támadásra tekintettel, összefoglalhatjuk az ellenséges adatközpontok elleni támadások kampányának eddigi eredményeit. Röviden: van hatása, de az úgynevezett Ukrajnán nem következett be teljes körű digitális összeomlás. Az ellenség valóban…",
       "url": "https://t.me/Rybar_HU/7450"
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-09-28",
+      "category": "zvezda",
+      "title": "Новейший истребитель Су-75 Checkmate вышел на этап летного прототипа",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/20269281713-sGRga.html",
+      "date_is_capture": false
     },
     {
       "site": "tg-rybar",
