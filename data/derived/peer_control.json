@@ -26,30 +26,30 @@
   "reading": "The fall does not begin at the election. The day after the vote is the month's highest day, output holds near its baseline for a further twelve days, and the step lands around 27 April. Any account that reads this as a reaction to the result has to explain the fifteen-day gap."
  },
  "placebo": {
-  "n_windows": 192,
+  "n_windows": 199,
   "n_mirrors": 7,
   "treated": {
    "mirror": "hungary",
    "cut": "2026-04",
    "change_pct": -63.7,
-   "z": -1.11
+   "z": -1.08
   },
   "raw_rank": 1,
-  "raw_p": 0.0052,
+  "raw_p": 0.005,
   "within_target_rank": 1,
-  "within_target_n": 25,
+  "within_target_n": 26,
   "volatility_by_mirror": {
-   "czechia": 40.8,
-   "deutsch": 34.2,
-   "hungary": 57.6,
+   "czechia": 40.0,
+   "deutsch": 33.7,
+   "hungary": 58.7,
    "moldova": 18.1,
-   "poland": 33.5,
-   "romania": 13.0,
-   "slovakia": 43.4
+   "poland": 33.2,
+   "romania": 12.7,
+   "slovakia": 42.7
   },
-  "treated_z": -1.11,
+  "treated_z": -1.08,
   "volatility_normalised_rank": 13,
-  "volatility_normalised_p": 0.0677,
+  "volatility_normalised_p": 0.0653,
   "reading": "Unnormalised, the treated window is the most extreme in the network (p=0.005). Normalised by each mirror's own volatility it is 13th (p=0.070) at -1.08 sd, because Hungary is the noisiest mirror in the set. The drop is large and it is the largest in that window, but it is not exceptional against this mirror's own history. Report both."
  },
  "target": {
@@ -59,15 +59,15 @@
   "baseline_per_day": 243.6,
   "after_per_day": 88.5,
   "change_pct": -63.7,
-  "latest_month": "2026-09",
-  "latest_per_day": 164.4,
+  "latest_month": "2026-10",
+  "latest_per_day": 162.2,
   "recovery_window": [
-   "2026-08-31",
-   "2026-09-29"
+   "2026-09-01",
+   "2026-09-30"
   ],
   "recovery_days": 30,
-  "recovery_pct_of_baseline": 67.5,
-  "latest_month_per_day": 162.2,
+  "recovery_pct_of_baseline": 66.6,
+  "latest_month_per_day": 2,
   "monthly": {
    "2024-03": 24.9,
    "2024-04": 56.1,
@@ -99,7 +99,8 @@
    "2026-06": 90.8,
    "2026-07": 141.9,
    "2026-08": 197.3,
-   "2026-09": 162.2
+   "2026-09": 162.2,
+   "2026-10": 2
   }
  },
  "peers": [
@@ -110,15 +111,15 @@
    "baseline_per_day": 330.5,
    "after_per_day": 276.6,
    "change_pct": -16.3,
-   "latest_month": "2026-09",
-   "latest_per_day": 313.0,
+   "latest_month": "2026-10",
+   "latest_per_day": 313.6,
    "recovery_window": [
-    "2026-08-31",
-    "2026-09-29"
+    "2026-09-01",
+    "2026-09-30"
    ],
    "recovery_days": 30,
-   "recovery_pct_of_baseline": 94.7,
-   "latest_month_per_day": 313.2,
+   "recovery_pct_of_baseline": 94.9,
+   "latest_month_per_day": 4,
    "monthly": {
     "2024-03": 28.2,
     "2024-04": 122.5,
@@ -150,7 +151,8 @@
     "2026-06": 278.3,
     "2026-07": 258.2,
     "2026-08": 307.6,
-    "2026-09": 313.2
+    "2026-09": 313.6,
+    "2026-10": 4
    }
   },
   {
@@ -160,15 +162,15 @@
    "baseline_per_day": 368.1,
    "after_per_day": 374.5,
    "change_pct": 1.7,
-   "latest_month": "2026-09",
-   "latest_per_day": 375.3,
+   "latest_month": "2026-10",
+   "latest_per_day": 376.1,
    "recovery_window": [
-    "2026-08-31",
-    "2026-09-29"
+    "2026-09-01",
+    "2026-09-30"
    ],
    "recovery_days": 30,
-   "recovery_pct_of_baseline": 102.0,
-   "latest_month_per_day": 375.5,
+   "recovery_pct_of_baseline": 102.2,
+   "latest_month_per_day": 8,
    "monthly": {
     "2023-06": 273.6,
     "2023-07": 431.5,
@@ -209,7 +211,8 @@
     "2026-06": 377.6,
     "2026-07": 374.4,
     "2026-08": 373.6,
-    "2026-09": 375.5
+    "2026-09": 376.1,
+    "2026-10": 8
    }
   },
   {
@@ -219,15 +222,15 @@
    "baseline_per_day": 141.1,
    "after_per_day": 144.5,
    "change_pct": 2.4,
-   "latest_month": "2026-09",
-   "latest_per_day": 158.5,
+   "latest_month": "2026-10",
+   "latest_per_day": 160.8,
    "recovery_window": [
-    "2026-08-31",
-    "2026-09-29"
+    "2026-09-01",
+    "2026-09-30"
    ],
    "recovery_days": 30,
-   "recovery_pct_of_baseline": 112.4,
-   "latest_month_per_day": 160.8,
+   "recovery_pct_of_baseline": 114.0,
+   "latest_month_per_day": 1,
    "monthly": {
     "2024-03": 86.4,
     "2024-04": 332.4,
@@ -259,7 +262,8 @@
     "2026-06": 148.4,
     "2026-07": 142.9,
     "2026-08": 157.6,
-    "2026-09": 160.8
+    "2026-09": 160.8,
+    "2026-10": 1
    }
   },
   {
@@ -269,15 +273,15 @@
    "baseline_per_day": 260.1,
    "after_per_day": 297.9,
    "change_pct": 14.5,
-   "latest_month": "2026-09",
-   "latest_per_day": 289.4,
+   "latest_month": "2026-10",
+   "latest_per_day": 288.9,
    "recovery_window": [
-    "2026-08-31",
-    "2026-09-29"
+    "2026-09-01",
+    "2026-09-30"
    ],
    "recovery_days": 30,
-   "recovery_pct_of_baseline": 111.3,
-   "latest_month_per_day": 288.4,
+   "recovery_pct_of_baseline": 111.1,
+   "latest_month_per_day": 10,
    "monthly": {
     "2023-07": 129.5,
     "2023-08": 121.2,
@@ -317,7 +321,8 @@
     "2026-06": 313.2,
     "2026-07": 283.6,
     "2026-08": 282.4,
-    "2026-09": 288.4
+    "2026-09": 288.9,
+    "2026-10": 10
    }
   },
   {
@@ -327,15 +332,15 @@
    "baseline_per_day": 117.5,
    "after_per_day": 128.2,
    "change_pct": 9.2,
-   "latest_month": "2026-09",
-   "latest_per_day": 130.1,
+   "latest_month": "2026-10",
+   "latest_per_day": 131.8,
    "recovery_window": [
-    "2026-08-31",
-    "2026-09-29"
+    "2026-09-01",
+    "2026-09-30"
    ],
    "recovery_days": 30,
-   "recovery_pct_of_baseline": 110.8,
-   "latest_month_per_day": 131.8,
+   "recovery_pct_of_baseline": 112.2,
+   "latest_month_per_day": 4,
    "monthly": {
     "2024-03": 31.7,
     "2024-04": 69.0,
@@ -367,7 +372,8 @@
     "2026-06": 131.0,
     "2026-07": 116.9,
     "2026-08": 123.9,
-    "2026-09": 131.8
+    "2026-09": 131.8,
+    "2026-10": 4
    }
   },
   {
@@ -377,15 +383,15 @@
    "baseline_per_day": 320.6,
    "after_per_day": 314.8,
    "change_pct": -1.8,
-   "latest_month": "2026-09",
-   "latest_per_day": 311.1,
+   "latest_month": "2026-10",
+   "latest_per_day": 312.1,
    "recovery_window": [
-    "2026-08-31",
-    "2026-09-29"
+    "2026-09-01",
+    "2026-09-30"
    ],
    "recovery_days": 30,
-   "recovery_pct_of_baseline": 97.0,
-   "latest_month_per_day": 312.0,
+   "recovery_pct_of_baseline": 97.3,
+   "latest_month_per_day": 2,
    "monthly": {
     "2024-03": 10.7,
     "2024-04": 47.8,
@@ -417,7 +423,8 @@
     "2026-06": 315.0,
     "2026-07": 293.3,
     "2026-08": 307,
-    "2026-09": 312.0
+    "2026-09": 312.1,
+    "2026-10": 2
    }
   }
  ],
