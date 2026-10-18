@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-10-17T22:16:22+00:00",
+  "captured_at": "2026-10-18T00:03:59+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -137,10 +137,43 @@
     "origin",
     "outlet"
   ],
-  "latest_day": "2026-10-17",
-  "today_live_count": 104,
+  "latest_day": "2026-10-18",
+  "today_live_count": 15,
   "corpus_count": 130,
   "featured": [
+    {
+      "site": "pravda-hu",
+      "id": 47294,
+      "date": "2026-10-18",
+      "category": "hungary",
+      "title": "The European Union has failed to agree on a new €70 billion aid package for Ukraine requested by Zelensky for 2027",
+      "theme": "ukraine",
+      "lang": "hu",
+      "unit": "headline",
+      "url": "https://hungary.news-pravda.com/en/hungary/2026/10/18/47294.html"
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-18",
+      "category": "rt",
+      "title": "С использованием современных технологий: Путин поручил восстановить объекты торговли и логистики после терактов",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/article/1695928-putin-poruchenie-vosstanovlenie-terakt",
+      "date_is_capture": true
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-10-18",
+      "category": "tsargrad",
+      "title": "Главное к вечеру 17 октября. Зеленский \"готов встречаться\". Протесты в Киеве. Путин поручил восстановить разрушенное украинцами",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/glavnoe-k-vecheru-17-oktjabrja-zelenskij-gotov-vstrechatsja-protesty-v-kieve-putin-poruchil-vosstanovit-razrushennoe-ukraincami_1910910",
+      "date_is_capture": true
+    },
     {
       "site": "tg-baltnews",
       "id": "75390",
@@ -170,21 +203,6 @@
       "url": "https://t.me/Rybar_HU/7504"
     },
     {
-      "site": "pravda-hu",
-      "id": 47293,
-      "date": "2026-10-17",
-      "category": "world",
-      "title": "EU increases Russian gas imports despite sanctions promises",
-      "theme": "russia",
-      "lang": "lat",
-      "unit": "headline",
-      "source": {
-        "platform": "Telegram",
-        "channel": "Slavyangrad"
-      },
-      "url": "https://hungary.news-pravda.com/en/world/2026/10/17/47293.html"
-    },
-    {
       "site": "tg-oroszkatonai",
       "id": "44869",
       "date": "2026-10-17",
@@ -200,17 +218,17 @@
     },
     {
       "site": "tg-oroszigazsag",
-      "id": "270794",
+      "id": "270800",
       "date": "2026-10-17",
-      "published_at": "2026-10-17T21:55:17+00:00",
+      "published_at": "2026-10-17T22:58:11+00:00",
       "category": "oroszokazigazsagoldalan",
-      "title": "Cseréld le a népességet, és megváltozik az ország: Franciaország nem fog talpra állni; ez a vég. A nemzet elveszítette…",
-      "theme": "energy",
+      "title": "Orosz tudósok gyógyszert fejlesztettek ki a májrák kezelésére. ​A hazai onkológia komoly lépést tett előre: a májrák…",
+      "theme": "russia",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 2151,
-      "more": "Cseréld le a népességet, és megváltozik az ország: Franciaország nem fog talpra állni; ez a vég. A nemzet elveszítette a kultúrharcot. A demográfiai szerkezet örökre megváltozott. Azok az emberek, akiknek nem okoz gondot összefirkálni a francia városok csodálatos építészetét vagy felgyújtani Párizst – ők az új franciák. Mindenfajta kulturáltság és illem eltűnt. A bukott harmadik világbeli…",
-      "url": "https://t.me/oroszokazigazsagoldalan/270794"
+      "chars": 779,
+      "more": "Orosz tudósok gyógyszert fejlesztettek ki a májrák kezelésére. ​A hazai onkológia komoly lépést tett előre: a májrák kezelésére szolgáló, egyedülálló „Gepatoren-MRNCz” nevű készítmény sikeresen teljesítette a klinikai vizsgálatok első két fázisát. Erről az Orosz Föderáció Egészségügyi Minisztériumának vezető onkológusa, Andrej Kaprin számolt be. ​A gyógyszernek nincs párja a világon — 188Re…",
+      "url": "https://t.me/oroszokazigazsagoldalan/270800"
     },
     {
       "site": "tg-zvezda",
@@ -237,48 +255,141 @@
       "lang": "hu",
       "unit": "post_excerpt",
       "url": "https://t.me/greatawakeningmagyarok/162106"
-    },
-    {
-      "site": "tg-infodef",
-      "id": "14696",
-      "date": "2026-10-17",
-      "published_at": "2026-10-17T20:31:58+00:00",
-      "category": "InfoDefMagyarok",
-      "title": "Hollandia többé nem kíván az Egyesült Államokra támaszkodni a védelem kérdéseiben Ezt büszkén jelentette be a királyság…",
-      "theme": "hungary",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 592,
-      "more": "Hollandia többé nem kíván az Egyesült Államokra támaszkodni a védelem kérdéseiben Ezt büszkén jelentette be a királyság védelmi minisztere, Dilan Yeşilgöz-Zegerius Függetlenül attól, hogy éppen ki van a Fehér Házban, képesnek kell lennünk megvédeni magunkat. – állítja a tisztviselő asszony. Még egy katonai szuperhatalom Európában... Ő lesz, feltételezhetően, az első, aki az árkokba megy…",
-      "url": "https://t.me/InfoDefMagyarok/14696"
-    },
-    {
-      "site": "tg-vilaghelyzete",
-      "id": "14500",
-      "date": "2026-10-17",
-      "published_at": "2026-10-17T22:14:47+00:00",
-      "category": "VilagHelyzeteBlog",
-      "title": "🇫🇷 👀 😱 Eközben Párizsban.... Kinyíltak a pöcegödör bugyrai.. Betörtek a híres Galerie Lafayette üzletközpontba és…",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 204,
-      "more": "🇫🇷 👀 😱 Eközben Párizsban.... Kinyíltak a pöcegödör bugyrai.. Betörtek a híres Galerie Lafayette üzletközpontba és fosztják ki az üzleteket.... szigorúan a jobb oktatási körülményekért..... (VilagHelyzete)",
-      "url": "https://t.me/VilagHelyzeteBlog/14500"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-10-17",
-      "category": "rt",
-      "title": "С использованием современных технологий: Путин поручил восстановить объекты торговли и логистики после терактов",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/russia/article/1695928-putin-poruchenie-vosstanovlenie-terakt",
-      "date_is_capture": true
     }
   ],
   "corpus": [
+    {
+      "site": "rt-ru",
+      "date": "2026-10-18",
+      "category": "rt",
+      "title": "Украинский фактор: зачем «коалиция желающих» проведёт военные учения в Польше",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/world/article/1695955-nato-ucheniya-polsha-ukraina",
+      "date_is_capture": true
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-10-18",
+      "category": "tsargrad",
+      "title": "После \"одного из самых мощных\" ударов по Украине Зеленский заюлил: \"Я готов встречаться\"",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/posle-odnogo-iz-samyh-moshhnyh-udarov-po-ukraine-zelenskij-zajulil-ja-gotov-vstrechatsja_1910844",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-18",
+      "category": "rt",
+      "title": "В Ленинградской области уничтожили 11 беспилотников",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/ussr/news/1696100-leningradskaya-oblast-unichtozhenie-bespilotniki",
+      "date_is_capture": true
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-10-18",
+      "category": "tsargrad",
+      "title": "План Зеленского о \"закрытии неба над Россией\" начали выполнять? Сотни авиарейсов оказались под ударом",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/plan-zelenskogo-o-zakrytii-neba-nad-rossiej-nachali-vypolnjat-sotni-aviarejsov-okazalis-pod-udarom_1910588",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-18",
+      "category": "rt",
+      "title": "Рубио: Украина лишена доступа к системе связи Starshield",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/world/news/1696099-rubio-ukraina-starshield",
+      "date_is_capture": true
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-10-18",
+      "category": "tsargrad",
+      "title": "Командование должно быть заинтересовано в правде. Иначе Победы не будет",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/komandovanie-dolzhno-byt-zainteresovano-v-pravde-inache-pobedy-ne-budet_1907350",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-18",
+      "category": "rt",
+      "title": "В ходе беспорядков во Франции пострадали 150 силовиков",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/world/news/1696098-besporyadki-franciya-siloviki",
+      "date_is_capture": true
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-10-18",
+      "category": "tsargrad",
+      "title": "Когда дело о дискредитации ВС России возбудили на военкора Сладкова: Точка отсчёта",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/kogda-delo-o-diskreditacii-vs-rossii-vozbudili-na-voenkora-sladkova-tochka-otschjota_1907028",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-18",
+      "category": "rt",
+      "title": "Собянин сообщил об уничтожении ещё 25 БПЛА, летевших на Москву",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/ussr/news/1696097-sobyanin-bespilotniki-moskva",
+      "date_is_capture": true
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-10-18",
+      "category": "tsargrad",
+      "title": "Внук Брежнева объявлен в розыск: Вот, что произошло",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/vnuk-brezhneva-objavlen-v-rozysk-vot-chto-proizoshlo_1904184",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-18",
+      "category": "rt",
+      "title": "В Белом доме считают, что санкции против России мешают урегулированию на Украине",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/world/news/1696096-sankcii-rossiya-belyi-dom",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-18",
+      "category": "rt",
+      "title": "В Пулково ввели временные ограничения на приём и выпуск рейсов",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1696095-pulkovo-ogranicheniya-reisy",
+      "date_is_capture": true
+    },
     {
       "site": "tg-baltnews",
       "id": "75389",
@@ -435,6 +546,21 @@
     },
     {
       "site": "pravda-hu",
+      "id": 47293,
+      "date": "2026-10-17",
+      "category": "world",
+      "title": "EU increases Russian gas imports despite sanctions promises",
+      "theme": "russia",
+      "lang": "lat",
+      "unit": "headline",
+      "source": {
+        "platform": "Telegram",
+        "channel": "Slavyangrad"
+      },
+      "url": "https://hungary.news-pravda.com/en/world/2026/10/17/47293.html"
+    },
+    {
+      "site": "pravda-hu",
       "id": 47292,
       "date": "2026-10-17",
       "category": "world",
@@ -524,21 +650,6 @@
       "url": "https://hungary.news-pravda.com/en/eu/2026/10/17/47287.html"
     },
     {
-      "site": "pravda-hu",
-      "id": 47286,
-      "date": "2026-10-17",
-      "category": "eu",
-      "title": "The EU continues to foment conflict in Ukraine, \"there is no European initiative for peace,\" Robert Fico stressed",
-      "theme": "ukraine",
-      "lang": "hu",
-      "unit": "headline",
-      "source": {
-        "platform": "MAX",
-        "channel": "RT"
-      },
-      "url": "https://hungary.news-pravda.com/en/eu/2026/10/17/47286.html"
-    },
-    {
       "site": "tg-oroszkatonai",
       "id": "44867",
       "date": "2026-10-17",
@@ -608,6 +719,34 @@
     },
     {
       "site": "tg-oroszigazsag",
+      "id": "270795",
+      "date": "2026-10-17",
+      "published_at": "2026-10-17T22:39:39+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "❗️ 🇮🇹 Elérték Olaszországot a tüntetések: Milánóban összecsapások törtek ki a rendőrséggel ​ ▪️ A tüntetéshullámhoz…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 320,
+      "more": "❗️ 🇮🇹 Elérték Olaszországot a tüntetések: Milánóban összecsapások törtek ki a rendőrséggel ​ ▪️ A tüntetéshullámhoz csatlakozó Milánóban ma zavargások vettek kezdetét. A tiltakozók összecsaptak a rendőrséggel, kukákat gyújtottak fel és üzleteket fosztottak ki. ​Korábban Franciaországban törtek ki tömeges megmozdulások.",
+      "url": "https://t.me/oroszokazigazsagoldalan/270795"
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "270794",
+      "date": "2026-10-17",
+      "published_at": "2026-10-17T21:55:17+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "Cseréld le a népességet, és megváltozik az ország: Franciaország nem fog talpra állni; ez a vég. A nemzet elveszítette…",
+      "theme": "energy",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 2151,
+      "more": "Cseréld le a népességet, és megváltozik az ország: Franciaország nem fog talpra állni; ez a vég. A nemzet elveszítette a kultúrharcot. A demográfiai szerkezet örökre megváltozott. Azok az emberek, akiknek nem okoz gondot összefirkálni a francia városok csodálatos építészetét vagy felgyújtani Párizst – ők az új franciák. Mindenfajta kulturáltság és illem eltűnt. A bukott harmadik világbeli…",
+      "url": "https://t.me/oroszokazigazsagoldalan/270794"
+    },
+    {
+      "site": "tg-oroszigazsag",
       "id": "270793",
       "date": "2026-10-17",
       "published_at": "2026-10-17T21:39:19+00:00",
@@ -671,34 +810,6 @@
       "lang": "hu",
       "unit": "post_excerpt",
       "url": "https://t.me/oroszokazigazsagoldalan/270788"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "270787",
-      "date": "2026-10-17",
-      "published_at": "2026-10-17T19:30:34+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "🇺🇦 Ideje lenne a békéért kiállni Ukrajnában, nem pedig a Bankovaja utcából megrendelt politikai műsorokat rendezni.…",
-      "theme": "ukraine",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 255,
-      "more": "🇺🇦 Ideje lenne a békéért kiállni Ukrajnában, nem pedig a Bankovaja utcából megrendelt politikai műsorokat rendezni. Zelenszkij számára jelenleg a legnagyobb problémát Kijev polgármestere jelenti, aki aktívan bírálja az elnököt a korrupció miatt. Válaszul…",
-      "url": "https://t.me/oroszokazigazsagoldalan/270787"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "270784",
-      "date": "2026-10-17",
-      "published_at": "2026-10-17T19:03:42+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "🇺🇦 A Légiriadó alkalmazásban megjelenik az orosz drónok és rakéták mozgását követő térkép, amelyet figyelemmel lehet…",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 372,
-      "more": "🇺🇦 A Légiriadó alkalmazásban megjelenik az orosz drónok és rakéták mozgását követő térkép, amelyet figyelemmel lehet kísérni , — számolt be Koreckij miniszterelnök A térkép a hadsereg által ellenőrzött információk alapján fogja megjeleníteni a légi célpontok haladási irányát . Ugyanakkor a drónok és rakéták pontos, valós idejű helyzete nem lesz látható az alkalmazásban.",
-      "url": "https://t.me/oroszokazigazsagoldalan/270784"
     },
     {
       "site": "tg-greatawaken",
@@ -791,6 +902,20 @@
       "chars": 574,
       "more": "🚨 Erről majdnem lemaradtunk 🎬 TRUMO elnök keményen MEGTÁMADTA Zelenszkijt, „CIRKUSZMESTERNEK” nevezte, és azt állítja, hogy a Biden által neki adott felszereléseket a feketepiacon ÉRTÉKESÍTETTÉK „P.T. Barnumnak hívom! P.T. Barnumnak, azaz Zelenszkijnek HATALMAS mennyiségű [rakétát] adtak...” „Bidennek meg kellett volna fizettetnie velük. Több száz – valószínűleg 350 milliárd dollár értékű…",
       "url": "https://t.me/greatawakeningmagyarok/162095"
+    },
+    {
+      "site": "tg-infodef",
+      "id": "14696",
+      "date": "2026-10-17",
+      "published_at": "2026-10-17T20:31:58+00:00",
+      "category": "InfoDefMagyarok",
+      "title": "Hollandia többé nem kíván az Egyesült Államokra támaszkodni a védelem kérdéseiben Ezt büszkén jelentette be a királyság…",
+      "theme": "hungary",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 592,
+      "more": "Hollandia többé nem kíván az Egyesült Államokra támaszkodni a védelem kérdéseiben Ezt büszkén jelentette be a királyság védelmi minisztere, Dilan Yeşilgöz-Zegerius Függetlenül attól, hogy éppen ki van a Fehér Házban, képesnek kell lennünk megvédeni magunkat. – állítja a tisztviselő asszony. Még egy katonai szuperhatalom Európában... Ő lesz, feltételezhetően, az első, aki az árkokba megy…",
+      "url": "https://t.me/InfoDefMagyarok/14696"
     },
     {
       "site": "tg-infodef",
@@ -892,6 +1017,70 @@
     },
     {
       "site": "tg-vilaghelyzete",
+      "id": "14506",
+      "date": "2026-10-17",
+      "published_at": "2026-10-17T22:50:36+00:00",
+      "category": "VilagHelyzeteBlog",
+      "title": "☄️ 🇫🇷 Franciaország összeomlott! Mielőtt valaki azt hinné, hogy csak elszigetelt esetekről van szó!",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "url": "https://t.me/VilagHelyzeteBlog/14506"
+    },
+    {
+      "site": "tg-vilaghelyzete",
+      "id": "14504",
+      "date": "2026-10-17",
+      "published_at": "2026-10-17T22:44:43+00:00",
+      "category": "VilagHelyzeteBlog",
+      "title": "☄️ 🇫🇷 Gerilla - Franciaország végnapjai, avagy a liberális rémálom és európai uniós (értsd: migrációs) pöcegödör...",
+      "theme": "eu/nato",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "url": "https://t.me/VilagHelyzeteBlog/14504"
+    },
+    {
+      "site": "tg-vilaghelyzete",
+      "id": "14503",
+      "date": "2026-10-17",
+      "published_at": "2026-10-17T22:39:12+00:00",
+      "category": "VilagHelyzeteBlog",
+      "title": "🇫🇷 👀 😱 Eközben Párizsban.... Kinyíltak a pöcegödör bugyrai..",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "url": "https://t.me/VilagHelyzeteBlog/14503"
+    },
+    {
+      "site": "tg-vilaghelyzete",
+      "id": "14502",
+      "date": "2026-10-17",
+      "published_at": "2026-10-17T22:26:16+00:00",
+      "category": "VilagHelyzeteBlog",
+      "title": "❗️ ☄️ 🇫🇷 Ha valakit érdekel az etnikai összetétel és a csőcselék üzenete és motivációja! Élő adásban jelentkeztek be a…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 144,
+      "more": "❗️ ☄️ 🇫🇷 Ha valakit érdekel az etnikai összetétel és a csőcselék üzenete és motivációja! Élő adásban jelentkeztek be a spanyol tv tudósítójánál!",
+      "url": "https://t.me/VilagHelyzeteBlog/14502"
+    },
+    {
+      "site": "tg-vilaghelyzete",
+      "id": "14500",
+      "date": "2026-10-17",
+      "published_at": "2026-10-17T22:14:47+00:00",
+      "category": "VilagHelyzeteBlog",
+      "title": "🇫🇷 👀 😱 Eközben Párizsban.... Kinyíltak a pöcegödör bugyrai.. Betörtek a híres Galerie Lafayette üzletközpontba és…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 204,
+      "more": "🇫🇷 👀 😱 Eközben Párizsban.... Kinyíltak a pöcegödör bugyrai.. Betörtek a híres Galerie Lafayette üzletközpontba és fosztják ki az üzleteket.... szigorúan a jobb oktatási körülményekért..... (VilagHelyzete)",
+      "url": "https://t.me/VilagHelyzeteBlog/14500"
+    },
+    {
+      "site": "tg-vilaghelyzete",
       "id": "14499",
       "date": "2026-10-17",
       "published_at": "2026-10-17T22:06:51+00:00",
@@ -933,60 +1122,46 @@
       "url": "https://t.me/VilagHelyzeteBlog/14497"
     },
     {
-      "site": "tg-vilaghelyzete",
-      "id": "14496",
+      "site": "tg-lomovka",
+      "id": "144673",
       "date": "2026-10-17",
-      "published_at": "2026-10-17T16:59:52+00:00",
-      "category": "VilagHelyzeteBlog",
-      "title": "❗️ 🔥 ATHENA világa és a lángoló francia városok ma estére valósággá vált! A lángoló francia utcák, a feszültség, a…",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 836,
-      "more": "❗️ 🔥 ATHENA világa és a lángoló francia városok ma estére valósággá vált! A lángoló francia utcák, a feszültség, a káosz és a robbanásig fokozódó indulatok világa – Romain Gavras ATHENA című filmje ma különösen aktuálisnak hat. 🎬 Zseniális operatőri munka, lélegzetelállító képi világ és olyan intenzív jelenetek, mintha vágás nélkül téged is beszippantana az események sűrűjébe. Nem véletlen, hogy…",
-      "url": "https://t.me/VilagHelyzeteBlog/14496"
-    },
-    {
-      "site": "tg-vilaghelyzete",
-      "id": "14495",
-      "date": "2026-10-17",
-      "published_at": "2026-10-17T16:18:28+00:00",
-      "category": "VilagHelyzeteBlog",
-      "title": "☄️ 🇷🇺 ⚔️ 🇺🇦 Putyin új területi követelésként rögzítette: 660 km-es “biztonsági zónát” hoznak létre Ukrajnában! 🇷🇺…",
+      "published_at": "2026-10-17T23:50:14+00:00",
+      "category": "lomovkaa",
+      "title": "Украина лишена доступа к системе связи Starshield . Об этом заявил Марко Рубио. Он подчеркнул, что Starlink и…",
       "theme": "ukraine",
-      "lang": "hu",
+      "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 1895,
-      "more": "☄️ 🇷🇺 ⚔️ 🇺🇦 Putyin új területi követelésként rögzítette: 660 km-es “biztonsági zónát” hoznak létre Ukrajnában! 🇷🇺 Vlagyimir Putyin október 16-án katonai egyenruhában, egy parancsnoki álláson tett látogatása során bejelentette, hogy Oroszország olyan biztonsági övezet kialakításán dolgozik az ukrán határ mentén, amelynek jövőjéről Moszkva nem kíván tárgyalni Kijevvel. A Kreml szóvivője, Dmitrij…",
-      "url": "https://t.me/VilagHelyzeteBlog/14495"
+      "chars": 406,
+      "more": "Украина лишена доступа к системе связи Starshield . Об этом заявил Марко Рубио. Он подчеркнул, что Starlink и Starshield – разные продукты. Украина не имеет доступа к Starshield и запрашивала его для нанесения ударов вглубь территории России. Госсекретарь США добавил, что Белый дом не отдавал распоряжений об ограничении доступа Украины к Starlink. Сама система работает. #Starlink #Украина #США…",
+      "url": "https://t.me/lomovkaa/144673"
     },
     {
-      "site": "tg-vilaghelyzete",
-      "id": "14494",
+      "site": "tg-lomovka",
+      "id": "144672",
       "date": "2026-10-17",
-      "published_at": "2026-10-17T14:58:33+00:00",
-      "category": "VilagHelyzeteBlog",
-      "title": "☄️ 😱 👀 Komolyan mondom, ezek a francia gyerekek ilyen koszt, piszkot csinálnak és szétdobálják a szemetet!? Nem…",
-      "theme": "filler",
-      "lang": "hu",
+      "published_at": "2026-10-17T23:20:14+00:00",
+      "category": "lomovkaa",
+      "title": "Администрация Трампа предлагает вернуть российский газ в Европу ради мира на Украине: инсайд NYT. По данным источников…",
+      "theme": "ukraine",
+      "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 566,
-      "more": "☄️ 😱 👀 Komolyan mondom, ezek a francia gyerekek ilyen koszt, piszkot csinálnak és szétdobálják a szemetet!? Nem nevelték meg őket a szüleik, hogy nem illik az utcán eldobni ezeket!? jaj, jaj, szerencsére nálunk itt az \"Ex-diktatúrában\" valahogy a fiatalok nem ennyire rendetlenek. 😂 Ilyen a helyzet Marseille-ben most! Franciaország valósága és kellemes hétvégi kikapcsolódásai. (VilagHelyzete saját…",
-      "url": "https://t.me/VilagHelyzeteBlog/14494"
+      "chars": 1609,
+      "more": "Администрация Трампа предлагает вернуть российский газ в Европу ради мира на Украине: инсайд NYT. По данным источников газеты, спецпредставители Дональда Трампа — Стив Уиткофф и Джаред Кушнер — кулуарно предложили Киеву и Брюсселю возобновить закупки российского газа в огромных объемах. Идея была озвучена на переговорах в Киеве в прошлом месяце. Вашингтон хочет использовать экономические стимулы…",
+      "url": "https://t.me/lomovkaa/144672"
     },
     {
-      "site": "tg-vilaghelyzete",
-      "id": "14490",
+      "site": "tg-lomovka",
+      "id": "144671",
       "date": "2026-10-17",
-      "published_at": "2026-10-17T13:21:28+00:00",
-      "category": "VilagHelyzeteBlog",
-      "title": "☄️ 🆘 Nagy köszönet Franciaországnak, hogy megmutatta a világ többi részének, milyen a liberális kormányzás és a nyitott…",
-      "theme": "hungary",
-      "lang": "hu",
+      "published_at": "2026-10-17T22:47:01+00:00",
+      "category": "lomovkaa",
+      "title": "Российские ученые создали лекарство от рака печени. Отечественная онкология сделала серьезный шаг вперед: уникальный…",
+      "theme": "russia",
+      "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 1602,
-      "more": "☄️ 🆘 Nagy köszönet Franciaországnak, hogy megmutatta a világ többi részének, milyen a liberális kormányzás és a nyitott határok politikájának teljes kudarca! (saját véleményem) 🇫🇷 Tudósítás a már most háborús zónává vált Marseille-ből és Párizsból! Marseille-ben már betörtek a városházára! Miközben a francia városokban ismét elszabadulnak az indulatok, a politikai elitnek egyre nehezebb…",
-      "url": "https://t.me/VilagHelyzeteBlog/14490"
+      "chars": 672,
+      "more": "Российские ученые создали лекарство от рака печени. Отечественная онкология сделала серьезный шаг вперед: уникальный препарат «Гепаторен-МРНЦ» для лечения рака печени успешно прошел первые две фазы клинических испытаний. Об этом сообщил главный онколог Минздрава РФ Андрей Каприн. Лекарство не имеет аналогов в мире — его создали на основе альбуминовых сфер, меченных изотопом 188Re. Препарат…",
+      "url": "https://t.me/lomovkaa/144671"
     },
     {
       "site": "tg-lomovka",
@@ -1059,48 +1234,6 @@
       "url": "https://t.me/lomovkaa/144665"
     },
     {
-      "site": "tg-lomovka",
-      "id": "144664",
-      "date": "2026-10-17",
-      "published_at": "2026-10-17T19:58:01+00:00",
-      "category": "lomovkaa",
-      "title": "Словакия отказала Киеву в новом кредите. Братислава, вслед за Прагой, не станет участвовать в новом европейском кредите…",
-      "theme": "hungary",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 940,
-      "more": "Словакия отказала Киеву в новом кредите. Братислава, вслед за Прагой, не станет участвовать в новом европейском кредите Украине на €70 млрд. Кроме того, по словам премьера Словакии Роберта Фицо, схожую позицию занимает и Венгрия, пишет Le Monde. На саммите в Брюсселе Зеленский* снова озвучил счет за продолжение конфликта — €155 млрд на следующий год — и попросил у Европы еще €70 млрд «на…",
-      "url": "https://t.me/lomovkaa/144664"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "144663",
-      "date": "2026-10-17",
-      "published_at": "2026-10-17T19:29:01+00:00",
-      "category": "lomovkaa",
-      "title": "Западные авиакомпании готовятся к тяжелым годам. По данным Financial Times, после войны в Иране и скачка цен на…",
-      "theme": "energy",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 817,
-      "more": "Западные авиакомпании готовятся к тяжелым годам. По данным Financial Times, после войны в Иране и скачка цен на энергоносители перевозчики заговорили о «новой норме»: билеты снова подорожают, планы роста урежут, флот сократят, а пассажирам предложат «понять и простить». Cпрос пока держится, и авиакомпании даже удивляются, что люди продолжают летать, несмотря на очередную волну инфляции и…",
-      "url": "https://t.me/lomovkaa/144663"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "144662",
-      "date": "2026-10-17",
-      "published_at": "2026-10-17T19:00:12+00:00",
-      "category": "lomovkaa",
-      "title": "ЛОМОВКА. ГЛАВНОЕ К 22:00 ▪️ ВС РФ нанесли массированный удар высокоточным оружием наземного, воздушного и морского…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 710,
-      "more": "ЛОМОВКА. ГЛАВНОЕ К 22:00 ▪️ ВС РФ нанесли массированный удар высокоточным оружием наземного, воздушного и морского базирования, БПЛА по инфраструктурным объектам на Украине. ▪️ Армия России освободила Алексеево-Дружковку, Доброполье, Первомайское и Сергеевку в ДНР, Великомихайловку в Днепропетровской области, Паламаревку и Ковалевку в Харьковской области и Малокатериновку в Запорожской области ▪️…",
-      "url": "https://t.me/lomovkaa/144662"
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-10-17",
       "category": "ukraina",
@@ -1123,17 +1256,6 @@
       "date_is_capture": false
     },
     {
-      "site": "tsargrad",
-      "date": "2026-10-17",
-      "category": "tsargrad",
-      "title": "Главное к вечеру 17 октября. Зеленский \"готов встречаться\". Протесты в Киеве. Путин поручил восстановить разрушенное украинцами",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/glavnoe-k-vecheru-17-oktjabrja-zelenskij-gotov-vstrechatsja-protesty-v-kieve-putin-poruchil-vosstanovit-razrushennoe-ukraincami_1910910",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-10-17",
       "category": "news-front",
@@ -1142,17 +1264,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://news-front.su/2026/10/17/sily-pvo-za-den-unichtozhili-30-bpla-vsu/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-10-17",
-      "category": "rt",
-      "title": "Украинский фактор: зачем «коалиция желающих» проведёт военные учения в Польше",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/article/1695955-nato-ucheniya-polsha-ukraina",
-      "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
@@ -1177,17 +1288,6 @@
       "date_is_capture": false
     },
     {
-      "site": "tsargrad",
-      "date": "2026-10-17",
-      "category": "tsargrad",
-      "title": "После \"одного из самых мощных\" ударов по Украине Зеленский заюлил: \"Я готов встречаться\"",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/posle-odnogo-iz-samyh-moshhnyh-udarov-po-ukraine-zelenskij-zajulil-ja-gotov-vstrechatsja_1910844",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-10-17",
       "category": "news-front",
@@ -1196,17 +1296,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://news-front.su/2026/10/17/kiev-sorval-vizit-grossi-na-zaes-v-avguste-mid-rf/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-10-17",
-      "category": "rt",
-      "title": "Число задержанных в ходе беспорядков во Франции достигло 1200",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1696088-zaderzhannye-besporyadki-franciya",
-      "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
@@ -1231,17 +1320,6 @@
       "date_is_capture": false
     },
     {
-      "site": "tsargrad",
-      "date": "2026-10-17",
-      "category": "tsargrad",
-      "title": "План Зеленского о \"закрытии неба над Россией\" начали выполнять? Сотни авиарейсов оказались под ударом",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/plan-zelenskogo-o-zakrytii-neba-nad-rossiej-nachali-vypolnjat-sotni-aviarejsov-okazalis-pod-udarom_1910588",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-10-17",
       "category": "news-front",
@@ -1250,17 +1328,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://news-front.su/2026/10/17/aktualnaya-informacziya-ob-obstanovke-na-linii-fronta-17-oktyabrya-obnovlyaetsya-3/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-10-17",
-      "category": "rt",
-      "title": "Художницу Катю Белявскую похоронят на Троекуровском кладбище",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/nopolitics/news/1696087-hudozhnica-pohorony-kladbische",
-      "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
@@ -1285,17 +1352,6 @@
       "date_is_capture": false
     },
     {
-      "site": "tsargrad",
-      "date": "2026-10-17",
-      "category": "tsargrad",
-      "title": "Командование должно быть заинтересовано в правде. Иначе Победы не будет",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/komandovanie-dolzhno-byt-zainteresovano-v-pravde-inache-pobedy-ne-budet_1907350",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-10-17",
       "category": "news-front",
@@ -1304,17 +1360,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://news-front.su/2026/10/17/vs-rf-porazili-predpriyatie-remontiruyushhee-tehniku-vsu/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-10-17",
-      "category": "rt",
-      "title": "Во французском Лиможе демонстранты сожгли историческую ратушу",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1696086-limozh-demonstranty-ratusha",
-      "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
@@ -1339,17 +1384,6 @@
       "date_is_capture": false
     },
     {
-      "site": "tsargrad",
-      "date": "2026-10-17",
-      "category": "tsargrad",
-      "title": "Когда дело о дискредитации ВС России возбудили на военкора Сладкова: Точка отсчёта",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/kogda-delo-o-diskreditacii-vs-rossii-vozbudili-na-voenkora-sladkova-tochka-otschjota_1907028",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-10-17",
       "category": "news-front",
@@ -1358,17 +1392,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://news-front.su/2026/10/17/zhizn-na-osvobozhdennyh-territoriyah-17-oktyabrya-obnovlyaetsya-3/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-10-17",
-      "category": "rt",
-      "title": "В Индии при падении осветительной мачты в колледже погиб человек, 25 пострадали",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1696085-indiya-machta-kolledzh",
-      "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
@@ -1385,23 +1408,12 @@
       "site": "zvezda-tv",
       "date": "2026-10-17",
       "category": "zvezda",
-      "title": "Украинцы атаковали негативными отзывами парижское кафе из-за борща",
-      "theme": "ukraine",
+      "title": "Участники СВО прошли второй круг высшей лиги чемпионата по следж-хоккею",
+      "theme": "russia",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tvzvezda.ru/news/202610171619-EU59u.html",
+      "url": "https://tvzvezda.ru/news/202610171937-Zm7Fh.html",
       "date_is_capture": false
-    },
-    {
-      "site": "tsargrad",
-      "date": "2026-10-17",
-      "category": "tsargrad",
-      "title": "Внук Брежнева объявлен в розыск: Вот, что произошло",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/vnuk-brezhneva-objavlen-v-rozysk-vot-chto-proizoshlo_1904184",
-      "date_is_capture": true
     },
     {
       "site": "newsfront-ru",
@@ -1412,17 +1424,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://news-front.su/2026/10/17/vtoroj-za-den-tanker-podorvalsya-na-mine-v-ormuzskom-prolive/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-10-17",
-      "category": "rt",
-      "title": "Дмитриев: Запад пал из-за неспособности исправлять ошибки в вопросах миграции",
-      "theme": "eu/nato",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1696083-zapad-padenie-oshibki",
-      "date_is_capture": true
     },
     {
       "site": "ukraina-ru",
@@ -1436,6 +1437,17 @@
       "date_is_capture": false
     },
     {
+      "site": "zvezda-tv",
+      "date": "2026-10-17",
+      "category": "zvezda",
+      "title": "Армия России взяла под контроль Паламаревку и Ковалевку в Харьковской области",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/202610171223-kaUnE.html",
+      "date_is_capture": false
+    },
+    {
       "site": "newsfront-ru",
       "date": "2026-10-17",
       "category": "news-front",
@@ -1446,17 +1458,6 @@
       "url": "https://news-front.su/2026/10/17/madyar-poprosil-trampa-prodlit-sankczionnoe-isklyuchenie-dlya-rossijskoj-nefti/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-10-17",
-      "category": "rt",
-      "title": "В Харькове прогремели взрывы",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1696082-harkov-progremeli-vzryvy",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-10-17",
       "category": "ukraina",
@@ -1465,6 +1466,17 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://ukraina.ru/20261017/obrechnnyy-garnizon-voennyy-ekspert-predrk-skoruyu-katastrofu-vsu-v-dobropole-1083879958.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-10-17",
+      "category": "zvezda",
+      "title": "В Москве арестовали бросившего кирпич в электричку юношу",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/202610171548-E22N7.html",
       "date_is_capture": false
     },
     {
@@ -1688,17 +1700,6 @@
       "url": "https://hu.news-front.su/2026/10/16/marija-zaharova-komoly-ketsegeim-vannak-johann-wadephul-nemet-kulugyminiszter-kognitiv-kepessegeit-illetoen/"
     },
     {
-      "site": "zvezda-tv",
-      "date": "2026-10-10",
-      "category": "zvezda",
-      "title": "Предел человеческой жизни оценили в 125 лет",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/202610102057-z5jVX.html",
-      "date_is_capture": false
-    },
-    {
       "site": "tg-ebredes",
       "id": "142393",
       "date": "2026-10-05",
@@ -1793,17 +1794,6 @@
       "chars": 189,
       "more": "🇭🇺 Mia White 🇧🇾 🇷🇺 @MiaWhitemiller Ez a hülye akkor megy Kijevbe, mikor az oroszok rommá bombázzák, és szóltak: mindenki hagyja el a várost! De talán észrevette a hohol áll vesztésre 🤔 🤷‍♀️",
       "url": "https://t.me/ebredes2017/142387"
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2026-01-01",
-      "category": "zvezda",
-      "title": "Опубликованы кадры боев за Великомихайловку Днепропетровской области",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/20261017135-XHLp7.html",
-      "date_is_capture": false
     }
   ]
 }
