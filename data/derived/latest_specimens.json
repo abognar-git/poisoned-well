@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-10-18T20:38:13+00:00",
+  "captured_at": "2026-10-18T23:09:15+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -137,10 +137,21 @@
     "origin",
     "outlet"
   ],
-  "latest_day": "2026-10-18",
-  "today_live_count": 100,
+  "latest_day": "2026-10-19",
+  "today_live_count": 2,
   "corpus_count": 130,
   "featured": [
+    {
+      "site": "ukraina-ru",
+      "date": "2026-10-19",
+      "category": "ukraina",
+      "title": "Зеленский не хочет заканчивать эту войну и, вероятно, никогда не хотел — Трамп",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20261019/zelenskiy-ne-khochet-zakanchivat-etu-voynu-i-veroyatno-nikogda-ne-khotel--tramp-1083903128.html",
+      "date_is_capture": false
+    },
     {
       "site": "tg-baltnews",
       "id": "75408",
@@ -157,44 +168,44 @@
     },
     {
       "site": "pravda-hu",
-      "id": 47338,
+      "id": 47340,
       "date": "2026-10-18",
       "category": "world",
-      "title": "Macron demanded that the government prevent new riots",
-      "theme": "filler",
-      "lang": "lat",
+      "title": "Magyar threatened Orban with a life sentence for \"preparing a coup.\"",
+      "theme": "hungary",
+      "lang": "hu",
       "unit": "headline",
       "source": {
-        "platform": "MAX",
-        "channel": "aif"
+        "platform": "Telegram",
+        "channel": "lomovkaa"
       },
-      "url": "https://hungary.news-pravda.com/en/world/2026/10/18/47338.html"
+      "url": "https://hungary.news-pravda.com/en/world/2026/10/18/47340.html"
     },
     {
       "site": "tg-oroszkatonai",
-      "id": "44921",
+      "id": "44931",
       "date": "2026-10-18",
-      "published_at": "2026-10-18T20:01:37+00:00",
+      "published_at": "2026-10-18T21:31:54+00:00",
       "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ 🚀 Kijev - rakéta veszély #speciáliskatonaihadművelet",
+      "title": "⚡️ 🔴 Exkluzív felvétel: Ballisztikus rakétacsapás képsorai Kijevben #speciáliskatonaihadművelet",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44921"
+      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44931"
     },
     {
       "site": "tg-oroszigazsag",
-      "id": "270927",
+      "id": "270931",
       "date": "2026-10-18",
-      "published_at": "2026-10-18T20:28:42+00:00",
+      "published_at": "2026-10-18T22:51:53+00:00",
       "category": "oroszokazigazsagoldalan",
-      "title": "🇮🇱 Netanjahu a mai beszéde során ezt a térképet mutatta be. A térképet a Friedrich Ebert Alapítvány készítette, és a…",
-      "theme": "filler",
+      "title": "Németországban Esslingen város polgármestere engedélyezte egy ördögszobor felállítását a főtéren. A 2,5 méter magas…",
+      "theme": "energy",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 149,
-      "more": "🇮🇱 Netanjahu a mai beszéde során ezt a térképet mutatta be. A térképet a Friedrich Ebert Alapítvány készítette, és a szakértők számára érdekes lehet.",
-      "url": "https://t.me/oroszokazigazsagoldalan/270927"
+      "chars": 731,
+      "more": "Németországban Esslingen város polgármestere engedélyezte egy ördögszobor felállítását a főtéren. A 2,5 méter magas alkotást október 4-én avatták fel a város fennállásának 1250. évfordulója alkalmából. A mintegy 200 ezer euró értékű szobrot egy helyi pezsgőgyártó vállalat adományozta. Több mint 5600 ember írt alá egy petíciót, amelyben a szobor eltávolítását követelik a városháza előtti térről.…",
+      "url": "https://t.me/oroszokazigazsagoldalan/270931"
     },
     {
       "site": "tg-zvezda",
@@ -212,17 +223,15 @@
     },
     {
       "site": "tg-greatawaken",
-      "id": "162212",
+      "id": "162214",
       "date": "2026-10-18",
-      "published_at": "2026-10-18T18:47:36+00:00",
+      "published_at": "2026-10-18T20:43:03+00:00",
       "category": "greatawakeningmagyarok",
-      "title": "Franciaország és Belgium láttán minden \"Európára szavazó\" tiszásnak be kell látnia, hogy az az EU, amit elképzelt…",
-      "theme": "eu/nato",
+      "title": "Szülők kezdenek fellázadni!! 🇭🇺 🔥",
+      "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 183,
-      "more": "Franciaország és Belgium láttán minden \"Európára szavazó\" tiszásnak be kell látnia, hogy az az EU, amit elképzelt magának soha nem létezett. Ami pedig létezik óriási bajban van. Kek 🐸",
-      "url": "https://t.me/greatawakeningmagyarok/162212"
+      "url": "https://t.me/greatawakeningmagyarok/162214"
     },
     {
       "site": "tg-infodef",
@@ -240,45 +249,31 @@
     },
     {
       "site": "tg-vilaghelyzete",
-      "id": "14517",
+      "id": "14524",
       "date": "2026-10-18",
-      "published_at": "2026-10-18T18:22:10+00:00",
+      "published_at": "2026-10-18T23:01:36+00:00",
       "category": "VilagHelyzeteBlog",
-      "title": "‼️ Franciaország után kérdezem a balliberális valóság-tagadókat: MOST MAR FELFOGTÁTOK? Értitek végre, mire…",
-      "theme": "filler",
+      "title": "‼️ Full HD európai valóság! Itt láthatod a dolgok mögött lévő társadalmat és az ideológiát is, amibe öltöztetik…",
+      "theme": "eu/nato",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 287,
-      "more": "‼️ Franciaország után kérdezem a balliberális valóság-tagadókat: MOST MAR FELFOGTÁTOK? Értitek végre, mire figyelmeztettünk benneteket is? Mert emiatt neveztetek mindenkit összeesküvés-elmélet hivőnek, szélsőjobboldalinak, rasszistának... stb. stb.. MOST MAR FELFOGTÁTOK? (VilagHelyzete)",
-      "url": "https://t.me/VilagHelyzeteBlog/14517"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "144742",
-      "date": "2026-10-18",
-      "published_at": "2026-10-18T20:14:01+00:00",
-      "category": "lomovkaa",
-      "title": "Пекин расширит золотое хранилище в Гонконге ради интернационализации юаня. Китай нашел еще один способ расширить…",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1030,
-      "more": "Пекин расширит золотое хранилище в Гонконге ради интернационализации юаня. Китай нашел еще один способ расширить международное использование юаня: в Гонконге планируют увеличить вместимость связанного с Шанхаем золотого хранилища со 150 до более чем 2000 тонн в течение трех лет. Параллельно развивается инфраструктура торговли физическим золотом с расчетами в китайской валюте. Задача шире простого…",
-      "url": "https://t.me/lomovkaa/144742"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-10-18",
-      "category": "rt",
-      "title": "Ракетными войсками и беспилотниками: ВС РФ поразили объекты транспортной инфраструктуры и цеха сборки БПЛА ВСУ",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/ussr/article/1696219-udary-transportnaya-infrastruktura-ukraina",
-      "date_is_capture": true
+      "chars": 159,
+      "more": "‼️ Full HD európai valóság! Itt láthatod a dolgok mögött lévő társadalmat és az ideológiát is, amibe öltöztetik magukat! Ennél jobban nem is lehetne ábrázolni!",
+      "url": "https://t.me/VilagHelyzeteBlog/14524"
     }
   ],
   "corpus": [
+    {
+      "site": "ukraina-ru",
+      "date": "2026-10-19",
+      "category": "ukraina",
+      "title": "Литва знала об атаке на Петербург: Киев извинился перед Вильнюсом за упавший БПЛА",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20261019/litva-znala-ob-atake-na-peterburg-kiev-izvinilsya-pered-vilnyusom-za-upavshiy-bpla-1083902778.html",
+      "date_is_capture": false
+    },
     {
       "site": "tg-baltnews",
       "id": "75407",
@@ -379,6 +374,36 @@
     },
     {
       "site": "pravda-hu",
+      "id": 47339,
+      "date": "2026-10-18",
+      "category": "world",
+      "title": "#See4Yourself #Think4Yourself",
+      "theme": "filler",
+      "lang": "lat",
+      "unit": "headline",
+      "source": {
+        "platform": "Telegram",
+        "channel": "MFARussia"
+      },
+      "url": "https://hungary.news-pravda.com/en/world/2026/10/18/47339.html"
+    },
+    {
+      "site": "pravda-hu",
+      "id": 47338,
+      "date": "2026-10-18",
+      "category": "world",
+      "title": "Macron demanded that the government prevent new riots",
+      "theme": "filler",
+      "lang": "lat",
+      "unit": "headline",
+      "source": {
+        "platform": "MAX",
+        "channel": "aif"
+      },
+      "url": "https://hungary.news-pravda.com/en/world/2026/10/18/47338.html"
+    },
+    {
+      "site": "pravda-hu",
       "id": 47337,
       "date": "2026-10-18",
       "category": "russia",
@@ -455,130 +480,148 @@
       "url": "https://hungary.news-pravda.com/en/hungary/2026/10/18/47333.html"
     },
     {
-      "site": "pravda-hu",
-      "id": 47332,
-      "date": "2026-10-18",
-      "category": "hungary",
-      "title": "Prime Minister of Hungary Peter Magyar, accused the former head of government, Viktor Orban that he was planning a coup d'etat and threatened life imprisonment",
-      "theme": "hungary",
-      "lang": "hu",
-      "unit": "headline",
-      "source": {
-        "platform": "Telegram",
-        "channel": "oroszokazigazsagoldalan"
-      },
-      "url": "https://hungary.news-pravda.com/en/hungary/2026/10/18/47332.html"
-    },
-    {
-      "site": "pravda-hu",
-      "id": 47331,
-      "date": "2026-10-18",
-      "category": "world",
-      "title": "The main news for the evening. French President Emmanuel Macron has demanded that the government prevent a repeat of the riots",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "headline",
-      "source": {
-        "platform": "MAX",
-        "channel": "kommersant"
-      },
-      "url": "https://hungary.news-pravda.com/en/world/2026/10/18/47331.html"
-    },
-    {
       "site": "tg-oroszkatonai",
-      "id": "44920",
+      "id": "44930",
       "date": "2026-10-18",
-      "published_at": "2026-10-18T18:00:32+00:00",
+      "published_at": "2026-10-18T21:26:33+00:00",
       "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ Párizs front várossá alakult? \"Franciaország fővárosa erős támadások alá került a...\" Jah mégsem, csupán az…",
+      "title": "⚡️ 🔴 🔞 Egy nő holttestét találták meg a rakétacsapás közelében Kijevben. A felvételen szereplő férfiak éppen hogy…",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 270,
-      "more": "⚡️ Párizs front várossá alakult? \"Franciaország fővárosa erős támadások alá került a...\" Jah mégsem, csupán az erőszakos rendbontás és anarchia következményei Európa egyik legfontosabb kulturális fővárosában..... Párizs front várossá alakult? #speciáliskatonaihadművelet",
-      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44920"
+      "chars": 173,
+      "more": "⚡️ 🔴 🔞 Egy nő holttestét találták meg a rakétacsapás közelében Kijevben. A felvételen szereplő férfiak éppen hogy túlélték a rakéta becsapódását. #speciáliskatonaihadművelet",
+      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44930"
     },
     {
       "site": "tg-oroszkatonai",
-      "id": "44918",
+      "id": "44927",
       "date": "2026-10-18",
-      "published_at": "2026-10-18T17:48:37+00:00",
+      "published_at": "2026-10-18T21:22:37+00:00",
       "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ 🔴 Dróntámadás az ukrajnai Lutck városában Frissen közzétett felvétel egy Geran-2 drón Luckban történt…",
+      "title": "⚡️ 🔴 Rakétacsapás Kijevben #speciáliskatonaihadművelet",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44927"
+    },
+    {
+      "site": "tg-oroszkatonai",
+      "id": "44925",
+      "date": "2026-10-18",
+      "published_at": "2026-10-18T21:17:13+00:00",
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ Minden rendben Zelenszkij? #speciáliskatonaihadművelet",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44925"
+    },
+    {
+      "site": "tg-oroszkatonai",
+      "id": "44924",
+      "date": "2026-10-18",
+      "published_at": "2026-10-18T21:15:18+00:00",
+      "category": "oroszspecialiskatonaihadmuvelet",
+      "title": "⚡️ Zelenszkij kijeltette, hogy Trump arra ösztönzi Ukrajnát, hogy kapituláljon Oroszország előtt – Bloomberg ◾️ Úgy…",
       "theme": "ukraine",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 409,
-      "more": "⚡️ 🔴 Dróntámadás az ukrajnai Lutck városában Frissen közzétett felvétel egy Geran-2 drón Luckban történt becsapódásáról, október 14-én. A drón becsapódott egy ATB élelmiszerraktárba, melynek következtében 6 ember meghalt a volhiniai területen. A videó szerzője szerint a \"Geran\" drónt lelőtték, és az után csapódott a raktárba, majd detonált. ◾️ Geolokáció 📍 50,7701809, 25,3564346…",
-      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44918"
+      "chars": 1340,
+      "more": "⚡️ Zelenszkij kijeltette, hogy Trump arra ösztönzi Ukrajnát, hogy kapituláljon Oroszország előtt – Bloomberg ◾️ Úgy gondolom, hogy intézkedéseket tettek annak érdekében, hogy Ukrajnát rávegyék a kapitulációra. Nem szeretném azt hinni, hogy amerikai partnereink úgy gondolják, hogy az Oroszországgal folytatott háborút Ukrajna korlátozásának segítségével gyorsabban lehet befejezni. De ez a…",
+      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44924"
     },
     {
       "site": "tg-oroszkatonai",
-      "id": "44917",
+      "id": "44923",
       "date": "2026-10-18",
-      "published_at": "2026-10-18T16:52:25+00:00",
+      "published_at": "2026-10-18T21:15:01+00:00",
       "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ \"Így néz ki a civilizáció vége\": Franciaországban a tüntetők azzal fenyegetnek, hogy lerombolják a Louvrot és a tour…",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 1027,
-      "more": "⚡️ \"Így néz ki a civilizáció vége\": Franciaországban a tüntetők azzal fenyegetnek, hogy lerombolják a Louvrot és a tour Eiffelt ◾️ A migránsok kifosztják a luxusüzleteket: Bordeaux-ban teljesen kiürítették a Guerlain, Hermès, Louis Vuitton, Sephora, Apple Store és videojáték-boltokat, Marseille-ben pedig kifosztották a Rolex üzletet; ◾️ Tegnap Limogesban megsemmisítettek egy történelmi…",
-      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44917"
-    },
-    {
-      "site": "tg-oroszkatonai",
-      "id": "44916",
-      "date": "2026-10-18",
-      "published_at": "2026-10-18T14:43:15+00:00",
-      "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ Nem lehet összehasonlítani engem és Putyint. Ő egy agresszor és egy terrorista – mondta Zelenszkij. ◾️ Ha az…",
+      "title": "⚡️ Zelenszkij nem akarja befejezni a háborút, és valószínűleg soha sem akarta, – Trump. A döntésem Oroszországgal…",
       "theme": "ukraine",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 1116,
-      "more": "⚡️ Nem lehet összehasonlítani engem és Putyint. Ő egy agresszor és egy terrorista – mondta Zelenszkij. ◾️ Ha az Egyesült Államok hivatalosan Oroszország oldalára állna, akkor természetesen nem tudnámk győzni. Nem tudnánk ellenállni. ◾️ Remélem, hogy Trump továbbra is Ukrajna szövetségese marad. ◾️ Három napig nem kaptunk hírszerzési információkat az Egyesült Államoktól, beleértve a ballisztikus…",
-      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44916"
+      "chars": 1707,
+      "more": "⚡️ Zelenszkij nem akarja befejezni a háborút, és valószínűleg soha sem akarta, – Trump. A döntésem Oroszországgal kapcsolatban nagyon egyszerű. Tárgyalásokat kezdeményezek az Oroszország és Ukrajna közötti háború befejezéséről, és nem akarok semmit csinálni, ami értelmetlenül eltávolítaná Oroszországot a tárgyalóasztaltól. Jelentős előrelépés születik, különösen a jelenlegi fogolyváltási…",
+      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44923"
     },
     {
       "site": "tg-oroszkatonai",
-      "id": "44915",
+      "id": "44922",
       "date": "2026-10-18",
-      "published_at": "2026-10-18T10:46:19+00:00",
+      "published_at": "2026-10-18T21:09:19+00:00",
       "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ \"Ukrajna soha nem győzhet a háborúban, lehetetlen ” – mondta Olaszország védelmi minisztere. ​ Guido Crosetto ezt…",
-      "theme": "ukraine",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 436,
-      "more": "⚡️ \"Ukrajna soha nem győzhet a háborúban, lehetetlen ” – mondta Olaszország védelmi minisztere. ​ Guido Crosetto ezt azzal indokolta, hogy Oroszország katonai legyőzése vagy Moszkva elfoglalása, ahol Zelenszkij az ukrán zászlót lobogtatja lehetetlen. Ugyanakkor Ukrajna győzelmének tekinti azt, hogy Oroszország kivonul, a bombázások megszűnnek, és az ukránok újra szabadon élhetnek és építhetik a…",
-      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44915"
-    },
-    {
-      "site": "tg-oroszkatonai",
-      "id": "44909",
-      "date": "2026-10-18",
-      "published_at": "2026-10-18T10:41:12+00:00",
-      "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ Az Orosz Ukrán háború jelenlegi aktív, vagy aktív közeli városai feletti kontroll elosztása A következő…",
+      "title": "⚡️ 🚀 Kijev - rakéta veszély #speciáliskatonaihadművelet",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 2121,
-      "more": "⚡️ Az Orosz Ukrán háború jelenlegi aktív, vagy aktív közeli városai feletti kontroll elosztása A következő felsorolásban a front jelenlegi nagyobb települések körüli kérdést próbálom bemutatni. Fontos kiemelni, hogy a bemuattott adatok az aktuális harcállásokat mutatja be, lehetséges, hogy néhány napon belül változhatnak az adatok. 🔻 A városok északról, déli irányban a következőek: ◾️ 🔴…",
-      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44909"
+      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44922"
     },
     {
       "site": "tg-oroszkatonai",
-      "id": "44907",
+      "id": "44921",
       "date": "2026-10-18",
-      "published_at": "2026-10-18T09:31:50+00:00",
+      "published_at": "2026-10-18T20:01:37+00:00",
       "category": "oroszspecialiskatonaihadmuvelet",
-      "title": "⚡️ 🔴 Orosz drón becsapódása egy lakóépületbe #speciáliskatonaihadművelet",
+      "title": "⚡️ 🚀 Kijev - rakéta veszély #speciáliskatonaihadművelet",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44907"
+      "url": "https://t.me/oroszspecialiskatonaihadmuvelet/44921"
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "270930",
+      "date": "2026-10-18",
+      "published_at": "2026-10-18T21:29:23+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "⏺ Zelenszkijnek ismét \"náthája\" van, valószínűleg \"beteg\".",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "url": "https://t.me/oroszokazigazsagoldalan/270930"
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "270929",
+      "date": "2026-10-18",
+      "published_at": "2026-10-18T21:26:51+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "🇮🇷 | Az iráni IRGC-haditengerészet közlése szerint egy olajszállító hajó aknára futott a Hormuzi-szoros déli részén…",
+      "theme": "energy",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 166,
+      "more": "🇮🇷 | Az iráni IRGC-haditengerészet közlése szerint egy olajszállító hajó aknára futott a Hormuzi-szoros déli részén, ami robbanást és tüzet okozott a hajó gépházában.",
+      "url": "https://t.me/oroszokazigazsagoldalan/270929"
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "270928",
+      "date": "2026-10-18",
+      "published_at": "2026-10-18T20:53:46+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "🇷🇺 Jelenleg RM-48U rakéták tartanak Kijev felé, amelyek az Sz-400-as légvédelmi rendszerekhez kifejlesztett célrakéták…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 274,
+      "more": "🇷🇺 Jelenleg RM-48U rakéták tartanak Kijev felé, amelyek az Sz-400-as légvédelmi rendszerekhez kifejlesztett célrakéták módosított változatai . Ezeket a rakétákat föld-föld típusúvá alakították át. Ipari létesítmények elleni támadások során rendkívül hatékonynak bizonyulnak.",
+      "url": "https://t.me/oroszokazigazsagoldalan/270928"
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "270927",
+      "date": "2026-10-18",
+      "published_at": "2026-10-18T20:28:42+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "🇮🇱 Netanjahu a mai beszéde során ezt a térképet mutatta be. A térképet a Friedrich Ebert Alapítvány készítette, és a…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 149,
+      "more": "🇮🇱 Netanjahu a mai beszéde során ezt a térképet mutatta be. A térképet a Friedrich Ebert Alapítvány készítette, és a szakértők számára érdekes lehet.",
+      "url": "https://t.me/oroszokazigazsagoldalan/270927"
     },
     {
       "site": "tg-oroszigazsag",
@@ -623,58 +666,30 @@
       "url": "https://t.me/oroszokazigazsagoldalan/270921"
     },
     {
-      "site": "tg-oroszigazsag",
-      "id": "270920",
+      "site": "tg-greatawaken",
+      "id": "162213",
       "date": "2026-10-18",
-      "published_at": "2026-10-18T19:35:14+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "❗️ 🇹🇷 Törökország bejelentette, hogy csatlakozni kíván az Oroszország és az USA közötti dízelüzemanyag-megállapodáshoz…",
-      "theme": "russia",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 475,
-      "more": "❗️ 🇹🇷 Törökország bejelentette, hogy csatlakozni kíván az Oroszország és az USA közötti dízelüzemanyag-megállapodáshoz „Oroszország az elmúlt hónapokban korlátozásokat vezetett be a dízelüzemanyag exportjára, amikor problémák felmerültek fel nála. Most pedig dízelüzemanyag-ügyletet kötött Trumppal. Az általunk folytatott tárgyalások eredményeként ennek a dízelüzemanyagnak egy részét Törökország…",
-      "url": "https://t.me/oroszokazigazsagoldalan/270920"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "270919",
-      "date": "2026-10-18",
-      "published_at": "2026-10-18T19:32:06+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "🇫🇷 A zavargások valószínűleg egész éjjel folytatódni fognak. Marseille-hez hasonló városokban a hatóságok akár 30 000…",
+      "published_at": "2026-10-18T20:42:19+00:00",
+      "category": "greatawakeningmagyarok",
+      "title": "📍 Pisai Ferde Torony Palesztin zászlóval",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 582,
-      "more": "🇫🇷 A zavargások valószínűleg egész éjjel folytatódni fognak. Marseille-hez hasonló városokban a hatóságok akár 30 000 fosztogatóról is beszámoltak. Párizsban a számuk ugyanilyen magas lehet. Környékről környékre vándorolnak, mindent kifosztanak, amihez csak hozzájutnak, mindent elpusztítanak, ami az útjukba kerül, és tüzeket gyújtanak szerte a városban. Nincs már rendőri jelenlét. A néhány…",
-      "url": "https://t.me/oroszokazigazsagoldalan/270919"
+      "url": "https://t.me/greatawakeningmagyarok/162213"
     },
     {
-      "site": "tg-oroszigazsag",
-      "id": "270916",
+      "site": "tg-greatawaken",
+      "id": "162212",
       "date": "2026-10-18",
-      "published_at": "2026-10-18T18:58:41+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "Élőben Párizsból 🇫🇷 A hatóságok becslései szerint az elmúlt 48 órában több mint 4000 üzletet fosztottak ki. Marseille…",
-      "theme": "filler",
+      "published_at": "2026-10-18T18:47:36+00:00",
+      "category": "greatawakeningmagyarok",
+      "title": "Franciaország és Belgium láttán minden \"Európára szavazó\" tiszásnak be kell látnia, hogy az az EU, amit elképzelt…",
+      "theme": "eu/nato",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 283,
-      "more": "Élőben Párizsból 🇫🇷 A hatóságok becslései szerint az elmúlt 48 órában több mint 4000 üzletet fosztottak ki. Marseille és Párizs egyes részein több mint 24 órája nincs rendőri jelenlét; a hírek szerint a rendfenntartó erők több városrész és utca felett is elvesztették az ellenőrzést.",
-      "url": "https://t.me/oroszokazigazsagoldalan/270916"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "270915",
-      "date": "2026-10-18",
-      "published_at": "2026-10-18T18:52:13+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "Emma Kok - Itt van... Nagyszerű érzelmek, barátaim, ez gyönyörű. 👏 És szomorú…ennek vége",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "url": "https://t.me/oroszokazigazsagoldalan/270915"
+      "chars": 183,
+      "more": "Franciaország és Belgium láttán minden \"Európára szavazó\" tiszásnak be kell látnia, hogy az az EU, amit elképzelt magának soha nem létezett. Ami pedig létezik óriási bajban van. Kek 🐸",
+      "url": "https://t.me/greatawakeningmagyarok/162212"
     },
     {
       "site": "tg-greatawaken",
@@ -727,18 +742,6 @@
       "lang": "hu",
       "unit": "post_excerpt",
       "url": "https://t.me/greatawakeningmagyarok/162195"
-    },
-    {
-      "site": "tg-greatawaken",
-      "id": "162193",
-      "date": "2026-10-18",
-      "published_at": "2026-10-18T15:57:09+00:00",
-      "category": "greatawakeningmagyarok",
-      "title": "EU frissítés: Ha nincs Digitális Azonosítód, akkor nem fogod tudni használni az internetet.",
-      "theme": "eu/nato",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "url": "https://t.me/greatawakeningmagyarok/162193"
     },
     {
       "site": "tg-infodef",
@@ -840,6 +843,48 @@
     },
     {
       "site": "tg-vilaghelyzete",
+      "id": "14522",
+      "date": "2026-10-18",
+      "published_at": "2026-10-18T21:19:17+00:00",
+      "category": "VilagHelyzeteBlog",
+      "title": "☄️ ‼️ Ugyanaz az etnikai összetétel és ugyanazok a fosztogatások, pusztítás az olaszországi Milánóban! A második videón…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 325,
+      "more": "☄️ ‼️ Ugyanaz az etnikai összetétel és ugyanazok a fosztogatások, pusztítás az olaszországi Milánóban! A második videón látható, hogy egy milánói férfi egy vasrúddal kezébe vette annak intézését, amit a csőcselék rablókkal kellett volna a hatóságoknak! (VilagHelyzete) Ha nem jönne be valamelyik videó, X-en is megtekinthető:",
+      "url": "https://t.me/VilagHelyzeteBlog/14522"
+    },
+    {
+      "site": "tg-vilaghelyzete",
+      "id": "14518",
+      "date": "2026-10-18",
+      "published_at": "2026-10-18T21:08:44+00:00",
+      "category": "VilagHelyzeteBlog",
+      "title": "☄️ 🇷🇺 🇧🇭 Szergej Lavrov a Bahreini királlyal folytatott találkozón kijelentette, hogy el kell távolítani a konfliktus…",
+      "theme": "ukraine",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 847,
+      "more": "☄️ 🇷🇺 🇧🇭 Szergej Lavrov a Bahreini királlyal folytatott találkozón kijelentette, hogy el kell távolítani a konfliktus okait az Hormuzi-szoros térségében! 🔶 További fontos nyilatkozatai: ▪️ A Közel-Kelet helyzete a teljes körű háború küszöbén áll. ▪️ Oroszország és a Perzsa-öböl országai a diplomáciai megoldást támogatják a Szaúd-Arábia és a jemeni houthi lázadók közötti konfliktusban. ▪️ Moszkva…",
+      "url": "https://t.me/VilagHelyzeteBlog/14518"
+    },
+    {
+      "site": "tg-vilaghelyzete",
+      "id": "14517",
+      "date": "2026-10-18",
+      "published_at": "2026-10-18T18:22:10+00:00",
+      "category": "VilagHelyzeteBlog",
+      "title": "‼️ Franciaország után kérdezem a balliberális valóság-tagadókat: MOST MAR FELFOGTÁTOK? Értitek végre, mire…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 287,
+      "more": "‼️ Franciaország után kérdezem a balliberális valóság-tagadókat: MOST MAR FELFOGTÁTOK? Értitek végre, mire figyelmeztettünk benneteket is? Mert emiatt neveztetek mindenkit összeesküvés-elmélet hivőnek, szélsőjobboldalinak, rasszistának... stb. stb.. MOST MAR FELFOGTÁTOK? (VilagHelyzete)",
+      "url": "https://t.me/VilagHelyzeteBlog/14517"
+    },
+    {
+      "site": "tg-vilaghelyzete",
       "id": "14516",
       "date": "2026-10-18",
       "published_at": "2026-10-18T17:58:51+00:00",
@@ -893,46 +938,102 @@
       "url": "https://t.me/VilagHelyzeteBlog/14512"
     },
     {
-      "site": "tg-vilaghelyzete",
-      "id": "14511",
+      "site": "tg-lomovka",
+      "id": "144753",
       "date": "2026-10-18",
-      "published_at": "2026-10-18T14:58:50+00:00",
-      "category": "VilagHelyzeteBlog",
-      "title": "Kommentben válaszoltam a jelenlegi európai helyzetre és JD. Vance üzenetére, de ide is bemásolom: ☄️ ‼️ Esélytelen…",
+      "published_at": "2026-10-18T22:45:00+00:00",
+      "category": "lomovkaa",
+      "title": "Протесты «Нет королям» охватили 50 штатов США. В субботу в нескольких городах США прошли протесты No Kings («Нет…",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 536,
+      "more": "Протесты «Нет королям» охватили 50 штатов США. В субботу в нескольких городах США прошли протесты No Kings («Нет королям») против политики президента Дональда Трампа, сообщает NBC News. Участники призвали досрочно проголосовать на промежуточных выборах 3 ноября. На митинге у мемориала Авраама Линкольна в Вашингтоне выступал музыкальный коллектив, и, как отмечает телеканал, «многие из толпы…",
+      "url": "https://t.me/lomovkaa/144753"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "144752",
+      "date": "2026-10-18",
+      "published_at": "2026-10-18T22:15:33+00:00",
+      "category": "lomovkaa",
+      "title": "Мария Захарова выложила ролик, высмеивающий истерику НАТО из-за «российской угрозы». Страны Европы охвачены огнем и…",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 256,
+      "more": "Мария Захарова выложила ролик, высмеивающий истерику НАТО из-за «российской угрозы». Страны Европы охвачены огнем и беспорядками, но сделали это вовсе не россияне. Прогнившую Европу с энтузиазмом уничтожают сами европейцы. #Россия #Европа #видео Подпишись!",
+      "url": "https://t.me/lomovkaa/144752"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "144751",
+      "date": "2026-10-18",
+      "published_at": "2026-10-18T21:55:05+00:00",
+      "category": "lomovkaa",
+      "title": "Мадьяр пригрозил Орбану пожизненным сроком за «подготовку госпереворота». Сегодня Виктор Орбан, посмеиваясь, говорил в…",
       "theme": "hungary",
-      "lang": "hu",
+      "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 1950,
-      "more": "Kommentben válaszoltam a jelenlegi európai helyzetre és JD. Vance üzenetére, de ide is bemásolom: ☄️ ‼️ Esélytelen sajnos, hogy ez javuljon, amíg ilyen borzalmasan gyenge képességű (illetve a háttérhatalomhoz, az amerikai Deep State-hez, lásd a Blackrock-hoz bekötött) emberek vannak az Európai Unió és egyes nemzetállamok élén! 🇪🇺 Addig, amíg az egész Unió külpolitikáját képviselő Kaja Kallas áll…",
-      "url": "https://t.me/VilagHelyzeteBlog/14511"
+      "chars": 1116,
+      "more": "Мадьяр пригрозил Орбану пожизненным сроком за «подготовку госпереворота». Сегодня Виктор Орбан, посмеиваясь, говорил в платном лагере DPK о вооруженном мятеже и насильственном изменении конституционного строя. Это одно из тяжелейших преступлений против государства, — заявил Мадьяр. Он привел выдержки из законодательства: согласно ч. 1 ст. 254 УК Венгрии, лицо, совершившее деяние, непосредственно…",
+      "url": "https://t.me/lomovkaa/144751"
     },
     {
-      "site": "tg-vilaghelyzete",
-      "id": "14510",
+      "site": "tg-lomovka",
+      "id": "144750",
       "date": "2026-10-18",
-      "published_at": "2026-10-18T13:24:01+00:00",
-      "category": "VilagHelyzeteBlog",
-      "title": "☄️ 🇺🇸 🇷🇺 Donald Trump hivatalosan is felfüggesztette az Új Oroszország-ellenes szankciókat és várja az orosz…",
+      "published_at": "2026-10-18T21:33:32+00:00",
+      "category": "lomovkaa",
+      "title": "США не встали на сторону России. Вашингтон предоставляет Украине разведданные, Starlink и позволяет НАТО закупать…",
       "theme": "ukraine",
-      "lang": "hu",
+      "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 1345,
-      "more": "☄️ 🇺🇸 🇷🇺 Donald Trump hivatalosan is felfüggesztette az Új Oroszország-ellenes szankciókat és várja az orosz dízelszállításokat! ‼️ Donald Trump október 16-án elnöki rendelettel felfüggesztette a szeptemberben elfogadott Graham-törvény több, hamarosan életbe lépő rendelkezésének alkalmazását. A törvény újabb szankciókat és akár 100%-os vámokat is lehetővé tett volna Oroszországgal, valamint az…",
-      "url": "https://t.me/VilagHelyzeteBlog/14510"
+      "chars": 2012,
+      "more": "США не встали на сторону России. Вашингтон предоставляет Украине разведданные, Starlink и позволяет НАТО закупать американское вооружение для последующей передачи Киеву, заявил Бессент. Другие заявления министра финансов США: ▪️ Обвинения Зеленского* в том, что администрация Трампа распорядилась ограничить скорость Starlink на территории Украины, крайне безрассудны. Трамп и Рубио заявили, что…",
+      "url": "https://t.me/lomovkaa/144750"
     },
     {
-      "site": "tg-vilaghelyzete",
-      "id": "14509",
+      "site": "tg-lomovka",
+      "id": "144749",
       "date": "2026-10-18",
-      "published_at": "2026-10-18T12:50:38+00:00",
-      "category": "VilagHelyzeteBlog",
-      "title": "☄️ 🇪🇬 🇸🇦 ⚔️ 🇾🇪 Egyiptom is beszáll a háborúba? Szaúd-Arábia védelméhez Szíszi tábornok a parlament felhatalmazását…",
-      "theme": "energy",
-      "lang": "hu",
+      "published_at": "2026-10-18T21:04:17+00:00",
+      "category": "lomovkaa",
+      "title": "Трамп заявил, что не хочет ухудшать отношения с Россией санкциями, чтобы не мешать переговорам о завершении украинского…",
+      "theme": "ukraine",
+      "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 1759,
-      "more": "☄️ 🇪🇬 🇸🇦 ⚔️ 🇾🇪 Egyiptom is beszáll a háborúba? Szaúd-Arábia védelméhez Szíszi tábornok a parlament felhatalmazását kérte! Abdel-Fattáh esz-Szíszi október 17-én bejelentette, hogy országa kész minden szükséges védelmi intézkedést megtenni Szaúd-Arábia biztonságának megőrzése érdekében. A parlament október 18-ára, vasárnapra rendkívüli ülést jelentett be. Szíszi hangsúlyozta, hogy Egyiptom nem…",
-      "url": "https://t.me/VilagHelyzeteBlog/14509"
+      "chars": 1090,
+      "more": "Трамп заявил, что не хочет ухудшать отношения с Россией санкциями, чтобы не мешать переговорам о завершении украинского конфликта. Я не хочу делать ничего, что могло бы по глупости оттолкнуть Россию от стола переговоров, в которых достигнут значительный прогресс, — написал он в Truth Social. Кроме того, американский президент раскритиковал главаря украинского режима за удары по российским НПЗ и…",
+      "url": "https://t.me/lomovkaa/144749"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "144743",
+      "date": "2026-10-18",
+      "published_at": "2026-10-18T20:40:08+00:00",
+      "category": "lomovkaa",
+      "title": "Франция горит, а народ развлекается: протесты превратились в карнавал с погромами. Пока Париж сотрясают массовые…",
+      "theme": "eu/nato",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 1220,
+      "more": "Франция горит, а народ развлекается: протесты превратились в карнавал с погромами. Пока Париж сотрясают массовые беспорядки, французы, похоже, решили окончательно превратить происходящее в цирковое представление. Правда, вместо арены — городские улицы, вместо конфетти — битые витрины, а вместо клоунов — целая армия супергероев. Капитан Америка, Дарт Вейдер, Бэтмен, Наполеон и персонажи аниме…",
+      "url": "https://t.me/lomovkaa/144743"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "144742",
+      "date": "2026-10-18",
+      "published_at": "2026-10-18T20:14:01+00:00",
+      "category": "lomovkaa",
+      "title": "Пекин расширит золотое хранилище в Гонконге ради интернационализации юаня. Китай нашел еще один способ расширить…",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 1030,
+      "more": "Пекин расширит золотое хранилище в Гонконге ради интернационализации юаня. Китай нашел еще один способ расширить международное использование юаня: в Гонконге планируют увеличить вместимость связанного с Шанхаем золотого хранилища со 150 до более чем 2000 тонн в течение трех лет. Параллельно развивается инфраструктура торговли физическим золотом с расчетами в китайской валюте. Задача шире простого…",
+      "url": "https://t.me/lomovkaa/144742"
     },
     {
       "site": "tg-lomovka",
@@ -949,99 +1050,15 @@
       "url": "https://t.me/lomovkaa/144741"
     },
     {
-      "site": "tg-lomovka",
-      "id": "144740",
+      "site": "rt-ru",
       "date": "2026-10-18",
-      "published_at": "2026-10-18T19:25:06+00:00",
-      "category": "lomovkaa",
-      "title": "СК создаст аналог базы Интерпола для материалов о сексуальной эксплуатации детей. Следственный комитет создаст аналог…",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1016,
-      "more": "СК создаст аналог базы Интерпола для материалов о сексуальной эксплуатации детей. Следственный комитет создаст аналог базы Интерпола ICSE, где хранятся изображения и видео с детьми, подвергшимися сексуальной эксплуатации, рассказал РИА Новости глава ведомства Александр Бастрыкин. Следующий этап — создание системы экспресс-анализа и учета мультимедийных цифровых доказательств, которая должна…",
-      "url": "https://t.me/lomovkaa/144740"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "144739",
-      "date": "2026-10-18",
-      "published_at": "2026-10-18T19:01:35+00:00",
-      "category": "lomovkaa",
-      "title": "ЛОМОВКА. ГЛАВНОЕ К 22-00: ▪ Россия по итогам 2026 года поставит в Китай 39 млрд кубометров газа по газопроводу «Сила…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 584,
-      "more": "ЛОМОВКА. ГЛАВНОЕ К 22-00: ▪ Россия по итогам 2026 года поставит в Китай 39 млрд кубометров газа по газопроводу «Сила Сибири». ▪ Во Франции по итогам массовых протестов за вчерашний день задержаны около 1200 человек, более 150 полицейских и жандармов получили ранения, сообщил премьер-министр Себастьен Лекорню. ▪ Европе нечем покрыть дефицит газа без поставок из России. ▪ «Так выглядит конец…",
-      "url": "https://t.me/lomovkaa/144739"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "144736",
-      "date": "2026-10-18",
-      "published_at": "2026-10-18T18:45:08+00:00",
-      "category": "lomovkaa",
-      "title": "🔥 Сегодня — День отца 🫶 От всего сердца поздравляем всех настоящих пап! ⭐️ И особенно — тех, кто сейчас далеко. Наших…",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 417,
-      "more": "🔥 Сегодня — День отца 🫶 От всего сердца поздравляем всех настоящих пап! ⭐️ И особенно — тех, кто сейчас далеко. Наших защитников. Тех, кого дома всегда ждут с нетерпением, кого искренне любят и по кому очень скучают. 🔥 В видео мы собрали трогательные моменты встреч отцов и их детей. И неважно, один ребёнок ждёт папу или шестеро. Улыбки у всех детей одинаковые. Радость и гордость — тоже. 💚 Вместе…",
-      "url": "https://t.me/lomovkaa/144736"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "144735",
-      "date": "2026-10-18",
-      "published_at": "2026-10-18T18:20:08+00:00",
-      "category": "lomovkaa",
-      "title": "Очередь фур на границе Украины и Польши растянулась на десятки километров. Несколько раз в день на прилегающих к…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 1191,
-      "more": "Очередь фур на границе Украины и Польши растянулась на десятки километров. Несколько раз в день на прилегающих к Украине территориях Польши объявляют воздушную тревогу, жители получают сообщения об опасности, армия поднимает в воздух истребители. В соответствии с предусмотренными на подобные случаи процедурами действуют все государственные службы, в частности Пограничная стража и Таможенная…",
-      "url": "https://t.me/lomovkaa/144735"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "144734",
-      "date": "2026-10-18",
-      "published_at": "2026-10-18T17:55:20+00:00",
-      "category": "lomovkaa",
-      "title": "Цены на топливо и нефтяные масла на Украине выросли на 46,2% за год. Изменения потребительских цен на товары и услуги……",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 437,
-      "more": "Цены на топливо и нефтяные масла на Украине выросли на 46,2% за год. Изменения потребительских цен на товары и услуги… Сентябрь 2026 к сентябрю 2025… Топливо и масла… 46,2%, — говорится в информационной справке госстата Украины. По информации ведомства, цены на транспортные услуги также выросли по сравнению с сентябрем 2025 года. Так, стоимость проезда в автодорожном транспорте увеличилась на…",
-      "url": "https://t.me/lomovkaa/144734"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "144733",
-      "date": "2026-10-18",
-      "published_at": "2026-10-18T17:33:53+00:00",
-      "category": "lomovkaa",
-      "title": "«Ты позор, Зеленский*»: Mail on Sunday — о разрушении Украины. Ты позор, Зеленский. И ты разрушаешь Украину, — пишет…",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 486,
-      "more": "«Ты позор, Зеленский*»: Mail on Sunday — о разрушении Украины. Ты позор, Зеленский. И ты разрушаешь Украину, — пишет британская Mail on Sunday. В данном случае в шутке есть не просто доля правды: здесь каждое слово — абсолютная правда. Зеленский действительно позор и действительно ведет дело к тотальному разрушению и уничтожению Украины. При помощи тех же британцев, разумеется. * бывший президент…",
-      "url": "https://t.me/lomovkaa/144733"
-    },
-    {
-      "site": "ukraina-ru",
-      "date": "2026-10-18",
-      "category": "ukraina",
-      "title": "Зеленского срочно эвакуировали! Сможет ли Украина воевать без США?",
+      "category": "rt",
+      "title": "Ракетными войсками и беспилотниками: ВС РФ поразили объекты транспортной инфраструктуры и цеха сборки БПЛА ВСУ",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20261018/zelenskogo-srochno-evakuirovali-smozhet-li-ukraina-voevat-bez-ssha-1083891293.html",
-      "date_is_capture": false
+      "url": "https://russian.rt.com/ussr/article/1696219-udary-transportnaya-infrastruktura-ukraina",
+      "date_is_capture": true
     },
     {
       "site": "zvezda-tv",
@@ -1079,23 +1096,12 @@
       "site": "rt-ru",
       "date": "2026-10-18",
       "category": "rt",
-      "title": "В ДНР водитель грузовика погиб при атаке украинского беспилотника",
-      "theme": "ukraine",
+      "title": "Эксперт назвала навыки, которые защитят от сокращений из-за ИИ",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1696373-dnr-bpla-vsu-ataka",
+      "url": "https://russian.rt.com/russia/news/1696392-ekspert-navyki-ii-sokrashcheniya",
       "date_is_capture": true
-    },
-    {
-      "site": "ukraina-ru",
-      "date": "2026-10-18",
-      "category": "ukraina",
-      "title": "Франция в огне! Трамп и Вэнс назвали виновных в европейских бедах",
-      "theme": "eu/nato",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20261018/frantsiya-v-ogne-tramp-i-vens-nazvali-vinovnykh-v-evropeyskikh-bedakh-1083900771.html",
-      "date_is_capture": false
     },
     {
       "site": "zvezda-tv",
@@ -1130,26 +1136,26 @@
       "url": "https://news-front.su/2026/10/18/sily-pvo-za-den-unichtozhili-41-bpla-vsu/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-10-18",
-      "category": "rt",
-      "title": "Александра Виноградова сообщила о госпитализации",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1696372-aleksandra-vinogradova-gospitalizaciya",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-10-18",
       "category": "ukraina",
-      "title": "ВС России поразили логистические центры и порты Украины: удар по складам с комплектующими для дронов",
+      "title": "Зеленского срочно эвакуировали! Сможет ли Украина воевать без США?",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20261018/vs-rossii-porazili-logisticheskie-tsentry-i-porty-ukrainy-udar-po-skladam-s-komplektuyuschimi-dlya-dronov-1083899087.html",
+      "url": "https://ukraina.ru/20261018/zelenskogo-srochno-evakuirovali-smozhet-li-ukraina-voevat-bez-ssha-1083891293.html",
       "date_is_capture": false
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-18",
+      "category": "rt",
+      "title": "Юрист объяснила, законно ли требовать паспорт при возврате товара",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1696393-pasport-vozvrat-tovara",
+      "date_is_capture": true
     },
     {
       "site": "zvezda-tv",
@@ -1184,15 +1190,58 @@
       "url": "https://news-front.su/2026/10/18/aktualnaya-informacziya-ob-obstanovke-na-linii-fronta-18-oktyabrya-obnovlyaetsya-3/"
     },
     {
+      "site": "ukraina-ru",
+      "date": "2026-10-18",
+      "category": "ukraina",
+      "title": "Франция в огне! Трамп и Вэнс назвали виновных в европейских бедах",
+      "theme": "eu/nato",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20261018/frantsiya-v-ogne-tramp-i-vens-nazvali-vinovnykh-v-evropeyskikh-bedakh-1083900771.html",
+      "date_is_capture": false
+    },
+    {
       "site": "rt-ru",
       "date": "2026-10-18",
       "category": "rt",
-      "title": "Рейс Тель-Авив — Вена сел в Болгарии из-за предполагаемой угрозы взрыва",
+      "title": "В Киеве прогремели взрывы",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/ussr/news/1696387-vzryvy-kiev-rajony-svet",
+      "date_is_capture": true
+    },
+    {
+      "site": "zvezda-tv",
+      "date": "2026-10-18",
+      "category": "zvezda",
+      "title": "Лавров: дизельная сделка - дело России и США",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tvzvezda.ru/news/202610181831-eetTB.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-10-18",
+      "category": "tsargrad",
+      "title": "Разбито всё: В Киеве не перестают жаловаться на удары России",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/my-sdelaem-vsjo-chtoby-pomeshat-emu-demokraty-progovorilis-plan-po-unichtozheniju-trampa-i-ukrainy_1908740",
+      "date_is_capture": true
+    },
+    {
+      "site": "newsfront-ru",
+      "date": "2026-10-18",
+      "category": "news-front",
+      "title": "Жизнь на освобожденных территориях 18 октября (обновляется)",
       "theme": "filler",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1696370-avstriya-izrail-samolyot-ugroza-vzryva",
-      "date_is_capture": true
+      "url": "https://news-front.su/2026/10/18/zhizn-na-osvobozhdennyh-territoriyah-18-oktyabrya-obnovlyaetsya-3/"
     },
     {
       "site": "ukraina-ru",
@@ -1204,6 +1253,17 @@
       "unit": "headline",
       "url": "https://ukraina.ru/20261018/bratstvo-ili-rascht-zachem-sssr-pomogal-respublikantsam-v-ispanii-i-pri-chm-zdes-ukraina--stoyakin-1083898553.html",
       "date_is_capture": false
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-18",
+      "category": "rt",
+      "title": "Трамп заявил о потере Зеленским большой части Украины",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/world/news/1696390-tramp-zelenskiy-poterya-ukrainy",
+      "date_is_capture": true
     },
     {
       "site": "zvezda-tv",
@@ -1220,65 +1280,11 @@
       "site": "tsargrad",
       "date": "2026-10-18",
       "category": "tsargrad",
-      "title": "Малость промахнулись: Киев извинился перед Литвой за дрон",
+      "title": "Разбито всё: В Киеве не перестают жаловаться на удары России",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tsargrad.tv/news/malost-promahnulis-kiev-izvinilsja-pered-litvoj-za-dron_1911893",
-      "date_is_capture": true
-    },
-    {
-      "site": "newsfront-ru",
-      "date": "2026-10-18",
-      "category": "news-front",
-      "title": "Жизнь на освобожденных территориях 18 октября (обновляется)",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://news-front.su/2026/10/18/zhizn-na-osvobozhdennyh-territoriyah-18-oktyabrya-obnovlyaetsya-3/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-10-18",
-      "category": "rt",
-      "title": "Взрывы прогремели в Киеве",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1696371-vzryvy-progremeli-kiev",
-      "date_is_capture": true
-    },
-    {
-      "site": "ukraina-ru",
-      "date": "2026-10-18",
-      "category": "ukraina",
-      "title": "Разгром Волчанского котла: эксперт раскрыл, где ВС РФ готовят новую ловушку для ВСУ",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20261018/razgrom-volchanskogo-kotla-ekspert-raskryl-gde-vs-rf-gotovyat-novuyu-lovushku-dlya-vsu-1083901915.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2026-10-18",
-      "category": "zvezda",
-      "title": "Захарова: власти ЕС должны решать свои проблемы, а не поучать других",
-      "theme": "eu/nato",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tvzvezda.ru/news/202610181715-Jb76B.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "tsargrad",
-      "date": "2026-10-18",
-      "category": "tsargrad",
-      "title": "Коц признал: По мостам в Киеве бить перестали из-за недовольства",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/koc-priznal-po-mostam-v-kieve-bit-perestali-iz-za-nedovolstva_1907422",
+      "url": "https://tsargrad.tv/news/razbito-vsjo-v-kieve-ne-perestajut-zhalovatsja-na-udary-rossii_1907156",
       "date_is_capture": true
     },
     {
@@ -1292,26 +1298,26 @@
       "url": "https://news-front.su/2026/10/18/v-litve-popytalis-podzhech-obekt-s-oborudovaniem-starlink/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-10-18",
-      "category": "rt",
-      "title": "Во Франции число задержанных участников протестов достигло 2397",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1696369-franciya-protesty-zaderzhaniya-postradavshie",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-10-18",
       "category": "ukraina",
-      "title": "Украина превращается в \"айсберг\": Поликарпов — перенос военпрома грозит \"ядерной стадией\"",
+      "title": "Разгром Волчанского котла: эксперт раскрыл, где ВС РФ готовят новую ловушку для ВСУ",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20261018/ukraina-prevraschaetsya-v-aysberg-polikarpov--perenos-voenproma-grozit-yadernoy-stadiey-konflikta-1083901159.html",
+      "url": "https://ukraina.ru/20261018/razgrom-volchanskogo-kotla-ekspert-raskryl-gde-vs-rf-gotovyat-novuyu-lovushku-dlya-vsu-1083901915.html",
       "date_is_capture": false
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-18",
+      "category": "rt",
+      "title": "Трамп заявил, что два года назад Зеленский мог заключить более выгодную сделку",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/world/news/1696386-tramp-zelenskiy-npz",
+      "date_is_capture": true
     },
     {
       "site": "zvezda-tv",
@@ -1325,6 +1331,17 @@
       "date_is_capture": false
     },
     {
+      "site": "tsargrad",
+      "date": "2026-10-18",
+      "category": "tsargrad",
+      "title": "Осудивший СВО Агутин заработает почти 134 миллиона рублей на ноябрьских концертах в трёх городах",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/osudivshij-svo-agutin-zarabotaet-pochti-134-milliona-rublej-na-nojabrskih-koncertah-v-trjoh-gorodah_1911919",
+      "date_is_capture": true
+    },
+    {
       "site": "newsfront-ru",
       "date": "2026-10-18",
       "category": "news-front",
@@ -1335,36 +1352,36 @@
       "url": "https://news-front.su/2026/10/18/eks-diplomat-britanii-zayavil-o-porazhenii-evropy-v-ukrainskom-konflikte/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-10-18",
-      "category": "rt",
-      "title": "Политолог Рар: Европа не может удовлетворить запросы Зеленского",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1696367-politolog-rar-evropa",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-10-18",
       "category": "ukraina",
-      "title": "Три мирных жителя погибли при ударах ВСУ по ЛНР: Пасечник сообщил о новых жертвах",
+      "title": "Украина превращается в \"айсберг\": Поликарпов — перенос военпрома грозит \"ядерной стадией\"",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20261018/tri-mirnykh-zhitelya-pogibli-pri-udarakh-vsu-po-lnr-pasechnik-soobschil-o-novykh-zhertvakh-1083897084.html",
+      "url": "https://ukraina.ru/20261018/ukraina-prevraschaetsya-v-aysberg-polikarpov--perenos-voenproma-grozit-yadernoy-stadiey-konflikta-1083901159.html",
       "date_is_capture": false
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-18",
+      "category": "rt",
+      "title": "Трамп обвинил Зеленского в ударах по НПЗ",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/world/news/1696382-tramp-zelenskiy-npz",
+      "date_is_capture": true
     },
     {
       "site": "zvezda-tv",
       "date": "2026-10-18",
       "category": "zvezda",
-      "title": "Дания отказалась от соглашения с РФ о предотвращении ЧП на Балтике",
-      "theme": "filler",
+      "title": "Захарова: власти ЕС должны решать свои проблемы, а не поучать других",
+      "theme": "eu/nato",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tvzvezda.ru/news/202610181832-pqwW9.html",
+      "url": "https://tvzvezda.ru/news/202610181715-Jb76B.html",
       "date_is_capture": false
     },
     {
@@ -1378,36 +1395,36 @@
       "url": "https://news-front.su/2026/10/18/zelenskij-postoyanno-sryval-peregovory-lavrov/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-10-18",
-      "category": "rt",
-      "title": "Мендель призвала Зеленского завершить конфликт вместо просьб о деньгах у ЕС",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1696364-mendel-zelenskii-ukraina-finansirovanie",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-10-18",
       "category": "ukraina",
-      "title": "Долговая удавка на шее Украины: кто на самом деле платит за войну против России",
+      "title": "Три мирных жителя погибли при ударах ВСУ по ЛНР: Пасечник сообщил о новых жертвах",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20261018/dolgovaya-udavka-na-shee-ukrainy-kto-na-samom-dele-platit-za-voynu-protiv-rossii-1083899834.html",
+      "url": "https://ukraina.ru/20261018/tri-mirnykh-zhitelya-pogibli-pri-udarakh-vsu-po-lnr-pasechnik-soobschil-o-novykh-zhertvakh-1083897084.html",
       "date_is_capture": false
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-18",
+      "category": "rt",
+      "title": "Трамп заявил, что Зеленский не хочет завершать конфликт",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/world/news/1696383-tramp-zelenskiy-konflikt",
+      "date_is_capture": true
     },
     {
       "site": "zvezda-tv",
       "date": "2026-10-18",
       "category": "zvezda",
-      "title": "Российские войска нанесли удар по инфраструктуре ВСУ",
-      "theme": "ukraine",
+      "title": "Политолог Буневич: европейцев раздражают стратегические ошибки властей",
+      "theme": "eu/nato",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tvzvezda.ru/news/202610181317-pg7VB.html",
+      "url": "https://tvzvezda.ru/news/202610181654-zLwnp.html",
       "date_is_capture": false
     },
     {
@@ -1531,20 +1548,6 @@
       "chars": 2950,
       "more": "📝 Zajlás a déli Atlanti-óceánban 📝 Nagy-Britannia újra \"harcol\" a Falkland-szigetekért A nyugati és latin-amerikai média egyaránt tele volt címsorokkal arról, hogy Nagy-Britannia vezetősége sürgősen hadgyakorlatokat tart a Falkland-szigeteken (Malvinas-szigeteken) . Az ok a Cape Upholder hadgyakorlat volt, amelyen részt vett körülbelül 150 brit légiós a 2. ejtőernyős ezredből, valamint száz helyi…",
       "url": "https://t.me/Rybar_HU/7496"
-    },
-    {
-      "site": "tg-rybar",
-      "id": "7495",
-      "date": "2026-10-16",
-      "published_at": "2026-10-16T09:12:26+00:00",
-      "category": "Rybar_HU",
-      "title": "📝 Amikor egy briteknek nincs mit csinálnia 📝 akkor rakétákat adnak. Zelenszkij nemrégiben tett látogatása Londonban…",
-      "theme": "ukraine",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 2133,
-      "more": "📝 Amikor egy briteknek nincs mit csinálnia 📝 akkor rakétákat adnak. Zelenszkij nemrégiben tett látogatása Londonban inkább szimbolikus volt, és nem hozott jelentős eredményeket: találkozott III. Károly-al, majd Burnham miniszterelnökkel. Panaszolt az életre, Trumpra, és általában az események alakulására a különleges katonai művelet övezetében. Azonban egy eredmény azért van: a brit hatóságok…",
-      "url": "https://t.me/Rybar_HU/7495"
     },
     {
       "site": "tg-zvezda",
@@ -1699,16 +1702,6 @@
       "lang": "hu",
       "unit": "headline",
       "url": "https://hu.news-front.su/2026/10/16/marija-zaharova-komoly-ketsegeim-vannak-johann-wadephul-nemet-kulugyminiszter-kognitiv-kepessegeit-illetoen/"
-    },
-    {
-      "site": "newsfront-hu",
-      "date": "2026-10-16",
-      "category": "news-front",
-      "title": "Hollandia az orosz tornászlányoknak nem adott vízumot",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "headline",
-      "url": "https://hu.news-front.su/2026/10/16/hollandia-az-orosz-tornaszlanyoknak-nem-adott-vizumot/"
     },
     {
       "site": "tg-ebredes",
