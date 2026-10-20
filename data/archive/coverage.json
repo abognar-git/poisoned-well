@@ -1,14 +1,14 @@
 {
  "note": "Coverage of this corpus, computed by comparing the ids actually held in the archive against the id span observed across every logged run. Both captured tiers number sequentially, so a gap is an item the source issued and this corpus does not contain — filtered out, published between runs, or missed. This does not say which. Outlet listings expose no sequential ids and carry nulls.",
- "generated": "2026-10-20T04:44:44+00:00",
- "runs_logged": 429,
+ "generated": "2026-10-20T15:02:41+00:00",
+ "runs_logged": 430,
  "first_run": "20260814T065530+0000",
- "last_run": "20261020T044442+0000",
+ "last_run": "20261020T150239+0000",
  "measurable_sources": 11,
- "coverage_overall": 0.5662,
+ "coverage_overall": 0.5658,
  "by_source": {
   "newsfront-hu": {
-   "runs": 429,
+   "runs": 430,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -19,7 +19,7 @@
    "empty_runs": 10
   },
   "newsfront-ru": {
-   "runs": 429,
+   "runs": 430,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -30,13 +30,13 @@
    "empty_runs": 1
   },
   "pravda-hu": {
-   "runs": 429,
+   "runs": 430,
    "sequential_ids": true,
-   "captured": 2445,
-   "id_span_observed": 2882,
+   "captured": 2467,
+   "id_span_observed": 2904,
    "first_id": 44501,
-   "last_id": 47382,
-   "coverage": 0.8484,
+   "last_id": 47404,
+   "coverage": 0.8495,
    "missing_examples": [
     44504,
     44515,
@@ -62,7 +62,7 @@
    "empty_runs": 1
   },
   "rt-ru": {
-   "runs": 429,
+   "runs": 430,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -73,13 +73,13 @@
    "empty_runs": 4
   },
   "tg-baltnews": {
-   "runs": 429,
+   "runs": 430,
    "sequential_ids": true,
-   "captured": 1897,
-   "id_span_observed": 2181,
+   "captured": 1916,
+   "id_span_observed": 2203,
    "first_id": 73260,
-   "last_id": 75440,
-   "coverage": 0.8698,
+   "last_id": 75462,
+   "coverage": 0.8697,
    "missing_examples": [
     73263,
     73277,
@@ -105,13 +105,13 @@
    "empty_runs": 0
   },
   "tg-ebredes": {
-   "runs": 429,
+   "runs": 430,
    "sequential_ids": true,
-   "captured": 1948,
-   "id_span_observed": 3550,
+   "captured": 1958,
+   "id_span_observed": 3561,
    "first_id": 138901,
-   "last_id": 142450,
-   "coverage": 0.5487,
+   "last_id": 142461,
+   "coverage": 0.5498,
    "missing_examples": [
     138904,
     138912,
@@ -137,13 +137,13 @@
    "empty_runs": 9
   },
   "tg-greatawaken": {
-   "runs": 429,
+   "runs": 430,
    "sequential_ids": true,
-   "captured": 1738,
-   "id_span_observed": 7477,
+   "captured": 1755,
+   "id_span_observed": 7537,
    "first_id": 154885,
-   "last_id": 162361,
-   "coverage": 0.2324,
+   "last_id": 162421,
+   "coverage": 0.2329,
    "missing_examples": [
     154886,
     154888,
@@ -169,13 +169,13 @@
    "empty_runs": 0
   },
   "tg-infodef": {
-   "runs": 429,
+   "runs": 430,
    "sequential_ids": true,
-   "captured": 613,
-   "id_span_observed": 740,
+   "captured": 618,
+   "id_span_observed": 745,
    "first_id": 13978,
-   "last_id": 14717,
-   "coverage": 0.8284,
+   "last_id": 14722,
+   "coverage": 0.8295,
    "missing_examples": [
     13979,
     13980,
@@ -201,13 +201,13 @@
    "empty_runs": 0
   },
   "tg-lomovka": {
-   "runs": 429,
+   "runs": 430,
    "sequential_ids": true,
-   "captured": 3844,
-   "id_span_observed": 4844,
+   "captured": 3862,
+   "id_span_observed": 4878,
    "first_id": 139995,
-   "last_id": 144838,
-   "coverage": 0.7936,
+   "last_id": 144872,
+   "coverage": 0.7917,
    "missing_examples": [
     140009,
     140013,
@@ -233,13 +233,13 @@
    "empty_runs": 0
   },
   "tg-oroszigazsag": {
-   "runs": 429,
+   "runs": 430,
    "sequential_ids": true,
-   "captured": 3850,
-   "id_span_observed": 6747,
+   "captured": 3869,
+   "id_span_observed": 6792,
    "first_id": 264254,
-   "last_id": 271000,
-   "coverage": 0.5706,
+   "last_id": 271045,
+   "coverage": 0.5696,
    "missing_examples": [
     264256,
     264262,
@@ -265,13 +265,13 @@
    "empty_runs": 0
   },
   "tg-oroszkatonai": {
-   "runs": 429,
+   "runs": 430,
    "sequential_ids": true,
-   "captured": 961,
-   "id_span_observed": 2628,
+   "captured": 966,
+   "id_span_observed": 2658,
    "first_id": 42320,
-   "last_id": 44947,
-   "coverage": 0.3657,
+   "last_id": 44977,
+   "coverage": 0.3634,
    "missing_examples": [
     42321,
     42322,
@@ -297,7 +297,7 @@
    "empty_runs": 0
   },
   "tg-rybar": {
-   "runs": 429,
+   "runs": 430,
    "sequential_ids": true,
    "captured": 120,
    "id_span_observed": 228,
@@ -329,13 +329,13 @@
    "empty_runs": 0
   },
   "tg-vilaghelyzete": {
-   "runs": 429,
+   "runs": 430,
    "sequential_ids": true,
-   "captured": 495,
-   "id_span_observed": 600,
+   "captured": 498,
+   "id_span_observed": 606,
    "first_id": 13936,
-   "last_id": 14535,
-   "coverage": 0.825,
+   "last_id": 14541,
+   "coverage": 0.8218,
    "missing_examples": [
     13940,
     13950,
@@ -361,13 +361,13 @@
    "empty_runs": 0
   },
   "tg-zvezda": {
-   "runs": 429,
+   "runs": 430,
    "sequential_ids": true,
-   "captured": 516,
-   "id_span_observed": 666,
+   "captured": 520,
+   "id_span_observed": 672,
    "first_id": 25764,
-   "last_id": 26429,
-   "coverage": 0.7748,
+   "last_id": 26435,
+   "coverage": 0.7738,
    "missing_examples": [
     25770,
     25776,
@@ -393,7 +393,7 @@
    "empty_runs": 0
   },
   "tsargrad": {
-   "runs": 429,
+   "runs": 430,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -404,7 +404,7 @@
    "empty_runs": 8
   },
   "ukraina-ru": {
-   "runs": 429,
+   "runs": 430,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
@@ -415,7 +415,7 @@
    "empty_runs": 10
   },
   "zvezda-tv": {
-   "runs": 429,
+   "runs": 430,
    "sequential_ids": false,
    "captured": null,
    "id_span_observed": null,
