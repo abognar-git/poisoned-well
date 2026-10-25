@@ -1,16 +1,16 @@
 {
  "note": "Append-only archive of every item captured by scripts/capture_specimens.py. Headlines and provenance only — no article body text is collected. Items are never rewritten once archived; `first_seen` is when this project observed the item, which is not necessarily when it was published.",
- "updated": "2026-10-24T23:10:34+00:00",
- "items": 38520,
+ "updated": "2026-10-25T01:07:20+00:00",
+ "items": 38540,
  "first_date": "2022-03-30",
- "last_date": "2026-10-24",
+ "last_date": "2026-10-25",
  "published_range": [
   "2022-03-30",
-  "2026-10-24"
+  "2026-10-25"
  ],
  "observed_range": [
   "2026-08-11",
-  "2026-10-24"
+  "2026-10-25"
  ],
  "months": {
   "2022-03": 1,
@@ -18,23 +18,23 @@
   "2022-08": 2,
   "2022-11": 2,
   "2023-04": 1,
-  "2026-01": 290,
+  "2026-01": 291,
   "2026-07": 3,
   "2026-08": 11371,
   "2026-09": 15794,
-  "2026-10": 11055
+  "2026-10": 11074
  },
  "by_source": {
-  "rt-ru": 6816,
+  "rt-ru": 6831,
   "newsfront-ru": 4166,
-  "tg-lomovka": 4152,
+  "tg-lomovka": 4156,
   "tg-oroszigazsag": 4115,
   "ukraina-ru": 3807,
   "pravda-hu": 2709,
   "tg-ebredes": 2122,
   "tg-baltnews": 2069,
   "tg-greatawaken": 1859,
-  "zvezda-tv": 1728,
+  "zvezda-tv": 1729,
   "tsargrad": 1077,
   "tg-oroszkatonai": 1034,
   "newsfront-hu": 962,
@@ -44,32 +44,32 @@
   "tg-rybar": 134
  },
  "by_tier": {
-  "outlet": 18556,
-  "origin": 17255,
+  "outlet": 18572,
+  "origin": 17259,
   "launderer": 2709
  },
  "by_theme": {
-  "filler": 14561,
-  "ukraine": 11289,
-  "russia": 6472,
+  "filler": 14571,
+  "ukraine": 11294,
+  "russia": 6474,
   "hungary": 3219,
-  "eu/nato": 1631,
+  "eu/nato": 1634,
   "energy": 1348
  },
  "by_lang": {
-  "cyr": 22383,
+  "cyr": 22403,
   "hu": 12437,
   "lat": 3700
  },
  "by_unit": {
-  "headline": 21265,
-  "post_excerpt": 17255
+  "headline": 21281,
+  "post_excerpt": 17259
  },
  "theme_coverage": {
   "cyr": {
-   "items": 22383,
-   "scored": 22383,
-   "matched_a_topic": 15484,
+   "items": 22403,
+   "scored": 22403,
+   "matched_a_topic": 15494,
    "lexicon": "cyr"
   },
   "hu": {
