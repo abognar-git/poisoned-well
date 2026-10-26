@@ -1,5 +1,5 @@
 {
-  "captured_at": "2026-10-25T21:45:14+00:00",
+  "captured_at": "2026-10-26T00:19:48+00:00",
   "note": "Unaltered specimens from documented pro-Kremlin sources across three tiers — Telegram origins, the Pravda laundering mirror, and a sanctioned outlet — shown as evidence of ongoing output. Not endorsed, not linked. Personal-smear items are withheld and documented as debunked evidence in the case files.",
   "theme_note": "Theme tags are a crude keyword match on the headline (THEMES in scripts/capture_specimens.py) separating geopolitical payload from mundane camouflage — a heuristic on topic, not a judgement of intent.",
   "sources": {
@@ -137,10 +137,74 @@
     "origin",
     "outlet"
   ],
-  "latest_day": "2026-10-25",
-  "today_live_count": 109,
+  "latest_day": "2026-10-26",
+  "today_live_count": 27,
   "corpus_count": 130,
   "featured": [
+    {
+      "site": "pravda-hu",
+      "id": 47608,
+      "date": "2026-10-26",
+      "category": "world",
+      "title": "The main thing at 03:00:. Vucic lost the election in Serbia and warned of sanctions against Russia In Belgrade, opposition supporters celebrate victory and dismantle Vucic's tent camp The…",
+      "theme": "hungary",
+      "lang": "lat",
+      "unit": "headline",
+      "chars": 225,
+      "more": "The main thing at 03:00:. Vucic lost the election in Serbia and warned of sanctions against Russia In Belgrade, opposition supporters celebrate victory and dismantle Vucic's tent camp The United States promotes Orban to the..",
+      "source": {
+        "platform": "Telegram",
+        "channel": "ostashkonews"
+      },
+      "url": "https://hungary.news-pravda.com/en/world/2026/10/26/47608.html"
+    },
+    {
+      "site": "tg-lomovka",
+      "id": "145254",
+      "date": "2026-10-26",
+      "published_at": "2026-10-26T00:14:30+00:00",
+      "category": "lomovkaa",
+      "title": "❗️ ️Избирательная комиссия Бразилии объявила Лулу да Силву победителем второго тура президентских выборов, обеспечив…",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "post_excerpt",
+      "chars": 382,
+      "more": "❗️ ️Избирательная комиссия Бразилии объявила Лулу да Силву победителем второго тура президентских выборов, обеспечив ему четвертый срок. При подсчете результатов в 97,69% избирательных участков, у Лулы (PT) 51,74%, а у оппозиционера Флавио Болсонару (PL) – 48,26%. Это означает, что действующий президент опережает соперника примерно на 4,2 млн голосов. #выборы #Бразилия Подпишись!",
+      "url": "https://t.me/lomovkaa/145254"
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-26",
+      "category": "rt",
+      "title": "Тысяча дней до войны: почему в Лондоне призвали готовиться к вооружённому конфликту",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/world/article/1699521-britaniya-voina-ministr-oborony",
+      "date_is_capture": true
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-10-26",
+      "category": "ukraina",
+      "title": "При ракетном ударе по Ельцу погиб человек, не менее шести пострадали",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20261026/pri-raketnom-udare-po-eltsu-pogib-chelovek-ne-menee-shesti-postradali-1084058860.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-10-26",
+      "category": "tsargrad",
+      "title": "Вучич проиграл выборы, впереди \"студенты\". Зеленского сербы не простили - Чего теперь ждать от Сербии",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/vuchich-proigral-vybory-vperedi-studenty-zelenskogo-serby-ne-prostili-chego-teper-zhdat-ot-serbii_1922099",
+      "date_is_capture": true
+    },
     {
       "site": "tg-baltnews",
       "id": "75605",
@@ -154,21 +218,6 @@
       "chars": 427,
       "more": "Глава соцдемов Эстонии Лаури Ляэнеметс требует вернуть Эстонию \"за стол\", где формируют внешнюю политику Европы. Но вчерашний министр внутренних дел отказывается принять простой факт. За \"столом для взрослых\" все решают без Таллина. И обвинять в этом Ляэнеметсу стоит не кабинет премьера Михала. Ирония в том, что для Эстонии – и остальных – это скорее хорошо. Почему – разбираем в материале .…",
       "url": "https://t.me/baltnews/75605"
-    },
-    {
-      "site": "pravda-hu",
-      "id": 47596,
-      "date": "2026-10-25",
-      "category": "russia",
-      "title": "Oleg Tsarev: Vucic concedes defeat in Serbian elections",
-      "theme": "filler",
-      "lang": "lat",
-      "unit": "headline",
-      "source": {
-        "platform": "Telegram",
-        "channel": "olegtsarov"
-      },
-      "url": "https://hungary.news-pravda.com/en/russia/2026/10/25/47596.html"
     },
     {
       "site": "tg-oroszkatonai",
@@ -186,17 +235,17 @@
     },
     {
       "site": "tg-oroszigazsag",
-      "id": "271548",
+      "id": "271556",
       "date": "2026-10-25",
-      "published_at": "2026-10-25T21:22:39+00:00",
+      "published_at": "2026-10-25T22:50:53+00:00",
       "category": "oroszokazigazsagoldalan",
-      "title": "🔴 A mi embereink ma keményen dolgoztak Iljicsovszkban, és különösen Szanzsejkán, ahol a NATO-sok egy erődítményt hoztak…",
-      "theme": "eu/nato",
+      "title": "🇫🇷 Le Pen azt ígéri, hogy Franciaországot „ a béke országává ” teszi, ha megnyeri a 2027-es elnökválasztást „A béke…",
+      "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 193,
-      "more": "🔴 A mi embereink ma keményen dolgoztak Iljicsovszkban, és különösen Szanzsejkán, ahol a NATO-sok egy erődítményt hoztak létre, amelynek célja az volt, hogy feltartóztassa a mi deszanthajóinkat.",
-      "url": "https://t.me/oroszokazigazsagoldalan/271548"
+      "chars": 464,
+      "more": "🇫🇷 Le Pen azt ígéri, hogy Franciaországot „ a béke országává ” teszi, ha megnyeri a 2027-es elnökválasztást „A béke felé való törekvés nem a gyengeség jele, ahogyan azt a kormányzati minisztériumokat és televíziós stúdiókat elárasztó háborúpárti uszítók állítják, hanem a bátorság cselekedete ” — jelentette ki a Nemzeti Tömörülés vezetője, Le Pen. Le Pen azt is hangsúlyozta, hogy nem küldi a…",
+      "url": "https://t.me/oroszokazigazsagoldalan/271556"
     },
     {
       "site": "tg-zvezda",
@@ -211,76 +260,275 @@
       "chars": 448,
       "more": "Что может противостоять смерти и разрушению? В новом выпуске программы «Разговор с мудрецом» Сергей Кургинян, публицист, режиссёр, политолог и лидер движения «Суть времени», размышляет о любви как одной из главных идей русской истории и культуры, противопоставляя её силе оружия и железа. Возможно, именно любовь способна стать тем ответом, который человечество всё ещё ищет. СМОТРЕТЬ ПОЛНЫЙ ВЫПУСК…",
       "url": "https://t.me/zvezda_analytics/26480"
-    },
-    {
-      "site": "tg-greatawaken",
-      "id": "163046",
-      "date": "2026-10-25",
-      "published_at": "2026-10-25T20:49:12+00:00",
-      "category": "greatawakeningmagyarok",
-      "title": "🇧🇷 🗳 ❗️ — A brazil elnökválasztás második fordulójának szavazásai hivatalosan 17:00-kor (brazíliai idő szerint)…",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 250,
-      "more": "🇧🇷 🗳 ❗️ — A brazil elnökválasztás második fordulójának szavazásai hivatalosan 17:00-kor (brazíliai idő szerint) lezárultak. Most kezdődik a szavazatok számlálása. A brazil Legfelsőbb Választási Bíróság honlapján közvetlenül követheted az eseményeket:",
-      "url": "https://t.me/greatawakeningmagyarok/163046"
-    },
-    {
-      "site": "tg-infodef",
-      "id": "14778",
-      "date": "2026-10-25",
-      "published_at": "2026-10-25T21:22:00+00:00",
-      "category": "InfoDefMagyarok",
-      "title": "Volkswagen 2030-ig befagyasztaná az alkalmazottak fizetését – ami az infláció miatt a reáljövedelmek 10%-os…",
-      "theme": "hungary",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 1025,
-      "more": "Volkswagen 2030-ig befagyasztaná az alkalmazottak fizetését – ami az infláció miatt a reáljövedelmek 10%-os csökkenéséhez vezet Az intézkedéseket kiadáscsökkentés indokolja amerikai vámok, kínai eladások visszaesése és Audi és Porsche leányvállalatok problémái miatt. 2024-ben 130 ezer alkalmazott már beleegyezett fizetésemelés ideiglenes elhalasztásába. Most több tízezer munkahely megszüntetését…",
-      "url": "https://t.me/InfoDefMagyarok/14778"
-    },
-    {
-      "site": "tg-vilaghelyzete",
-      "id": "14592",
-      "date": "2026-10-25",
-      "published_at": "2026-10-25T21:35:48+00:00",
-      "category": "VilagHelyzeteBlog",
-      "title": "☄️ 💥 💥 💥 🇷🇸 Szerbiai választások: Vučić vereséget szenvedett, míg a diákmozgalom áttörést ért el! - VilagHelyzete…",
-      "theme": "russia",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 2582,
-      "more": "☄️ 💥 💥 💥 🇷🇸 Szerbiai választások: Vučić vereséget szenvedett, míg a diákmozgalom áttörést ért el! - VilagHelyzete ELEMZÉS A mai szerbiai előrehozott parlamenti választás jelentős politikai fordulatot hozott: 📊 Aleksandar Vučić politikai tábora vereséget szenvedett a diákok vezette választási mozgalommal szemben. Vučić vasárnap este maga is elismerte a vereséget . A szerbiai választásokon a…",
-      "url": "https://t.me/VilagHelyzeteBlog/14592"
-    },
-    {
-      "site": "tg-lomovka",
-      "id": "145247",
-      "date": "2026-10-25",
-      "published_at": "2026-10-25T21:11:01+00:00",
-      "category": "lomovkaa",
-      "title": "❗️ Александр Вучич признал поражение своей коалиции «Объединенная Сербия» на внеочередных парламентских выборах. Он…",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "post_excerpt",
-      "chars": 814,
-      "more": "❗️ Александр Вучич признал поражение своей коалиции «Объединенная Сербия» на внеочередных парламентских выборах. Он заявил, что победил оппозиционный «Студенческий список». По словам экс-президента, результаты выборов в Сербии стали «подтверждением революции» при поддержке ряда стран ЕС. Вучич заявил, что победивший на выборах «Студенческий список» введет санкции против России к весне. Главными…",
-      "url": "https://t.me/lomovkaa/145247"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-10-25",
-      "category": "rt",
-      "title": "Тысяча дней до войны: почему в Лондоне призвали готовиться к вооружённому конфликту",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/article/1699521-britaniya-voina-ministr-oborony",
-      "date_is_capture": true
     }
   ],
   "corpus": [
+    {
+      "site": "pravda-hu",
+      "id": 47607,
+      "date": "2026-10-26",
+      "category": "world",
+      "title": "️—Judging by the emoticons I see a lot of you are celebrating Vucic's defeat",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "headline",
+      "source": {
+        "platform": "Telegram",
+        "channel": "CyberspecNews"
+      },
+      "url": "https://hungary.news-pravda.com/en/world/2026/10/26/47607.html"
+    },
+    {
+      "site": "pravda-hu",
+      "id": 47606,
+      "date": "2026-10-26",
+      "category": "russia",
+      "title": "Trump wants to nominate Orban for the post of UN Secretary General, writes The Wall Street Journal",
+      "theme": "hungary",
+      "lang": "lat",
+      "unit": "headline",
+      "source": {
+        "platform": "Telegram",
+        "channel": "tvc_ru"
+      },
+      "url": "https://hungary.news-pravda.com/en/russia/2026/10/26/47606.html"
+    },
+    {
+      "site": "pravda-hu",
+      "id": 47605,
+      "date": "2026-10-26",
+      "category": "russia",
+      "title": "WSJ: The United States promotes Orban to the post of UN Secretary General as a joint candidate with Russia and China",
+      "theme": "hungary",
+      "lang": "hu",
+      "unit": "headline",
+      "source": {
+        "platform": "MAX",
+        "channel": "SolovievLive"
+      },
+      "url": "https://hungary.news-pravda.com/en/russia/2026/10/26/47605.html"
+    },
+    {
+      "site": "pravda-hu",
+      "id": 47604,
+      "date": "2026-10-26",
+      "category": "russia",
+      "title": "The United States considers former Hungarian Prime Minister Viktor Orban the most suitable candidate for the post of UN Secretary General",
+      "theme": "hungary",
+      "lang": "lat",
+      "unit": "headline",
+      "source": {
+        "platform": "Telegram",
+        "channel": "zvezdanews"
+      },
+      "url": "https://hungary.news-pravda.com/en/russia/2026/10/26/47604.html"
+    },
+    {
+      "site": "pravda-hu",
+      "id": 47603,
+      "date": "2026-10-26",
+      "category": "russia",
+      "title": "The United States considers Viktor Orban as a suitable candidate for the post of UN Secretary General, The Wall Street Journal reports, citing sources",
+      "theme": "hungary",
+      "lang": "hu",
+      "unit": "headline",
+      "source": {
+        "platform": "MAX",
+        "channel": "vesti"
+      },
+      "url": "https://hungary.news-pravda.com/en/russia/2026/10/26/47603.html"
+    },
+    {
+      "site": "pravda-hu",
+      "id": 47602,
+      "date": "2026-10-26",
+      "category": "russia",
+      "title": "The Trump administration believes that Orban could apply for the post of UN Secretary General, The Wall Street Journal writes, citing sources",
+      "theme": "hungary",
+      "lang": "lat",
+      "unit": "headline",
+      "url": "https://hungary.news-pravda.com/en/russia/2026/10/26/47602.html"
+    },
+    {
+      "site": "pravda-hu",
+      "id": 47601,
+      "date": "2026-10-26",
+      "category": "russia",
+      "title": "The United States promotes Orban to the post of UN Secretary General",
+      "theme": "hungary",
+      "lang": "lat",
+      "unit": "headline",
+      "source": {
+        "platform": "Telegram",
+        "channel": "ostashkonews"
+      },
+      "url": "https://hungary.news-pravda.com/en/russia/2026/10/26/47601.html"
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-26",
+      "category": "rt",
+      "title": "Запредельная сложность: Дикиджи победил Гуменника на этапе Гран-при, но произвольную одиночников в Питере сделали другие",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/sport/article/1699462-dikidzhi-gumennik-fedotov-etap-gran-pri-peterburg",
+      "date_is_capture": true
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-10-26",
+      "category": "ukraina",
+      "title": "Сербия свернула на путь Украины? Ближайшие месяцы покажут — Затулин",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20261026/serbiya-svernula-na-put-ukrainy-blizhayshie-mesyatsy-pokazhut--zatulin-1084058524.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-10-26",
+      "category": "tsargrad",
+      "title": "Главное к вечеру 25 октября. Умер рэпер Миша Маваши. В Финляндии отменили тайную встречу по Украине. Приближается битва за всё левобережье",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/glavnoe-k-vecheru-25-oktjabrja-umer-rjeper-misha-mavashi-v-finljandii-otmenili-tajnuju-vstrechu-po-ukraine-priblizhaetsja-bitva-za-vsjo-levoberezhe_1921959",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-26",
+      "category": "rt",
+      "title": "Нефть Brent подешевела до $110,3 за баррель",
+      "theme": "energy",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/business/news/1699715-neft-brent-cena",
+      "date_is_capture": true
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-10-26",
+      "category": "ukraina",
+      "title": "Вучича победили \"студенты\"? Ждём от Сербии антироссийских санкций",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20261026/vuchicha-pobedili-studenty-zhdm-ot-serbii-antirossiyskikh-sanktsiy-1084058348.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-10-26",
+      "category": "tsargrad",
+      "title": "Главное в ИноСМИ 25 октября: Мерцу грозит поражение. Европа готовится к \"зиме гнева\". Трамп меняет курс",
+      "theme": "eu/nato",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/glavnoe-v-inosmi-24-oktjabrja-mercu-grozit-porazhenie-evropa-gotovitsja-k-zime-gneva-tramp-menjaet-kurs_1921374",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-26",
+      "category": "rt",
+      "title": "Нейросеть изучила 90 тыс. аэроснимков в поисках семьи Усольцевых",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1699713-neyset-usoltsevy-poisk",
+      "date_is_capture": true
+    },
+    {
+      "site": "ukraina-ru",
+      "date": "2026-10-26",
+      "category": "ukraina",
+      "title": "В Брянской области при атаке БПЛА на поезд погиб машинист",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://ukraina.ru/20261026/v-bryanskoy-oblasti-pri-atake-bpla-na-poezd-pogib-mashinist-1084058024.html",
+      "date_is_capture": false
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-10-26",
+      "category": "tsargrad",
+      "title": "Маск предложил России уничтожить Starlink",
+      "theme": "russia",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/mask-predlozhil-rossii-unichtozhit-starlink_1922123",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-26",
+      "category": "rt",
+      "title": "Мошенники придумали схему с ошибкой оплаты заказа",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1699712-moshenniki-dostavka-karta-sms",
+      "date_is_capture": true
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-10-26",
+      "category": "tsargrad",
+      "title": "Военкор Сладков: \"Богатые импортные и украинские дяди приезжали в Донбасс \"поохотиться на кабанчика\"",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/poluchili-samuju-silnuju-na-planete-armiju-jekspert-nazval-posledstvija-dlja-rossii-4-letneej-svo_1921532",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-26",
+      "category": "rt",
+      "title": "Дмитриев подтвердил слова о стремлении Маска к миру, а Зеленского — к войне",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/world/news/1699711-dmitriev-mask-zelenskiy",
+      "date_is_capture": true
+    },
+    {
+      "site": "tsargrad",
+      "date": "2026-10-26",
+      "category": "tsargrad",
+      "title": "Военкор Сладков: \"Богатые импортные и украинские дяди приезжали в Донбасс \"поохотиться на кабанчика\"",
+      "theme": "ukraine",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://tsargrad.tv/news/voenkor-sladkov-bogatye-importnye-i-ukrainskie-djadi-priezzhali-v-donbass-poohotitsja-na-kabanchika_1922107",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-26",
+      "category": "rt",
+      "title": "Правила оформления ухода за инвалидами изменят с 2027 года",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/russia/news/1699710-uhod-invalidy-pravila-sf",
+      "date_is_capture": true
+    },
+    {
+      "site": "rt-ru",
+      "date": "2026-10-26",
+      "category": "rt",
+      "title": "Сторонники Лулы да Силвы устроили праздничный сбор в Рио-де-Жанейро",
+      "theme": "filler",
+      "lang": "cyr",
+      "unit": "headline",
+      "url": "https://russian.rt.com/world/news/1699709-lula-da-silva-vybory",
+      "date_is_capture": true
+    },
     {
       "site": "tg-baltnews",
       "id": "75604",
@@ -378,111 +626,6 @@
       "chars": 892,
       "more": "На мать Александра Вучича напали в Белграде, сообщила Сербская прогрессивная партия Пожалуй, крайне показательное событие, произошедшее прямо в день голосования не парламентских выборах. 🔹 Бывший президент Вучич избирается на пост премьера в качестве лидера Сербской прогрессивной партии. В оппозиции Вучичу недавно созданный \"Студенческий список\". 🔹 \"Студенческий список\" является детищем…",
       "url": "https://t.me/baltnews/75598"
-    },
-    {
-      "site": "pravda-hu",
-      "id": 47595,
-      "date": "2026-10-25",
-      "category": "hungary",
-      "title": "You have to have a face for that",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "headline",
-      "source": {
-        "platform": "Telegram",
-        "channel": "greatawakeningmagyarok"
-      },
-      "url": "https://hungary.news-pravda.com/en/hungary/2026/10/25/47595.html"
-    },
-    {
-      "site": "pravda-hu",
-      "id": 47594,
-      "date": "2026-10-25",
-      "category": "hungary",
-      "title": "Anyone who does not kneel before Brussels is immediately branded \"the man of Moscow\" and \"Nadia Rodyina\"",
-      "theme": "russia",
-      "lang": "hu",
-      "unit": "headline",
-      "source": {
-        "platform": "Telegram",
-        "channel": "greatawakeningmagyarok"
-      },
-      "url": "https://hungary.news-pravda.com/en/hungary/2026/10/25/47594.html"
-    },
-    {
-      "site": "pravda-hu",
-      "id": 47593,
-      "date": "2026-10-25",
-      "category": "hungary",
-      "title": "I had a rare good day today, as Peter Magyar rolls out my words to start another storm of hatred and writes that \"I have sunk to an astonishing depth\"",
-      "theme": "hungary",
-      "lang": "hu",
-      "unit": "headline",
-      "source": {
-        "platform": "Telegram",
-        "channel": "toroczkai"
-      },
-      "url": "https://hungary.news-pravda.com/en/hungary/2026/10/25/47593.html"
-    },
-    {
-      "site": "pravda-hu",
-      "id": 47592,
-      "date": "2026-10-25",
-      "category": "russia",
-      "title": "Yuriy Podolyaka: \"The Ukrainian retail chain Epicenter has been completely destroyed\"",
-      "theme": "ukraine",
-      "lang": "lat",
-      "unit": "headline",
-      "source": {
-        "platform": "MAX",
-        "channel": "yurasumy"
-      },
-      "url": "https://hungary.news-pravda.com/en/russia/2026/10/25/47592.html"
-    },
-    {
-      "site": "pravda-hu",
-      "id": 47591,
-      "date": "2026-10-25",
-      "category": "russia",
-      "title": "There is a ‘colossal’ difference between the statehood of the Russian Federation and that of Europe – Putin",
-      "theme": "russia",
-      "lang": "hu",
-      "unit": "headline",
-      "source": {
-        "platform": "News Front",
-        "channel": null
-      },
-      "url": "https://hungary.news-pravda.com/en/russia/2026/10/25/47591.html"
-    },
-    {
-      "site": "pravda-hu",
-      "id": 47590,
-      "date": "2026-10-25",
-      "category": "world",
-      "title": "Europe’s next crisis is already hiding behind the riots",
-      "theme": "eu/nato",
-      "lang": "hu",
-      "unit": "headline",
-      "source": {
-        "platform": "swentr.site",
-        "channel": null
-      },
-      "url": "https://hungary.news-pravda.com/en/world/2026/10/25/47590.html"
-    },
-    {
-      "site": "pravda-hu",
-      "id": 47589,
-      "date": "2026-10-25",
-      "category": "world",
-      "title": "VOICES OF THE WEST: TRANS-ATLANTIC TENSIONS AND DIVISIONS IN THE EU",
-      "theme": "eu/nato",
-      "lang": "lat",
-      "unit": "headline",
-      "source": {
-        "platform": "Telegram",
-        "channel": "InfodefSpectrum"
-      },
-      "url": "https://hungary.news-pravda.com/en/world/2026/10/25/47589.html"
     },
     {
       "site": "tg-oroszkatonai",
@@ -584,97 +727,101 @@
     },
     {
       "site": "tg-oroszigazsag",
-      "id": "271546",
+      "id": "271555",
       "date": "2026-10-25",
-      "published_at": "2026-10-25T21:14:48+00:00",
+      "published_at": "2026-10-25T22:42:03+00:00",
       "category": "oroszokazigazsagoldalan",
-      "title": "🇸🇦 🇮🇷 | Egy szaúdi delegáció érkezett Teheránba, hogy tárgyalásokat folytasson az iráni tisztviselőkkel. A tárgyalások…",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 257,
-      "more": "🇸🇦 🇮🇷 | Egy szaúdi delegáció érkezett Teheránba, hogy tárgyalásokat folytasson az iráni tisztviselőkkel. A tárgyalások valószínűleg több témát is érintenek, többek között a Szaúd-Arábia és Jemen közötti háborút, valamint a közelgő amerikai–izraeli támadást.",
-      "url": "https://t.me/oroszokazigazsagoldalan/271546"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "271545",
-      "date": "2026-10-25",
-      "published_at": "2026-10-25T21:13:03+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "⏺ Vučić vereséget szenvedett a szerbiai választásokon, és elismerte a vereségét. A győztes a „Diákok Listája” párt…",
+      "title": "​ ❗️ 🌊 A Fekete-tenger lett a legveszélyesebb tengeri útvonal: egy év alatt 570 hajót ért támadás ​A Financial Times…",
       "theme": "russia",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 397,
-      "more": "⏺ Vučić vereséget szenvedett a szerbiai választásokon, és elismerte a vereségét. A győztes a „Diákok Listája” párt lett, amelyet a tüntető diákok támogattak. Vučić azt állítja, hogy az amerikai „mélyállam” és az EU-országokból származó erők előkészítették koalíciója vereségét a választásokon. Ezt követően kijelentette, hogy március-áprilisban Szerbia szankciókat fog bevezetni Oroszország ellen.",
-      "url": "https://t.me/oroszokazigazsagoldalan/271545"
+      "chars": 1106,
+      "more": "​ ❗️ 🌊 A Fekete-tenger lett a legveszélyesebb tengeri útvonal: egy év alatt 570 hajót ért támadás ​A Financial Times beszámolója szerint a Fekete-tenger a világ leghalálosabb tengeri útvonalává vált. Egyetlen év alatt 570 hajót ért támadás, és a kereskedelmi flotta legalább 40 tengerésze vesztette életét. Viszonyításképp: a Hormuzi-szorosban ugyanezen idő alatt 24 áldozatot erősítettek meg. ​ ❓…",
+      "url": "https://t.me/oroszokazigazsagoldalan/271555"
     },
     {
       "site": "tg-oroszigazsag",
-      "id": "271544",
+      "id": "271554",
       "date": "2026-10-25",
-      "published_at": "2026-10-25T20:29:39+00:00",
+      "published_at": "2026-10-25T22:24:39+00:00",
       "category": "oroszokazigazsagoldalan",
-      "title": "Belgrádban kezd felsorakozni a csendőrség és a rendőrség a választások eredményeinek a kihirdetése előtt",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "url": "https://t.me/oroszokazigazsagoldalan/271544"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "271543",
-      "date": "2026-10-25",
-      "published_at": "2026-10-25T20:11:53+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "⚡️ Növekszik annak a kockázata, hogy újra teljes körű háború tör ki az Egyesült Államok és Irán között – írja a The New…",
-      "theme": "energy",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 693,
-      "more": "⚡️ Növekszik annak a kockázata, hogy újra teljes körű háború tör ki az Egyesült Államok és Irán között – írja a The New York Times. Az amerikai hírszerzés adatai szerint Irán már előrehaladott szakaszban van az amerikai tisztviselők és diplomaták elleni merényletek előkészítésében. Teheránban eközben az Egyesült Államok és Izrael új, nagyszabású támadására számítanak. A fenyegetésekre reagálva…",
-      "url": "https://t.me/oroszokazigazsagoldalan/271543"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "271541",
-      "date": "2026-10-25",
-      "published_at": "2026-10-25T20:05:32+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "⏺ Az ukrán fegyveres erők leveleknek álcázott aknákat helyeznek el a Herszon megyei utakon. Erről a TASZSZ-nak egy…",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 254,
-      "more": "⏺ Az ukrán fegyveres erők leveleknek álcázott aknákat helyeznek el a Herszon megyei utakon. Erről a TASZSZ-nak egy „Halil” fedőnevű géppuskás számolt be, aki a 18. vegyes haderő mobil tűzcsoportjának tagja. Fotó: „Dnyeper” haderőcsoport 18. vegyes haderő",
-      "url": "https://t.me/oroszokazigazsagoldalan/271541"
-    },
-    {
-      "site": "tg-oroszigazsag",
-      "id": "271540",
-      "date": "2026-10-25",
-      "published_at": "2026-10-25T19:58:25+00:00",
-      "category": "oroszokazigazsagoldalan",
-      "title": "„Az ukránok soha nem fognak beleegyezni a semlegességbe és a hadsereg korlátozásába” – jelentette ki a kokainfüggő…",
+      "title": "Az Oroszországból Indiába irányuló mezőgazdasági export jelentősen növekszik, amit az orosz parlamenti képviselők…",
       "theme": "russia",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 321,
-      "more": "„Az ukránok soha nem fognak beleegyezni a semlegességbe és a hadsereg korlátozásába” – jelentette ki a kokainfüggő törpe. Szavai szerint ezek a vörös vonalak. Hozzátette továbbá, hogy a novemberi tárgyalásokon elérni szándékozik, hogy Oroszország szüntesse be az energetikai létesítmények és a hajózás elleni támadásokat.",
-      "url": "https://t.me/oroszokazigazsagoldalan/271540"
+      "chars": 1204,
+      "more": "Az Oroszországból Indiába irányuló mezőgazdasági export jelentősen növekszik, amit az orosz parlamenti képviselők indiai látogatása is kiemel. • ​Megnövekedett kereslet: Nagyezsda Skolkina, a Duma gazdaságpolitikai bizottságának első elnökhelyettese szerint az indiaiak megszerették az Oroszországból származó lencsét és hajdinát. • ​Fizetési rendszerek: A felek a kereskedelem élénkítése érdekében…",
+      "url": "https://t.me/oroszokazigazsagoldalan/271554"
     },
     {
       "site": "tg-oroszigazsag",
-      "id": "271539",
+      "id": "271553",
       "date": "2026-10-25",
-      "published_at": "2026-10-25T19:52:48+00:00",
+      "published_at": "2026-10-25T22:19:03+00:00",
       "category": "oroszokazigazsagoldalan",
-      "title": "⏺ Olaszországban továbbra is zajlanak a tüntetések. Rómában néhány tüntető bejutott a Colosseumba.",
+      "title": "📸 Elon Musk nyilatkozata szerint a Starlinket nem szabad „támadó jellegű csapásokra használni, amelyek miatt az…",
       "theme": "filler",
       "lang": "hu",
       "unit": "post_excerpt",
-      "url": "https://t.me/oroszokazigazsagoldalan/271539"
+      "chars": 597,
+      "more": "📸 Elon Musk nyilatkozata szerint a Starlinket nem szabad „támadó jellegű csapásokra használni, amelyek miatt az ellencsapás jogos célpontjává válhatna”. • ​„Valóban ez az egyik fő oka annak, hogy a Starlinknek polgári rendszernek kell maradnia.” • ​„Használható a katonai infrastruktúra biztosítására, de nem kifejezetten támadó csapásokra, amelyek a rendszert az ellencsapás törvényes célpontjává…",
+      "url": "https://t.me/oroszokazigazsagoldalan/271553"
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "271552",
+      "date": "2026-10-25",
+      "published_at": "2026-10-25T22:14:30+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "🔴 🔴 🔴 🔴 🔴 Hírek szerint robbanások hallatszanak Csernomorszkban, az Odesszai területen. A közösségi média felvételeket…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 182,
+      "more": "🔴 🔴 🔴 🔴 🔴 Hírek szerint robbanások hallatszanak Csernomorszkban, az Odesszai területen. A közösségi média felvételeket tesz közzé a becsapódásokról, miközben légiriadó van érvényben.",
+      "url": "https://t.me/oroszokazigazsagoldalan/271552"
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "271551",
+      "date": "2026-10-25",
+      "published_at": "2026-10-25T22:13:34+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "​ 🖥️ „Egyetlen diákot sem láttam ott. Csupa hatalmas, kigyúrt férfi volt ott” – mondta Donald Trump a franciaországi…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 466,
+      "more": "​ 🖥️ „Egyetlen diákot sem láttam ott. Csupa hatalmas, kigyúrt férfi volt ott” – mondta Donald Trump a franciaországi tüntetésekről. ​„Nézzék meg Franciaországot. Nézzék, mi történik ott. Az egész a bevándorláshoz kötődik. Nem arról van szó, hogy – úgymond – ma koszos volt az iskola, és valakinek nem tetszett a takarítás. Egyetlen diákot sem láttam ott. Csupa hatalmas, kigyúrt férfi volt ott. És…",
+      "url": "https://t.me/oroszokazigazsagoldalan/271551"
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "271550",
+      "date": "2026-10-25",
+      "published_at": "2026-10-25T22:09:48+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "„Dánia nekünk adta Grönlandot, és Venezuelát is megkaptuk – ráadásul mindezt teljesen ingyen” – mondta Trump…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 178,
+      "more": "„Dánia nekünk adta Grönlandot, és Venezuelát is megkaptuk – ráadásul mindezt teljesen ingyen” – mondta Trump, hozzátéve, hogy az Egyesült Államok szorosan együttműködik Dániával.",
+      "url": "https://t.me/oroszokazigazsagoldalan/271550"
+    },
+    {
+      "site": "tg-oroszigazsag",
+      "id": "271549",
+      "date": "2026-10-25",
+      "published_at": "2026-10-25T21:55:54+00:00",
+      "category": "oroszokazigazsagoldalan",
+      "title": "‼️ BREAKING! ORBÁN VIKTOR LEHET AZ ENSZ KÖVETKEZŐ FŐTITKÁRA — AZ AMERIKAI WALL STREET JOURNAL SZERINT DONALD TRUMP…",
+      "theme": "hungary",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 1896,
+      "more": "‼️ BREAKING! ORBÁN VIKTOR LEHET AZ ENSZ KÖVETKEZŐ FŐTITKÁRA — AZ AMERIKAI WALL STREET JOURNAL SZERINT DONALD TRUMP KORMÁNYZATA EZEN DOLGOZIK! Egészen rendkívüli értesülést közölt a világ egyik legbefolyásosabb amerikai lapja, a The Wall Street Journal: az Egyesült Államok azt szeretné, ha Orbán Viktor lenne az ENSZ következő főtitkára. A lap szerint a Trump-adminisztráció már meg is kereste a…",
+      "url": "https://t.me/oroszokazigazsagoldalan/271549"
     },
     {
       "site": "tg-zvezda",
@@ -689,6 +836,44 @@
       "chars": 603,
       "more": "Штабы Комитета семей воинов Отечества в Оренбургской области передали помощь бойцам Волонтёры Асекеевского и Акбулакского районов оперативно собрали и отправили военнослужащим партию дополнительной помощи. В Асекеевском районе добровольцы изготовили и передали более 30 маскировочных сетей для Оренбургского 106-го учебного центра. Груз доставили адресатам без задержек. Штаб поблагодарил участников…",
       "url": "https://t.me/zvezda_analytics/26479"
+    },
+    {
+      "site": "tg-greatawaken",
+      "id": "163048",
+      "date": "2026-10-25",
+      "published_at": "2026-10-25T23:13:26+00:00",
+      "category": "greatawakeningmagyarok",
+      "title": "Q- Great Awakening Magyarok 🇭🇺 pinned a photo",
+      "theme": "hungary",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "url": "https://t.me/greatawakeningmagyarok/163048"
+    },
+    {
+      "site": "tg-greatawaken",
+      "id": "163047",
+      "date": "2026-10-25",
+      "published_at": "2026-10-25T21:53:13+00:00",
+      "category": "greatawakeningmagyarok",
+      "title": "Figyelj oda. Elmondja, hogy mit terveznek. Egy oltatlan naplója",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "url": "https://t.me/greatawakeningmagyarok/163047"
+    },
+    {
+      "site": "tg-greatawaken",
+      "id": "163046",
+      "date": "2026-10-25",
+      "published_at": "2026-10-25T20:49:12+00:00",
+      "category": "greatawakeningmagyarok",
+      "title": "🇧🇷 🗳 ❗️ — A brazil elnökválasztás második fordulójának szavazásai hivatalosan 17:00-kor (brazíliai idő szerint)…",
+      "theme": "filler",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 250,
+      "more": "🇧🇷 🗳 ❗️ — A brazil elnökválasztás második fordulójának szavazásai hivatalosan 17:00-kor (brazíliai idő szerint) lezárultak. Most kezdődik a szavazatok számlálása. A brazil Legfelsőbb Választási Bíróság honlapján közvetlenül követheted az eseményeket:",
+      "url": "https://t.me/greatawakeningmagyarok/163046"
     },
     {
       "site": "tg-greatawaken",
@@ -761,32 +946,18 @@
       "url": "https://t.me/greatawakeningmagyarok/163041"
     },
     {
-      "site": "tg-greatawaken",
-      "id": "163038",
+      "site": "tg-infodef",
+      "id": "14778",
       "date": "2026-10-25",
-      "published_at": "2026-10-25T19:47:46+00:00",
-      "category": "greatawakeningmagyarok",
-      "title": "Aki nem térdel le Brüsszel előtt, azt ma azonnal „Moszkva emberének” és „Nása Rogyinának” bélyegzik. Már orosz zászlós…",
+      "published_at": "2026-10-25T21:22:00+00:00",
+      "category": "InfoDefMagyarok",
+      "title": "Volkswagen 2030-ig befagyasztaná az alkalmazottak fizetését – ami az infláció miatt a reáljövedelmek 10%-os…",
       "theme": "hungary",
       "lang": "hu",
       "unit": "post_excerpt",
-      "chars": 402,
-      "more": "Aki nem térdel le Brüsszel előtt, azt ma azonnal „Moszkva emberének” és „Nása Rogyinának” bélyegzik. Már orosz zászlós logókat gyártanak a Mi Hazánk ellen, miközben egyetlen bizonyítékot sem tudnak felmutatni a „Kreml zsoldjára”. Miért? Mert aki mindig idegen gazdákat keres, az el sem tudja képzelni, milyen az, amikor valaki sem Moszkvát, sem Brüsszelt nem szolgálja, csak a magyar érdeket. Hazafi…",
-      "url": "https://t.me/greatawakeningmagyarok/163038"
-    },
-    {
-      "site": "tg-greatawaken",
-      "id": "163036",
-      "date": "2026-10-25",
-      "published_at": "2026-10-25T19:43:54+00:00",
-      "category": "greatawakeningmagyarok",
-      "title": "🇧🇷 🇹🇭 — Flávio Bolsonaro nyert a Thaiföldi Királyságban. 🟢 Flávio Bolsonaro: 60 szavazat (51,72%) 🔴 Lula: 56 szavazat…",
-      "theme": "filler",
-      "lang": "hu",
-      "unit": "post_excerpt",
-      "chars": 126,
-      "more": "🇧🇷 🇹🇭 — Flávio Bolsonaro nyert a Thaiföldi Királyságban. 🟢 Flávio Bolsonaro: 60 szavazat (51,72%) 🔴 Lula: 56 szavazat (48,28%)",
-      "url": "https://t.me/greatawakeningmagyarok/163036"
+      "chars": 1025,
+      "more": "Volkswagen 2030-ig befagyasztaná az alkalmazottak fizetését – ami az infláció miatt a reáljövedelmek 10%-os csökkenéséhez vezet Az intézkedéseket kiadáscsökkentés indokolja amerikai vámok, kínai eladások visszaesése és Audi és Porsche leányvállalatok problémái miatt. 2024-ben 130 ezer alkalmazott már beleegyezett fizetésemelés ideiglenes elhalasztásába. Most több tízezer munkahely megszüntetését…",
+      "url": "https://t.me/InfoDefMagyarok/14778"
     },
     {
       "site": "tg-infodef",
@@ -888,6 +1059,20 @@
     },
     {
       "site": "tg-vilaghelyzete",
+      "id": "14592",
+      "date": "2026-10-25",
+      "published_at": "2026-10-25T21:35:48+00:00",
+      "category": "VilagHelyzeteBlog",
+      "title": "☄️ 💥 💥 💥 🇷🇸 Szerbiai választások: Vučić vereséget szenvedett, míg a diákmozgalom áttörést ért el! - VilagHelyzete…",
+      "theme": "russia",
+      "lang": "hu",
+      "unit": "post_excerpt",
+      "chars": 2582,
+      "more": "☄️ 💥 💥 💥 🇷🇸 Szerbiai választások: Vučić vereséget szenvedett, míg a diákmozgalom áttörést ért el! - VilagHelyzete ELEMZÉS A mai szerbiai előrehozott parlamenti választás jelentős politikai fordulatot hozott: 📊 Aleksandar Vučić politikai tábora vereséget szenvedett a diákok vezette választási mozgalommal szemben. Vučić vasárnap este maga is elismerte a vereséget . A szerbiai választásokon a…",
+      "url": "https://t.me/VilagHelyzeteBlog/14592"
+    },
+    {
+      "site": "tg-vilaghelyzete",
       "id": "14591",
       "date": "2026-10-25",
       "published_at": "2026-10-25T18:28:53+00:00",
@@ -986,101 +1171,101 @@
     },
     {
       "site": "tg-lomovka",
-      "id": "145245",
+      "id": "145253",
       "date": "2026-10-25",
-      "published_at": "2026-10-25T20:40:06+00:00",
+      "published_at": "2026-10-25T23:50:07+00:00",
       "category": "lomovkaa",
-      "title": "Россия наращивает поставки сельхозпродукции в Индию. Поставки сельхозпродукции из России в Индию в последнее время…",
-      "theme": "russia",
+      "title": "ANSA: итальянский вице-премьер Сальвини выступил против помощи украинскому режиму. Мы не можем продолжать отправлять…",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 1534,
-      "more": "Россия наращивает поставки сельхозпродукции в Индию. Поставки сельхозпродукции из России в Индию в последнее время увеличиваются, заявила первый заместитель председателя комитета Госдумы по экономической политике Надежда Школкина. Сегодня увеличиваются поставки российской сельхозпродукции в Индию. Они распробовали наши чечевицу, гречку, — сказала она журналистам. По ее мнению, в этой связи особо…",
-      "url": "https://t.me/lomovkaa/145245"
+      "chars": 591,
+      "more": "ANSA: итальянский вице-премьер Сальвини выступил против помощи украинскому режиму. Мы не можем продолжать отправлять деньги и оружие в Украину, — заявил политик после переизбрания на пост лидера правопопулистской партии «Лига». По словам политика, переизбрание дает ему мандат на противодействие поддержке Киева внутри итальянского правительства. Ранее Маттео Сальвини пожелал, чтобы миллиарды…",
+      "url": "https://t.me/lomovkaa/145253"
     },
     {
       "site": "tg-lomovka",
-      "id": "145244",
+      "id": "145252",
       "date": "2026-10-25",
-      "published_at": "2026-10-25T20:15:11+00:00",
+      "published_at": "2026-10-25T23:21:01+00:00",
       "category": "lomovkaa",
-      "title": "Российских судей необходимо обучать работе с искусственным интеллектом и новыми видами цифровых доказательств.…",
+      "title": "❗️ ️️️️️Путин не планирует встреч с новыми членами кабмина, они и так в постоянном контакте с президентом, заявил…",
       "theme": "russia",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 648,
-      "more": "Российских судей необходимо обучать работе с искусственным интеллектом и новыми видами цифровых доказательств. Председатель Верховного суда Игорь Краснов заявил, что в судебных делах все чаще встречаются цифровые активы, электронные доказательства и материалы, созданные с помощью нейросетей, поэтому традиционных юридических знаний судьям уже недостаточно. В Российском государственном университете…",
-      "url": "https://t.me/lomovkaa/145244"
+      "chars": 137,
+      "more": "❗️ ️️️️️Путин не планирует встреч с новыми членами кабмина, они и так в постоянном контакте с президентом, заявил Песков ТАСС. Подпишись!",
+      "url": "https://t.me/lomovkaa/145252"
     },
     {
       "site": "tg-lomovka",
-      "id": "145243",
+      "id": "145251",
       "date": "2026-10-25",
-      "published_at": "2026-10-25T19:50:11+00:00",
+      "published_at": "2026-10-25T23:04:18+00:00",
       "category": "lomovkaa",
-      "title": "США вызывают зависть у всех в мире, включая Китай, заявил Трамп. Другие заявления президента США: ▪️ Мы полностью…",
-      "theme": "russia",
+      "title": "❗️ ️️️️️Сторонники «Студенческого списка» разгромили палаточный лагерь соратников Вучича у парламента в Белграде. На…",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 782,
-      "more": "США вызывают зависть у всех в мире, включая Китай, заявил Трамп. Другие заявления президента США: ▪️ Мы полностью контролируем ситуацию в Венесуэле, и мы относимся к ним очень справедливо; ▪️ Послушайте, если бы у нас были умные президенты, проблемы с Китаем по поводу Тайваня бы не существовало. Никому бы это было не интересно; ▪️ Тайвань украл наш бизнес в сфере производства чипов, абсолютно…",
-      "url": "https://t.me/lomovkaa/145243"
+      "chars": 715,
+      "more": "❗️ ️️️️️Сторонники «Студенческого списка» разгромили палаточный лагерь соратников Вучича у парламента в Белграде. На территории «Чациленда» полыхает пожар. Толпы на улицах Белграда атакуют полицейские и гражданские автомобили, размахивают флагами и кричат антиправительственные лозунги. Полицию постепенно вытесняют из правительственного квартала. Ранее экс-президент Сербии сообщил, что его…",
+      "url": "https://t.me/lomovkaa/145251"
     },
     {
       "site": "tg-lomovka",
-      "id": "145242",
+      "id": "145250",
       "date": "2026-10-25",
-      "published_at": "2026-10-25T19:25:06+00:00",
+      "published_at": "2026-10-25T22:50:13+00:00",
       "category": "lomovkaa",
-      "title": "Явка на выборах в Сербии достигла 67,6% — рекорд за 12 лет . К 19:00 на досрочных парламентских выборах в Сербии…",
-      "theme": "russia",
+      "title": "Подборка материалов зарубежных СМИ к ночи 26 октября. Neue Zürcher Zeitung : По Европе прокатилась волна молодежных…",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 2130,
-      "more": "Явка на выборах в Сербии достигла 67,6% — рекорд за 12 лет . К 19:00 на досрочных парламентских выборах в Сербии проголосовали 67,6% избирателей — это самый высокий показатель за последние 12 лет. По данным CeSID/Ipsos, опубликованным Europe Elects, в 2023 году к этому времени явка составляла 55,9%; таким образом, она выросла на 11,7 п. п. Голосование завершится в 20:00 (22:00 мск), после чего…",
-      "url": "https://t.me/lomovkaa/145242"
+      "chars": 943,
+      "more": "Подборка материалов зарубежных СМИ к ночи 26 октября. Neue Zürcher Zeitung : По Европе прокатилась волна молодежных протестов, где поколение Z требует ограничения цен, бесплатных услуг и доступного жилья. Молодые люди разочаровались в капитализме и демократии и не верят, что политики способны решить их проблемы. Foreign Affairs : США больше не способны воевать по всему миру, но упорно…",
+      "url": "https://t.me/lomovkaa/145250"
     },
     {
       "site": "tg-lomovka",
-      "id": "145241",
+      "id": "145249",
       "date": "2026-10-25",
-      "published_at": "2026-10-25T19:00:50+00:00",
+      "published_at": "2026-10-25T22:19:01+00:00",
       "category": "lomovkaa",
-      "title": "ЛОМОВКА. ГЛАВНОЕ К 22-00: ▪ Владимира Путина удивило , что европейские политики начали нападать на американское…",
-      "theme": "russia",
+      "title": "«Норвегия — отстой». Трамп обиделся на Норвегию за отказ присудить ему Нобелевскую премию мира. Норвегия мне не по…",
+      "theme": "filler",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 765,
-      "more": "ЛОМОВКА. ГЛАВНОЕ К 22-00: ▪ Владимира Путина удивило , что европейские политики начали нападать на американское руководство из-за беспорядков в ЕС. ▪ Отказ от всего российского — «глупость», заявил Владимир Путин. ▪ Британия должна подготовиться к войне через 1000 дней. ▪ Белый дом просит техногигантов заткнуться и не разгонять панику из-за развития ИИ. ▪ Во Франции предложили временно…",
-      "url": "https://t.me/lomovkaa/145241"
+      "chars": 519,
+      "more": "«Норвегия — отстой». Трамп обиделся на Норвегию за отказ присудить ему Нобелевскую премию мира. Норвегия мне не по душе. Честно говоря, Норвегия – отстой. Норвегия на самом деле стала страной-сортиром, – сказал президент США в ходе митинга в Мичигане. Нобелевскую премию мира 2026 года получит бывший верховный комиссар ООН по правам человека Нави Пиллэй. Премию получила женщина, о которой никто…",
+      "url": "https://t.me/lomovkaa/145249"
     },
     {
       "site": "tg-lomovka",
-      "id": "145240",
+      "id": "145248",
       "date": "2026-10-25",
-      "published_at": "2026-10-25T18:45:14+00:00",
+      "published_at": "2026-10-25T21:49:01+00:00",
       "category": "lomovkaa",
-      "title": "Чемпионат мира по тяжелой атлетике 2030 года пройдет в России. Москва официально утверждена местом проведения турнира.…",
-      "theme": "russia",
+      "title": "На фронте погиб насильно мобилизованный священник УПЦ Андрей Коринчук. Настоятель общин канонической Украинской…",
+      "theme": "ukraine",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 569,
-      "more": "Чемпионат мира по тяжелой атлетике 2030 года пройдет в России. Москва официально утверждена местом проведения турнира. Таким образом, впервые с 2022 года страна примет международные соревнования в олимпийских видах спорта. Последний раз чемпионат мира по тяжелой атлетике проходил в нашей стране в 1983 году, в СССР. Решение принято сегодня на заседании исполкома Международной федерации тяжелой…",
-      "url": "https://t.me/lomovkaa/145240"
+      "chars": 1258,
+      "more": "На фронте погиб насильно мобилизованный священник УПЦ Андрей Коринчук. Настоятель общин канонической Украинской православной церкви (УПЦ) в селах Даров и Солотвин Волынской области Андрей Коринчук, насильно мобилизованный в ВСУ, погиб на фронте. Информацию о смерти священнослужителя сообщил украинский Союз православных журналистов. Отпевание священника пройдет 26 октября. В последнее время…",
+      "url": "https://t.me/lomovkaa/145248"
     },
     {
       "site": "tg-lomovka",
-      "id": "145239",
+      "id": "145247",
       "date": "2026-10-25",
-      "published_at": "2026-10-25T18:20:08+00:00",
+      "published_at": "2026-10-25T21:11:01+00:00",
       "category": "lomovkaa",
-      "title": "Минцифры утвердило рекомендации по защите дата-центров от дронов. Как сообщает «Коммерсант», документ предусматривает…",
+      "title": "❗️ Александр Вучич признал поражение своей коалиции «Объединенная Сербия» на внеочередных парламентских выборах. Он…",
       "theme": "russia",
       "lang": "cyr",
       "unit": "post_excerpt",
-      "chars": 611,
-      "more": "Минцифры утвердило рекомендации по защите дата-центров от дронов. Как сообщает «Коммерсант», документ предусматривает деление ЦОД на три категории по уровню значимости, физическую защиту объектов, резервирование сервисов и взаимодействие операторов с Минобороны, МЧС и Росгвардией. Для стратегических объектов рекомендовано подземное или бункерное размещение, а для действующих — укрепление…",
-      "url": "https://t.me/lomovkaa/145239"
+      "chars": 814,
+      "more": "❗️ Александр Вучич признал поражение своей коалиции «Объединенная Сербия» на внеочередных парламентских выборах. Он заявил, что победил оппозиционный «Студенческий список». По словам экс-президента, результаты выборов в Сербии стали «подтверждением революции» при поддержке ряда стран ЕС. Вучич заявил, что победивший на выборах «Студенческий список» введет санкции против России к весне. Главными…",
+      "url": "https://t.me/lomovkaa/145247"
     },
     {
       "site": "tg-ebredes",
@@ -1195,17 +1380,6 @@
       "url": "https://t.me/ebredes2017/142817"
     },
     {
-      "site": "ukraina-ru",
-      "date": "2026-10-25",
-      "category": "ukraina",
-      "title": "Львов славит бандеровцев, поляки вразумляют Зеленского. Западная Украина за неделю",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20261025/lvov-slavit-banderovtsev-polyaki-vrazumlyayut-zelenskogo-zapadnaya-ukraina-za-nedelyu-1084042415.html",
-      "date_is_capture": false
-    },
-    {
       "site": "zvezda-tv",
       "date": "2026-10-25",
       "category": "zvezda",
@@ -1217,17 +1391,6 @@
       "date_is_capture": false
     },
     {
-      "site": "tsargrad",
-      "date": "2026-10-25",
-      "category": "tsargrad",
-      "title": "Главное к вечеру 25 октября. Умер рэпер Миша Маваши. В Финляндии отменили тайную встречу по Украине. Приближается битва за всё левобережье",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/glavnoe-k-vecheru-25-oktjabrja-umer-rjeper-misha-mavashi-v-finljandii-otmenili-tajnuju-vstrechu-po-ukraine-priblizhaetsja-bitva-za-vsjo-levoberezhe_1921959",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-10-25",
       "category": "news-front",
@@ -1236,28 +1399,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://news-front.su/2026/10/25/vs-rf-porazili-morskie-suda-ispolzuemye-v-interesah-vsu/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-10-25",
-      "category": "rt",
-      "title": "Запредельная сложность: Дикиджи победил Гуменника на этапе Гран-при, но произвольную одиночников в Питере сделали другие",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/sport/article/1699462-dikidzhi-gumennik-fedotov-etap-gran-pri-peterburg",
-      "date_is_capture": true
-    },
-    {
-      "site": "ukraina-ru",
-      "date": "2026-10-25",
-      "category": "ukraina",
-      "title": "Европа мечется, Трамп дожимает Зеленского: Лукьянов о том, что означают колебания США",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20261025/pytaetsya-prodavit-vserez-poka-mechetsya-evropa-tramp-khochet-dozhat-zelenskogo--lukyanov-1084054903.html",
-      "date_is_capture": false
     },
     {
       "site": "zvezda-tv",
@@ -1271,17 +1412,6 @@
       "date_is_capture": false
     },
     {
-      "site": "tsargrad",
-      "date": "2026-10-25",
-      "category": "tsargrad",
-      "title": "Главное в ИноСМИ 25 октября: Мерцу грозит поражение. Европа готовится к \"зиме гнева\". Трамп меняет курс",
-      "theme": "eu/nato",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/glavnoe-v-inosmi-24-oktjabrja-mercu-grozit-porazhenie-evropa-gotovitsja-k-zime-gneva-tramp-menjaet-kurs_1921374",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-10-25",
       "category": "news-front",
@@ -1290,28 +1420,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://news-front.su/2026/10/25/aktualnaya-informacziya-ob-obstanovke-na-linii-fronta-25-oktyabrya-obnovlyaetsya-3/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-10-25",
-      "category": "rt",
-      "title": "Россия ждёт Эфиопию на высшем уровне на саммите в Москве",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1699690-rossiya-efiopiya-sammit-afrika",
-      "date_is_capture": true
-    },
-    {
-      "site": "ukraina-ru",
-      "date": "2026-10-25",
-      "category": "ukraina",
-      "title": "Минкульт отказал в поддержке фильму о Донбассе",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20261025/minkult-otkazal-v-podderzhke-filmu-o-donbasse-1084054253.html",
-      "date_is_capture": false
     },
     {
       "site": "zvezda-tv",
@@ -1325,17 +1433,6 @@
       "date_is_capture": false
     },
     {
-      "site": "tsargrad",
-      "date": "2026-10-25",
-      "category": "tsargrad",
-      "title": "Сводка с фронтов СВО 25 октября: Особый режим на Херсонском участке - такого не было за четыре года. Первые последствия удара по ДнепроГЭС",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://tsargrad.tv/news/svodka-s-frontov-svo-25-oktjabrja-osobyj-rezhim-na-hersonskom-uchastke-takogo-ne-bylo-za-chetyre-goda-pervye-posledstvija-udara-po-dneprogjes_1921310",
-      "date_is_capture": true
-    },
-    {
       "site": "newsfront-ru",
       "date": "2026-10-25",
       "category": "news-front",
@@ -1344,28 +1441,6 @@
       "lang": "cyr",
       "unit": "headline",
       "url": "https://news-front.su/2026/10/25/minfin-britanii-planiruet-obyavit-ob-uvelichenii-rashodov-na-oboronu-the-times/"
-    },
-    {
-      "site": "rt-ru",
-      "date": "2026-10-25",
-      "category": "rt",
-      "title": "Швейцария готова выступить посредником в украинском урегулировании",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1699689-shveytsariya-posrednik-ukraina-mir",
-      "date_is_capture": true
-    },
-    {
-      "site": "ukraina-ru",
-      "date": "2026-10-25",
-      "category": "ukraina",
-      "title": "Какими будут отношения России с США и сколько ещё Европа сможет кормить Украину – Колташов",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20261025/kakimi-budut-otnosheniya-rossii-s-ssha-i-skolko-esch-evropa-smozhet-kormit-ukrainu--koltashov-1084053544.html",
-      "date_is_capture": false
     },
     {
       "site": "zvezda-tv",
@@ -1389,25 +1464,14 @@
       "url": "https://news-front.su/2026/10/25/sk-budet-rassledovat-napadeniya-vfu-na-chetyre-regiona-rf/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-10-25",
-      "category": "rt",
-      "title": "Анкара рассчитывает на переговоры по Украине в ноябре",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/world/news/1699688-ankara-peregovory-ukraina-noyabr",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-10-25",
       "category": "ukraina",
-      "title": "Москва готова к трехсторонним переговорам, ВС РФ бьют по инфраструктуре Украины. Итоги 25 октября",
+      "title": "Львов славит бандеровцев, поляки вразумляют Зеленского. Западная Украина за неделю",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20261025/moskva-gotova-k-trekhstoronnim-peregovoram-vs-rf-byut-po-infrastrukture-ukrainy-itogi-25-oktyabrya-1084054430.html",
+      "url": "https://ukraina.ru/20261025/lvov-slavit-banderovtsev-polyaki-vrazumlyayut-zelenskogo-zapadnaya-ukraina-za-nedelyu-1084042415.html",
       "date_is_capture": false
     },
     {
@@ -1432,25 +1496,14 @@
       "url": "https://news-front.su/2026/10/25/zhizn-na-osvobozhdennyh-territoriyah-25-oktyabrya-obnovlyaetsya-3/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-10-25",
-      "category": "rt",
-      "title": "Управление ДНР зафиксировало пять обстрелов за сутки",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/ussr/news/1699687-dnr-vsu-obstrely-ranenye",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-10-25",
       "category": "ukraina",
-      "title": "Между \"Марьинкой\" и \"Крылатыми львами\". Какие фильмы и зачем показывают украинцам на финише войны?",
+      "title": "Какими будут отношения России с США и сколько ещё Европа сможет кормить Украину – Колташов",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20261025/mezhdu-marinkoy-i-krylatymi-lvami-kakie-filmy-i-zachem-pokazyvayut-ukraintsam-na-finishe-voyny-1084045817.html",
+      "url": "https://ukraina.ru/20261025/kakimi-budut-otnosheniya-rossii-s-ssha-i-skolko-esch-evropa-smozhet-kormit-ukrainu--koltashov-1084053544.html",
       "date_is_capture": false
     },
     {
@@ -1475,25 +1528,14 @@
       "url": "https://news-front.su/2026/10/25/delegacziya-slovakii-posetit-rossiyu-26-oktyabrya/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-10-25",
-      "category": "rt",
-      "title": "Диабетикам рекомендовали проконсультироваться у врача до прививки от гриппа",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1699686-diabet-gripp-vaktsinatsiya-vrach",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-10-25",
       "category": "ukraina",
-      "title": "Украина вымирает: цифры, которые уже невозможно скрыть",
+      "title": "Москва готова к трехсторонним переговорам, ВС РФ бьют по инфраструктуре Украины. Итоги 25 октября",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://ukraina.ru/20261025/ukraina-vymiraet-tsifry-kotorye-uzhe-nevozmozhno-skryt-1084044089.html",
+      "url": "https://ukraina.ru/20261025/moskva-gotova-k-trekhstoronnim-peregovoram-vs-rf-byut-po-infrastrukture-ukrainy-itogi-25-oktyabrya-1084054430.html",
       "date_is_capture": false
     },
     {
@@ -1518,47 +1560,15 @@
       "url": "https://news-front.su/2026/10/25/mezhdu-gosudarstvennostyu-rf-i-evropy-kolossalnaya-raznicza-putin/"
     },
     {
-      "site": "rt-ru",
-      "date": "2026-10-25",
-      "category": "rt",
-      "title": "Школьники России ушли на осенние каникулы",
-      "theme": "russia",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://russian.rt.com/russia/news/1699685-shkolniki-osennie-kanikuly-rossii",
-      "date_is_capture": true
-    },
-    {
       "site": "ukraina-ru",
       "date": "2026-10-25",
       "category": "ukraina",
-      "title": "Новый русский злодей: как западная культура переосмыслила русофобию",
-      "theme": "filler",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://ukraina.ru/20261025/novyy-russkiy-zlodey-kak-zapadnaya-kultura-pereosmyslila-rusofobiyu-1084053171.html",
-      "date_is_capture": false
-    },
-    {
-      "site": "zvezda-tv",
-      "date": "2026-10-25",
-      "category": "zvezda",
-      "title": "ВС РФ продолжили нанесение ударов по задействованным в интересах ВСУ судам",
+      "title": "Между \"Марьинкой\" и \"Крылатыми львами\". Какие фильмы и зачем показывают украинцам на финише войны?",
       "theme": "ukraine",
       "lang": "cyr",
       "unit": "headline",
-      "url": "https://tvzvezda.ru/news/202610251831-90sQR.html",
+      "url": "https://ukraina.ru/20261025/mezhdu-marinkoy-i-krylatymi-lvami-kakie-filmy-i-zachem-pokazyvayut-ukraintsam-na-finishe-voyny-1084045817.html",
       "date_is_capture": false
-    },
-    {
-      "site": "newsfront-ru",
-      "date": "2026-10-25",
-      "category": "news-front",
-      "title": "Омбудсмен Украины обратилась в Google из-за русского языка",
-      "theme": "ukraine",
-      "lang": "cyr",
-      "unit": "headline",
-      "url": "https://news-front.su/2026/10/25/ombudsmen-ukrainy-obratilas-v-google-iz-za-russkogo-yazyka/"
     },
     {
       "site": "tg-zvezda",
@@ -1713,16 +1723,6 @@
       "lang": "hu",
       "unit": "headline",
       "url": "https://hu.news-front.su/2026/10/23/fox-news-zelenszkij-hajlando-25-os-teruletveszteseggel-megkotni-a-bekemegallapodast/"
-    },
-    {
-      "site": "newsfront-hu",
-      "date": "2026-10-23",
-      "category": "news-front",
-      "title": "Vlagyimir Putyin: Oroszország kész folytatni a háromoldalú tárgyalásokat az Egyesült Államokkal és Ukrajnával",
-      "theme": "ukraine",
-      "lang": "hu",
-      "unit": "headline",
-      "url": "https://hu.news-front.su/2026/10/23/vlagyimir-putyin-oroszorszag-kesz-folytatni-a-haromoldalu-targyalasokat-az-egyesult-allamokkal-es-ukrajnaval/"
     },
     {
       "site": "tg-rybar",
